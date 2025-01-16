@@ -1,6 +1,6 @@
 FROM php:8.2-fpm
 
-ARG GIT_AUTH_TOKEN
+ARG GIT_TOKEN
 
 RUN cd /tmp \
     && curl -sS https://getcomposer.org/installer | php \
@@ -32,7 +32,7 @@ RUN apt-get install -y libpq-dev \
 RUN pecl install redis \
     && docker-php-ext-enable redis
 
-RUN git clone --branch master https://${GIT_AUTH_TOKEN}@github.com/MoskowPsix/moto-backend.git /var/www/moto-backend
+RUN git clone --branch master https://${GIT_TOKEN}@github.com/MoskowPsix/moto-backend.git /var/www/moto-backend
 
 
 
