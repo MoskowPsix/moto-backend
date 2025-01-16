@@ -1,23 +1,20 @@
-version: '3.8'
+version: "3.8"
 
 services:
-    laravel:
+    moto_backend:
         image: moskowpsix/moto-backend:develop
-        container_name: laravel_app
+        env_file: .env
         volumes:
             - ./laravel:/var/www/moto_backend
         working_dir: /var/www/moto_backend
 
     nginx:
         image: nginx:latest
-        container_name: nginx_server
         volumes:
-            - ./nginx/conf.d:/etc/nginx/conf.d
+            - ./laravel/nginx/conf.d:/etc/nginx/conf.d
             - ./laravel:/var/www/moto_backend
         ports:
             - "100:80"
-        depends_on:
-            - laravel
 
 volumes:
     db_data:
