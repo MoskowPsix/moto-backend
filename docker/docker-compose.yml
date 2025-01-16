@@ -1,20 +1,52 @@
 version: "3.8"
 
 services:
+    moto_db:
+        image: postgis/postgis:latest
+        restart: always
+        deploy:
+            replicas: 1
+            restart_policy:
+                delay: 5s
+                condition: on-failure
+        environment:
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+            POSTGRES_USER: ${DB_USERNAME}
+            POSTGRES_DB: ${DB_DATABASE}
+        ports:
+            - "${DB_PORT}:5432"
+        volumes:
+            - ./db/data:/var/lib/postgresql/data
+        networks:
+            - db_net
     moto_backend:
         image: moskowpsix/moto-backend:develop
+        restart: always
+        deploy:
+            replicas: 1
+            restart_policy:
+                delay: 5s
+                condition: on-failure
         env_file: .env
         volumes:
             - ./laravel:/var/www/moto_backend
         working_dir: /var/www/moto_backend
+        networks:
+            - nginx_net
+            - db_net
 
     nginx:
         image: nginx:latest
         volumes:
-            - ./laravel/nginx/conf.d:/etc/nginx/conf.d
+            - ./nginx/conf.d:/etc/nginx/conf.d
             - ./laravel:/var/www/moto_backend
         ports:
             - "100:80"
+        depends_on:
+            - moto_backend
+        networks:
+            - nginx_net
 
-volumes:
-    db_data:
+networks:
+    nginx_net:
+    db_net:
