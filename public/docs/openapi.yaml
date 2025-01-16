@@ -1,0 +1,270 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/login:
+    post:
+      summary: Login
+      operationId: login
+      description: 'Авторизация пользователя'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: messages.auth.login.success
+                  access_token: 1|I7FcyuhxJ5ZbH2nb3Bjxb268EmllakgrvY8oDanidfc589da
+                  token_type: Bearer
+                  user:
+                    name: 'Белоусова Зоя Сергеевна'
+                    email: evgenii.seliverstov@example.com
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: messages.auth.login.success
+                  access_token:
+                    type: string
+                    example: 1|I7FcyuhxJ5ZbH2nb3Bjxb268EmllakgrvY8oDanidfc589da
+                  token_type:
+                    type: string
+                    example: Bearer
+                  user:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: 'Белоусова Зоя Сергеевна'
+                      email:
+                        type: string
+                        example: evgenii.seliverstov@example.com
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: messages.auth.login.error
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: messages.auth.login.error
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  description: 'validation.email The <code>email</code> of an existing record in the users table. validation.min.'
+                  example: jaunita.swaniawski@example.org
+                  nullable: false
+                password:
+                  type: string
+                  description: validation.min.
+                  example: '|g][c!;vH5'
+                  nullable: false
+              required:
+                - email
+                - password
+      security: []
+  /api/register:
+    post:
+      summary: Register
+      operationId: register
+      description: 'Регистрация нового пользователя'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: messages.auth.register.success
+                  access_token: 2|hkEZAkfEgg5ZzkxspP0mmLUT7FaIgaZt8sF23Eux9f32aaa8
+                  token_type: Bearer
+                  user:
+                    name: 'Тарас Романович Веселов'
+                    email: subin.prokor@example.net
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: messages.auth.register.success
+                  access_token:
+                    type: string
+                    example: 2|hkEZAkfEgg5ZzkxspP0mmLUT7FaIgaZt8sF23Eux9f32aaa8
+                  token_type:
+                    type: string
+                    example: Bearer
+                  user:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: 'Тарас Романович Веселов'
+                      email:
+                        type: string
+                        example: subin.prokor@example.net
+        403:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: error
+                  message: messages.auth.register.error
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: messages.auth.register.error
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'validation.min validation.max.'
+                  example: qpbpajhvhgf
+                  nullable: false
+                email:
+                  type: string
+                  description: validation.email.
+                  example: lwyman@example.org
+                  nullable: false
+                password:
+                  type: string
+                  description: validation.min.
+                  example: "o=`pkpm#ZoS'18&8mCFe"
+                  nullable: false
+                password_confirmation:
+                  type: string
+                  description: 'The value and <code>password</code> must match.'
+                  example: exercitationem
+                  nullable: false
+              required:
+                - name
+                - email
+                - password
+                - password_confirmation
+      security: []
+  /api/logout:
+    post:
+      summary: logout
+      operationId: logout
+      description: 'Выход пользователя'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: messages.auth.logout.success
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: messages.auth.logout.success
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: messages.auth.logout.error
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: messages.auth.logout.error
+      tags:
+        - Auth
+  /api/users:
+    get:
+      summary: GetUserForToken
+      operationId: getUserForToken
+      description: 'Получить данные пользователя по токену'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: messages.user.get_user_for_token.success
+                  user:
+                    name: 'Виктория Максимовна Лыткина'
+                    email: nataly39@example.org
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: messages.user.get_user_for_token.success
+                  user:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: 'Виктория Максимовна Лыткина'
+                      email:
+                        type: string
+                        example: nataly39@example.org
+      tags:
+        - User
+tags:
+  -
+    name: Auth
+    description: 'Авторизация пользователей и всё что с ней связано.'
+  -
+    name: User
+    description: 'Методы манипуляции пользователем.'

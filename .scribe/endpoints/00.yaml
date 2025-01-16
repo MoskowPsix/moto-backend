@@ -1,0 +1,195 @@
+name: Auth
+description: 'Авторизация пользователей и всё что с ней связано.'
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/login
+    metadata:
+      groupName: Auth
+      groupDescription: 'Авторизация пользователей и всё что с ней связано.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: Login
+      description: 'Авторизация пользователя'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'validation.email The <code>email</code> of an existing record in the users table. validation.min.'
+        required: true
+        example: jaunita.swaniawski@example.org
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: validation.min.
+        required: true
+        example: '|g][c!;vH5'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      email: jaunita.swaniawski@example.org
+      password: '|g][c!;vH5'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.auth.login.success","access_token":"1|I7FcyuhxJ5ZbH2nb3Bjxb268EmllakgrvY8oDanidfc589da","token_type":"Bearer","user":{"name":"\u0411\u0435\u043b\u043e\u0443\u0441\u043e\u0432\u0430 \u0417\u043e\u044f \u0421\u0435\u0440\u0433\u0435\u0435\u0432\u043d\u0430","email":"evgenii.seliverstov@example.com"}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"success","message":"messages.auth.login.error"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/register
+    metadata:
+      groupName: Auth
+      groupDescription: 'Авторизация пользователей и всё что с ней связано.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: Register
+      description: 'Регистрация нового пользователя'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'validation.min validation.max.'
+        required: true
+        example: qpbpajhvhgf
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: validation.email.
+        required: true
+        example: lwyman@example.org
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: validation.min.
+        required: true
+        example: "o=`pkpm#ZoS'18&8mCFe"
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'The value and <code>password</code> must match.'
+        required: true
+        example: exercitationem
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: qpbpajhvhgf
+      email: lwyman@example.org
+      password: "o=`pkpm#ZoS'18&8mCFe"
+      password_confirmation: exercitationem
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.auth.register.success","access_token":"2|hkEZAkfEgg5ZzkxspP0mmLUT7FaIgaZt8sF23Eux9f32aaa8","token_type":"Bearer","user":{"name":"\u0422\u0430\u0440\u0430\u0441 \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u0438\u0447 \u0412\u0435\u0441\u0435\u043b\u043e\u0432","email":"subin.prokor@example.net"}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.auth.register.error"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/logout
+    metadata:
+      groupName: Auth
+      groupDescription: 'Авторизация пользователей и всё что с ней связано.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: logout
+      description: 'Выход пользователя'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.auth.logout.success"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 500
+        content: '{"status":"success","message":"messages.auth.logout.error"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
