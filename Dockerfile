@@ -37,7 +37,7 @@ RUN pecl install redis \
 ENTRYPOINT sh -c "if [ ! -d .git ]; then \
                      git clone --branch master https://${GIT_TOKEN}@github.com/MoskowPsix/moto-backend.git . && \
                      composer install --no-dev --optimize-autoloader; \
-                   fi && chmod 777 -R ./ && composer install"
+                   fi && chmod 777 -R ./ && composer install && php-fpm"
 
 
 
