@@ -33,9 +33,10 @@ RUN apt-get install -y libpq-dev \
 RUN pecl install redis \
     && docker-php-ext-enable redis
 
-# RUN git clone --branch master https://${GIT_TOKEN}@github.com/MoskowPsix/moto-backend.git /var/www/moto-backend
+ RUN git clone --branch master https://${GIT_TOKEN}@github.com/MoskowPsix/moto-backend.git /var/www/moto-backend
 
 ENTRYPOINT sh -c "if [ ! -d .git ]; then \
+                        rm -R * &&\
                         git clone --branch ${GIT_BRANCH} https://${GIT_TOKEN}@github.com/MoskowPsix/moto-backend.git . && \
                         composer install --no-dev --optimize-autoloader; \
                         fi && chmod 777 -R ./ && composer install && php-fpm"
