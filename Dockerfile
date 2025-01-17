@@ -39,7 +39,7 @@ ENTRYPOINT sh -c "if [ ! -d .git ]; then \
                         rm -R * &&\
                         git clone --branch ${GIT_BRANCH} https://${GIT_TOKEN}@github.com/MoskowPsix/moto-backend.git . && \
                         composer install --ignore-platform-req=ext-http --no-dev --optimize-autoloader; \
-                        fi && chmod 777 -R ./ && composer install && php-fpm"
+                        fi && chmod 777 -R ./ && composer install --ignore-platform-req=ext-http && php-fpm"
 
 
 
