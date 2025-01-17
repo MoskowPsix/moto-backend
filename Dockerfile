@@ -35,9 +35,9 @@ RUN pecl install redis \
 # RUN git clone --branch master https://${GIT_TOKEN}@github.com/MoskowPsix/moto-backend.git /var/www/moto-backend
 
 ENTRYPOINT sh -c "if [ ! -d .git ]; then \
-                     git clone --branch master https://${GIT_TOKEN}@github.com/MoskowPsix/moto-backend.git . && \
-                     composer install --no-dev --optimize-autoloader; \
-                   fi && chmod 777 -R ./ && composer install && php-fpm"
+                        git clone --branch $(echo $GITHUB_REF | cut -d'/' -f 3) https://${GIT_TOKEN}@github.com/MoskowPsix/moto-backend.git . && \
+                        composer install --no-dev --optimize-autoloader; \
+                        fi && chmod 777 -R ./ && composer install && php-fpm"
 
 
 
