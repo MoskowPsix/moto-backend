@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Traits\Models\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Track extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
     protected $fillable = [
         'name',
         'address'

@@ -47,6 +47,64 @@ services:
         networks:
             - nginx_net
 
+#    elasticsearch:
+#        container_name: vokrug_elasticsearch
+#        image: elasticsearch:8.15.3
+#        restart: always
+#        deploy:
+#            replicas: 1
+#            restart_policy:
+#                delay: 5s
+#                condition: on-failure
+#        #            resources:
+#        #                limits:
+#        #                    cpus: "0.5"
+#        #                    memory: "512M"
+#        environment:
+#            - discovery.type=single-node
+#            - xpack.security.enabled=true
+#            - xpack.security.enrollment.enabled=true
+#            - ELASTIC_PASSWORD=${ELASTICSEARCH_PASSWORD}
+#            - ELASTIC_USERNAME=${ELASTICSEARCH_USERNAME}
+#        ports:
+#            - "${ELASTICSEARCH_PORT}:9200"
+#            - "9300:9300"
+#        volumes:
+#            - ./elastic/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+#        #            - ./elastic/data:/usr/share/elasticsearch/data
+#        networks:
+#            - es-net
+#        command: >
+#            bash -c "
+#              /usr/local/bin/docker-entrypoint.sh &
+#              echo 'Waiting for Elasticsearch to be ready...';
+#              until curl -k --silent http://localhost:9200 -u elastic:${ELASTICSEARCH_PASSWORD} > /dev/null; do
+#                sleep 5;
+#              done;
+#              echo 'Creating new user...';
+#              curl -u elastic:${ELASTICSEARCH_PASSWORD} -X POST 'http://localhost:9200/_security/user/${ELASTICSEARCH_USERNAME}' -H 'Content-Type: application/json' -d'
+#              {
+#                \"password\" : \"${ELASTICSEARCH_PASSWORD}\",
+#                \"roles\" : [ \"superuser\", \"kibana_user\" ],
+#                \"full_name\" : \"Admin User\",
+#                \"email\" : \"admin@example.com\",
+#                \"enabled\": true
+#              }' --insecure;
+#              echo 'Updating role permissions...';
+#              curl -u elastic:${ELASTICSEARCH_PASSWORD} -X PUT 'http://localhost:9200/_security/role/kibana_user' -H 'Content-Type: application/json' -d'
+#              {
+#                \"cluster\": [\"all\"],
+#                \"indices\": [
+#                  {
+#                    \"names\": [\".kibana*\", \"*\"],
+#                    \"privileges\": [\"all\", \"create_index\"]
+#                  }
+#                ]
+#              }' --insecure;
+#              echo 'User and roles configured successfully!';
+#              wait
+#            "
+
 networks:
     nginx_net:
     db_net:

@@ -18,3 +18,15 @@ Route::controller(AuthController::class)->group(function () {
 Route::controller(UserController::class)->group(function () {
     Route::get('users', 'getUserForToken')->middleware('auth:sanctum')->name('user.get_user.for_token');
 });
+
+Route::controller(\App\Http\Controllers\Api\TrackController::class)-> group(function () {
+    Route::get('tracks', 'get')->name('track.get');
+    Route::post('tracks', 'create')->name('track.create');
+    Route::put('tracks/{track}', 'update')->name('track.update');
+    Route::delete('tracks/{track}', 'delete')->name('track.delete');
+});
+
+Route::controller(\App\Http\Controllers\Api\RoleController::class)->group(function () {
+    Route::get('roles-change', 'getChangeRoles')->name('role.get_change_roles');
+    Route::post('roles-change', 'changeRoleForDefaultUser')->middleware('auth:sanctum')->name('role.change_roles_for_default_user');
+});
