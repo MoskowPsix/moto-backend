@@ -11,15 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v4
-        - name: Get Build Number
-          id: build_number
-          run: |
-            BUILD_COUNT=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            "https://api.github.com/repos/${{ github.repository }}/actions/runs?branch=develop&event=push&per_page=1" |
-            jq '.total_count')
-            echo "build_count=$BUILD_COUNT" >> $GITHUB_OUTPUT
-            BUILD_NUMBER=$((BUILD_COUNT + 1))
-            echo "build_number=$BUILD_NUMBER" >> $GITHUB_OUTPUT
         - name: Set up Docker Buildx
           uses: docker/setup-buildx-action@v3
         - name: Login to Docker Hub
@@ -31,6 +22,6 @@ jobs:
           uses: docker/build-push-action@v6
           with:
             push: true
-            tags: ${{ secrets.DOCKERHUB_USERNAME }}/moto-backend-develop:${{ steps.build_number.outputs.build_number }}
+            tags: ${{ secrets.DOCKERHUB_USERNAME }}/moto-backend:develop
             build-args: |
               GIT_TOKEN=${{ secrets.GIT_AUTH_TOKEN}}
