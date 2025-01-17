@@ -5,6 +5,7 @@ namespace App\Http\Resources\Role\GetChangeRole;
 use App\Http\Resources\Role\RoleResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Spatie\Permission\Models\Role;
 
 class SuccessGetChangeRoleResource extends JsonResource
 {
@@ -18,7 +19,7 @@ class SuccessGetChangeRoleResource extends JsonResource
         return [
             'status'        => 'success',
             'message'       => __('messages.role.get_change_role.success'),
-            'role'          => RoleResource::collection($this),
+            'role'          => $this->resource instanceof Role ? RoleResource::make($this) : RoleResource::collection($this),
         ];
     }
 }

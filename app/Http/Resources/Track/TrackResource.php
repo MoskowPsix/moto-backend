@@ -24,8 +24,8 @@ class TrackResource extends JsonResource
             'id'        => $this->id,
             'name'      => $this->name,
             'address'   => $this->address,
-            'latitude' => json_decode($this->point)->coordinates[0],
-            'longitude' => json_decode($this->point)->coordinates[1]
+//            'latitude' => !empty(json_decode($this->point)->coordinates) ? json_decode($this->point)->coordinates[0] : 0,
+//            'longitude' => !empty(json_decode($this->point)->coordinates) ? json_decode($this->point)->coordinates[1] : 0
         ];
     }
 }

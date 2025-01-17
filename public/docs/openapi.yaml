@@ -23,11 +23,12 @@ paths:
                 example:
                   status: success
                   message: messages.auth.login.success
-                  access_token: 1|I7FcyuhxJ5ZbH2nb3Bjxb268EmllakgrvY8oDanidfc589da
+                  access_token: 56|KpeH0efuJn7hYSNMHxSnIGkS2rN9N40dR4kopzjY726559f4
                   token_type: Bearer
                   user:
-                    name: 'Белоусова Зоя Сергеевна'
-                    email: evgenii.seliverstov@example.com
+                    name: 'Жданова Любовь Сергеевна'
+                    email: evgeniy.popov@example.org
+                    roles: []
                 properties:
                   status:
                     type: string
@@ -37,7 +38,7 @@ paths:
                     example: messages.auth.login.success
                   access_token:
                     type: string
-                    example: 1|I7FcyuhxJ5ZbH2nb3Bjxb268EmllakgrvY8oDanidfc589da
+                    example: 56|KpeH0efuJn7hYSNMHxSnIGkS2rN9N40dR4kopzjY726559f4
                   token_type:
                     type: string
                     example: Bearer
@@ -46,10 +47,13 @@ paths:
                     properties:
                       name:
                         type: string
-                        example: 'Белоусова Зоя Сергеевна'
+                        example: 'Жданова Любовь Сергеевна'
                       email:
                         type: string
-                        example: evgenii.seliverstov@example.com
+                        example: evgeniy.popov@example.org
+                      roles:
+                        type: array
+                        example: []
         403:
           description: ''
           content:
@@ -78,12 +82,12 @@ paths:
                 email:
                   type: string
                   description: 'validation.email The <code>email</code> of an existing record in the users table. validation.min.'
-                  example: jaunita.swaniawski@example.org
+                  example: vdonnelly@example.net
                   nullable: false
                 password:
                   type: string
                   description: validation.min.
-                  example: '|g][c!;vH5'
+                  example: 'eYp`CH7e#^pDa'
                   nullable: false
               required:
                 - email
@@ -105,11 +109,12 @@ paths:
                 example:
                   status: success
                   message: messages.auth.register.success
-                  access_token: 2|hkEZAkfEgg5ZzkxspP0mmLUT7FaIgaZt8sF23Eux9f32aaa8
+                  access_token: 57|KxZraJJVq4Fb3r5uWenSEJQFBwvujCn7UzMWeIzn6c383aa4
                   token_type: Bearer
                   user:
-                    name: 'Тарас Романович Веселов'
-                    email: subin.prokor@example.net
+                    name: 'Адриан Евгеньевич Белоусов'
+                    email: rsaskova@example.net
+                    roles: []
                 properties:
                   status:
                     type: string
@@ -119,7 +124,7 @@ paths:
                     example: messages.auth.register.success
                   access_token:
                     type: string
-                    example: 2|hkEZAkfEgg5ZzkxspP0mmLUT7FaIgaZt8sF23Eux9f32aaa8
+                    example: 57|KxZraJJVq4Fb3r5uWenSEJQFBwvujCn7UzMWeIzn6c383aa4
                   token_type:
                     type: string
                     example: Bearer
@@ -128,10 +133,13 @@ paths:
                     properties:
                       name:
                         type: string
-                        example: 'Тарас Романович Веселов'
+                        example: 'Адриан Евгеньевич Белоусов'
                       email:
                         type: string
-                        example: subin.prokor@example.net
+                        example: rsaskova@example.net
+                      roles:
+                        type: array
+                        example: []
         403:
           description: ''
           content:
@@ -160,22 +168,22 @@ paths:
                 name:
                   type: string
                   description: 'validation.min validation.max.'
-                  example: qpbpajhvhgf
+                  example: trzmnwhzdknwtrfxa
                   nullable: false
                 email:
                   type: string
                   description: validation.email.
-                  example: lwyman@example.org
+                  example: iharber@example.org
                   nullable: false
                 password:
                   type: string
                   description: validation.min.
-                  example: "o=`pkpm#ZoS'18&8mCFe"
+                  example: 'e\X^4LU_l64['
                   nullable: false
                 password_confirmation:
                   type: string
                   description: 'The value and <code>password</code> must match.'
-                  example: exercitationem
+                  example: sequi
                   nullable: false
               required:
                 - name
@@ -224,6 +232,141 @@ paths:
                     example: messages.auth.logout.error
       tags:
         - Auth
+  /api/roles-change:
+    get:
+      summary: GetChangeRoles
+      operationId: getChangeRoles
+      description: 'Получение ролей которые может сменить обычный пользователь'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    status: success
+                    message: messages.role.get_change_role.success
+                    role:
+                      id: 1
+                      name: Root
+                  -
+                    status: success
+                    message: messages.role.get_change_role.success
+                    role:
+                      id: 1
+                      name: Root
+      tags:
+        - Role
+      security: []
+    post:
+      summary: ChangeRoleForDefaultUser
+      operationId: changeRoleForDefaultUser
+      description: 'Сменить роль для обычного пользователя'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: messages.role.change_role_for_default_user.success
+                  user:
+                    name: 'Ярослав Владимирович Сысоев'
+                    email: seliverstov.prokor@example.org
+                    roles: []
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: messages.role.change_role_for_default_user.success
+                  user:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                        example: 'Ярослав Владимирович Сысоев'
+                      email:
+                        type: string
+                        example: seliverstov.prokor@example.org
+                      roles:
+                        type: array
+                        example: []
+      tags:
+        - Role
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                roleId:
+                  type: integer
+                  description: 'The <code>id</code> of an existing record in the roles table.'
+                  example: 5
+                  nullable: false
+              required:
+                - roleId
+  /api/tracks:
+    get:
+      summary: get
+      operationId: get
+      description: 'Получение трасс по фильтрам'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    status: success
+                    message: messages.track.get.success
+                    tracks:
+                      id: null
+                      name: 'Логинов Дан Алексеевич'
+                      address: '381471, Ярославская область, город Сергиев Посад, пер. Бухарестская, 53'
+                  -
+                    status: success
+                    message: messages.track.get.success
+                    tracks:
+                      id: null
+                      name: 'Казаков Владислав Алексеевич'
+                      address: '252836, Калужская область, город Шатура, въезд Ленина, 35'
+      tags:
+        - Track
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                page:
+                  type: string
+                  description: ''
+                  example: null
+                  nullable: true
+                limit:
+                  type: integer
+                  description: validation.max.
+                  example: 25
+                  nullable: false
+      security: []
   /api/users:
     get:
       summary: GetUserForToken
@@ -241,8 +384,9 @@ paths:
                   status: success
                   message: messages.user.get_user_for_token.success
                   user:
-                    name: 'Виктория Максимовна Лыткина'
-                    email: nataly39@example.org
+                    name: 'Владимир Сергеевич Назаров'
+                    email: veronika.novikov@example.net
+                    roles: []
                 properties:
                   status:
                     type: string
@@ -255,16 +399,25 @@ paths:
                     properties:
                       name:
                         type: string
-                        example: 'Виктория Максимовна Лыткина'
+                        example: 'Владимир Сергеевич Назаров'
                       email:
                         type: string
-                        example: nataly39@example.org
+                        example: veronika.novikov@example.net
+                      roles:
+                        type: array
+                        example: []
       tags:
         - User
 tags:
   -
     name: Auth
     description: 'Авторизация пользователей и всё что с ней связано.'
+  -
+    name: Role
+    description: 'Методы взаимодествия с ролями'
+  -
+    name: Track
+    description: 'Методы взаимодествия с трассами на которых проходят гонки'
   -
     name: User
     description: 'Методы манипуляции пользователем.'

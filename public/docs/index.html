@@ -82,6 +82,29 @@
                             </li>
                                                                         </ul>
                             </ul>
+                    <ul id="tocify-header-role" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="role">
+                    <a href="#role">Role</a>
+                </li>
+                                    <ul id="tocify-subheader-role" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="role-GETapi-roles-change">
+                                <a href="#role-GETapi-roles-change">GetChangeRoles</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="role-POSTapi-roles-change">
+                                <a href="#role-POSTapi-roles-change">ChangeRoleForDefaultUser</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
+                    <ul id="tocify-header-track" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="track">
+                    <a href="#track">Track</a>
+                </li>
+                                    <ul id="tocify-subheader-track" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="track-GETapi-tracks">
+                                <a href="#track-GETapi-tracks">get</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-user" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="user">
                     <a href="#user">User</a>
@@ -101,7 +124,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: January 16, 2025</li>
+        <li>Last updated: January 17, 2025</li>
     </ul>
 </div>
 
@@ -140,8 +163,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"jaunita.swaniawski@example.org\",
-    \"password\": \"|g][c!;vH5\"
+    \"email\": \"vdonnelly@example.net\",
+    \"password\": \"eYp`CH7e#^pDa\"
 }"
 </code></pre></div>
 
@@ -157,8 +180,8 @@ const headers = {
 };
 
 let body = {
-    "email": "jaunita.swaniawski@example.org",
-    "password": "|g][c!;vH5"
+    "email": "vdonnelly@example.net",
+    "password": "eYp`CH7e#^pDa"
 };
 
 fetch(url, {
@@ -178,11 +201,12 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
     &quot;message&quot;: &quot;messages.auth.login.success&quot;,
-    &quot;access_token&quot;: &quot;1|I7FcyuhxJ5ZbH2nb3Bjxb268EmllakgrvY8oDanidfc589da&quot;,
+    &quot;access_token&quot;: &quot;56|KpeH0efuJn7hYSNMHxSnIGkS2rN9N40dR4kopzjY726559f4&quot;,
     &quot;token_type&quot;: &quot;Bearer&quot;,
     &quot;user&quot;: {
-        &quot;name&quot;: &quot;Белоусова Зоя Сергеевна&quot;,
-        &quot;email&quot;: &quot;evgenii.seliverstov@example.com&quot;
+        &quot;name&quot;: &quot;Жданова Любовь Сергеевна&quot;,
+        &quot;email&quot;: &quot;evgeniy.popov@example.org&quot;,
+        &quot;roles&quot;: []
     }
 }</code>
  </pre>
@@ -273,10 +297,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-login"
-               value="jaunita.swaniawski@example.org"
+               value="vdonnelly@example.net"
                data-component="body">
     <br>
-<p>validation.email The <code>email</code> of an existing record in the users table. validation.min. Example: <code>jaunita.swaniawski@example.org</code></p>
+<p>validation.email The <code>email</code> of an existing record in the users table. validation.min. Example: <code>vdonnelly@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -284,10 +308,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-login"
-               value="|g][c!;vH5"
+               value="eYp`CH7e#^pDa"
                data-component="body">
     <br>
-<p>validation.min. Example: <code>|g][c!;vH5</code></p>
+<p>validation.min. Example: <code>eYp</code>CH7e#^pDa`</p>
         </div>
         </form>
 
@@ -308,10 +332,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"qpbpajhvhgf\",
-    \"email\": \"lwyman@example.org\",
-    \"password\": \"o=`pkpm#ZoS\'18&amp;8mCFe\",
-    \"password_confirmation\": \"exercitationem\"
+    \"name\": \"trzmnwhzdknwtrfxa\",
+    \"email\": \"iharber@example.org\",
+    \"password\": \"e\\\\X^4LU_l64[\",
+    \"password_confirmation\": \"sequi\"
 }"
 </code></pre></div>
 
@@ -327,10 +351,10 @@ const headers = {
 };
 
 let body = {
-    "name": "qpbpajhvhgf",
-    "email": "lwyman@example.org",
-    "password": "o=`pkpm#ZoS'18&amp;8mCFe",
-    "password_confirmation": "exercitationem"
+    "name": "trzmnwhzdknwtrfxa",
+    "email": "iharber@example.org",
+    "password": "e\\X^4LU_l64[",
+    "password_confirmation": "sequi"
 };
 
 fetch(url, {
@@ -350,11 +374,12 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
     &quot;message&quot;: &quot;messages.auth.register.success&quot;,
-    &quot;access_token&quot;: &quot;2|hkEZAkfEgg5ZzkxspP0mmLUT7FaIgaZt8sF23Eux9f32aaa8&quot;,
+    &quot;access_token&quot;: &quot;57|KxZraJJVq4Fb3r5uWenSEJQFBwvujCn7UzMWeIzn6c383aa4&quot;,
     &quot;token_type&quot;: &quot;Bearer&quot;,
     &quot;user&quot;: {
-        &quot;name&quot;: &quot;Тарас Романович Веселов&quot;,
-        &quot;email&quot;: &quot;subin.prokor@example.net&quot;
+        &quot;name&quot;: &quot;Адриан Евгеньевич Белоусов&quot;,
+        &quot;email&quot;: &quot;rsaskova@example.net&quot;,
+        &quot;roles&quot;: []
     }
 }</code>
  </pre>
@@ -445,10 +470,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-register"
-               value="qpbpajhvhgf"
+               value="trzmnwhzdknwtrfxa"
                data-component="body">
     <br>
-<p>validation.min validation.max. Example: <code>qpbpajhvhgf</code></p>
+<p>validation.min validation.max. Example: <code>trzmnwhzdknwtrfxa</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -456,10 +481,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-register"
-               value="lwyman@example.org"
+               value="iharber@example.org"
                data-component="body">
     <br>
-<p>validation.email. Example: <code>lwyman@example.org</code></p>
+<p>validation.email. Example: <code>iharber@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -467,10 +492,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-register"
-               value="o=`pkpm#ZoS'18&8mCFe"
+               value="e\X^4LU_l64["
                data-component="body">
     <br>
-<p>validation.min. Example: <code>o=</code>pkpm#ZoS'18&amp;8mCFe`</p>
+<p>validation.min. Example: <code>e\X^4LU_l64[</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -478,10 +503,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password_confirmation"                data-endpoint="POSTapi-register"
-               value="exercitationem"
+               value="sequi"
                data-component="body">
     <br>
-<p>The value and <code>password</code> must match. Example: <code>exercitationem</code></p>
+<p>The value and <code>password</code> must match. Example: <code>sequi</code></p>
         </div>
         </form>
 
@@ -614,6 +639,457 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+                <h1 id="role">Role</h1>
+
+    <p>Методы взаимодествия с ролями</p>
+
+                                <h2 id="role-GETapi-roles-change">GetChangeRoles</h2>
+
+<p>
+</p>
+
+<p>Получение ролей которые может сменить обычный пользователь</p>
+
+<span id="example-requests-GETapi-roles-change">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/roles-change" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/roles-change"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-roles-change">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">[
+    {
+        &quot;status&quot;: &quot;success&quot;,
+        &quot;message&quot;: &quot;messages.role.get_change_role.success&quot;,
+        &quot;role&quot;: {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Root&quot;
+        }
+    },
+    {
+        &quot;status&quot;: &quot;success&quot;,
+        &quot;message&quot;: &quot;messages.role.get_change_role.success&quot;,
+        &quot;role&quot;: {
+            &quot;id&quot;: 1,
+            &quot;name&quot;: &quot;Root&quot;
+        }
+    }
+]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-roles-change" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-roles-change"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-roles-change"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-roles-change" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-roles-change">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-roles-change" data-method="GET"
+      data-path="api/roles-change"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-roles-change', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-roles-change"
+                    onclick="tryItOut('GETapi-roles-change');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-roles-change"
+                    onclick="cancelTryOut('GETapi-roles-change');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-roles-change"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/roles-change</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-roles-change"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-roles-change"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="role-POSTapi-roles-change">ChangeRoleForDefaultUser</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Сменить роль для обычного пользователя</p>
+
+<span id="example-requests-POSTapi-roles-change">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/roles-change" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"roleId\": 5
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/roles-change"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "roleId": 5
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-roles-change">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;messages.role.change_role_for_default_user.success&quot;,
+    &quot;user&quot;: {
+        &quot;name&quot;: &quot;Ярослав Владимирович Сысоев&quot;,
+        &quot;email&quot;: &quot;seliverstov.prokor@example.org&quot;,
+        &quot;roles&quot;: []
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-roles-change" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-roles-change"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-roles-change"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-roles-change" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-roles-change">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-roles-change" data-method="POST"
+      data-path="api/roles-change"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-roles-change', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-roles-change"
+                    onclick="tryItOut('POSTapi-roles-change');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-roles-change"
+                    onclick="cancelTryOut('POSTapi-roles-change');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-roles-change"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/roles-change</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-roles-change"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-roles-change"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>roleId</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="roleId"                data-endpoint="POSTapi-roles-change"
+               value="5"
+               data-component="body">
+    <br>
+<p>The <code>id</code> of an existing record in the roles table. Example: <code>5</code></p>
+        </div>
+        </form>
+
+                <h1 id="track">Track</h1>
+
+    <p>Методы взаимодествия с трассами на которых проходят гонки</p>
+
+                                <h2 id="track-GETapi-tracks">get</h2>
+
+<p>
+</p>
+
+<p>Получение трасс по фильтрам</p>
+
+<span id="example-requests-GETapi-tracks">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/tracks" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"limit\": 25
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/tracks"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "limit": 25
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-tracks">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">[
+    {
+        &quot;status&quot;: &quot;success&quot;,
+        &quot;message&quot;: &quot;messages.track.get.success&quot;,
+        &quot;tracks&quot;: {
+            &quot;id&quot;: null,
+            &quot;name&quot;: &quot;Логинов Дан Алексеевич&quot;,
+            &quot;address&quot;: &quot;381471, Ярославская область, город Сергиев Посад, пер. Бухарестская, 53&quot;
+        }
+    },
+    {
+        &quot;status&quot;: &quot;success&quot;,
+        &quot;message&quot;: &quot;messages.track.get.success&quot;,
+        &quot;tracks&quot;: {
+            &quot;id&quot;: null,
+            &quot;name&quot;: &quot;Казаков Владислав Алексеевич&quot;,
+            &quot;address&quot;: &quot;252836, Калужская область, город Шатура, въезд Ленина, 35&quot;
+        }
+    }
+]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-tracks" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-tracks"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-tracks"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-tracks" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-tracks">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-tracks" data-method="GET"
+      data-path="api/tracks"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-tracks', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-tracks"
+                    onclick="tryItOut('GETapi-tracks');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-tracks"
+                    onclick="cancelTryOut('GETapi-tracks');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-tracks"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/tracks</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-tracks"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-tracks"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="page"                data-endpoint="GETapi-tracks"
+               value=""
+               data-component="body">
+    <br>
+
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi-tracks"
+               value="25"
+               data-component="body">
+    <br>
+<p>validation.max. Example: <code>25</code></p>
+        </div>
+        </form>
+
                 <h1 id="user">User</h1>
 
     <p>Методы манипуляции пользователем.</p>
@@ -664,8 +1140,9 @@ fetch(url, {
     &quot;status&quot;: &quot;success&quot;,
     &quot;message&quot;: &quot;messages.user.get_user_for_token.success&quot;,
     &quot;user&quot;: {
-        &quot;name&quot;: &quot;Виктория Максимовна Лыткина&quot;,
-        &quot;email&quot;: &quot;nataly39@example.org&quot;
+        &quot;name&quot;: &quot;Владимир Сергеевич Назаров&quot;,
+        &quot;email&quot;: &quot;veronika.novikov@example.net&quot;,
+        &quot;roles&quot;: []
     }
 }</code>
  </pre>
