@@ -19,7 +19,7 @@ class TrackFactory extends Factory
         return [
             'name'      => fake()->name(),
             'address'   => fake()->address(),
-            'point'     => 'POINT('.fake()->numberBetween(50, 90).' '.fake()->numberBetween(50, 90).')', // Berlin, Germany
+            'point'     => 'POINT('.fake()->latitude().' '.fake()->longitude().')',
         ];
     }
 }

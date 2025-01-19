@@ -8,12 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Track extends Model
 {
-    use HasFactory, Searchable;
+    use HasFactory; // Searchable;
     protected $fillable = [
         'name',
         'address'
     ];
 
+    protected $casts =[
+        'images' => 'json',
+    ];
     protected array $postgisColumns = [
         'point' => [
             'type' => 'geometry',

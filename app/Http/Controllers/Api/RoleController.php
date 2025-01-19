@@ -6,6 +6,7 @@ use App\Contracts\Actions\Role\ChangeRoleForDefaultUserActionContract;
 use App\Contracts\Actions\Role\GetChangeRolesActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Role\ChangeRoleForDefaultUserRequest;
+use App\Http\Resources\Role\ChangeRoleForDefaultUser\NoRoleChangeRoleForDefaultUserResource;
 use App\Http\Resources\Role\ChangeRoleForDefaultUser\SuccessChangeRoleForDefaultUserResource;
 use App\Http\Resources\Role\GetChangeRole\SuccessGetChangeRoleResource;
 use App\Http\Resources\User\GetUserForToken\SuccessGetUserForTokenResource;
@@ -28,7 +29,7 @@ class RoleController extends Controller
     #[Authenticated]
     #[ResponseFromApiResource(SuccessChangeRoleForDefaultUserResource::class, User::class, collection: false)]
     #[Endpoint(title: 'ChangeRoleForDefaultUser', description: 'Сменить роль для обычного пользователя')]
-    public function changeRoleForDefaultUser(ChangeRoleForDefaultUserRequest $request, ChangeRoleForDefaultUserActionContract $action):SuccessChangeRoleForDefaultUserResource
+    public function changeRoleForDefaultUser(ChangeRoleForDefaultUserRequest $request, ChangeRoleForDefaultUserActionContract $action):SuccessChangeRoleForDefaultUserResource | NoRoleChangeRoleForDefaultUserResource
     {
         return $action($request);
     }

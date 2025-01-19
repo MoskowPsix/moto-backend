@@ -4,6 +4,9 @@ namespace App\Http\Requests\Role;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @property int $roleId
+ */
 class ChangeRoleForDefaultUserRequest extends FormRequest
 {
     /**
