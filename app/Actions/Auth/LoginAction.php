@@ -18,7 +18,7 @@ class LoginAction implements LoginActionContract
     public function __invoke(LoginRequest $request): SuccessLoginResource | ErrorLoginResource
     {
         try {
-            $user = User::where('email', $request->email)->firstOrFail();
+            $user = User::with('roles')->where('email', $request->email)->firstOrFail();
 
             if (!$user || !Hash::check($request->password, $user->password)) {
                 throw new Exception('Login failed');

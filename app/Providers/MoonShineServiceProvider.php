@@ -10,6 +10,9 @@ use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
 use MoonShine\Laravel\DependencyInjection\MoonShine;
 use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
 use App\MoonShine\Resources\TrackResource;
+use App\MoonShine\Resources\MoonShineUserResource;
+use App\MoonShine\Resources\MoonShineUserRoleResource;
+use App\MoonShine\Resources\LevelResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -26,6 +29,9 @@ class MoonShineServiceProvider extends ServiceProvider
             ->resources([
 
                 TrackResource::class,
+                MoonShineUserResource::class,
+                MoonShineUserRoleResource::class,
+                LevelResource::class,
             ])
             ->pages([
                 ...$config->getPages(),

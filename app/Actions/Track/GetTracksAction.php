@@ -12,7 +12,7 @@ class GetTracksAction implements GetTracksActionContract
 {
     public function __invoke(GetTracksRequest $request): SuccessGetTracksResource
     {
-        $track = Track::selectRaw('*, ST_AsGeoJSON(point) as point')->get();
+        $track = Track::selectRaw('*, ST_AsGeoJSON(point) as point')->with('level')->get();
         return SuccessGetTracksResource::make($track);
     }
 }

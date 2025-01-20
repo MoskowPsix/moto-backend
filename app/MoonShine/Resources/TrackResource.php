@@ -22,7 +22,9 @@ class TrackResource extends ModelResource
 {
     protected string $model = Track::class;
 
-    protected string $title = 'Tracks';
+    protected string $title = 'Трассы';
+
+    protected array $with = ['user'];
 
     /**
      * @return list<Page>

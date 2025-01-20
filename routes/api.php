@@ -21,9 +21,10 @@ Route::controller(UserController::class)->group(function () {
 
 Route::controller(\App\Http\Controllers\Api\TrackController::class)-> group(function () {
     Route::get('tracks', 'get')->name('track.get');
-    Route::post('tracks', 'create')->name('track.create');
-    Route::put('tracks/{track}', 'update')->name('track.update');
-    Route::delete('tracks/{track}', 'delete')->name('track.delete');
+    Route::get('tracks/{id}', 'getForId')->name('track.get_for_id');
+    Route::post('tracks', 'create')->middleware('auth:sanctum')->name('track.create');
+//    Route::put('tracks/{track}', 'update')->name('track.update');
+//    Route::delete('tracks/{track}', 'delete')->name('track.delete');
 });
 
 Route::controller(\App\Http\Controllers\Api\RoleController::class)->group(function () {

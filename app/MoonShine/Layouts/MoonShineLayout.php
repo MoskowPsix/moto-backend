@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Layouts;
 
+use App\MoonShine\Resources\MoonShineUserResource;
 use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\ColorManager\ColorManager;
 use MoonShine\Contracts\ColorManager\ColorManagerContract;
@@ -32,6 +33,7 @@ use MoonShine\UI\Components\{Breadcrumbs,
     When};
 use App\MoonShine\Resources\TrackResource;
 use MoonShine\MenuManager\MenuItem;
+use App\MoonShine\Resources\LevelResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -45,9 +47,9 @@ final class MoonShineLayout extends AppLayout
     protected function menu(): array
     {
         return [
-
-//            ...parent::menu(),
-            MenuItem::make('Tracks', TrackResource::class),
+            MenuItem::make('Пользователи', MoonShineUserResource::class),
+            MenuItem::make('Трассы', TrackResource::class),
+//            MenuItem::make('Levels', LevelResource::class),
         ];
     }
 

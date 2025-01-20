@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Contracts\Actions\Track\CreateTracksActionContract;
+use App\Contracts\Actions\Track\GetTrackForIdActionContract;
 use App\Contracts\Actions\Track\GetTracksActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Track\CreateTrackRequest;
 use App\Http\Requests\Track\GetTracksRequest;
 use App\Http\Resources\Track\Create\ErrorCreateResource;
 use App\Http\Resources\Track\Create\SuccessCreateResource;
+use App\Http\Resources\Track\GetTrackForId\SuccessGetTrackForIdResource;
 use App\Http\Resources\Track\GetTracks\SuccessGetTracksResource;
 use App\Models\Track;
 use Knuckles\Scribe\Attributes\Endpoint;
@@ -25,6 +27,12 @@ class TrackController extends Controller
     public function get(GetTracksRequest $request, GetTracksActionContract $actionGetTrack): SuccessGetTracksResource
     {
         return $actionGetTrack($request);
+    }
+    #[ResponseFromApiResource(SuccessGetTrackForIdResource::class, Track::class, collection: false)]
+    #[Endpoint(title: 'getForId', description: 'Получение трассы по id')]
+    public function getForId(int $id, GetTrackForIdActionContract $action)
+    {
+        return $action($id);
     }
     #[Authenticated]
     #[ResponseFromApiResource(SuccessCreateResource::class, Track::class, collection: false)]

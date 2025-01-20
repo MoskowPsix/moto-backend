@@ -17,9 +17,17 @@ class CreateTracksAction implements CreateTracksActionContract
         DB::beginTransaction();
         try {
             $track = Track::create([
-                'name' => $request->name,
-                'address' => $request->address,
-                'point' => 'POINT(' . $request->latitude . ' ' . $request->longitude . ')'
+                'name'          => $request->name,
+                'address'       => $request->address,
+                'point'         => 'POINT(' . $request->latitude . ' ' . $request->longitude . ')',
+                'level_id'      => $request->levelId,
+                'desc'          => $request->desc,
+                'length'        => $request->length,
+                'turns'         => $request->turns,
+                'free'          => $request->free ?? false,
+                'is_work'       => $request->is_work ?? false,
+                'spec'          => $request->spec,
+                'user_id'       => auth()->user()->id,
             ]);
             $this->saveImages($request->images, $track);
             DB::commit();
@@ -30,7 +38,7 @@ class CreateTracksAction implements CreateTracksActionContract
         }
     }
 
-    private function saveImages(array $images, Track $track): void
+    private function saveImages( $images, Track $track): void
     {
         foreach ($images as $file) {
             $path = $file->store('track/'.$track->id, 'public');
