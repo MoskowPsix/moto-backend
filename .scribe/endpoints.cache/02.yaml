@@ -38,19 +38,66 @@ endpoints:
         name: limit
         description: validation.max.
         required: false
-        example: 3
+        example: 7
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      limit: 3
+      limit: 7
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.track.get.success","tracks":{"id":27,"name":"\u0414\u0435\u043c\u0435\u043d\u0442\u044c\u0435\u0432\u0430 \u0412\u0430\u0440\u0432\u0430\u0440\u0430 \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u043d\u0430","address":"060980, \u041c\u0430\u0433\u0430\u0434\u0430\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041a\u0430\u0448\u0438\u0440\u0430, \u043d\u0430\u0431. \u0421\u043b\u0430\u0432\u044b, 22","images":null,"latitude":0,"longitude":0}},{"status":"success","message":"messages.track.get.success","tracks":{"id":28,"name":"\u0412\u043b\u0430\u0434\u043b\u0435\u043d\u0430 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u043d\u0430 \u0422\u0443\u0440\u043e\u0432\u0430","address":"953723, \u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041f\u0430\u0432\u043b\u043e\u0432\u0441\u043a\u0438\u0439 \u041f\u043e\u0441\u0430\u0434, \u0443\u043b. \u041b\u0435\u043d\u0438\u043d\u0430, 14","images":null,"latitude":0,"longitude":0}}]'
+        content: '[{"status":"success","message":"messages.track.get.success","tracks":{"id":11,"name":"\u042d\u043a\u043e\u043d\u043e\u043c\u0438\u0441\u0442","address":"087510, \u041a\u0430\u043b\u0443\u0436\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0412\u0438\u0434\u043d\u043e\u0435, \u0431\u0443\u043b\u044c\u0432\u0430\u0440 \u0411\u0443\u0445\u0430\u0440\u0435\u0441\u0442\u0441\u043a\u0430\u044f, 11","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Illum et deserunt in id est sint vel. Cupiditate voluptatem maxime in sint aperiam non libero fugiat. At esse earum nemo. Aliquid consequatur et cupiditate ipsum debitis repudiandae eos. Voluptatem blanditiis qui qui iste dolores rerum. Veniam fugiat quod atque. Est voluptates similique ducimus deleniti ab perspiciatis beatae. Est tempore distinctio porro voluptas officiis vero. Qui reprehenderit qui quia quia. Rem in vel odit qui similique et iste rerum.","length":946,"turns":20,"free":true,"is_work":false,"spec":null,"user":{"name":"root","email":"bolshe.kivi@gmail.com","email_verified_at":"2025-01-20T12:39:32.000000Z","avatar":"users\/MRkSzDvnFidCVmY0gcnK5MVwFW2aomZhffGb0LM7.png"}}},{"status":"success","message":"messages.track.get.success","tracks":{"id":12,"name":"\u041f\u0438\u0430\u043d\u0438\u0441\u0442","address":"942825, \u041a\u0435\u043c\u0435\u0440\u043e\u0432\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041a\u043b\u0438\u043d, \u043f\u0435\u0440. \u0421\u0442\u0430\u043b\u0438\u043d\u0430, 28","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Voluptas modi possimus dolorum porro. Blanditiis reiciendis pariatur et natus. Velit illum alias id atque nisi quaerat labore. Commodi temporibus quos aut nisi ex velit. Molestiae quam ipsum ipsa veniam voluptatibus. Debitis impedit corporis aliquam nihil. Assumenda quis eligendi dolore quia ut. Quis aut rerum accusantium dolor rem repudiandae. Et nam qui ratione eaque ex. Accusamus ipsam cumque aliquam dolores nemo id. Reiciendis reprehenderit harum aut ipsam vel non at.","length":956,"turns":57,"free":true,"is_work":true,"spec":null,"user":{"name":"root","email":"bolshe.kivi@gmail.com","email_verified_at":"2025-01-20T12:39:32.000000Z","avatar":"users\/MRkSzDvnFidCVmY0gcnK5MVwFW2aomZhffGb0LM7.png"}}}]'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/tracks/{id}'
+    metadata:
+      groupName: Track
+      groupDescription: 'Методы взаимодествия с трассами на которых проходят гонки'
+      subgroup: ''
+      subgroupDescription: ''
+      title: getForId
+      description: 'Получение трассы по id'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the track.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.track.get_for_id.success","track":{"id":13,"name":"\u0425\u0443\u0434\u043e\u0436\u043d\u0438\u043a","address":"478773, \u0423\u043b\u044c\u044f\u043d\u043e\u0432\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041c\u044b\u0442\u0438\u0449\u0438, \u0431\u0443\u043b\u044c\u0432\u0430\u0440 \u0411\u0443\u0434\u0430\u043f\u0435\u0448\u0442\u0441\u0442\u043a\u0430\u044f, 79","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Aut non animi a voluptatibus optio. Beatae aut eveniet quo quam possimus. Aperiam officiis et mollitia in soluta laudantium qui. Incidunt tempora vero qui consequatur ut velit. Tempore natus debitis est ipsum et. Consequatur et sequi placeat esse. Ut alias ut enim nihil ipsa reprehenderit a. Rerum vero mollitia voluptas. Dolore quia dolore quidem facilis quam. Amet sequi dolorum voluptates quasi fugit quis. Nihil et ea tempora repellendus ut hic.","length":261,"turns":93,"free":false,"is_work":true,"spec":null,"user":{"name":"root","email":"bolshe.kivi@gmail.com","email_verified_at":"2025-01-20T12:39:32.000000Z","avatar":"users\/MRkSzDvnFidCVmY0gcnK5MVwFW2aomZhffGb0LM7.png"}}}'
         headers: []
         description: ''
         custom: []
@@ -85,7 +132,7 @@ endpoints:
         name: name
         description: validation.min.
         required: true
-        example: dspyprmwoveqxmuphewznsngpdhjwattpioduw
+        example: uzhgrxqbpyhjimxxpmodwrtftfvmwlkqfremywakhicmynz
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -95,7 +142,7 @@ endpoints:
         name: address
         description: ''
         required: true
-        example: at
+        example: minima
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -105,7 +152,7 @@ endpoints:
         name: latitude
         description: validation.between.
         required: true
-        example: -87
+        example: -86
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -115,7 +162,7 @@ endpoints:
         name: longitude
         description: validation.between.
         required: true
-        example: -180
+        example: -179
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -132,18 +179,95 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
+      levelId:
+        name: levelId
+        description: 'The <code>id</code> of an existing record in the levels table.'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      desc:
+        name: desc
+        description: ''
+        required: false
+        example: vel
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      length:
+        name: length
+        description: ''
+        required: false
+        example: 6
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      turns:
+        name: turns
+        description: ''
+        required: false
+        example: 19
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      free:
+        name: free
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      is_work:
+        name: is_work
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      spec:
+        name: spec
+        description: validation.json.
+        required: false
+        example: '["omnis","aut"]'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
     cleanBodyParameters:
-      name: dspyprmwoveqxmuphewznsngpdhjwattpioduw
-      address: at
-      latitude: -87
-      longitude: -180
+      name: uzhgrxqbpyhjimxxpmodwrtftfvmwlkqfremywakhicmynz
+      address: minima
+      latitude: -86
+      longitude: -179
+      levelId: 10
+      desc: vel
+      length: 6
+      turns: 19
+      free: true
+      is_work: false
+      spec: '["omnis","aut"]'
     fileParameters:
       images:
         - null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.track.create.success","track":{"id":29,"name":"\u041a\u0440\u0438\u0441\u0442\u0438\u043d\u0430 \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u043d\u0430 \u0411\u0435\u043b\u043e\u0437\u0451\u0440\u043e\u0432\u0430","address":"482300, \u0411\u0435\u043b\u0433\u043e\u0440\u043e\u0434\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0412\u043e\u0441\u043a\u0440\u0435\u0441\u0435\u043d\u0441\u043a, \u043f\u0440. \u041a\u043e\u0441\u043c\u043e\u043d\u0430\u0432\u0442\u043e\u0432, 72","images":null,"latitude":0,"longitude":0}}'
+        content: '{"status":"success","message":"messages.track.create.success","track":{"id":14,"name":"\u041f\u0438\u0441\u0430\u0442\u0435\u043b\u044c","address":"590647, \u0427\u0438\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0421\u043e\u043b\u043d\u0435\u0447\u043d\u043e\u0433\u043e\u0440\u0441\u043a, \u043f\u043b. \u0414\u043e\u043c\u043e\u0434\u0435\u0434\u043e\u0432\u0441\u043a\u0430\u044f, 57","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Velit consequuntur praesentium recusandae. Facilis sit maiores enim ea est id est reprehenderit. Suscipit enim dolor tempora molestiae aut dolorem. Beatae facilis assumenda perferendis ducimus. Aperiam officia pariatur minus sit dolore unde. Voluptas reprehenderit explicabo aperiam sint in esse. Nisi quia illo excepturi quo aliquam itaque modi repudiandae. Voluptatem delectus distinctio adipisci blanditiis voluptatum voluptatem iure. Vel odit neque qui possimus unde veniam.","length":572,"turns":26,"free":false,"is_work":false,"spec":null,"user":{"name":"Fatboy@fat.ru","email":"Fatboy@fat.ru","email_verified_at":null,"avatar":null}}}'
         headers: []
         description: ''
         custom: []
