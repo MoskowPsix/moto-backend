@@ -10,6 +10,10 @@ use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
 use MoonShine\Laravel\DependencyInjection\MoonShine;
 use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
 use App\MoonShine\Resources\TrackResource;
+use App\MoonShine\Resources\ServiceResource;
+use App\MoonShine\Pages\Service\ServiceIndexPage;
+use App\MoonShine\Pages\Service\ServiceDetailPage;
+use App\MoonShine\Pages\Service\ServiceFormPage;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -26,9 +30,13 @@ class MoonShineServiceProvider extends ServiceProvider
             ->resources([
 
                 TrackResource::class,
+                ServiceResource::class,
             ])
             ->pages([
                 ...$config->getPages(),
+                ServiceIndexPage::class,
+                ServiceDetailPage::class,
+                ServiceFormPage::class,
             ])
         ;
     }

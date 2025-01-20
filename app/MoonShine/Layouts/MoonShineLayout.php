@@ -32,6 +32,7 @@ use MoonShine\UI\Components\{Breadcrumbs,
     When};
 use App\MoonShine\Resources\TrackResource;
 use MoonShine\MenuManager\MenuItem;
+use App\MoonShine\Resources\ServiceResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -48,6 +49,7 @@ final class MoonShineLayout extends AppLayout
 
 //            ...parent::menu(),
             MenuItem::make('Tracks', TrackResource::class),
+            MenuItem::make('Сервисы', ServiceResource::class),
         ];
     }
 
