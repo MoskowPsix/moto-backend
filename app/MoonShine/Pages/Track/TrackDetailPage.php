@@ -18,7 +18,6 @@ class TrackDetailPage extends DetailPage
      */
     protected function fields(): iterable
     {
-        dd($this->getResource()->getItem()->get);
         $item = $this->getResource()->getItem();
         return [
             Text::make('Название', 'name'),

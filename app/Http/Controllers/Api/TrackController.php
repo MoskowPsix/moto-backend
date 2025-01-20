@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Actions\Track\GetTracksAction;
+use App\Contracts\Actions\Track\CreateTracksActionContract;
 use App\Contracts\Actions\Track\GetTracksActionContract;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Track\CreateTrackRequest;
 use App\Http\Requests\Track\GetTracksRequest;
-use App\Http\Resources\Role\GetChangeRole\SuccessGetChangeRoleResource;
+use App\Http\Resources\Track\Create\ErrorCreateResource;
+use App\Http\Resources\Track\Create\SuccessCreateResource;
 use App\Http\Resources\Track\GetTracks\SuccessGetTracksResource;
 use App\Models\Track;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\ResponseFromApiResource;
-use Spatie\Permission\Models\Role;
+use Knuckles\Scribe\Attributes\Authenticated;
+
 
 #[Group(name: 'Track', description: 'Методы взаимодествия с трассами на которых проходят гонки')]
 class TrackController extends Controller
@@ -23,8 +26,14 @@ class TrackController extends Controller
     {
         return $actionGetTrack($request);
     }
-//    public function create()
-//    {}
+    #[Authenticated]
+    #[ResponseFromApiResource(SuccessCreateResource::class, Track::class, collection: false)]
+    #[ResponseFromApiResource(ErrorCreateResource::class, status: 422)]
+    #[Endpoint(title: 'create', description: 'Метод создания трека')]
+    public function create(CreateTrackRequest $request, CreateTracksActionContract $actionCreateTrack): SuccessCreateResource | ErrorCreateResource
+    {
+        return $actionCreateTrack($request);
+    }
 //    public function update()
 //    {}
 //    public function delete()

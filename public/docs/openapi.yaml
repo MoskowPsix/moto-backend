@@ -5,7 +5,7 @@ info:
   version: 1.0.0
 servers:
   -
-    url: 'http://localhost'
+    url: 'http://localhost:8000'
 paths:
   /api/login:
     post:
@@ -23,11 +23,11 @@ paths:
                 example:
                   status: success
                   message: messages.auth.login.success
-                  access_token: 56|KpeH0efuJn7hYSNMHxSnIGkS2rN9N40dR4kopzjY726559f4
+                  access_token: 3|OnfjrdKtmnz2ysgeEWJNTCExlBq3eV0Ga7nRxCR54b7ce52c
                   token_type: Bearer
                   user:
-                    name: 'Жданова Любовь Сергеевна'
-                    email: evgeniy.popov@example.org
+                    name: 'Фёдоров Святослав Владимирович'
+                    email: veselov.leonid@example.com
                     roles: []
                 properties:
                   status:
@@ -38,7 +38,7 @@ paths:
                     example: messages.auth.login.success
                   access_token:
                     type: string
-                    example: 56|KpeH0efuJn7hYSNMHxSnIGkS2rN9N40dR4kopzjY726559f4
+                    example: 3|OnfjrdKtmnz2ysgeEWJNTCExlBq3eV0Ga7nRxCR54b7ce52c
                   token_type:
                     type: string
                     example: Bearer
@@ -47,10 +47,10 @@ paths:
                     properties:
                       name:
                         type: string
-                        example: 'Жданова Любовь Сергеевна'
+                        example: 'Фёдоров Святослав Владимирович'
                       email:
                         type: string
-                        example: evgeniy.popov@example.org
+                        example: veselov.leonid@example.com
                       roles:
                         type: array
                         example: []
@@ -82,12 +82,12 @@ paths:
                 email:
                   type: string
                   description: 'validation.email The <code>email</code> of an existing record in the users table. validation.min.'
-                  example: vdonnelly@example.net
+                  example: lessie.beer@example.org
                   nullable: false
                 password:
                   type: string
                   description: validation.min.
-                  example: 'eYp`CH7e#^pDa'
+                  example: '8B]CSP=BDMj;6\j)|y'
                   nullable: false
               required:
                 - email
@@ -109,11 +109,11 @@ paths:
                 example:
                   status: success
                   message: messages.auth.register.success
-                  access_token: 57|KxZraJJVq4Fb3r5uWenSEJQFBwvujCn7UzMWeIzn6c383aa4
+                  access_token: 4|I6KbXkCssqMKhZ0kES6I6tyjbl5PFBXzBzgb0yMCaf9f7b2c
                   token_type: Bearer
                   user:
-                    name: 'Адриан Евгеньевич Белоусов'
-                    email: rsaskova@example.net
+                    name: 'Симонова Яна Максимовна'
+                    email: anastasiy42@example.org
                     roles: []
                 properties:
                   status:
@@ -124,7 +124,7 @@ paths:
                     example: messages.auth.register.success
                   access_token:
                     type: string
-                    example: 57|KxZraJJVq4Fb3r5uWenSEJQFBwvujCn7UzMWeIzn6c383aa4
+                    example: 4|I6KbXkCssqMKhZ0kES6I6tyjbl5PFBXzBzgb0yMCaf9f7b2c
                   token_type:
                     type: string
                     example: Bearer
@@ -133,10 +133,10 @@ paths:
                     properties:
                       name:
                         type: string
-                        example: 'Адриан Евгеньевич Белоусов'
+                        example: 'Симонова Яна Максимовна'
                       email:
                         type: string
-                        example: rsaskova@example.net
+                        example: anastasiy42@example.org
                       roles:
                         type: array
                         example: []
@@ -168,22 +168,22 @@ paths:
                 name:
                   type: string
                   description: 'validation.min validation.max.'
-                  example: trzmnwhzdknwtrfxa
+                  example: tx
                   nullable: false
                 email:
                   type: string
                   description: validation.email.
-                  example: iharber@example.org
+                  example: rosemarie73@example.org
                   nullable: false
                 password:
                   type: string
                   description: validation.min.
-                  example: 'e\X^4LU_l64['
+                  example: Y-jptuNLm=
                   nullable: false
                 password_confirmation:
                   type: string
                   description: 'The value and <code>password</code> must match.'
-                  example: sequi
+                  example: dignissimos
                   nullable: false
               required:
                 - name
@@ -279,8 +279,8 @@ paths:
                   status: success
                   message: messages.role.change_role_for_default_user.success
                   user:
-                    name: 'Ярослав Владимирович Сысоев'
-                    email: seliverstov.prokor@example.org
+                    name: 'Тимофеева Люся Борисовна'
+                    email: knosov@example.net
                     roles: []
                 properties:
                   status:
@@ -294,10 +294,10 @@ paths:
                     properties:
                       name:
                         type: string
-                        example: 'Ярослав Владимирович Сысоев'
+                        example: 'Тимофеева Люся Борисовна'
                       email:
                         type: string
-                        example: seliverstov.prokor@example.org
+                        example: knosov@example.net
                       roles:
                         type: array
                         example: []
@@ -313,7 +313,7 @@ paths:
                 roleId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the roles table.'
-                  example: 5
+                  example: 15
                   nullable: false
               required:
                 - roleId
@@ -337,16 +337,22 @@ paths:
                     status: success
                     message: messages.track.get.success
                     tracks:
-                      id: null
-                      name: 'Логинов Дан Алексеевич'
-                      address: '381471, Ярославская область, город Сергиев Посад, пер. Бухарестская, 53'
+                      id: 27
+                      name: 'Дементьева Варвара Романовна'
+                      address: '060980, Магаданская область, город Кашира, наб. Славы, 22'
+                      images: null
+                      latitude: 0
+                      longitude: 0
                   -
                     status: success
                     message: messages.track.get.success
                     tracks:
-                      id: null
-                      name: 'Казаков Владислав Алексеевич'
-                      address: '252836, Калужская область, город Шатура, въезд Ленина, 35'
+                      id: 28
+                      name: 'Владлена Александровна Турова'
+                      address: '953723, Московская область, город Павловский Посад, ул. Ленина, 14'
+                      images: null
+                      latitude: 0
+                      longitude: 0
       tags:
         - Track
       requestBody:
@@ -364,9 +370,115 @@ paths:
                 limit:
                   type: integer
                   description: validation.max.
-                  example: 25
+                  example: 3
                   nullable: false
       security: []
+    post:
+      summary: create
+      operationId: create
+      description: 'Метод создания трека'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: messages.track.create.success
+                  track:
+                    id: 29
+                    name: 'Кристина Владимировна Белозёрова'
+                    address: '482300, Белгородская область, город Воскресенск, пр. Космонавтов, 72'
+                    images: null
+                    latitude: 0
+                    longitude: 0
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: messages.track.create.success
+                  track:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 29
+                      name:
+                        type: string
+                        example: 'Кристина Владимировна Белозёрова'
+                      address:
+                        type: string
+                        example: '482300, Белгородская область, город Воскресенск, пр. Космонавтов, 72'
+                      images:
+                        type: string
+                        example: null
+                      latitude:
+                        type: integer
+                        example: 0
+                      longitude:
+                        type: integer
+                        example: 0
+        422:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: error
+                  message: messages.track.create.error
+                properties:
+                  status:
+                    type: string
+                    example: error
+                  message:
+                    type: string
+                    example: messages.track.create.error
+      tags:
+        - Track
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: validation.min.
+                  example: dspyprmwoveqxmuphewznsngpdhjwattpioduw
+                  nullable: false
+                address:
+                  type: string
+                  description: ''
+                  example: at
+                  nullable: false
+                latitude:
+                  type: number
+                  description: validation.between.
+                  example: -87
+                  nullable: false
+                longitude:
+                  type: number
+                  description: validation.between.
+                  example: -180
+                  nullable: false
+                images:
+                  type: array
+                  description: 'validation.image validation.max.'
+                  items:
+                    type: string
+                    format: binary
+              required:
+                - name
+                - address
+                - latitude
+                - longitude
   /api/users:
     get:
       summary: GetUserForToken
@@ -384,8 +496,8 @@ paths:
                   status: success
                   message: messages.user.get_user_for_token.success
                   user:
-                    name: 'Владимир Сергеевич Назаров'
-                    email: veronika.novikov@example.net
+                    name: 'Рафаил Львович Харитонов'
+                    email: nikonov.larisa@example.org
                     roles: []
                 properties:
                   status:
@@ -399,10 +511,10 @@ paths:
                     properties:
                       name:
                         type: string
-                        example: 'Владимир Сергеевич Назаров'
+                        example: 'Рафаил Львович Харитонов'
                       email:
                         type: string
-                        example: veronika.novikov@example.net
+                        example: nikonov.larisa@example.org
                       roles:
                         type: array
                         example: []

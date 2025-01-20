@@ -9,7 +9,6 @@ use App\Http\Requests\Role\ChangeRoleForDefaultUserRequest;
 use App\Http\Resources\Role\ChangeRoleForDefaultUser\NoRoleChangeRoleForDefaultUserResource;
 use App\Http\Resources\Role\ChangeRoleForDefaultUser\SuccessChangeRoleForDefaultUserResource;
 use App\Http\Resources\Role\GetChangeRole\SuccessGetChangeRoleResource;
-use App\Http\Resources\User\GetUserForToken\SuccessGetUserForTokenResource;
 use App\Models\User;
 use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;

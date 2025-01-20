@@ -38,19 +38,118 @@ endpoints:
         name: limit
         description: validation.max.
         required: false
-        example: 25
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      limit: 25
+      limit: 3
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.track.get.success","tracks":{"id":null,"name":"\u041b\u043e\u0433\u0438\u043d\u043e\u0432 \u0414\u0430\u043d \u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432\u0438\u0447","address":"381471, \u042f\u0440\u043e\u0441\u043b\u0430\u0432\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0421\u0435\u0440\u0433\u0438\u0435\u0432 \u041f\u043e\u0441\u0430\u0434, \u043f\u0435\u0440. \u0411\u0443\u0445\u0430\u0440\u0435\u0441\u0442\u0441\u043a\u0430\u044f, 53"}},{"status":"success","message":"messages.track.get.success","tracks":{"id":null,"name":"\u041a\u0430\u0437\u0430\u043a\u043e\u0432 \u0412\u043b\u0430\u0434\u0438\u0441\u043b\u0430\u0432 \u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432\u0438\u0447","address":"252836, \u041a\u0430\u043b\u0443\u0436\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0428\u0430\u0442\u0443\u0440\u0430, \u0432\u044a\u0435\u0437\u0434 \u041b\u0435\u043d\u0438\u043d\u0430, 35"}}]'
+        content: '[{"status":"success","message":"messages.track.get.success","tracks":{"id":27,"name":"\u0414\u0435\u043c\u0435\u043d\u0442\u044c\u0435\u0432\u0430 \u0412\u0430\u0440\u0432\u0430\u0440\u0430 \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u043d\u0430","address":"060980, \u041c\u0430\u0433\u0430\u0434\u0430\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041a\u0430\u0448\u0438\u0440\u0430, \u043d\u0430\u0431. \u0421\u043b\u0430\u0432\u044b, 22","images":null,"latitude":0,"longitude":0}},{"status":"success","message":"messages.track.get.success","tracks":{"id":28,"name":"\u0412\u043b\u0430\u0434\u043b\u0435\u043d\u0430 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u043d\u0430 \u0422\u0443\u0440\u043e\u0432\u0430","address":"953723, \u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041f\u0430\u0432\u043b\u043e\u0432\u0441\u043a\u0438\u0439 \u041f\u043e\u0441\u0430\u0434, \u0443\u043b. \u041b\u0435\u043d\u0438\u043d\u0430, 14","images":null,"latitude":0,"longitude":0}}]'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/tracks
+    metadata:
+      groupName: Track
+      groupDescription: 'Методы взаимодествия с трассами на которых проходят гонки'
+      subgroup: ''
+      subgroupDescription: ''
+      title: create
+      description: 'Метод создания трека'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: validation.min.
+        required: true
+        example: dspyprmwoveqxmuphewznsngpdhjwattpioduw
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      address:
+        name: address
+        description: ''
+        required: true
+        example: at
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      latitude:
+        name: latitude
+        description: validation.between.
+        required: true
+        example: -87
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      longitude:
+        name: longitude
+        description: validation.between.
+        required: true
+        example: -180
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      images:
+        name: images
+        description: 'validation.image validation.max.'
+        required: false
+        example:
+          - null
+        type: 'file[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: dspyprmwoveqxmuphewznsngpdhjwattpioduw
+      address: at
+      latitude: -87
+      longitude: -180
+    fileParameters:
+      images:
+        - null
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.track.create.success","track":{"id":29,"name":"\u041a\u0440\u0438\u0441\u0442\u0438\u043d\u0430 \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u043d\u0430 \u0411\u0435\u043b\u043e\u0437\u0451\u0440\u043e\u0432\u0430","address":"482300, \u0411\u0435\u043b\u0433\u043e\u0440\u043e\u0434\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0412\u043e\u0441\u043a\u0440\u0435\u0441\u0435\u043d\u0441\u043a, \u043f\u0440. \u041a\u043e\u0441\u043c\u043e\u043d\u0430\u0432\u0442\u043e\u0432, 72","images":null,"latitude":0,"longitude":0}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"status":"error","message":"messages.track.create.error"}'
         headers: []
         description: ''
         custom: []

@@ -11,7 +11,9 @@ class Track extends Model
     use HasFactory; // Searchable;
     protected $fillable = [
         'name',
-        'address'
+        'address',
+        'point',
+        'images',
     ];
 
     protected $casts =[

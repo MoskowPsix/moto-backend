@@ -26,7 +26,7 @@
             </style>
 
     <script>
-        var tryItOutBaseUrl = "http://localhost";
+        var tryItOutBaseUrl = "http://localhost:8000";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -103,6 +103,9 @@
                                                     <li class="tocify-item level-2" data-unique="track-GETapi-tracks">
                                 <a href="#track-GETapi-tracks">get</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="track-POSTapi-tracks">
+                                <a href="#track-POSTapi-tracks">create</a>
+                            </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-user" class="tocify-header">
@@ -124,7 +127,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: January 17, 2025</li>
+        <li>Last updated: January 20, 2025</li>
     </ul>
 </div>
 
@@ -133,7 +136,7 @@
     <div class="content">
         <h1 id="introduction">Introduction</h1>
 <aside>
-    <strong>Base URL</strong>: <code>http://localhost</code>
+    <strong>Base URL</strong>: <code>http://localhost:8000</code>
 </aside>
 <p>This documentation aims to provide all the information you need to work with our API.</p>
 <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
@@ -159,19 +162,19 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/login" \
+    "http://localhost:8000/api/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"vdonnelly@example.net\",
-    \"password\": \"eYp`CH7e#^pDa\"
+    \"email\": \"lessie.beer@example.org\",
+    \"password\": \"8B]CSP=BDMj;6\\\\j)|y\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/login"
+    "http://localhost:8000/api/login"
 );
 
 const headers = {
@@ -180,8 +183,8 @@ const headers = {
 };
 
 let body = {
-    "email": "vdonnelly@example.net",
-    "password": "eYp`CH7e#^pDa"
+    "email": "lessie.beer@example.org",
+    "password": "8B]CSP=BDMj;6\\j)|y"
 };
 
 fetch(url, {
@@ -201,11 +204,11 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
     &quot;message&quot;: &quot;messages.auth.login.success&quot;,
-    &quot;access_token&quot;: &quot;56|KpeH0efuJn7hYSNMHxSnIGkS2rN9N40dR4kopzjY726559f4&quot;,
+    &quot;access_token&quot;: &quot;3|OnfjrdKtmnz2ysgeEWJNTCExlBq3eV0Ga7nRxCR54b7ce52c&quot;,
     &quot;token_type&quot;: &quot;Bearer&quot;,
     &quot;user&quot;: {
-        &quot;name&quot;: &quot;Жданова Любовь Сергеевна&quot;,
-        &quot;email&quot;: &quot;evgeniy.popov@example.org&quot;,
+        &quot;name&quot;: &quot;Фёдоров Святослав Владимирович&quot;,
+        &quot;email&quot;: &quot;veselov.leonid@example.com&quot;,
         &quot;roles&quot;: []
     }
 }</code>
@@ -297,10 +300,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-login"
-               value="vdonnelly@example.net"
+               value="lessie.beer@example.org"
                data-component="body">
     <br>
-<p>validation.email The <code>email</code> of an existing record in the users table. validation.min. Example: <code>vdonnelly@example.net</code></p>
+<p>validation.email The <code>email</code> of an existing record in the users table. validation.min. Example: <code>lessie.beer@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -308,10 +311,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-login"
-               value="eYp`CH7e#^pDa"
+               value="8B]CSP=BDMj;6\j)|y"
                data-component="body">
     <br>
-<p>validation.min. Example: <code>eYp</code>CH7e#^pDa`</p>
+<p>validation.min. Example: <code>8B]CSP=BDMj;6\j)|y</code></p>
         </div>
         </form>
 
@@ -328,21 +331,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/register" \
+    "http://localhost:8000/api/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"trzmnwhzdknwtrfxa\",
-    \"email\": \"iharber@example.org\",
-    \"password\": \"e\\\\X^4LU_l64[\",
-    \"password_confirmation\": \"sequi\"
+    \"name\": \"tx\",
+    \"email\": \"rosemarie73@example.org\",
+    \"password\": \"Y-jptuNLm=\",
+    \"password_confirmation\": \"dignissimos\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/register"
+    "http://localhost:8000/api/register"
 );
 
 const headers = {
@@ -351,10 +354,10 @@ const headers = {
 };
 
 let body = {
-    "name": "trzmnwhzdknwtrfxa",
-    "email": "iharber@example.org",
-    "password": "e\\X^4LU_l64[",
-    "password_confirmation": "sequi"
+    "name": "tx",
+    "email": "rosemarie73@example.org",
+    "password": "Y-jptuNLm=",
+    "password_confirmation": "dignissimos"
 };
 
 fetch(url, {
@@ -374,11 +377,11 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
     &quot;message&quot;: &quot;messages.auth.register.success&quot;,
-    &quot;access_token&quot;: &quot;57|KxZraJJVq4Fb3r5uWenSEJQFBwvujCn7UzMWeIzn6c383aa4&quot;,
+    &quot;access_token&quot;: &quot;4|I6KbXkCssqMKhZ0kES6I6tyjbl5PFBXzBzgb0yMCaf9f7b2c&quot;,
     &quot;token_type&quot;: &quot;Bearer&quot;,
     &quot;user&quot;: {
-        &quot;name&quot;: &quot;Адриан Евгеньевич Белоусов&quot;,
-        &quot;email&quot;: &quot;rsaskova@example.net&quot;,
+        &quot;name&quot;: &quot;Симонова Яна Максимовна&quot;,
+        &quot;email&quot;: &quot;anastasiy42@example.org&quot;,
         &quot;roles&quot;: []
     }
 }</code>
@@ -470,10 +473,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-register"
-               value="trzmnwhzdknwtrfxa"
+               value="tx"
                data-component="body">
     <br>
-<p>validation.min validation.max. Example: <code>trzmnwhzdknwtrfxa</code></p>
+<p>validation.min validation.max. Example: <code>tx</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -481,10 +484,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-register"
-               value="iharber@example.org"
+               value="rosemarie73@example.org"
                data-component="body">
     <br>
-<p>validation.email. Example: <code>iharber@example.org</code></p>
+<p>validation.email. Example: <code>rosemarie73@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -492,10 +495,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-register"
-               value="e\X^4LU_l64["
+               value="Y-jptuNLm="
                data-component="body">
     <br>
-<p>validation.min. Example: <code>e\X^4LU_l64[</code></p>
+<p>validation.min. Example: <code>Y-jptuNLm=</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -503,10 +506,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password_confirmation"                data-endpoint="POSTapi-register"
-               value="sequi"
+               value="dignissimos"
                data-component="body">
     <br>
-<p>The value and <code>password</code> must match. Example: <code>sequi</code></p>
+<p>The value and <code>password</code> must match. Example: <code>dignissimos</code></p>
         </div>
         </form>
 
@@ -524,14 +527,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/logout" \
+    "http://localhost:8000/api/logout" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/logout"
+    "http://localhost:8000/api/logout"
 );
 
 const headers = {
@@ -656,14 +659,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/roles-change" \
+    --get "http://localhost:8000/api/roles-change" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/roles-change"
+    "http://localhost:8000/api/roles-change"
 );
 
 const headers = {
@@ -789,18 +792,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/roles-change" \
+    "http://localhost:8000/api/roles-change" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"roleId\": 5
+    \"roleId\": 15
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/roles-change"
+    "http://localhost:8000/api/roles-change"
 );
 
 const headers = {
@@ -809,7 +812,7 @@ const headers = {
 };
 
 let body = {
-    "roleId": 5
+    "roleId": 15
 };
 
 fetch(url, {
@@ -830,8 +833,8 @@ fetch(url, {
     &quot;status&quot;: &quot;success&quot;,
     &quot;message&quot;: &quot;messages.role.change_role_for_default_user.success&quot;,
     &quot;user&quot;: {
-        &quot;name&quot;: &quot;Ярослав Владимирович Сысоев&quot;,
-        &quot;email&quot;: &quot;seliverstov.prokor@example.org&quot;,
+        &quot;name&quot;: &quot;Тимофеева Люся Борисовна&quot;,
+        &quot;email&quot;: &quot;knosov@example.net&quot;,
         &quot;roles&quot;: []
     }
 }</code>
@@ -913,10 +916,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="roleId"                data-endpoint="POSTapi-roles-change"
-               value="5"
+               value="15"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the roles table. Example: <code>5</code></p>
+<p>The <code>id</code> of an existing record in the roles table. Example: <code>15</code></p>
         </div>
         </form>
 
@@ -937,18 +940,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/tracks" \
+    --get "http://localhost:8000/api/tracks" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"limit\": 25
+    \"limit\": 3
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/tracks"
+    "http://localhost:8000/api/tracks"
 );
 
 const headers = {
@@ -957,7 +960,7 @@ const headers = {
 };
 
 let body = {
-    "limit": 25
+    "limit": 3
 };
 
 fetch(url, {
@@ -979,18 +982,24 @@ fetch(url, {
         &quot;status&quot;: &quot;success&quot;,
         &quot;message&quot;: &quot;messages.track.get.success&quot;,
         &quot;tracks&quot;: {
-            &quot;id&quot;: null,
-            &quot;name&quot;: &quot;Логинов Дан Алексеевич&quot;,
-            &quot;address&quot;: &quot;381471, Ярославская область, город Сергиев Посад, пер. Бухарестская, 53&quot;
+            &quot;id&quot;: 27,
+            &quot;name&quot;: &quot;Дементьева Варвара Романовна&quot;,
+            &quot;address&quot;: &quot;060980, Магаданская область, город Кашира, наб. Славы, 22&quot;,
+            &quot;images&quot;: null,
+            &quot;latitude&quot;: 0,
+            &quot;longitude&quot;: 0
         }
     },
     {
         &quot;status&quot;: &quot;success&quot;,
         &quot;message&quot;: &quot;messages.track.get.success&quot;,
         &quot;tracks&quot;: {
-            &quot;id&quot;: null,
-            &quot;name&quot;: &quot;Казаков Владислав Алексеевич&quot;,
-            &quot;address&quot;: &quot;252836, Калужская область, город Шатура, въезд Ленина, 35&quot;
+            &quot;id&quot;: 28,
+            &quot;name&quot;: &quot;Владлена Александровна Турова&quot;,
+            &quot;address&quot;: &quot;953723, Московская область, город Павловский Посад, ул. Ленина, 14&quot;,
+            &quot;images&quot;: null,
+            &quot;latitude&quot;: 0,
+            &quot;longitude&quot;: 0
         }
     }
 ]</code>
@@ -1083,10 +1092,218 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="limit"                data-endpoint="GETapi-tracks"
-               value="25"
+               value="3"
                data-component="body">
     <br>
-<p>validation.max. Example: <code>25</code></p>
+<p>validation.max. Example: <code>3</code></p>
+        </div>
+        </form>
+
+                    <h2 id="track-POSTapi-tracks">create</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Метод создания трека</p>
+
+<span id="example-requests-POSTapi-tracks">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/tracks" \
+    --header "Content-Type: multipart/form-data" \
+    --header "Accept: application/json" \
+    --form "name=dspyprmwoveqxmuphewznsngpdhjwattpioduw"\
+    --form "address=at"\
+    --form "latitude=-87"\
+    --form "longitude=-180"\
+    --form "images[]=@/tmp/phprzBfbT" </code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/tracks"
+);
+
+const headers = {
+    "Content-Type": "multipart/form-data",
+    "Accept": "application/json",
+};
+
+const body = new FormData();
+body.append('name', 'dspyprmwoveqxmuphewznsngpdhjwattpioduw');
+body.append('address', 'at');
+body.append('latitude', '-87');
+body.append('longitude', '-180');
+body.append('images[]', document.querySelector('input[name="images[]"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-tracks">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;messages.track.create.success&quot;,
+    &quot;track&quot;: {
+        &quot;id&quot;: 29,
+        &quot;name&quot;: &quot;Кристина Владимировна Белозёрова&quot;,
+        &quot;address&quot;: &quot;482300, Белгородская область, город Воскресенск, пр. Космонавтов, 72&quot;,
+        &quot;images&quot;: null,
+        &quot;latitude&quot;: 0,
+        &quot;longitude&quot;: 0
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;messages.track.create.error&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-tracks" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-tracks"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-tracks"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-tracks" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-tracks">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-tracks" data-method="POST"
+      data-path="api/tracks"
+      data-authed="1"
+      data-hasfiles="1"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-tracks', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-tracks"
+                    onclick="tryItOut('POSTapi-tracks');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-tracks"
+                    onclick="cancelTryOut('POSTapi-tracks');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-tracks"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/tracks</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-tracks"
+               value="multipart/form-data"
+               data-component="header">
+    <br>
+<p>Example: <code>multipart/form-data</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-tracks"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi-tracks"
+               value="dspyprmwoveqxmuphewznsngpdhjwattpioduw"
+               data-component="body">
+    <br>
+<p>validation.min. Example: <code>dspyprmwoveqxmuphewznsngpdhjwattpioduw</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="address"                data-endpoint="POSTapi-tracks"
+               value="at"
+               data-component="body">
+    <br>
+<p>Example: <code>at</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>latitude</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="latitude"                data-endpoint="POSTapi-tracks"
+               value="-87"
+               data-component="body">
+    <br>
+<p>validation.between. Example: <code>-87</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>longitude</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="longitude"                data-endpoint="POSTapi-tracks"
+               value="-180"
+               data-component="body">
+    <br>
+<p>validation.between. Example: <code>-180</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>images</code></b>&nbsp;&nbsp;
+<small>file[]</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="file" style="display: none"
+                              name="images[0]"                data-endpoint="POSTapi-tracks"
+               data-component="body">
+        <input type="file" style="display: none"
+               name="images[1]"                data-endpoint="POSTapi-tracks"
+               data-component="body">
+    <br>
+<p>validation.image validation.max.</p>
         </div>
         </form>
 
@@ -1108,14 +1325,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/users" \
+    --get "http://localhost:8000/api/users" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/users"
+    "http://localhost:8000/api/users"
 );
 
 const headers = {
@@ -1140,8 +1357,8 @@ fetch(url, {
     &quot;status&quot;: &quot;success&quot;,
     &quot;message&quot;: &quot;messages.user.get_user_for_token.success&quot;,
     &quot;user&quot;: {
-        &quot;name&quot;: &quot;Владимир Сергеевич Назаров&quot;,
-        &quot;email&quot;: &quot;veronika.novikov@example.net&quot;,
+        &quot;name&quot;: &quot;Рафаил Львович Харитонов&quot;,
+        &quot;email&quot;: &quot;nikonov.larisa@example.org&quot;,
         &quot;roles&quot;: []
     }
 }</code>
