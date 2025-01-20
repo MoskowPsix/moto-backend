@@ -25,6 +25,7 @@ class RegisterAction implements RegisterActionContract
                 'name' => $request->name,
                 'password' => $pass,
                 'email' => $request->email,
+                'avatar' => $request->avatar,
             ]);
             DB::commit();
             return SuccessRegisterResource::make($user);
