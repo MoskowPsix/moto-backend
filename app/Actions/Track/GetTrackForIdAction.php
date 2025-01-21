@@ -10,7 +10,7 @@ class GetTrackForIdAction implements  GetTrackForIdActionContract
 {
     public function __invoke(int $id): SuccessGetTrackForIdResource
     {
-        $track = Track::with('level')->findOrFail($id);
+        $track = Track::selectRaw('*, ST_AsGeoJSON(point) as point')->with('level')->findOrFail($id);
         return SuccessGetTrackForIdResource::make($track);
     }
 }
