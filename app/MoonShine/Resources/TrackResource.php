@@ -21,6 +21,10 @@ use MoonShine\Laravel\Pages\Page;
 class TrackResource extends ModelResource
 {
     protected string $model = Track::class;
+    protected bool $simplePaginate = true;
+
+
+    protected string $column = 'name';
 
     protected string $title = 'Трассы';
 

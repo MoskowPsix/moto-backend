@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Contracts\Actions\Race\CreateRaceActionContract;
 use App\Contracts\Actions\Role\ChangeRoleForDefaultUserActionContract;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,6 +17,10 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Track\GetTrackForIdActionContract::class                  => \App\Actions\Track\GetTrackForIdAction::class,
         \App\Contracts\Actions\Role\GetChangeRolesActionContract::class                 => \App\Actions\Role\GetChangeRolesAction::class,
         \App\Contracts\Actions\Role\ChangeRoleForDefaultUserActionContract::class       => \App\Actions\Role\ChangeRoleForDefaultUserAction::class,
+        \App\Contracts\Actions\Race\GetRaceActionContract::class                        => \App\Actions\Race\GetRaceAction::class,
+        \App\Contracts\Actions\Race\GetForIdRaceActionContract::class                   => \App\Actions\Race\GetForIdRaceAction::class,
+        \App\Contracts\Actions\Race\CreateRaceActionContract::class                     => \App\Actions\Race\CreateRaceAction::class,
+
     ];
     /**
      * Register services.

@@ -35,6 +35,7 @@ use App\MoonShine\Resources\TrackResource;
 use MoonShine\MenuManager\MenuItem;
 use App\MoonShine\Resources\LevelResource;
 use App\MoonShine\Resources\ServiceResource;
+use App\MoonShine\Resources\RaceResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -53,6 +54,7 @@ final class MoonShineLayout extends AppLayout
 //            MenuItem::make('Levels', LevelResource::class),
 
             MenuItem::make('Сервисы', ServiceResource::class),
+            MenuItem::make('Гонки', RaceResource::class),
         ];
     }
 

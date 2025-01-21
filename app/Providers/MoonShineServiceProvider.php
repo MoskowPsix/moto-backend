@@ -17,6 +17,7 @@ use App\MoonShine\Pages\Service\ServiceFormPage;
 use App\MoonShine\Resources\MoonShineUserResource;
 use App\MoonShine\Resources\MoonShineUserRoleResource;
 use App\MoonShine\Resources\LevelResource;
+use App\MoonShine\Resources\RaceResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -37,6 +38,7 @@ class MoonShineServiceProvider extends ServiceProvider
                 MoonShineUserRoleResource::class,
                 LevelResource::class,
                 ServiceResource::class,
+                RaceResource::class,
             ])
             ->pages([
                 ...$config->getPages(),

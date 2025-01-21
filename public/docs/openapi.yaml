@@ -23,12 +23,12 @@ paths:
                 example:
                   status: success
                   message: messages.auth.login.success
-                  access_token: 5|r9bxG5M9pxXCEDzmxQMKoAhbVDJnEX9SvoH346wnbb399638
+                  access_token: 8|jyMhfZbKO985dxuioq5atI25SryZdKCaRZRwZbBObb515119
                   token_type: Bearer
                   user:
-                    name: 'Павел Сергеевич Филатов'
-                    email: istrelkova@example.com
-                    email_verified_at: '2025-01-20T13:32:32.000000Z'
+                    name: 'Изабелла Алексеевна Якушева'
+                    email: teliseev@example.org
+                    email_verified_at: '2025-01-21T07:23:01.000000Z'
                     avatar: null
                 properties:
                   status:
@@ -39,7 +39,7 @@ paths:
                     example: messages.auth.login.success
                   access_token:
                     type: string
-                    example: 5|r9bxG5M9pxXCEDzmxQMKoAhbVDJnEX9SvoH346wnbb399638
+                    example: 8|jyMhfZbKO985dxuioq5atI25SryZdKCaRZRwZbBObb515119
                   token_type:
                     type: string
                     example: Bearer
@@ -48,13 +48,13 @@ paths:
                     properties:
                       name:
                         type: string
-                        example: 'Павел Сергеевич Филатов'
+                        example: 'Изабелла Алексеевна Якушева'
                       email:
                         type: string
-                        example: istrelkova@example.com
+                        example: teliseev@example.org
                       email_verified_at:
                         type: string
-                        example: '2025-01-20T13:32:32.000000Z'
+                        example: '2025-01-21T07:23:01.000000Z'
                       avatar:
                         type: string
                         example: null
@@ -86,12 +86,12 @@ paths:
                 email:
                   type: string
                   description: 'validation.email The <code>email</code> of an existing record in the users table. validation.min.'
-                  example: hadley.kuhic@example.org
+                  example: mitchell.lincoln@example.com
                   nullable: false
                 password:
                   type: string
                   description: validation.min.
-                  example: "k'Ng}<_Bvu1DuAeH"
+                  example: 'Cg=6BP2$j20F8:ZhOo8'
                   nullable: false
               required:
                 - email
@@ -113,12 +113,12 @@ paths:
                 example:
                   status: success
                   message: messages.auth.register.success
-                  access_token: 6|cRrvm4EAWInEtoFxwJblLqMOALEmHUJTdN7YRapi5b21e0bb
+                  access_token: 9|VCvKKghw3MiFaemIJYdRbJCvDeorfrg3LAbs5Mia67331395
                   token_type: Bearer
                   user:
-                    name: 'Галкина Регина Романовна'
-                    email: visnykova.dominika@example.net
-                    email_verified_at: '2025-01-20T13:32:32.000000Z'
+                    name: 'Журавлёва Евгения Максимовна'
+                    email: adrian.kudryvtev@example.net
+                    email_verified_at: '2025-01-21T07:23:02.000000Z'
                     avatar: null
                 properties:
                   status:
@@ -129,7 +129,7 @@ paths:
                     example: messages.auth.register.success
                   access_token:
                     type: string
-                    example: 6|cRrvm4EAWInEtoFxwJblLqMOALEmHUJTdN7YRapi5b21e0bb
+                    example: 9|VCvKKghw3MiFaemIJYdRbJCvDeorfrg3LAbs5Mia67331395
                   token_type:
                     type: string
                     example: Bearer
@@ -138,13 +138,13 @@ paths:
                     properties:
                       name:
                         type: string
-                        example: 'Галкина Регина Романовна'
+                        example: 'Журавлёва Евгения Максимовна'
                       email:
                         type: string
-                        example: visnykova.dominika@example.net
+                        example: adrian.kudryvtev@example.net
                       email_verified_at:
                         type: string
-                        example: '2025-01-20T13:32:32.000000Z'
+                        example: '2025-01-21T07:23:02.000000Z'
                       avatar:
                         type: string
                         example: null
@@ -176,23 +176,28 @@ paths:
                 name:
                   type: string
                   description: 'validation.min validation.max.'
-                  example: ndgqqpxnjxcywpstyzjzlqbaq
+                  example: kmrrwleeasqkyry
                   nullable: false
                 email:
                   type: string
                   description: validation.email.
-                  example: zmohr@example.org
+                  example: elva.wiza@example.com
                   nullable: false
                 password:
                   type: string
                   description: validation.min.
-                  example: '"1\"YtXe]IU1'
+                  example: 'e4q"N2z$k}f\E+y+'
                   nullable: false
                 password_confirmation:
                   type: string
                   description: 'The value and <code>password</code> must match.'
-                  example: nemo
+                  example: rem
                   nullable: false
+                avatar:
+                  type: string
+                  description: ''
+                  example: et
+                  nullable: true
               required:
                 - name
                 - email
@@ -240,6 +245,202 @@ paths:
                     example: messages.auth.logout.error
       tags:
         - Auth
+  /api/races:
+    get:
+      summary: get
+      operationId: get
+      description: 'Получение всех гонок по фильтрам'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    status: success
+                    message: messages.race.get.success
+                    races:
+                      id: 30
+                      name: 'Крылова Нонна Александровна'
+                      desc: 'Molestiae ut et est dolorem. Ducimus cum nam adipisci dolor et est eius. Porro suscipit explicabo earum ut sit ut voluptates. Sint fuga cupiditate illum. Non quasi nisi omnis rem natus nisi.'
+                      is_work: false
+                      date_start: null
+                      images: null
+                  -
+                    status: success
+                    message: messages.race.get.success
+                    races:
+                      id: 31
+                      name: 'Яна Максимовна Кудряшова'
+                      desc: 'Nihil quia sit aut. Quia tempore ab magnam illum facere vitae consequatur. Similique eius voluptate esse aperiam harum dolorum amet. Qui quo atque ullam accusamus est in.'
+                      is_work: true
+                      date_start: null
+                      images: null
+      tags:
+        - Race
+      security: []
+    post:
+      summary: create
+      operationId: create
+      description: 'Создание гонки'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 33
+                  name: 'Третьяков Пётр Алексеевич'
+                  desc: 'Dolore aut laborum incidunt. Ea et quo et reiciendis repudiandae. Necessitatibus ex aspernatur consectetur eum quibusdam perferendis perspiciatis quis.'
+                  is_work: false
+                  date_start: '2025-01-21T07:23:02.000000Z'
+                  images: null
+                  track_id: 7
+                  user_id: 1
+                  created_at: '2025-01-21T07:23:02.000000Z'
+                  updated_at: '2025-01-21T07:23:02.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 33
+                  name:
+                    type: string
+                    example: 'Третьяков Пётр Алексеевич'
+                  desc:
+                    type: string
+                    example: 'Dolore aut laborum incidunt. Ea et quo et reiciendis repudiandae. Necessitatibus ex aspernatur consectetur eum quibusdam perferendis perspiciatis quis.'
+                  is_work:
+                    type: boolean
+                    example: false
+                  date_start:
+                    type: string
+                    example: '2025-01-21T07:23:02.000000Z'
+                  images:
+                    type: string
+                    example: null
+                  track_id:
+                    type: integer
+                    example: 7
+                  user_id:
+                    type: integer
+                    example: 1
+                  created_at:
+                    type: string
+                    example: '2025-01-21T07:23:02.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2025-01-21T07:23:02.000000Z'
+      tags:
+        - Race
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'validation.max validation.min.'
+                  example: kapnbbbrvabcsftggygzmwqsspitvbxyyzwkxrkxmgbdxxgfjskcmqrdazfrjblddlfycdkiufyasnaasmmuvou
+                  nullable: false
+                desc:
+                  type: string
+                  description: ''
+                  example: vel
+                  nullable: true
+                date_start:
+                  type: string
+                  description: validation.date.
+                  example: '2025-01-21T07:23:02'
+                  nullable: false
+                trackId:
+                  type: integer
+                  description: 'The <code>id</code> of an existing record in the tracks table.'
+                  example: 16
+                  nullable: false
+                images:
+                  type: array
+                  description: 'validation.image validation.max.'
+                  items:
+                    type: string
+                    format: binary
+              required:
+                - name
+                - date_start
+                - trackId
+      security: []
+  '/api/races/{id}':
+    get:
+      summary: getForId
+      operationId: getForId
+      description: 'Получение гонки по id'
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: success
+                  message: messages.race.get_for_id.success
+                  race:
+                    id: 32
+                    name: 'Милан Максимович Исаев'
+                    desc: 'Et enim ut quo doloribus corrupti ratione et. Architecto voluptas nesciunt quasi aut. Labore assumenda eum architecto est veniam necessitatibus eum. Sed blanditiis perspiciatis aut.'
+                    is_work: false
+                    date_start: null
+                    images: null
+                properties:
+                  status:
+                    type: string
+                    example: success
+                  message:
+                    type: string
+                    example: messages.race.get_for_id.success
+                  race:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 32
+                      name:
+                        type: string
+                        example: 'Милан Максимович Исаев'
+                      desc:
+                        type: string
+                        example: 'Et enim ut quo doloribus corrupti ratione et. Architecto voluptas nesciunt quasi aut. Labore assumenda eum architecto est veniam necessitatibus eum. Sed blanditiis perspiciatis aut.'
+                      is_work:
+                        type: boolean
+                        example: false
+                      date_start:
+                        type: string
+                        example: null
+                      images:
+                        type: string
+                        example: null
+      tags:
+        - Race
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the race.'
+        example: 1
+        required: true
+        schema:
+          type: integer
   /api/roles-change:
     get:
       summary: GetChangeRoles
@@ -287,9 +488,9 @@ paths:
                   status: success
                   message: messages.role.change_role_for_default_user.success
                   user:
-                    name: 'Власова Раиса Александровна'
-                    email: marat73@example.com
-                    email_verified_at: '2025-01-20T13:32:33.000000Z'
+                    name: 'Аркадий Владимирович Стрелков'
+                    email: anzelika.andreeva@example.net
+                    email_verified_at: '2025-01-21T07:23:02.000000Z'
                     avatar: null
                 properties:
                   status:
@@ -303,13 +504,13 @@ paths:
                     properties:
                       name:
                         type: string
-                        example: 'Власова Раиса Александровна'
+                        example: 'Аркадий Владимирович Стрелков'
                       email:
                         type: string
-                        example: marat73@example.com
+                        example: anzelika.andreeva@example.net
                       email_verified_at:
                         type: string
-                        example: '2025-01-20T13:32:33.000000Z'
+                        example: '2025-01-21T07:23:02.000000Z'
                       avatar:
                         type: string
                         example: null
@@ -349,50 +550,40 @@ paths:
                     status: success
                     message: messages.track.get.success
                     tracks:
-                      id: 11
-                      name: Экономист
-                      address: '087510, Калужская область, город Видное, бульвар Бухарестская, 11'
+                      id: 23
+                      name: Абразивоструйщик
+                      address: '535259, Ивановская область, город Серебряные Пруды, пр. Бухарестская, 81'
                       images: null
                       latitude: 0
                       longitude: 0
                       level:
-                        name: Средняя
-                        color: '#EF7C08'
-                      desc: 'Illum et deserunt in id est sint vel. Cupiditate voluptatem maxime in sint aperiam non libero fugiat. At esse earum nemo. Aliquid consequatur et cupiditate ipsum debitis repudiandae eos. Voluptatem blanditiis qui qui iste dolores rerum. Veniam fugiat quod atque. Est voluptates similique ducimus deleniti ab perspiciatis beatae. Est tempore distinctio porro voluptas officiis vero. Qui reprehenderit qui quia quia. Rem in vel odit qui similique et iste rerum.'
-                      length: 946
-                      turns: 20
+                        name: Высокая
+                        color: '#FD1215'
+                      desc: 'Repellat inventore itaque sed est aut rerum dolor. Dolor enim iure accusantium ut nesciunt hic sit temporibus. Sed quasi et consectetur sit nulla voluptate sequi. Voluptatem quasi non sunt distinctio ratione voluptatem. Consequuntur cum maiores quidem. Perspiciatis qui adipisci qui omnis molestiae. Aut consectetur est voluptatem ad aut ullam. Numquam ut quod praesentium sint sed natus vitae. Id laborum incidunt enim.'
+                      length: 376
+                      turns: 98
                       free: true
-                      is_work: false
+                      is_work: true
                       spec: null
-                      user:
-                        name: root
-                        email: bolshe.kivi@gmail.com
-                        email_verified_at: '2025-01-20T12:39:32.000000Z'
-                        avatar: users/MRkSzDvnFidCVmY0gcnK5MVwFW2aomZhffGb0LM7.png
                   -
                     status: success
                     message: messages.track.get.success
                     tracks:
-                      id: 12
-                      name: Пианист
-                      address: '942825, Кемеровская область, город Клин, пер. Сталина, 28'
+                      id: 24
+                      name: Телохранитель
+                      address: '340103, Кемеровская область, город Лотошино, проезд Будапештсткая, 46'
                       images: null
                       latitude: 0
                       longitude: 0
                       level:
                         name: Низкая
                         color: '#22CA3D'
-                      desc: 'Voluptas modi possimus dolorum porro. Blanditiis reiciendis pariatur et natus. Velit illum alias id atque nisi quaerat labore. Commodi temporibus quos aut nisi ex velit. Molestiae quam ipsum ipsa veniam voluptatibus. Debitis impedit corporis aliquam nihil. Assumenda quis eligendi dolore quia ut. Quis aut rerum accusantium dolor rem repudiandae. Et nam qui ratione eaque ex. Accusamus ipsam cumque aliquam dolores nemo id. Reiciendis reprehenderit harum aut ipsam vel non at.'
-                      length: 956
-                      turns: 57
+                      desc: 'Eum quaerat non omnis velit culpa. Consequatur est autem ea sunt ipsam sequi. Pariatur ad consequatur at asperiores ipsam aut laudantium vel. Est tenetur illum est perferendis totam reprehenderit omnis quia. Doloremque et pariatur nobis ullam. Qui iste quae quis maiores aut voluptatem. Totam omnis praesentium nihil nesciunt facilis aut. Maiores atque qui quia nihil aut blanditiis. Aut vitae aliquam iure ut aliquam quod. Non iusto non autem sunt repellat enim quo enim.'
+                      length: 909
+                      turns: 31
                       free: true
-                      is_work: true
+                      is_work: false
                       spec: null
-                      user:
-                        name: root
-                        email: bolshe.kivi@gmail.com
-                        email_verified_at: '2025-01-20T12:39:32.000000Z'
-                        avatar: users/MRkSzDvnFidCVmY0gcnK5MVwFW2aomZhffGb0LM7.png
       tags:
         - Track
       requestBody:
@@ -410,7 +601,7 @@ paths:
                 limit:
                   type: integer
                   description: validation.max.
-                  example: 7
+                  example: 1
                   nullable: false
       security: []
     post:
@@ -429,26 +620,21 @@ paths:
                   status: success
                   message: messages.track.create.success
                   track:
-                    id: 14
-                    name: Писатель
-                    address: '590647, Читинская область, город Солнечногорск, пл. Домодедовская, 57'
+                    id: 26
+                    name: Фотограф
+                    address: '993984, Смоленская область, город Мытищи, ул. Бухарестская, 47'
                     images: null
                     latitude: 0
                     longitude: 0
                     level:
-                      name: Средняя
-                      color: '#EF7C08'
-                    desc: 'Velit consequuntur praesentium recusandae. Facilis sit maiores enim ea est id est reprehenderit. Suscipit enim dolor tempora molestiae aut dolorem. Beatae facilis assumenda perferendis ducimus. Aperiam officia pariatur minus sit dolore unde. Voluptas reprehenderit explicabo aperiam sint in esse. Nisi quia illo excepturi quo aliquam itaque modi repudiandae. Voluptatem delectus distinctio adipisci blanditiis voluptatum voluptatem iure. Vel odit neque qui possimus unde veniam.'
-                    length: 572
-                    turns: 26
-                    free: false
+                      name: Низкая
+                      color: '#22CA3D'
+                    desc: 'Sed modi suscipit officia laboriosam dolores nulla. Sint debitis occaecati voluptate fuga et. Ratione et similique fugit autem. Maxime iste numquam facilis ut ratione. Accusamus quia nihil necessitatibus impedit cumque quibusdam. Ipsa perspiciatis est blanditiis consequatur nobis. Et quasi cupiditate maxime dolor reiciendis ducimus. Dolores molestiae officiis nisi quaerat rem. Itaque cupiditate cupiditate accusamus ut.'
+                    length: 862
+                    turns: 11
+                    free: true
                     is_work: false
                     spec: null
-                    user:
-                      name: Fatboy@fat.ru
-                      email: Fatboy@fat.ru
-                      email_verified_at: null
-                      avatar: null
                 properties:
                   status:
                     type: string
@@ -461,13 +647,13 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 14
+                        example: 26
                       name:
                         type: string
-                        example: Писатель
+                        example: Фотограф
                       address:
                         type: string
-                        example: '590647, Читинская область, город Солнечногорск, пл. Домодедовская, 57'
+                        example: '993984, Смоленская область, город Мытищи, ул. Бухарестская, 47'
                       images:
                         type: string
                         example: null
@@ -482,43 +668,28 @@ paths:
                         properties:
                           name:
                             type: string
-                            example: Средняя
+                            example: Низкая
                           color:
                             type: string
-                            example: '#EF7C08'
+                            example: '#22CA3D'
                       desc:
                         type: string
-                        example: 'Velit consequuntur praesentium recusandae. Facilis sit maiores enim ea est id est reprehenderit. Suscipit enim dolor tempora molestiae aut dolorem. Beatae facilis assumenda perferendis ducimus. Aperiam officia pariatur minus sit dolore unde. Voluptas reprehenderit explicabo aperiam sint in esse. Nisi quia illo excepturi quo aliquam itaque modi repudiandae. Voluptatem delectus distinctio adipisci blanditiis voluptatum voluptatem iure. Vel odit neque qui possimus unde veniam.'
+                        example: 'Sed modi suscipit officia laboriosam dolores nulla. Sint debitis occaecati voluptate fuga et. Ratione et similique fugit autem. Maxime iste numquam facilis ut ratione. Accusamus quia nihil necessitatibus impedit cumque quibusdam. Ipsa perspiciatis est blanditiis consequatur nobis. Et quasi cupiditate maxime dolor reiciendis ducimus. Dolores molestiae officiis nisi quaerat rem. Itaque cupiditate cupiditate accusamus ut.'
                       length:
                         type: integer
-                        example: 572
+                        example: 862
                       turns:
                         type: integer
-                        example: 26
+                        example: 11
                       free:
                         type: boolean
-                        example: false
+                        example: true
                       is_work:
                         type: boolean
                         example: false
                       spec:
                         type: string
                         example: null
-                      user:
-                        type: object
-                        properties:
-                          name:
-                            type: string
-                            example: Fatboy@fat.ru
-                          email:
-                            type: string
-                            example: Fatboy@fat.ru
-                          email_verified_at:
-                            type: string
-                            example: null
-                          avatar:
-                            type: string
-                            example: null
         422:
           description: ''
           content:
@@ -547,22 +718,22 @@ paths:
                 name:
                   type: string
                   description: validation.min.
-                  example: uzhgrxqbpyhjimxxpmodwrtftfvmwlkqfremywakhicmynz
+                  example: jtuvkuypbcnyjegysyokysaommsldwyshuiyknixzdhwzbllao
                   nullable: false
                 address:
                   type: string
                   description: ''
-                  example: minima
+                  example: consequatur
                   nullable: false
                 latitude:
                   type: number
                   description: validation.between.
-                  example: -86
+                  example: -87
                   nullable: false
                 longitude:
                   type: number
                   description: validation.between.
-                  example: -179
+                  example: -180
                   nullable: false
                 images:
                   type: array
@@ -573,22 +744,22 @@ paths:
                 levelId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the levels table.'
-                  example: 10
+                  example: 17
                   nullable: false
                 desc:
                   type: string
                   description: ''
-                  example: vel
+                  example: aut
                   nullable: true
                 length:
                   type: integer
                   description: ''
-                  example: 6
+                  example: 1
                   nullable: true
                 turns:
                   type: integer
                   description: ''
-                  example: 19
+                  example: 3
                   nullable: true
                 free:
                   type: boolean
@@ -603,7 +774,7 @@ paths:
                 spec:
                   type: string
                   description: validation.json.
-                  example: '["omnis","aut"]'
+                  example: '["id","et"]'
                   nullable: true
               required:
                 - name
@@ -627,26 +798,21 @@ paths:
                   status: success
                   message: messages.track.get_for_id.success
                   track:
-                    id: 13
-                    name: Художник
-                    address: '478773, Ульяновская область, город Мытищи, бульвар Будапештсткая, 79'
+                    id: 25
+                    name: Бармен
+                    address: '532472, Оренбургская область, город Наро-Фоминск, спуск Гагарина, 11'
                     images: null
                     latitude: 0
                     longitude: 0
                     level:
-                      name: Средняя
-                      color: '#EF7C08'
-                    desc: 'Aut non animi a voluptatibus optio. Beatae aut eveniet quo quam possimus. Aperiam officiis et mollitia in soluta laudantium qui. Incidunt tempora vero qui consequatur ut velit. Tempore natus debitis est ipsum et. Consequatur et sequi placeat esse. Ut alias ut enim nihil ipsa reprehenderit a. Rerum vero mollitia voluptas. Dolore quia dolore quidem facilis quam. Amet sequi dolorum voluptates quasi fugit quis. Nihil et ea tempora repellendus ut hic.'
-                    length: 261
-                    turns: 93
+                      name: Высокая
+                      color: '#FD1215'
+                    desc: 'Officia quidem laudantium consequatur at at ipsam. Enim et repudiandae et beatae consequatur odio. Et sequi reprehenderit eligendi minima libero vel quasi. Vitae maxime quas accusamus perspiciatis ipsa nemo. Voluptatibus et dolores ratione dolorem. Aut amet aspernatur voluptatibus rerum velit molestiae. Deserunt fugit dolor asperiores quidem quos in recusandae possimus. Qui quisquam commodi error enim reprehenderit alias vel. Minima unde neque sed molestias in.'
+                    length: 205
+                    turns: 21
                     free: false
-                    is_work: true
+                    is_work: false
                     spec: null
-                    user:
-                      name: root
-                      email: bolshe.kivi@gmail.com
-                      email_verified_at: '2025-01-20T12:39:32.000000Z'
-                      avatar: users/MRkSzDvnFidCVmY0gcnK5MVwFW2aomZhffGb0LM7.png
                 properties:
                   status:
                     type: string
@@ -659,13 +825,13 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 13
+                        example: 25
                       name:
                         type: string
-                        example: Художник
+                        example: Бармен
                       address:
                         type: string
-                        example: '478773, Ульяновская область, город Мытищи, бульвар Будапештсткая, 79'
+                        example: '532472, Оренбургская область, город Наро-Фоминск, спуск Гагарина, 11'
                       images:
                         type: string
                         example: null
@@ -680,43 +846,28 @@ paths:
                         properties:
                           name:
                             type: string
-                            example: Средняя
+                            example: Высокая
                           color:
                             type: string
-                            example: '#EF7C08'
+                            example: '#FD1215'
                       desc:
                         type: string
-                        example: 'Aut non animi a voluptatibus optio. Beatae aut eveniet quo quam possimus. Aperiam officiis et mollitia in soluta laudantium qui. Incidunt tempora vero qui consequatur ut velit. Tempore natus debitis est ipsum et. Consequatur et sequi placeat esse. Ut alias ut enim nihil ipsa reprehenderit a. Rerum vero mollitia voluptas. Dolore quia dolore quidem facilis quam. Amet sequi dolorum voluptates quasi fugit quis. Nihil et ea tempora repellendus ut hic.'
+                        example: 'Officia quidem laudantium consequatur at at ipsam. Enim et repudiandae et beatae consequatur odio. Et sequi reprehenderit eligendi minima libero vel quasi. Vitae maxime quas accusamus perspiciatis ipsa nemo. Voluptatibus et dolores ratione dolorem. Aut amet aspernatur voluptatibus rerum velit molestiae. Deserunt fugit dolor asperiores quidem quos in recusandae possimus. Qui quisquam commodi error enim reprehenderit alias vel. Minima unde neque sed molestias in.'
                       length:
                         type: integer
-                        example: 261
+                        example: 205
                       turns:
                         type: integer
-                        example: 93
+                        example: 21
                       free:
                         type: boolean
                         example: false
                       is_work:
                         type: boolean
-                        example: true
+                        example: false
                       spec:
                         type: string
                         example: null
-                      user:
-                        type: object
-                        properties:
-                          name:
-                            type: string
-                            example: root
-                          email:
-                            type: string
-                            example: bolshe.kivi@gmail.com
-                          email_verified_at:
-                            type: string
-                            example: '2025-01-20T12:39:32.000000Z'
-                          avatar:
-                            type: string
-                            example: users/MRkSzDvnFidCVmY0gcnK5MVwFW2aomZhffGb0LM7.png
       tags:
         - Track
       security: []
@@ -746,9 +897,9 @@ paths:
                   status: success
                   message: messages.user.get_user_for_token.success
                   user:
-                    name: 'Флорентина Львовна Сергеева'
-                    email: nazar.muravev@example.org
-                    email_verified_at: '2025-01-20T13:32:32.000000Z'
+                    name: 'Красильников Дан Дмитриевич'
+                    email: trofim87@example.com
+                    email_verified_at: '2025-01-21T07:23:02.000000Z'
                     avatar: null
                 properties:
                   status:
@@ -762,13 +913,13 @@ paths:
                     properties:
                       name:
                         type: string
-                        example: 'Флорентина Львовна Сергеева'
+                        example: 'Красильников Дан Дмитриевич'
                       email:
                         type: string
-                        example: nazar.muravev@example.org
+                        example: trofim87@example.com
                       email_verified_at:
                         type: string
-                        example: '2025-01-20T13:32:32.000000Z'
+                        example: '2025-01-21T07:23:02.000000Z'
                       avatar:
                         type: string
                         example: null
@@ -778,6 +929,9 @@ tags:
   -
     name: Auth
     description: 'Авторизация пользователей и всё что с ней связано.'
+  -
+    name: Race
+    description: 'Методы связанные с гонками'
   -
     name: Role
     description: 'Методы взаимодествия с ролями'

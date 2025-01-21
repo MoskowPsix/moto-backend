@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\MoonShine\Pages\Track;
+namespace App\MoonShine\Pages\Race;
 
+use App\Traits\MoonShine\Resources\RaceResourceTrait;
+use App\Traits\MoonShine\Resources\TrackResourceTrait;
 use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
@@ -11,12 +13,13 @@ use MoonShine\UI\Fields\Checkbox;
 use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Image;
-use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Text;
 use Throwable;
 
-class TrackIndexPage extends IndexPage
+class RaceIndexPage extends IndexPage
 {
+    use TrackResourceTrait, RaceResourceTrait;
+
     /**
      * @return list<ComponentContract|FieldContract>
      */
@@ -24,13 +27,12 @@ class TrackIndexPage extends IndexPage
     {
         return [
             ID::make()->sortable(),
+            Text::make('Название гонки', 'name')->sortable(),
+            Text::make('Дата и время', 'date_start')->sortable(),
             Checkbox::make('Работает', 'is_work')->sortable(),
-            Text::make('Название', 'name')->sortable(),
-            Text::make('Адрес', 'address')->sortable(),
-            Image::make('Фото','images')->multiple(),
-            Checkbox::make('Бесплатное', 'free')->sortable(),
-            Number::make('Длина', 'length')->sortable(),
-            Number::make('Повороты', 'turns')->sortable(),
+            Image::make('Фото', 'images')->multiple(),
+            $this->user(),
+            $this->track(),
             Date::make('Создано', 'created_at')->sortable(),
             Date::make('Обновлено', 'updated_at')->sortable(),
         ];

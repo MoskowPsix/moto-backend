@@ -44,7 +44,7 @@ class TrackResource extends JsonResource
             'free'      => $this->free,
             'is_work'   => $this->is_work,
             'spec'      => $this->spec,
-            'user'      => $this->whenLoaded('user', UserResource::make($this->user))
+            'user'      => UserResource::make($this->whenLoaded('user'))
         ];
     }
 }

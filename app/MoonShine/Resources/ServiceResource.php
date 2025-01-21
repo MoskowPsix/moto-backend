@@ -23,7 +23,7 @@ use MoonShine\Contracts\UI\ComponentContract;
 class ServiceResource extends ModelResource
 {
     protected string $model = Service::class;
-
+    protected bool $simplePaginate = true;
     protected string $title = 'Сервисы';
     protected string $column = 'name';
 

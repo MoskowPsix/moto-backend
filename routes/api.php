@@ -31,3 +31,11 @@ Route::controller(\App\Http\Controllers\Api\RoleController::class)->group(functi
     Route::get('roles-change', 'getChangeRoles')->name('role.get_change_roles');
     Route::post('roles-change', 'changeRoleForDefaultUser')->middleware('auth:sanctum')->name('role.change_roles_for_default_user');
 });
+
+Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(function () {
+    Route::get('races', 'get')->name('race.get');
+    Route::get('races/{id}', 'getForId')->name('race.get_for_id');
+    Route::post('races', 'create')->middleware('auth:sanctum')->name('race.create');
+
+
+});

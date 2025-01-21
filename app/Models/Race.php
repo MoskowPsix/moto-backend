@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+/**
+ * @method static create(array $array)
+ */
+class Race extends Model
+{
+    use HasFactory;
+    protected $table = 'races';
+    protected $fillable = [
+        'name',
+        'desc',
+        'is_work',
+        'date_start',
+        'images',
+        'track_id',
+        'user_id',
+    ];
+    protected $casts = [
+        'name' => 'string',
+        'desc' => 'string',
+        'images' => 'json',
+        'is_work' => 'boolean',
+        'date_start' => 'datetime',
+    ];
+
+    public function track(): BelongsTo
+    {
+        return $this->belongsTo(Track::class)->selectRaw('*, ST_AsGeoJSON(point) as point');
+    }
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+}
