@@ -34,6 +34,7 @@ use MoonShine\UI\Components\{Breadcrumbs,
 use App\MoonShine\Resources\TrackResource;
 use MoonShine\MenuManager\MenuItem;
 use App\MoonShine\Resources\LevelResource;
+use App\MoonShine\Resources\ServiceResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -50,6 +51,8 @@ final class MoonShineLayout extends AppLayout
             MenuItem::make('Пользователи', MoonShineUserResource::class),
             MenuItem::make('Трассы', TrackResource::class),
 //            MenuItem::make('Levels', LevelResource::class),
+
+            MenuItem::make('Сервисы', ServiceResource::class),
         ];
     }
 
