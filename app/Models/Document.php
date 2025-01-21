@@ -4,6 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @method static create()
+ */
 class Document extends Model
 {
     protected $fillable = [
@@ -20,4 +23,5 @@ class Document extends Model
         'path' => 'string',
         'data' => 'json',
     ];
+
 }

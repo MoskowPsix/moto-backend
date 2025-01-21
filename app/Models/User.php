@@ -58,4 +58,8 @@ class User extends Authenticatable
     {
         return $this->hasOne(PersonalInfo::class);
     }
+    public function documents(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Document::class);
+    }
 }

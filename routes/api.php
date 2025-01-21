@@ -40,3 +40,9 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
 Route::controller(\App\Http\Controllers\Api\PersonalInfoController::class)->group(function () {
     Route::post('users/cabinet/personal-info', 'create')->middleware('auth:sanctum')->name('personal_info.create');
 });
+
+Route::controller(\App\Http\Controllers\Api\DocumentController::class)->group(function () {
+    Route::post('users/cabinet/documents', 'create')->middleware('auth:sanctum')->name('document.create');
+    Route::get('users/cabinet/documents', 'getForUser')->middleware('auth:sanctum')->name('document.get_for_user');
+    Route::get('users/cabinet/documents/{id}', 'getForUserById')->middleware('auth:sanctum')->name('document.get_for_user_by_id');
+});
