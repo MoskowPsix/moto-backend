@@ -2,7 +2,9 @@
 
 namespace App\Http\Resources\User;
 
+use App\Http\Resources\PersonalInfo\PersonalInfoResource;
 use App\Http\Resources\Role\RoleResource;
+use App\Models\PersonalInfo;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -27,7 +29,8 @@ class UserResource extends JsonResource
             'email'                 => $this->email,
             'email_verified_at'     => $this->email_verified_at,
             'avatar'                => $this->avatar,
-            'roles'                 => RoleResource::collection($this->whenLoaded('roles'))
+            'roles'                 => RoleResource::collection($this->whenLoaded('roles')),
+            'personal'              => PersonalInfoResource::make($this->whenLoaded('personalInfo')),
         ];
     }
 }
