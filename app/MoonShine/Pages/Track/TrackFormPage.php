@@ -42,8 +42,8 @@ class TrackFormPage extends FormPage
             Text::make('Описание', 'desc'),
             Json::make('Спецификации трассы', 'spec')
                 ->fields([
-                    Text::make('Название'),
-                    Text::make('Значение'),
+                    Text::make('Название','title'),
+                    Text::make('Значение', 'value'),
                 ]),
             $this->user(),
             $this->level()
