@@ -96,6 +96,12 @@
                                                                                 <li class="tocify-item level-2" data-unique="document-GETapi-users-cabinet-documents--id-">
                                 <a href="#document-GETapi-users-cabinet-documents--id-">GetForUserById</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="document-POSTapi-users-cabinet-documents--id--update">
+                                <a href="#document-POSTapi-users-cabinet-documents--id--update">Update</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="document-DELETEapi-users-cabinet-documents--id-">
+                                <a href="#document-DELETEapi-users-cabinet-documents--id-">Delete</a>
+                            </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-personalinfo" class="tocify-header">
@@ -105,6 +111,9 @@
                                     <ul id="tocify-subheader-personalinfo" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="personalinfo-POSTapi-users-cabinet-personal-info">
                                 <a href="#personalinfo-POSTapi-users-cabinet-personal-info">Create</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="personalinfo-PATCHapi-users-cabinet-personal-info">
+                                <a href="#personalinfo-PATCHapi-users-cabinet-personal-info">Update</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -211,8 +220,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"kenna50@example.net\",
-    \"password\": \"Z]IX.`n\'`Xxxl)v\"
+    \"email\": \"bruen.fritz@example.org\",
+    \"password\": \"uw&amp;mq\\/%%~M{CSd^42k)\"
 }"
 </code></pre></div>
 
@@ -228,8 +237,8 @@ const headers = {
 };
 
 let body = {
-    "email": "kenna50@example.net",
-    "password": "Z]IX.`n'`Xxxl)v"
+    "email": "bruen.fritz@example.org",
+    "password": "uw&amp;mq\/%%~M{CSd^42k)"
 };
 
 fetch(url, {
@@ -249,12 +258,13 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
     &quot;message&quot;: &quot;messages.auth.login.success&quot;,
-    &quot;access_token&quot;: &quot;12|CVkjRt9Qn9ZJkRTgydVYJYJS4NGuiP0YinEFNZPaac041138&quot;,
+    &quot;access_token&quot;: &quot;16|14NLQadpSp7ZTsjKkhTcSXh8fmGlv9mkJiCkfJmKab50163a&quot;,
     &quot;token_type&quot;: &quot;Bearer&quot;,
     &quot;user&quot;: {
-        &quot;name&quot;: &quot;Олеся Фёдоровна Миронова&quot;,
-        &quot;email&quot;: &quot;artem42@example.net&quot;,
-        &quot;email_verified_at&quot;: &quot;2025-01-23T05:02:24.000000Z&quot;,
+        &quot;id&quot;: 32,
+        &quot;name&quot;: &quot;Григорьев Иосиф Александрович&quot;,
+        &quot;email&quot;: &quot;ruslan18@example.net&quot;,
+        &quot;email_verified_at&quot;: &quot;2025-01-23T08:39:04.000000Z&quot;,
         &quot;avatar&quot;: null
     }
 }</code>
@@ -346,10 +356,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-login"
-               value="kenna50@example.net"
+               value="bruen.fritz@example.org"
                data-component="body">
     <br>
-<p>Значение поля value должно быть действительным электронным адресом. The <code>email</code> of an existing record in the users table. Количество символов в поле value должно быть не меньше 3. Example: <code>kenna50@example.net</code></p>
+<p>Значение поля value должно быть действительным электронным адресом. The <code>email</code> of an existing record in the users table. Количество символов в поле value должно быть не меньше 3. Example: <code>bruen.fritz@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -357,10 +367,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-login"
-               value="Z]IX.`n'`Xxxl)v"
+               value="uw&mq/%%~M{CSd^42k)"
                data-component="body">
     <br>
-<p>Количество символов в поле value должно быть не меньше 3. Example: <code>Z]IX.</code>n'<code>Xxxl)v</code></p>
+<p>Количество символов в поле value должно быть не меньше 3. Example: <code>uw&amp;mq/%%~M{CSd^42k)</code></p>
         </div>
         </form>
 
@@ -381,11 +391,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"iix\",
-    \"email\": \"maymie79@example.net\",
-    \"password\": \"?NxCh]nr+\",
-    \"password_confirmation\": \"et\",
-    \"avatar\": \"aspernatur\"
+    \"name\": \"ylxytfxdrduiln\",
+    \"email\": \"mitchell32@example.com\",
+    \"password\": \"WunQy6cJf0p1g8}|VQ\",
+    \"password_confirmation\": \"voluptatem\",
+    \"avatar\": \"molestiae\"
 }"
 </code></pre></div>
 
@@ -401,11 +411,11 @@ const headers = {
 };
 
 let body = {
-    "name": "iix",
-    "email": "maymie79@example.net",
-    "password": "?NxCh]nr+",
-    "password_confirmation": "et",
-    "avatar": "aspernatur"
+    "name": "ylxytfxdrduiln",
+    "email": "mitchell32@example.com",
+    "password": "WunQy6cJf0p1g8}|VQ",
+    "password_confirmation": "voluptatem",
+    "avatar": "molestiae"
 };
 
 fetch(url, {
@@ -425,12 +435,13 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
     &quot;message&quot;: &quot;messages.auth.register.success&quot;,
-    &quot;access_token&quot;: &quot;13|pvoWAbvnHySFEvCFWjJpgzVQY7F1890oZXjYzO91e0e12ed9&quot;,
+    &quot;access_token&quot;: &quot;17|0asnuIVT1kVUhCcqRoamStqKALHImPps9E0LXPP10fc18c37&quot;,
     &quot;token_type&quot;: &quot;Bearer&quot;,
     &quot;user&quot;: {
-        &quot;name&quot;: &quot;Кононова Зоя Андреевна&quot;,
-        &quot;email&quot;: &quot;stanislav15@example.net&quot;,
-        &quot;email_verified_at&quot;: &quot;2025-01-23T05:02:25.000000Z&quot;,
+        &quot;id&quot;: 33,
+        &quot;name&quot;: &quot;Агафонова Изабелла Сергеевна&quot;,
+        &quot;email&quot;: &quot;gblokin@example.com&quot;,
+        &quot;email_verified_at&quot;: &quot;2025-01-23T08:39:05.000000Z&quot;,
         &quot;avatar&quot;: null
     }
 }</code>
@@ -522,10 +533,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-register"
-               value="iix"
+               value="ylxytfxdrduiln"
                data-component="body">
     <br>
-<p>Количество символов в поле value должно быть не меньше 3. Количество символов в значении поля value не может превышать 50. Example: <code>iix</code></p>
+<p>Количество символов в поле value должно быть не меньше 3. Количество символов в значении поля value не может превышать 50. Example: <code>ylxytfxdrduiln</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -533,10 +544,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-register"
-               value="maymie79@example.net"
+               value="mitchell32@example.com"
                data-component="body">
     <br>
-<p>Значение поля value должно быть действительным электронным адресом. Example: <code>maymie79@example.net</code></p>
+<p>Значение поля value должно быть действительным электронным адресом. Example: <code>mitchell32@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -544,10 +555,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-register"
-               value="?NxCh]nr+"
+               value="WunQy6cJf0p1g8}|VQ"
                data-component="body">
     <br>
-<p>Количество символов в поле value должно быть не меньше 8. Example: <code>?NxCh]nr+</code></p>
+<p>Количество символов в поле value должно быть не меньше 8. Example: <code>WunQy6cJf0p1g8}|VQ</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -555,10 +566,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password_confirmation"                data-endpoint="POSTapi-register"
-               value="et"
+               value="voluptatem"
                data-component="body">
     <br>
-<p>The value and <code>password</code> must match. Example: <code>et</code></p>
+<p>The value and <code>password</code> must match. Example: <code>voluptatem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>avatar</code></b>&nbsp;&nbsp;
@@ -566,10 +577,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="avatar"                data-endpoint="POSTapi-register"
-               value="aspernatur"
+               value="molestiae"
                data-component="body">
     <br>
-<p>Example: <code>aspernatur</code></p>
+<p>Example: <code>molestiae</code></p>
         </div>
         </form>
 
@@ -720,11 +731,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
     "http://localhost:8000/api/users/cabinet/documents" \
-    --header "Content-Type: multipart/form-data" \
+    --header "Content-Type: application/json" \
     --header "Accept: application/json" \
-    --form "type=accusantium"\
-    --form "data=["quae","vel"]"\
-    --form "file=@/tmp/phpyUcsnj" </code></pre></div>
+    --data "{
+    \"type\": \"voluptates\",
+    \"data\": \"[\\\"nisi\\\",\\\"itaque\\\"]\"
+}"
+</code></pre></div>
 
 
 <div class="javascript-example">
@@ -733,19 +746,19 @@ You can check the Dev Tools console for debugging information.</code></pre>
 );
 
 const headers = {
-    "Content-Type": "multipart/form-data",
+    "Content-Type": "application/json",
     "Accept": "application/json",
 };
 
-const body = new FormData();
-body.append('type', 'accusantium');
-body.append('data', '["quae","vel"]');
-body.append('file', document.querySelector('input[name="file"]').files[0]);
+let body = {
+    "type": "voluptates",
+    "data": "[\"nisi\",\"itaque\"]"
+};
 
 fetch(url, {
     method: "POST",
     headers,
-    body,
+    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre></div>
 
 </span>
@@ -787,7 +800,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi-users-cabinet-documents" data-method="POST"
       data-path="api/users/cabinet/documents"
       data-authed="0"
-      data-hasfiles="1"
+      data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-users-cabinet-documents', this);">
@@ -822,10 +835,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="Content-Type"                data-endpoint="POSTapi-users-cabinet-documents"
-               value="multipart/form-data"
+               value="application/json"
                data-component="header">
     <br>
-<p>Example: <code>multipart/form-data</code></p>
+<p>Example: <code>application/json</code></p>
             </div>
                                 <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
@@ -845,21 +858,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-users-cabinet-documents"
-               value="accusantium"
+               value="voluptates"
                data-component="body">
     <br>
-<p>Example: <code>accusantium</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>file</code></b>&nbsp;&nbsp;
-<small>file</small>&nbsp;
- &nbsp;
-                <input type="file" style="display: none"
-                              name="file"                data-endpoint="POSTapi-users-cabinet-documents"
-               value=""
-               data-component="body">
-    <br>
-<p>Must be a file. Example: <code>/tmp/phpyUcsnj</code></p>
+<p>Example: <code>voluptates</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>data</code></b>&nbsp;&nbsp;
@@ -867,10 +869,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="data"                data-endpoint="POSTapi-users-cabinet-documents"
-               value="["quae","vel"]"
+               value="["nisi","itaque"]"
                data-component="body">
     <br>
-<p>Значение поля value должно быть JSON строкой. Example: <code>["quae","vel"]</code></p>
+<p>Значение поля value должно быть JSON строкой. Example: <code>["nisi","itaque"]</code></p>
         </div>
         </form>
 
@@ -1159,6 +1161,333 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                    <h2 id="document-POSTapi-users-cabinet-documents--id--update">Update</h2>
+
+<p>
+</p>
+
+<p>Изменение документа пользователя</p>
+
+<span id="example-requests-POSTapi-users-cabinet-documents--id--update">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/users/cabinet/documents/1/update" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"data\": \"[\\\"sapiente\\\",\\\"magnam\\\"]\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/users/cabinet/documents/1/update"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "data": "[\"sapiente\",\"magnam\"]"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-users-cabinet-documents--id--update">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;id&quot;: 1,
+    &quot;name&quot;: &quot;file_678f974ca37ac&quot;,
+    &quot;type&quot;: &quot;фото&quot;,
+    &quot;path&quot;: &quot;user/documents/hguPCwnOzSndWTwQ41NvPtTSfQg4g3pR368C3jar.png&quot;,
+    &quot;data&quot;: &quot;{\&quot;kkk\&quot;: \&quot;ssss\&quot;}&quot;,
+    &quot;user_id&quot;: 13,
+    &quot;created_at&quot;: &quot;2025-01-21T12:47:08.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2025-01-21T12:47:08.000000Z&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;messages.error.permission&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;messages.error.not_found&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-users-cabinet-documents--id--update" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-users-cabinet-documents--id--update"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-users-cabinet-documents--id--update"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-users-cabinet-documents--id--update" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-users-cabinet-documents--id--update">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-users-cabinet-documents--id--update" data-method="POST"
+      data-path="api/users/cabinet/documents/{id}/update"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-users-cabinet-documents--id--update', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-users-cabinet-documents--id--update"
+                    onclick="tryItOut('POSTapi-users-cabinet-documents--id--update');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-users-cabinet-documents--id--update"
+                    onclick="cancelTryOut('POSTapi-users-cabinet-documents--id--update');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-users-cabinet-documents--id--update"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/users/cabinet/documents/{id}/update</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-users-cabinet-documents--id--update"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-users-cabinet-documents--id--update"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="POSTapi-users-cabinet-documents--id--update"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the document. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>data</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="data"                data-endpoint="POSTapi-users-cabinet-documents--id--update"
+               value="["sapiente","magnam"]"
+               data-component="body">
+    <br>
+<p>Значение поля value должно быть JSON строкой. Example: <code>["sapiente","magnam"]</code></p>
+        </div>
+        </form>
+
+                    <h2 id="document-DELETEapi-users-cabinet-documents--id-">Delete</h2>
+
+<p>
+</p>
+
+<p>Удаление документа пользователя</p>
+
+<span id="example-requests-DELETEapi-users-cabinet-documents--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost:8000/api/users/cabinet/documents/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/users/cabinet/documents/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-users-cabinet-documents--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;messages.document.delete.success&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;messages.error.permission&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;messages.error.not_found&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-users-cabinet-documents--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-users-cabinet-documents--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-users-cabinet-documents--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-users-cabinet-documents--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-users-cabinet-documents--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-users-cabinet-documents--id-" data-method="DELETE"
+      data-path="api/users/cabinet/documents/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-users-cabinet-documents--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-users-cabinet-documents--id-"
+                    onclick="tryItOut('DELETEapi-users-cabinet-documents--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-users-cabinet-documents--id-"
+                    onclick="cancelTryOut('DELETEapi-users-cabinet-documents--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-users-cabinet-documents--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/users/cabinet/documents/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-users-cabinet-documents--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-users-cabinet-documents--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="DELETEapi-users-cabinet-documents--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the document. Example: <code>1</code></p>
+            </div>
+                    </form>
+
                 <h1 id="personalinfo">PersonalInfo</h1>
 
     <p>Всё что связанно с персональной информацией пользователя</p>
@@ -1180,22 +1509,22 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"repudiandae\",
-    \"surname\": \"corporis\",
-    \"patronymic\": \"eius\",
-    \"dateOfBirth\": \"2025-01-23T05:02:25\",
-    \"city\": \"similique\",
-    \"inn\": 8,
-    \"snils\": 2,
-    \"phoneNumber\": \"adipisci\",
-    \"startNumber\": 12,
-    \"group\": \"voluptatem\",
-    \"rank\": \"perspiciatis\",
-    \"rankNumber\": \"reprehenderit\",
-    \"community\": \"voluptatum\",
-    \"coach\": \"nostrum\",
-    \"motoStamp\": \"officia\",
-    \"engine\": \"ab\"
+    \"name\": \"laboriosam\",
+    \"surname\": \"minima\",
+    \"patronymic\": \"et\",
+    \"dateOfBirth\": \"2025-01-23T08:39:05\",
+    \"city\": \"a\",
+    \"inn\": 6,
+    \"snils\": 10,
+    \"phoneNumber\": \"libero\",
+    \"startNumber\": 20,
+    \"group\": \"ut\",
+    \"rank\": \"aut\",
+    \"rankNumber\": \"nemo\",
+    \"community\": \"accusamus\",
+    \"coach\": \"rem\",
+    \"motoStamp\": \"et\",
+    \"engine\": \"sed\"
 }"
 </code></pre></div>
 
@@ -1211,22 +1540,22 @@ const headers = {
 };
 
 let body = {
-    "name": "repudiandae",
-    "surname": "corporis",
-    "patronymic": "eius",
-    "dateOfBirth": "2025-01-23T05:02:25",
-    "city": "similique",
-    "inn": 8,
-    "snils": 2,
-    "phoneNumber": "adipisci",
-    "startNumber": 12,
-    "group": "voluptatem",
-    "rank": "perspiciatis",
-    "rankNumber": "reprehenderit",
-    "community": "voluptatum",
-    "coach": "nostrum",
-    "motoStamp": "officia",
-    "engine": "ab"
+    "name": "laboriosam",
+    "surname": "minima",
+    "patronymic": "et",
+    "dateOfBirth": "2025-01-23T08:39:05",
+    "city": "a",
+    "inn": 6,
+    "snils": 10,
+    "phoneNumber": "libero",
+    "startNumber": 20,
+    "group": "ut",
+    "rank": "aut",
+    "rankNumber": "nemo",
+    "community": "accusamus",
+    "coach": "rem",
+    "motoStamp": "et",
+    "engine": "sed"
 };
 
 fetch(url, {
@@ -1247,22 +1576,22 @@ fetch(url, {
     &quot;status&quot;: &quot;success&quot;,
     &quot;message&quot;: &quot;messages.personal_info.create.success&quot;,
     &quot;personal_info&quot;: {
-        &quot;name&quot;: &quot;Dr.&quot;,
-        &quot;surname&quot;: &quot;Mr.&quot;,
-        &quot;patronymic&quot;: &quot;Ms.&quot;,
+        &quot;name&quot;: &quot;Mrs.&quot;,
+        &quot;surname&quot;: &quot;Prof.&quot;,
+        &quot;patronymic&quot;: &quot;Dr.&quot;,
         &quot;date_of_birth&quot;: null,
-        &quot;city&quot;: &quot;Талдом&quot;,
+        &quot;city&quot;: &quot;Москва&quot;,
         &quot;inn&quot;: &quot;100000000000&quot;,
-        &quot;snils&quot;: &quot;9999999999&quot;,
-        &quot;phone_number&quot;: &quot;(495) 647-6609&quot;,
-        &quot;start_number&quot;: &quot;499&quot;,
-        &quot;group&quot;: &quot;Водолаз&quot;,
+        &quot;snils&quot;: &quot;10000000000&quot;,
+        &quot;phone_number&quot;: &quot;(495) 363-6988&quot;,
+        &quot;start_number&quot;: &quot;430&quot;,
+        &quot;group&quot;: &quot;Ковбой&quot;,
         &quot;rank_number&quot;: &quot;99999&quot;,
-        &quot;rank&quot;: &quot;Столяр&quot;,
-        &quot;community&quot;: &quot;МФО СеверРосМотор&quot;,
-        &quot;coach&quot;: &quot;Котов Игнат Алексеевич&quot;,
-        &quot;moto_stamp&quot;: &quot;Mr.&quot;,
-        &quot;engine&quot;: &quot;Mr.&quot;
+        &quot;rank&quot;: &quot;Арт-директор&quot;,
+        &quot;community&quot;: &quot;МКК Гараж&quot;,
+        &quot;coach&quot;: &quot;Флорентина Борисовна Голубева&quot;,
+        &quot;moto_stamp&quot;: &quot;Dr.&quot;,
+        &quot;engine&quot;: &quot;Dr.&quot;
     }
 }</code>
  </pre>
@@ -1343,10 +1672,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-users-cabinet-personal-info"
-               value="repudiandae"
+               value="laboriosam"
                data-component="body">
     <br>
-<p>Example: <code>repudiandae</code></p>
+<p>Example: <code>laboriosam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>surname</code></b>&nbsp;&nbsp;
@@ -1354,10 +1683,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="surname"                data-endpoint="POSTapi-users-cabinet-personal-info"
-               value="corporis"
+               value="minima"
                data-component="body">
     <br>
-<p>Example: <code>corporis</code></p>
+<p>Example: <code>minima</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>patronymic</code></b>&nbsp;&nbsp;
@@ -1365,10 +1694,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="patronymic"                data-endpoint="POSTapi-users-cabinet-personal-info"
-               value="eius"
+               value="et"
                data-component="body">
     <br>
-<p>Example: <code>eius</code></p>
+<p>Example: <code>et</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>dateOfBirth</code></b>&nbsp;&nbsp;
@@ -1376,10 +1705,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="dateOfBirth"                data-endpoint="POSTapi-users-cabinet-personal-info"
-               value="2025-01-23T05:02:25"
+               value="2025-01-23T08:39:05"
                data-component="body">
     <br>
-<p>Значение поля value не является датой. Example: <code>2025-01-23T05:02:25</code></p>
+<p>Значение поля value не является датой. Example: <code>2025-01-23T08:39:05</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
@@ -1387,10 +1716,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="city"                data-endpoint="POSTapi-users-cabinet-personal-info"
-               value="similique"
+               value="a"
                data-component="body">
     <br>
-<p>Example: <code>similique</code></p>
+<p>Example: <code>a</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>inn</code></b>&nbsp;&nbsp;
@@ -1398,10 +1727,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="inn"                data-endpoint="POSTapi-users-cabinet-personal-info"
-               value="8"
+               value="6"
                data-component="body">
     <br>
-<p>Example: <code>8</code></p>
+<p>Example: <code>6</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>snils</code></b>&nbsp;&nbsp;
@@ -1409,10 +1738,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="snils"                data-endpoint="POSTapi-users-cabinet-personal-info"
-               value="2"
+               value="10"
                data-component="body">
     <br>
-<p>Example: <code>2</code></p>
+<p>Example: <code>10</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>phoneNumber</code></b>&nbsp;&nbsp;
@@ -1420,10 +1749,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="phoneNumber"                data-endpoint="POSTapi-users-cabinet-personal-info"
-               value="adipisci"
+               value="libero"
                data-component="body">
     <br>
-<p>Example: <code>adipisci</code></p>
+<p>Example: <code>libero</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>startNumber</code></b>&nbsp;&nbsp;
@@ -1431,10 +1760,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="startNumber"                data-endpoint="POSTapi-users-cabinet-personal-info"
-               value="12"
+               value="20"
                data-component="body">
     <br>
-<p>Example: <code>12</code></p>
+<p>Example: <code>20</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>group</code></b>&nbsp;&nbsp;
@@ -1442,10 +1771,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="group"                data-endpoint="POSTapi-users-cabinet-personal-info"
-               value="voluptatem"
+               value="ut"
                data-component="body">
     <br>
-<p>Example: <code>voluptatem</code></p>
+<p>Example: <code>ut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>rank</code></b>&nbsp;&nbsp;
@@ -1453,10 +1782,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="rank"                data-endpoint="POSTapi-users-cabinet-personal-info"
-               value="perspiciatis"
+               value="aut"
                data-component="body">
     <br>
-<p>Example: <code>perspiciatis</code></p>
+<p>Example: <code>aut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>rankNumber</code></b>&nbsp;&nbsp;
@@ -1464,10 +1793,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="rankNumber"                data-endpoint="POSTapi-users-cabinet-personal-info"
-               value="reprehenderit"
+               value="nemo"
                data-component="body">
     <br>
-<p>Example: <code>reprehenderit</code></p>
+<p>Example: <code>nemo</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>community</code></b>&nbsp;&nbsp;
@@ -1475,10 +1804,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="community"                data-endpoint="POSTapi-users-cabinet-personal-info"
-               value="voluptatum"
+               value="accusamus"
                data-component="body">
     <br>
-<p>Example: <code>voluptatum</code></p>
+<p>Example: <code>accusamus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>coach</code></b>&nbsp;&nbsp;
@@ -1486,10 +1815,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="coach"                data-endpoint="POSTapi-users-cabinet-personal-info"
-               value="nostrum"
+               value="rem"
                data-component="body">
     <br>
-<p>Example: <code>nostrum</code></p>
+<p>Example: <code>rem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>motoStamp</code></b>&nbsp;&nbsp;
@@ -1497,10 +1826,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="motoStamp"                data-endpoint="POSTapi-users-cabinet-personal-info"
-               value="officia"
+               value="et"
                data-component="body">
     <br>
-<p>Example: <code>officia</code></p>
+<p>Example: <code>et</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>engine</code></b>&nbsp;&nbsp;
@@ -1508,10 +1837,382 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="engine"                data-endpoint="POSTapi-users-cabinet-personal-info"
-               value="ab"
+               value="sed"
                data-component="body">
     <br>
-<p>Example: <code>ab</code></p>
+<p>Example: <code>sed</code></p>
+        </div>
+        </form>
+
+                    <h2 id="personalinfo-PATCHapi-users-cabinet-personal-info">Update</h2>
+
+<p>
+</p>
+
+<p>Обновить запись персональных данных</p>
+
+<span id="example-requests-PATCHapi-users-cabinet-personal-info">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PATCH \
+    "http://localhost:8000/api/users/cabinet/personal-info" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"debitis\",
+    \"surname\": \"ipsam\",
+    \"patronymic\": \"tempora\",
+    \"dateOfBirth\": \"2025-01-23T08:39:05\",
+    \"city\": \"a\",
+    \"inn\": 3,
+    \"snils\": 1,
+    \"phoneNumber\": \"unde\",
+    \"startNumber\": 8,
+    \"group\": \"similique\",
+    \"rank\": \"et\",
+    \"rankNumber\": \"praesentium\",
+    \"community\": \"odit\",
+    \"coach\": \"cum\",
+    \"motoStamp\": \"qui\",
+    \"engine\": \"facilis\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/users/cabinet/personal-info"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "debitis",
+    "surname": "ipsam",
+    "patronymic": "tempora",
+    "dateOfBirth": "2025-01-23T08:39:05",
+    "city": "a",
+    "inn": 3,
+    "snils": 1,
+    "phoneNumber": "unde",
+    "startNumber": 8,
+    "group": "similique",
+    "rank": "et",
+    "rankNumber": "praesentium",
+    "community": "odit",
+    "coach": "cum",
+    "motoStamp": "qui",
+    "engine": "facilis"
+};
+
+fetch(url, {
+    method: "PATCH",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PATCHapi-users-cabinet-personal-info">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;messages.personal_info.update.success&quot;,
+    &quot;personal_info&quot;: {
+        &quot;name&quot;: &quot;Dr.&quot;,
+        &quot;surname&quot;: &quot;Prof.&quot;,
+        &quot;patronymic&quot;: &quot;Mrs.&quot;,
+        &quot;date_of_birth&quot;: null,
+        &quot;city&quot;: &quot;Клин&quot;,
+        &quot;inn&quot;: &quot;99999999999&quot;,
+        &quot;snils&quot;: &quot;9999999999&quot;,
+        &quot;phone_number&quot;: &quot;(495) 905-2562&quot;,
+        &quot;start_number&quot;: &quot;402&quot;,
+        &quot;group&quot;: &quot;Машинист&quot;,
+        &quot;rank_number&quot;: &quot;100000&quot;,
+        &quot;rank&quot;: &quot;Технический писатель&quot;,
+        &quot;community&quot;: &quot;ОАО ТверьПивГаз&quot;,
+        &quot;coach&quot;: &quot;Милан Сергеевич Якушев&quot;,
+        &quot;moto_stamp&quot;: &quot;Dr.&quot;,
+        &quot;engine&quot;: &quot;Dr.&quot;
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;messages.error.permission&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;messages.error.not_found&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-PATCHapi-users-cabinet-personal-info" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PATCHapi-users-cabinet-personal-info"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PATCHapi-users-cabinet-personal-info"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PATCHapi-users-cabinet-personal-info" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PATCHapi-users-cabinet-personal-info">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PATCHapi-users-cabinet-personal-info" data-method="PATCH"
+      data-path="api/users/cabinet/personal-info"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PATCHapi-users-cabinet-personal-info', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PATCHapi-users-cabinet-personal-info"
+                    onclick="tryItOut('PATCHapi-users-cabinet-personal-info');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PATCHapi-users-cabinet-personal-info"
+                    onclick="cancelTryOut('PATCHapi-users-cabinet-personal-info');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PATCHapi-users-cabinet-personal-info"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/users/cabinet/personal-info</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="debitis"
+               data-component="body">
+    <br>
+<p>Example: <code>debitis</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>surname</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="surname"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="ipsam"
+               data-component="body">
+    <br>
+<p>Example: <code>ipsam</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>patronymic</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="patronymic"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="tempora"
+               data-component="body">
+    <br>
+<p>Example: <code>tempora</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>dateOfBirth</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="dateOfBirth"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="2025-01-23T08:39:05"
+               data-component="body">
+    <br>
+<p>Значение поля value не является датой. Example: <code>2025-01-23T08:39:05</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="city"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="a"
+               data-component="body">
+    <br>
+<p>Example: <code>a</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>inn</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="inn"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="3"
+               data-component="body">
+    <br>
+<p>Example: <code>3</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>snils</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="snils"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="1"
+               data-component="body">
+    <br>
+<p>Example: <code>1</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>phoneNumber</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="phoneNumber"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="unde"
+               data-component="body">
+    <br>
+<p>Example: <code>unde</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>startNumber</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="startNumber"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="8"
+               data-component="body">
+    <br>
+<p>Example: <code>8</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>group</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="group"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="similique"
+               data-component="body">
+    <br>
+<p>Example: <code>similique</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>rank</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="rank"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="et"
+               data-component="body">
+    <br>
+<p>Example: <code>et</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>rankNumber</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="rankNumber"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="praesentium"
+               data-component="body">
+    <br>
+<p>Example: <code>praesentium</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>community</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="community"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="odit"
+               data-component="body">
+    <br>
+<p>Example: <code>odit</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>coach</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="coach"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="cum"
+               data-component="body">
+    <br>
+<p>Example: <code>cum</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>motoStamp</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="motoStamp"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="qui"
+               data-component="body">
+    <br>
+<p>Example: <code>qui</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>engine</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="engine"                data-endpoint="PATCHapi-users-cabinet-personal-info"
+               value="facilis"
+               data-component="body">
+    <br>
+<p>Example: <code>facilis</code></p>
         </div>
         </form>
 
@@ -1536,10 +2237,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"userId\": 9,
+    \"userId\": 7,
     \"paginate\": false,
-    \"page\": \"qui\",
-    \"limit\": 2
+    \"page\": \"a\",
+    \"limit\": 22
 }"
 </code></pre></div>
 
@@ -1555,10 +2256,10 @@ const headers = {
 };
 
 let body = {
-    "userId": 9,
+    "userId": 7,
     "paginate": false,
-    "page": "qui",
-    "limit": 2
+    "page": "a",
+    "limit": 22
 };
 
 fetch(url, {
@@ -1580,10 +2281,10 @@ fetch(url, {
         &quot;status&quot;: &quot;success&quot;,
         &quot;message&quot;: &quot;messages.race.get.success&quot;,
         &quot;races&quot;: {
-            &quot;id&quot;: 27,
-            &quot;name&quot;: &quot;Тихонов Иван Евгеньевич&quot;,
-            &quot;desc&quot;: &quot;Iusto et qui et et. Temporibus distinctio ipsam nemo dicta quibusdam expedita beatae. Vero laudantium quis illum est. Deserunt quasi possimus soluta ratione.&quot;,
-            &quot;is_work&quot;: false,
+            &quot;id&quot;: 31,
+            &quot;name&quot;: &quot;Комиссаров Аким Андреевич&quot;,
+            &quot;desc&quot;: &quot;Reprehenderit eos pariatur doloremque nihil odit velit. Sit voluptas porro dignissimos corrupti sunt nam. Dolor velit eaque repellat facilis. Consequuntur sint ex consequatur possimus.&quot;,
+            &quot;is_work&quot;: true,
             &quot;date_start&quot;: null,
             &quot;images&quot;: null
         }
@@ -1592,9 +2293,9 @@ fetch(url, {
         &quot;status&quot;: &quot;success&quot;,
         &quot;message&quot;: &quot;messages.race.get.success&quot;,
         &quot;races&quot;: {
-            &quot;id&quot;: 28,
-            &quot;name&quot;: &quot;Устинов Ананий Львович&quot;,
-            &quot;desc&quot;: &quot;Beatae ad eaque nobis error non reiciendis. Optio est repellat blanditiis fugiat odit quos. Quia molestiae qui ducimus aperiam culpa. Dolore ut sint nostrum neque eligendi expedita vel.&quot;,
+            &quot;id&quot;: 32,
+            &quot;name&quot;: &quot;Полина Львовна Пахомова&quot;,
+            &quot;desc&quot;: &quot;Adipisci officiis minima non. Omnis vel vel rem dolores. Consequatur sit dolorem nulla minus similique illum quidem. Veritatis sed ea ratione qui minus qui nulla.&quot;,
             &quot;is_work&quot;: false,
             &quot;date_start&quot;: null,
             &quot;images&quot;: null
@@ -1679,10 +2380,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="userId"                data-endpoint="GETapi-races"
-               value="9"
+               value="7"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the users table. Example: <code>9</code></p>
+<p>The <code>id</code> of an existing record in the users table. Example: <code>7</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>paginate</code></b>&nbsp;&nbsp;
@@ -1711,10 +2412,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="page"                data-endpoint="GETapi-races"
-               value="qui"
+               value="a"
                data-component="body">
     <br>
-<p>Example: <code>qui</code></p>
+<p>Example: <code>a</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
@@ -1722,10 +2423,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="limit"                data-endpoint="GETapi-races"
-               value="2"
+               value="22"
                data-component="body">
     <br>
-<p>Значение поля value не может быть больше 50. Example: <code>2</code></p>
+<p>Значение поля value не может быть больше 50. Example: <code>22</code></p>
         </div>
         </form>
 
@@ -1774,9 +2475,9 @@ fetch(url, {
     &quot;status&quot;: &quot;success&quot;,
     &quot;message&quot;: &quot;messages.race.get_for_id.success&quot;,
     &quot;race&quot;: {
-        &quot;id&quot;: 29,
-        &quot;name&quot;: &quot;Никифорова Клавдия Фёдоровна&quot;,
-        &quot;desc&quot;: &quot;Ipsam aut a voluptatem asperiores aliquam eius ut. Et magni adipisci sunt quasi expedita in omnis. Qui reiciendis dolorem est quia itaque quo. Autem corporis facilis sint est debitis odio.&quot;,
+        &quot;id&quot;: 33,
+        &quot;name&quot;: &quot;Денис Алексеевич Гордеев&quot;,
+        &quot;desc&quot;: &quot;Eum ut laudantium possimus quisquam amet qui non. Sit quis nulla eveniet qui. Aut dolorum asperiores est omnis. Voluptatem aliquid laudantium ut eligendi.&quot;,
         &quot;is_work&quot;: false,
         &quot;date_start&quot;: null,
         &quot;images&quot;: null
@@ -1883,11 +2584,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "http://localhost:8000/api/races" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "name=lttvgdejpsbjbdrlmygzoidgpretbnnubjpzdqnlnexitzmqzazuyubmjlwqnjweuvtrmgcvideqshz"\
-    --form "desc=architecto"\
-    --form "dateStart=2025-01-23T05:02:25"\
-    --form "trackId=9"\
-    --form "images[]=@/tmp/phpto3YyM" </code></pre></div>
+    --form "name=xgkncmgmzmkempklpjkpmmcgannynhqqwrjkwmdvbrunkldbogffddvzjxzmlzzntn"\
+    --form "desc=ipsam"\
+    --form "dateStart=2025-01-23T08:39:05"\
+    --form "trackId=16"\
+    --form "images[]=@/tmp/phpNjlLo2" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -1901,10 +2602,10 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('name', 'lttvgdejpsbjbdrlmygzoidgpretbnnubjpzdqnlnexitzmqzazuyubmjlwqnjweuvtrmgcvideqshz');
-body.append('desc', 'architecto');
-body.append('dateStart', '2025-01-23T05:02:25');
-body.append('trackId', '9');
+body.append('name', 'xgkncmgmzmkempklpjkpmmcgannynhqqwrjkwmdvbrunkldbogffddvzjxzmlzzntn');
+body.append('desc', 'ipsam');
+body.append('dateStart', '2025-01-23T08:39:05');
+body.append('trackId', '16');
 body.append('images[]', document.querySelector('input[name="images[]"]').files[0]);
 
 fetch(url, {
@@ -1925,9 +2626,9 @@ fetch(url, {
     &quot;status&quot;: &quot;success&quot;,
     &quot;message&quot;: &quot;messages.race.create.success&quot;,
     &quot;race&quot;: {
-        &quot;id&quot;: 30,
-        &quot;name&quot;: &quot;Геннадий Дмитриевич Цветков&quot;,
-        &quot;desc&quot;: &quot;Accusantium enim sequi minima omnis. Aperiam temporibus est alias corporis corrupti. Soluta quia id commodi dolores odit quam.&quot;,
+        &quot;id&quot;: 34,
+        &quot;name&quot;: &quot;Галина Дмитриевна Виноградова&quot;,
+        &quot;desc&quot;: &quot;Sed illo minima qui aut voluptatem iste. Libero amet maiores tempore praesentium ipsa. Sit aut ullam voluptates quisquam debitis et facere sed. Commodi sint optio quaerat.&quot;,
         &quot;is_work&quot;: true,
         &quot;date_start&quot;: null,
         &quot;images&quot;: null
@@ -2011,10 +2712,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-races"
-               value="lttvgdejpsbjbdrlmygzoidgpretbnnubjpzdqnlnexitzmqzazuyubmjlwqnjweuvtrmgcvideqshz"
+               value="xgkncmgmzmkempklpjkpmmcgannynhqqwrjkwmdvbrunkldbogffddvzjxzmlzzntn"
                data-component="body">
     <br>
-<p>Количество символов в значении поля value не может превышать 255. Количество символов в поле value должно быть не меньше 3. Example: <code>lttvgdejpsbjbdrlmygzoidgpretbnnubjpzdqnlnexitzmqzazuyubmjlwqnjweuvtrmgcvideqshz</code></p>
+<p>Количество символов в значении поля value не может превышать 255. Количество символов в поле value должно быть не меньше 3. Example: <code>xgkncmgmzmkempklpjkpmmcgannynhqqwrjkwmdvbrunkldbogffddvzjxzmlzzntn</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>desc</code></b>&nbsp;&nbsp;
@@ -2022,10 +2723,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="desc"                data-endpoint="POSTapi-races"
-               value="architecto"
+               value="ipsam"
                data-component="body">
     <br>
-<p>Example: <code>architecto</code></p>
+<p>Example: <code>ipsam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>dateStart</code></b>&nbsp;&nbsp;
@@ -2033,10 +2734,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="dateStart"                data-endpoint="POSTapi-races"
-               value="2025-01-23T05:02:25"
+               value="2025-01-23T08:39:05"
                data-component="body">
     <br>
-<p>Значение поля value не является датой. Example: <code>2025-01-23T05:02:25</code></p>
+<p>Значение поля value не является датой. Example: <code>2025-01-23T08:39:05</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>trackId</code></b>&nbsp;&nbsp;
@@ -2044,10 +2745,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="trackId"                data-endpoint="POSTapi-races"
-               value="9"
+               value="16"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the tracks table. Example: <code>9</code></p>
+<p>The <code>id</code> of an existing record in the tracks table. Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>images</code></b>&nbsp;&nbsp;
@@ -2060,7 +2761,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                name="images[1]"                data-endpoint="POSTapi-races"
                data-component="body">
     <br>
-<p>Файл, указанный в поле value, должен быть изображением. Размер файла в поле value не может быть больше 2048 Кб.</p>
+<p>Файл, указанный в поле value, должен быть изображением.</p>
         </div>
         </form>
 
@@ -2218,7 +2919,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"roleId\": 6
+    \"roleId\": 3
 }"
 </code></pre></div>
 
@@ -2234,7 +2935,7 @@ const headers = {
 };
 
 let body = {
-    "roleId": 6
+    "roleId": 3
 };
 
 fetch(url, {
@@ -2255,9 +2956,10 @@ fetch(url, {
     &quot;status&quot;: &quot;success&quot;,
     &quot;message&quot;: &quot;messages.role.change_role_for_default_user.success&quot;,
     &quot;user&quot;: {
-        &quot;name&quot;: &quot;Лилия Алексеевна Кулагина&quot;,
-        &quot;email&quot;: &quot;borisova.ananii@example.org&quot;,
-        &quot;email_verified_at&quot;: &quot;2025-01-23T05:02:25.000000Z&quot;,
+        &quot;id&quot;: 36,
+        &quot;name&quot;: &quot;Флорентина Алексеевна Маслова&quot;,
+        &quot;email&quot;: &quot;feliks.lukina@example.org&quot;,
+        &quot;email_verified_at&quot;: &quot;2025-01-23T08:39:05.000000Z&quot;,
         &quot;avatar&quot;: null
     }
 }</code>
@@ -2339,10 +3041,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="roleId"                data-endpoint="POSTapi-roles-change"
-               value="6"
+               value="3"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the roles table. Example: <code>6</code></p>
+<p>The <code>id</code> of an existing record in the roles table. Example: <code>3</code></p>
         </div>
         </form>
 
@@ -2367,10 +3069,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"userId\": 15,
+    \"userId\": 18,
     \"paginate\": true,
-    \"page\": \"rerum\",
-    \"limit\": 10
+    \"page\": \"odit\",
+    \"limit\": 17
 }"
 </code></pre></div>
 
@@ -2386,10 +3088,10 @@ const headers = {
 };
 
 let body = {
-    "userId": 15,
+    "userId": 18,
     "paginate": true,
-    "page": "rerum",
-    "limit": 10
+    "page": "odit",
+    "limit": 17
 };
 
 fetch(url, {
@@ -2411,19 +3113,19 @@ fetch(url, {
         &quot;status&quot;: &quot;success&quot;,
         &quot;message&quot;: &quot;messages.track.get.success&quot;,
         &quot;tracks&quot;: {
-            &quot;id&quot;: 27,
-            &quot;name&quot;: &quot;Экономист&quot;,
-            &quot;address&quot;: &quot;883704, Тверская область, город Сергиев Посад, наб. Косиора, 24&quot;,
+            &quot;id&quot;: 31,
+            &quot;name&quot;: &quot;Садовник&quot;,
+            &quot;address&quot;: &quot;996941, Амурская область, город Пушкино, спуск Косиора, 98&quot;,
             &quot;images&quot;: null,
             &quot;latitude&quot;: 0,
             &quot;longitude&quot;: 0,
             &quot;level&quot;: {
-                &quot;name&quot;: &quot;Средняя&quot;,
-                &quot;color&quot;: &quot;#EF7C08&quot;
+                &quot;name&quot;: &quot;Низкая&quot;,
+                &quot;color&quot;: &quot;#22CA3D&quot;
             },
-            &quot;desc&quot;: &quot;Nostrum illum eum ut. Consequuntur maiores beatae exercitationem tenetur. Ut eum placeat minus aspernatur facilis odio. Rerum dolores impedit voluptatem doloribus quidem iure. Dicta velit vel quod dolore similique blanditiis ea aut. Est est dolor recusandae occaecati sequi. Saepe libero soluta laudantium aut eos eum. Cum sequi eligendi dolorem cumque. Dicta et aliquam qui aspernatur ut.&quot;,
-            &quot;length&quot;: 904,
-            &quot;turns&quot;: 13,
+            &quot;desc&quot;: &quot;Facere consequuntur dolor et vel est. Nostrum perferendis rerum temporibus voluptatem voluptatem consequuntur est. Tenetur odit quo est et repellat debitis libero earum. Quo ea porro vitae voluptate sequi. Rerum cumque consequatur doloribus voluptatem aliquam vitae. Nisi nulla nulla ipsum consequatur. Quisquam similique aperiam sed officia. Dicta eligendi illo natus est cum similique vitae aliquid.&quot;,
+            &quot;length&quot;: 619,
+            &quot;turns&quot;: 73,
             &quot;free&quot;: false,
             &quot;is_work&quot;: true,
             &quot;spec&quot;: null
@@ -2433,20 +3135,20 @@ fetch(url, {
         &quot;status&quot;: &quot;success&quot;,
         &quot;message&quot;: &quot;messages.track.get.success&quot;,
         &quot;tracks&quot;: {
-            &quot;id&quot;: 28,
-            &quot;name&quot;: &quot;Бармен&quot;,
-            &quot;address&quot;: &quot;183330, Вологодская область, город Орехово-Зуево, спуск Косиора, 26&quot;,
+            &quot;id&quot;: 32,
+            &quot;name&quot;: &quot;Системный аналитик&quot;,
+            &quot;address&quot;: &quot;606809, Курская область, город Озёры, въезд Ладыгина, 83&quot;,
             &quot;images&quot;: null,
             &quot;latitude&quot;: 0,
             &quot;longitude&quot;: 0,
             &quot;level&quot;: {
-                &quot;name&quot;: &quot;Низкая&quot;,
-                &quot;color&quot;: &quot;#22CA3D&quot;
+                &quot;name&quot;: &quot;Высокая&quot;,
+                &quot;color&quot;: &quot;#FD1215&quot;
             },
-            &quot;desc&quot;: &quot;Optio quia repudiandae provident commodi alias amet saepe ut. Labore ducimus omnis doloremque. Aut natus et officia fugiat libero. Fugiat sint velit labore quis facilis. Ipsa sed exercitationem fuga molestiae. Aperiam officiis dignissimos dolore laudantium qui velit magni. Quia ut laboriosam et. Excepturi consectetur repellat quia. Laboriosam quae fuga cum et sapiente et. Ad ut sit omnis consequatur. Et architecto qui officia esse.&quot;,
-            &quot;length&quot;: 426,
-            &quot;turns&quot;: 29,
-            &quot;free&quot;: true,
+            &quot;desc&quot;: &quot;Vitae magnam omnis iste quia ut possimus. Quo recusandae rerum perferendis dolorem veniam sint pariatur. Rem distinctio animi amet ut quia. Et magni et quibusdam tempora ut totam. Fugiat dolorem qui beatae aut. Sint sed itaque et ut ad enim. Quisquam ducimus sit ullam eaque ut. Minus et commodi omnis nostrum. Consequuntur laboriosam autem amet. Inventore libero qui nesciunt ipsa.&quot;,
+            &quot;length&quot;: 959,
+            &quot;turns&quot;: 68,
+            &quot;free&quot;: false,
             &quot;is_work&quot;: true,
             &quot;spec&quot;: null
         }
@@ -2530,10 +3232,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="userId"                data-endpoint="GETapi-tracks"
-               value="15"
+               value="18"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the users table. Example: <code>15</code></p>
+<p>The <code>id</code> of an existing record in the users table. Example: <code>18</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>paginate</code></b>&nbsp;&nbsp;
@@ -2562,10 +3264,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="page"                data-endpoint="GETapi-tracks"
-               value="rerum"
+               value="odit"
                data-component="body">
     <br>
-<p>Example: <code>rerum</code></p>
+<p>Example: <code>odit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
@@ -2573,10 +3275,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="limit"                data-endpoint="GETapi-tracks"
-               value="10"
+               value="17"
                data-component="body">
     <br>
-<p>Значение поля value не может быть больше 50. Example: <code>10</code></p>
+<p>Значение поля value не может быть больше 50. Example: <code>17</code></p>
         </div>
         </form>
 
@@ -2625,21 +3327,21 @@ fetch(url, {
     &quot;status&quot;: &quot;success&quot;,
     &quot;message&quot;: &quot;messages.track.get_for_id.success&quot;,
     &quot;track&quot;: {
-        &quot;id&quot;: 29,
-        &quot;name&quot;: &quot;Абразивоструйщик&quot;,
-        &quot;address&quot;: &quot;426363, Вологодская область, город Дорохово, пр. Гоголя, 67&quot;,
+        &quot;id&quot;: 33,
+        &quot;name&quot;: &quot;Интеллектуал&quot;,
+        &quot;address&quot;: &quot;221088, Свердловская область, город Кашира, пер. Ладыгина, 14&quot;,
         &quot;images&quot;: null,
         &quot;latitude&quot;: 0,
         &quot;longitude&quot;: 0,
         &quot;level&quot;: {
-            &quot;name&quot;: &quot;Средняя&quot;,
-            &quot;color&quot;: &quot;#EF7C08&quot;
+            &quot;name&quot;: &quot;Низкая&quot;,
+            &quot;color&quot;: &quot;#22CA3D&quot;
         },
-        &quot;desc&quot;: &quot;Dolore et consectetur autem placeat doloribus quidem. Eum blanditiis mollitia nam quos. Ratione aut tempore aliquam adipisci sint dolores voluptatibus. Nihil vel quos ratione. Est veniam fugiat rerum quisquam saepe soluta debitis molestiae. Et sunt sint vel veniam similique facere dolore. Vel sit iure non et modi ullam sed.&quot;,
-        &quot;length&quot;: 978,
-        &quot;turns&quot;: 47,
-        &quot;free&quot;: false,
-        &quot;is_work&quot;: true,
+        &quot;desc&quot;: &quot;Atque dicta et sunt. Rerum omnis quasi repudiandae sunt impedit doloremque eius qui. Quidem necessitatibus iure ratione iusto corporis. Nisi et quia magnam deserunt quaerat dolore. Molestias commodi enim porro et dolor sint quaerat. Ad voluptate in commodi autem reiciendis eaque rerum dolores. Laudantium asperiores autem voluptatem ducimus ipsa est. Dolores a aut eum dolorum adipisci voluptates eum. Assumenda at veniam tempora id in voluptatem distinctio.&quot;,
+        &quot;length&quot;: 132,
+        &quot;turns&quot;: 67,
+        &quot;free&quot;: true,
+        &quot;is_work&quot;: false,
         &quot;spec&quot;: null
     }
 }</code>
@@ -2745,18 +3447,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
     "http://localhost:8000/api/tracks" \
     --header "Content-Type: multipart/form-data" \
     --header "Accept: application/json" \
-    --form "name=nemsqjyuhldcooccgvwzxzkhlqwtkbsmvi"\
-    --form "address=ea"\
+    --form "name=hlnwcmrjllxrpnvtbnfftjydrmofohqxvdvcktrrcuvuhpqvacqigfqzvwgkt"\
+    --form "address=cumque"\
     --form "latitude=-87"\
     --form "longitude=-179"\
-    --form "levelId=11"\
-    --form "desc=magnam"\
-    --form "length=2"\
-    --form "turns=3"\
+    --form "levelId=3"\
+    --form "desc=voluptates"\
+    --form "length=20"\
+    --form "turns=13"\
     --form "free="\
-    --form "is_work="\
-    --form "spec=["nobis","error"]"\
-    --form "images[]=@/tmp/php5Vggtz" </code></pre></div>
+    --form "is_work=1"\
+    --form "spec=["dignissimos","at"]"\
+    --form "images[]=@/tmp/phpSJSjcm" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -2770,17 +3472,17 @@ const headers = {
 };
 
 const body = new FormData();
-body.append('name', 'nemsqjyuhldcooccgvwzxzkhlqwtkbsmvi');
-body.append('address', 'ea');
+body.append('name', 'hlnwcmrjllxrpnvtbnfftjydrmofohqxvdvcktrrcuvuhpqvacqigfqzvwgkt');
+body.append('address', 'cumque');
 body.append('latitude', '-87');
 body.append('longitude', '-179');
-body.append('levelId', '11');
-body.append('desc', 'magnam');
-body.append('length', '2');
-body.append('turns', '3');
+body.append('levelId', '3');
+body.append('desc', 'voluptates');
+body.append('length', '20');
+body.append('turns', '13');
 body.append('free', '');
-body.append('is_work', '');
-body.append('spec', '["nobis","error"]');
+body.append('is_work', '1');
+body.append('spec', '["dignissimos","at"]');
 body.append('images[]', document.querySelector('input[name="images[]"]').files[0]);
 
 fetch(url, {
@@ -2801,21 +3503,21 @@ fetch(url, {
     &quot;status&quot;: &quot;success&quot;,
     &quot;message&quot;: &quot;messages.track.create.success&quot;,
     &quot;track&quot;: {
-        &quot;id&quot;: 30,
-        &quot;name&quot;: &quot;Машинист&quot;,
-        &quot;address&quot;: &quot;299913, Томская область, город Пушкино, пл. 1905 года, 35&quot;,
+        &quot;id&quot;: 34,
+        &quot;name&quot;: &quot;Учёный&quot;,
+        &quot;address&quot;: &quot;381752, Липецкая область, город Шаховская, пр. Космонавтов, 25&quot;,
         &quot;images&quot;: null,
         &quot;latitude&quot;: 0,
         &quot;longitude&quot;: 0,
         &quot;level&quot;: {
-            &quot;name&quot;: &quot;Высокая&quot;,
-            &quot;color&quot;: &quot;#FD1215&quot;
+            &quot;name&quot;: &quot;Низкая&quot;,
+            &quot;color&quot;: &quot;#22CA3D&quot;
         },
-        &quot;desc&quot;: &quot;Perspiciatis non est voluptatum saepe tenetur sint. Quo aut commodi voluptate itaque magni ut. Adipisci illo est quia corporis voluptas. Quo labore ad dolor deserunt qui voluptate et. Et quibusdam pariatur iste sed earum repudiandae. Deleniti enim est quibusdam accusamus fugit consequatur est sed. Modi et hic velit et consequuntur magnam. Eaque est nobis eos fugiat nihil iste repellendus. Assumenda enim error labore impedit ipsam. Quia in quidem quaerat numquam in. Iure sit dolore ab molestias.&quot;,
-        &quot;length&quot;: 778,
-        &quot;turns&quot;: 28,
-        &quot;free&quot;: true,
-        &quot;is_work&quot;: true,
+        &quot;desc&quot;: &quot;Sunt accusamus facere autem sunt laboriosam cupiditate. Dolorem in deleniti harum non animi aut excepturi. Magni et non ipsa. Eius nostrum praesentium adipisci eveniet beatae corporis molestias. Rerum corrupti tempora non et quibusdam. Voluptatem perspiciatis doloribus blanditiis asperiores. Rerum aliquam eveniet voluptatibus. Quo debitis odio ea blanditiis.&quot;,
+        &quot;length&quot;: 760,
+        &quot;turns&quot;: 83,
+        &quot;free&quot;: false,
+        &quot;is_work&quot;: false,
         &quot;spec&quot;: null
     }
 }</code>
@@ -2907,10 +3609,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-tracks"
-               value="nemsqjyuhldcooccgvwzxzkhlqwtkbsmvi"
+               value="hlnwcmrjllxrpnvtbnfftjydrmofohqxvdvcktrrcuvuhpqvacqigfqzvwgkt"
                data-component="body">
     <br>
-<p>Количество символов в поле value должно быть не меньше 3. Example: <code>nemsqjyuhldcooccgvwzxzkhlqwtkbsmvi</code></p>
+<p>Количество символов в поле value должно быть не меньше 3. Example: <code>hlnwcmrjllxrpnvtbnfftjydrmofohqxvdvcktrrcuvuhpqvacqigfqzvwgkt</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -2918,10 +3620,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="address"                data-endpoint="POSTapi-tracks"
-               value="ea"
+               value="cumque"
                data-component="body">
     <br>
-<p>Example: <code>ea</code></p>
+<p>Example: <code>cumque</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>latitude</code></b>&nbsp;&nbsp;
@@ -2956,7 +3658,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                name="images[1]"                data-endpoint="POSTapi-tracks"
                data-component="body">
     <br>
-<p>Файл, указанный в поле value, должен быть изображением. Размер файла в поле value не может быть больше 2048 Кб.</p>
+<p>Файл, указанный в поле value, должен быть изображением.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>levelId</code></b>&nbsp;&nbsp;
@@ -2964,10 +3666,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="levelId"                data-endpoint="POSTapi-tracks"
-               value="11"
+               value="3"
                data-component="body">
     <br>
-<p>The <code>id</code> of an existing record in the levels table. Example: <code>11</code></p>
+<p>The <code>id</code> of an existing record in the levels table. Example: <code>3</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>desc</code></b>&nbsp;&nbsp;
@@ -2975,10 +3677,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="desc"                data-endpoint="POSTapi-tracks"
-               value="magnam"
+               value="voluptates"
                data-component="body">
     <br>
-<p>Example: <code>magnam</code></p>
+<p>Example: <code>voluptates</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>length</code></b>&nbsp;&nbsp;
@@ -2986,10 +3688,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="length"                data-endpoint="POSTapi-tracks"
-               value="2"
+               value="20"
                data-component="body">
     <br>
-<p>Example: <code>2</code></p>
+<p>Example: <code>20</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>turns</code></b>&nbsp;&nbsp;
@@ -2997,10 +3699,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="turns"                data-endpoint="POSTapi-tracks"
-               value="3"
+               value="13"
                data-component="body">
     <br>
-<p>Example: <code>3</code></p>
+<p>Example: <code>13</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>free</code></b>&nbsp;&nbsp;
@@ -3042,7 +3744,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>spec</code></b>&nbsp;&nbsp;
@@ -3050,10 +3752,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="spec"                data-endpoint="POSTapi-tracks"
-               value="["nobis","error"]"
+               value="["dignissimos","at"]"
                data-component="body">
     <br>
-<p>Значение поля value должно быть JSON строкой. Example: <code>["nobis","error"]</code></p>
+<p>Значение поля value должно быть JSON строкой. Example: <code>["dignissimos","at"]</code></p>
         </div>
         </form>
 
@@ -3107,9 +3809,10 @@ fetch(url, {
     &quot;status&quot;: &quot;success&quot;,
     &quot;message&quot;: &quot;messages.user.get_user_for_token.success&quot;,
     &quot;user&quot;: {
-        &quot;name&quot;: &quot;Большакова Жанна Владимировна&quot;,
-        &quot;email&quot;: &quot;ruslan.silin@example.net&quot;,
-        &quot;email_verified_at&quot;: &quot;2025-01-23T05:02:25.000000Z&quot;,
+        &quot;id&quot;: 35,
+        &quot;name&quot;: &quot;Эльвира Борисовна Дорофеева&quot;,
+        &quot;email&quot;: &quot;kapitolina53@example.com&quot;,
+        &quot;email_verified_at&quot;: &quot;2025-01-23T08:39:05.000000Z&quot;,
         &quot;avatar&quot;: null
     }
 }</code>

@@ -6,7 +6,7 @@ use App\Http\Resources\PersonalInfo\PersonalInfoResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SuccessUpdatePersonalInfoRequest extends JsonResource
+class SuccessUpdatePersonalInfoResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

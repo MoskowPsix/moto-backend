@@ -55,6 +55,7 @@ final class MoonShineLayout extends AppLayout
 
             MenuItem::make('Сервисы', ServiceResource::class),
             MenuItem::make('Гонки', RaceResource::class),
+            MenuItem::make('Telescope', '/telescope'),
         ];
     }
 

@@ -17,7 +17,7 @@ class CreateDocumentAction implements CreateDocumentActionContract
         $document = Document::create([
             'name'      => $name,
             'type'      => $request->type,
-            'path'      => $path,
+            'path'      => 'no-file',
             'data'      => $request->data,
             'user_id'   => $user->id,
         ]);

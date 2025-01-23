@@ -41,7 +41,7 @@ class CreateTrackRequest extends FormRequest
             'latitude'      => 'required|numeric|between:-87,89',
             'longitude'     => 'required|numeric|between:-180,180',
             'images'        => 'array|nullable',
-            'images.*'      => 'image|mimes:jpeg,png,jpg|max:2048',
+            'images.*'      => 'image|mimes:jpeg,png,jpg',
             'levelId'       => 'integer|requires|exists:levels,id',
             'desc'          => 'string|nullable',
             'length'        => 'integer|nullable',

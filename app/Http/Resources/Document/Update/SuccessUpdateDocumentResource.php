@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Document\Update;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class NotFoundResource extends JsonResource
+class SuccessUpdateDocumentResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

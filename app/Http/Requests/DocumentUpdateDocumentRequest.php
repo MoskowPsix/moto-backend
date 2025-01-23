@@ -1,22 +1,17 @@
 <?php
 
-namespace App\Http\Requests\Document;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-/**
- * @property string $file
- * @property string $type
- * @property array $data
- */
-class CreateDocumentRequest extends FormRequest
+class DocumentUpdateDocumentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -27,9 +22,7 @@ class CreateDocumentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'type'  => 'required|string',
-//            'file'  => 'required|file|mimes:pdf,jpg,jpeg,png',
-            'data'  => 'required|json',
+            //
         ];
     }
 }

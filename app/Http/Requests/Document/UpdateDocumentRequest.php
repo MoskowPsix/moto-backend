@@ -5,11 +5,9 @@ namespace App\Http\Requests\Document;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * @property string $file
- * @property string $type
- * @property array $data
+ * @property mixed $data
  */
-class CreateDocumentRequest extends FormRequest
+class UpdateDocumentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,9 +25,8 @@ class CreateDocumentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'type'  => 'required|string',
-//            'file'  => 'required|file|mimes:pdf,jpg,jpeg,png',
-            'data'  => 'required|json',
+//            'file'  => 'nullable|file|mimes:pdf,jpg,jpeg,png',
+            'data'  => 'nullable|json',
         ];
     }
 }

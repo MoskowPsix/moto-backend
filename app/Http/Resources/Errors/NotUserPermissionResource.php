@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Errors;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -14,6 +14,13 @@ class NotUserPermissionResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'status'        => 'error',
+            'message'       => __('messages.error.permission'),
+        ];
+    }
+    public function withResponse($request, $response): void
+    {
+        $response->setStatusCode(403);
     }
 }
