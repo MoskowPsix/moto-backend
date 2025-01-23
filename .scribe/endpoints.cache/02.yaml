@@ -24,11 +24,31 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      paginate:
+        name: paginate
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
       page:
         name: page
         description: ''
         required: false
-        example: null
+        example: consequatur
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -38,19 +58,22 @@ endpoints:
         name: limit
         description: validation.max.
         required: false
-        example: 25
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         custom: []
     cleanBodyParameters:
-      limit: 25
+      userId: 3
+      paginate: true
+      page: consequatur
+      limit: 8
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.track.get.success","tracks":{"id":19,"name":"\u0413\u043e\u0440\u043d\u044b\u0439 \u043f\u0440\u043e\u0432\u043e\u0434\u043d\u0438\u043a","address":"798342, \u041a\u0435\u043c\u0435\u0440\u043e\u0432\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0415\u0433\u043e\u0440\u044c\u0435\u0432\u0441\u043a, \u0432\u044a\u0435\u0437\u0434 \u041b\u0435\u043d\u0438\u043d\u0430, 53","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"In rerum minima fuga est aperiam possimus. Molestias quaerat ut eos et. Nam ea molestias molestias autem id impedit. Dolorum similique quia tempora illum fuga. Fugiat et odio ea provident est sit ut id. Dicta sed cupiditate et exercitationem sunt ab. Impedit placeat error fugiat qui sunt omnis. Perspiciatis quia error omnis nemo corporis vitae. Non unde eligendi expedita voluptates.","length":682,"turns":38,"free":false,"is_work":false,"spec":null}},{"status":"success","message":"messages.track.get.success","tracks":{"id":20,"name":"\u0424\u0438\u043d\u0430\u043d\u0441\u043e\u0432\u044b\u0439 \u0441\u043e\u0432\u0435\u0442\u043d\u0438\u043a","address":"617536, \u041c\u0443\u0440\u043c\u0430\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0415\u0433\u043e\u0440\u044c\u0435\u0432\u0441\u043a, \u0432\u044a\u0435\u0437\u0434 \u041b\u0435\u043d\u0438\u043d\u0430, 88","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Minus et deserunt officiis quia laboriosam soluta. Iste aut enim maiores ad quas voluptates. Blanditiis laborum non dicta. Perferendis aut quia rerum quis. Aut quos voluptas eligendi minima. Aliquam error exercitationem aliquid est. Eius eaque voluptatem laboriosam. Quo laudantium atque aut illum quia. Consectetur esse distinctio voluptas optio cum aut. Quo voluptatem in fuga illum et quis debitis.","length":400,"turns":2,"free":true,"is_work":true,"spec":null}}]'
+        content: '[{"status":"success","message":"messages.track.get.success","tracks":{"id":23,"name":"\u042d\u043a\u043e\u043d\u043e\u043c\u0438\u0441\u0442","address":"266521, \u041a\u043e\u0441\u0442\u0440\u043e\u043c\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0414\u043e\u043c\u043e\u0434\u0435\u0434\u043e\u0432\u043e, \u043f\u0440\u043e\u0435\u0437\u0434 \u041b\u043e\u043c\u043e\u043d\u043e\u0441\u043e\u0432\u0430, 76","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Natus aut eos corporis amet quas dignissimos iure. Et quia sit ad. Neque consequatur officia harum earum veritatis qui aut. Eos fuga id accusamus at tempore perferendis. Corporis culpa dignissimos quam fuga. Nam nihil culpa et alias aut rerum nihil enim. Nam placeat sint nulla voluptatum cumque esse. Ut voluptatem et non ad quis consectetur expedita. Et est explicabo voluptatem alias omnis. Nostrum nulla veritatis omnis nemo ut ut excepturi.","length":823,"turns":47,"free":true,"is_work":false,"spec":null}},{"status":"success","message":"messages.track.get.success","tracks":{"id":24,"name":"\u041f\u0438\u0430\u043d\u0438\u0441\u0442","address":"228962, \u0427\u0438\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0421\u0435\u0440\u0433\u0438\u0435\u0432 \u041f\u043e\u0441\u0430\u0434, \u043f\u0440\u043e\u0435\u0437\u0434 \u0414\u043e\u043c\u043e\u0434\u0435\u0434\u043e\u0432\u0441\u043a\u0430\u044f, 53","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Et deleniti ut et illo sed dolores consequatur. Quasi debitis delectus mollitia ipsum. Assumenda impedit ab repellat dolores dolorem doloremque aut ad. Aliquam porro qui qui. Quia omnis nisi est ab velit dignissimos asperiores. Quaerat libero quidem laboriosam vero. Voluptatum quidem optio ut beatae voluptatem. Sunt minus laboriosam et accusamus. Autem quia ullam libero.","length":866,"turns":31,"free":false,"is_work":false,"spec":null}}]'
         headers: []
         description: ''
         custom: []
@@ -97,7 +120,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.track.get_for_id.success","track":{"id":21,"name":"\u0423\u0447\u0451\u043d\u044b\u0439","address":"924465, \u041e\u043c\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041c\u044b\u0442\u0438\u0449\u0438, \u043f\u0440\u043e\u0435\u0437\u0434 \u0414\u043e\u043c\u043e\u0434\u0435\u0434\u043e\u0432\u0441\u043a\u0430\u044f, 35","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Enim officia tempora porro et quia incidunt. Accusamus ipsum rem error et voluptatum nulla facilis dolor. Et earum iste nam doloremque ducimus autem numquam. Consequuntur ea ea magnam temporibus officiis. Suscipit consectetur quo magnam vel qui accusamus reprehenderit. Ut et sed eos rerum ex. Aspernatur enim in et magnam libero ducimus.","length":564,"turns":96,"free":true,"is_work":false,"spec":null}}'
+        content: '{"status":"success","message":"messages.track.get_for_id.success","track":{"id":25,"name":"\u0411\u0438\u0437\u043d\u0435\u0441-\u0430\u043d\u0430\u043b\u0438\u0442\u0438\u043a","address":"113086, \u0412\u043e\u043b\u0433\u043e\u0433\u0440\u0430\u0434\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0428\u0430\u0442\u0443\u0440\u0430, \u0441\u043f\u0443\u0441\u043a \u0413\u0430\u0433\u0430\u0440\u0438\u043d\u0430, 82","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Suscipit modi consectetur asperiores et. Animi animi harum sunt hic earum dolores placeat. Eum doloremque qui et voluptatem est earum quia. Voluptates nihil accusantium nihil rerum aut id. Aut fugiat voluptatem aliquid et. Qui quam facilis ab blanditiis voluptas sequi possimus. Animi id inventore itaque dolor. Fugit ut aut enim magnam nulla deserunt. Voluptatem et voluptates vel nulla praesentium laudantium totam ut.","length":553,"turns":15,"free":true,"is_work":false,"spec":null}}'
         headers: []
         description: ''
         custom: []
@@ -132,7 +155,7 @@ endpoints:
         name: name
         description: validation.min.
         required: true
-        example: tbevgzpoaqzcwamlnugnmmwygup
+        example: uomasbaxugbusqbxvkgxnusscewpwwctkwfcibvzbdakebvhzvoixvlcwbjtayhkgrvcfmkeqjrooo
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -142,7 +165,7 @@ endpoints:
         name: address
         description: ''
         required: true
-        example: totam
+        example: exercitationem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -152,7 +175,7 @@ endpoints:
         name: latitude
         description: validation.between.
         required: true
-        example: -86
+        example: -87
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -162,7 +185,7 @@ endpoints:
         name: longitude
         description: validation.between.
         required: true
-        example: -179
+        example: -180
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -183,7 +206,7 @@ endpoints:
         name: levelId
         description: 'The <code>id</code> of an existing record in the levels table.'
         required: false
-        example: 2
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -193,7 +216,7 @@ endpoints:
         name: desc
         description: ''
         required: false
-        example: necessitatibus
+        example: non
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -203,7 +226,7 @@ endpoints:
         name: length
         description: ''
         required: false
-        example: 17
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -213,7 +236,7 @@ endpoints:
         name: turns
         description: ''
         required: false
-        example: 2
+        example: 17
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -223,7 +246,7 @@ endpoints:
         name: free
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -243,31 +266,31 @@ endpoints:
         name: spec
         description: validation.json.
         required: false
-        example: '["nostrum","repellendus"]'
+        example: '["sunt","voluptatem"]'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: tbevgzpoaqzcwamlnugnmmwygup
-      address: totam
-      latitude: -86
-      longitude: -179
-      levelId: 2
-      desc: necessitatibus
-      length: 17
-      turns: 2
-      free: true
+      name: uomasbaxugbusqbxvkgxnusscewpwwctkwfcibvzbdakebvhzvoixvlcwbjtayhkgrvcfmkeqjrooo
+      address: exercitationem
+      latitude: -87
+      longitude: -180
+      levelId: 16
+      desc: non
+      length: 3
+      turns: 17
+      free: false
       is_work: false
-      spec: '["nostrum","repellendus"]'
+      spec: '["sunt","voluptatem"]'
     fileParameters:
       images:
         - null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.track.create.success","track":{"id":22,"name":"\u041d\u0430\u0443\u0447\u043d\u044b\u0439 \u0441\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a","address":"959241, \u041d\u043e\u0432\u0433\u043e\u0440\u043e\u0434\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0412\u0438\u0434\u043d\u043e\u0435, \u0431\u0443\u043b\u044c\u0432\u0430\u0440 \u041a\u043e\u0441\u043c\u043e\u043d\u0430\u0432\u0442\u043e\u0432, 88","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Impedit nihil aut mollitia aperiam vel. Delectus quia explicabo ullam eos. Consequatur ut occaecati voluptates quia aliquam molestias. Possimus eveniet voluptatem perspiciatis. Consequatur nisi ipsa officia nostrum eaque perferendis quasi. Blanditiis debitis sint ratione dignissimos voluptatem libero. Dolores velit nam mollitia iure quos reprehenderit soluta. Voluptatem sed commodi neque autem in necessitatibus. In neque consequatur optio exercitationem nulla beatae est dolorem.","length":741,"turns":43,"free":true,"is_work":true,"spec":null}}'
+        content: '{"status":"success","message":"messages.track.create.success","track":{"id":26,"name":"\u041f\u0440\u043e\u043c\u043e\u0443\u0442\u0435\u0440","address":"192557, \u0411\u0435\u043b\u0433\u043e\u0440\u043e\u0434\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041a\u0440\u0430\u0441\u043d\u043e\u0433\u043e\u0440\u0441\u043a, \u043f\u043b. \u0421\u043b\u0430\u0432\u044b, 31","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Aut dolor aliquam nihil aut assumenda sed dolores. Dolor sunt veritatis omnis non. Molestiae provident ad quos cupiditate hic qui deserunt. Alias dolores corrupti repudiandae. Aperiam exercitationem reprehenderit omnis eveniet debitis ex harum. Officia voluptates laborum sit quia. Qui eum ut totam odio aliquid. Et natus neque enim. Pariatur vel nulla qui mollitia quo aut et. Quod aut mollitia sapiente ut et et aspernatur. Vel fugiat dicta sunt eligendi.","length":218,"turns":90,"free":false,"is_work":false,"spec":null}}'
         headers: []
         description: ''
         custom: []

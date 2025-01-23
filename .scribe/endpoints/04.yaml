@@ -21,13 +21,57 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      paginate:
+        name: paginate
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: harum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      limit:
+        name: limit
+        description: validation.max.
+        required: false
+        example: 4
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      userId: 2
+      paginate: true
+      page: harum
+      limit: 4
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.race.get.success","races":{"id":19,"name":"\u0420\u043e\u0437\u0430\u043b\u0438\u043d\u0430 \u041b\u044c\u0432\u043e\u0432\u043d\u0430 \u041a\u0443\u043b\u0430\u043a\u043e\u0432\u0430","desc":"Et cupiditate expedita odit pariatur. Unde dignissimos sit hic asperiores. Sit tempore quae magni aut. Adipisci rerum odit non iure.","is_work":true,"date_start":null,"images":null}},{"status":"success","message":"messages.race.get.success","races":{"id":20,"name":"\u041f\u0430\u0432\u0435\u043b \u0414\u043c\u0438\u0442\u0440\u0438\u0435\u0432\u0438\u0447 \u0412\u043b\u0430\u0441\u043e\u0432","desc":"Eveniet officia unde quia veritatis expedita soluta vero. Aperiam perferendis omnis omnis quis impedit.","is_work":true,"date_start":null,"images":null}}]'
+        content: '[{"status":"success","message":"messages.race.get.success","races":{"id":23,"name":"\u0411\u0443\u0440\u043e\u0432 \u0413\u0440\u0438\u0433\u043e\u0440\u0438\u0439 \u041c\u0430\u043a\u0441\u0438\u043c\u043e\u0432\u0438\u0447","desc":"Praesentium perferendis est dolorum aut doloremque id nostrum quidem. Similique omnis recusandae est dolorem non rerum. Non unde tenetur sit autem. Excepturi facere vel delectus.","is_work":false,"date_start":null,"images":null}},{"status":"success","message":"messages.race.get.success","races":{"id":24,"name":"\u041c\u0430\u0439\u044f \u0411\u043e\u0440\u0438\u0441\u043e\u0432\u043d\u0430 \u041c\u043e\u0440\u043e\u0437\u043e\u0432\u0430","desc":"Repudiandae aliquam sunt dicta perspiciatis fuga quia dignissimos. Nostrum reiciendis dolores cum sint debitis veritatis. Adipisci voluptas et iusto vel sequi delectus officiis.","is_work":false,"date_start":null,"images":null}}]'
         headers: []
         description: ''
         custom: []
@@ -58,14 +102,14 @@ endpoints:
         name: id
         description: 'The ID of the race.'
         required: true
-        example: 1
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -74,7 +118,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.race.get_for_id.success","race":{"id":21,"name":"\u0417\u0430\u0445\u0430\u0440 \u0421\u0435\u0440\u0433\u0435\u0435\u0432\u0438\u0447 \u0415\u0440\u0448\u043e\u0432","desc":"Voluptatibus explicabo enim aut tempora nisi quasi eveniet maxime. Quia nesciunt perspiciatis consequuntur minus rerum sed. Est recusandae ut nobis officia earum.","is_work":false,"date_start":null,"images":null}}'
+        content: '{"status":"success","message":"messages.race.get_for_id.success","race":{"id":25,"name":"\u0415\u043b\u0438\u0437\u0430\u0432\u0435\u0442\u0430 \u041b\u044c\u0432\u043e\u0432\u043d\u0430 \u041a\u0438\u0441\u0435\u043b\u0451\u0432\u0430","desc":"Ex magnam qui enim recusandae velit voluptates. Non sint voluptas perspiciatis non velit. Sit minus placeat consequatur pariatur.","is_work":true,"date_start":null,"images":null}}'
         headers: []
         description: ''
         custom: []
@@ -109,7 +153,7 @@ endpoints:
         name: name
         description: 'validation.max validation.min.'
         required: true
-        example: aijyovzdodaqzqqfbuczmpzhpmddzpfi
+        example: jocpfgqfdwbxdculheoaiapwddcqjqeunpginpepcgzjhxhbwcrleqawtuomaophhymwmdht
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -119,7 +163,7 @@ endpoints:
         name: desc
         description: ''
         required: false
-        example: asperiores
+        example: minus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -129,7 +173,7 @@ endpoints:
         name: date_start
         description: validation.date.
         required: true
-        example: '2025-01-21T13:35:09'
+        example: '2025-01-23T04:28:35'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -139,7 +183,7 @@ endpoints:
         name: trackId
         description: 'The <code>id</code> of an existing record in the tracks table.'
         required: true
-        example: 12
+        example: 7
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -157,17 +201,17 @@ endpoints:
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: aijyovzdodaqzqqfbuczmpzhpmddzpfi
-      desc: asperiores
-      date_start: '2025-01-21T13:35:09'
-      trackId: 12
+      name: jocpfgqfdwbxdculheoaiapwddcqjqeunpginpepcgzjhxhbwcrleqawtuomaophhymwmdht
+      desc: minus
+      date_start: '2025-01-23T04:28:35'
+      trackId: 7
     fileParameters:
       images:
         - null
     responses:
       -
         status: 200
-        content: '{"id":22,"name":"\u041e\u0440\u0435\u0445\u043e\u0432\u0430 \u0421\u043e\u0444\u044c\u044f \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u043d\u0430","desc":"Aliquam beatae sed pariatur aliquam est nobis aut. Saepe aut ipsam sapiente voluptatem. Eius ad eos officia quis non architecto et. Non ut officia minus.","is_work":true,"date_start":"2025-01-21T13:35:09.000000Z","images":null,"track_id":6,"user_id":1,"created_at":"2025-01-21T13:35:09.000000Z","updated_at":"2025-01-21T13:35:09.000000Z"}'
+        content: '{"id":26,"name":"\u0422\u0430\u043c\u0430\u0440\u0430 \u0411\u043e\u0440\u0438\u0441\u043e\u0432\u043d\u0430 \u0424\u0430\u0434\u0435\u0435\u0432\u0430","desc":"Unde saepe recusandae eligendi iure quam unde cum. Explicabo eveniet facere aut voluptate atque unde tempora exercitationem. In fugiat et eos nobis.","is_work":true,"date_start":"2025-01-23T04:28:35.000000Z","images":null,"track_id":3,"user_id":19,"created_at":"2025-01-23T04:28:35.000000Z","updated_at":"2025-01-23T04:28:35.000000Z"}'
         headers: []
         description: ''
         custom: []

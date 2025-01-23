@@ -5,6 +5,11 @@ namespace App\Http\Requests\Race;
 use App\Http\Resources\Race\RaceResource;
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @property string $page
+ * @property int $limit
+ * @property bool $paginate
+ */
 class GetRaceRequest extends FormRequest
 {
     /**
@@ -23,6 +28,10 @@ class GetRaceRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'userId'    => 'nullable|integer|exists:users,id',
+            'paginate'  => 'nullable|boolean',
+            'page'      => 'nullable|string',
+            'limit'     => 'nullable|integer|max:50',
         ];
     }
 }

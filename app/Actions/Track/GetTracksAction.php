@@ -3,16 +3,32 @@
 namespace App\Actions\Track;
 
 use App\Contracts\Actions\Track\GetTracksActionContract;
+use App\Filters\Track\TrackUserIdFilter;
 use App\Http\Requests\Track\GetTracksRequest;
 use App\Http\Resources\Track\GetTracks\SuccessGetTracksResource;
-use App\Http\Resources\User\GetUserForToken\SuccessGetUserForTokenResource;
 use App\Models\Track;
+use Illuminate\Pipeline\Pipeline;
+
 
 class GetTracksAction implements GetTracksActionContract
 {
     public function __invoke(GetTracksRequest $request): SuccessGetTracksResource
     {
-        $track = Track::selectRaw('*, ST_AsGeoJSON(point) as point')->with('level')->get();
-        return SuccessGetTracksResource::make($track);
+        $page = $request->page;
+        $limit = $request->limit && ($request->limit < 50) ? $request->limit : 6;
+
+        $track_q = Track::selectRaw('*, ST_AsGeoJSON(point) as point')->with('level');
+        $tracks = app(Pipeline::class)
+            ->send($track_q)
+            ->through([
+                TrackUserIdFilter::class
+            ])
+            ->via('apply')
+            ->then(function ($tracks) use ($page, $limit, $request) {
+                return $request->paginate ?
+                    $tracks->simplePaginate($limit, ['*'], 'page',  $page) :
+                    $tracks->get();
+            });
+        return SuccessGetTracksResource::make($tracks);
     }
 }
