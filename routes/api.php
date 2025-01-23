@@ -50,3 +50,7 @@ Route::controller(\App\Http\Controllers\Api\DocumentController::class)->group(fu
     Route::post('users/cabinet/documents/{id}/update', 'update')->middleware('auth:sanctum')->name('document.update');
     Route::delete('users/cabinet/documents/{id}', 'delete')->middleware('auth:sanctum')->name('document.delete');
 });
+
+Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->group(function () {
+    Route::post('races/{id}/toggle-appointment-race', 'toggle')->middleware('auth:sanctum')->name('appointment_race.create');
+});

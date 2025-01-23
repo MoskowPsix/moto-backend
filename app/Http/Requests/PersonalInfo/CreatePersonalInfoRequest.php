@@ -40,22 +40,22 @@ class CreatePersonalInfoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'              => 'required|string',
-            'surname'           => 'required|string',
-            'patronymic'        => 'required|string',
-            'dateOfBirth'       => 'required|date',
-            'city'              => 'required|string',
-            'inn'               => 'required|integer',
-            'snils'             => 'required|integer',
-            'phoneNumber'       => 'required|string',
-            'startNumber'       => 'required|integer',
-            'group'             => 'required|string',
-            'rank'              => 'required|string',
-            'rankNumber'        => 'required|string',
+            'name'              => 'nullable|string',
+            'surname'           => 'nullable|string',
+            'patronymic'        => 'nullable|string',
+            'dateOfBirth'       => 'nullable|date',
+            'city'              => 'nullable|string',
+            'inn'               => 'nullable|integer',
+            'snils'             => 'nullable|integer',
+            'phoneNumber'       => 'nullable|string',
+            'startNumber'       => 'nullable|integer',
+            'group'             => 'nullable|string',
+            'rank'              => 'nullable|string',
+            'rankNumber'        => 'nullable|string',
             'community'         => 'nullable|string',
             'coach'             => 'nullable|string',
-            'motoStamp'         => 'required|string',
-            'engine'            => 'required|string',
+            'motoStamp'         => 'nullable|string',
+            'engine'            => 'nullable|string',
         ];
     }
 }

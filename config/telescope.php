@@ -92,7 +92,7 @@ return [
     */
 
     'middleware' => [
-        'moonshine'
+        'api'
     ],
 
     /*
