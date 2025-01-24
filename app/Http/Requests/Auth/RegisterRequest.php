@@ -46,7 +46,7 @@ class RegisterRequest extends FormRequest
             ],
             'password'               => 'required|min:8',
             'password_confirmation'  => 'required|same:password',
-            'avatar'                 => 'nullable|image|mimes:jpeg,png,jpg'
+            'avatar'                 => 'nullable|image|mimes:jpeg,png,jpg,svg,webp'
         ];
     }
 }

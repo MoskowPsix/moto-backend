@@ -35,7 +35,7 @@ class CreateRaceRequest extends FormRequest
             'dateStart'     => 'required|date',
             'trackId'       => 'required|integer|exists:tracks,id',
             'images'        => 'array|nullable',
-            'images.*'      => 'image|mimes:jpeg,png,jpg',
+            'images.*'      => 'image|mimes:jpeg,png,jpg,svg,webp',
         ];
     }
 }

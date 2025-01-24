@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "55fa8b31-7ea3-4372-b913-c4dbd0f414bb",
+        "_postman_id": "c3ea6ea1-1f3c-4a63-866b-2ecadee38e2f",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -70,6 +70,58 @@
                             "name": ""
                         }
                     ]
+                },
+                {
+                    "name": "toggle",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/races\/:id\/appointment-race\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/races\/:id\/appointment-race\/users",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the race."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"paginate\":false,\"page\":\"reiciendis\",\"limit\":2}"
+                        },
+                        "description": "\u0417\u0430\u043f\u0438\u0441\u0430\u0442\u044c\u0441\u044f \u0438 \u043e\u0442\u043c\u0435\u043d\u0438\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u044c \u043d\u0430 \u0433\u043e\u043d\u043a\u0443",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[{\"status\":\"success\",\"message\":\"\\u041f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"users\":{\"id\":76,\"name\":\"\\u0428\\u0430\\u0440\\u0430\\u043f\\u043e\\u0432\\u0430 \\u041b\\u0438\\u043b\\u0438\\u044f \\u0410\\u043b\\u0435\\u043a\\u0441\\u0435\\u0435\\u0432\\u043d\\u0430\",\"email\":\"iskra83@example.net\",\"email_verified_at\":\"2025-01-24T07:05:49.000000Z\",\"avatar\":null}},{\"status\":\"success\",\"message\":\"\\u041f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"users\":{\"id\":77,\"name\":\"\\u041a\\u043d\\u044f\\u0437\\u0435\\u0432\\u0430 \\u041b\\u0430\\u0434\\u0430 \\u0410\\u043d\\u0434\\u0440\\u0435\\u0435\\u0432\\u043d\\u0430\",\"email\":\"fokina.dary@example.org\",\"email_verified_at\":\"2025-01-24T07:05:49.000000Z\",\"avatar\":null}}]",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"\\u0417\\u0430\\u043f\\u0440\\u0430\\u0448\\u0438\\u0432\\u0430\\u0435\\u043c\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0443\\u0440\\u0441 \\u043d\\u0435 \\u043d\\u0430\\u0439\\u0434\\u0435\\u043d.\"}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },
@@ -99,7 +151,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"gislason.dayne@example.net\",\"password\":\"'`DEE$6}L.\"}"
+                            "raw": "{\"email\":\"katelynn.larkin@example.net\",\"password\":\"QlDU;113qsBKTt!?\\\"9@\"}"
                         },
                         "description": "\u0410\u0432\u0442\u043e\u0440\u0438\u0437\u0430\u0446\u0438\u044f \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
                         "auth": {
@@ -110,7 +162,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"\\u0412\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0430\\u0432\\u0442\\u043e\\u0440\\u0438\\u0437\\u043e\\u0432\\u0430\\u043b\\u0438\\u0441\\u044c\",\"access_token\":\"26|pVXVMAQe3M8vCFOJuylert2Q1OsWNSX9M3ooMW6m879e01af\",\"token_type\":\"Bearer\",\"user\":{\"id\":49,\"name\":\"\\u042d\\u0434\\u0443\\u0430\\u0440\\u0434 \\u0418\\u0432\\u0430\\u043d\\u043e\\u0432\\u0438\\u0447 \\u041f\\u043e\\u043d\\u043e\\u043c\\u0430\\u0440\\u0451\\u0432\",\"email\":\"veselov.mikail@example.com\",\"email_verified_at\":\"2025-01-24T05:14:23.000000Z\",\"avatar\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0412\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0430\\u0432\\u0442\\u043e\\u0440\\u0438\\u0437\\u043e\\u0432\\u0430\\u043b\\u0438\\u0441\\u044c\",\"access_token\":\"34|kYCjITZOIHcc6G8wO3n9AFM0e0uP9WIwXXTf0p0pa9e1156e\",\"token_type\":\"Bearer\",\"user\":{\"id\":71,\"name\":\"\\u0413\\u043e\\u0440\\u0434\\u0435\\u0435\\u0432\\u0430 \\u0410\\u043b\\u044c\\u0431\\u0438\\u043d\\u0430 \\u0418\\u0432\\u0430\\u043d\\u043e\\u0432\\u043d\\u0430\",\"email\":\"dstrelkov@example.org\",\"email_verified_at\":\"2025-01-24T07:05:48.000000Z\",\"avatar\":null}}",
                             "name": ""
                         },
                         {
@@ -134,7 +186,7 @@
                         "header": [
                             {
                                 "key": "Content-Type",
-                                "value": "application\/json"
+                                "value": "multipart\/form-data"
                             },
                             {
                                 "key": "Accept",
@@ -142,8 +194,38 @@
                             }
                         ],
                         "body": {
-                            "mode": "raw",
-                            "raw": "{\"name\":\"tnfujnfsj\",\"email\":\"virgie27@example.net\",\"password\":\"JRl).k\",\"password_confirmation\":\"dignissimos\",\"avatar\":\"dolores\"}"
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "tsbbow",
+                                    "type": "text",
+                                    "description": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0438\u043c\u0432\u043e\u043b\u043e\u0432 \u0432 \u043f\u043e\u043b\u0435 value \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043d\u0435 \u043c\u0435\u043d\u044c\u0448\u0435 3. \u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0438\u043c\u0432\u043e\u043b\u043e\u0432 \u0432 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0438 \u043f\u043e\u043b\u044f value \u043d\u0435 \u043c\u043e\u0436\u0435\u0442 \u043f\u0440\u0435\u0432\u044b\u0448\u0430\u0442\u044c 50."
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "kovacek.vernie@example.net",
+                                    "type": "text",
+                                    "description": "\u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u043e\u043b\u044f value \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u043c \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u044b\u043c \u0430\u0434\u0440\u0435\u0441\u043e\u043c."
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "vhBw*hvoH",
+                                    "type": "text",
+                                    "description": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0438\u043c\u0432\u043e\u043b\u043e\u0432 \u0432 \u043f\u043e\u043b\u0435 value \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043d\u0435 \u043c\u0435\u043d\u044c\u0448\u0435 8."
+                                },
+                                {
+                                    "key": "password_confirmation",
+                                    "value": "aut",
+                                    "type": "text",
+                                    "description": "The value and <code>password<\/code> must match."
+                                },
+                                {
+                                    "key": "avatar",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
                         },
                         "description": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044f \u043d\u043e\u0432\u043e\u0433\u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
                         "auth": {
@@ -154,7 +236,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"\\u0412\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0437\\u0430\\u0440\\u0435\\u0433\\u0438\\u0441\\u0442\\u0440\\u0438\\u0440\\u043e\\u0432\\u0430\\u043d\\u044b\",\"access_token\":\"27|m870zPOlX1CDSlY9UmNLsBc11tCFMOMrPOD5zkQT6257044f\",\"token_type\":\"Bearer\",\"user\":{\"id\":50,\"name\":\"\\u041a\\u043e\\u043f\\u044b\\u043b\\u043e\\u0432\\u0430 \\u0410\\u043b\\u043b\\u0430 \\u0420\\u043e\\u043c\\u0430\\u043d\\u043e\\u0432\\u043d\\u0430\",\"email\":\"gerasimova.nadezda@example.net\",\"email_verified_at\":\"2025-01-24T05:14:23.000000Z\",\"avatar\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0412\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0437\\u0430\\u0440\\u0435\\u0433\\u0438\\u0441\\u0442\\u0440\\u0438\\u0440\\u043e\\u0432\\u0430\\u043d\\u044b\",\"access_token\":\"35|TgDspPzkRn5oQY7315INDHKXHL1B4DFX7qd8ADJ0d0cd88f0\",\"token_type\":\"Bearer\",\"user\":{\"id\":72,\"name\":\"\\u0421\\u0432\\u044f\\u0442\\u043e\\u0441\\u043b\\u0430\\u0432 \\u0412\\u043b\\u0430\\u0434\\u0438\\u043c\\u0438\\u0440\\u043e\\u0432\\u0438\\u0447 \\u0411\\u0435\\u0441\\u043f\\u0430\\u043b\\u043e\\u0432\",\"email\":\"ekaterina.samsonova@example.org\",\"email_verified_at\":\"2025-01-24T07:05:48.000000Z\",\"avatar\":null}}",
                             "name": ""
                         },
                         {
@@ -231,7 +313,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"type\":\"excepturi\",\"data\":\"[\\\"amet\\\",\\\"alias\\\"]\"}"
+                            "raw": "{\"type\":\"est\",\"data\":\"[\\\"incidunt\\\",\\\"in\\\"]\"}"
                         },
                         "description": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
                         "auth": {
@@ -361,7 +443,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"data\":\"[\\\"similique\\\",\\\"quia\\\"]\"}"
+                            "raw": "{\"data\":\"[\\\"est\\\",\\\"ipsa\\\"]\"}"
                         },
                         "description": "\u0418\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
                         "auth": {
@@ -472,7 +554,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"at\",\"surname\":\"quia\",\"patronymic\":\"sint\",\"dateOfBirth\":\"2025-01-24T05:14:23\",\"city\":\"maiores\",\"inn\":3,\"snils\":12,\"phoneNumber\":\"voluptatem\",\"startNumber\":18,\"group\":\"neque\",\"rank\":\"qui\",\"rankNumber\":\"omnis\",\"community\":\"quidem\",\"coach\":\"dolor\",\"motoStamp\":\"voluptatem\",\"engine\":\"et\"}"
+                            "raw": "{\"name\":\"mollitia\",\"surname\":\"enim\",\"patronymic\":\"voluptatem\",\"dateOfBirth\":\"2025-01-24T07:05:49\",\"city\":\"assumenda\",\"inn\":15,\"snils\":20,\"phoneNumber\":\"autem\",\"startNumber\":11,\"group\":\"eveniet\",\"rank\":\"nam\",\"rankNumber\":\"qui\",\"community\":\"id\",\"coach\":\"quia\",\"motoStamp\":\"et\",\"engine\":\"sit\"}"
                         },
                         "description": "\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u044c \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0445 \u0434\u0430\u043d\u043d\u044b\u0445",
                         "auth": {
@@ -483,7 +565,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"\\u0418\\u043d\\u0444\\u043e\\u0440\\u043c\\u0430\\u0446\\u0438\\u044f \\u043e \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u0435 \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0430 \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"personal_info\":{\"name\":\"Ms.\",\"surname\":\"Mr.\",\"patronymic\":\"Ms.\",\"date_of_birth\":null,\"city\":\"\\u0422\\u0430\\u043b\\u0434\\u043e\\u043c\",\"inn\":\"99999999999\",\"snils\":\"9999999999\",\"phone_number\":\"8-800-990-9791\",\"start_number\":\"276\",\"group\":\"\\u0422\\u0435\\u043b\\u0435\\u0444\\u043e\\u043d\\u0438\\u0441\\u0442\\u043a\\u0430\",\"rank_number\":\"100000\",\"rank\":\"\\u0410\\u0440\\u0445\\u0438\\u0432\\u0438\\u0441\\u0442\",\"community\":\"\\u041e\\u0410\\u041e \\u041a\\u0440\\u0435\\u043f\",\"coach\":\"\\u0412\\u0430\\u0441\\u0438\\u043b\\u0438\\u0439 \\u0420\\u043e\\u043c\\u0430\\u043d\\u043e\\u0432\\u0438\\u0447 \\u0410\\u043a\\u0441\\u0451\\u043d\\u043e\\u0432\",\"moto_stamp\":\"Prof.\",\"engine\":\"Mr.\"}}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0418\\u043d\\u0444\\u043e\\u0440\\u043c\\u0430\\u0446\\u0438\\u044f \\u043e \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u0435 \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0430 \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"personal_info\":{\"name\":\"Ms.\",\"surname\":\"Dr.\",\"patronymic\":\"Mrs.\",\"date_of_birth\":null,\"city\":\"\\u041b\\u044e\\u0431\\u0435\\u0440\\u0446\\u044b\",\"inn\":\"99999999999\",\"snils\":\"10000000000\",\"phone_number\":\"+7 (922) 349-1119\",\"start_number\":\"942\",\"group\":\"\\u041f\\u0440\\u043e\\u043c\\u043e\\u0443\\u0442\\u0435\\u0440\",\"rank_number\":\"100000\",\"rank\":\"\\u0411\\u0435\\u0441\\u0442\\u0438\\u0430\\u0440\\u0438\\u0439 (\\u0433\\u043b\\u0430\\u0434\\u0438\\u0430\\u0442\\u043e\\u0440)\",\"community\":\"\\u041e\\u0410\\u041e \\u0420\\u0430\\u0434\\u0438\\u043e\\u0420\\u043e\\u0441\",\"coach\":\"\\u0411\\u0435\\u043b\\u043e\\u0437\\u0451\\u0440\\u043e\\u0432 \\u041f\\u0440\\u043e\\u0445\\u043e\\u0440 \\u0410\\u043d\\u0434\\u0440\\u0435\\u0435\\u0432\\u0438\\u0447\",\"moto_stamp\":\"Prof.\",\"engine\":\"Prof.\"}}",
                             "name": ""
                         }
                     ]
@@ -510,7 +592,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"voluptatem\",\"surname\":\"consequatur\",\"patronymic\":\"reiciendis\",\"dateOfBirth\":\"2025-01-24T05:14:23\",\"city\":\"non\",\"inn\":14,\"snils\":2,\"phoneNumber\":\"sint\",\"startNumber\":20,\"group\":\"et\",\"rank\":\"nemo\",\"rankNumber\":\"et\",\"community\":\"et\",\"coach\":\"sapiente\",\"motoStamp\":\"aut\",\"engine\":\"architecto\"}"
+                            "raw": "{\"name\":\"corrupti\",\"surname\":\"aperiam\",\"patronymic\":\"dolorem\",\"dateOfBirth\":\"2025-01-24T07:05:49\",\"city\":\"fuga\",\"inn\":17,\"snils\":2,\"phoneNumber\":\"et\",\"startNumber\":12,\"group\":\"dolore\",\"rank\":\"aliquam\",\"rankNumber\":\"explicabo\",\"community\":\"ipsam\",\"coach\":\"provident\",\"motoStamp\":\"vero\",\"engine\":\"excepturi\"}"
                         },
                         "description": "\u041e\u0431\u043d\u043e\u0432\u0438\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u044c \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0445 \u0434\u0430\u043d\u043d\u044b\u0445",
                         "auth": {
@@ -521,7 +603,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"\\u0418\\u043d\\u0444\\u043e\\u0440\\u043c\\u0430\\u0446\\u0438\\u044f \\u043e \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u0435 \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0438\\u0437\\u043c\\u0435\\u043d\\u0435\\u043d\\u0430.\",\"personal_info\":{\"name\":\"Mr.\",\"surname\":\"Dr.\",\"patronymic\":\"Mrs.\",\"date_of_birth\":null,\"city\":\"\\u041f\\u0443\\u0448\\u043a\\u0438\\u043d\\u043e\",\"inn\":\"99999999999\",\"snils\":\"9999999999\",\"phone_number\":\"(495) 800-1793\",\"start_number\":\"478\",\"group\":\"\\u0420\\u0430\\u0434\\u0438\\u0441\\u0442\",\"rank_number\":\"99999\",\"rank\":\"\\u0422\\u0435\\u0445\\u043d\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0439 \\u043f\\u0438\\u0441\\u0430\\u0442\\u0435\\u043b\\u044c\",\"community\":\"\\u0417\\u0410\\u041e \\u0413\\u0430\\u0437\",\"coach\":\"\\u042e\\u043b\\u0438\\u0439 \\u041b\\u044c\\u0432\\u043e\\u0432\\u0438\\u0447 \\u041a\\u0443\\u0434\\u0440\\u044f\\u0448\\u043e\\u0432\",\"moto_stamp\":\"Prof.\",\"engine\":\"Mr.\"}}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0418\\u043d\\u0444\\u043e\\u0440\\u043c\\u0430\\u0446\\u0438\\u044f \\u043e \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u0435 \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0438\\u0437\\u043c\\u0435\\u043d\\u0435\\u043d\\u0430.\",\"personal_info\":{\"name\":\"Mr.\",\"surname\":\"Dr.\",\"patronymic\":\"Miss\",\"date_of_birth\":null,\"city\":\"\\u0415\\u0433\\u043e\\u0440\\u044c\\u0435\\u0432\\u0441\\u043a\",\"inn\":\"99999999999\",\"snils\":\"10000000000\",\"phone_number\":\"8-800-374-0496\",\"start_number\":\"858\",\"group\":\"\\u041e\\u0444\\u0438\\u0441-\\u043c\\u0435\\u043d\\u0435\\u0434\\u0436\\u0435\\u0440\",\"rank_number\":\"100000\",\"rank\":\"\\u041b\\u0435\\u0441\\u043e\\u0440\\u0443\\u0431\",\"community\":\"\\u041c\\u0424\\u041e \\u0422\\u044f\\u0436\",\"coach\":\"\\u0410\\u043d\\u0442\\u043e\\u043d\\u0438\\u043d\\u0430 \\u0410\\u043b\\u0435\\u043a\\u0441\\u0435\\u0435\\u0432\\u043d\\u0430 \\u041e\\u0434\\u0438\\u043d\\u0446\\u043e\\u0432\\u0430\",\"moto_stamp\":\"Dr.\",\"engine\":\"Dr.\"}}",
                             "name": ""
                         },
                         {
@@ -566,7 +648,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"userId\":4,\"paginate\":true,\"page\":\"aut\",\"limit\":22}"
+                            "raw": "{\"userId\":16,\"paginate\":true,\"page\":\"tenetur\",\"limit\":19}"
                         },
                         "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0432\u0441\u0435\u0445 \u0433\u043e\u043d\u043e\u043a \u043f\u043e \u0444\u0438\u043b\u044c\u0442\u0440\u0430\u043c",
                         "auth": {
@@ -577,7 +659,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "[{\"status\":\"success\",\"message\":\"\\u0413\\u043e\\u043d\\u043a\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"races\":{\"id\":39,\"name\":\"\\u0421\\u043e\\u0444\\u0438\\u044f \\u0420\\u043e\\u043c\\u0430\\u043d\\u043e\\u0432\\u043d\\u0430 \\u0415\\u0440\\u043c\\u0430\\u043a\\u043e\\u0432\\u0430\",\"desc\":\"Est libero sint ut voluptas sint recusandae beatae. Hic est et ratione rerum asperiores reprehenderit est. Nihil et quasi aliquam corporis.\",\"is_work\":false,\"date_start\":null,\"images\":null}},{\"status\":\"success\",\"message\":\"\\u0413\\u043e\\u043d\\u043a\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"races\":{\"id\":40,\"name\":\"\\u0414\\u043c\\u0438\\u0442\\u0440\\u0438\\u0435\\u0432\\u0430 \\u0410\\u043d\\u0436\\u0435\\u043b\\u0438\\u043a\\u0430 \\u0410\\u043b\\u0435\\u043a\\u0441\\u0435\\u0435\\u0432\\u043d\\u0430\",\"desc\":\"Rerum consequuntur ut ipsa accusamus sit debitis odio. Ut qui velit quod nihil. Ad sapiente corporis quis rerum enim.\",\"is_work\":false,\"date_start\":null,\"images\":null}}]",
+                            "body": "[{\"status\":\"success\",\"message\":\"\\u0413\\u043e\\u043d\\u043a\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"races\":{\"id\":51,\"name\":\"\\u041a\\u043e\\u0441\\u0442\\u0438\\u043d\\u0430 \\u041c\\u0430\\u0440\\u0442\\u0430 \\u041b\\u044c\\u0432\\u043e\\u0432\\u043d\\u0430\",\"desc\":\"Ea ipsam et rerum dolorem. Debitis odio consectetur et vel nisi voluptas.\",\"is_work\":true,\"date_start\":null,\"images\":null}},{\"status\":\"success\",\"message\":\"\\u0413\\u043e\\u043d\\u043a\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"races\":{\"id\":52,\"name\":\"\\u0420\\u043e\\u0434\\u0438\\u043e\\u043d\\u043e\\u0432 \\u0414\\u0430\\u043d\\u0438\\u043b\\u0430 \\u0418\\u0432\\u0430\\u043d\\u043e\\u0432\\u0438\\u0447\",\"desc\":\"Quod ea nam enim voluptas ipsa. Facilis alias velit aperiam quia. Iure eum odio veritatis. Dicta nulla aut molestias et quos eos.\",\"is_work\":false,\"date_start\":null,\"images\":null}}]",
                             "name": ""
                         }
                     ]
@@ -620,7 +702,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"\\u0413\\u043e\\u043d\\u043a\\u0430 \\u043f\\u043e \\u0438\\u0434\\u0435\\u043d\\u0442\\u0438\\u0444\\u0438\\u043a\\u0430\\u0442\\u043e\\u0440\\u0443 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u0430 \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"race\":{\"id\":41,\"name\":\"\\u041a\\u043b\\u0430\\u0432\\u0434\\u0438\\u044f \\u0412\\u043b\\u0430\\u0434\\u0438\\u043c\\u0438\\u0440\\u043e\\u0432\\u043d\\u0430 \\u041c\\u0430\\u043a\\u0441\\u0438\\u043c\\u043e\\u0432\\u0430\",\"desc\":\"Minima harum ipsum culpa et. Odit maxime ut veritatis aut. Ducimus unde impedit et est officia totam eos.\",\"is_work\":true,\"date_start\":null,\"images\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0413\\u043e\\u043d\\u043a\\u0430 \\u043f\\u043e \\u0438\\u0434\\u0435\\u043d\\u0442\\u0438\\u0444\\u0438\\u043a\\u0430\\u0442\\u043e\\u0440\\u0443 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u0430 \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"race\":{\"id\":53,\"name\":\"\\u041c\\u0430\\u043a\\u0441\\u0438\\u043c\\u043e\\u0432 \\u0421\\u0430\\u0432\\u0430 \\u0418\\u0432\\u0430\\u043d\\u043e\\u0432\\u0438\\u0447\",\"desc\":\"Autem dolorem deserunt quos et delectus dolorum. Autem libero possimus et dolorum incidunt harum. Qui sint quis nihil consequatur maxime nesciunt. Voluptatem in placeat occaecati veritatis culpa.\",\"is_work\":false,\"date_start\":null,\"images\":null}}",
                             "name": ""
                         }
                     ]
@@ -650,25 +732,25 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "dfzgdgczfxoolcsqzagdkrumpnlbgkcoirpiykdxomooprexzkpqefwxlgrpoqtqkzqiluqpmajugycsrxbybrxhf",
+                                    "value": "lncqbuxbbeunfixkyfohkbdkuchneqeelqwrqmygidnwwpemrmpkufvkmhjxqgamykbmbnhufwpgii",
                                     "type": "text",
                                     "description": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0438\u043c\u0432\u043e\u043b\u043e\u0432 \u0432 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0438 \u043f\u043e\u043b\u044f value \u043d\u0435 \u043c\u043e\u0436\u0435\u0442 \u043f\u0440\u0435\u0432\u044b\u0448\u0430\u0442\u044c 255. \u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0438\u043c\u0432\u043e\u043b\u043e\u0432 \u0432 \u043f\u043e\u043b\u0435 value \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043d\u0435 \u043c\u0435\u043d\u044c\u0448\u0435 3."
                                 },
                                 {
                                     "key": "desc",
-                                    "value": "ipsam",
+                                    "value": "ut",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "dateStart",
-                                    "value": "2025-01-24T05:14:23",
+                                    "value": "2025-01-24T07:05:49",
                                     "type": "text",
                                     "description": "\u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u043e\u043b\u044f value \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0434\u0430\u0442\u043e\u0439."
                                 },
                                 {
                                     "key": "trackId",
-                                    "value": "18",
+                                    "value": "9",
                                     "type": "text",
                                     "description": "The <code>id<\/code> of an existing record in the tracks table."
                                 },
@@ -688,7 +770,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"\\u0413\\u043e\\u043d\\u043a\\u0430 \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0430.\",\"race\":{\"id\":42,\"name\":\"\\u0424\\u0438\\u043b\\u0430\\u0442\\u043e\\u0432\\u0430 \\u0418\\u043d\\u043d\\u0430 \\u041c\\u0430\\u043a\\u0441\\u0438\\u043c\\u043e\\u0432\\u043d\\u0430\",\"desc\":\"Fuga quo aut velit recusandae ea. Occaecati possimus cum mollitia. Enim et quod illo adipisci inventore. Suscipit est perferendis nisi neque optio dolores error et.\",\"is_work\":true,\"date_start\":null,\"images\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0413\\u043e\\u043d\\u043a\\u0430 \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0430.\",\"race\":{\"id\":54,\"name\":\"\\u0422\\u0438\\u043c\\u043e\\u0444\\u0435\\u0435\\u0432 \\u0412\\u0430\\u043b\\u0435\\u0440\\u0438\\u0430\\u043d \\u0420\\u043e\\u043c\\u0430\\u043d\\u043e\\u0432\\u0438\\u0447\",\"desc\":\"Nemo molestiae ut sit earum. Est ab similique eligendi dignissimos quia deserunt eum minus. Nisi amet fuga sint voluptatem doloremque aut.\",\"is_work\":true,\"date_start\":null,\"images\":null}}",
                             "name": ""
                         }
                     ]
@@ -756,7 +838,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"roleId\":18}"
+                            "raw": "{\"roleId\":7}"
                         },
                         "description": "\u0421\u043c\u0435\u043d\u0438\u0442\u044c \u0440\u043e\u043b\u044c \u0434\u043b\u044f \u043e\u0431\u044b\u0447\u043d\u043e\u0433\u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f"
                     },
@@ -764,7 +846,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"\\u0420\\u043e\\u043b\\u044c \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044f \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0438\\u0437\\u043c\\u0435\\u043d\\u0435\\u043d\\u0430.\",\"user\":{\"id\":53,\"name\":\"\\u0412\\u043b\\u0430\\u0434\\u0438\\u043c\\u0438\\u0440\\u043e\\u0432\\u0430 \\u041b\\u0438\\u0434\\u0438\\u044f \\u0411\\u043e\\u0440\\u0438\\u0441\\u043e\\u0432\\u043d\\u0430\",\"email\":\"sbobyleva@example.com\",\"email_verified_at\":\"2025-01-24T05:14:23.000000Z\",\"avatar\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0420\\u043e\\u043b\\u044c \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044f \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0438\\u0437\\u043c\\u0435\\u043d\\u0435\\u043d\\u0430.\",\"user\":{\"id\":75,\"name\":\"\\u041f\\u043e\\u043b\\u044f\\u043a\\u043e\\u0432 \\u0412\\u043b\\u0430\\u0434 \\u0410\\u043d\\u0434\\u0440\\u0435\\u0435\\u0432\\u0438\\u0447\",\"email\":\"ignatii68@example.net\",\"email_verified_at\":\"2025-01-24T07:05:49.000000Z\",\"avatar\":null}}",
                             "name": ""
                         }
                     ]
@@ -797,7 +879,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"userId\":3,\"paginate\":false,\"page\":\"rerum\",\"limit\":15}"
+                            "raw": "{\"userId\":4,\"paginate\":false,\"page\":\"illo\",\"limit\":16}"
                         },
                         "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0442\u0440\u0430\u0441\u0441 \u043f\u043e \u0444\u0438\u043b\u044c\u0442\u0440\u0430\u043c",
                         "auth": {
@@ -808,7 +890,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "[{\"status\":\"success\",\"message\":\"\\u0422\\u0440\\u0435\\u043a\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"tracks\":{\"id\":39,\"name\":\"\\u0427\\u0430\\u0431\\u0430\\u043d\",\"address\":\"995885, \\u041e\\u0440\\u0435\\u043d\\u0431\\u0443\\u0440\\u0433\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0433\\u043e\\u0440\\u043e\\u0434 \\u041a\\u0430\\u0448\\u0438\\u0440\\u0430, \\u043d\\u0430\\u0431. \\u0411\\u0443\\u0434\\u0430\\u043f\\u0435\\u0448\\u0442\\u0441\\u0442\\u043a\\u0430\\u044f, 57\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0421\\u0440\\u0435\\u0434\\u043d\\u044f\\u044f\",\"color\":\"#EF7C08\"},\"desc\":\"Totam quia asperiores natus non quisquam culpa. Minus aliquam eum pariatur qui iste. Repellendus qui sit est ut dicta atque. Numquam perferendis et maxime non consectetur aliquid modi asperiores. Praesentium saepe ea numquam et rerum. Asperiores molestiae alias exercitationem ut et laboriosam repudiandae. Aut sint eos voluptatem explicabo quis sunt minima.\",\"length\":371,\"turns\":28,\"free\":true,\"is_work\":false,\"spec\":null}},{\"status\":\"success\",\"message\":\"\\u0422\\u0440\\u0435\\u043a\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"tracks\":{\"id\":40,\"name\":\"\\u0411\\u0438\\u0437\\u043d\\u0435\\u0441-\\u0430\\u043d\\u0430\\u043b\\u0438\\u0442\\u0438\\u043a\",\"address\":\"845103, \\u0418\\u0432\\u0430\\u043d\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0433\\u043e\\u0440\\u043e\\u0434 \\u041d\\u0430\\u0440\\u043e-\\u0424\\u043e\\u043c\\u0438\\u043d\\u0441\\u043a, \\u0448\\u043e\\u0441\\u0441\\u0435 \\u0411\\u0443\\u0434\\u0430\\u043f\\u0435\\u0448\\u0442\\u0441\\u0442\\u043a\\u0430\\u044f, 41\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u041d\\u0438\\u0437\\u043a\\u0430\\u044f\",\"color\":\"#22CA3D\"},\"desc\":\"Necessitatibus assumenda sed quos nihil autem quae maiores. Sed consequatur voluptas ipsum dolorem libero mollitia laborum. Cum id provident qui veniam esse. Voluptatem recusandae vel et a commodi ipsa minima. Iste unde et laudantium nulla. Nam rerum ipsum et molestias nihil. Sed maiores ab facilis rerum. Hic hic sed dignissimos. Qui odio ducimus quibusdam veritatis. Vitae velit officiis quos esse ea.\",\"length\":912,\"turns\":3,\"free\":false,\"is_work\":true,\"spec\":null}}]",
+                            "body": "[{\"status\":\"success\",\"message\":\"\\u0422\\u0440\\u0435\\u043a\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"tracks\":{\"id\":51,\"name\":\"\\u041f\\u0440\\u043e\\u043c\\u043e\\u0443\\u0442\\u0435\\u0440\",\"address\":\"491749, \\u0421\\u0430\\u0440\\u0430\\u0442\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0433\\u043e\\u0440\\u043e\\u0434 \\u0428\\u0430\\u0445\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f, \\u043d\\u0430\\u0431. \\u0411\\u0430\\u043b\\u043a\\u0430\\u043d\\u0441\\u043a\\u0430\\u044f, 40\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0421\\u0440\\u0435\\u0434\\u043d\\u044f\\u044f\",\"color\":\"#EF7C08\"},\"desc\":\"Ut distinctio quasi autem laborum consectetur consequatur. Sapiente ipsa quos fuga animi veniam autem. Quasi atque consequatur cum maxime. Magnam eligendi consequatur eveniet reiciendis expedita. Consequuntur voluptatem sed mollitia et molestiae totam. Nihil voluptate velit ullam et aliquam assumenda facilis. Nemo odit praesentium occaecati quo dolores. Recusandae velit quo sint beatae sed tempora. Facere assumenda autem ipsum. Sit nobis quia delectus soluta et. Qui ipsa ab a.\",\"length\":270,\"turns\":75,\"free\":true,\"is_work\":false,\"spec\":null}},{\"status\":\"success\",\"message\":\"\\u0422\\u0440\\u0435\\u043a\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"tracks\":{\"id\":52,\"name\":\"\\u0411\\u0443\\u0445\\u0433\\u0430\\u043b\\u0442\\u0435\\u0440\",\"address\":\"159864, \\u041c\\u0430\\u0433\\u0430\\u0434\\u0430\\u043d\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0433\\u043e\\u0440\\u043e\\u0434 \\u041f\\u043e\\u0434\\u043e\\u043b\\u044c\\u0441\\u043a, \\u043f\\u0435\\u0440. \\u0411\\u0443\\u0445\\u0430\\u0440\\u0435\\u0441\\u0442\\u0441\\u043a\\u0430\\u044f, 49\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u041d\\u0438\\u0437\\u043a\\u0430\\u044f\",\"color\":\"#22CA3D\"},\"desc\":\"Reiciendis dolorum vel exercitationem officiis nihil cum aut ea. Expedita atque qui voluptatum et. Aliquam molestiae labore nihil temporibus maxime veniam. Et voluptas deserunt quis labore. Accusamus quasi non earum rerum accusamus. Eligendi rerum sint possimus modi non in. Dolores vero voluptatem debitis. Sapiente accusamus sed minus totam deserunt.\",\"length\":645,\"turns\":98,\"free\":false,\"is_work\":false,\"spec\":null}}]",
                             "name": ""
                         }
                     ]
@@ -851,7 +933,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"\\u0422\\u0440\\u0435\\u043a \\u043f\\u043e \\u0438\\u0434\\u0435\\u043d\\u0442\\u0438\\u0444\\u0438\\u043a\\u0430\\u0442\\u043e\\u0440\\u0443 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"track\":{\"id\":41,\"name\":\"\\u0414\\u0438\\u043f\\u043b\\u043e\\u043c\\u0430\\u0442\",\"address\":\"535572, \\u041e\\u043c\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0433\\u043e\\u0440\\u043e\\u0434 \\u0415\\u0433\\u043e\\u0440\\u044c\\u0435\\u0432\\u0441\\u043a, \\u0431\\u0443\\u043b\\u044c\\u0432\\u0430\\u0440 \\u0411\\u0430\\u043b\\u043a\\u0430\\u043d\\u0441\\u043a\\u0430\\u044f, 40\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0421\\u0440\\u0435\\u0434\\u043d\\u044f\\u044f\",\"color\":\"#EF7C08\"},\"desc\":\"Aspernatur voluptatibus consectetur cumque aut. Vel quia debitis molestiae non impedit nihil. A at quaerat ex blanditiis tenetur. Modi architecto eveniet vitae tempora. Quia mollitia et labore fugit officia. Voluptas delectus ut cupiditate rerum earum vitae dignissimos. Voluptatum ex distinctio adipisci itaque animi iusto aperiam. Accusamus dolor quasi reiciendis asperiores. Laborum adipisci ex qui aut rerum. Perferendis excepturi maiores odio sunt ut autem.\",\"length\":674,\"turns\":98,\"free\":false,\"is_work\":false,\"spec\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0422\\u0440\\u0435\\u043a \\u043f\\u043e \\u0438\\u0434\\u0435\\u043d\\u0442\\u0438\\u0444\\u0438\\u043a\\u0430\\u0442\\u043e\\u0440\\u0443 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"track\":{\"id\":53,\"name\":\"\\u0421\\u0438\\u0441\\u0442\\u0435\\u043c\\u043d\\u044b\\u0439 \\u0430\\u043d\\u0430\\u043b\\u0438\\u0442\\u0438\\u043a\",\"address\":\"935992, \\u041a\\u0438\\u0440\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0433\\u043e\\u0440\\u043e\\u0434 \\u041c\\u043e\\u0441\\u043a\\u0432\\u0430, \\u0443\\u043b. \\u0421\\u043b\\u0430\\u0432\\u044b, 92\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u041d\\u0438\\u0437\\u043a\\u0430\\u044f\",\"color\":\"#22CA3D\"},\"desc\":\"Velit magnam reprehenderit sed. Consequatur quo dolores ducimus placeat sed. Nisi ex tempore est est dolores. Ipsam et aperiam ab at perspiciatis voluptas quae aliquam. Quia cumque enim totam voluptatum provident praesentium minus. Qui a vero odio facilis. Sapiente fugiat suscipit et aut. Inventore id sint ex accusamus sit ipsam quia. Facere reiciendis eum neque est nostrum quasi ipsa. Quis ducimus voluptatem nulla eum quis ut. Et ex molestiae minus quo ratione accusamus quasi.\",\"length\":798,\"turns\":94,\"free\":false,\"is_work\":false,\"spec\":null}}",
                             "name": ""
                         }
                     ]
@@ -881,13 +963,13 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "ehycnbxrwvwwvdqggxwslkvpavrrpjakthbeinmsogbrzwbj",
+                                    "value": "hyjwzmovlvagzijyodpzunculbbbujhiauvutouef",
                                     "type": "text",
                                     "description": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0438\u043c\u0432\u043e\u043b\u043e\u0432 \u0432 \u043f\u043e\u043b\u0435 value \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043d\u0435 \u043c\u0435\u043d\u044c\u0448\u0435 3."
                                 },
                                 {
                                     "key": "address",
-                                    "value": "molestiae",
+                                    "value": "porro",
                                     "type": "text",
                                     "description": ""
                                 },
@@ -899,19 +981,19 @@
                                 },
                                 {
                                     "key": "longitude",
-                                    "value": "-180",
+                                    "value": "-179",
                                     "type": "text",
                                     "description": "\u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u043e\u043b\u044f value \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043c\u0435\u0436\u0434\u0443 -180 \u0438 180."
                                 },
                                 {
                                     "key": "levelId",
-                                    "value": "11",
+                                    "value": "9",
                                     "type": "text",
                                     "description": "The <code>id<\/code> of an existing record in the levels table."
                                 },
                                 {
                                     "key": "desc",
-                                    "value": "illo",
+                                    "value": "est",
                                     "type": "text",
                                     "description": ""
                                 },
@@ -923,7 +1005,7 @@
                                 },
                                 {
                                     "key": "turns",
-                                    "value": "18",
+                                    "value": "5",
                                     "type": "text",
                                     "description": ""
                                 },
@@ -935,13 +1017,13 @@
                                 },
                                 {
                                     "key": "is_work",
-                                    "value": "",
+                                    "value": "1",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "spec",
-                                    "value": "[\"odit\",\"tenetur\"]",
+                                    "value": "[\"quia\",\"ipsa\"]",
                                     "type": "text",
                                     "description": "\u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u043e\u043b\u044f value \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c JSON \u0441\u0442\u0440\u043e\u043a\u043e\u0439."
                                 },
@@ -958,7 +1040,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"\\u0422\\u0440\\u0435\\u043a \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d.\",\"track\":{\"id\":42,\"name\":\"\\u0410\\u0440\\u0442-\\u0434\\u0438\\u0440\\u0435\\u043a\\u0442\\u043e\\u0440\",\"address\":\"170646, \\u0411\\u0435\\u043b\\u0433\\u043e\\u0440\\u043e\\u0434\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0433\\u043e\\u0440\\u043e\\u0434 \\u041a\\u0440\\u0430\\u0441\\u043d\\u043e\\u0433\\u043e\\u0440\\u0441\\u043a, \\u0448\\u043e\\u0441\\u0441\\u0435 \\u0414\\u043e\\u043c\\u043e\\u0434\\u0435\\u0434\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f, 40\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0412\\u044b\\u0441\\u043e\\u043a\\u0430\\u044f\",\"color\":\"#FD1215\"},\"desc\":\"Esse minima omnis voluptatem commodi et et. Consequuntur soluta consequatur rem minus. Eos ab eius pariatur sed. Quas quis quis omnis. Recusandae optio accusantium quia non id sapiente. Asperiores deserunt et praesentium quis. Est sunt deserunt at adipisci. Cum repudiandae error iure quis temporibus voluptas. Accusantium voluptas minus voluptatem. Similique praesentium et tempore repudiandae. Sunt dolorem ipsam voluptates iusto.\",\"length\":497,\"turns\":22,\"free\":true,\"is_work\":true,\"spec\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0422\\u0440\\u0435\\u043a \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d.\",\"track\":{\"id\":54,\"name\":\"\\u0418\\u043d\\u0444\\u043e\\u0440\\u043c\\u0430\\u0446\\u0438\\u043e\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0430\\u0431\\u043e\\u0442\\u043d\\u0438\\u043a\",\"address\":\"211820, \\u0421\\u0430\\u0440\\u0430\\u0442\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0433\\u043e\\u0440\\u043e\\u0434 \\u0428\\u0430\\u0445\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f, \\u0448\\u043e\\u0441\\u0441\\u0435 \\u0421\\u043b\\u0430\\u0432\\u044b, 52\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0421\\u0440\\u0435\\u0434\\u043d\\u044f\\u044f\",\"color\":\"#EF7C08\"},\"desc\":\"Id consectetur hic dolorem libero. Doloribus ut rerum dolor iusto assumenda modi tenetur. Voluptates maiores voluptatibus dolores autem minus sit odio. Similique aliquid ullam aut molestiae saepe. Nam excepturi eos nam animi. Est saepe repudiandae magni sed sequi quaerat. Et qui tempora amet consequatur in qui consequatur. Consequatur numquam omnis non. Quae voluptatem et officia fuga voluptatem optio ea.\",\"length\":337,\"turns\":81,\"free\":true,\"is_work\":false,\"spec\":null}}",
                             "name": ""
                         },
                         {
@@ -1002,7 +1084,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"\\u041f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044c \\u043f\\u043e \\u0442\\u043e\\u043a\\u0435\\u043d\\u0443 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e\",\"user\":{\"id\":52,\"name\":\"\\u0413\\u043e\\u0440\\u0431\\u0430\\u0447\\u0451\\u0432\\u0430 \\u0414\\u0438\\u043d\\u0430 \\u041b\\u044c\\u0432\\u043e\\u0432\\u043d\\u0430\",\"email\":\"rada54@example.com\",\"email_verified_at\":\"2025-01-24T05:14:23.000000Z\",\"avatar\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u041f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044c \\u043f\\u043e \\u0442\\u043e\\u043a\\u0435\\u043d\\u0443 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e\",\"user\":{\"id\":74,\"name\":\"\\u0421\\u0432\\u0435\\u0442\\u043b\\u0430\\u043d\\u0430 \\u0421\\u0435\\u0440\\u0433\\u0435\\u0435\\u0432\\u043d\\u0430 \\u0411\\u0443\\u0440\\u043e\\u0432\\u0430\",\"email\":\"oksana47@example.net\",\"email_verified_at\":\"2025-01-24T07:05:48.000000Z\",\"avatar\":null}}",
                             "name": ""
                         }
                     ]
