@@ -23,6 +23,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property string $coach
  * @property int $moto_stamp
  * @property string $engine
+ * @property string $date_of_birth
  */
 class PersonalInfoResource extends JsonResource
 {
@@ -37,7 +38,7 @@ class PersonalInfoResource extends JsonResource
             'name'              => $this->name,
             'surname'           => $this->surname,
             'patronymic'        => $this->patronymic,
-            'date_of_birth'     => $this->dateOfBirth,
+            'date_of_birth'     => $this->date_of_birth,
             'city'              => $this->city,
             'inn'               => $this->inn,
             'snils'             => $this->snils,
