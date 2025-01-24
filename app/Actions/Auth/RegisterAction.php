@@ -25,8 +25,10 @@ class RegisterAction implements RegisterActionContract
                 'name' => $request->name,
                 'password' => $pass,
                 'email' => $request->email,
-                'avatar' => $request->avatar,
             ]);
+            if ($request->avatar) {
+                $this->saveImages($request->avatar, $user);
+            }
             DB::commit();
             return SuccessRegisterResource::make($user);
         } catch (Exception $e) {
@@ -34,5 +36,15 @@ class RegisterAction implements RegisterActionContract
             Log::error($e);
             return ErrorRegisterResource::make([]);
         }
+    }
+
+    private function saveImages( $image, User $user): void
+    {
+        $path = $image->store('user/'.$user->id, 'public');
+        $path_arr[] = $path;
+
+        $user->update([
+            'avatar' => $path_arr
+        ]);
     }
 }
