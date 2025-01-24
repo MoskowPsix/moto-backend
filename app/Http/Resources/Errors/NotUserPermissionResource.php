@@ -16,7 +16,7 @@ class NotUserPermissionResource extends JsonResource
     {
         return [
             'status'        => 'error',
-            'message'       => __('messages.error.permission'),
+            'message'       => __('messages.error.not_allowed'),
         ];
     }
     public function withResponse($request, $response): void

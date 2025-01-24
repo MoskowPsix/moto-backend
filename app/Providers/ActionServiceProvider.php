@@ -30,6 +30,7 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Document\DeleteDocumentActionContract::class                 => \App\Actions\Document\DeleteDocumentAction::class,
         \App\Contracts\Actions\AppointmentRace\ToggleAppointmentRaceActionContract::class   => \App\Actions\AppointmentRace\ToggleAppointmentRaceAction::class,
         \App\Contracts\Actions\AppointmentRace\DeleteAppointmentRaceActionContract::class   => \App\Actions\AppointmentRace\DeleteAppointmentRaceAction::class,
+        \App\Contracts\Actions\AppointmentRace\GetUsersAppointmentRaceActionContract::class => \App\Actions\AppointmentRace\GetUsersAppointmentRaceAction::class,
     ];
     /**
      * Register services.

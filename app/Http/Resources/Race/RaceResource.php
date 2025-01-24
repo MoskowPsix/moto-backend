@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Race;
 
+use App\Http\Resources\AppointmentCount\AppointmentCountResource;
 use App\Http\Resources\Track\TrackResource;
 use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Request;
@@ -14,6 +15,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property boolean $is_work
  * @property string $date_star
  * @property array $images
+ * @property array $appointmentCount
  */
 class RaceResource extends JsonResource
 {
@@ -25,14 +27,15 @@ class RaceResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'            => $this->id,
-            'name'          => $this->name,
-            'desc'          => $this->desc,
-            'is_work'       => $this->is_work,
-            'date_start'    => $this->date_star,
-            'images'        => $this->images,
-            'track'         => TrackResource::make($this->whenLoaded('track')),
-            'user'          => UserResource::make($this->whenLoaded('user')),
+            'id'                    => $this->id,
+            'name'                  => $this->name,
+            'desc'                  => $this->desc,
+            'is_work'               => $this->is_work,
+            'date_start'            => $this->date_star,
+            'images'                => $this->images,
+            'track'                 => TrackResource::make($this->whenLoaded('track')),
+            'user'                  => UserResource::make($this->whenLoaded('user')),
+            'appointment_count'     => AppointmentCountResource::make($this->whenLoaded('appointmentCount')),
         ];
     }
 }

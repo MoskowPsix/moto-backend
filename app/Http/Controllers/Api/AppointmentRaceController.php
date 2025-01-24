@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Contracts\Actions\AppointmentRace\GetUsersAppointmentRaceActionContract;
 use App\Contracts\Actions\AppointmentRace\ToggleAppointmentRaceActionContract;
 use App\Contracts\Actions\AppointmentRace\DeleteAppointmentRaceActionContract;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AppointmentRace\GetUsersAppointmentRaceRequest;
 use App\Http\Resources\AppointmentRace\Create\SuccessCreateAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Delete\SuccessDeleteAppointmentRaceResource;
+use App\Http\Resources\AppointmentRace\GetUsers\SuccessGetUsersAppointmentResource;
 use App\Http\Resources\Errors\NotFoundResource;
+use App\Models\User;
 use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
@@ -21,13 +25,20 @@ class AppointmentRaceController extends Controller
     #[ResponseFromApiResource(SuccessDeleteAppointmentRaceResource::class)]
     #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
     #[Endpoint(title: 'toggle', description: 'Записаться и отменить запись на гонку')]
-
     public function toggle(int $id, ToggleAppointmentRaceActionContract $action): SuccessCreateAppointmentRaceResource | NotFoundResource | SuccessDeleteAppointmentRaceResource
     {
         return $action($id);
     }
+    #[ResponseFromApiResource(SuccessGetUsersAppointmentResource::class, User::class, collection: true)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[Endpoint(title: 'toggle', description: 'Записаться и отменить запись на гонку')]
+    public function getUsersAppointmentRace(int $id, GetUsersAppointmentRaceRequest $request, GetUsersAppointmentRaceActionContract $action): SuccessGetUsersAppointmentResource | NotFoundResource
+    {
+        return $action($id, $request);
+    }
 //    public function delete(int $id, DeleteAppointmentRaceActionContract $action): SuccessDeleteAppointmentRaceResource | NotFoundResource
 //    {
+//        // Функции этого метода выполняет метод toggle, по этому он убран.
 //        return $action($id);
 //    }
 }
