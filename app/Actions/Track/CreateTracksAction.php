@@ -34,6 +34,7 @@ class CreateTracksAction implements CreateTracksActionContract
             return SuccessCreateResource::make($track); // Возвращает нулевые координаты, потом надо исправить, пока не критично
         } catch (Exception $e) {
             DB::rollBack();
+            dd($e);
             return ErrorCreateResource::make([]);
         }
     }
