@@ -8,6 +8,7 @@ use App\Contracts\Actions\AppointmentRace\ToggleAppointmentRaceActionContract;
 use App\Contracts\Actions\AppointmentRace\DeleteAppointmentRaceActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AppointmentRace\GetUsersAppointmentRaceRequest;
+use App\Http\Requests\AppointmentRace\ToogleAppointmentRaceRequest;
 use App\Http\Resources\AppointmentRace\Create\SuccessCreateAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Delete\SuccessDeleteAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\GetUsers\SuccessGetUsersAppointmentResource;
@@ -26,9 +27,9 @@ class AppointmentRaceController extends Controller
     #[ResponseFromApiResource(SuccessDeleteAppointmentRaceResource::class)]
     #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
     #[Endpoint(title: 'toggle', description: 'Записаться и отменить запись на гонку')]
-    public function toggle(int $id, ToggleAppointmentRaceActionContract $action): SuccessCreateAppointmentRaceResource | NotFoundResource | SuccessDeleteAppointmentRaceResource
+    public function toggle(int $id, ToogleAppointmentRaceRequest $request, ToggleAppointmentRaceActionContract $action): SuccessCreateAppointmentRaceResource | NotFoundResource | SuccessDeleteAppointmentRaceResource
     {
-        return $action($id);
+        return $action($id, $request);
     }
     #[ResponseFromApiResource(SuccessGetUsersAppointmentResource::class, User::class, collection: true)]
     #[ResponseFromApiResource(NotFoundResource::class, status: 404)]

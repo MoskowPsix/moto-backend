@@ -3,6 +3,7 @@
 namespace App\Actions\AppointmentRace;
 
 use App\Contracts\Actions\AppointmentRace\ToggleAppointmentRaceActionContract;
+use App\Http\Requests\AppointmentRace\ToogleAppointmentRaceRequest;
 use App\Http\Resources\AppointmentRace\Create\SuccessCreateAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Delete\SuccessDeleteAppointmentRaceResource;
 use App\Http\Resources\Errors\NotFoundResource;
@@ -12,7 +13,7 @@ use App\Models\Race;
 class ToggleAppointmentRaceAction implements ToggleAppointmentRaceActionContract
 {
 
-    public function __invoke(int $id): SuccessCreateAppointmentRaceResource | NotFoundResource | SuccessDeleteAppointmentRaceResource
+    public function __invoke(int $id, ToogleAppointmentRaceRequest $request): SuccessCreateAppointmentRaceResource | NotFoundResource | SuccessDeleteAppointmentRaceResource
     {
         $user = auth()->user();
         $race = Race::find($id);
@@ -20,7 +21,7 @@ class ToggleAppointmentRaceAction implements ToggleAppointmentRaceActionContract
             return new NotFoundResource([]);
         }
         if (!$race->appointments()->where('user_id', $user->id)->exists()) {
-            return $this->createAppointment($user->id, $race->id);
+            return $this->createAppointment($user->id, $race->id, $request->data);
         } else {
             return $this->deleteAppointment($user->id, $race->id);
         }
@@ -32,11 +33,12 @@ class ToggleAppointmentRaceAction implements ToggleAppointmentRaceActionContract
         $val->delete();
         return SuccessDeleteAppointmentRaceResource::make([]);
     }
-    private function createAppointment(int $user_id, int $race_id): SuccessCreateAppointmentRaceResource
+    private function createAppointment(int $user_id, int $race_id, $data): SuccessCreateAppointmentRaceResource
     {
         AppointmentRace::create([
             'user_id' => $user_id,
-            'race_id' => $race_id
+            'race_id' => $race_id,
+            'data'    => $data,
         ]);
         return new SuccessCreateAppointmentRaceResource([]);
     }

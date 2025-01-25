@@ -16,5 +16,6 @@ class AppointmentRace extends Model
     protected $fillable = [
         'race_id',
         'user_id',
+        'data',
     ];
 }
