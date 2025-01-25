@@ -10,13 +10,7 @@ class LogoutAction implements LogoutActionContract
 {
     public function __invoke(): SuccessLogoutResource | ErrorLogoutResource
     {
-//        try {
-//            auth()->user()->currentAccessToken()->delete();
-//            return SuccessLogoutResource::make([]);
-//        } catch (\Exception $e) {
-//            return ErrorLogoutResource::make([]);
-//        }
-        if(auth()->user() != null) {
+        if(auth()->check()) {
             auth()->user()->currentAccessToken()->delete();
             return SuccessLogoutResource::make([]);
         }

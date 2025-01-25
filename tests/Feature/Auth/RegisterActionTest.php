@@ -1,15 +1,13 @@
 <?php
 
-namespace Tests\Feature;
+namespace Auth;
 
-use App\Contracts\Actions\Auth\LoginActionContract;
 use App\Contracts\Actions\Auth\RegisterActionContract;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Http\Resources\Auth\Register\ErrorRegisterResource;
 use App\Http\Resources\Auth\Register\SuccessRegisterResource;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class RegisterActionTest extends TestCase
@@ -17,11 +15,7 @@ class RegisterActionTest extends TestCase
     use RefreshDatabase;
     public function test_action_successful(): void
     {
-        $user = ([
-            'email' => 'test@test.com',
-            'password' => '1234',
-            'name' => 'Test User',
-        ]);
+        $user = User::factory()->create();
         $request = new RegisterRequest($user);
         $action = app(RegisterActionContract::class);
         $userAction = $action($request);
@@ -30,10 +24,8 @@ class RegisterActionTest extends TestCase
         $this->assertEquals($user['email'], $userAction->email);
     }
     public function test_action_email_failed(): void{
-        $user = ([
+        $user = User::factory()->create([
             'email' => null,
-            'password' => '1234',
-            'name' => 'Test User',
         ]);
         $request = new RegisterRequest($user);
         $action = app(RegisterActionContract::class);
@@ -56,9 +48,7 @@ class RegisterActionTest extends TestCase
 //    }
 
     public function test_action_name_failed(): void{
-        $user = ([
-            'email' => 'test@test.com',
-            'password' => '1234',
+        $user = User::factory()->create([
             'name' => null,
         ]);
         $request = new RegisterRequest($user);

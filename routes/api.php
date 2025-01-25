@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\GoogleSheetController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,3 +32,5 @@ Route::controller(\App\Http\Controllers\Api\RoleController::class)->group(functi
     Route::get('roles-change', 'getChangeRoles')->name('role.get_change_roles');
     Route::post('roles-change', 'changeRoleForDefaultUser')->middleware('auth:sanctum')->name('role.change_roles_for_default_user');
 });
+
+Route::get('sheet', [GoogleSheetController::class, 'index']);
