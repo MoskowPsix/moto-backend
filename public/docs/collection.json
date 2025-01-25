@@ -10,11 +10,121 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "a874bc15-3bee-4ce5-9cc6-32de2d5f2489",
+        "_postman_id": "c3ea6ea1-1f3c-4a63-866b-2ecadee38e2f",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
+        {
+            "name": "AppointmentRace",
+            "description": "\u041c\u0435\u0442\u043e\u0434\u044b \u043e\u0442\u0432\u0435\u0447\u0430\u044e\u0449\u0438\u0435 \u0437\u0430 \u0437\u0430\u043f\u0438\u0441\u044c \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u043a\u043e\u0432",
+            "item": [
+                {
+                    "name": "toggle",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/races\/:id\/toggle-appointment-race",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/races\/:id\/toggle-appointment-race",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the race."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u0417\u0430\u043f\u0438\u0441\u0430\u0442\u044c\u0441\u044f \u0438 \u043e\u0442\u043c\u0435\u043d\u0438\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u044c \u043d\u0430 \u0433\u043e\u043d\u043a\u0443"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0417\\u0430\\u043f\\u0438\\u0441\\u044c \\u043d\\u0430 \\u0433\\u043e\\u043d\\u043a\\u0443 \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0417\\u0430\\u043f\\u0438\\u0441\\u044c \\u043d\\u0430 \\u0433\\u043e\\u043d\\u043a\\u0443 \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0443\\u0434\\u0430\\u043b\\u0435\\u043d\\u0430.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"\\u0417\\u0430\\u043f\\u0440\\u0430\\u0448\\u0438\\u0432\\u0430\\u0435\\u043c\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0443\\u0440\\u0441 \\u043d\\u0435 \\u043d\\u0430\\u0439\\u0434\\u0435\\u043d.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "toggle",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/races\/:id\/appointment-race\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/races\/:id\/appointment-race\/users",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the race."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"paginate\":false,\"page\":\"reiciendis\",\"limit\":2}"
+                        },
+                        "description": "\u0417\u0430\u043f\u0438\u0441\u0430\u0442\u044c\u0441\u044f \u0438 \u043e\u0442\u043c\u0435\u043d\u0438\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u044c \u043d\u0430 \u0433\u043e\u043d\u043a\u0443",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[{\"status\":\"success\",\"message\":\"\\u041f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"users\":{\"id\":76,\"name\":\"\\u0428\\u0430\\u0440\\u0430\\u043f\\u043e\\u0432\\u0430 \\u041b\\u0438\\u043b\\u0438\\u044f \\u0410\\u043b\\u0435\\u043a\\u0441\\u0435\\u0435\\u0432\\u043d\\u0430\",\"email\":\"iskra83@example.net\",\"email_verified_at\":\"2025-01-24T07:05:49.000000Z\",\"avatar\":null}},{\"status\":\"success\",\"message\":\"\\u041f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"users\":{\"id\":77,\"name\":\"\\u041a\\u043d\\u044f\\u0437\\u0435\\u0432\\u0430 \\u041b\\u0430\\u0434\\u0430 \\u0410\\u043d\\u0434\\u0440\\u0435\\u0435\\u0432\\u043d\\u0430\",\"email\":\"fokina.dary@example.org\",\"email_verified_at\":\"2025-01-24T07:05:49.000000Z\",\"avatar\":null}}]",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"\\u0417\\u0430\\u043f\\u0440\\u0430\\u0448\\u0438\\u0432\\u0430\\u0435\\u043c\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0443\\u0440\\u0441 \\u043d\\u0435 \\u043d\\u0430\\u0439\\u0434\\u0435\\u043d.\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
         {
             "name": "Auth",
             "description": "\u0410\u0432\u0442\u043e\u0440\u0438\u0437\u0430\u0446\u0438\u044f \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435\u0439 \u0438 \u0432\u0441\u0451 \u0447\u0442\u043e \u0441 \u043d\u0435\u0439 \u0441\u0432\u044f\u0437\u0430\u043d\u043e.",
@@ -41,7 +151,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"mitchell.lincoln@example.com\",\"password\":\"Cg=6BP2$j20F8:ZhOo8\"}"
+                            "raw": "{\"email\":\"katelynn.larkin@example.net\",\"password\":\"QlDU;113qsBKTt!?\\\"9@\"}"
                         },
                         "description": "\u0410\u0432\u0442\u043e\u0440\u0438\u0437\u0430\u0446\u0438\u044f \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
                         "auth": {
@@ -52,13 +162,13 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.auth.login.success\",\"access_token\":\"8|jyMhfZbKO985dxuioq5atI25SryZdKCaRZRwZbBObb515119\",\"token_type\":\"Bearer\",\"user\":{\"name\":\"\\u0418\\u0437\\u0430\\u0431\\u0435\\u043b\\u043b\\u0430 \\u0410\\u043b\\u0435\\u043a\\u0441\\u0435\\u0435\\u0432\\u043d\\u0430 \\u042f\\u043a\\u0443\\u0448\\u0435\\u0432\\u0430\",\"email\":\"teliseev@example.org\",\"email_verified_at\":\"2025-01-21T07:23:01.000000Z\",\"avatar\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0412\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0430\\u0432\\u0442\\u043e\\u0440\\u0438\\u0437\\u043e\\u0432\\u0430\\u043b\\u0438\\u0441\\u044c\",\"access_token\":\"34|kYCjITZOIHcc6G8wO3n9AFM0e0uP9WIwXXTf0p0pa9e1156e\",\"token_type\":\"Bearer\",\"user\":{\"id\":71,\"name\":\"\\u0413\\u043e\\u0440\\u0434\\u0435\\u0435\\u0432\\u0430 \\u0410\\u043b\\u044c\\u0431\\u0438\\u043d\\u0430 \\u0418\\u0432\\u0430\\u043d\\u043e\\u0432\\u043d\\u0430\",\"email\":\"dstrelkov@example.org\",\"email_verified_at\":\"2025-01-24T07:05:48.000000Z\",\"avatar\":null}}",
                             "name": ""
                         },
                         {
                             "header": [],
                             "code": 403,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.auth.login.error\"}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u041d\\u0435\\u0443\\u0434\\u0430\\u0447\\u043d\\u0430\\u044f \\u0430\\u0432\\u0442\\u043e\\u0440\\u0438\\u0437\\u0430\\u0446\\u0438\\u0438\"}",
                             "name": ""
                         }
                     ]
@@ -76,7 +186,7 @@
                         "header": [
                             {
                                 "key": "Content-Type",
-                                "value": "application\/json"
+                                "value": "multipart\/form-data"
                             },
                             {
                                 "key": "Accept",
@@ -84,8 +194,38 @@
                             }
                         ],
                         "body": {
-                            "mode": "raw",
-                            "raw": "{\"name\":\"kmrrwleeasqkyry\",\"email\":\"elva.wiza@example.com\",\"password\":\"e4q\\\"N2z$k}f\\\\E+y+\",\"password_confirmation\":\"rem\",\"avatar\":\"et\"}"
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "tsbbow",
+                                    "type": "text",
+                                    "description": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0438\u043c\u0432\u043e\u043b\u043e\u0432 \u0432 \u043f\u043e\u043b\u0435 value \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043d\u0435 \u043c\u0435\u043d\u044c\u0448\u0435 3. \u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0438\u043c\u0432\u043e\u043b\u043e\u0432 \u0432 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0438 \u043f\u043e\u043b\u044f value \u043d\u0435 \u043c\u043e\u0436\u0435\u0442 \u043f\u0440\u0435\u0432\u044b\u0448\u0430\u0442\u044c 50."
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "kovacek.vernie@example.net",
+                                    "type": "text",
+                                    "description": "\u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u043e\u043b\u044f value \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u043c \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u044b\u043c \u0430\u0434\u0440\u0435\u0441\u043e\u043c."
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "vhBw*hvoH",
+                                    "type": "text",
+                                    "description": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0438\u043c\u0432\u043e\u043b\u043e\u0432 \u0432 \u043f\u043e\u043b\u0435 value \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043d\u0435 \u043c\u0435\u043d\u044c\u0448\u0435 8."
+                                },
+                                {
+                                    "key": "password_confirmation",
+                                    "value": "aut",
+                                    "type": "text",
+                                    "description": "The value and <code>password<\/code> must match."
+                                },
+                                {
+                                    "key": "avatar",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
                         },
                         "description": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044f \u043d\u043e\u0432\u043e\u0433\u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
                         "auth": {
@@ -96,13 +236,13 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.auth.register.success\",\"access_token\":\"9|VCvKKghw3MiFaemIJYdRbJCvDeorfrg3LAbs5Mia67331395\",\"token_type\":\"Bearer\",\"user\":{\"name\":\"\\u0416\\u0443\\u0440\\u0430\\u0432\\u043b\\u0451\\u0432\\u0430 \\u0415\\u0432\\u0433\\u0435\\u043d\\u0438\\u044f \\u041c\\u0430\\u043a\\u0441\\u0438\\u043c\\u043e\\u0432\\u043d\\u0430\",\"email\":\"adrian.kudryvtev@example.net\",\"email_verified_at\":\"2025-01-21T07:23:02.000000Z\",\"avatar\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0412\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0437\\u0430\\u0440\\u0435\\u0433\\u0438\\u0441\\u0442\\u0440\\u0438\\u0440\\u043e\\u0432\\u0430\\u043d\\u044b\",\"access_token\":\"35|TgDspPzkRn5oQY7315INDHKXHL1B4DFX7qd8ADJ0d0cd88f0\",\"token_type\":\"Bearer\",\"user\":{\"id\":72,\"name\":\"\\u0421\\u0432\\u044f\\u0442\\u043e\\u0441\\u043b\\u0430\\u0432 \\u0412\\u043b\\u0430\\u0434\\u0438\\u043c\\u0438\\u0440\\u043e\\u0432\\u0438\\u0447 \\u0411\\u0435\\u0441\\u043f\\u0430\\u043b\\u043e\\u0432\",\"email\":\"ekaterina.samsonova@example.org\",\"email_verified_at\":\"2025-01-24T07:05:48.000000Z\",\"avatar\":null}}",
                             "name": ""
                         },
                         {
                             "header": [],
                             "code": 403,
-                            "body": "{\"status\":\"error\",\"message\":\"messages.auth.register.error\"}",
+                            "body": "{\"status\":\"error\",\"message\":\"\\u0420\\u0435\\u0433\\u0438\\u0441\\u0442\\u0440\\u0430\\u0446\\u0438\\u044f \\u043f\\u0440\\u043e\\u0448\\u043b\\u0430 \\u043d\\u0435\\u0443\\u0434\\u0430\\u0447\\u043d\\u043e\"}",
                             "name": ""
                         }
                     ]
@@ -134,13 +274,348 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.auth.logout.success\"}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u041f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044c \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0432\\u044b\\u0448\\u0435\\u043b.\"}",
                             "name": ""
                         },
                         {
                             "header": [],
                             "code": 500,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.auth.logout.error\"}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u041f\\u0440\\u0438 \\u0432\\u044b\\u0445\\u043e\\u0434\\u0435 \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044f \\u043f\\u0440\\u043e\\u0438\\u0437\\u043e\\u0448\\u043b\\u0430 \\u043a\\u0440\\u0438\\u0442\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u044f \\u043e\\u0448\\u0438\\u0431\\u043a\\u0430.\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Document",
+            "description": "\u041c\u0435\u0442\u043e\u0434\u044b \u0432\u0437\u0430\u0438\u043c\u043e\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u0441 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u043c\u0438 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
+            "item": [
+                {
+                    "name": "Create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/cabinet\/documents",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/cabinet\/documents"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"type\":\"est\",\"data\":\"[\\\"incidunt\\\",\\\"in\\\"]\"}"
+                        },
+                        "description": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0414\\u043e\\u043a\\u0443\\u043c\\u0435\\u043d\\u0442 \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d.\",\"document\":{\"id\":1,\"name\":\"file_678f974ca37ac\",\"type\":\"\\u0444\\u043e\\u0442\\u043e\",\"path\":\"user\\\/documents\\\/hguPCwnOzSndWTwQ41NvPtTSfQg4g3pR368C3jar.png\",\"data\":\"{\\\"kkk\\\": \\\"ssss\\\"}\"}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GetForUser",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/cabinet\/documents",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/cabinet\/documents"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0432\u0441\u0435\u0445 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u0432 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[{\"status\":\"success\",\"message\":\"\\u0414\\u043e\\u043a\\u0443\\u043c\\u0435\\u043d\\u0442\\u044b \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044f \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"documents\":{\"id\":1,\"name\":\"file_678f974ca37ac\",\"type\":\"\\u0444\\u043e\\u0442\\u043e\",\"path\":\"user\\\/documents\\\/hguPCwnOzSndWTwQ41NvPtTSfQg4g3pR368C3jar.png\",\"data\":\"{\\\"kkk\\\": \\\"ssss\\\"}\"}},{\"status\":\"success\",\"message\":\"\\u0414\\u043e\\u043a\\u0443\\u043c\\u0435\\u043d\\u0442\\u044b \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044f \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"documents\":{\"id\":1,\"name\":\"file_678f974ca37ac\",\"type\":\"\\u0444\\u043e\\u0442\\u043e\",\"path\":\"user\\\/documents\\\/hguPCwnOzSndWTwQ41NvPtTSfQg4g3pR368C3jar.png\",\"data\":\"{\\\"kkk\\\": \\\"ssss\\\"}\"}}]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GetForUserById",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/cabinet\/documents\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/cabinet\/documents\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the document."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u043e id",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0414\\u043e\\u043a\\u0443\\u043c\\u0435\\u043d\\u0442 \\u043f\\u043e \\u0438\\u0434\\u0435\\u043d\\u0442\\u0438\\u0444\\u0438\\u043a\\u0430\\u0442\\u043e\\u0440\\u0443 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"document\":{\"id\":1,\"name\":\"file_678f974ca37ac\",\"type\":\"\\u0444\\u043e\\u0442\\u043e\",\"path\":\"user\\\/documents\\\/hguPCwnOzSndWTwQ41NvPtTSfQg4g3pR368C3jar.png\",\"data\":\"{\\\"kkk\\\": \\\"ssss\\\"}\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"\\u0414\\u043e\\u043a\\u0443\\u043c\\u0435\\u043d\\u0442 \\u043d\\u0435 \\u043d\\u0430\\u0439\\u0434\\u0435\\u043d.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/cabinet\/documents\/:id\/update",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/cabinet\/documents\/:id\/update",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the document."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"data\":\"[\\\"est\\\",\\\"ipsa\\\"]\"}"
+                        },
+                        "description": "\u0418\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"id\":1,\"name\":\"file_678f974ca37ac\",\"type\":\"\\u0444\\u043e\\u0442\\u043e\",\"path\":\"user\\\/documents\\\/hguPCwnOzSndWTwQ41NvPtTSfQg4g3pR368C3jar.png\",\"data\":\"{\\\"kkk\\\": \\\"ssss\\\"}\",\"user_id\":13,\"created_at\":\"2025-01-21T12:47:08.000000Z\",\"updated_at\":\"2025-01-21T12:47:08.000000Z\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"status\":\"error\",\"message\":\"\\u0414\\u043e\\u0441\\u0442\\u0443\\u043f \\u0437\\u0430\\u043f\\u0440\\u0435\\u0449\\u0435\\u043d.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"\\u0417\\u0430\\u043f\\u0440\\u0430\\u0448\\u0438\\u0432\\u0430\\u0435\\u043c\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0443\\u0440\\u0441 \\u043d\\u0435 \\u043d\\u0430\\u0439\\u0434\\u0435\\u043d.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/cabinet\/documents\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/cabinet\/documents\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the document."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0414\\u043e\\u043a\\u0443\\u043c\\u0435\\u043d\\u0442 \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0443\\u0434\\u0430\\u043b\\u0451\\u043d.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"status\":\"error\",\"message\":\"\\u0414\\u043e\\u0441\\u0442\\u0443\\u043f \\u0437\\u0430\\u043f\\u0440\\u0435\\u0449\\u0435\\u043d.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"\\u0417\\u0430\\u043f\\u0440\\u0430\\u0448\\u0438\\u0432\\u0430\\u0435\\u043c\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0443\\u0440\\u0441 \\u043d\\u0435 \\u043d\\u0430\\u0439\\u0434\\u0435\\u043d.\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "PersonalInfo",
+            "description": "\u0412\u0441\u0451 \u0447\u0442\u043e \u0441\u0432\u044f\u0437\u0430\u043d\u043d\u043e \u0441 \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u043e\u0439 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0435\u0439 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
+            "item": [
+                {
+                    "name": "Create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/cabinet\/personal-info",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/cabinet\/personal-info"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"mollitia\",\"surname\":\"enim\",\"patronymic\":\"voluptatem\",\"dateOfBirth\":\"2025-01-24T07:05:49\",\"city\":\"assumenda\",\"inn\":15,\"snils\":20,\"phoneNumber\":\"autem\",\"startNumber\":11,\"group\":\"eveniet\",\"rank\":\"nam\",\"rankNumber\":\"qui\",\"community\":\"id\",\"coach\":\"quia\",\"motoStamp\":\"et\",\"engine\":\"sit\"}"
+                        },
+                        "description": "\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u044c \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0445 \u0434\u0430\u043d\u043d\u044b\u0445",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0418\\u043d\\u0444\\u043e\\u0440\\u043c\\u0430\\u0446\\u0438\\u044f \\u043e \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u0435 \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0430 \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"personal_info\":{\"name\":\"Ms.\",\"surname\":\"Dr.\",\"patronymic\":\"Mrs.\",\"date_of_birth\":null,\"city\":\"\\u041b\\u044e\\u0431\\u0435\\u0440\\u0446\\u044b\",\"inn\":\"99999999999\",\"snils\":\"10000000000\",\"phone_number\":\"+7 (922) 349-1119\",\"start_number\":\"942\",\"group\":\"\\u041f\\u0440\\u043e\\u043c\\u043e\\u0443\\u0442\\u0435\\u0440\",\"rank_number\":\"100000\",\"rank\":\"\\u0411\\u0435\\u0441\\u0442\\u0438\\u0430\\u0440\\u0438\\u0439 (\\u0433\\u043b\\u0430\\u0434\\u0438\\u0430\\u0442\\u043e\\u0440)\",\"community\":\"\\u041e\\u0410\\u041e \\u0420\\u0430\\u0434\\u0438\\u043e\\u0420\\u043e\\u0441\",\"coach\":\"\\u0411\\u0435\\u043b\\u043e\\u0437\\u0451\\u0440\\u043e\\u0432 \\u041f\\u0440\\u043e\\u0445\\u043e\\u0440 \\u0410\\u043d\\u0434\\u0440\\u0435\\u0435\\u0432\\u0438\\u0447\",\"moto_stamp\":\"Prof.\",\"engine\":\"Prof.\"}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/cabinet\/personal-info",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/cabinet\/personal-info"
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"corrupti\",\"surname\":\"aperiam\",\"patronymic\":\"dolorem\",\"dateOfBirth\":\"2025-01-24T07:05:49\",\"city\":\"fuga\",\"inn\":17,\"snils\":2,\"phoneNumber\":\"et\",\"startNumber\":12,\"group\":\"dolore\",\"rank\":\"aliquam\",\"rankNumber\":\"explicabo\",\"community\":\"ipsam\",\"coach\":\"provident\",\"motoStamp\":\"vero\",\"engine\":\"excepturi\"}"
+                        },
+                        "description": "\u041e\u0431\u043d\u043e\u0432\u0438\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u044c \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0445 \u0434\u0430\u043d\u043d\u044b\u0445",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0418\\u043d\\u0444\\u043e\\u0440\\u043c\\u0430\\u0446\\u0438\\u044f \\u043e \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u0435 \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0438\\u0437\\u043c\\u0435\\u043d\\u0435\\u043d\\u0430.\",\"personal_info\":{\"name\":\"Mr.\",\"surname\":\"Dr.\",\"patronymic\":\"Miss\",\"date_of_birth\":null,\"city\":\"\\u0415\\u0433\\u043e\\u0440\\u044c\\u0435\\u0432\\u0441\\u043a\",\"inn\":\"99999999999\",\"snils\":\"10000000000\",\"phone_number\":\"8-800-374-0496\",\"start_number\":\"858\",\"group\":\"\\u041e\\u0444\\u0438\\u0441-\\u043c\\u0435\\u043d\\u0435\\u0434\\u0436\\u0435\\u0440\",\"rank_number\":\"100000\",\"rank\":\"\\u041b\\u0435\\u0441\\u043e\\u0440\\u0443\\u0431\",\"community\":\"\\u041c\\u0424\\u041e \\u0422\\u044f\\u0436\",\"coach\":\"\\u0410\\u043d\\u0442\\u043e\\u043d\\u0438\\u043d\\u0430 \\u0410\\u043b\\u0435\\u043a\\u0441\\u0435\\u0435\\u0432\\u043d\\u0430 \\u041e\\u0434\\u0438\\u043d\\u0446\\u043e\\u0432\\u0430\",\"moto_stamp\":\"Dr.\",\"engine\":\"Dr.\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"status\":\"error\",\"message\":\"\\u0414\\u043e\\u0441\\u0442\\u0443\\u043f \\u0437\\u0430\\u043f\\u0440\\u0435\\u0449\\u0435\\u043d.\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"\\u0417\\u0430\\u043f\\u0440\\u0430\\u0448\\u0438\\u0432\\u0430\\u0435\\u043c\\u044b\\u0439 \\u0440\\u0435\\u0441\\u0443\\u0440\\u0441 \\u043d\\u0435 \\u043d\\u0430\\u0439\\u0434\\u0435\\u043d.\"}",
                             "name": ""
                         }
                     ]
@@ -171,7 +646,10 @@
                                 "value": "application\/json"
                             }
                         ],
-                        "body": null,
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"userId\":16,\"paginate\":true,\"page\":\"tenetur\",\"limit\":19}"
+                        },
                         "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0432\u0441\u0435\u0445 \u0433\u043e\u043d\u043e\u043a \u043f\u043e \u0444\u0438\u043b\u044c\u0442\u0440\u0430\u043c",
                         "auth": {
                             "type": "noauth"
@@ -181,7 +659,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "[{\"status\":\"success\",\"message\":\"messages.race.get.success\",\"races\":{\"id\":30,\"name\":\"\\u041a\\u0440\\u044b\\u043b\\u043e\\u0432\\u0430 \\u041d\\u043e\\u043d\\u043d\\u0430 \\u0410\\u043b\\u0435\\u043a\\u0441\\u0430\\u043d\\u0434\\u0440\\u043e\\u0432\\u043d\\u0430\",\"desc\":\"Molestiae ut et est dolorem. Ducimus cum nam adipisci dolor et est eius. Porro suscipit explicabo earum ut sit ut voluptates. Sint fuga cupiditate illum. Non quasi nisi omnis rem natus nisi.\",\"is_work\":false,\"date_start\":null,\"images\":null}},{\"status\":\"success\",\"message\":\"messages.race.get.success\",\"races\":{\"id\":31,\"name\":\"\\u042f\\u043d\\u0430 \\u041c\\u0430\\u043a\\u0441\\u0438\\u043c\\u043e\\u0432\\u043d\\u0430 \\u041a\\u0443\\u0434\\u0440\\u044f\\u0448\\u043e\\u0432\\u0430\",\"desc\":\"Nihil quia sit aut. Quia tempore ab magnam illum facere vitae consequatur. Similique eius voluptate esse aperiam harum dolorum amet. Qui quo atque ullam accusamus est in.\",\"is_work\":true,\"date_start\":null,\"images\":null}}]",
+                            "body": "[{\"status\":\"success\",\"message\":\"\\u0413\\u043e\\u043d\\u043a\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"races\":{\"id\":51,\"name\":\"\\u041a\\u043e\\u0441\\u0442\\u0438\\u043d\\u0430 \\u041c\\u0430\\u0440\\u0442\\u0430 \\u041b\\u044c\\u0432\\u043e\\u0432\\u043d\\u0430\",\"desc\":\"Ea ipsam et rerum dolorem. Debitis odio consectetur et vel nisi voluptas.\",\"is_work\":true,\"date_start\":null,\"images\":null}},{\"status\":\"success\",\"message\":\"\\u0413\\u043e\\u043d\\u043a\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"races\":{\"id\":52,\"name\":\"\\u0420\\u043e\\u0434\\u0438\\u043e\\u043d\\u043e\\u0432 \\u0414\\u0430\\u043d\\u0438\\u043b\\u0430 \\u0418\\u0432\\u0430\\u043d\\u043e\\u0432\\u0438\\u0447\",\"desc\":\"Quod ea nam enim voluptas ipsa. Facilis alias velit aperiam quia. Iure eum odio veritatis. Dicta nulla aut molestias et quos eos.\",\"is_work\":false,\"date_start\":null,\"images\":null}}]",
                             "name": ""
                         }
                     ]
@@ -198,7 +676,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "2",
                                     "description": "The ID of the race."
                                 }
                             ]
@@ -224,7 +702,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.race.get_for_id.success\",\"race\":{\"id\":32,\"name\":\"\\u041c\\u0438\\u043b\\u0430\\u043d \\u041c\\u0430\\u043a\\u0441\\u0438\\u043c\\u043e\\u0432\\u0438\\u0447 \\u0418\\u0441\\u0430\\u0435\\u0432\",\"desc\":\"Et enim ut quo doloribus corrupti ratione et. Architecto voluptas nesciunt quasi aut. Labore assumenda eum architecto est veniam necessitatibus eum. Sed blanditiis perspiciatis aut.\",\"is_work\":false,\"date_start\":null,\"images\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0413\\u043e\\u043d\\u043a\\u0430 \\u043f\\u043e \\u0438\\u0434\\u0435\\u043d\\u0442\\u0438\\u0444\\u0438\\u043a\\u0430\\u0442\\u043e\\u0440\\u0443 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u0430 \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"race\":{\"id\":53,\"name\":\"\\u041c\\u0430\\u043a\\u0441\\u0438\\u043c\\u043e\\u0432 \\u0421\\u0430\\u0432\\u0430 \\u0418\\u0432\\u0430\\u043d\\u043e\\u0432\\u0438\\u0447\",\"desc\":\"Autem dolorem deserunt quos et delectus dolorum. Autem libero possimus et dolorum incidunt harum. Qui sint quis nihil consequatur maxime nesciunt. Voluptatem in placeat occaecati veritatis culpa.\",\"is_work\":false,\"date_start\":null,\"images\":null}}",
                             "name": ""
                         }
                     ]
@@ -254,25 +732,25 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "kapnbbbrvabcsftggygzmwqsspitvbxyyzwkxrkxmgbdxxgfjskcmqrdazfrjblddlfycdkiufyasnaasmmuvou",
+                                    "value": "lncqbuxbbeunfixkyfohkbdkuchneqeelqwrqmygidnwwpemrmpkufvkmhjxqgamykbmbnhufwpgii",
                                     "type": "text",
-                                    "description": "validation.max validation.min."
+                                    "description": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0438\u043c\u0432\u043e\u043b\u043e\u0432 \u0432 \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0438 \u043f\u043e\u043b\u044f value \u043d\u0435 \u043c\u043e\u0436\u0435\u0442 \u043f\u0440\u0435\u0432\u044b\u0448\u0430\u0442\u044c 255. \u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0438\u043c\u0432\u043e\u043b\u043e\u0432 \u0432 \u043f\u043e\u043b\u0435 value \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043d\u0435 \u043c\u0435\u043d\u044c\u0448\u0435 3."
                                 },
                                 {
                                     "key": "desc",
-                                    "value": "vel",
+                                    "value": "ut",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
-                                    "key": "date_start",
-                                    "value": "2025-01-21T07:23:02",
+                                    "key": "dateStart",
+                                    "value": "2025-01-24T07:05:49",
                                     "type": "text",
-                                    "description": "validation.date."
+                                    "description": "\u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u043e\u043b\u044f value \u043d\u0435 \u044f\u0432\u043b\u044f\u0435\u0442\u0441\u044f \u0434\u0430\u0442\u043e\u0439."
                                 },
                                 {
                                     "key": "trackId",
-                                    "value": "16",
+                                    "value": "9",
                                     "type": "text",
                                     "description": "The <code>id<\/code> of an existing record in the tracks table."
                                 },
@@ -292,7 +770,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"id\":33,\"name\":\"\\u0422\\u0440\\u0435\\u0442\\u044c\\u044f\\u043a\\u043e\\u0432 \\u041f\\u0451\\u0442\\u0440 \\u0410\\u043b\\u0435\\u043a\\u0441\\u0435\\u0435\\u0432\\u0438\\u0447\",\"desc\":\"Dolore aut laborum incidunt. Ea et quo et reiciendis repudiandae. Necessitatibus ex aspernatur consectetur eum quibusdam perferendis perspiciatis quis.\",\"is_work\":false,\"date_start\":\"2025-01-21T07:23:02.000000Z\",\"images\":null,\"track_id\":7,\"user_id\":1,\"created_at\":\"2025-01-21T07:23:02.000000Z\",\"updated_at\":\"2025-01-21T07:23:02.000000Z\"}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0413\\u043e\\u043d\\u043a\\u0430 \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0430.\",\"race\":{\"id\":54,\"name\":\"\\u0422\\u0438\\u043c\\u043e\\u0444\\u0435\\u0435\\u0432 \\u0412\\u0430\\u043b\\u0435\\u0440\\u0438\\u0430\\u043d \\u0420\\u043e\\u043c\\u0430\\u043d\\u043e\\u0432\\u0438\\u0447\",\"desc\":\"Nemo molestiae ut sit earum. Est ab similique eligendi dignissimos quia deserunt eum minus. Nisi amet fuga sint voluptatem doloremque aut.\",\"is_work\":true,\"date_start\":null,\"images\":null}}",
                             "name": ""
                         }
                     ]
@@ -333,7 +811,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "[{\"status\":\"success\",\"message\":\"messages.role.get_change_role.success\",\"role\":{\"id\":1,\"name\":\"Root\"}},{\"status\":\"success\",\"message\":\"messages.role.get_change_role.success\",\"role\":{\"id\":1,\"name\":\"Root\"}}]",
+                            "body": "[{\"status\":\"success\",\"message\":\"\\u0420\\u043e\\u043b\\u044c \\u043a \\u043a\\u043e\\u0442\\u043e\\u0440\\u044b\\u043c \\u043c\\u043e\\u0436\\u0435\\u0442 \\u043f\\u0435\\u0440\\u0435\\u0439\\u0442\\u0438 \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044c \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b.\",\"role\":{\"id\":1,\"name\":\"Root\"}},{\"status\":\"success\",\"message\":\"\\u0420\\u043e\\u043b\\u044c \\u043a \\u043a\\u043e\\u0442\\u043e\\u0440\\u044b\\u043c \\u043c\\u043e\\u0436\\u0435\\u0442 \\u043f\\u0435\\u0440\\u0435\\u0439\\u0442\\u0438 \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044c \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b.\",\"role\":{\"id\":1,\"name\":\"Root\"}}]",
                             "name": ""
                         }
                     ]
@@ -360,7 +838,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"roleId\":5}"
+                            "raw": "{\"roleId\":7}"
                         },
                         "description": "\u0421\u043c\u0435\u043d\u0438\u0442\u044c \u0440\u043e\u043b\u044c \u0434\u043b\u044f \u043e\u0431\u044b\u0447\u043d\u043e\u0433\u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f"
                     },
@@ -368,7 +846,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.role.change_role_for_default_user.success\",\"user\":{\"name\":\"\\u0410\\u0440\\u043a\\u0430\\u0434\\u0438\\u0439 \\u0412\\u043b\\u0430\\u0434\\u0438\\u043c\\u0438\\u0440\\u043e\\u0432\\u0438\\u0447 \\u0421\\u0442\\u0440\\u0435\\u043b\\u043a\\u043e\\u0432\",\"email\":\"anzelika.andreeva@example.net\",\"email_verified_at\":\"2025-01-21T07:23:02.000000Z\",\"avatar\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0420\\u043e\\u043b\\u044c \\u043f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044f \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0438\\u0437\\u043c\\u0435\\u043d\\u0435\\u043d\\u0430.\",\"user\":{\"id\":75,\"name\":\"\\u041f\\u043e\\u043b\\u044f\\u043a\\u043e\\u0432 \\u0412\\u043b\\u0430\\u0434 \\u0410\\u043d\\u0434\\u0440\\u0435\\u0435\\u0432\\u0438\\u0447\",\"email\":\"ignatii68@example.net\",\"email_verified_at\":\"2025-01-24T07:05:49.000000Z\",\"avatar\":null}}",
                             "name": ""
                         }
                     ]
@@ -401,7 +879,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"limit\":1}"
+                            "raw": "{\"userId\":4,\"paginate\":false,\"page\":\"illo\",\"limit\":16}"
                         },
                         "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0442\u0440\u0430\u0441\u0441 \u043f\u043e \u0444\u0438\u043b\u044c\u0442\u0440\u0430\u043c",
                         "auth": {
@@ -412,7 +890,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "[{\"status\":\"success\",\"message\":\"messages.track.get.success\",\"tracks\":{\"id\":23,\"name\":\"\\u0410\\u0431\\u0440\\u0430\\u0437\\u0438\\u0432\\u043e\\u0441\\u0442\\u0440\\u0443\\u0439\\u0449\\u0438\\u043a\",\"address\":\"535259, \\u0418\\u0432\\u0430\\u043d\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0433\\u043e\\u0440\\u043e\\u0434 \\u0421\\u0435\\u0440\\u0435\\u0431\\u0440\\u044f\\u043d\\u044b\\u0435 \\u041f\\u0440\\u0443\\u0434\\u044b, \\u043f\\u0440. \\u0411\\u0443\\u0445\\u0430\\u0440\\u0435\\u0441\\u0442\\u0441\\u043a\\u0430\\u044f, 81\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0412\\u044b\\u0441\\u043e\\u043a\\u0430\\u044f\",\"color\":\"#FD1215\"},\"desc\":\"Repellat inventore itaque sed est aut rerum dolor. Dolor enim iure accusantium ut nesciunt hic sit temporibus. Sed quasi et consectetur sit nulla voluptate sequi. Voluptatem quasi non sunt distinctio ratione voluptatem. Consequuntur cum maiores quidem. Perspiciatis qui adipisci qui omnis molestiae. Aut consectetur est voluptatem ad aut ullam. Numquam ut quod praesentium sint sed natus vitae. Id laborum incidunt enim.\",\"length\":376,\"turns\":98,\"free\":true,\"is_work\":true,\"spec\":null}},{\"status\":\"success\",\"message\":\"messages.track.get.success\",\"tracks\":{\"id\":24,\"name\":\"\\u0422\\u0435\\u043b\\u043e\\u0445\\u0440\\u0430\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\",\"address\":\"340103, \\u041a\\u0435\\u043c\\u0435\\u0440\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0433\\u043e\\u0440\\u043e\\u0434 \\u041b\\u043e\\u0442\\u043e\\u0448\\u0438\\u043d\\u043e, \\u043f\\u0440\\u043e\\u0435\\u0437\\u0434 \\u0411\\u0443\\u0434\\u0430\\u043f\\u0435\\u0448\\u0442\\u0441\\u0442\\u043a\\u0430\\u044f, 46\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u041d\\u0438\\u0437\\u043a\\u0430\\u044f\",\"color\":\"#22CA3D\"},\"desc\":\"Eum quaerat non omnis velit culpa. Consequatur est autem ea sunt ipsam sequi. Pariatur ad consequatur at asperiores ipsam aut laudantium vel. Est tenetur illum est perferendis totam reprehenderit omnis quia. Doloremque et pariatur nobis ullam. Qui iste quae quis maiores aut voluptatem. Totam omnis praesentium nihil nesciunt facilis aut. Maiores atque qui quia nihil aut blanditiis. Aut vitae aliquam iure ut aliquam quod. Non iusto non autem sunt repellat enim quo enim.\",\"length\":909,\"turns\":31,\"free\":true,\"is_work\":false,\"spec\":null}}]",
+                            "body": "[{\"status\":\"success\",\"message\":\"\\u0422\\u0440\\u0435\\u043a\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"tracks\":{\"id\":51,\"name\":\"\\u041f\\u0440\\u043e\\u043c\\u043e\\u0443\\u0442\\u0435\\u0440\",\"address\":\"491749, \\u0421\\u0430\\u0440\\u0430\\u0442\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0433\\u043e\\u0440\\u043e\\u0434 \\u0428\\u0430\\u0445\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f, \\u043d\\u0430\\u0431. \\u0411\\u0430\\u043b\\u043a\\u0430\\u043d\\u0441\\u043a\\u0430\\u044f, 40\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0421\\u0440\\u0435\\u0434\\u043d\\u044f\\u044f\",\"color\":\"#EF7C08\"},\"desc\":\"Ut distinctio quasi autem laborum consectetur consequatur. Sapiente ipsa quos fuga animi veniam autem. Quasi atque consequatur cum maxime. Magnam eligendi consequatur eveniet reiciendis expedita. Consequuntur voluptatem sed mollitia et molestiae totam. Nihil voluptate velit ullam et aliquam assumenda facilis. Nemo odit praesentium occaecati quo dolores. Recusandae velit quo sint beatae sed tempora. Facere assumenda autem ipsum. Sit nobis quia delectus soluta et. Qui ipsa ab a.\",\"length\":270,\"turns\":75,\"free\":true,\"is_work\":false,\"spec\":null}},{\"status\":\"success\",\"message\":\"\\u0422\\u0440\\u0435\\u043a\\u0438 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d\\u044b \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"tracks\":{\"id\":52,\"name\":\"\\u0411\\u0443\\u0445\\u0433\\u0430\\u043b\\u0442\\u0435\\u0440\",\"address\":\"159864, \\u041c\\u0430\\u0433\\u0430\\u0434\\u0430\\u043d\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0433\\u043e\\u0440\\u043e\\u0434 \\u041f\\u043e\\u0434\\u043e\\u043b\\u044c\\u0441\\u043a, \\u043f\\u0435\\u0440. \\u0411\\u0443\\u0445\\u0430\\u0440\\u0435\\u0441\\u0442\\u0441\\u043a\\u0430\\u044f, 49\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u041d\\u0438\\u0437\\u043a\\u0430\\u044f\",\"color\":\"#22CA3D\"},\"desc\":\"Reiciendis dolorum vel exercitationem officiis nihil cum aut ea. Expedita atque qui voluptatum et. Aliquam molestiae labore nihil temporibus maxime veniam. Et voluptas deserunt quis labore. Accusamus quasi non earum rerum accusamus. Eligendi rerum sint possimus modi non in. Dolores vero voluptatem debitis. Sapiente accusamus sed minus totam deserunt.\",\"length\":645,\"turns\":98,\"free\":false,\"is_work\":false,\"spec\":null}}]",
                             "name": ""
                         }
                     ]
@@ -455,7 +933,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.track.get_for_id.success\",\"track\":{\"id\":25,\"name\":\"\\u0411\\u0430\\u0440\\u043c\\u0435\\u043d\",\"address\":\"532472, \\u041e\\u0440\\u0435\\u043d\\u0431\\u0443\\u0440\\u0433\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0433\\u043e\\u0440\\u043e\\u0434 \\u041d\\u0430\\u0440\\u043e-\\u0424\\u043e\\u043c\\u0438\\u043d\\u0441\\u043a, \\u0441\\u043f\\u0443\\u0441\\u043a \\u0413\\u0430\\u0433\\u0430\\u0440\\u0438\\u043d\\u0430, 11\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0412\\u044b\\u0441\\u043e\\u043a\\u0430\\u044f\",\"color\":\"#FD1215\"},\"desc\":\"Officia quidem laudantium consequatur at at ipsam. Enim et repudiandae et beatae consequatur odio. Et sequi reprehenderit eligendi minima libero vel quasi. Vitae maxime quas accusamus perspiciatis ipsa nemo. Voluptatibus et dolores ratione dolorem. Aut amet aspernatur voluptatibus rerum velit molestiae. Deserunt fugit dolor asperiores quidem quos in recusandae possimus. Qui quisquam commodi error enim reprehenderit alias vel. Minima unde neque sed molestias in.\",\"length\":205,\"turns\":21,\"free\":false,\"is_work\":false,\"spec\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0422\\u0440\\u0435\\u043a \\u043f\\u043e \\u0438\\u0434\\u0435\\u043d\\u0442\\u0438\\u0444\\u0438\\u043a\\u0430\\u0442\\u043e\\u0440\\u0443 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e.\",\"track\":{\"id\":53,\"name\":\"\\u0421\\u0438\\u0441\\u0442\\u0435\\u043c\\u043d\\u044b\\u0439 \\u0430\\u043d\\u0430\\u043b\\u0438\\u0442\\u0438\\u043a\",\"address\":\"935992, \\u041a\\u0438\\u0440\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0433\\u043e\\u0440\\u043e\\u0434 \\u041c\\u043e\\u0441\\u043a\\u0432\\u0430, \\u0443\\u043b. \\u0421\\u043b\\u0430\\u0432\\u044b, 92\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u041d\\u0438\\u0437\\u043a\\u0430\\u044f\",\"color\":\"#22CA3D\"},\"desc\":\"Velit magnam reprehenderit sed. Consequatur quo dolores ducimus placeat sed. Nisi ex tempore est est dolores. Ipsam et aperiam ab at perspiciatis voluptas quae aliquam. Quia cumque enim totam voluptatum provident praesentium minus. Qui a vero odio facilis. Sapiente fugiat suscipit et aut. Inventore id sint ex accusamus sit ipsam quia. Facere reiciendis eum neque est nostrum quasi ipsa. Quis ducimus voluptatem nulla eum quis ut. Et ex molestiae minus quo ratione accusamus quasi.\",\"length\":798,\"turns\":94,\"free\":false,\"is_work\":false,\"spec\":null}}",
                             "name": ""
                         }
                     ]
@@ -485,69 +963,69 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "jtuvkuypbcnyjegysyokysaommsldwyshuiyknixzdhwzbllao",
+                                    "value": "hyjwzmovlvagzijyodpzunculbbbujhiauvutouef",
                                     "type": "text",
-                                    "description": "validation.min."
+                                    "description": "\u041a\u043e\u043b\u0438\u0447\u0435\u0441\u0442\u0432\u043e \u0441\u0438\u043c\u0432\u043e\u043b\u043e\u0432 \u0432 \u043f\u043e\u043b\u0435 value \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043d\u0435 \u043c\u0435\u043d\u044c\u0448\u0435 3."
                                 },
                                 {
                                     "key": "address",
-                                    "value": "consequatur",
+                                    "value": "porro",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "latitude",
-                                    "value": "-87",
+                                    "value": "-86",
                                     "type": "text",
-                                    "description": "validation.between."
+                                    "description": "\u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u043e\u043b\u044f value \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043c\u0435\u0436\u0434\u0443 -87 \u0438 89."
                                 },
                                 {
                                     "key": "longitude",
-                                    "value": "-180",
+                                    "value": "-179",
                                     "type": "text",
-                                    "description": "validation.between."
+                                    "description": "\u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u043e\u043b\u044f value \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c \u043c\u0435\u0436\u0434\u0443 -180 \u0438 180."
                                 },
                                 {
                                     "key": "levelId",
-                                    "value": "17",
+                                    "value": "9",
                                     "type": "text",
                                     "description": "The <code>id<\/code> of an existing record in the levels table."
                                 },
                                 {
                                     "key": "desc",
-                                    "value": "aut",
+                                    "value": "est",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "length",
-                                    "value": "1",
+                                    "value": "9",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "turns",
-                                    "value": "3",
+                                    "value": "5",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "free",
-                                    "value": "1",
-                                    "type": "text",
-                                    "description": ""
-                                },
-                                {
-                                    "key": "is_work",
                                     "value": "",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
-                                    "key": "spec",
-                                    "value": "[\"id\",\"et\"]",
+                                    "key": "is_work",
+                                    "value": "1",
                                     "type": "text",
-                                    "description": "validation.json."
+                                    "description": ""
+                                },
+                                {
+                                    "key": "spec",
+                                    "value": "[\"quia\",\"ipsa\"]",
+                                    "type": "text",
+                                    "description": "\u0417\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u043f\u043e\u043b\u044f value \u0434\u043e\u043b\u0436\u043d\u043e \u0431\u044b\u0442\u044c JSON \u0441\u0442\u0440\u043e\u043a\u043e\u0439."
                                 },
                                 {
                                     "key": "images[]",
@@ -562,13 +1040,13 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.track.create.success\",\"track\":{\"id\":26,\"name\":\"\\u0424\\u043e\\u0442\\u043e\\u0433\\u0440\\u0430\\u0444\",\"address\":\"993984, \\u0421\\u043c\\u043e\\u043b\\u0435\\u043d\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0433\\u043e\\u0440\\u043e\\u0434 \\u041c\\u044b\\u0442\\u0438\\u0449\\u0438, \\u0443\\u043b. \\u0411\\u0443\\u0445\\u0430\\u0440\\u0435\\u0441\\u0442\\u0441\\u043a\\u0430\\u044f, 47\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u041d\\u0438\\u0437\\u043a\\u0430\\u044f\",\"color\":\"#22CA3D\"},\"desc\":\"Sed modi suscipit officia laboriosam dolores nulla. Sint debitis occaecati voluptate fuga et. Ratione et similique fugit autem. Maxime iste numquam facilis ut ratione. Accusamus quia nihil necessitatibus impedit cumque quibusdam. Ipsa perspiciatis est blanditiis consequatur nobis. Et quasi cupiditate maxime dolor reiciendis ducimus. Dolores molestiae officiis nisi quaerat rem. Itaque cupiditate cupiditate accusamus ut.\",\"length\":862,\"turns\":11,\"free\":true,\"is_work\":false,\"spec\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u0422\\u0440\\u0435\\u043a \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d.\",\"track\":{\"id\":54,\"name\":\"\\u0418\\u043d\\u0444\\u043e\\u0440\\u043c\\u0430\\u0446\\u0438\\u043e\\u043d\\u043d\\u044b\\u0439 \\u0440\\u0430\\u0431\\u043e\\u0442\\u043d\\u0438\\u043a\",\"address\":\"211820, \\u0421\\u0430\\u0440\\u0430\\u0442\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f \\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c, \\u0433\\u043e\\u0440\\u043e\\u0434 \\u0428\\u0430\\u0445\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f, \\u0448\\u043e\\u0441\\u0441\\u0435 \\u0421\\u043b\\u0430\\u0432\\u044b, 52\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0421\\u0440\\u0435\\u0434\\u043d\\u044f\\u044f\",\"color\":\"#EF7C08\"},\"desc\":\"Id consectetur hic dolorem libero. Doloribus ut rerum dolor iusto assumenda modi tenetur. Voluptates maiores voluptatibus dolores autem minus sit odio. Similique aliquid ullam aut molestiae saepe. Nam excepturi eos nam animi. Est saepe repudiandae magni sed sequi quaerat. Et qui tempora amet consequatur in qui consequatur. Consequatur numquam omnis non. Quae voluptatem et officia fuga voluptatem optio ea.\",\"length\":337,\"turns\":81,\"free\":true,\"is_work\":false,\"spec\":null}}",
                             "name": ""
                         },
                         {
                             "header": [],
                             "code": 422,
-                            "body": "{\"status\":\"error\",\"message\":\"messages.track.create.error\"}",
+                            "body": "{\"status\":\"error\",\"message\":\"\\u041e\\u0448\\u0438\\u0431\\u043a\\u0430 \\u043f\\u0440\\u0438 \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0438\\u0438 \\u0442\\u0440\\u0435\\u043a\\u0430.\"}",
                             "name": ""
                         }
                     ]
@@ -606,7 +1084,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.user.get_user_for_token.success\",\"user\":{\"name\":\"\\u041a\\u0440\\u0430\\u0441\\u0438\\u043b\\u044c\\u043d\\u0438\\u043a\\u043e\\u0432 \\u0414\\u0430\\u043d \\u0414\\u043c\\u0438\\u0442\\u0440\\u0438\\u0435\\u0432\\u0438\\u0447\",\"email\":\"trofim87@example.com\",\"email_verified_at\":\"2025-01-21T07:23:02.000000Z\",\"avatar\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"\\u041f\\u043e\\u043b\\u044c\\u0437\\u043e\\u0432\\u0430\\u0442\\u0435\\u043b\\u044c \\u043f\\u043e \\u0442\\u043e\\u043a\\u0435\\u043d\\u0443 \\u043f\\u043e\\u043b\\u0443\\u0447\\u0435\\u043d \\u0443\\u0441\\u043f\\u0435\\u0448\\u043d\\u043e\",\"user\":{\"id\":74,\"name\":\"\\u0421\\u0432\\u0435\\u0442\\u043b\\u0430\\u043d\\u0430 \\u0421\\u0435\\u0440\\u0433\\u0435\\u0435\\u0432\\u043d\\u0430 \\u0411\\u0443\\u0440\\u043e\\u0432\\u0430\",\"email\":\"oksana47@example.net\",\"email_verified_at\":\"2025-01-24T07:05:48.000000Z\",\"avatar\":null}}",
                             "name": ""
                         }
                     ]

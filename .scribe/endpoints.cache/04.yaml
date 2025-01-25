@@ -23,13 +23,57 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      paginate:
+        name: paginate
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: tenetur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      limit:
+        name: limit
+        description: 'Значение поля value не может быть больше 50.'
+        required: false
+        example: 19
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      userId: 16
+      paginate: true
+      page: tenetur
+      limit: 19
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.race.get.success","races":{"id":30,"name":"\u041a\u0440\u044b\u043b\u043e\u0432\u0430 \u041d\u043e\u043d\u043d\u0430 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u043d\u0430","desc":"Molestiae ut et est dolorem. Ducimus cum nam adipisci dolor et est eius. Porro suscipit explicabo earum ut sit ut voluptates. Sint fuga cupiditate illum. Non quasi nisi omnis rem natus nisi.","is_work":false,"date_start":null,"images":null}},{"status":"success","message":"messages.race.get.success","races":{"id":31,"name":"\u042f\u043d\u0430 \u041c\u0430\u043a\u0441\u0438\u043c\u043e\u0432\u043d\u0430 \u041a\u0443\u0434\u0440\u044f\u0448\u043e\u0432\u0430","desc":"Nihil quia sit aut. Quia tempore ab magnam illum facere vitae consequatur. Similique eius voluptate esse aperiam harum dolorum amet. Qui quo atque ullam accusamus est in.","is_work":true,"date_start":null,"images":null}}]'
+        content: '[{"status":"success","message":"\u0413\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","races":{"id":51,"name":"\u041a\u043e\u0441\u0442\u0438\u043d\u0430 \u041c\u0430\u0440\u0442\u0430 \u041b\u044c\u0432\u043e\u0432\u043d\u0430","desc":"Ea ipsam et rerum dolorem. Debitis odio consectetur et vel nisi voluptas.","is_work":true,"date_start":null,"images":null}},{"status":"success","message":"\u0413\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","races":{"id":52,"name":"\u0420\u043e\u0434\u0438\u043e\u043d\u043e\u0432 \u0414\u0430\u043d\u0438\u043b\u0430 \u0418\u0432\u0430\u043d\u043e\u0432\u0438\u0447","desc":"Quod ea nam enim voluptas ipsa. Facilis alias velit aperiam quia. Iure eum odio veritatis. Dicta nulla aut molestias et quos eos.","is_work":false,"date_start":null,"images":null}}]'
         headers: []
         description: ''
         custom: []
@@ -60,14 +104,14 @@ endpoints:
         name: id
         description: 'The ID of the race.'
         required: true
-        example: 1
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -76,7 +120,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.race.get_for_id.success","race":{"id":32,"name":"\u041c\u0438\u043b\u0430\u043d \u041c\u0430\u043a\u0441\u0438\u043c\u043e\u0432\u0438\u0447 \u0418\u0441\u0430\u0435\u0432","desc":"Et enim ut quo doloribus corrupti ratione et. Architecto voluptas nesciunt quasi aut. Labore assumenda eum architecto est veniam necessitatibus eum. Sed blanditiis perspiciatis aut.","is_work":false,"date_start":null,"images":null}}'
+        content: '{"status":"success","message":"\u0413\u043e\u043d\u043a\u0430 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","race":{"id":53,"name":"\u041c\u0430\u043a\u0441\u0438\u043c\u043e\u0432 \u0421\u0430\u0432\u0430 \u0418\u0432\u0430\u043d\u043e\u0432\u0438\u0447","desc":"Autem dolorem deserunt quos et delectus dolorum. Autem libero possimus et dolorum incidunt harum. Qui sint quis nihil consequatur maxime nesciunt. Voluptatem in placeat occaecati veritatis culpa.","is_work":false,"date_start":null,"images":null}}'
         headers: []
         description: ''
         custom: []
@@ -109,9 +153,9 @@ endpoints:
     bodyParameters:
       name:
         name: name
-        description: 'validation.max validation.min.'
+        description: 'Количество символов в значении поля value не может превышать 255. Количество символов в поле value должно быть не меньше 3.'
         required: true
-        example: kapnbbbrvabcsftggygzmwqsspitvbxyyzwkxrkxmgbdxxgfjskcmqrdazfrjblddlfycdkiufyasnaasmmuvou
+        example: lncqbuxbbeunfixkyfohkbdkuchneqeelqwrqmygidnwwpemrmpkufvkmhjxqgamykbmbnhufwpgii
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -121,17 +165,17 @@ endpoints:
         name: desc
         description: ''
         required: false
-        example: vel
+        example: ut
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      date_start:
-        name: date_start
-        description: validation.date.
+      dateStart:
+        name: dateStart
+        description: 'Значение поля value не является датой.'
         required: true
-        example: '2025-01-21T07:23:02'
+        example: '2025-01-24T07:05:49'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -141,7 +185,7 @@ endpoints:
         name: trackId
         description: 'The <code>id</code> of an existing record in the tracks table.'
         required: true
-        example: 16
+        example: 9
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -149,7 +193,7 @@ endpoints:
         custom: []
       images:
         name: images
-        description: 'validation.image validation.max.'
+        description: 'Файл, указанный в поле value, должен быть изображением.'
         required: false
         example:
           - null
@@ -159,17 +203,17 @@ endpoints:
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: kapnbbbrvabcsftggygzmwqsspitvbxyyzwkxrkxmgbdxxgfjskcmqrdazfrjblddlfycdkiufyasnaasmmuvou
-      desc: vel
-      date_start: '2025-01-21T07:23:02'
-      trackId: 16
+      name: lncqbuxbbeunfixkyfohkbdkuchneqeelqwrqmygidnwwpemrmpkufvkmhjxqgamykbmbnhufwpgii
+      desc: ut
+      dateStart: '2025-01-24T07:05:49'
+      trackId: 9
     fileParameters:
       images:
         - null
     responses:
       -
         status: 200
-        content: '{"id":33,"name":"\u0422\u0440\u0435\u0442\u044c\u044f\u043a\u043e\u0432 \u041f\u0451\u0442\u0440 \u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432\u0438\u0447","desc":"Dolore aut laborum incidunt. Ea et quo et reiciendis repudiandae. Necessitatibus ex aspernatur consectetur eum quibusdam perferendis perspiciatis quis.","is_work":false,"date_start":"2025-01-21T07:23:02.000000Z","images":null,"track_id":7,"user_id":1,"created_at":"2025-01-21T07:23:02.000000Z","updated_at":"2025-01-21T07:23:02.000000Z"}'
+        content: '{"status":"success","message":"\u0413\u043e\u043d\u043a\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430.","race":{"id":54,"name":"\u0422\u0438\u043c\u043e\u0444\u0435\u0435\u0432 \u0412\u0430\u043b\u0435\u0440\u0438\u0430\u043d \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u0438\u0447","desc":"Nemo molestiae ut sit earum. Est ab similique eligendi dignissimos quia deserunt eum minus. Nisi amet fuga sint voluptatem doloremque aut.","is_work":true,"date_start":null,"images":null}}'
         headers: []
         description: ''
         custom: []

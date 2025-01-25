@@ -16,9 +16,9 @@ class CreateRaceAction implements CreateRaceActionContract
         $race = Race::create([
             'name'          => $request->name,
             'desc'          => $request->desc,
-            'date_start'    => $request->date_start,
-            'track_id'        => $request->trackId,
-            'user_id'        => $user->id,
+            'date_start'    => $request->dateStart,
+            'track_id'      => $request->trackId,
+            'user_id'       => $user->id,
         ]);
         $this->saveImages($request->images, $race);
         return SuccessCreateRaceResource::make($race);

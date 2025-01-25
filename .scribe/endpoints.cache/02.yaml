@@ -24,11 +24,31 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 4
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      paginate:
+        name: paginate
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
       page:
         name: page
         description: ''
         required: false
-        example: null
+        example: illo
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -36,21 +56,24 @@ endpoints:
         custom: []
       limit:
         name: limit
-        description: validation.max.
+        description: 'Значение поля value не может быть больше 50.'
         required: false
-        example: 1
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         custom: []
     cleanBodyParameters:
-      limit: 1
+      userId: 4
+      paginate: false
+      page: illo
+      limit: 16
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.track.get.success","tracks":{"id":23,"name":"\u0410\u0431\u0440\u0430\u0437\u0438\u0432\u043e\u0441\u0442\u0440\u0443\u0439\u0449\u0438\u043a","address":"535259, \u0418\u0432\u0430\u043d\u043e\u0432\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0421\u0435\u0440\u0435\u0431\u0440\u044f\u043d\u044b\u0435 \u041f\u0440\u0443\u0434\u044b, \u043f\u0440. \u0411\u0443\u0445\u0430\u0440\u0435\u0441\u0442\u0441\u043a\u0430\u044f, 81","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Repellat inventore itaque sed est aut rerum dolor. Dolor enim iure accusantium ut nesciunt hic sit temporibus. Sed quasi et consectetur sit nulla voluptate sequi. Voluptatem quasi non sunt distinctio ratione voluptatem. Consequuntur cum maiores quidem. Perspiciatis qui adipisci qui omnis molestiae. Aut consectetur est voluptatem ad aut ullam. Numquam ut quod praesentium sint sed natus vitae. Id laborum incidunt enim.","length":376,"turns":98,"free":true,"is_work":true,"spec":null}},{"status":"success","message":"messages.track.get.success","tracks":{"id":24,"name":"\u0422\u0435\u043b\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u0435\u043b\u044c","address":"340103, \u041a\u0435\u043c\u0435\u0440\u043e\u0432\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041b\u043e\u0442\u043e\u0448\u0438\u043d\u043e, \u043f\u0440\u043e\u0435\u0437\u0434 \u0411\u0443\u0434\u0430\u043f\u0435\u0448\u0442\u0441\u0442\u043a\u0430\u044f, 46","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Eum quaerat non omnis velit culpa. Consequatur est autem ea sunt ipsam sequi. Pariatur ad consequatur at asperiores ipsam aut laudantium vel. Est tenetur illum est perferendis totam reprehenderit omnis quia. Doloremque et pariatur nobis ullam. Qui iste quae quis maiores aut voluptatem. Totam omnis praesentium nihil nesciunt facilis aut. Maiores atque qui quia nihil aut blanditiis. Aut vitae aliquam iure ut aliquam quod. Non iusto non autem sunt repellat enim quo enim.","length":909,"turns":31,"free":true,"is_work":false,"spec":null}}]'
+        content: '[{"status":"success","message":"\u0422\u0440\u0435\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","tracks":{"id":51,"name":"\u041f\u0440\u043e\u043c\u043e\u0443\u0442\u0435\u0440","address":"491749, \u0421\u0430\u0440\u0430\u0442\u043e\u0432\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0428\u0430\u0445\u043e\u0432\u0441\u043a\u0430\u044f, \u043d\u0430\u0431. \u0411\u0430\u043b\u043a\u0430\u043d\u0441\u043a\u0430\u044f, 40","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Ut distinctio quasi autem laborum consectetur consequatur. Sapiente ipsa quos fuga animi veniam autem. Quasi atque consequatur cum maxime. Magnam eligendi consequatur eveniet reiciendis expedita. Consequuntur voluptatem sed mollitia et molestiae totam. Nihil voluptate velit ullam et aliquam assumenda facilis. Nemo odit praesentium occaecati quo dolores. Recusandae velit quo sint beatae sed tempora. Facere assumenda autem ipsum. Sit nobis quia delectus soluta et. Qui ipsa ab a.","length":270,"turns":75,"free":true,"is_work":false,"spec":null}},{"status":"success","message":"\u0422\u0440\u0435\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","tracks":{"id":52,"name":"\u0411\u0443\u0445\u0433\u0430\u043b\u0442\u0435\u0440","address":"159864, \u041c\u0430\u0433\u0430\u0434\u0430\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041f\u043e\u0434\u043e\u043b\u044c\u0441\u043a, \u043f\u0435\u0440. \u0411\u0443\u0445\u0430\u0440\u0435\u0441\u0442\u0441\u043a\u0430\u044f, 49","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Reiciendis dolorum vel exercitationem officiis nihil cum aut ea. Expedita atque qui voluptatum et. Aliquam molestiae labore nihil temporibus maxime veniam. Et voluptas deserunt quis labore. Accusamus quasi non earum rerum accusamus. Eligendi rerum sint possimus modi non in. Dolores vero voluptatem debitis. Sapiente accusamus sed minus totam deserunt.","length":645,"turns":98,"free":false,"is_work":false,"spec":null}}]'
         headers: []
         description: ''
         custom: []
@@ -97,7 +120,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.track.get_for_id.success","track":{"id":25,"name":"\u0411\u0430\u0440\u043c\u0435\u043d","address":"532472, \u041e\u0440\u0435\u043d\u0431\u0443\u0440\u0433\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041d\u0430\u0440\u043e-\u0424\u043e\u043c\u0438\u043d\u0441\u043a, \u0441\u043f\u0443\u0441\u043a \u0413\u0430\u0433\u0430\u0440\u0438\u043d\u0430, 11","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Officia quidem laudantium consequatur at at ipsam. Enim et repudiandae et beatae consequatur odio. Et sequi reprehenderit eligendi minima libero vel quasi. Vitae maxime quas accusamus perspiciatis ipsa nemo. Voluptatibus et dolores ratione dolorem. Aut amet aspernatur voluptatibus rerum velit molestiae. Deserunt fugit dolor asperiores quidem quos in recusandae possimus. Qui quisquam commodi error enim reprehenderit alias vel. Minima unde neque sed molestias in.","length":205,"turns":21,"free":false,"is_work":false,"spec":null}}'
+        content: '{"status":"success","message":"\u0422\u0440\u0435\u043a \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","track":{"id":53,"name":"\u0421\u0438\u0441\u0442\u0435\u043c\u043d\u044b\u0439 \u0430\u043d\u0430\u043b\u0438\u0442\u0438\u043a","address":"935992, \u041a\u0438\u0440\u043e\u0432\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041c\u043e\u0441\u043a\u0432\u0430, \u0443\u043b. \u0421\u043b\u0430\u0432\u044b, 92","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Velit magnam reprehenderit sed. Consequatur quo dolores ducimus placeat sed. Nisi ex tempore est est dolores. Ipsam et aperiam ab at perspiciatis voluptas quae aliquam. Quia cumque enim totam voluptatum provident praesentium minus. Qui a vero odio facilis. Sapiente fugiat suscipit et aut. Inventore id sint ex accusamus sit ipsam quia. Facere reiciendis eum neque est nostrum quasi ipsa. Quis ducimus voluptatem nulla eum quis ut. Et ex molestiae minus quo ratione accusamus quasi.","length":798,"turns":94,"free":false,"is_work":false,"spec":null}}'
         headers: []
         description: ''
         custom: []
@@ -130,9 +153,9 @@ endpoints:
     bodyParameters:
       name:
         name: name
-        description: validation.min.
+        description: 'Количество символов в поле value должно быть не меньше 3.'
         required: true
-        example: jtuvkuypbcnyjegysyokysaommsldwyshuiyknixzdhwzbllao
+        example: hyjwzmovlvagzijyodpzunculbbbujhiauvutouef
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -142,7 +165,7 @@ endpoints:
         name: address
         description: ''
         required: true
-        example: consequatur
+        example: porro
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -150,9 +173,9 @@ endpoints:
         custom: []
       latitude:
         name: latitude
-        description: validation.between.
+        description: 'Значение поля value должно быть между -87 и 89.'
         required: true
-        example: -87
+        example: -86
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -160,9 +183,9 @@ endpoints:
         custom: []
       longitude:
         name: longitude
-        description: validation.between.
+        description: 'Значение поля value должно быть между -180 и 180.'
         required: true
-        example: -180
+        example: -179
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -170,7 +193,7 @@ endpoints:
         custom: []
       images:
         name: images
-        description: 'validation.image validation.max.'
+        description: 'Файл, указанный в поле value, должен быть изображением.'
         required: false
         example:
           - null
@@ -183,7 +206,7 @@ endpoints:
         name: levelId
         description: 'The <code>id</code> of an existing record in the levels table.'
         required: false
-        example: 17
+        example: 9
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -193,7 +216,7 @@ endpoints:
         name: desc
         description: ''
         required: false
-        example: aut
+        example: est
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -203,7 +226,7 @@ endpoints:
         name: length
         description: ''
         required: false
-        example: 1
+        example: 9
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -213,7 +236,7 @@ endpoints:
         name: turns
         description: ''
         required: false
-        example: 3
+        example: 5
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -223,7 +246,7 @@ endpoints:
         name: free
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -233,7 +256,7 @@ endpoints:
         name: is_work
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -241,39 +264,39 @@ endpoints:
         custom: []
       spec:
         name: spec
-        description: validation.json.
+        description: 'Значение поля value должно быть JSON строкой.'
         required: false
-        example: '["id","et"]'
+        example: '["quia","ipsa"]'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: jtuvkuypbcnyjegysyokysaommsldwyshuiyknixzdhwzbllao
-      address: consequatur
-      latitude: -87
-      longitude: -180
-      levelId: 17
-      desc: aut
-      length: 1
-      turns: 3
-      free: true
-      is_work: false
-      spec: '["id","et"]'
+      name: hyjwzmovlvagzijyodpzunculbbbujhiauvutouef
+      address: porro
+      latitude: -86
+      longitude: -179
+      levelId: 9
+      desc: est
+      length: 9
+      turns: 5
+      free: false
+      is_work: true
+      spec: '["quia","ipsa"]'
     fileParameters:
       images:
         - null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.track.create.success","track":{"id":26,"name":"\u0424\u043e\u0442\u043e\u0433\u0440\u0430\u0444","address":"993984, \u0421\u043c\u043e\u043b\u0435\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041c\u044b\u0442\u0438\u0449\u0438, \u0443\u043b. \u0411\u0443\u0445\u0430\u0440\u0435\u0441\u0442\u0441\u043a\u0430\u044f, 47","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Sed modi suscipit officia laboriosam dolores nulla. Sint debitis occaecati voluptate fuga et. Ratione et similique fugit autem. Maxime iste numquam facilis ut ratione. Accusamus quia nihil necessitatibus impedit cumque quibusdam. Ipsa perspiciatis est blanditiis consequatur nobis. Et quasi cupiditate maxime dolor reiciendis ducimus. Dolores molestiae officiis nisi quaerat rem. Itaque cupiditate cupiditate accusamus ut.","length":862,"turns":11,"free":true,"is_work":false,"spec":null}}'
+        content: '{"status":"success","message":"\u0422\u0440\u0435\u043a \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d.","track":{"id":54,"name":"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u043e\u043d\u043d\u044b\u0439 \u0440\u0430\u0431\u043e\u0442\u043d\u0438\u043a","address":"211820, \u0421\u0430\u0440\u0430\u0442\u043e\u0432\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0428\u0430\u0445\u043e\u0432\u0441\u043a\u0430\u044f, \u0448\u043e\u0441\u0441\u0435 \u0421\u043b\u0430\u0432\u044b, 52","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Id consectetur hic dolorem libero. Doloribus ut rerum dolor iusto assumenda modi tenetur. Voluptates maiores voluptatibus dolores autem minus sit odio. Similique aliquid ullam aut molestiae saepe. Nam excepturi eos nam animi. Est saepe repudiandae magni sed sequi quaerat. Et qui tempora amet consequatur in qui consequatur. Consequatur numquam omnis non. Quae voluptatem et officia fuga voluptatem optio ea.","length":337,"turns":81,"free":true,"is_work":false,"spec":null}}'
         headers: []
         description: ''
         custom: []
       -
         status: 422
-        content: '{"status":"error","message":"messages.track.create.error"}'
+        content: '{"status":"error","message":"\u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u0438 \u0442\u0440\u0435\u043a\u0430."}'
         headers: []
         description: ''
         custom: []
