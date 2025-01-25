@@ -45,7 +45,7 @@ class UpdateDocumentAction implements UpdateDocumentActionContract
     private function updateFields($data, $document): void
     {
         $document->update([
-            'data' => json_encode($data),
+            'data' => $data,
         ]);
     }
     private function updateFile($file, $document)

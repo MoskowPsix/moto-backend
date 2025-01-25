@@ -54,4 +54,5 @@ Route::controller(\App\Http\Controllers\Api\DocumentController::class)->group(fu
 Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->group(function () {
     Route::post('races/{id}/toggle-appointment-race', 'toggle')->middleware('auth:sanctum')->name('appointment_race.create');
     Route::get('races/{id}/appointment-race/users', 'getUsersAppointmentRace')->name('appointment_race.get_users_appointment_race');
+    Route::get('races/{id}/appointment-race/users-table', 'getUsersAppointmentRaceInTable')->name('appointment_race.get_users_table_appointment_race');
 });

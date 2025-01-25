@@ -29,7 +29,7 @@ class CreateDocumentRequest extends FormRequest
         return [
             'type'  => 'required|string',
 //            'file'  => 'required|file|mimes:pdf,jpg,jpeg,png',
-            'data'  => 'required|json',
+            'data'  => 'required',
         ];
     }
 }

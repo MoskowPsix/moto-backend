@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Contracts\Actions\AppointmentRace\CreateTableAppointmentRaceUserActionContract;
 use App\Contracts\Actions\AppointmentRace\GetUsersAppointmentRaceActionContract;
 use App\Contracts\Actions\AppointmentRace\ToggleAppointmentRaceActionContract;
 use App\Contracts\Actions\AppointmentRace\DeleteAppointmentRaceActionContract;
@@ -35,6 +36,10 @@ class AppointmentRaceController extends Controller
     public function getUsersAppointmentRace(int $id, GetUsersAppointmentRaceRequest $request, GetUsersAppointmentRaceActionContract $action): SuccessGetUsersAppointmentResource | NotFoundResource
     {
         return $action($id, $request);
+    }
+    public function getUsersAppointmentRaceInTable(int $id, CreateTableAppointmentRaceUserActionContract $action)
+    {
+        return $action($id);
     }
 //    public function delete(int $id, DeleteAppointmentRaceActionContract $action): SuccessDeleteAppointmentRaceResource | NotFoundResource
 //    {
