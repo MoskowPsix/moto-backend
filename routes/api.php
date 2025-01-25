@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\GoogleSheetController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -39,3 +40,5 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
 
 
 });
+
+Route::get('sheet', [GoogleSheetController::class, 'index']);
