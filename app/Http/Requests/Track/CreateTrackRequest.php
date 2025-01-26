@@ -47,7 +47,7 @@ class CreateTrackRequest extends FormRequest
             'length'        => 'integer|nullable',
             'turns'         => 'integer|nullable',
             'free'          => 'boolean|nullable',
-            'is_work'       => 'boolean|requires',
+            'is_work'       => 'boolean|required',
             'spec'          => 'json|nullable',
         ];
     }

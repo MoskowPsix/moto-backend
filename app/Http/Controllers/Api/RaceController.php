@@ -7,6 +7,7 @@ use App\Contracts\Actions\Race\GetForIdRaceActionContract;
 use App\Contracts\Actions\Race\GetRaceActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Race\CreateRaceRequest;
+use App\Http\Requests\Race\GetForIdRaceRequest;
 use App\Http\Requests\Race\GetRaceRequest;
 use App\Http\Resources\Auth\Register\SuccessRegisterResource;
 use App\Http\Resources\Race\Create\SuccessCreateRaceResource;
@@ -29,9 +30,9 @@ class RaceController extends Controller
     }
     #[ResponseFromApiResource(SuccessGetRaceForIdResource::class, Race::class, collection: false)]
     #[Endpoint(title: 'getForId', description: 'Получение гонки по id')]
-    public function getForId(int $id, GetForIdRaceActionContract $action): SuccessGetRaceForIdResource
+    public function getForId(int $id, GetForIdRaceRequest $request, GetForIdRaceActionContract $action): SuccessGetRaceForIdResource
     {
-        return $action($id);
+        return $action($id, $request);
     }
     #[ResponseFromApiResource(SuccessCreateRaceResource::class, Race::class, collection: false)]
     #[Endpoint(title: 'create', description: 'Создание гонки')]
