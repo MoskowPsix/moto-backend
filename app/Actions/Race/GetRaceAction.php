@@ -3,6 +3,7 @@
 namespace App\Actions\Race;
 
 use App\Contracts\Actions\Race\GetRaceActionContract;
+use App\Filters\Race\RaceAppointmentExists;
 use App\Filters\Race\RaceUserIdFilter;
 use App\Http\Requests\Race\GetRaceRequest;
 use App\Http\Resources\Race\GetRaces\SuccessGetRaceResource;
@@ -21,6 +22,7 @@ class GetRaceAction implements GetRaceActionContract
             ->send($races_q)
             ->through([
                 RaceUserIdFilter::class,
+                RaceAppointmentExists::class
             ])
             ->via('apply')
             ->then(function ($races) use ($page, $limit, $request) {

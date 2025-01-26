@@ -24,8 +24,8 @@ class CreateTracksAction implements CreateTracksActionContract
                 'desc'          => $request->desc,
                 'length'        => $request->length,
                 'turns'         => $request->turns,
-                'free'          => $request->free ?? false,
-                'is_work'       => $request->is_work ?? false,
+                'free'          => isset($request->free),
+                'is_work'       => isset($request->is_work),
                 'spec'          => $request->spec,
                 'user_id'       => auth()->user()->id,
             ]);
@@ -34,7 +34,6 @@ class CreateTracksAction implements CreateTracksActionContract
             return SuccessCreateResource::make($track); // Возвращает нулевые координаты, потом надо исправить, пока не критично
         } catch (Exception $e) {
             DB::rollBack();
-            dd($e);
             return ErrorCreateResource::make([]);
         }
     }

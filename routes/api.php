@@ -57,5 +57,3 @@ Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->gr
     Route::get('races/{id}/appointment-race/users', 'getUsersAppointmentRace')->name('appointment_race.get_users_appointment_race');
     Route::get('races/{id}/appointment-race/users-table', 'getUsersAppointmentRaceInTable')->middleware('auth:sanctum')->name('appointment_race.get_users_table_appointment_race');
 });
-
-Route::get('sheet', [GoogleSheetController::class, 'index']);

@@ -22,17 +22,27 @@ endpoints:
         name: id
         description: 'The ID of the race.'
         required: true
-        example: 2
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 2
+      id: 13
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
+    bodyParameters:
+      data:
+        name: data
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
@@ -69,7 +79,7 @@ endpoints:
       groupDescription: 'Методы отвечающие за запись участников'
       subgroup: ''
       subgroupDescription: ''
-      title: toggle
+      title: GetUsersAppointmentRace
       description: 'Записаться и отменить запись на гонку'
       authenticated: false
       custom: []
@@ -81,14 +91,14 @@ endpoints:
         name: id
         description: 'The ID of the race.'
         required: true
-        example: 2
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 2
+      id: 13
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -96,7 +106,7 @@ endpoints:
         name: paginate
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -106,7 +116,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: reiciendis
+        example: quibusdam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -116,27 +126,80 @@ endpoints:
         name: limit
         description: 'Значение поля value не может быть больше 50.'
         required: false
-        example: 2
+        example: 24
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      paginate: false
-      page: reiciendis
-      limit: 2
+      paginate: true
+      page: quibusdam
+      limit: 24
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","users":{"id":76,"name":"\u0428\u0430\u0440\u0430\u043f\u043e\u0432\u0430 \u041b\u0438\u043b\u0438\u044f \u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432\u043d\u0430","email":"iskra83@example.net","email_verified_at":"2025-01-24T07:05:49.000000Z","avatar":null}},{"status":"success","message":"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","users":{"id":77,"name":"\u041a\u043d\u044f\u0437\u0435\u0432\u0430 \u041b\u0430\u0434\u0430 \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u043d\u0430","email":"fokina.dary@example.org","email_verified_at":"2025-01-24T07:05:49.000000Z","avatar":null}}]'
+        content: '[{"status":"success","message":"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","users":{"id":25,"name":"\u0418\u0433\u043d\u0430\u0442 \u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432\u0438\u0447 \u0420\u043e\u0434\u0438\u043e\u043d\u043e\u0432","email":"marta17@example.net","email_verified_at":"2025-01-26T08:53:09.000000Z","avatar":null}},{"status":"success","message":"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","users":{"id":26,"name":"\u041c\u0438\u043b\u0430\u043d \u0418\u0432\u0430\u043d\u043e\u0432\u0438\u0447 \u0422\u0440\u0435\u0442\u044c\u044f\u043a\u043e\u0432","email":"blinov.georgii@example.org","email_verified_at":"2025-01-26T08:53:09.000000Z","avatar":null}}]'
         headers: []
         description: ''
         custom: []
       -
         status: 404
         content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/races/{id}/appointment-race/users-table'
+    metadata:
+      groupName: AppointmentRace
+      groupDescription: 'Методы отвечающие за запись участников'
+      subgroup: ''
+      subgroupDescription: ''
+      title: getTable
+      description: 'Получить ссылку на таблицу участников'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the race.'
+        required: true
+        example: 13
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 13
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","users":[]}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
         headers: []
         description: ''
         custom: []

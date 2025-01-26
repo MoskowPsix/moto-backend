@@ -3,6 +3,10 @@
 namespace App\Actions\AppointmentRace;
 
 use App\Contracts\Actions\AppointmentRace\CreateTableAppointmentRaceUserActionContract;
+use App\Contracts\Services\GoogleSheetServiceContract;
+use App\Http\Resources\AppointmentRace\SuccessCreateTableAppointmentRaceResource;
+use App\Http\Resources\Errors\NotUserPermissionResource;
+use App\Models\AppointmentRace;
 use App\Models\Race;
 use App\Models\User;
 use Carbon\Carbon;
@@ -10,78 +14,82 @@ use Illuminate\Database\Eloquent\Collection;
 
 class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRaceUserActionContract
 {
-
-    public function __invoke(int $id)
+    private GoogleSheetServiceContract $sheetService;
+    public function __construct(GoogleSheetServiceContract $service)
     {
-//        $race = Race::find($id);
-
-//        if (auth()->user()->id !== $race->user_id) {
-//            return false;
-//        }
-//        $users_q = $race->appointments()->with('documents', 'personalInfo');
-        $this->formTable(User::where('id', 3)->get());
+        $this->sheetService = $service;
     }
 
-    private function formTable(Collection $users): array
+    public function __invoke(int $id): SuccessCreateTableAppointmentRaceResource | NotUserPermissionResource
     {
-        $rows = [];
-        foreach ($users as $user) {
-//            dump($user->documents->toArray());
-            foreach($user->documents as $doc) {
-                switch ($doc->type):
-                    case 'pasport':
-                        $passport = [
-                            'serial'    => $doc->data['numberAndSeria'],
-                            'url'       => $doc->data['fileLink']
-                        ];
-                        break;
-                    case 'licenses':
-                        $license = [
-                            'number'    => $doc->data['licensesNumber'],
-                            'url'       => $doc->data['fileLink'],
-                        ];
-                        break;
-                    case 'polis':
-                        $polis = [
-                            'number'        => $doc->data['polisNumber'],
-                            'issuedWhom'    => $doc->data['issuedWhom'],
-                            'itWorksDate'    => $doc->data['itWorksDate'],
-                            'url'           => $doc->data['fileLink'],
-                        ];
-                        break;
-                    default:
-                        break;
-                endswitch;
-            }
-//            dd($user->personalInfo->start_number);
+        $race = Race::find($id);
+        if (auth()->user()->id !== $race->user_id) {
+            return NotUserPermissionResource::make();
+        }
+
+        $appr = AppointmentRace::where('race_id', $id);
+        $fields = [
+            'Отметка времени',
+            'Фамилия участника',
+            'Имя участника',
+            'Отчество участника',
+            'Класс',
+            'Двигатель',
+            'Стартовый Номер',
+            'Номер Лицензии',
+            'Спортивное звание (разряд)',
+            'Дата Рождения',
+            'Населенный пункт (город, область)',
+            'Команда (Клуб)',
+            'Марка мотоцикла',
+            'Страховой полис: Срок действия',
+            'Серия и номер паспорта/ свидетельства о рождении',
+            'Номер телефона',
+            'Страховой полис: Серия и номер',
+            'Страховой полис: Кем выдан',
+            'Тренер: ФИО',
+            'ИНН (для спортсменов младше 18 лет указываем ИНН представителя)',
+            '',
+            'Скан или фотография Страховки',
+            'Скан или фотография Лицензии',
+            'Скан или фотография нотариального согласия от обоих родителей',
+        ];
+        $rows = $this->formTable($appr->get());
+        $url = $this->sheetService->create(uniqid(), $fields, $rows);
+        return SuccessCreateTableAppointmentRaceResource::make($url);
+    }
+
+    private function formTable(Collection $appr): array
+    {
+        foreach ($appr->toArray() as $key => $value) {
+            $info = json_decode($value['data'], true);
             $rows[] = [
                 'Отметка времени'                                                   => Carbon::now()->format('d.m.Y h:m:s'),
-                'Фамилия участника'                                                 => $user->personalInfo->name,
-                'Имя участника'                                                     => $user->personalInfo->surname,
-                'Отчество участника'                                                => $user->personalInfo->patronymic,
-                'Класс'                                                             => $user->personalInfo->group,
-                'Двигатель'                                                         => $user->personalInfo->engine,
-                'Стартовый Номер'                                                   => $user->personalnfo->start_number,
-                'Номер Лицензии'                                                    => $license['number'],
-                'Спортивное звание (разряд)'                                        => $user->personalnfo->rank,
-                'Дата Рождения'                                                     => $user->personalnfo->date_of_birth,
-                'Населенный пункт (город, область)'                                 => $user->personalnfo->city,
-                'Команда (Клуб)'                                                    => $user->personalnfo->community,
-                'Марка мотоцикла'                                                   => $user->personalnfo->moto_stamp,
-                'Страховой полис: Срок действия'                                    => $polis['itWorksDate'],
-                'Серия и номер паспорта/ свидетельства о рождении'                  => $passport['serial'],
-                'Номер телефона'                                                    => $user->personalnfo->phone_number,
-                'Страховой полис: Серия и номер'                                    => $polis['number'],
-                'Страховой полис: Кем выдан'                                        => $polis['issuedWhom'],
-                'Тренер: ФИО'                                                       => $user->personalnfo->coach,
-                'ИНН (для спортсменов младше 18 лет указываем ИНН представителя)'   => $user->personalnfo->inn,
+                'Фамилия участника'                                                 => $info['surname'],
+                'Имя участника'                                                     => $info['name'],
+                'Отчество участника'                                                => $info['patronymic'],
+                'Класс'                                                             => $info['group'],
+                'Двигатель'                                                         => $info['engine'],
+                'Стартовый Номер'                                                   => $info['startNumber'],
+                'Номер Лицензии'                                                    => $info['licensesNumber'],
+                'Спортивное звание (разряд)'                                        => $info['rank'],
+                'Дата Рождения'                                                     => Carbon::parse($info['dateOfBirth'])->format('d.m.Y'),
+                'Населенный пункт (город, область)'                                 => $info['city'],
+                'Команда (Клуб)'                                                    => $info['community'],
+                'Марка мотоцикла'                                                   => $info['motoStamp'],
+                'Страховой полис: Срок действия'                                    => Carbon::parse($info['itWorksDate'])->format('d.m.Y'),
+                'Серия и номер паспорта/ свидетельства о рождении'                  => $info['numberAndSeria'],
+                'Номер телефона'                                                    => $info['phoneNumber'],
+                'Страховой полис: Серия и номер'                                    => $info['polisNumber'],
+                'Страховой полис: Кем выдан'                                        => $info['issuedWhom'],
+                'Тренер: ФИО'                                                       => $info['coach'],
+                'ИНН (для спортсменов младше 18 лет указываем ИНН представителя)'   => $info['inn'],
                 ''                                                                  => '',
-                'Скан или фотография Страховки'                                     => $polis['url'],
-                'Скан или фотография Лицензии'                                      => $license['url'],
+                'Скан или фотография Страховки'                                     => $info['polisFileLink'],
+                'Скан или фотография Лицензии'                                      => $info['licensesFileLink'],
                 'Скан или фотография нотариального согласия от обоих родителей'     => '',
             ];
         }
-        dd($rows);
         return $rows;
     }
 }

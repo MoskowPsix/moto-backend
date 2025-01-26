@@ -28,10 +28,11 @@ class GetRaceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'userId'    => 'nullable|integer|exists:users,id',
-            'paginate'  => 'nullable|boolean',
-            'page'      => 'nullable|string',
-            'limit'     => 'nullable|integer|max:50',
+            'userId'            => 'nullable|integer|exists:users,id',
+            'paginate'          => 'nullable|boolean',
+            'page'              => 'nullable|string',
+            'limit'             => 'nullable|integer|max:50',
+            'appointmentUser'   => 'nullable|boolean'
         ];
     }
 }
