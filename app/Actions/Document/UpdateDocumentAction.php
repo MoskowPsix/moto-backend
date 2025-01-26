@@ -23,22 +23,11 @@ class UpdateDocumentAction implements UpdateDocumentActionContract
             return NotUserPermissionResource::make([]);
         }
 
-//        DB::beginTransaction();
-//        try{
-//
-//            $old_path = $document->first()->path;
-            if ($request->data) {
-                $this->updateFields($request->data, $document);
-            }
-//            if (isset($request->file)) {
-//                $this->updateFile($request->file, $document);
-//            }
-//            $this->delete($old_path);
-//            DB::commit();
-//        } catch (\Exception $e) {
-//            DB::rollBack();
-//            dd($e);
-//        }
+
+        if ($request->data) {
+            $this->updateFields($request->data, $document);
+        }
+
         return SuccessUpdateDocumentResource::make($user->documents()->where('id', $id)->first());
     }
 

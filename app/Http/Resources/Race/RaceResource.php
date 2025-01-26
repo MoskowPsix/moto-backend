@@ -13,10 +13,10 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property string $name
  * @property string $desc
  * @property boolean $is_work
- * @property string $date_star
  * @property array $images
  * @property array $appointmentCount
  * @property bool $appointments_exists
+ * @property string $date_start
  */
 class RaceResource extends JsonResource
 {
@@ -32,7 +32,7 @@ class RaceResource extends JsonResource
             'name'                  => $this->name,
             'desc'                  => $this->desc,
             'is_work'               => $this->is_work,
-            'date_start'            => $this->date_star,
+            'date_start'            => $this->date_start,
             'images'                => $this->images,
             'track'                 => TrackResource::make($this->whenLoaded('track')),
             'user'                  => UserResource::make($this->whenLoaded('user')),
