@@ -3,8 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Actions\User\GetUserForTokenAction;
+use App\Contracts\Actions\User\UpdateUserActionContract;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\User\GetUserForToken\SuccessGetUserForTokenResource;
+use App\Http\Resources\User\Update\ErrorUpdateUserResource;
+use App\Http\Resources\User\Update\SuccessUpdateUserResource;
 use App\Models\User;
 use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
@@ -20,5 +24,13 @@ class UserController extends Controller
     public function getUserForToken(GetUserForTokenAction $actionGetUser): SuccessGetUserForTokenResource
     {
         return $actionGetUser();
+    }
+    #[Authenticated]
+    #[ResponseFromApiResource(SuccessUpdateUserResource::class, User::class, collection: false)]
+    #[ResponseFromApiResource(ErrorUpdateUserResource::class, status: 500)]
+    #[Endpoint(title: 'update', description: 'Обновить профиль пользователя')]
+    public function update(UpdateUserRequest $request, UpdateUserActionContract $action ): SuccessUpdateUserResource | ErrorUpdateUserResource
+    {
+        return $action($request);
     }
 }

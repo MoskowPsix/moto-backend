@@ -22,11 +22,12 @@ class UserWithFIOResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        print_r($this->resource->toArray());
         return [
             'id'                    => $this->id,
             'name'                  => $this->name,
             'avatar'                => $this->avatar,
-            'personal'              => $this->whenLoaded('personalInfo', [
+            'personal'              => $this->when(isset($this->personalInfo), [
                 'name' => $this->personalInfo->name,
                 'surname' => $this->personalInfo->surname,
                 'patronymic' => $this->personalInfo->patronymic,

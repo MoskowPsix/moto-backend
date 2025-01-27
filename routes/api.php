@@ -18,6 +18,8 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::controller(UserController::class)->group(function () {
     Route::get('users', 'getUserForToken')->middleware('auth:sanctum')->name('user.get_user.for_token');
+    Route::post('users/update', 'update')->middleware('auth:sanctum')->name('user.get_user.update');
+
 });
 
 Route::controller(\App\Http\Controllers\Api\TrackController::class)-> group(function () {

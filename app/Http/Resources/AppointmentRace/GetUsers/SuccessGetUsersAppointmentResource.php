@@ -20,7 +20,7 @@ class SuccessGetUsersAppointmentResource extends JsonResource
         return [
             'status'    => 'success',
             'message'   => __('messages.appointment_race.get_users.success'),
-            'users'     => $this->resource instanceof User ? UserWithFIOResource::make($this->resource) :UserWithFIOResource::collection($this->resource),
+            'users'     => $this->resource instanceof User ? [UserWithFIOResource::make($this->resource)] : UserWithFIOResource::collection($this->resource),
         ];
     }
 }
