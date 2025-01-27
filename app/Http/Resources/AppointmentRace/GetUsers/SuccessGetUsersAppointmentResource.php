@@ -3,6 +3,7 @@
 namespace App\Http\Resources\AppointmentRace\GetUsers;
 
 use App\Http\Resources\User\UserResource;
+use App\Http\Resources\User\UserWithFIOResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -19,7 +20,7 @@ class SuccessGetUsersAppointmentResource extends JsonResource
         return [
             'status'    => 'success',
             'message'   => __('messages.appointment_race.get_users.success'),
-            'users'     => $this->resource instanceof User ? UserResource::make($this->resource) :UserResource::collection($this->resource),
+            'users'     => $this->resource instanceof User ? UserWithFIOResource::make($this->resource) :UserWithFIOResource::collection($this->resource),
         ];
     }
 }
