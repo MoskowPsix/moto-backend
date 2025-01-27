@@ -22,7 +22,6 @@ class UserWithFIOResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        print_r($this->resource->toArray());
         return [
             'id'                    => $this->id,
             'name'                  => $this->name,
