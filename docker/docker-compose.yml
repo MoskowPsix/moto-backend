@@ -20,10 +20,7 @@ services:
         networks:
             - db_net
     moto_backend:
-        image: moskowpsix/moto-backend
-        build:
-            context: ./php
-            dockerfile: dockerfile
+        image: moskowpsix/moto-backend:develop
         restart: always
         deploy:
             replicas: 1
@@ -40,10 +37,7 @@ services:
             - db_net
 
     moto_nginx:
-        image: moto/moto_nginx
-        build:
-            context: ./nginx
-            dockerfile: dockerfile
+        image: moto/moto_nginx:develop
         ports:
             - "443:443"
         volumes:

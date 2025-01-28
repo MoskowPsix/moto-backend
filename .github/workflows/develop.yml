@@ -24,7 +24,7 @@ jobs:
             push: true
             context: ./docker/php/
             file: ./docker/php/dockerfile
-            tags: ${{ secrets.DOCKERHUB_USERNAME }}/moto-backend
+            tags: ${{ secrets.DOCKERHUB_USERNAME }}/moto-backend:develop
             build-args: |
               GIT_TOKEN=${{ secrets.GIT_AUTH_TOKEN}}
 
@@ -45,7 +45,7 @@ jobs:
           push: true
           context: ./docker/nginx/
           file: ./docker/nginx/dockerfile
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/moto-nginx
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/moto-nginx:develop
           build-args: |
             GIT_TOKEN=${{ secrets.GIT_AUTH_TOKEN}}
 
