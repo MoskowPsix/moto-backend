@@ -33,16 +33,12 @@ class RegisterRequest extends FormRequest
                 'required',
                 'min:3',
                 'max:50',
-                Rule::unique('users')->where(function ($query) {
-                    return $query->whereNotNull('email_verified_at');
-                }),
+                Rule::unique('users'),
             ],
             'email'                  => [
                 'required',
                 'email',
-                Rule::unique('users')->where(function ($query) {
-                    return $query->whereNotNull('email_verified_at');
-                }),
+                Rule::unique('users'),
             ],
             'password'               => 'required|min:8',
             'password_confirmation'  => 'required|same:password',
