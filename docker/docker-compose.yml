@@ -2,6 +2,7 @@ version: "3.8"
 
 services:
     moto_db:
+        container_name: moto_back_db
         image: postgis/postgis:latest
         restart: always
         deploy:
@@ -20,7 +21,10 @@ services:
         networks:
             - db_net
     moto_backend:
-        image: moskowpsix/moto-backend:develop
+        container_name: moto_back_laravel
+        build:
+            context: ./php
+            dockerfile: dockerfile
         restart: always
         deploy:
             replicas: 1
@@ -29,97 +33,26 @@ services:
                 condition: on-failure
         env_file: .env
         volumes:
-            - ./laravel:/var/www/moto_backend
+            - ../:/var/www/moto_backend
         working_dir: /var/www/moto_backend
         networks:
             - nginx_net
             - db_net
 
     moto_nginx:
-        image: nginx:latest
+        container_name: moto_back_nginx
+        build:
+            context: ./nginx
+            dockerfile: dockerfile
+        ports:
+            - "443:443"
         volumes:
             - ./nginx/conf.d:/etc/nginx/conf.d
-            - ./laravel:/var/www/moto_backend
+            - ../:/var/www/moto_backend
         depends_on:
             - moto_backend
         networks:
             - nginx_net
-#        labels:
-#            - 'traefik.http.routers.moto_nginx.rule=HostRegexp(`${APP_DOMAIN}`, `{subdomain:[a-z]+.${APP_DOMAIN}}`)'
-#            - 'traefik.http.routers.moto_nginx.priority=1'
-#            - 'traefik.docker.network=proxy'
-#    traefik:
-#        build:
-#            context: .
-#            dockerfile: ./Dockerfile-for-traefik # including traefik.toml
-#        command: --docker
-#        restart: always
-#        volumes:
-#            - /var/run/docker.sock:/var/run/docker.sock
-#            # this file you'll have to create manually `touch acme.json && chmod 600 acme.json`
-#            - /home/docker/volumes/traefik/acme.json:/opt/traefik/acme.jso
-#        networks:
-#            - overlay
-#        ports:
-#            - 80:80
-#            - 443:443
-#    elasticsearch:
-#        container_name: vokrug_elasticsearch
-#        image: elasticsearch:8.15.3
-#        restart: always
-#        deploy:
-#            replicas: 1
-#            restart_policy:
-#                delay: 5s
-#                condition: on-failure
-#        #            resources:
-#        #                limits:
-#        #                    cpus: "0.5"
-#        #                    memory: "512M"
-#        environment:
-#            - discovery.type=single-node
-#            - xpack.security.enabled=true
-#            - xpack.security.enrollment.enabled=true
-#            - ELASTIC_PASSWORD=${ELASTICSEARCH_PASSWORD}
-#            - ELASTIC_USERNAME=${ELASTICSEARCH_USERNAME}
-#        ports:
-#            - "${ELASTICSEARCH_PORT}:9200"
-#            - "9300:9300"
-#        volumes:
-#            - ./elastic/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
-#        #            - ./elastic/data:/usr/share/elasticsearch/data
-#        networks:
-#            - es-net
-#        command: >
-#            bash -c "
-#              /usr/local/bin/docker-entrypoint.sh &
-#              echo 'Waiting for Elasticsearch to be ready...';
-#              until curl -k --silent http://localhost:9200 -u elastic:${ELASTICSEARCH_PASSWORD} > /dev/null; do
-#                sleep 5;
-#              done;
-#              echo 'Creating new user...';
-#              curl -u elastic:${ELASTICSEARCH_PASSWORD} -X POST 'http://localhost:9200/_security/user/${ELASTICSEARCH_USERNAME}' -H 'Content-Type: application/json' -d'
-#              {
-#                \"password\" : \"${ELASTICSEARCH_PASSWORD}\",
-#                \"roles\" : [ \"superuser\", \"kibana_user\" ],
-#                \"full_name\" : \"Admin User\",
-#                \"email\" : \"admin@example.com\",
-#                \"enabled\": true
-#              }' --insecure;
-#              echo 'Updating role permissions...';
-#              curl -u elastic:${ELASTICSEARCH_PASSWORD} -X PUT 'http://localhost:9200/_security/role/kibana_user' -H 'Content-Type: application/json' -d'
-#              {
-#                \"cluster\": [\"all\"],
-#                \"indices\": [
-#                  {
-#                    \"names\": [\".kibana*\", \"*\"],
-#                    \"privileges\": [\"all\", \"create_index\"]
-#                  }
-#                ]
-#              }' --insecure;
-#              echo 'User and roles configured successfully!';
-#              wait
-#            "
 
 networks:
     nginx_net:
