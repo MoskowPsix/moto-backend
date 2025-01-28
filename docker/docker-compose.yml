@@ -33,6 +33,7 @@ services:
                 condition: on-failure
         env_file: .env
         volumes:
+            - ./php/php.ini:/usr/local/etc/php/php.ini
             - ../:/var/www/moto_backend
         working_dir: /var/www/moto_backend
         networks:
