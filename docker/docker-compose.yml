@@ -2,7 +2,6 @@ version: "3.8"
 
 services:
     moto_db:
-        container_name: moto_back_db
         image: postgis/postgis:latest
         restart: always
         deploy:
@@ -21,7 +20,7 @@ services:
         networks:
             - db_net
     moto_backend:
-        container_name: moto_back_laravel
+        image: moskowpsix/moto-backend
         build:
             context: ./php
             dockerfile: dockerfile
@@ -41,7 +40,7 @@ services:
             - db_net
 
     moto_nginx:
-        container_name: moto_back_nginx
+        image: moto/moto_nginx
         build:
             context: ./nginx
             dockerfile: dockerfile
