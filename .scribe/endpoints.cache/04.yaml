@@ -28,7 +28,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 3
+        example: 6
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -48,7 +48,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: saepe
+        example: vel
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -58,7 +58,7 @@ endpoints:
         name: limit
         description: 'Значение поля value не может быть больше 50.'
         required: false
-        example: 16
+        example: 14
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -74,17 +74,39 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
+      trackId:
+        name: trackId
+        description: 'The <code>id</code> of an existing record in the tracks table.'
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      pastRace:
+        name: pastRace
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
     cleanBodyParameters:
-      userId: 3
+      userId: 6
       paginate: true
-      page: saepe
-      limit: 16
+      page: vel
+      limit: 14
       appointmentUser: false
+      trackId: 10
+      pastRace: true
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"\u0413\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","races":{"id":100,"name":"\u0413\u0430\u0432\u0440\u0438\u043b\u043e\u0432\u0430 \u0415\u043a\u0430\u0442\u0435\u0440\u0438\u043d\u0430 \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u043d\u0430","desc":"Nostrum minima ex perferendis dolore aliquam sequi consequuntur. Provident sunt quas rem id sit ex ut. Magnam et enim perspiciatis voluptatem dicta.","is_work":true,"date_start":"2025-01-27T10:32:11.000000Z","images":null}},{"status":"success","message":"\u0413\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","races":{"id":101,"name":"\u0424\u0451\u0434\u043e\u0440 \u0411\u043e\u0440\u0438\u0441\u043e\u0432\u0438\u0447 \u0421\u0443\u0431\u0431\u043e\u0442\u0438\u043d","desc":"Repellat est omnis aliquam facere dolor. Sed dolor officiis laudantium dolores sit. Amet adipisci ducimus sed accusamus.","is_work":false,"date_start":"2025-01-27T10:32:11.000000Z","images":null}}]'
+        content: '[{"status":"success","message":"\u0413\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","races":{"id":114,"name":"\u041f\u0430\u0432\u0435\u043b \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447 \u0412\u043e\u043b\u043a\u043e\u0432","desc":"Id ut ipsa et consequatur dolor dolor est. Aut maiores et assumenda dignissimos. Nisi nulla quasi sit blanditiis veniam in dolor. Voluptas nostrum unde placeat et. Eos et et quia quaerat nam.","is_work":false,"date_start":"2025-01-29T12:11:11.000000Z","images":null}},{"status":"success","message":"\u0413\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","races":{"id":115,"name":"\u0418\u0440\u0430\u043a\u043b\u0438\u0439 \u041b\u044c\u0432\u043e\u0432\u0438\u0447 \u0413\u0443\u0440\u044c\u0435\u0432","desc":"Inventore id soluta in ipsam consequatur. Et expedita vel molestiae error qui illo hic sit. Vitae tenetur hic dolorum possimus dicta porro. In possimus consequatur laudantium odit.","is_work":false,"date_start":"2025-01-29T12:11:11.000000Z","images":null}}]'
         headers: []
         description: ''
         custom: []
@@ -130,7 +152,7 @@ endpoints:
         name: userId
         description: ''
         required: false
-        example: 9
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -140,20 +162,20 @@ endpoints:
         name: appointmentUser
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      userId: 9
-      appointmentUser: true
+      userId: 11
+      appointmentUser: false
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0413\u043e\u043d\u043a\u0430 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","race":{"id":102,"name":"\u0424\u043e\u043a\u0438\u043d \u0411\u043e\u043b\u0435\u0441\u043b\u0430\u0432 \u0418\u0432\u0430\u043d\u043e\u0432\u0438\u0447","desc":"Fuga et sed deleniti nostrum iusto et. Nam ipsa quo et odio itaque. Recusandae sed asperiores voluptatem consequatur aliquam. Amet rerum incidunt molestiae qui earum libero ex.","is_work":true,"date_start":"2025-01-27T10:32:11.000000Z","images":null}}'
+        content: '{"status":"success","message":"\u0413\u043e\u043d\u043a\u0430 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","race":{"id":116,"name":"\u041c\u0435\u0440\u043a\u0443\u0448\u0435\u0432\u0430 \u041c\u0430\u0440\u0438\u043d\u0430 \u0421\u0435\u0440\u0433\u0435\u0435\u0432\u043d\u0430","desc":"Deleniti praesentium repudiandae dicta placeat. Mollitia debitis minima ipsum. Ipsa alias consequatur vel consequatur aliquam. Sed repellat aut minus vel enim quam. Ipsa maiores id nihil.","is_work":true,"date_start":"2025-01-29T12:11:11.000000Z","images":null}}'
         headers: []
         description: ''
         custom: []
@@ -188,7 +210,7 @@ endpoints:
         name: name
         description: 'Количество символов в значении поля value не может превышать 255. Количество символов в поле value должно быть не меньше 3.'
         required: true
-        example: jhwviazzhjcyidglrvnqnayxxflnzethrsyglmprip
+        example: ljvvcnxvtdeecftswjxnulxvayjnkyxtyyidktvefxkoenjxjzslibpdokpzeozpbzpeefovnlsfdbh
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -198,7 +220,7 @@ endpoints:
         name: desc
         description: ''
         required: false
-        example: et
+        example: placeat
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -208,7 +230,7 @@ endpoints:
         name: dateStart
         description: 'Значение поля value не является датой.'
         required: true
-        example: '2025-01-27T10:32:11'
+        example: '2025-01-29T12:11:11'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -218,7 +240,7 @@ endpoints:
         name: trackId
         description: 'The <code>id</code> of an existing record in the tracks table.'
         required: true
-        example: 7
+        example: 4
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -236,17 +258,17 @@ endpoints:
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: jhwviazzhjcyidglrvnqnayxxflnzethrsyglmprip
-      desc: et
-      dateStart: '2025-01-27T10:32:11'
-      trackId: 7
+      name: ljvvcnxvtdeecftswjxnulxvayjnkyxtyyidktvefxkoenjxjzslibpdokpzeozpbzpeefovnlsfdbh
+      desc: placeat
+      dateStart: '2025-01-29T12:11:11'
+      trackId: 4
     fileParameters:
       images:
         - null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0413\u043e\u043d\u043a\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430.","race":{"id":103,"name":"\u0424\u0430\u0438\u043d\u0430 \u0415\u0432\u0433\u0435\u043d\u044c\u0435\u0432\u043d\u0430 \u0422\u0435\u0440\u0435\u043d\u0442\u044c\u0435\u0432\u0430","desc":"Enim quia mollitia fugit facilis excepturi sint rerum. Rerum cumque sed consequatur facere est magnam. Voluptates libero recusandae ducimus accusantium.","is_work":true,"date_start":"2025-01-27T10:32:11.000000Z","images":null}}'
+        content: '{"status":"success","message":"\u0413\u043e\u043d\u043a\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430.","race":{"id":117,"name":"\u0410\u043d\u0442\u043e\u043d\u043e\u0432 \u041d\u0438\u043a\u043e\u043b\u0430\u0439 \u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432\u0438\u0447","desc":"Aut voluptates optio accusantium ut et quo. Qui aliquam possimus sed ullam qui. Rerum et distinctio quas placeat quisquam officiis.","is_work":false,"date_start":"2025-01-29T12:11:11.000000Z","images":null}}'
         headers: []
         description: ''
         custom: []

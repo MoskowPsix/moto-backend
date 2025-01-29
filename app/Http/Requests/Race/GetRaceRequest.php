@@ -32,7 +32,9 @@ class GetRaceRequest extends FormRequest
             'paginate'          => 'nullable|boolean',
             'page'              => 'nullable|string',
             'limit'             => 'nullable|integer|max:50',
-            'appointmentUser'   => 'nullable|boolean'
+            'appointmentUser'   => 'nullable|boolean',
+            'trackId'           => 'nullable|integer|exists:tracks,id',
+            'pastRace'          => 'nullable|boolean',
         ];
     }
 }
