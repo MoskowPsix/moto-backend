@@ -22,7 +22,8 @@ class Track extends Model
         'free',
         'is_work',
         'spec',
-        'user_id'
+        'user_id',
+        'contacts'
     ];
 
     protected $casts =[
@@ -36,6 +37,7 @@ class Track extends Model
         'is_work'       => 'boolean',
         'spec'          => 'json',
         'images'        => 'json',
+        'contacts'      => 'json',
     ];
     protected array $postgisColumns = [
         'point' => [

@@ -22,18 +22,24 @@ class UserWithFIOResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+//        dd($this->resource->personalInfo);
+        if(empty($this->personalInfo)) {
+            $personal = [];
+        } else {
+            $personal = [
+                'name'          => $this->personalInfo->name,
+                'surname'       => $this->personalInfo->surname,
+                'patronymic'    => $this->personalInfo->patronymic,
+                'city'          => $this->personalInfo->city,
+                'rank'          => $this->personalInfo->rank,
+                'start_number'  => $this->personalInfo->start_number,
+            ];
+        }
         return [
             'id'                    => $this->id,
             'name'                  => $this->name,
             'avatar'                => $this->avatar,
-            'personal'              => $this->when(isset($this->personalInfo), [
-                'name' => $this->personalInfo->name,
-                'surname' => $this->personalInfo->surname,
-                'patronymic' => $this->personalInfo->patronymic,
-                'city' => $this->personalInfo->city,
-                'rank' => $this->personalInfo->rank,
-                'start_number' => $this->personalInfo->start_number,
-            ]),
+            'personal'              => $personal,
         ];
     }
 }

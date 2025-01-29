@@ -17,6 +17,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property array $appointmentCount
  * @property bool $appointments_exists
  * @property string $date_start
+ * @property object $contacts
  */
 class RaceResource extends JsonResource
 {
@@ -34,6 +35,7 @@ class RaceResource extends JsonResource
             'is_work'               => $this->is_work,
             'date_start'            => $this->date_start,
             'images'                => $this->images,
+            'contacts'              => $this->contacts,
             'track'                 => TrackResource::make($this->whenLoaded('track')),
             'user'                  => UserResource::make($this->whenLoaded('user')),
             'appointment_count'     => AppointmentCountResource::make($this->whenLoaded('appointmentCount')),

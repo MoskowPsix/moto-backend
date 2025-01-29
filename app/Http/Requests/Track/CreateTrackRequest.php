@@ -17,6 +17,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property bool $free
  * @property bool $is_work
  * @property array $spec
+ * @property object $contacts
  */
 class CreateTrackRequest extends FormRequest
 {
@@ -48,6 +49,7 @@ class CreateTrackRequest extends FormRequest
             'turns'         => 'integer|nullable',
             'free'          => 'boolean|nullable',
             'is_work'       => 'boolean|required',
+            'contacts'     => 'json|nullable',
             'spec'          => 'json|nullable',
         ];
     }

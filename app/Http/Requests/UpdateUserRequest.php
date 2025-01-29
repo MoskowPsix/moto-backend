@@ -33,16 +33,12 @@ class UpdateUserRequest extends FormRequest
                                             'nullable',
                                             'min:3',
                                             'max:50',
-                                            Rule::unique('users')->where(function ($query) {
-                                                return $query->whereNotNull('email_verified_at');
-                                            }),
+                                            Rule::unique('users'),
                                         ],
             'email'                  => [
                                             'nullable',
                                             'email',
-                                            Rule::unique('users')->where(function ($query) {
-                                                return $query->whereNotNull('email_verified_at');
-                                            }),
+                                            Rule::unique('users'),
                                         ],
             'avatar'                 => 'nullable|image|mimes:jpeg,png,jpg,svg,webp'
         ];
