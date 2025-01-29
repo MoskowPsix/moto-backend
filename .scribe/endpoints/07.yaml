@@ -73,6 +73,92 @@ endpoints:
   -
     httpMethods:
       - GET
+    uri: 'api/races/{id}/appointment-race/users'
+    metadata:
+      groupName: AppointmentRace
+      groupDescription: 'Методы отвечающие за запись участников'
+      subgroup: ''
+      subgroupDescription: ''
+      title: GetUsersAppointmentRace
+      description: 'Записаться и отменить запись на гонку'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the race.'
+        required: true
+        example: 13
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 13
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      paginate:
+        name: paginate
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: iusto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      limit:
+        name: limit
+        description: 'Значение поля value не может быть больше 50.'
+        required: false
+        example: 23
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      paginate: false
+      page: iusto
+      limit: 23
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"status":"success","message":"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","users":{"id":218,"name":"\u041b\u044e\u0431\u043e\u0432\u044c \u041b\u044c\u0432\u043e\u0432\u043d\u0430 \u041d\u0438\u043a\u043e\u043d\u043e\u0432\u0430","avatar":null,"personal":[]}},{"status":"success","message":"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","users":{"id":219,"name":"\u0416\u0443\u0440\u0430\u0432\u043b\u0451\u0432\u0430 \u042d\u043c\u043c\u0430 \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u043d\u0430","avatar":null,"personal":[]}}]'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
     uri: 'api/races/{id}/appointment-race/users-table'
     metadata:
       groupName: AppointmentRace
