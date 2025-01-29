@@ -9,6 +9,7 @@ use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\AppointmentRace;
 use App\Models\Race;
 use App\Models\User;
+use App\Notifications\CreateTableAppointmentRaceUserNotify;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -56,6 +57,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
         ];
         $rows = $this->formTable($appr->get());
         $url = $this->sheetService->create(uniqid(), $fields, $rows);
+        auth()->user()->notify(new CreateTableAppointmentRaceUserNotify($url, $race));
         return SuccessCreateTableAppointmentRaceResource::make($url);
     }
 
