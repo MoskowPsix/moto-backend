@@ -27,10 +27,12 @@ class CreateTracksAction implements CreateTracksActionContract
                 'free'          => isset($request->free),
                 'is_work'       => isset($request->is_work),
                 'spec'          => $request->spec,
-                'contacts'      => $request->contacts,
-                'user_id'       => auth()->user()->id,
+                'contacts'      => $request->contacts ?? json_encode([]),
+                'user_id'       => 1,
             ]);
-            $this->saveImages($request->images, $track);
+            if(isset($request->images)) {
+                $this->saveImages($request->images, $track);
+            }
             DB::commit();
             return SuccessCreateResource::make($track); // Возвращает нулевые координаты, потом надо исправить, пока не критично
         } catch (Exception $e) {

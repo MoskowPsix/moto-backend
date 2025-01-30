@@ -17,7 +17,9 @@ class GetTracksAction implements GetTracksActionContract
         $page = $request->page;
         $limit = $request->limit && ($request->limit < 50) ? $request->limit : 6;
 
-        $track_q = Track::selectRaw('*, ST_AsGeoJSON(point) as point')->with('level');
+        $track_q = Track::selectRaw(
+            '*, ' . (config('database.default') === 'sqlite' ? 'point' : 'ST_AsGeoJSON(point) as point')
+        )->with('level');
         $tracks = app(Pipeline::class)
             ->send($track_q)
             ->through([

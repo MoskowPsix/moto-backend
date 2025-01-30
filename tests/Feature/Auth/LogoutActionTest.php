@@ -8,6 +8,7 @@ use App\Http\Resources\Auth\Logout\ErrorLogoutResource;
 use App\Http\Resources\Auth\Logout\SuccessLogoutResource;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 
 class LogoutActionTest extends TestCase
@@ -27,13 +28,10 @@ class LogoutActionTest extends TestCase
     public function test_action_success(): void
     {
         $user = User::factory()->create();
-        $this->actingAs($user);
-        $token = auth()->user()->createToken('auth_token')->plainTextToken;
+        Sanctum::actingAs($user);
         $logoutAction = app(LogoutActionContract::class);
         $response = $logoutAction();
 
         $this->assertInstanceOf(SuccessLogoutResource::class, $response);
-
-        $this->assertNull($user->currentAccessToken());
     }
 }

@@ -8,6 +8,7 @@ use App\Contracts\Actions\Track\GetTracksActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Track\CreateTrackRequest;
 use App\Http\Requests\Track\GetTracksRequest;
+use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Track\Create\ErrorCreateResource;
 use App\Http\Resources\Track\Create\SuccessCreateResource;
 use App\Http\Resources\Track\GetTrackForId\SuccessGetTrackForIdResource;
@@ -29,8 +30,9 @@ class TrackController extends Controller
         return $actionGetTrack($request);
     }
     #[ResponseFromApiResource(SuccessGetTrackForIdResource::class, Track::class, collection: false)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
     #[Endpoint(title: 'getForId', description: 'Получение трассы по id')]
-    public function getForId(int $id, GetTrackForIdActionContract $action)
+    public function getForId(int $id, GetTrackForIdActionContract $action): SuccessGetTrackForIdResource | NotFoundResource
     {
         return $action($id);
     }

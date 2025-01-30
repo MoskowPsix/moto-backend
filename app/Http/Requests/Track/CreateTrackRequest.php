@@ -49,7 +49,7 @@ class CreateTrackRequest extends FormRequest
             'turns'         => 'integer|nullable',
             'free'          => 'boolean|nullable',
             'is_work'       => 'boolean|required',
-            'contacts'     => 'json|nullable',
+            'contacts'      => 'json|nullable',
             'spec'          => 'json|nullable',
         ];
     }

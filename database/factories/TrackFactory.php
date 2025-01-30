@@ -21,7 +21,9 @@ class TrackFactory extends Factory
         return [
             'name'      => fake()->jobTitle(),
             'address'   => fake()->address(),
-            'point'     => 'POINT('.fake()->latitude().' '.fake()->longitude().')',
+            'point'     => config('database.default') === 'sqlite' ?
+                json_encode(['type' => 'Point', 'coordinates' => [$this->faker->longitude, $this->faker->latitude]]) :
+                'POINT('.fake()->latitude().' '.fake()->longitude().')',
             'level_id'  => Level::inRandomOrder()->first()->id,
             'user_id'   => User::inRandomOrder()->first()->id,
             'desc'      => fake()->text(500),
