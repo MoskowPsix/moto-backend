@@ -14,21 +14,26 @@ class LogoutActionTest extends TestCase
 {
     use RefreshDatabase;
 
-    protected bool $seed = true;
+//    protected bool $seed = true;
 
     public function test_action_error(): void
     {
         $logoutAction = app(LogoutActionContract::class);
         $response = $logoutAction();
         $this->assertEquals(ErrorLogoutResource::make([]), $response);
-//        $user = User::factory()->create();
-//        $token = $user->createToken('TestToken')->plainTextToken;
-//        $this->actingAs($user);
-//
-//        // Выполняем выход
-//        $log = app(LogoutActionContract::class);
-//        $response = $log();
-//
-//        $this->assertInstanceOf(SuccessLogoutResource::class, $response);
+
+    }
+
+    public function test_action_success(): void
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+        $token = auth()->user()->createToken('auth_token')->plainTextToken;
+        $logoutAction = app(LogoutActionContract::class);
+        $response = $logoutAction();
+
+        $this->assertInstanceOf(SuccessLogoutResource::class, $response);
+
+        $this->assertNull($user->currentAccessToken());
     }
 }
