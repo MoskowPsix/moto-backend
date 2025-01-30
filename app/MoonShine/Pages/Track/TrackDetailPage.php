@@ -40,6 +40,11 @@ class TrackDetailPage extends DetailPage
                     Text::make('Название'),
                     Text::make('Значение'),
                 ]),
+            Json::make('Спецификации трассы', 'contacts')
+                ->fields([
+                    Text::make('Название','title'),
+                    Text::make('Значение', 'value'),
+                ]),
             $this->user(),
             $this->level(),
             Date::make('Создано', 'created_at'),

@@ -46,7 +46,7 @@ class MoonShineUserResource extends ModelResource
 
     public function getTitle(): string
     {
-        return __('moonshine::ui.resource.admins_title');
+        return __('Пользователь');
     }
 
     protected function activeActions(): ListOf

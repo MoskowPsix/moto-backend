@@ -33,6 +33,7 @@ class RaceIndexPage extends IndexPage
             Image::make('Фото', 'images')->multiple(),
             $this->user(),
             $this->track(),
+            $this->appointmentsCount(),
             Date::make('Создано', 'created_at')->sortable(),
             Date::make('Обновлено', 'updated_at')->sortable(),
         ];

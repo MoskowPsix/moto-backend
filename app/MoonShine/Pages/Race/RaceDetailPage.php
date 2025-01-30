@@ -35,6 +35,8 @@ class RaceDetailPage extends DetailPage
             $this->track(),
             Date::make('Создано', 'created_at'),
             Date::make('Обновлено', 'updated_at'),
+            $this->appointmentsCount(),
+            $this->appointments(),
         ];
     }
 
