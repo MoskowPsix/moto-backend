@@ -58,7 +58,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
         $rows = $this->formTable($appr->get());
         $url = $this->sheetService->create(uniqid(), $fields, $rows);
         auth()->user()->notify(new CreateTableAppointmentRaceUserNotify($url, $race));
-        return SuccessCreateTableAppointmentRaceResource::make($url);
+        return SuccessCreateTableAppointmentRaceResource::make($url->url);
     }
 
     private function formTable(Collection $appr): array

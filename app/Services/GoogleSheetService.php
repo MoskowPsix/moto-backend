@@ -18,6 +18,7 @@ class GoogleSheetService implements GoogleSheetServiceContract
 {
     public string $table_name;
 
+    private string $sheetNameUsers = 'Sheet1';
     public string $url;
 
     public array $fields;
@@ -25,7 +26,10 @@ class GoogleSheetService implements GoogleSheetServiceContract
     public array $values;
     private Client $client;
 
-    public function create(string $table_name, array $fields = [], array $value = []): string
+    /**
+     * @throws Exception
+     */
+    public function create(string $table_name, array $fields = [], array $value = []): object
     {
         $this->ClientAuth();
         $this->fields = $fields;
@@ -39,7 +43,23 @@ class GoogleSheetService implements GoogleSheetServiceContract
         $spriteSheetID = $table->spreadsheetId;
 
         $url = "https://docs.google.com/spreadsheets/d/$spriteSheetID";
-        return $url;
+        return (object)['url' => $url, 'sheetID' => $spriteSheetID];
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function update(string $id, array $fields = [], array $value = []): object
+    {
+        $this->ClientAuth();
+        $table = $this->getTableForId($id);
+        $this->fields = $fields;
+        $this->values = $value;
+//        $this->addAccess($table);
+        $this->updateRows($table);
+        $url = "https://docs.google.com/spreadsheets/d/$id";
+        $spriteSheetID = $table->spreadsheetId;
+        return (object)['url' => $url, 'sheetID' => $spriteSheetID];
     }
 
     private function ClientAuth(): void
@@ -60,6 +80,12 @@ class GoogleSheetService implements GoogleSheetServiceContract
             ]
             ]));
         return $service->spreadsheets->create($spreadSheet);
+    }
+
+    private function getTableForId(string $id): Spreadsheet
+    {
+        $service = new Sheets($this->client);
+        return $service->spreadsheets->get($id);
     }
 
     private function addAccess(Spreadsheet $table): void
@@ -83,12 +109,36 @@ class GoogleSheetService implements GoogleSheetServiceContract
             'values' => $this->createValuesForTable(),
         ]);
 
-        $range = 'Sheet1!A1:Z10';
-
+        $range = $this->sheetNameUsers . '!A1:Z10';
         $service->spreadsheets_values->append(
             $table->spreadsheetId,
             $range,
             $bodyTable,
+            ['valueInputOption' => 'RAW']
+        );
+    }
+    private function updateRows(Spreadsheet $table): void
+    {
+        $service = new Sheets($this->client);
+
+        $bodyTableNew = new \Google_Service_Sheets_ValueRange([
+            'values' => $this->createValuesForTable(),
+        ]);
+        $bodyTableClear = new \Google_Service_Sheets_ValueRange([
+            'values' => [],
+        ]);
+        $clear = new Sheets\ClearValuesRequest();
+
+        $range = $this->sheetNameUsers;
+        $service->spreadsheets_values->clear(
+            $table->spreadsheetId,
+            $range,
+            $clear
+        );
+        $service->spreadsheets_values->update(
+            $table->spreadsheetId,
+            $range,
+            $bodyTableNew,
             ['valueInputOption' => 'RAW']
         );
     }
