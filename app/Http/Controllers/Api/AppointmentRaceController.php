@@ -43,8 +43,9 @@ class AppointmentRaceController extends Controller
     #[Authenticated]
     #[ResponseFromApiResource(SuccessCreateTableAppointmentRaceResource::class)]
     #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
     #[Endpoint(title: 'getTable', description: 'Получить ссылку на таблицу участников')]
-    public function getUsersAppointmentRaceInTable(int $id, CreateTableAppointmentRaceUserActionContract $action): SuccessCreateTableAppointmentRaceResource | NotUserPermissionResource
+    public function getUsersAppointmentRaceInTable(int $id, CreateTableAppointmentRaceUserActionContract $action): SuccessCreateTableAppointmentRaceResource | NotUserPermissionResource | NotFoundResource
     {
         return $action($id);
     }

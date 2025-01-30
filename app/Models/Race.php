@@ -50,4 +50,8 @@ class Race extends Model
     {
         return $this->hasOne(AppointmentRaceCount::class);
     }
+    public function sheet(): HasOne
+    {
+        return $this->hasOne(GoogleSheet::class);
+    }
 }
