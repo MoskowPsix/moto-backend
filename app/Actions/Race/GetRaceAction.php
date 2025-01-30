@@ -29,8 +29,8 @@ class GetRaceAction implements GetRaceActionContract
             ->via('apply')
             ->then(function ($races) use ($page, $limit, $request) {
                 return $request->paginate ?
-                    $races->simplePaginate($limit, ['*'], 'page',  $page) :
-                    $races->get();
+                    $races->orderBy('date_start', 'desc')->simplePaginate($limit, ['*'], 'page',  $page) :
+                    $races->orderBy('date_start', 'desc')->get();
             });
         return SuccessGetRaceResource::make($races);
     }
