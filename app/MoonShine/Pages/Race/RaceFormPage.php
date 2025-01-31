@@ -11,6 +11,7 @@ use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\UI\Fields\Checkbox;
 use MoonShine\UI\Fields\Date;
+use MoonShine\UI\Fields\File;
 use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Image;
 use MoonShine\UI\Fields\Text;
@@ -36,6 +37,8 @@ class RaceFormPage extends FormPage
             $this->user(),
             $this->track(),
             $this->appointments(),
+            File::make('Файл положения', 'position_file')->dir("/race/$item->id"),
+            File::make('Файл регламента', 'results_file')->dir("/race/$item->id"),
         ];
     }
 

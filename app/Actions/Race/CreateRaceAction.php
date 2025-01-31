@@ -40,11 +40,10 @@ class CreateRaceAction implements CreateRaceActionContract
     private function saveFile( $image, Race $race, string $field_name): void
     {
         if (isset($image)) {
-            $path = $image->store('user/' . $race->id, 'public');
-            $path_arr[] = $path;
+            $path = $image->store('race/' . $race->id, 'public');
 
             $race->update([
-                $field_name => $path_arr
+                $field_name => $path
             ]);
         }
     }
