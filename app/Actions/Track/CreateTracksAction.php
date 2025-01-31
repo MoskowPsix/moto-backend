@@ -28,7 +28,7 @@ class CreateTracksAction implements CreateTracksActionContract
                 'is_work'       => isset($request->is_work),
                 'spec'          => $request->spec,
                 'contacts'      => $request->contacts ?? json_encode([]),
-                'user_id'       => 1,
+                'user_id'       => auth()->user()->id,
             ]);
             if(isset($request->images)) {
                 $this->saveImages($request->images, $track);

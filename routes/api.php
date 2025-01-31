@@ -18,6 +18,7 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::controller(UserController::class)->group(function () {
     Route::get('users', 'getUserForToken')->middleware('auth:sanctum')->name('user.get_user.for_token');
+    Route::get('users/{id}', 'getForId')->name('user.get_for_id');
     Route::post('users/update', 'update')->middleware('auth:sanctum')->name('user.get_user.update');
 
 });

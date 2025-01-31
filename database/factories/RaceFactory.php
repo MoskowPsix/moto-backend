@@ -25,7 +25,7 @@ class RaceFactory extends Factory
             'date_start' => now(),
 //            'images' => json_encode([fake()->imageUrl(), fake()->imageUrl()]),
             'track_id' => Track::inRandomOrder()->first()->id,
-            'user_id' => User::inRandomOrder()->first()->id
+            'user_id' => User::inRandomOrder()->first()->id,
         ];
     }
 }

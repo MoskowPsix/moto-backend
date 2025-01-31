@@ -5,6 +5,7 @@ namespace App\Actions\AppointmentRace;
 use App\Contracts\Actions\AppointmentRace\CreateTableAppointmentRaceUserActionContract;
 use App\Contracts\Services\GoogleSheetServiceContract;
 use App\Http\Resources\AppointmentRace\SuccessCreateTableAppointmentRaceResource;
+use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\AppointmentRace;
 use App\Models\Race;
@@ -21,44 +22,41 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
         $this->sheetService = $service;
     }
 
-    public function __invoke(int $id): SuccessCreateTableAppointmentRaceResource | NotUserPermissionResource
+    public function __invoke(int $id): SuccessCreateTableAppointmentRaceResource | NotUserPermissionResource | NotFoundResource
     {
+        // Достаём гонку
         $race = Race::find($id);
+        // Проверяем принадлежит ли пользователю гонка
         if (auth()->user()->id !== $race->user_id) {
             return NotUserPermissionResource::make();
         }
-
+        // Формируем запрос на всех участников гонки
         $appr = AppointmentRace::where('race_id', $id);
-        $fields = [
-            'Отметка времени',
-            'Фамилия участника',
-            'Имя участника',
-            'Отчество участника',
-            'Класс',
-            'Двигатель',
-            'Стартовый Номер',
-            'Номер Лицензии',
-            'Спортивное звание (разряд)',
-            'Дата Рождения',
-            'Населенный пункт (город, область)',
-            'Команда (Клуб)',
-            'Марка мотоцикла',
-            'Страховой полис: Срок действия',
-            'Серия и номер паспорта/ свидетельства о рождении',
-            'Номер телефона',
-            'Страховой полис: Серия и номер',
-            'Страховой полис: Кем выдан',
-            'Тренер: ФИО',
-            'ИНН (для спортсменов младше 18 лет указываем ИНН представителя)',
-            '',
-            'Скан или фотография Страховки',
-            'Скан или фотография Лицензии',
-            'Скан или фотография нотариального согласия от обоих родителей',
-        ];
+        if (!$appr->exists()) {
+            return NotFoundResource::make([]);
+        }
+        // Получаем поля будующей таблицы
+        $fields = $this->getFields();
+        // Формируем данные для таблицы участников
         $rows = $this->formTable($appr->get());
-        $url = $this->sheetService->create(uniqid(), $fields, $rows);
-        auth()->user()->notify(new CreateTableAppointmentRaceUserNotify($url, $race));
-        return SuccessCreateTableAppointmentRaceResource::make($url);
+        // Обновляем или создаём таблицу в Google Sheets
+        if ($race->sheet()->exists()){
+            // Получаем id таблицы в системе google
+            $id = $race->sheet()->first()->spread_sheet_id;
+            // Обновляем таблицу в системе google
+            $url = $this->sheetService->update($id, $fields, $rows);
+        } else {
+            // Создаём таблицу в системе google
+            $url = $this->sheetService->create(uniqid(), $fields, $rows);
+            // Сохраняем ссылку и id на таблицу google в бд
+            $race->sheet()->create([
+                'spread_sheet_id'   => $url->sheetID,
+                'url'               => $url->url,
+            ]);
+        }
+        // Отправляем уведомление о создании таблицы участников
+        auth()->user()->notify(new CreateTableAppointmentRaceUserNotify($url->url, $race));
+        return SuccessCreateTableAppointmentRaceResource::make($url->url);
     }
 
     private function formTable(Collection $appr): array
@@ -93,5 +91,34 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
             ];
         }
         return $rows;
+    }
+    private function getFields(): array
+    {
+        return [
+            'Отметка времени',
+            'Фамилия участника',
+            'Имя участника',
+            'Отчество участника',
+            'Класс',
+            'Двигатель',
+            'Стартовый Номер',
+            'Номер Лицензии',
+            'Спортивное звание (разряд)',
+            'Дата Рождения',
+            'Населенный пункт (город, область)',
+            'Команда (Клуб)',
+            'Марка мотоцикла',
+            'Страховой полис: Срок действия',
+            'Серия и номер паспорта/ свидетельства о рождении',
+            'Номер телефона',
+            'Страховой полис: Серия и номер',
+            'Страховой полис: Кем выдан',
+            'Тренер: ФИО',
+            'ИНН (для спортсменов младше 18 лет указываем ИНН представителя)',
+            '',
+            'Скан или фотография Страховки',
+            'Скан или фотография Лицензии',
+            'Скан или фотография нотариального согласия от обоих родителей',
+        ];
     }
 }
