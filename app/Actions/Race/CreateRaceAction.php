@@ -21,6 +21,8 @@ class CreateRaceAction implements CreateRaceActionContract
             'user_id'       => $user->id,
         ]);
         $this->saveImages($request->images, $race);
+        $this->saveFile($request->positionFile, $race, 'position_file');
+        $this->saveFile($request->resultsFile, $race, 'results_file');
         return SuccessCreateRaceResource::make($race);
     }
 
@@ -33,6 +35,18 @@ class CreateRaceAction implements CreateRaceActionContract
         $track->update([
             'images' => $path_arr
         ]);
+    }
+
+    private function saveFile( $image, Race $race, string $field_name): void
+    {
+        if (isset($image)) {
+            $path = $image->store('user/' . $race->id, 'public');
+            $path_arr[] = $path;
+
+            $race->update([
+                $field_name => $path_arr
+            ]);
+        }
     }
 
 }

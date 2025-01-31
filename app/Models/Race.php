@@ -23,6 +23,8 @@ class Race extends Model
         'is_work',
         'date_start',
         'images',
+        'position_file',
+        'results_file',
         'track_id',
         'user_id',
     ];

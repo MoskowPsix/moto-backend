@@ -18,6 +18,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property bool $appointments_exists
  * @property string $date_start
  * @property object $contacts
+ * @property string $position_file
+ * @property string $results_file
  */
 class RaceResource extends JsonResource
 {
@@ -39,7 +41,9 @@ class RaceResource extends JsonResource
             'track'                 => TrackResource::make($this->whenLoaded('track')),
             'user'                  => UserResource::make($this->whenLoaded('user')),
             'appointment_count'     => AppointmentCountResource::make($this->whenLoaded('appointmentCount')),
-            'appointments_exists'   => $this->when(isset($this->appointments_exists), $this->appointments_exists)
+            'appointments_exists'   => $this->when(isset($this->appointments_exists), $this->appointments_exists),
+            'position_file'         => $this->position_file,
+            'results_file'          => $this->results_file
         ];
     }
 }
