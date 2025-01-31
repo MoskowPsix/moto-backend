@@ -19,9 +19,16 @@ class LoginActionTest extends TestCase
 
     public function test_action_successful(): void
     {
-        $user = User::factory()->create();
+        $pass = fake()->password();
+        $user = User::factory()->create([
+            'password' => Hash::make($pass),
+        ]);
+        $user_login =   [
+            'email'       => $user->email,
+            'password'    => $pass,
+        ];
 
-        $request = new LoginRequest($user);
+        $request = new LoginRequest($user_login);
         $action = app(LoginActionContract::class);
         $userAction = $action($request);
 

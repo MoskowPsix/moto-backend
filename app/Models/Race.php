@@ -38,7 +38,7 @@ class Race extends Model
 
     public function track(): BelongsTo
     {
-        return $this->belongsTo(Track::class)->selectRaw('*, ST_AsGeoJSON(point) as point');
+        return $this->belongsTo(Track::class)->selectRaw('*, ' . (config('database.default') === 'sqlite' ? 'point' : 'ST_AsGeoJSON(point) as point'));
     }
     public function user(): BelongsTo
     {

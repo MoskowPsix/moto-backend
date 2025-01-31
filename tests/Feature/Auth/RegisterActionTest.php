@@ -13,9 +13,11 @@ use Tests\TestCase;
 class RegisterActionTest extends TestCase
 {
     use RefreshDatabase;
+
+    protected bool $seed = true;
     public function test_action_successful(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->make()->toArray();
         $request = new RegisterRequest($user);
         $action = app(RegisterActionContract::class);
         $userAction = $action($request);
@@ -24,9 +26,9 @@ class RegisterActionTest extends TestCase
         $this->assertEquals($user['email'], $userAction->email);
     }
     public function test_action_email_failed(): void{
-        $user = User::factory()->create([
+        $user = User::factory()->make([
             'email' => null,
-        ]);
+        ])->toArray();
         $request = new RegisterRequest($user);
         $action = app(RegisterActionContract::class);
         $userAction = $action($request);
@@ -48,9 +50,9 @@ class RegisterActionTest extends TestCase
 //    }
 
     public function test_action_name_failed(): void{
-        $user = User::factory()->create([
+        $user = User::factory()->make([
             'name' => null,
-        ]);
+        ])->toArray();
         $request = new RegisterRequest($user);
         $action = app(RegisterActionContract::class);
         $userAction = $action($request);
