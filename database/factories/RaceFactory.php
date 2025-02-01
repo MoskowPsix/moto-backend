@@ -22,7 +22,7 @@ class RaceFactory extends Factory
             'name' => fake()->name(),
             'desc' => fake()->text(200),
             'is_work' => fake()->boolean(),
-            'date_start' => now(),
+            'date_start' => fake()->time(),
 //            'images' => json_encode([fake()->imageUrl(), fake()->imageUrl()]),
             'track_id' => Track::inRandomOrder()->first()->id,
             'user_id' => User::inRandomOrder()->first()->id,
