@@ -25,7 +25,30 @@ class ToogleAppointmentRaceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'data' => 'nullable'
+            'data'                          => 'nullable|',
+            'data.surname'                  => 'nullable|string',
+            'data.patronymic'               => 'nullable|string',
+            'data.dateOfBirth'              => 'nullable|timestamp',
+            'data.city'                     => 'nullable|string',
+            'data.inn'                      => 'nullable|integer',
+            'data.snils'                    => 'nullable|integer',
+            'data.phoneNumber'              => 'nullable|integer',
+            'data.startNumber'              => 'nullable|integer',
+            'data.group'                    => 'nullable|string',
+            'data.rank'                     => 'nullable|string',
+            'data.rankNumber'               => 'nullable|string',
+            'data.community'                => 'nullable|string',
+            'data.coach'                    => 'nullable|string',
+            'data.motoStamp'                => 'nullable|string',
+            'data.polisNumber'              => 'nullable|string',
+            'data.issuedWhom'               => 'nullable|string',
+            'data.itWorksDate'              => 'nullable|date',
+            'data.polisFileLink'            => 'nullable|string',
+            'data.licensesNumber'           => 'nullable|string',
+            'data.licensesFileLink'         => 'nullable|string',
+            'data.numberAndSeria'           => 'nullable|integer',
+            'data.pasportFileLink'          => 'nullable|string',
+
         ];
     }
 }

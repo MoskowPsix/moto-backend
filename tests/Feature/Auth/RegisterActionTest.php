@@ -36,19 +36,6 @@ class RegisterActionTest extends TestCase
         $this->assertInstanceOf(ErrorRegisterResource::class, $userAction);
     }
 
-//    public function test_action_password_failed(): void{
-//        $user = ([
-//            'email' => 'test@test.com',
-//            'password' => null,
-//            'name' => 'Test User',
-//        ]);
-//        $request = new RegisterRequest($user);
-//        $action = app(RegisterActionContract::class);
-//        $userAction = $action($request);
-//
-//        $this->assertInstanceOf(ErrorRegisterResource::class, $userAction);
-//    }
-
     public function test_action_name_failed(): void{
         $user = User::factory()->make([
             'name' => null,

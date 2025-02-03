@@ -21,7 +21,7 @@ class Document extends Model
         'name' => 'string',
         'type' => 'string',
         'path' => 'string',
-        'data' => 'json',
+        'data' => 'encrypted',
     ];
 
 }

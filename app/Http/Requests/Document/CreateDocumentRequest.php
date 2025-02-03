@@ -27,9 +27,17 @@ class CreateDocumentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'type'  => 'required|string',
-//            'file'  => 'required|file|mimes:pdf,jpg,jpeg,png',
-            'data'  => 'required',
+            'type'                      => 'required|string',
+//            'file'                      => 'required|file|mimes:pdf,jpg,jpeg,png',
+            'data'                      => 'required',
+            'data.licensesNumber'       => 'nullable|string',
+            'data.licensesFileLink'     => 'nullable|string',
+            'data.polisNumber'          => 'nullable|string',
+            'data.issuedWhom'           => 'nullable|string',
+            'data.itWorksDate'          => 'nullable|date',
+            'data.numberAndSeria'       => 'nullable|integer',
+            'data.pasportFileLink'      => 'nullable|string',
+            'data.polisFileLink'        => 'nullable|string',
         ];
     }
 }

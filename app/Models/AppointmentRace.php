@@ -18,4 +18,8 @@ class AppointmentRace extends Model
         'user_id',
         'data',
     ];
+
+    protected $casts = [
+        'data'              => 'encrypted',
+    ];
 }
