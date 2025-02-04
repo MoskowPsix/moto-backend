@@ -23,6 +23,11 @@ Route::controller(UserController::class)->group(function () {
 
 });
 
+Route::controller(\App\Http\Controllers\Api\VerificationEmail::class)->group(function () {
+    Route::post('verification-email/send', 'send')->middleware('auth:sanctum')->name('verification_email.send');
+    Route::post('verification-email/verify', 'verify')->middleware('auth:sanctum')->name('verification_email.verify');
+});
+
 Route::controller(\App\Http\Controllers\Api\TrackController::class)-> group(function () {
     Route::get('tracks', 'get')->name('track.get');
     Route::get('tracks/{id}', 'getForId')->name('track.get_for_id');
