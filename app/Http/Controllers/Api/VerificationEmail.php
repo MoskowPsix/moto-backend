@@ -6,6 +6,7 @@ use App\Contracts\Actions\VerificationEmail\SendActionContract;
 use App\Contracts\Actions\VerificationEmail\VerificationActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EmailVerificationRequest;
+use App\Http\Resources\Error\TimeOutWarningResource;
 use App\Http\Resources\verificationEmail\Send\AlreadySendVerificationEmailResource;
 use App\Http\Resources\verificationEmail\Send\SuccessSendVerificationEmailResource;
 use App\Http\Resources\verificationEmail\Verification\NoCorrectVerificationEmailResource;
@@ -22,7 +23,7 @@ class VerificationEmail extends Controller
     #[ResponseFromApiResource(SuccessSendVerificationEmailResource::class)]
     #[ResponseFromApiResource(AlreadySendVerificationEmailResource::class, status: 403)]
     #[Endpoint(title: 'send', description: 'Отправка письма на почту пользователя')]
-    public function send(SendActionContract $action): AlreadySendVerificationEmailResource | SuccessSendVerificationEmailResource
+    public function send(SendActionContract $action): AlreadySendVerificationEmailResource|SuccessSendVerificationEmailResource|TimeOutWarningResource
     {
         return $action();
     }
