@@ -12,7 +12,7 @@ use Carbon\Carbon;
 class VerificationAction implements VerificationActionContract
 {
 
-    public function __invoke(EmailVerificationRequest $request)
+    public function __invoke(EmailVerificationRequest $request): AlreadySendVerificationEmailResource|NoCorrectVerificationEmailResource|SuccessVerificationEmailResource
     {
         $user = auth()->user();
         if (!empty($user->email_verified_at)) {

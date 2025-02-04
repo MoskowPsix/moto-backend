@@ -23,6 +23,7 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Race\GetRaceActionContract::class                                        => \App\Actions\Race\GetRaceAction::class,
         \App\Contracts\Actions\Race\GetForIdRaceActionContract::class                                   => \App\Actions\Race\GetForIdRaceAction::class,
         \App\Contracts\Actions\Race\CreateRaceActionContract::class                                     => \App\Actions\Race\CreateRaceAction::class,
+        \App\Contracts\Actions\Race\UpdateRaceActionContract::class                                     => \App\Actions\Race\UpdateRaceAction::class,
         \App\Contracts\Actions\PersonalInfo\CreatePersonalInfoActionContract::class                     => \App\Actions\PersonalInfo\CreatePersonalInfoAction::class,
         \App\Contracts\Actions\PersonalInfo\UpdatePersonalInfoActionContract::class                     => \App\Actions\PersonalInfo\UpdatePersonalInfoAction::class,
         \App\Contracts\Actions\Document\CreateDocumentActionContract::class                             => \App\Actions\Document\CreateDocumentAction::class,

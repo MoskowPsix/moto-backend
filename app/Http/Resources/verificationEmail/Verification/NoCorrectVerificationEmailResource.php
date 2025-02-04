@@ -19,4 +19,8 @@ class NoCorrectVerificationEmailResource extends JsonResource
             'message'   => __('messages.verification_email.verification.incorrect'),
         ];
     }
+    public function withResponse($request, $response): void
+    {
+        $response->setStatusCode(403);
+    }
 }

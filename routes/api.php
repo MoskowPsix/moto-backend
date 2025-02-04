@@ -45,6 +45,7 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
     Route::get('races', 'get')->name('race.get');
     Route::get('races/{id}', 'getForId')->name('race.get_for_id');
     Route::post('races', 'create')->middleware('auth:sanctum')->name('race.create');
+    Route::post('races/{id}/update', 'update')->middleware('auth:sanctum')->name('race.update');
 });
 Route::controller(\App\Http\Controllers\Api\PersonalInfoController::class)->group(function () {
     Route::post('users/cabinet/personal-info', 'create')->middleware('auth:sanctum')->name('personal_info.create');

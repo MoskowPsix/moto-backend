@@ -19,4 +19,9 @@ class AlreadySendVerificationEmailResource extends JsonResource
             'message'   => __('messages.verification_email.send.already_sent'),
         ];
     }
+
+    public function withResponse($request, $response): void
+    {
+        $response->setStatusCode(403);
+    }
 }
