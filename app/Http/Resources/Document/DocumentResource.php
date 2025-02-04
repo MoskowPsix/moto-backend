@@ -26,7 +26,7 @@ class DocumentResource extends JsonResource
             'name'          => $this->name,
             'type'          => $this->type,
             'path'          => $this->path,
-            'data'          => $this->data,
+            'data'          => json_decode($this->data, true),
         ];
     }
 }

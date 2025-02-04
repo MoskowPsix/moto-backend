@@ -6,6 +6,7 @@ use App\Contracts\Actions\Document\CreateDocumentActionContract;
 use App\Http\Requests\Document\CreateDocumentRequest;
 use App\Http\Resources\Document\Create\SuccessCreateDocumentResource;
 use App\Models\Document;
+use function MongoDB\BSON\toJSON;
 
 class CreateDocumentAction implements CreateDocumentActionContract
 {
@@ -18,7 +19,7 @@ class CreateDocumentAction implements CreateDocumentActionContract
             'name'      => $name,
             'type'      => $request->type,
             'path'      => 'no-file',
-            'data'      => $request->data,
+            'data'      => json_encode($request->data, true),
             'user_id'   => $user->id,
         ]);
         return SuccessCreateDocumentResource::make($document);

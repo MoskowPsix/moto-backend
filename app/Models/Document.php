@@ -18,9 +18,6 @@ class Document extends Model
     ];
 
     protected $casts = [
-        'name' => 'string',
-        'type' => 'string',
-        'path' => 'string',
         'data' => 'encrypted',
     ];
 
