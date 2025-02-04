@@ -19,6 +19,7 @@ use Spatie\Permission\Models\Role;
 #[Group(name: 'Role', description: 'Методы взаимодествия с ролями')]
 class RoleController extends Controller
 {
+    #[Authenticated]
     #[ResponseFromApiResource(SuccessGetChangeRoleResource::class, Role::class, collection: true)]
     #[Endpoint(title: 'GetChangeRoles', description: 'Получение ролей которые может сменить обычный пользователь')]
     public function getChangeRoles(GetChangeRolesActionContract $actionRole): SuccessGetChangeRoleResource
