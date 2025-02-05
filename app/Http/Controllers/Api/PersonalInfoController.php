@@ -13,6 +13,7 @@ use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Http\Resources\PersonalInfo\Create\SuccessCreatePersonalInfoResource;
 use App\Http\Resources\PersonalInfo\Update\SuccessUpdatePersonalInfoResource;
 use App\Models\PersonalInfo;
+use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\ResponseFromApiResource;
@@ -20,12 +21,14 @@ use Knuckles\Scribe\Attributes\ResponseFromApiResource;
 #[Group(name: 'PersonalInfo', description: 'Всё что связанно с персональной информацией пользователя')]
 class PersonalInfoController extends Controller
 {
+    #[Authenticated]
     #[Endpoint(title: 'Create', description: 'Создать запись персональных данных')]
     #[ResponseFromApiResource(SuccessCreatePersonalInfoResource::class, PersonalInfo::class, collection: false)]
     public function create(CreatePersonalInfoRequest $request, CreatePersonalInfoActionContract $action): SuccessCreatePersonalInfoResource
     {
         return $action($request);
     }
+    #[Authenticated]
     #[Endpoint(title: 'Update', description: 'Обновить запись персональных данных')]
     #[ResponseFromApiResource(SuccessUpdatePersonalInfoResource::class, PersonalInfo::class, collection: false)]
     #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]

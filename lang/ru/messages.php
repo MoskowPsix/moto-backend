@@ -52,6 +52,9 @@ return [
         'create' => [
             'success' => 'Гонка успешно создана.',
         ],
+        'toggle_is_work' => [
+            'success' => 'Состояние гонки успешно изменено на :state.',
+        ],
     ],
     'track' => [
         'create' => [
