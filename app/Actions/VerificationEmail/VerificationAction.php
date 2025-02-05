@@ -25,7 +25,7 @@ class VerificationAction implements VerificationActionContract
         if ($ecode->code !== (int)$request->code) {
             return NoCorrectVerificationEmailResource::make([]);
         }
-        $user->update(['verified_at' => now()]);
+        $user->update(['email_verified_at' => now()]);
         $ecode->delete();
         return SuccessVerificationEmailResource::make([]);
     }
