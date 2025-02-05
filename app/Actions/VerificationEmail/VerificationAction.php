@@ -7,6 +7,7 @@ use App\Http\Requests\EmailVerificationRequest;
 use App\Http\Resources\verificationEmail\Send\AlreadySendVerificationEmailResource;
 use App\Http\Resources\verificationEmail\Verification\NoCorrectVerificationEmailResource;
 use App\Http\Resources\verificationEmail\Verification\SuccessVerificationEmailResource;
+use App\Models\User;
 use Carbon\Carbon;
 
 class VerificationAction implements VerificationActionContract
@@ -25,7 +26,7 @@ class VerificationAction implements VerificationActionContract
         if ($ecode->code !== (int)$request->code) {
             return NoCorrectVerificationEmailResource::make([]);
         }
-        $user->update(['email_verified_at' => now()]);
+        User::where('id', $user->id)->update(['email_verified_at' => Carbon::now()]);
         $ecode->delete();
         return SuccessVerificationEmailResource::make([]);
     }
