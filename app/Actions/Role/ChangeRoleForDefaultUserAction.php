@@ -17,7 +17,7 @@ class ChangeRoleForDefaultUserAction implements ChangeRoleForDefaultUserActionCo
     {
         $rider_role = Role::findByName(RoleConstant::RIDER, 'web');
         $org_role = Role::findByName(RoleConstant::ORGANIZATION, 'web');
-        if ($rider_role->id !== $request->roleId &&  !$org_role->id !== $request->roleId) {
+        if ($rider_role->id != $request->roleId &&  $org_role->id != $request->roleId) {
             return NoRoleChangeRoleForDefaultUserResource::make([]);
         }
         $new_role = Role::find($request->roleId);

@@ -29,23 +29,26 @@ Route::controller(\App\Http\Controllers\Api\VerificationEmail::class)->group(fun
 });
 
 Route::controller(\App\Http\Controllers\Api\TrackController::class)-> group(function () {
+    $role = new \App\Constants\RoleConstant();
     Route::get('tracks', 'get')->name('track.get');
     Route::get('tracks/{id}', 'getForId')->name('track.get_for_id');
-    Route::post('tracks', 'create')->middleware('auth:sanctum')->name('track.create');
+    Route::post('tracks', 'create')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('track.create');
 //    Route::put('tracks/{track}', 'update')->name('track.update');
 //    Route::delete('tracks/{track}', 'delete')->name('track.delete');
 });
 
 Route::controller(\App\Http\Controllers\Api\RoleController::class)->group(function () {
+    $role = new \App\Constants\RoleConstant();
     Route::get('roles-change', 'getChangeRoles')->name('role.get_change_roles');
-    Route::post('roles-change', 'changeRoleForDefaultUser')->middleware('auth:sanctum')->name('role.change_roles_for_default_user');
+    Route::post('roles-change', 'changeRoleForDefaultUser')->middleware(['auth:sanctum', 'email_verification'])->name('role.change_roles_for_default_user');
 });
 
 Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(function () {
+    $role = new \App\Constants\RoleConstant();
     Route::get('races', 'get')->name('race.get');
     Route::get('races/{id}', 'getForId')->name('race.get_for_id');
-    Route::post('races', 'create')->middleware('auth:sanctum')->name('race.create');
-    Route::post('races/{id}/update', 'update')->middleware('auth:sanctum')->name('race.update');
+    Route::post('races', 'create')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('race.create');
+    Route::post('races/{id}/update', 'update')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('race.update');
 });
 Route::controller(\App\Http\Controllers\Api\PersonalInfoController::class)->group(function () {
     Route::post('users/cabinet/personal-info', 'create')->middleware('auth:sanctum')->name('personal_info.create');
@@ -62,7 +65,8 @@ Route::controller(\App\Http\Controllers\Api\DocumentController::class)->group(fu
 });
 
 Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->group(function () {
-    Route::post('races/{id}/toggle-appointment-race', 'toggle')->middleware('auth:sanctum')->name('appointment_race.create');
+    $role = new \App\Constants\RoleConstant();
+    Route::post('races/{id}/toggle-appointment-race', 'toggle')->middleware(['auth:sanctum', 'email_verification', 'role:' . $role::RIDER . $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT])->name('appointment_race.create');
     Route::get('races/{id}/appointment-race/users', 'getUsersAppointmentRace')->name('appointment_race.get_users_appointment_race');
-    Route::get('races/{id}/appointment-race/users-table', 'getUsersAppointmentRaceInTable')->middleware('auth:sanctum')->name('appointment_race.get_users_table_appointment_race');
+    Route::get('races/{id}/appointment-race/users-table', 'getUsersAppointmentRaceInTable')->middleware(['auth:sanctum', 'role:' . $role::ADMIN.'|'.$role::ROOT])->name('appointment_race.get_users_table_appointment_race');
 });

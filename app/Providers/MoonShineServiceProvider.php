@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Models\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use MoonShine\Contracts\Core\DependencyInjection\ConfiguratorContract;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
+use MoonShine\Contracts\Core\ResourceContract;
 use MoonShine\Laravel\DependencyInjection\MoonShine;
 use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
 use App\MoonShine\Resources\TrackResource;
@@ -18,6 +21,7 @@ use App\MoonShine\Resources\MoonShineUserResource;
 use App\MoonShine\Resources\MoonShineUserRoleResource;
 use App\MoonShine\Resources\LevelResource;
 use App\MoonShine\Resources\RaceResource;
+use MoonShine\Laravel\Enums\Ability;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -28,8 +32,13 @@ class MoonShineServiceProvider extends ServiceProvider
      */
     public function boot(CoreContract $core, ConfiguratorContract $config): void
     {
-        // $config->authEnable();
-
+        $config->authEnable();
+        $config->authorizationRules(
+            static function (ResourceContract $resource, User $user, Ability $ability, Model $item): bool {
+                $role = new \App\Constants\RoleConstant();
+                return $user->hasRole($role::ROOT) || $user->hasRole($role::ADMIN);
+            }
+        );
         $core
             ->resources([
 

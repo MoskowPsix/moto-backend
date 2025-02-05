@@ -20,6 +20,7 @@ use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Components\Layout\Flex;
 use MoonShine\UI\Components\Tabs;
 use MoonShine\UI\Components\Tabs\Tab;
+use MoonShine\UI\Fields\Checkbox;
 use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\Email;
 use MoonShine\UI\Fields\ID;
@@ -78,6 +79,7 @@ class MoonShineUserResource extends ModelResource
 
             Email::make(__('moonshine::ui.resource.email'), 'email')
                 ->sortable(),
+            Checkbox::make('Подверждена ли почта', 'email_verified_at')
         ];
     }
 
@@ -88,6 +90,7 @@ class MoonShineUserResource extends ModelResource
 
     protected function formFields(): iterable
     {
+        $item = $this->getResource()->getItem();
         return [
             Box::make([
                 Tabs::make([

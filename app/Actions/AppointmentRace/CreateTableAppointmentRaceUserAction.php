@@ -27,9 +27,9 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
         // Достаём гонку
         $race = Race::find($id);
         // Проверяем принадлежит ли пользователю гонка
-        if (auth()->user()->id !== $race->user_id) {
-            return NotUserPermissionResource::make();
-        }
+//        if (auth()->user()->id !== $race->user_id) {
+//            return NotUserPermissionResource::make();
+//        }
         // Формируем запрос на всех участников гонки
         $appr = AppointmentRace::where('race_id', $id);
         if (!$appr->exists()) {
