@@ -3,7 +3,7 @@
 namespace App\Actions\VerificationEmail;
 
 use App\Contracts\Actions\VerificationEmail\SendActionContract;
-use App\Http\Resources\Error\TimeOutWarningResource;
+use App\Http\Resources\Errors\TimeOutWarningResource;
 use App\Http\Resources\verificationEmail\Send\AlreadySendVerificationEmailResource;
 use App\Http\Resources\verificationEmail\Send\SuccessSendVerificationEmailResource;
 use App\Notifications\VerificationEmailNotification;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Document\Update;
 
+use App\Http\Resources\Document\DocumentResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -14,6 +15,10 @@ class SuccessUpdateDocumentResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'status' => 'success',
+            'message' => __('messages.document.update.success'),
+            'document' => DocumentResource::make($this->resource),
+        ];
     }
 }

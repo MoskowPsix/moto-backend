@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Error;
+namespace App\Http\Resources\Errors;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TimeOutWarningResource extends JsonResource
+class NotVerificationEmailResouece extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,7 +16,11 @@ class TimeOutWarningResource extends JsonResource
     {
         return [
             'status' => 'error',
-            'message' => __('messages.error.timeout_warning', ['time' => $this->resource]),
+           'message' => __('messages.error.not_verification_email'),
         ];
+    }
+    public function withResponse($request, $response): void
+    {
+        $response->setStatusCode(403);
     }
 }

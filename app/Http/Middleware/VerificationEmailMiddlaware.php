@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use App\Http\Resources\Error\NotAuthUserResource;
-use App\Http\Resources\Error\NotVerificationEmailResouece;
+use App\Http\Resources\Errors\NotAuthUserResource;
+use App\Http\Resources\Errors\NotVerificationEmailResouece;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;

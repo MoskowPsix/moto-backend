@@ -14,6 +14,9 @@ class NoCodeVerificationEmailResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'status' => 'success',
+            'message' => __('messages.verification_email.verification.no_code'),
+        ];
     }
 }
