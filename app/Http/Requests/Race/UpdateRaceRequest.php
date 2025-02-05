@@ -26,8 +26,10 @@ class UpdateRaceRequest extends FormRequest
             'desc'          => 'nullable|string',
             'dateStart'     => 'nullable|date',
             'trackId'       => 'nullable|integer|exists:tracks,id',
-            'images'        => 'array|nullable',
-            'images.*'      => 'image|mimes:jpeg,png,jpg,svg,webp',
+            'imagesAdd'        => 'array|nullable',
+            'imagesAdd.*'      => 'image|mimes:jpeg,png,jpg,svg,webp',
+            'imagesDel'        => 'array|nullable',
+            'imagesDel.*'      => 'string',
             'positionFile'  => 'nullable|file|mimes:pdf',
             'resultsFile'   => 'nullable|file|mimes:pdf',
         ];

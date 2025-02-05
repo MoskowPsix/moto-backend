@@ -36,10 +36,8 @@ class UpdateRaceAction implements UpdateRaceActionContract
 
     private function saveFiles(UpdateRaceRequest $request, Race $race): void
     {
-        if (!empty($request->images)) {
-            isset($race->images) ? $this->deleteFiles($race->images) : null;
-            $this->saveImages($request->images, $race);
-        }
+            isset($request->imagesDel) ? $this->deleteFiles($request->imagesDel, $race) : null;
+            !empty($request->imagesAdd) ? $this->saveImages($request->imagesAdd, $race) : null;
 
         if (!empty($request->positionFile)) {
             isset($race->positionFile) ? $this->deleteFile($race->positionFile) : null;
@@ -56,20 +54,24 @@ class UpdateRaceAction implements UpdateRaceActionContract
         }
     }
 
-    private function saveImages(array $images, Race $track): void
+    private function saveImages(array $images, Race $race): void
     {
+        $path_arr = $race->images;
         foreach ($images as $file) {
-            $path = $file->store('race/'.$track->id, 'public');
+            $path = $file->store('race/'.$race->id, 'public');
             $path_arr[] = $path;
         }
-        $track->update([
+        $race->update([
             'images' => $path_arr
         ]);
     }
 
-    private function deleteFiles($path_arr): void
+    private function deleteFiles($path_arr, Race $race): void
     {
         foreach ($path_arr as $path) {
+            $race->update([
+                'images' => collect($race->images)->filter(fn ($item) => $item!== $path)->toArray()
+            ]);
             $this->deleteFile($path);
         }
     }
