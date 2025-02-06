@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Layouts;
 
-use App\MoonShine\Resources\MoonShineUserResource;
+use App\MoonShine\Resources\RoleResource;
+use App\MoonShine\Resources\UserResource;
 use MoonShine\Laravel\Layouts\AppLayout;
 use MoonShine\ColorManager\ColorManager;
 use MoonShine\Contracts\ColorManager\ColorManagerContract;
@@ -32,6 +33,7 @@ use MoonShine\UI\Components\{Breadcrumbs,
     Layout\Wrapper,
     When};
 use App\MoonShine\Resources\TrackResource;
+use MoonShine\MenuManager\MenuGroup;
 use MoonShine\MenuManager\MenuItem;
 use App\MoonShine\Resources\LevelResource;
 use App\MoonShine\Resources\ServiceResource;
@@ -49,13 +51,17 @@ final class MoonShineLayout extends AppLayout
     protected function menu(): array
     {
         return [
-            MenuItem::make('Пользователи', MoonShineUserResource::class),
-            MenuItem::make('Трассы', TrackResource::class),
+            MenuGroup::make('Система', [
+                MenuItem::make('Пользователи', UserResource::class),
+                MenuItem::make('Роли', RoleResource::class),
+            ], 'cog-8-tooth'),
+            MenuGroup::make('Контент', [
+                MenuItem::make('Трассы', TrackResource::class, 'map-pin'),
+                MenuItem::make('Гонки', RaceResource::class, 'map'),
 //            MenuItem::make('Levels', LevelResource::class),
-
-            MenuItem::make('Сервисы', ServiceResource::class),
-            MenuItem::make('Гонки', RaceResource::class),
-            MenuItem::make('Telescope', '/telescope'),
+                MenuItem::make('Сервисы', ServiceResource::class, 'square-3-stack-3d'),
+                MenuItem::make('Telescope', '/telescope', 'rocket-launch'),
+            ], 'cube'),
         ];
     }
 
@@ -65,8 +71,6 @@ final class MoonShineLayout extends AppLayout
     protected function colors(ColorManagerContract $colorManager): void
     {
         parent::colors($colorManager);
-
-        // $colorManager->primary('#00000');
     }
 
     public function build(): Layout

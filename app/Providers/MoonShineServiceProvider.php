@@ -17,8 +17,8 @@ use App\MoonShine\Resources\ServiceResource;
 use App\MoonShine\Pages\Service\ServiceIndexPage;
 use App\MoonShine\Pages\Service\ServiceDetailPage;
 use App\MoonShine\Pages\Service\ServiceFormPage;
-use App\MoonShine\Resources\MoonShineUserResource;
-use App\MoonShine\Resources\MoonShineUserRoleResource;
+use App\MoonShine\Resources\UserResource;
+use App\MoonShine\Resources\RoleResource;
 use App\MoonShine\Resources\LevelResource;
 use App\MoonShine\Resources\RaceResource;
 use MoonShine\Laravel\Enums\Ability;
@@ -43,8 +43,8 @@ class MoonShineServiceProvider extends ServiceProvider
             ->resources([
 
                 TrackResource::class,
-                MoonShineUserResource::class,
-                MoonShineUserRoleResource::class,
+                UserResource::class,
+                RoleResource::class,
                 LevelResource::class,
                 ServiceResource::class,
                 RaceResource::class,

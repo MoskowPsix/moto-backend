@@ -9,7 +9,7 @@ trait TrackResourceTrait
 {
     public function user(): BelongsTo
     {
-        return BelongsTo::make('Владелец', 'user', resource: \App\MoonShine\Resources\MoonShineUserResource::class)->searchable();
+        return BelongsTo::make('Владелец', 'user', resource: \App\MoonShine\Resources\UserResource::class)->searchable();
     }
 
     public function level(): BelongsTo

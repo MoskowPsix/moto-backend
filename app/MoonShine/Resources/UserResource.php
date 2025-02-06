@@ -9,15 +9,18 @@ use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Validation\Rule;
 use MoonShine\Laravel\Enums\Action;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
+use MoonShine\Laravel\Fields\Relationships\MorphToMany;
 use MoonShine\Laravel\Models\MoonshineUser;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Laravel\Models\MoonshineUserRole;
 use MoonShine\Support\Attributes\Icon;
 use MoonShine\Support\Enums\Color;
 use MoonShine\Support\ListOf;
+use MoonShine\UI\Components\Badge;
 use MoonShine\UI\Components\Collapse;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Components\Layout\Flex;
+use MoonShine\UI\Components\Link;
 use MoonShine\UI\Components\Tabs;
 use MoonShine\UI\Components\Tabs\Tab;
 use MoonShine\UI\Fields\Checkbox;
@@ -28,12 +31,13 @@ use MoonShine\UI\Fields\Image;
 use MoonShine\UI\Fields\Password;
 use MoonShine\UI\Fields\PasswordRepeat;
 use MoonShine\UI\Fields\Text;
+use Spatie\Permission\Models\Role;
 
 #[Icon('users')]
 /**
  * @extends ModelResource<MoonshineUser>
  */
-class MoonShineUserResource extends ModelResource
+class UserResource extends ModelResource
 {
     protected string $model = User::class;
 
@@ -60,12 +64,19 @@ class MoonShineUserResource extends ModelResource
         return [
             ID::make()->sortable(),
 
-//            BelongsTo::make(
-//                __('moonshine::ui.resource.role'),
-//                'roles',
-//                formatted: static fn (MoonshineUserRole $model) => $model->name,
-//                resource: MoonShineUserRoleResource::class,
-//            )->badge(Color::PURPLE),
+            MorphToMany::make(
+                __('moonshine::ui.resource.role'),
+                'roles',
+                formatted: static fn (Role $model) => $model->name,
+                resource: RoleResource::class,
+            )->badge(Color::PURPLE)->inLine(
+                separator: ' ',
+                badge: fn($model, $value) => Badge::make((string) $value, 'primary'),
+                link: fn(Role $property, $value, $field) => (string) Link::make(
+                    app(RoleResource::class)->getDetailPageUrl($property->id),
+                    $value
+                )
+            ),
 
             Text::make(__('moonshine::ui.resource.name'), 'name'),
 
@@ -90,22 +101,21 @@ class MoonShineUserResource extends ModelResource
 
     protected function formFields(): iterable
     {
-        $item = $this->getResource()->getItem();
+//        $item = $this->getResource()->getItem();
         return [
             Box::make([
                 Tabs::make([
                     Tab::make(__('moonshine::ui.resource.main_information'), [
                         ID::make()->sortable(),
 
-//                        BelongsTo::make(
-//                            __('moonshine::ui.resource.role'),
-//                            'moonshineUserRole',
-//                            formatted: static fn (MoonshineUserRole $model) => $model->name,
-//                            resource: MoonShineUserRoleResource::class,
-//                        )
-//                            ->reactive()
-//                            ->creatable()
-//                            ->valuesQuery(static fn (Builder $q) => $q->select(['id', 'name'])),
+                        MorphToMany::make(
+                            __('moonshine::ui.resource.role'),
+                            'roles',
+                            formatted: static fn (Role $model) => $model->name,
+                            resource: RoleResource::class,
+                        )
+                            ->selectMode()
+                            ->valuesQuery(static fn (Builder $q) => $q->select(['id', 'name'])),
 
                         Flex::make([
                             Text::make(__('moonshine::ui.resource.name'), 'name')
@@ -113,6 +123,7 @@ class MoonShineUserResource extends ModelResource
 
                             Email::make(__('moonshine::ui.resource.email'), 'email')
                                 ->required(),
+                            Date::make('Подтверждение почты', 'email_verified_at')->withTime(),
                         ]),
 
                         Image::make(__('moonshine::ui.resource.avatar'), 'avatar')
@@ -120,9 +131,9 @@ class MoonShineUserResource extends ModelResource
                             ->dir('users')
                             ->allowedExtensions(['jpg', 'png', 'jpeg', 'gif']),
 
-                        Date::make(__('moonshine::ui.resource.created_at'), 'created_at')
-                            ->format("d.m.Y")
-                            ->default(now()->toDateTimeString()),
+//                        Date::make(__('moonshine::ui.resource.created_at'), 'created_at')
+//                            ->format("d.m.Y")
+//                            ->default(now()->toDateTimeString()),
                     ])->icon('user-circle'),
 
                     Tab::make(__('moonshine::ui.resource.password'), [

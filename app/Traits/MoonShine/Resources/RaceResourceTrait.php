@@ -14,10 +14,10 @@ trait RaceResourceTrait
     }
     public function appointments(): BelongsToMany
     {
-        return BelongsToMany::make('Заявки', 'appointments', resource: \App\MoonShine\Resources\MoonShineUserResource::class)->searchable()->selectMode();
+        return BelongsToMany::make('Заявки', 'appointments', resource: \App\MoonShine\Resources\UserResource::class)->searchable()->selectMode();
     }
     public function appointmentsCount(): BelongsToMany
     {
-        return BelongsToMany::make('Количество заявок', 'appointments', resource: \App\MoonShine\Resources\MoonShineUserResource::class)->onlyCount();
+        return BelongsToMany::make('Количество заявок', 'appointments', resource: \App\MoonShine\Resources\UserResource::class)->onlyCount();
     }
 }

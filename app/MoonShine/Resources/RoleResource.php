@@ -16,9 +16,9 @@ use Spatie\Permission\Models\Role;
 
 #[Icon('bookmark')]
 /**
- * @extends ModelResource<MoonshineUserRole>
+ * @extends ModelResource<Role>
  */
-class MoonShineUserRoleResource extends ModelResource
+class RoleResource extends ModelResource
 {
     protected string $model = Role::class;
 
