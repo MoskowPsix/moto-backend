@@ -6,6 +6,7 @@ use App\Contracts\Actions\Document\CreateDocumentActionContract;
 use App\Contracts\Actions\Document\DeleteDocumentActionContract;
 use App\Contracts\Actions\Document\GetDocumentForUserActionContract;
 use App\Contracts\Actions\Document\GetDocumentForUserByIdActionContract;
+use App\Contracts\Actions\Document\GetFileDocumentActionContract;
 use App\Contracts\Actions\Document\UpdateDocumentActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Document\CreateDocumentRequest;
@@ -21,9 +22,11 @@ use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\Document;
 use App\Models\PersonalInfo;
+use Illuminate\Support\Facades\Storage;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\ResponseFromApiResource;
+use Knuckles\Scribe\Attributes\ResponseFromFile;
 
 #[Group(name: 'Document', description: 'Методы взаимодействия с документами пользователя')]
 class DocumentController extends Controller
@@ -33,6 +36,13 @@ class DocumentController extends Controller
     public function getForUser(GetDocumentForUserRequest $request, GetDocumentForUserActionContract $action): SuccessGetDocumentForUserResource
     {
         return $action($request);
+    }
+    #[ResponseFromFile(file: "storage/app/private/user/documents/URsB0gs6G0ATlQnF2TdirtS1hCOJfMOFoxmkBWgo.png")] // При генерации доки подставлять путь до своего файла
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
+    public function getFile(int $id, GetFileDocumentActionContract $action): NotFoundResource|NotUserPermissionResource|\Symfony\Component\HttpFoundation\BinaryFileResponse
+    {
+        return $action($id);
     }
     #[ResponseFromApiResource(SuccessGetDocumentForUserByIdResource::class, Document::class, collection: false)]
     #[ResponseFromApiResource(NotFoundGetDocumentForUserByIdResource::class, status: 404)]

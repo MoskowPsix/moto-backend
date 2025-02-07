@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Contracts\Actions\AppointmentRace\CreateTableAppointmentRaceUserActionContract;
 use App\Contracts\Actions\Document\GetDocumentForUserByIdActionContract;
+use App\Contracts\Actions\Document\GetFileDocumentActionContract;
 use App\Contracts\Actions\Race\CreateRaceActionContract;
 use App\Contracts\Actions\Role\ChangeRoleForDefaultUserActionContract;
 use App\Contracts\Actions\VerificationEmail\SendActionContract;
@@ -30,6 +31,7 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Document\CreateDocumentActionContract::class                             => \App\Actions\Document\CreateDocumentAction::class,
         \App\Contracts\Actions\Document\GetDocumentForUserActionContract::class                         => \App\Actions\Document\GetDocumentForUserAction::class,
         \App\Contracts\Actions\Document\GetDocumentForUserByIdActionContract::class                     => \App\Actions\Document\GetDocumentForUserByIdAction::class,
+        \App\Contracts\Actions\Document\GetFileDocumentActionContract::class                            => \App\Actions\Document\GetFileDocumentAction::class,
         \App\Contracts\Actions\Document\UpdateDocumentActionContract::class                             => \App\Actions\Document\UpdateDocumentAction::class,
         \App\Contracts\Actions\Document\DeleteDocumentActionContract::class                             => \App\Actions\Document\DeleteDocumentAction::class,
         \App\Contracts\Actions\AppointmentRace\ToggleAppointmentRaceActionContract::class               => \App\Actions\AppointmentRace\ToggleAppointmentRaceAction::class,

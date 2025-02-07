@@ -60,6 +60,7 @@ Route::controller(\App\Http\Controllers\Api\PersonalInfoController::class)->grou
 Route::controller(\App\Http\Controllers\Api\DocumentController::class)->group(function () {
     Route::post('users/cabinet/documents', 'create')->middleware('auth:sanctum')->name('document.create');
     Route::get('users/cabinet/documents', 'getForUser')->middleware('auth:sanctum')->name('document.get_for_user');
+    Route::get('users/cabinet/documents/{id}/files', 'getFile')->middleware('auth:sanctum');
     Route::get('users/cabinet/documents/{id}', 'getForUserById')->middleware('auth:sanctum')->name('document.get_for_user_by_id');
     Route::post('users/cabinet/documents/{id}/update', 'update')->middleware('auth:sanctum')->name('document.update');
     Route::delete('users/cabinet/documents/{id}', 'delete')->middleware('auth:sanctum')->name('document.delete');

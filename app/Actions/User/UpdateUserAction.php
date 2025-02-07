@@ -40,10 +40,9 @@ class UpdateUserAction implements UpdateUserActionContract
     private function saveImages( $image, User $user): void
     {
         $path = $image->store('user/'.$user->id, 'public');
-        $path_arr[] = $path;
 
         $user->update([
-            'avatar' => $path_arr
+            'avatar' => $path
         ]);
     }
 

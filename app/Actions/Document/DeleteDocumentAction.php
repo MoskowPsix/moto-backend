@@ -18,12 +18,12 @@ class DeleteDocumentAction implements DeleteDocumentActionContract
         if (!$document->exists()) {
             return NotFoundResource::make([]);
         }
-        if ($document->first()->user_id !== $user->id) {
+        if ($document->first()->user_id !== $user->id()) {
             return NotUserPermissionResource::make([]);
         }
-//        $path = $document->first()->path;
+        $path = $document->first()->path;
         $document->delete();
-//        $this->delete($path);
+        $this->delete($path);
         return SuccessDeleteDocumentResource::make([]);
     }
     private function delete($path): void
