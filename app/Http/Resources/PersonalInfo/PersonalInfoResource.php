@@ -24,6 +24,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property int $moto_stamp
  * @property string $engine
  * @property string $date_of_birth
+ * @property mixed $number_and_seria
  */
 class PersonalInfoResource extends JsonResource
 {
@@ -52,6 +53,7 @@ class PersonalInfoResource extends JsonResource
             'moto_stamp'        => $this->moto_stamp,
             'engine'            => $this->engine,
             'user'              => UserResource::make($this->whenLoaded('user')),
+            'number_and_seria'  => $this->number_and_seria,
         ];
     }
 }

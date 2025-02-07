@@ -29,6 +29,7 @@ class CreatePersonalInfoAction implements CreatePersonalInfoActionContract
             'moto_stamp'        => $request->motoStamp,
             'engine'            => $request->engine,
             'user_id'           => auth()->user()->id,
+            'number_and_seria'  => $request->numberAndSeria,
         ]);
         return SuccessCreatePersonalInfoResource::make($info);
     }

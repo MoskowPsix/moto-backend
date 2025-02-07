@@ -21,6 +21,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property int $startNumber
  * @property int $rankNumber
  * @property string $motoStamp
+ * @property int $numberAndSeria
  */
 class CreatePersonalInfoRequest extends FormRequest
 {
@@ -56,6 +57,7 @@ class CreatePersonalInfoRequest extends FormRequest
             'coach'             => 'nullable|string',
             'motoStamp'         => 'nullable|string',
             'engine'            => 'nullable|string',
+            'numberAndSeria'    => 'nullable|integer',
         ];
     }
 }

@@ -53,7 +53,7 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
 });
 Route::controller(\App\Http\Controllers\Api\PersonalInfoController::class)->group(function () {
     Route::post('users/cabinet/personal-info', 'create')->middleware('auth:sanctum')->name('personal_info.create');
-    Route::patch('users/cabinet/personal-info', 'update')->middleware('auth:sanctum')->name('personal_info.create');
+    Route::patch('users/cabinet/personal-info', 'update')->middleware('auth:sanctum')->name('personal_info.update');
 
 });
 

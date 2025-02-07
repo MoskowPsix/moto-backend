@@ -38,6 +38,7 @@ class UpdatePersonalInfoRequest extends FormRequest
             'coach'             => 'nullable|string',
             'motoStamp'         => 'nullable|string',
             'engine'            => 'nullable|string',
+            'numberAndSeria'    => 'nullable|integer',
         ];
     }
 }
