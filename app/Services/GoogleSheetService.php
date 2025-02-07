@@ -60,7 +60,7 @@ class GoogleSheetService implements GoogleSheetServiceContract
 
         $table = $this->copySheets($this->sourceIdSheet);
         $this->updateRows($table, $fields, $value, 'список');
-        $this->updateRows($table, $fields_race, $values_race, 'гонка');
+        $this->updateRaceTable($table, $fields_race,'гонка');
 
         $this->addAccess($table);
 
@@ -153,7 +153,7 @@ class GoogleSheetService implements GoogleSheetServiceContract
         $range = 'список';
         $service->spreadsheets_values->append(
             $table->spreadsheetId,
-            $range,
+            $range . '!A2',
             $bodyTable,
             ['valueInputOption' => 'RAW']
         );
@@ -170,12 +170,12 @@ class GoogleSheetService implements GoogleSheetServiceContract
 
         $service->spreadsheets_values->clear(
             $table->spreadsheetId,
-            $range,
+            $range . '!A2:Z100',
             $clear
         );
         $service->spreadsheets_values->update(
             $table->spreadsheetId,
-            $range,
+            $range . '!A2:Z100',
             $bodyTableNew,
             ['valueInputOption' => 'RAW']
         );
@@ -193,12 +193,12 @@ class GoogleSheetService implements GoogleSheetServiceContract
 
         $service->spreadsheets_values->clear(
             $table->spreadsheetId,
-            $range,
+            $range . '!A2:Z100',
             $clear
         );
         $service->spreadsheets_values->update(
             $table->spreadsheetId,
-            $range,
+            $range  . '!A2:Z100',
             $bodyTableNew,
             ['valueInputOption' => 'RAW']
         );
