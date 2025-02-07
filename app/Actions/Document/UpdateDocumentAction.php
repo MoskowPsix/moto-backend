@@ -23,6 +23,10 @@ class UpdateDocumentAction implements UpdateDocumentActionContract
             return NotUserPermissionResource::make([]);
         }
 
+        if (isset($request->file)) {
+            $this->delete($document->first()->path);
+            $this->updateFile($request->file, $document);
+        }
 
         if ($request->data) {
             $this->updateFields($request->data, $document);
@@ -37,7 +41,7 @@ class UpdateDocumentAction implements UpdateDocumentActionContract
             'data' => json_decode($data, true),
         ]);
     }
-    private function updateFile($file, $document)
+    private function updateFile($file, $document): void
     {
         $new_path = $this->save($file);
         $document->update([
