@@ -13,6 +13,10 @@ use Google\Service\Sheets\Sheet;
 use Google\Service\Sheets\Spreadsheet;
 use Google\Service\Sheets\ValueRange;
 use Google\Service\Transcoder\SpriteSheet;
+use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\Contracts\UI\FieldContract;
+use MoonShine\UI\Components\Layout\Column;
+use MoonShine\UI\Components\Table\TableBuilder;
 use Revolution\Google\Sheets\Traits\GoogleSheets;
 
 class GoogleSheetService implements GoogleSheetServiceContract

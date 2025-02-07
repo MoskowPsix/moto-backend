@@ -9,6 +9,10 @@ use App\Traits\MoonShine\Resources\TrackResourceTrait;
 use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
+use MoonShine\UI\Components\FieldsGroup;
+use MoonShine\UI\Components\Layout\Box;
+use MoonShine\UI\Components\Layout\Column;
+use MoonShine\UI\Components\Layout\Grid;
 use MoonShine\UI\Fields\Checkbox;
 use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\ID;
@@ -30,7 +34,7 @@ class RaceIndexPage extends IndexPage
             Text::make('Название гонки', 'name')->sortable(),
             Text::make('Дата и время', 'date_start')->sortable(),
             Checkbox::make('Работает', 'is_work')->sortable(),
-            Image::make('Фото', 'images')->multiple(),
+//            Image::make('Фото', 'images')->multiple(),
             $this->user(),
             $this->track(),
             $this->appointmentsCount(),

@@ -10,8 +10,12 @@ use App\MoonShine\Pages\Race\RaceIndexPage;
 use App\MoonShine\Pages\Race\RaceFormPage;
 use App\MoonShine\Pages\Race\RaceDetailPage;
 
+use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Laravel\Pages\Page;
+use MoonShine\UI\Components\Layout\Column;
+use MoonShine\UI\Components\Table\TableBuilder;
 
 /**
  * @extends ModelResource<Race, RaceIndexPage, RaceFormPage, RaceDetailPage>

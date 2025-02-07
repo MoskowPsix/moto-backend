@@ -18,6 +18,6 @@ trait RaceResourceTrait
     }
     public function appointmentsCount(): BelongsToMany
     {
-        return BelongsToMany::make('Количество заявок', 'appointments', resource: \App\MoonShine\Resources\UserResource::class)->onlyCount();
+        return BelongsToMany::make('Заявки', 'appointments', resource: \App\MoonShine\Resources\UserResource::class)->onlyCount();
     }
 }
