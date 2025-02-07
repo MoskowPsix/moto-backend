@@ -44,10 +44,10 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
             // Получаем id таблицы в системе google
             $id = $race->sheet()->first()->spread_sheet_id;
             // Обновляем таблицу в системе google
-            $url = $this->sheetService->update($id, $fields, $rows);
+            $url = $this->sheetService->update($id, $race, $fields, $rows);
         } else {
             // Создаём таблицу в системе google
-            $url = $this->sheetService->create(uniqid(), $fields, $rows);
+            $url = $this->sheetService->create(uniqid(), $race, $fields, $rows,);
             // Сохраняем ссылку и id на таблицу google в бд
             $race->sheet()->create([
                 'spread_sheet_id'   => $url->sheetID,

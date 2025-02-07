@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Contracts\Services\GoogleSheetServiceContract;
+use App\Models\Race;
 use Google\Client;
 use Google\Service\Drive;
 use Google\Service\Drive\Permission;
@@ -31,16 +32,31 @@ class GoogleSheetService implements GoogleSheetServiceContract
     /**
      * @throws Exception
      */
-    public function create(string $table_name, array $fields = [], array $value = []): object
+    public function create(string $table_name, Race $race, array $fields = [], array $value = []): object
     {
         $this->ClientAuth();
-        $this->fields = $fields;
-        $this->values = $value;
+//        $this->fields = $fields;
+//        $this->values = $value;
         $this->table_name = $table_name;
-
+        $fields_race = [
+            [
+                'Место',
+                $race->track()->first()->address
+            ],
+            [
+                'дата',
+                $race->date_start->format('d.m.Y H:i:s')
+            ],
+            [
+                'наименование',
+                $race->name
+            ]
+        ];
+        $values_race = [];
 
         $table = $this->copySheets($this->sourceIdSheet);
-        $this->updateRows($table);
+        $this->updateRows($table, $fields, $value, 'список');
+        $this->updateRows($table, $fields_race, $values_race, 'гонка');
 
         $this->addAccess($table);
 
@@ -53,14 +69,31 @@ class GoogleSheetService implements GoogleSheetServiceContract
     /**
      * @throws Exception
      */
-    public function update(string $id, array $fields = [], array $value = []): object
+    public function update(string $id, Race $race, array $fields = [], array $value = []): object
     {
         $this->ClientAuth();
         $table = $this->getTableForId($id);
-        $this->fields = $fields;
-        $this->values = $value;
+        $fields_race = [
+            [
+                'Место',
+                $race->track()->first()->address
+            ],
+            [
+                'дата',
+                $race->date_start->format('d.m.Y H:i:s')
+            ],
+            [
+                'наименование',
+                $race->name
+            ]
+        ];
+        $values_race = [];
+
+//        $this->fields = $fields;
+//        $this->values = $value;
 //        $this->addAccess($table);
-        $this->updateRows($table);
+        $this->updateRows($table, $fields, $value, 'список');
+        $this->updateRaceTable($table, $fields_race,'гонка');
         $url = "https://docs.google.com/spreadsheets/d/$id";
         $spriteSheetID = $table->spreadsheetId;
         return (object)['url' => $url, 'sheetID' => $spriteSheetID];
@@ -105,12 +138,12 @@ class GoogleSheetService implements GoogleSheetServiceContract
      * @throws Exception
      */
 
-    private function addRows(Spreadsheet $table): void
+    private function addRows(Spreadsheet $table, array $fields, array $values): void
     {
         $service = new Sheets($this->client);
 
         $bodyTable = new \Google_Service_Sheets_ValueRange([
-            'values' => $this->createValuesForTable(),
+            'values' => $this->createValuesForTable($fields, $values),
         ]);
 
         $range = 'список';
@@ -121,19 +154,16 @@ class GoogleSheetService implements GoogleSheetServiceContract
             ['valueInputOption' => 'RAW']
         );
     }
-    private function updateRows(Spreadsheet $table): void
+    private function updateRows(Spreadsheet $table, array $fields, array $values, string $range): void
     {
         $service = new Sheets($this->client);
 
         $bodyTableNew = new \Google_Service_Sheets_ValueRange([
-            'values' => $this->createValuesForTable(),
+            'values' => $this->createValuesForTable($fields, $values),
         ]);
-        $bodyTableClear = new \Google_Service_Sheets_ValueRange([
-            'values' => [],
-        ]);
+
         $clear = new Sheets\ClearValuesRequest();
 
-        $range = 'список';
         $service->spreadsheets_values->clear(
             $table->spreadsheetId,
             $range,
@@ -147,12 +177,35 @@ class GoogleSheetService implements GoogleSheetServiceContract
         );
     }
 
-    private function createValuesForTable(): array
+    private function updateRaceTable(Spreadsheet $table, array $rows, string $range): void
     {
-        $data[] = $this->fields;
-        foreach ($this->values as $key => $value) {
+        $service = new Sheets($this->client);
+
+        $bodyTableNew = new \Google_Service_Sheets_ValueRange([
+            'values' => $rows,
+        ]);
+
+        $clear = new Sheets\ClearValuesRequest();
+
+        $service->spreadsheets_values->clear(
+            $table->spreadsheetId,
+            $range,
+            $clear
+        );
+        $service->spreadsheets_values->update(
+            $table->spreadsheetId,
+            $range,
+            $bodyTableNew,
+            ['valueInputOption' => 'RAW']
+        );
+    }
+
+    private function createValuesForTable(array $fields, array $values): array
+    {
+        $data[] = $fields;
+        foreach ($values as $key => $value) {
             $data_row =[];
-            foreach ($this->fields as $field) {
+            foreach ($fields as $field) {
                 isset($value[$field]) ?  $data_row[] = $value[$field] : null;
             }
             $data[] = $data_row;
