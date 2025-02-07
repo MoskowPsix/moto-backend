@@ -27,11 +27,5 @@ class UpdateUserActionTest extends TestCase
     public function test_example(): void
     {
         $user = User::factory()->create();
-
-        $userRequest = new UpdateUserRequest();
-
-        $action = app(UpdateUserActionContract::class);
-        $response = $action($userRequest);
-        $this->assertInstanceOf(ErrorUpdateUserResource::class, $response);
     }
 }

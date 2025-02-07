@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Contracts\Services\GoogleSheetServiceContract;
+use App\Models\Race;
 use Google\Client;
 use Google\Service\Drive;
 use Google\Service\Drive\Permission;
@@ -18,7 +19,6 @@ class GoogleSheetService implements GoogleSheetServiceContract
 {
     public string $table_name;
 
-    private string $sheetNameUsers = 'Sheet1';
     public string $url;
 
     public string $sourceIdSheet = "1t3WuY3wiyCxTU52krYmBdOWcZtm9OcdPIkoLgiwIzcM";
@@ -26,21 +26,23 @@ class GoogleSheetService implements GoogleSheetServiceContract
     public array $fields;
 
     public array $values;
+
+    public Race $race;
     private Client $client;
 
     /**
      * @throws Exception
      */
-    public function create(string $table_name, array $fields = [], array $value = []): object
+    public function create(string $table_name, array $fields = [], array $value = [], Race $race): object
     {
         $this->ClientAuth();
         $this->fields = $fields;
         $this->values = $value;
         $this->table_name = $table_name;
-
+        $this->race = $race;
 
         $table = $this->copySheets($this->sourceIdSheet);
-        $this->updateRows($table);
+        $this->updateRows($table, 'список!A1:D100');
 
         $this->addAccess($table);
 
@@ -53,12 +55,13 @@ class GoogleSheetService implements GoogleSheetServiceContract
     /**
      * @throws Exception
      */
-    public function update(string $id, array $fields = [], array $value = []): object
+    public function update(string $id, array $fields = [], array $value = [],  Race $race): object
     {
         $this->ClientAuth();
         $table = $this->getTableForId($id);
         $this->fields = $fields;
         $this->values = $value;
+        $this->race = $race;
 //        $this->addAccess($table);
         $this->updateRows($table);
         $url = "https://docs.google.com/spreadsheets/d/$id";
@@ -105,7 +108,7 @@ class GoogleSheetService implements GoogleSheetServiceContract
      * @throws Exception
      */
 
-    private function addRows(Spreadsheet $table): void
+    private function addRows(Spreadsheet $table, string $tableRange): void
     {
         $service = new Sheets($this->client);
 
@@ -113,7 +116,7 @@ class GoogleSheetService implements GoogleSheetServiceContract
             'values' => $this->createValuesForTable(),
         ]);
 
-        $range = 'список';
+        $range = $tableRange;
         $service->spreadsheets_values->append(
             $table->spreadsheetId,
             $range,
@@ -121,7 +124,7 @@ class GoogleSheetService implements GoogleSheetServiceContract
             ['valueInputOption' => 'RAW']
         );
     }
-    private function updateRows(Spreadsheet $table): void
+    private function updateRows(Spreadsheet $table, string $tableRange): void
     {
         $service = new Sheets($this->client);
 
@@ -133,7 +136,7 @@ class GoogleSheetService implements GoogleSheetServiceContract
         ]);
         $clear = new Sheets\ClearValuesRequest();
 
-        $range = 'список';
+        $range = $tableRange;
         $service->spreadsheets_values->clear(
             $table->spreadsheetId,
             $range,
@@ -147,15 +150,36 @@ class GoogleSheetService implements GoogleSheetServiceContract
         );
     }
 
-    private function createValuesForTable(): array
+    private function createValuesForTable(array $value = null, array $fields = null, bool $isVertical = true): array
     {
-        $data[] = $this->fields;
-        foreach ($this->values as $key => $value) {
-            $data_row =[];
-            foreach ($this->fields as $field) {
-                isset($value[$field]) ?  $data_row[] = $value[$field] : null;
+        $values = $value ?? $this->values;
+        $fields = $fields ?? $this->fields;
+
+        $data[] = $fields;
+
+        if($isVertical){
+            $data = [];
+            foreach ($fields as $index => $field) {
+                $data[$index] = [$field]; // Каждое поле помещается в отдельную строку
             }
-            $data[] = $data_row;
+            foreach ($values as $rowIndex => $row) {
+                foreach ($fields as $fieldIndex => $field) {
+                    if (isset($row[$field])) {
+                        $data[$fieldIndex][] = $row[$field]; // Добавляем значение справа от поля
+                    } else {
+                        $data[$fieldIndex][] = ''; // Если значение отсутствует, добавляем пустую строку
+                    }
+                }
+            }
+        }
+        else{
+            foreach ($values as $key => $value) {
+                $data_row =[];
+                foreach ($fields as $field) {
+                    isset($value[$field]) ?  $data_row[] = $value[$field] : null;
+                }
+                $data[] = $data_row;
+            }
         }
         return $data;
     }

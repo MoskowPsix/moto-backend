@@ -6,6 +6,7 @@ use App\Contracts\Actions\AppointmentRace\CreateTableAppointmentRaceUserActionCo
 use App\Contracts\Actions\Document\GetDocumentForUserByIdActionContract;
 use App\Contracts\Actions\Race\CreateRaceActionContract;
 use App\Contracts\Actions\Role\ChangeRoleForDefaultUserActionContract;
+use App\Contracts\Actions\User\GetUserForTokenActionContract;
 use Illuminate\Support\ServiceProvider;
 
 class ActionServiceProvider extends ServiceProvider
@@ -35,6 +36,7 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\AppointmentRace\CreateTableAppointmentRaceUserActionContract::class  => \App\Actions\AppointmentRace\CreateTableAppointmentRaceUserAction::class,
         \App\Contracts\Actions\User\UpdateUserActionContract::class                                  => \App\Actions\User\UpdateUserAction::class,
         \App\Contracts\Actions\User\GetUserForIdActionContract::class                                  => \App\Actions\User\GetUserForIdAction::class,
+        \App\Contracts\Actions\User\GetUserForTokenActionContract::class                                  => \App\Actions\User\GetUserForTokenAction::class,
 
     ];
     /**
