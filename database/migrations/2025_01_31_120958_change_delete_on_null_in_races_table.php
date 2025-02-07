@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('races', function (Blueprint $table) {
-            $table->dropForeign('races_track_id_foreign');
-            $table->foreign('track_id')->references('id')->on('tracks')->nullOnDelete();
-        });
+        if(config('database.default') !== 'sqlite') {
+            Schema::table('races', function (Blueprint $table) {
+                $table->dropForeign('races_track_id_foreign');
+                $table->foreign('track_id')->references('id')->on('tracks')->nullOnDelete();
+            });
+        }
     }
 
     /**
@@ -22,8 +24,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('races', function (Blueprint $table) {
-            //
-        });
+        if(config('database.default') !== 'sqlite') {
+
+            Schema::table('races', function (Blueprint $table) {
+                //
+            });
+        }
     }
 };
