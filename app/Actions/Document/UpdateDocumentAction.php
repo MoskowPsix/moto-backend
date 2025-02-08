@@ -7,6 +7,7 @@ use App\Http\Requests\Document\UpdateDocumentRequest;
 use App\Http\Resources\Document\Update\SuccessUpdateDocumentResource;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
+use App\Models\Document;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -29,16 +30,16 @@ class UpdateDocumentAction implements UpdateDocumentActionContract
         }
 
         if ($request->data) {
-            $this->updateFields($request->data, $document);
+            $this->updateFields($request->data, Document::find($id));
         }
 
-        return SuccessUpdateDocumentResource::make($user->documents()->where('id', $id)->first());
+        return SuccessUpdateDocumentResource::make(Document::find($id));
     }
 
     private function updateFields($data, $document): void
     {
         $document->update([
-            'data' => json_decode($data, true),
+            'data' => json_encode($data),
         ]);
     }
     private function updateFile($file, $document): void
