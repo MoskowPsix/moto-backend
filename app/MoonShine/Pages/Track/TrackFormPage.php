@@ -27,16 +27,21 @@ class TrackFormPage extends FormPage
     {
         $item = $this->getResource()->getItem();
         return [
-            Text::make('Название', 'name'),
-            Text::make('Адрес', 'address'),
-            Image::make('images')->multiple()->dir("/track/$item->id"),
+            Text::make('Название', 'name')->required(),
+            Text::make('Адрес', 'address')->required(),
+            Image::make('images')->multiple()->dir(isset($item->id) ? "/track/$item->id" : "/track"),
             Text::make('Координаты', 'point',)
                 ->placeholder('POINT(<latitude> <longitude>)')
                 ->onBeforeRender(function (Field $item) {
+                    if (empty($item->toArray()['value'])) {
+                        $item->setValue("POINT(<latitude> <longitude>)");
+                        return $item;
+                    }
                     $value = json_decode($item->toArray()['value']);
                     $item->setValue("POINT({$value->coordinates[0]} {$value->coordinates[1]})");
                     return $item;
-                }),
+                })
+            ->required(),
             Number::make('Длина', 'length'),
             Number::make('Повороты', 'turns'),
             Text::make('Описание', 'desc'),
@@ -50,8 +55,8 @@ class TrackFormPage extends FormPage
                     Text::make('Название','title'),
                     Text::make('Значение', 'value'),
                 ]),
-            $this->user(),
-            $this->level()
+            $this->user()->required(),
+            $this->level()->required()
         ];
     }
 

@@ -22,7 +22,7 @@ class ServiceFormPage extends FormPage
         $item = $this->getResource()->getItem();
         return [
             Text::make('Название', 'name'),
-            Image::make('images', 'image')->multiple()->dir("/service/$item->id"),
+            Image::make('images', 'image')->multiple()->dir(isset($item->id) ? "/service/$item->id" : "/service"),
             Color::make('Color', 'color'),
         ];
     }

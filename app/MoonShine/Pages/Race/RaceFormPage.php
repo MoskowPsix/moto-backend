@@ -29,16 +29,16 @@ class RaceFormPage extends FormPage
         $item = $this->getResource()->getItem();
         return [
             ID::make()->sortable(),
-            Text::make('Название гонки', 'name'),
+            Text::make('Название гонки', 'name')->required(),
             Text::make('Описание', 'desc'),
-            Text::make('Дата и время', 'date_start'),
-            Checkbox::make('Работает', 'is_work'),
-            Image::make('Фото', 'images')->multiple()->dir("/race/$item->id"),
-            $this->user(),
-            $this->track(),
+            Text::make('Дата и время', 'date_start')->required(),
+            Checkbox::make('Работает', 'is_work')->required(),
+            Image::make('Фото', 'images')->multiple()->dir(isset($item->id) ? "/race/$item->id" : "/race"),
+            $this->user()->required(),
+            $this->track()->required(),
             $this->appointments(),
-            File::make('Файл положения', 'position_file')->dir("/race/$item->id"),
-            File::make('Файл регламента', 'results_file')->dir("/race/$item->id"),
+            File::make('Файл положения', 'position_file')->dir(isset($item->id) ? "/race/$item->id" : "/race"),
+            File::make('Файл регламента', 'results_file')->dir(isset($item->id) ? "/race/$item->id" : "/race"),
         ];
     }
 
