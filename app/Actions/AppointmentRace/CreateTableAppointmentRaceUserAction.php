@@ -88,7 +88,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
                 ''                                                                  => '',
                 'Скан или фотография Страховки'                                     => $info['polisFileLink'] ?? '',
                 'Скан или фотография Лицензии'                                      => $info['licensesFileLink'] ?? '',
-                'Скан или фотография нотариального согласия от обоих родителей'     => '',
+                'Скан или фотография нотариального согласия от обоих родителей'     => $info['notariusFileLink'] ?? '',
             ];
         }
         return $rows;
