@@ -55,9 +55,11 @@ final class MoonShineLayout extends AppLayout
             MenuGroup::make('Система', [
                 MenuItem::make('Пользователи', UserResource::class),
                 MenuItem::make('Роли', RoleResource::class),
-                MenuItem::make('Telescope', '/telescope', 'rocket-launch'),
-
             ], 'cog-8-tooth'),
+            MenuGroup::make('Разработчикам', [
+                MenuItem::make('Telescope', '/telescope', 'rocket-launch'),
+                MenuItem::make('Документация API', '/docs', 'code-bracket-square'),
+            ], 'cpu-chip'),
             MenuGroup::make('Контент', [
                 MenuItem::make('Трассы', TrackResource::class, 'map-pin'),
                 MenuItem::make('Гонки', RaceResource::class, 'map'),
