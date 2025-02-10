@@ -10,7 +10,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property string $name
  * @property string $type
  * @property string $path
- * @property array $data
+ * @property string $data
  */
 class DocumentResource extends JsonResource
 {
