@@ -38,6 +38,7 @@ use MoonShine\MenuManager\MenuItem;
 use App\MoonShine\Resources\LevelResource;
 use App\MoonShine\Resources\ServiceResource;
 use App\MoonShine\Resources\RaceResource;
+use App\MoonShine\Resources\GoogleSheetResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -54,13 +55,15 @@ final class MoonShineLayout extends AppLayout
             MenuGroup::make('Система', [
                 MenuItem::make('Пользователи', UserResource::class),
                 MenuItem::make('Роли', RoleResource::class),
+                MenuItem::make('Telescope', '/telescope', 'rocket-launch'),
+
             ], 'cog-8-tooth'),
             MenuGroup::make('Контент', [
                 MenuItem::make('Трассы', TrackResource::class, 'map-pin'),
                 MenuItem::make('Гонки', RaceResource::class, 'map'),
+                MenuItem::make('Таблицы', GoogleSheetResource::class, 'clipboard-document-list'),
 //            MenuItem::make('Levels', LevelResource::class),
                 MenuItem::make('Сервисы', ServiceResource::class, 'square-3-stack-3d'),
-                MenuItem::make('Telescope', '/telescope', 'rocket-launch'),
             ], 'cube'),
         ];
     }

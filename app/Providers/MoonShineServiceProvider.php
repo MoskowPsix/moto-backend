@@ -22,6 +22,7 @@ use App\MoonShine\Resources\RoleResource;
 use App\MoonShine\Resources\LevelResource;
 use App\MoonShine\Resources\RaceResource;
 use MoonShine\Laravel\Enums\Ability;
+use App\MoonShine\Resources\GoogleSheetResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -48,6 +49,7 @@ class MoonShineServiceProvider extends ServiceProvider
                 LevelResource::class,
                 ServiceResource::class,
                 RaceResource::class,
+                GoogleSheetResource::class,
             ])
             ->pages([
                 ...$config->getPages(),

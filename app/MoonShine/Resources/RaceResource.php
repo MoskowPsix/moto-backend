@@ -25,6 +25,7 @@ class RaceResource extends ModelResource
     protected string $model = Race::class;
     protected bool $simplePaginate = true;
     protected string $title = 'Гонки';
+    protected string $column = 'name';
 
     /**
      * @return list<Page>

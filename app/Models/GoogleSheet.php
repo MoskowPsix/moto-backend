@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class GoogleSheet extends Model
 {
@@ -13,4 +14,9 @@ class GoogleSheet extends Model
         'url',
         'race_id'
     ];
+
+    public function race(): BelongsTo
+    {
+        return $this->belongsTo(Race::class);
+    }
 }
