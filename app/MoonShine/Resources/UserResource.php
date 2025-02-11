@@ -9,6 +9,7 @@ use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Validation\Rule;
 use MoonShine\Laravel\Enums\Action;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
+use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\Laravel\Fields\Relationships\MorphToMany;
 use MoonShine\Laravel\Models\MoonshineUser;
 use MoonShine\Laravel\Resources\ModelResource;
@@ -145,6 +146,7 @@ class UserResource extends ModelResource
                             PasswordRepeat::make(__('moonshine::ui.resource.repeat_password'), 'password_repeat')
                                 ->customAttributes(['autocomplete' => 'confirm-password'])
                                 ->eye(),
+                            HasMany::make('Документы', 'documents', resource: DocumentResource::class)->searchable(false)
                         ])->icon('lock-closed'),
                     ])->icon('lock-closed'),
                 ]),
