@@ -26,13 +26,18 @@ class CreateRaceActionTest extends TestCase
         $user = User::factory()->create();
         $track = Track::factory()->create();
 
-        $file = UploadedFile::fake()->create('file.png');
+        $image = UploadedFile::fake()->create('file.png');
+        $positionFile = UploadedFile::fake()->create('position.pdf');
+        $resultsFile = UploadedFile::fake()->create('results.pdf');
+
         $race_seed = Race::factory()->make();
         $race = [
             'name' => $race_seed->name,
             'desc' => $race_seed->desc,
             'dateStart' => $race_seed->date_start,
-            'images' => [$file],
+            'images' => [$image],
+            'position_file' => [$positionFile],
+            'results_file' => [$resultsFile],
             'trackId' => $track->id,
         ];
 

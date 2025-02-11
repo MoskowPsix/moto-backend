@@ -7,6 +7,7 @@ namespace App\MoonShine\Pages\Track;
 use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
+use MoonShine\UI\Components\Layout\Grid;
 use MoonShine\UI\Fields\Checkbox;
 use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\ID;
@@ -33,6 +34,13 @@ class TrackIndexPage extends IndexPage
             Number::make('Повороты', 'turns')->sortable(),
             Date::make('Создано', 'created_at')->sortable(),
             Date::make('Обновлено', 'updated_at')->sortable(),
+        ];
+    }
+
+    protected function styles(): array
+    {
+        return [
+            'table' => 'min-width: 1000px; overflow-x: auto;', // Устанавливаем минимальную ширину и добавляем прокрутку
         ];
     }
 
