@@ -33,7 +33,7 @@ class ToogleAppointmentRaceRequest extends FormRequest
             'data.inn'                      => 'nullable|integer',
             'data.snils'                    => 'nullable|integer',
             'data.phoneNumber'              => 'nullable|integer',
-            'data.startNumber'              => 'nullable|integer',
+            'data.startNumber'              => 'nullable|integer|min:1|max:999',
             'data.group'                    => 'nullable|string',
             'data.rank'                     => 'nullable|string',
             'data.rankNumber'               => 'nullable|string',
@@ -46,7 +46,7 @@ class ToogleAppointmentRaceRequest extends FormRequest
             'data.polisFileLink'            => 'nullable|string',
             'data.licensesNumber'           => 'nullable|string',
             'data.licensesFileLink'         => 'nullable|string',
-            'data.numberAndSeria'           => 'nullable|integer',
+            'data.numberAndSeria'           => 'nullable|string',
             'data.pasportFileLink'          => 'nullable|string',
 
         ];

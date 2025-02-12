@@ -153,7 +153,7 @@ class GoogleSheetService implements GoogleSheetServiceContract
         $range = 'список';
         $service->spreadsheets_values->append(
             $table->spreadsheetId,
-            $range . '!A2',
+            $range . '!A2:Z10000',
             $bodyTable,
             ['valueInputOption' => 'RAW']
         );
@@ -170,12 +170,12 @@ class GoogleSheetService implements GoogleSheetServiceContract
 
         $service->spreadsheets_values->clear(
             $table->spreadsheetId,
-            $range . '!A2:Z100',
+            $range . '!A2:Z10000',
             $clear
         );
         $service->spreadsheets_values->update(
             $table->spreadsheetId,
-            $range . '!A2:Z100',
+            $range . '!A2:Z10000',
             $bodyTableNew,
             ['valueInputOption' => 'RAW']
         );
@@ -193,12 +193,12 @@ class GoogleSheetService implements GoogleSheetServiceContract
 
         $service->spreadsheets_values->clear(
             $table->spreadsheetId,
-            $range . '!A2:Z100',
+            $range . '!A2:Z10000',
             $clear
         );
         $service->spreadsheets_values->update(
             $table->spreadsheetId,
-            $range  . '!A2:Z100',
+            $range  . '!A2:Z10000',
             $bodyTableNew,
             ['valueInputOption' => 'RAW']
         );
