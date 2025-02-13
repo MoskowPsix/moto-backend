@@ -1,0 +1,206 @@
+name: Auth
+description: 'Авторизация пользователей и всё что с ней связано.'
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/login
+    metadata:
+      groupName: Auth
+      groupDescription: 'Авторизация пользователей и всё что с ней связано.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: Login
+      description: 'Авторизация пользователя'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Значение поля value должно быть действительным электронным адресом. The <code>email</code> of an existing record in the users table. Количество символов в поле value должно быть не меньше 3.'
+        required: true
+        example: bauch.alta@example.org
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'Количество символов в поле value должно быть не меньше 3.'
+        required: true
+        example: "%A'n2C%mg.b'}`1|X"
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      email: bauch.alta@example.org
+      password: "%A'n2C%mg.b'}`1|X"
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u0412\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043b\u0438\u0441\u044c","access_token":"5|0uZWH9BRW7bO87Az5HtVSy4V4M3u30jwLDMvMNrR0d5cf2f6","token_type":"Bearer","user":{"id":1112,"name":"\u0410\u043d\u0430\u0441\u0442\u0430\u0441\u0438\u044f \u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432\u043d\u0430 \u0421\u044b\u0441\u043e\u0435\u0432\u0430","email":"zbykova@example.org","email_verified_at":"2025-02-13T13:18:42.000000Z","avatar":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"success","message":"\u041d\u0435\u0443\u0434\u0430\u0447\u043d\u0430\u044f \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u0430\u0446\u0438\u0438"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/register
+    metadata:
+      groupName: Auth
+      groupDescription: 'Авторизация пользователей и всё что с ней связано.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: Register
+      description: 'Регистрация нового пользователя'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Количество символов в поле value должно быть не меньше 3. Количество символов в значении поля value не может превышать 50.'
+        required: true
+        example: apaamevyxlemvpdtaxmcg
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'Значение поля value должно быть действительным электронным адресом.'
+        required: true
+        example: jessyca.rosenbaum@example.org
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'Количество символов в поле value должно быть не меньше 8.'
+        required: true
+        example: 'O.l`V<[rb;.\1c5''om'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'The value and <code>password</code> must match.'
+        required: true
+        example: beatae
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      avatar:
+        name: avatar
+        description: 'Файл, указанный в поле value, должен быть изображением.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      name: apaamevyxlemvpdtaxmcg
+      email: jessyca.rosenbaum@example.org
+      password: 'O.l`V<[rb;.\1c5''om'
+      password_confirmation: beatae
+    fileParameters:
+      avatar: null
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u0412\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0437\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043e\u0432\u0430\u043d\u044b","access_token":"6|01xSDz31St20q7cp1Pv3ObRokXFXj66qiER5I8FN3669e8fc","token_type":"Bearer","user":{"id":1113,"name":"\u0421\u0430\u0432\u0438\u043d\u0430 \u0415\u043b\u0438\u0437\u0430\u0432\u0435\u0442\u0430 \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u043d\u0430","email":"lavrenteva.nonna@example.net","email_verified_at":"2025-02-13T13:18:43.000000Z","avatar":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044f \u043f\u0440\u043e\u0448\u043b\u0430 \u043d\u0435\u0443\u0434\u0430\u0447\u043d\u043e"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/logout
+    metadata:
+      groupName: Auth
+      groupDescription: 'Авторизация пользователей и всё что с ней связано.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: logout
+      description: 'Выход пользователя'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0432\u044b\u0448\u0435\u043b."}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 500
+        content: '{"status":"success","message":"\u041f\u0440\u0438 \u0432\u044b\u0445\u043e\u0434\u0435 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u0440\u043e\u0438\u0437\u043e\u0448\u043b\u0430 \u043a\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u044f \u043e\u0448\u0438\u0431\u043a\u0430."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
