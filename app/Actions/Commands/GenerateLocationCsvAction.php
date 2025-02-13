@@ -40,7 +40,7 @@ class GenerateLocationCsvAction implements GenerateLocationCsvActionContract
 
     private function upd(object $region): void
     {
-        $region_tr = $this->transformType($region->region);
+        $region_tr = $this->transformType($region->region_type);
         Location::where('name', $region->region)->update([
             'name' => empty($region_tr->name) ? $region->region : $region_tr->name,
             'population' => $region->population,
@@ -50,7 +50,7 @@ class GenerateLocationCsvAction implements GenerateLocationCsvActionContract
     }
     private function save(object $region): void
     {
-        $region_tr = $this->transformType($region->region);
+        $region_tr = $this->transformType($region->region_type);
         Location::create([
             'name' => empty($region->name) ? $region->region : $region_tr->name,
             'population' => $region->population,
