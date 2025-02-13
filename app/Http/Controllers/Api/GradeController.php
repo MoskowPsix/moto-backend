@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Contracts\Actions\Grade\CreateGradeActionContract;
-use App\Contracts\Actions\Grade\GetForIdGradeActionContract;
-use App\Contracts\Actions\Grade\GetGradeActionContract;
-use App\Contracts\Actions\Grade\UpdateGradeActionContract;
+use App\Contracts\Actions\Controllers\Grade\CreateGradeActionContract;
+use App\Contracts\Actions\Controllers\Grade\GetForIdGradeActionContract;
+use App\Contracts\Actions\Controllers\Grade\GetGradeActionContract;
+use App\Contracts\Actions\Controllers\Grade\UpdateGradeActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Grade\CreateGradeRequest;
 use App\Http\Requests\Grade\GetForIdGradeRequest;
@@ -17,7 +17,6 @@ use App\Http\Resources\Grade\GetGrade\SuccessGetGradeResource;
 use App\Http\Resources\Grade\GetGradeForId\SuccessGetGradeForIdResource;
 use App\Http\Resources\Grade\Update\SuccessUpdateGradeResource;
 use App\Models\Grade;
-use Illuminate\Http\Request;
 use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;

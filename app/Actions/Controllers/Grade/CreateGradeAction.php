@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Actions\Grade;
+namespace App\Actions\Controllers\Grade;
 
-use App\Contracts\Actions\Grade\CreateGradeActionContract;
+use App\Contracts\Actions\Controllers\Grade\CreateGradeActionContract;
 use App\Http\Requests\Grade\CreateGradeRequest;
 use App\Http\Resources\Grade\Create\SuccessCreateGradeResource;
 use App\Models\Grade;

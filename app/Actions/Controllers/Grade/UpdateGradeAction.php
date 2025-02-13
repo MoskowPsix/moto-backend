@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Actions\Grade;
+namespace App\Actions\Controllers\Grade;
 
-use App\Contracts\Actions\Grade\UpdateGradeActionContract;
+use App\Contracts\Actions\Controllers\Grade\UpdateGradeActionContract;
 use App\Http\Requests\Grade\UpdateGradeRequest;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;

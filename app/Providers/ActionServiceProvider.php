@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use App\Contracts\Actions\Commands\GenerateLocationCsvActionContract;
+use App\Contracts\Actions\Controllers\Grade\GetForIdGradeActionContract;
+use App\Contracts\Actions\Controllers\Grade\GetGradeActionContract;
+use App\Contracts\Actions\Controllers\Grade\UpdateGradeActionContract;
 use Illuminate\Support\ServiceProvider;
 
 class ActionServiceProvider extends ServiceProvider
@@ -43,6 +46,11 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\VerificationEmail\VerificationActionContract::class                      => \App\Actions\Controllers\VerificationEmail\VerificationAction::class,
         \App\Contracts\Actions\Controllers\VerificationEmail\SendActionContract::class                              => \App\Actions\Controllers\VerificationEmail\SendAction::class,
         \App\Contracts\Actions\Controllers\Location\GetLocationActionContract::class                                => \App\Actions\Controllers\Location\GetLocationAction::class,
+        \App\Contracts\Actions\Controllers\Grade\CreateGradeActionContract::class                                   => \App\Actions\Controllers\Grade\CreateGradeAction::class,
+        \App\Contracts\Actions\Controllers\Grade\GetForIdGradeActionContract::class                                 => \App\Actions\Controllers\Grade\GetForIdGradeAction::class,
+        \App\Contracts\Actions\Controllers\Grade\GetGradeActionContract::class                                      => \App\Actions\Controllers\Grade\GetGradeAction::class,
+        \App\Contracts\Actions\Controllers\Grade\UpdateGradeActionContract::class                                   => \App\Actions\Controllers\Grade\UpdateGradeAction::class,
+
     ];
     /**
      * Register services.

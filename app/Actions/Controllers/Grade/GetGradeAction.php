@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Actions\Grade;
+namespace App\Actions\Controllers\Grade;
 
-use App\Contracts\Actions\Grade\GetGradeActionContract;
+use App\Contracts\Actions\Controllers\Grade\GetGradeActionContract;
 use App\Filters\Grade\GradeUserIdFilter;
-use App\Http\Controllers\Api\GradeController;
 use App\Http\Requests\Grade\GetGradeRequest;
 use App\Http\Resources\Grade\GetGrade\SuccessGetGradeResource;
 use App\Models\Grade;

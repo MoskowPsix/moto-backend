@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Contracts\Actions\Grade;
+namespace App\Contracts\Actions\Controllers\Grade;
 
 use App\Http\Requests\Grade\GetForIdGradeRequest;
 use App\Http\Resources\Grade\GetGradeForId\SuccessGetGradeForIdResource;

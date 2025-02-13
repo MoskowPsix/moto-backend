@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Actions\Grade;
+namespace App\Actions\Controllers\Grade;
 
-use App\Contracts\Actions\Grade\GetForIdGradeActionContract;
+use App\Contracts\Actions\Controllers\Grade\GetForIdGradeActionContract;
 use App\Http\Requests\Grade\GetForIdGradeRequest;
 use App\Http\Resources\Grade\GetGradeForId\SuccessGetGradeForIdResource;
 use App\Models\Grade;
