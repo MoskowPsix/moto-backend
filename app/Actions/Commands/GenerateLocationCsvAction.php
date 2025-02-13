@@ -38,20 +38,20 @@ class GenerateLocationCsvAction implements GenerateLocationCsvActionContract
         Location::where('name', $city->region)->exists() ? $this->upd($city) : $this->save($city);
     }
 
-    private function save(object $region)
+    private function upd(object $region): void
     {
         $region_tr = $this->transformType($region->region);
-        return Location::where('name', $region->region)->update([
+        Location::where('name', $region->region)->update([
             'name' => empty($region_tr->name) ? $region->region : $region_tr->name,
             'population' => $region->population,
             'type' => $region_tr->type,
             'time_zone' => $region->timezone,
         ]);
     }
-    private function upd(object $region): bool
+    private function save(object $region): void
     {
         $region_tr = $this->transformType($region->region);
-        return Location::where('name', $region->region)->update([
+        Location::create([
             'name' => empty($region->name) ? $region->region : $region_tr->name,
             'population' => $region->population,
             'type' => $region_tr->type,
