@@ -20,4 +20,8 @@ trait RaceResourceTrait
     {
         return BelongsToMany::make('Заявки', 'appointments', resource: \App\MoonShine\Resources\UserResource::class)->onlyCount();
     }
+    public function grades(): BelongsToMany
+    {
+        return BelongsToMany::make('Классы', 'grades', resource: \App\MoonShine\Resources\GradeResource::class)->searchable()->selectMode();
+    }
 }

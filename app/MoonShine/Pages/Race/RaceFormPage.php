@@ -37,6 +37,7 @@ class RaceFormPage extends FormPage
             $this->user()->required(),
             $this->track()->required(),
             $this->appointments(),
+            $this->grades(),
             File::make('Файл положения', 'position_file')->dir(isset($item->id) ? "/race/$item->id" : "/race"),
             File::make('Файл регламента', 'results_file')->dir(isset($item->id) ? "/race/$item->id" : "/race"),
         ];

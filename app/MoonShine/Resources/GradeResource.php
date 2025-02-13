@@ -22,7 +22,9 @@ class GradeResource extends ModelResource
 {
     protected string $model = Grade::class;
 
-    protected string $title = 'Grades';
+    protected string $title = 'Классы';
+
+    protected string $column = 'name';
 
     /**
      * @return list<FieldContract>
