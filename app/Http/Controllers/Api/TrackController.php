@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Contracts\Actions\Track\CreateTracksActionContract;
-use App\Contracts\Actions\Track\GetTrackForIdActionContract;
-use App\Contracts\Actions\Track\GetTracksActionContract;
+use App\Contracts\Actions\Controllers\Track\CreateTracksActionContract;
+use App\Contracts\Actions\Controllers\Track\GetTrackForIdActionContract;
+use App\Contracts\Actions\Controllers\Track\GetTracksActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Track\CreateTrackRequest;
 use App\Http\Requests\Track\GetTracksRequest;
@@ -14,10 +14,10 @@ use App\Http\Resources\Track\Create\SuccessCreateResource;
 use App\Http\Resources\Track\GetTrackForId\SuccessGetTrackForIdResource;
 use App\Http\Resources\Track\GetTracks\SuccessGetTracksResource;
 use App\Models\Track;
+use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\ResponseFromApiResource;
-use Knuckles\Scribe\Attributes\Authenticated;
 
 
 #[Group(name: 'Track', description: 'Методы взаимодествия с трассами на которых проходят гонки')]

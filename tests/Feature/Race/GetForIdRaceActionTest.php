@@ -2,12 +2,10 @@
 
 namespace Race;
 
-use App\Actions\Race\GetForIdRaceAction;
-use App\Contracts\Actions\Race\GetForIdRaceActionContract;
+use App\Contracts\Actions\Controllers\Race\GetForIdRaceActionContract;
 use App\Http\Requests\Race\GetForIdRaceRequest;
 use App\Http\Resources\Race\GetRaceForId\SuccessGetRaceForIdResource;
 use App\Models\Race;
-use App\Models\Track;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 

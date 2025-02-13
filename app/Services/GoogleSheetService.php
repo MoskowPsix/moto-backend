@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Contracts\Services\GoogleSheetServiceContract;
 use App\Models\Race;
+use Carbon\Carbon;
 use Google\Client;
 use Google\Service\Drive;
 use Google\Service\Drive\Permission;
@@ -96,7 +97,7 @@ class GoogleSheetService implements GoogleSheetServiceContract
 //        $this->fields = $fields;
 //        $this->values = $value;
 //        $this->addAccess($table);
-        $this->updateRows($table, $fields, $value, 'список');
+        $this->updateRows($table, $fields, $value, 'список'); // Самое долгое место
         $this->updateRaceTable($table, $fields_race,'гонка');
         $url = "https://docs.google.com/spreadsheets/d/$id";
         $spriteSheetID = $table->spreadsheetId;

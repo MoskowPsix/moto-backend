@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Track;
 
-use App\Contracts\Actions\Track\GetTracksActionContract;
+use App\Contracts\Actions\Controllers\Track\GetTracksActionContract;
 use App\Http\Requests\Track\GetTracksRequest;
 use App\Http\Resources\Track\GetTracks\SuccessGetTracksResource;
 use Illuminate\Foundation\Testing\RefreshDatabase;

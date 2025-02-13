@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Contracts\Actions\Auth\LoginActionContract;
-use App\Contracts\Actions\Auth\LogoutActionContract;
-use App\Contracts\Actions\Auth\RegisterActionContract;
+use App\Contracts\Actions\Controllers\Auth\LoginActionContract;
+use App\Contracts\Actions\Controllers\Auth\LogoutActionContract;
+use App\Contracts\Actions\Controllers\Auth\RegisterActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
@@ -20,7 +20,6 @@ use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\ResponseFromApiResource;
-use Mockery\Exception;
 
 #[Group(name: 'Auth', description: 'Авторизация пользователей и всё что с ней связано.')]
 class AuthController extends Controller

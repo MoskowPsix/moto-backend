@@ -3,17 +3,16 @@
 namespace Tests\Feature\Track;
 
 
-use App\Contracts\Actions\Track\CreateTracksActionContract;
+use App\Contracts\Actions\Controllers\Track\CreateTracksActionContract;
 use App\Http\Requests\Track\CreateTrackRequest;
 use App\Http\Resources\Track\Create\ErrorCreateResource;
 use App\Http\Resources\Track\Create\SuccessCreateResource;
 use App\Models\Track;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\UploadedFile;
 use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
-use Illuminate\Http\UploadedFile;
 
 
 class CreateTracksActionTest extends TestCase

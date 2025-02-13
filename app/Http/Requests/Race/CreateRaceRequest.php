@@ -40,6 +40,7 @@ class CreateRaceRequest extends FormRequest
             'images.*'      => 'image|mimes:jpeg,png,jpg,svg,webp',
             'positionFile'  => 'nullable|file|mimes:pdf',
             'resultsFile'   => 'nullable|file|mimes:pdf',
+            'locationId'   => 'integer|nullable|exists:locations,id',
         ];
     }
 }

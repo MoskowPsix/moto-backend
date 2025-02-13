@@ -27,6 +27,7 @@ class Race extends Model
         'results_file',
         'track_id',
         'user_id',
+        'location_id',
     ];
     protected $casts = [
         'name' => 'string',
@@ -55,5 +56,10 @@ class Race extends Model
     public function sheet(): HasOne
     {
         return $this->hasOne(GoogleSheet::class);
+    }
+
+    public function location(): BelongsTo
+    {
+        return $this->belongsTo(Location::class);
     }
 }

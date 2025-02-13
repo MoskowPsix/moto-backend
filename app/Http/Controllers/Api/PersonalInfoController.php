@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Contracts\Actions\PersonalInfo\CreatePersonalInfoActionContract;
-use App\Contracts\Actions\PersonalInfo\UpdatePersonalInfoActionContract;
+use App\Contracts\Actions\Controllers\PersonalInfo\CreatePersonalInfoActionContract;
+use App\Contracts\Actions\Controllers\PersonalInfo\UpdatePersonalInfoActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PersonalInfo\CreatePersonalInfoRequest;
 use App\Http\Requests\PersonalInfo\UpdatePersonalInfoRequest;
-use App\Http\Resources\Auth\Register\ErrorRegisterResource;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Http\Resources\PersonalInfo\Create\SuccessCreatePersonalInfoResource;

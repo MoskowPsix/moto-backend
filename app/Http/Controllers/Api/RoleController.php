@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Contracts\Actions\Role\ChangeRoleForDefaultUserActionContract;
-use App\Contracts\Actions\Role\GetChangeRolesActionContract;
+use App\Contracts\Actions\Controllers\Role\ChangeRoleForDefaultUserActionContract;
+use App\Contracts\Actions\Controllers\Role\GetChangeRolesActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Role\ChangeRoleForDefaultUserRequest;
 use App\Http\Resources\Role\ChangeRoleForDefaultUser\NoRoleChangeRoleForDefaultUserResource;

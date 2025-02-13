@@ -2,15 +2,11 @@
 
 namespace Tests\Feature\Race;
 
-use App\Contracts\Actions\Race\GetRaceActionContract;
-use App\Contracts\Actions\Track\GetTracksActionContract;
+use App\Contracts\Actions\Controllers\Race\GetRaceActionContract;
 use App\Http\Requests\Race\GetRaceRequest;
-use App\Http\Requests\Track\GetTracksRequest;
 use App\Http\Resources\Race\GetRaces\SuccessGetRaceResource;
-use App\Http\Resources\Track\GetTracks\SuccessGetTracksResource;
 use App\Models\Race;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class GetRaceActionTest extends TestCase

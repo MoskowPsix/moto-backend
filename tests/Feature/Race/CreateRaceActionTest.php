@@ -2,10 +2,9 @@
 
 namespace Race;
 
-use App\Contracts\Actions\Race\CreateRaceActionContract;
+use App\Contracts\Actions\Controllers\Race\CreateRaceActionContract;
 use App\Http\Requests\Race\CreateRaceRequest;
 use App\Http\Resources\Race\Create\SuccessCreateRaceResource;
-use App\Models\Level;
 use App\Models\Race;
 use App\Models\Track;
 use App\Models\User;

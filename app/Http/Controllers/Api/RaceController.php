@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Contracts\Actions\Race\CreateRaceActionContract;
-use App\Contracts\Actions\Race\GetForIdRaceActionContract;
-use App\Contracts\Actions\Race\GetRaceActionContract;
-use App\Contracts\Actions\Race\ToggleIsWorkRaceActionContract;
-use App\Contracts\Actions\Race\UpdateRaceActionContract;
+use App\Contracts\Actions\Controllers\Race\CreateRaceActionContract;
+use App\Contracts\Actions\Controllers\Race\GetForIdRaceActionContract;
+use App\Contracts\Actions\Controllers\Race\GetRaceActionContract;
+use App\Contracts\Actions\Controllers\Race\ToggleIsWorkRaceActionContract;
+use App\Contracts\Actions\Controllers\Race\UpdateRaceActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Race\CreateRaceRequest;
 use App\Http\Requests\Race\GetForIdRaceRequest;
 use App\Http\Requests\Race\GetRaceRequest;
 use App\Http\Requests\Race\UpdateRaceRequest;
-use App\Http\Resources\Auth\Register\SuccessRegisterResource;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Http\Resources\Race\Create\SuccessCreateRaceResource;
@@ -21,7 +20,6 @@ use App\Http\Resources\Race\GetRaces\SuccessGetRaceResource;
 use App\Http\Resources\Race\ToggleIsWork\SuccessToogleIsWorkRaceResource;
 use App\Http\Resources\Race\Update\SuccessUpdateRaceResource;
 use App\Models\Race;
-use App\Models\User;
 use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;

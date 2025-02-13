@@ -2,47 +2,47 @@
 
 namespace App\Providers;
 
-use App\Contracts\Actions\AppointmentRace\CreateTableAppointmentRaceUserActionContract;
-use App\Contracts\Actions\Document\GetDocumentForUserByIdActionContract;
-use App\Contracts\Actions\Document\GetFileDocumentActionContract;
-use App\Contracts\Actions\Race\CreateRaceActionContract;
-use App\Contracts\Actions\Role\ChangeRoleForDefaultUserActionContract;
-use App\Contracts\Actions\VerificationEmail\SendActionContract;
+use App\Contracts\Actions\Commands\GenerateLocationCsvActionContract;
 use Illuminate\Support\ServiceProvider;
 
 class ActionServiceProvider extends ServiceProvider
 {
     public array $bindings = [
-        \App\Contracts\Actions\Auth\LoginActionContract::class                                          => \App\Actions\Auth\LoginAction::class,
-        \App\Contracts\Actions\Auth\RegisterActionContract::class                                       => \App\Actions\Auth\RegisterAction::class,
-        \App\Contracts\Actions\Auth\LogoutActionContract::class                                         => \App\Actions\Auth\LogoutAction::class,
-        \App\Contracts\Actions\Track\GetTracksActionContract::class                                     => \App\Actions\Track\GetTracksAction::class,
-        \App\Contracts\Actions\Track\CreateTracksActionContract::class                                  => \App\Actions\Track\CreateTracksAction::class,
-        \App\Contracts\Actions\Track\GetTrackForIdActionContract::class                                 => \App\Actions\Track\GetTrackForIdAction::class,
-        \App\Contracts\Actions\Role\GetChangeRolesActionContract::class                                 => \App\Actions\Role\GetChangeRolesAction::class,
-        \App\Contracts\Actions\Role\ChangeRoleForDefaultUserActionContract::class                       => \App\Actions\Role\ChangeRoleForDefaultUserAction::class,
-        \App\Contracts\Actions\Race\GetRaceActionContract::class                                        => \App\Actions\Race\GetRaceAction::class,
-        \App\Contracts\Actions\Race\GetForIdRaceActionContract::class                                   => \App\Actions\Race\GetForIdRaceAction::class,
-        \App\Contracts\Actions\Race\CreateRaceActionContract::class                                     => \App\Actions\Race\CreateRaceAction::class,
-        \App\Contracts\Actions\Race\UpdateRaceActionContract::class                                     => \App\Actions\Race\UpdateRaceAction::class,
-        \App\Contracts\Actions\Race\ToggleIsWorkRaceActionContract::class                               => \App\Actions\Race\ToggleIsWorkRaceAction::class,
-        \App\Contracts\Actions\PersonalInfo\CreatePersonalInfoActionContract::class                     => \App\Actions\PersonalInfo\CreatePersonalInfoAction::class,
-        \App\Contracts\Actions\PersonalInfo\UpdatePersonalInfoActionContract::class                     => \App\Actions\PersonalInfo\UpdatePersonalInfoAction::class,
-        \App\Contracts\Actions\Document\CreateDocumentActionContract::class                             => \App\Actions\Document\CreateDocumentAction::class,
-        \App\Contracts\Actions\Document\GetDocumentForUserActionContract::class                         => \App\Actions\Document\GetDocumentForUserAction::class,
-        \App\Contracts\Actions\Document\GetDocumentForUserByIdActionContract::class                     => \App\Actions\Document\GetDocumentForUserByIdAction::class,
-        \App\Contracts\Actions\Document\GetFileDocumentActionContract::class                            => \App\Actions\Document\GetFileDocumentAction::class,
-        \App\Contracts\Actions\Document\UpdateDocumentActionContract::class                             => \App\Actions\Document\UpdateDocumentAction::class,
-        \App\Contracts\Actions\Document\DeleteDocumentActionContract::class                             => \App\Actions\Document\DeleteDocumentAction::class,
-        \App\Contracts\Actions\AppointmentRace\ToggleAppointmentRaceActionContract::class               => \App\Actions\AppointmentRace\ToggleAppointmentRaceAction::class,
-        \App\Contracts\Actions\AppointmentRace\DeleteAppointmentRaceActionContract::class               => \App\Actions\AppointmentRace\DeleteAppointmentRaceAction::class,
-        \App\Contracts\Actions\AppointmentRace\GetUsersAppointmentRaceActionContract::class             => \App\Actions\AppointmentRace\GetUsersAppointmentRaceAction::class,
-        \App\Contracts\Actions\AppointmentRace\CreateTableAppointmentRaceUserActionContract::class      => \App\Actions\AppointmentRace\CreateTableAppointmentRaceUserAction::class,
-        \App\Contracts\Actions\User\UpdateUserActionContract::class                                     => \App\Actions\User\UpdateUserAction::class,
-        \App\Contracts\Actions\User\GetUserForIdActionContract::class                                   => \App\Actions\User\GetUserForIdAction::class,
-        \App\Contracts\Actions\VerificationEmail\VerificationActionContract::class                      => \App\Actions\VerificationEmail\VerificationAction::class,
-        \App\Contracts\Actions\VerificationEmail\SendActionContract::class                              => \App\Actions\VerificationEmail\SendAction::class,
+        // Command
+        \App\Contracts\Actions\Commands\CreateUserForRaceCommandActionContracts::class                              => \App\Actions\Commands\CreateUserForRaceCommandAction::class,
+        \App\Contracts\Actions\Commands\GenerateLocationCsvActionContract::class                                    => \App\Actions\Commands\GenerateLocationCsvAction::class,
 
+        // Controller
+        \App\Contracts\Actions\Controllers\Auth\LoginActionContract::class                                          => \App\Actions\Controllers\Auth\LoginAction::class,
+        \App\Contracts\Actions\Controllers\Auth\RegisterActionContract::class                                       => \App\Actions\Controllers\Auth\RegisterAction::class,
+        \App\Contracts\Actions\Controllers\Auth\LogoutActionContract::class                                         => \App\Actions\Controllers\Auth\LogoutAction::class,
+        \App\Contracts\Actions\Controllers\Track\GetTracksActionContract::class                                     => \App\Actions\Controllers\Track\GetTracksAction::class,
+        \App\Contracts\Actions\Controllers\Track\CreateTracksActionContract::class                                  => \App\Actions\Controllers\Track\CreateTracksAction::class,
+        \App\Contracts\Actions\Controllers\Track\GetTrackForIdActionContract::class                                 => \App\Actions\Controllers\Track\GetTrackForIdAction::class,
+        \App\Contracts\Actions\Controllers\Role\GetChangeRolesActionContract::class                                 => \App\Actions\Controllers\Role\GetChangeRolesAction::class,
+        \App\Contracts\Actions\Controllers\Role\ChangeRoleForDefaultUserActionContract::class                       => \App\Actions\Controllers\Role\ChangeRoleForDefaultUserAction::class,
+        \App\Contracts\Actions\Controllers\Race\GetRaceActionContract::class                                        => \App\Actions\Controllers\Race\GetRaceAction::class,
+        \App\Contracts\Actions\Controllers\Race\GetForIdRaceActionContract::class                                   => \App\Actions\Controllers\Race\GetForIdRaceAction::class,
+        \App\Contracts\Actions\Controllers\Race\CreateRaceActionContract::class                                     => \App\Actions\Controllers\Race\CreateRaceAction::class,
+        \App\Contracts\Actions\Controllers\Race\UpdateRaceActionContract::class                                     => \App\Actions\Controllers\Race\UpdateRaceAction::class,
+        \App\Contracts\Actions\Controllers\Race\ToggleIsWorkRaceActionContract::class                               => \App\Actions\Controllers\Race\ToggleIsWorkRaceAction::class,
+        \App\Contracts\Actions\Controllers\PersonalInfo\CreatePersonalInfoActionContract::class                     => \App\Actions\Controllers\PersonalInfo\CreatePersonalInfoAction::class,
+        \App\Contracts\Actions\Controllers\PersonalInfo\UpdatePersonalInfoActionContract::class                     => \App\Actions\Controllers\PersonalInfo\UpdatePersonalInfoAction::class,
+        \App\Contracts\Actions\Controllers\Document\CreateDocumentActionContract::class                             => \App\Actions\Controllers\Document\CreateDocumentAction::class,
+        \App\Contracts\Actions\Controllers\Document\GetDocumentForUserActionContract::class                         => \App\Actions\Controllers\Document\GetDocumentForUserAction::class,
+        \App\Contracts\Actions\Controllers\Document\GetDocumentForUserByIdActionContract::class                     => \App\Actions\Controllers\Document\GetDocumentForUserByIdAction::class,
+        \App\Contracts\Actions\Controllers\Document\GetFileDocumentActionContract::class                            => \App\Actions\Controllers\Document\GetFileDocumentAction::class,
+        \App\Contracts\Actions\Controllers\Document\UpdateDocumentActionContract::class                             => \App\Actions\Controllers\Document\UpdateDocumentAction::class,
+        \App\Contracts\Actions\Controllers\Document\DeleteDocumentActionContract::class                             => \App\Actions\Controllers\Document\DeleteDocumentAction::class,
+        \App\Contracts\Actions\Controllers\AppointmentRace\ToggleAppointmentRaceActionContract::class               => \App\Actions\Controllers\AppointmentRace\ToggleAppointmentRaceAction::class,
+        \App\Contracts\Actions\Controllers\AppointmentRace\DeleteAppointmentRaceActionContract::class               => \App\Actions\Controllers\AppointmentRace\DeleteAppointmentRaceAction::class,
+        \App\Contracts\Actions\Controllers\AppointmentRace\GetUsersAppointmentRaceActionContract::class             => \App\Actions\Controllers\AppointmentRace\GetUsersAppointmentRaceAction::class,
+        \App\Contracts\Actions\Controllers\AppointmentRace\CreateTableAppointmentRaceUserActionContract::class      => \App\Actions\Controllers\AppointmentRace\CreateTableAppointmentRaceUserAction::class,
+        \App\Contracts\Actions\Controllers\User\UpdateUserActionContract::class                                     => \App\Actions\Controllers\User\UpdateUserAction::class,
+        \App\Contracts\Actions\Controllers\User\GetUserForIdActionContract::class                                   => \App\Actions\Controllers\User\GetUserForIdAction::class,
+        \App\Contracts\Actions\Controllers\VerificationEmail\VerificationActionContract::class                      => \App\Actions\Controllers\VerificationEmail\VerificationAction::class,
+        \App\Contracts\Actions\Controllers\VerificationEmail\SendActionContract::class                              => \App\Actions\Controllers\VerificationEmail\SendAction::class,
+        \App\Contracts\Actions\Controllers\Location\GetLocationActionContract::class                                => \App\Actions\Controllers\Location\GetLocationAction::class,
     ];
     /**
      * Register services.

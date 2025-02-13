@@ -2,7 +2,7 @@
 
 namespace Auth;
 
-use App\Contracts\Actions\Auth\RegisterActionContract;
+use App\Contracts\Actions\Controllers\Auth\RegisterActionContract;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Http\Resources\Auth\Register\ErrorRegisterResource;
 use App\Http\Resources\Auth\Register\SuccessRegisterResource;

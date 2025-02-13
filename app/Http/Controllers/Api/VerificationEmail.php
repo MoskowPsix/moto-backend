@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Contracts\Actions\VerificationEmail\SendActionContract;
-use App\Contracts\Actions\VerificationEmail\VerificationActionContract;
+use App\Contracts\Actions\Controllers\VerificationEmail\SendActionContract;
+use App\Contracts\Actions\Controllers\VerificationEmail\VerificationActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EmailVerificationRequest;
 use App\Http\Resources\Errors\TimeOutWarningResource;

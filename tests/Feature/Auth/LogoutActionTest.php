@@ -2,8 +2,7 @@
 
 namespace Auth;
 
-use App\Actions\Auth\LogoutAction;
-use App\Contracts\Actions\Auth\LogoutActionContract;
+use App\Contracts\Actions\Controllers\Auth\LogoutActionContract;
 use App\Http\Resources\Auth\Logout\ErrorLogoutResource;
 use App\Http\Resources\Auth\Logout\SuccessLogoutResource;
 use App\Models\User;

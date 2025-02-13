@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Actions\User\GetUserForTokenAction;
-use App\Contracts\Actions\User\GetUserForIdActionContract;
-use App\Contracts\Actions\User\UpdateUserActionContract;
+use App\Actions\Controllers\User\GetUserForTokenAction;
+use App\Contracts\Actions\Controllers\User\GetUserForIdActionContract;
+use App\Contracts\Actions\Controllers\User\UpdateUserActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\Errors\NotFoundResource;

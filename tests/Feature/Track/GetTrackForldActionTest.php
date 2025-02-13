@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Track;
 
-use App\Contracts\Actions\Track\GetTrackForIdActionContract;
+use App\Contracts\Actions\Controllers\Track\GetTrackForIdActionContract;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Track\GetTrackForId\SuccessGetTrackForIdResource;
 use App\Models\Track;

@@ -23,7 +23,8 @@ class Track extends Model
         'is_work',
         'spec',
         'user_id',
-        'contacts'
+        'contacts',
+        'location_id',
     ];
 
     protected $casts =[
@@ -53,5 +54,9 @@ class Track extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+    public function location(): BelongsTo
+    {
+        return $this->belongsTo(Location::class);
     }
 }

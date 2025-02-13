@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Actions\Commands\CreateUserForRaceCommandAction;
 use App\Models\AppointmentRace;
 use App\Models\User;
 use Illuminate\Console\Command;
@@ -25,18 +26,11 @@ class CreateUserForRace extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(CreateUserForRaceCommandAction $action)
     {
-        $users = User::factory()->count($this->argument("count"))->create([
-            'name' => 'test_appr'
-        ]);
-
-        $users->each(function ($user) {
-            AppointmentRace::factory()->create([
-                "race_id" => $this->argument("race_id"),
-                "user_id" => $user->id,
-            ]);
-        });
+        $count = $this->argument('count');
+        $race_id = $this->argument('race_id');
+        $action($count, $race_id);
         return 0;
     }
 }

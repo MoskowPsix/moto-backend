@@ -2,7 +2,7 @@
 
 namespace Auth;
 
-use App\Contracts\Actions\Auth\LoginActionContract;
+use App\Contracts\Actions\Controllers\Auth\LoginActionContract;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Resources\Auth\Login\ErrorLoginResource;
 use App\Http\Resources\Auth\Login\SuccessLoginResource;

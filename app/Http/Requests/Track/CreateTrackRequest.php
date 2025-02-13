@@ -18,6 +18,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property bool $is_work
  * @property array $spec
  * @property object $contacts
+ * @property int $location_id
  */
 class CreateTrackRequest extends FormRequest
 {
@@ -51,6 +52,7 @@ class CreateTrackRequest extends FormRequest
             'is_work'       => 'boolean|required',
             'contacts'      => 'json|nullable',
             'spec'          => 'json|nullable',
+            'locationId'   => 'integer|nullable|exists:locations,id',
         ];
     }
 }

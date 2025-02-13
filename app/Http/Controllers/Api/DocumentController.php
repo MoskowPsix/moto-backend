@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Contracts\Actions\Document\CreateDocumentActionContract;
-use App\Contracts\Actions\Document\DeleteDocumentActionContract;
-use App\Contracts\Actions\Document\GetDocumentForUserActionContract;
-use App\Contracts\Actions\Document\GetDocumentForUserByIdActionContract;
-use App\Contracts\Actions\Document\GetFileDocumentActionContract;
-use App\Contracts\Actions\Document\UpdateDocumentActionContract;
+use App\Contracts\Actions\Controllers\Document\CreateDocumentActionContract;
+use App\Contracts\Actions\Controllers\Document\DeleteDocumentActionContract;
+use App\Contracts\Actions\Controllers\Document\GetDocumentForUserActionContract;
+use App\Contracts\Actions\Controllers\Document\GetDocumentForUserByIdActionContract;
+use App\Contracts\Actions\Controllers\Document\GetFileDocumentActionContract;
+use App\Contracts\Actions\Controllers\Document\UpdateDocumentActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Document\CreateDocumentRequest;
 use App\Http\Requests\Document\GetDocumentForUserRequest;
@@ -22,7 +22,6 @@ use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\Document;
 use App\Models\PersonalInfo;
-use Illuminate\Support\Facades\Storage;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\ResponseFromApiResource;

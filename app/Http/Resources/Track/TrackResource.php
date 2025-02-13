@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Track;
 
 use App\Http\Resources\Level\LevelResource;
+use App\Http\Resources\Location\LocationResource;
 use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -44,7 +45,8 @@ class TrackResource extends JsonResource
             'free'      => $this->free,
             'is_work'   => $this->is_work,
             'spec'      => $this->spec,
-            'user'      => UserResource::make($this->whenLoaded('user'))
+            'user'      => UserResource::make($this->whenLoaded('user')),
+            'location'  => LocationResource::make($this->whenLoaded('location')),
         ];
     }
 }

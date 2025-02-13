@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Contracts\Actions\AppointmentRace\CreateTableAppointmentRaceUserActionContract;
-use App\Contracts\Actions\AppointmentRace\GetUsersAppointmentRaceActionContract;
-use App\Contracts\Actions\AppointmentRace\ToggleAppointmentRaceActionContract;
-use App\Contracts\Actions\AppointmentRace\DeleteAppointmentRaceActionContract;
+use App\Contracts\Actions\Controllers\AppointmentRace\CreateTableAppointmentRaceUserActionContract;
+use App\Contracts\Actions\Controllers\AppointmentRace\GetUsersAppointmentRaceActionContract;
+use App\Contracts\Actions\Controllers\AppointmentRace\ToggleAppointmentRaceActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AppointmentRace\GetUsersAppointmentRaceRequest;
 use App\Http\Requests\AppointmentRace\ToogleAppointmentRaceRequest;
