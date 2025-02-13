@@ -67,8 +67,8 @@ final class MoonShineLayout extends AppLayout
                 MenuItem::make('Таблицы', GoogleSheetResource::class, 'clipboard-document-list'),
 //            MenuItem::make('Levels', LevelResource::class),
                 MenuItem::make('Сервисы', ServiceResource::class, 'square-3-stack-3d'),
+                MenuItem::make('Классы', GradeResource::class, 'beaker'),
             ], 'cube'),
-            MenuItem::make('Grades', GradeResource::class),
         ];
     }
 
