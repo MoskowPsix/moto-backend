@@ -56,4 +56,8 @@ class Race extends Model
     {
         return $this->hasOne(GoogleSheet::class);
     }
+    public function grades():BelongsToMany
+    {
+        return $this->belongsToMany(Grade::class);
+    }
 }

@@ -9,13 +9,12 @@ use App\Models\Grade;
 
 class CreateGradeAction implements CreateGradeActionContract
 {
-
     public function __invoke(CreateGradeRequest $request): SuccessCreateGradeResource
     {
         $user = auth()->user();
         $grade = Grade::create([
-            'name' => $this->$request->name,
-            'description' => $this->$request->description,
+            'name' => $request->name,
+            'description' => $request->description,
             'user_id' =>  $user->id,
         ]);
         return SuccessCreateGradeResource::make($grade);

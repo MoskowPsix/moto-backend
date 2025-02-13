@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Contracts\Actions\AppointmentRace\CreateTableAppointmentRaceUserActionContract;
 use App\Contracts\Actions\Document\GetDocumentForUserByIdActionContract;
 use App\Contracts\Actions\Document\GetFileDocumentActionContract;
+use App\Contracts\Actions\Grade\CreateGradeActionContract;
 use App\Contracts\Actions\Race\CreateRaceActionContract;
 use App\Contracts\Actions\Role\ChangeRoleForDefaultUserActionContract;
 use App\Contracts\Actions\VerificationEmail\SendActionContract;
@@ -42,7 +43,10 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\User\GetUserForIdActionContract::class                                   => \App\Actions\User\GetUserForIdAction::class,
         \App\Contracts\Actions\VerificationEmail\VerificationActionContract::class                      => \App\Actions\VerificationEmail\VerificationAction::class,
         \App\Contracts\Actions\VerificationEmail\SendActionContract::class                              => \App\Actions\VerificationEmail\SendAction::class,
-
+        \App\Contracts\Actions\Grade\CreateGradeActionContract::class                                   => \App\Actions\Grade\CreateGradeAction::class,
+        \App\Contracts\Actions\Grade\GetForIdGradeActionContract::class                                 => \App\Actions\Grade\GetForIdGradeAction::class,
+        \App\Contracts\Actions\Grade\GetGradeActionContract::class                                      => \App\Actions\Grade\GetGradeAction::class,
+        \App\Contracts\Actions\Grade\UpdateGradeActionContract::class                               => \App\Actions\Grade\UpdateGradeAction::class,
     ];
     /**
      * Register services.

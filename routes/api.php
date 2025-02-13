@@ -72,3 +72,11 @@ Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->gr
     Route::get('races/{id}/appointment-race/users', 'getUsersAppointmentRace')->name('appointment_race.get_users_appointment_race');
     Route::get('races/{id}/appointment-race/users-table', 'getUsersAppointmentRaceInTable')->middleware(['auth:sanctum', 'role:' . $role::ADMIN.'|'.$role::ROOT])->name('appointment_race.get_users_table_appointment_race');
 });
+
+Route::controller(\App\Http\Controllers\Api\GradeController::class)->group(function () {
+    $role = new \App\Constants\RoleConstant();
+    Route::get('grades', 'get')->name('grade.get');
+    Route::get('grades/{id}', 'getForId')->name('grade.get_for_id');
+    Route::post('grades', 'create')->middleware(['auth:sanctum'])->name('grade.create');
+    Route::patch('grades/{id}', 'update')->middleware(['auth:sanctum'])->name('grade.update');
+});
