@@ -18,7 +18,7 @@ class GetRaceAction implements GetRaceActionContract
         $page = $request->page;
         $limit = $request->limit && ($request->limit < 50) ? $request->limit : 6;
 
-        $races_q = Race::with('track', 'user', 'appointmentCount');
+        $races_q = Race::with('track', 'user', 'appointmentCount', 'grades');
         $races = app(Pipeline::class)
             ->send($races_q)
             ->through([

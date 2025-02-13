@@ -78,3 +78,11 @@ Route::controller(App\Http\Controllers\Api\LocationController::class)->group(fun
     Route::get('locations/{id}', 'getForId')->name('location.get_for_id');
 });
 
+
+Route::controller(\App\Http\Controllers\Api\GradeController::class)->group(function () {
+    $role = new \App\Constants\RoleConstant();
+    Route::get('grades', 'get')->name('grade.get');
+    Route::get('grades/{id}', 'getForId')->name('grade.get_for_id');
+    Route::post('grades', 'create')->middleware(['auth:sanctum'])->name('grade.create');
+    Route::patch('grades/{id}', 'update')->middleware(['auth:sanctum'])->name('grade.update');
+});

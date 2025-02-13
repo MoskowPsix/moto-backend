@@ -62,4 +62,8 @@ class Race extends Model
     {
         return $this->belongsTo(Location::class);
     }
+    public function grades():BelongsToMany
+    {
+        return $this->belongsToMany(Grade::class);
+    }
 }

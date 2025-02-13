@@ -7,6 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 /**
  * @property int $locationId
  * @property int $trackId
+ * @property array $gradeIds
  */
 class UpdateRaceRequest extends FormRequest
 {
@@ -26,16 +27,18 @@ class UpdateRaceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'          => 'nullable|string|max:255|min:3',
-            'desc'          => 'nullable|string',
-            'dateStart'     => 'nullable|date',
-            'trackId'       => 'nullable|integer|exists:tracks,id',
-            'imagesAdd'        => 'array|nullable',
-            'imagesAdd.*'      => 'image|mimes:jpeg,png,jpg,svg,webp',
-            'imagesDel'        => 'array|nullable',
-            'imagesDel.*'      => 'string',
-            'positionFile'  => 'nullable|file|mimes:pdf',
-            'resultsFile'   => 'nullable|file|mimes:pdf',
+            'name'              => 'nullable|string|max:255|min:3',
+            'desc'              => 'nullable|string',
+            'dateStart'         => 'nullable|date',
+            'trackId'           => 'nullable|integer|exists:tracks,id',
+            'imagesAdd'         => 'array|nullable',
+            'imagesAdd.*'       => 'image|mimes:jpeg,png,jpg,svg,webp',
+            'imagesDel'         => 'array|nullable',
+            'imagesDel.*'       => 'string',
+            'positionFile'      => 'nullable|file|mimes:pdf',
+            'resultsFile'       => 'nullable|file|mimes:pdf',
+            'gradeIds'      => 'nullable|array',
+            'gradeIds.*'    => 'nullable|integer|exists:grades,id',
             'locationId'    => 'nullable|integer|exists:location,id'
         ];
     }

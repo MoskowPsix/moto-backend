@@ -32,6 +32,7 @@ class UpdateRaceAction implements UpdateRaceActionContract
             'location_id'       => (isset($request->locationId)) ? ($request->locationId) : (isset($request->trackId) ? $request->trackId : Track::find($request->trackId)->location_id),
         ]);
         $this->saveFiles($request, $race);
+        $race->grades()->attach($request->gradeIds);
 
         return SuccessUpdateRaceResource::make($race);
     }
