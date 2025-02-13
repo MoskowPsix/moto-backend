@@ -13,6 +13,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property string $dateStart
  * @property mixed $positionFile
  * @property mixed $resultsFile
+ * @property mixed $locationId
  */
 class CreateRaceRequest extends FormRequest
 {

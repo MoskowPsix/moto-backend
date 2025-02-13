@@ -4,6 +4,9 @@ namespace App\Http\Requests\Race;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @property int $locationId
+ */
 class UpdateRaceRequest extends FormRequest
 {
     /**
@@ -32,6 +35,7 @@ class UpdateRaceRequest extends FormRequest
             'imagesDel.*'      => 'string',
             'positionFile'  => 'nullable|file|mimes:pdf',
             'resultsFile'   => 'nullable|file|mimes:pdf',
+            'locationId'    => 'nullable|integer|exists:location,id'
         ];
     }
 }

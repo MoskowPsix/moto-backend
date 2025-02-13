@@ -19,7 +19,7 @@ class CreateRaceAction implements CreateRaceActionContract
             'date_start'    => $request->dateStart,
             'track_id'      => $request->trackId,
             'user_id'       => $user->id,
-            'location_id'   => $request->locationId ?? Track::find($request->trackId)->location_id,
+            'location_id'   => $request->locationId ?? Track::find($request->locationId)->location_id,
         ]);
         $this->saveImages($request->images, $race);
         $this->saveFile($request->positionFile, $race, 'position_file');

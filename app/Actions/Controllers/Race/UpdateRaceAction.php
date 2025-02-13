@@ -8,6 +8,7 @@ use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Http\Resources\Race\Update\SuccessUpdateRaceResource;
 use App\Models\Race;
+use App\Models\Track;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 
@@ -28,6 +29,7 @@ class UpdateRaceAction implements UpdateRaceActionContract
             'desc'              => $request->desc ?? $race->desc,
             'date_start'        => Carbon::parse($request->get('dateStart')) ?? $race->date_start,
             'track_id'          => $request->get('trackId') ?? $race->track_id,
+            'location_id'       => $request->locationId ?? $request->get('trackId') ? Track::find($request->get('trackId'))->location_id : Track::find($race->track_id)->location_id,
         ]);
         $this->saveFiles($request, $race);
 
