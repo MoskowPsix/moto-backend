@@ -29,7 +29,7 @@ class UpdateRaceAction implements UpdateRaceActionContract
             'desc'              => $request->desc ?? $race->desc,
             'date_start'        => Carbon::parse($request->get('dateStart')) ?? $race->date_start,
             'track_id'          => $request->get('trackId') ?? $race->track_id,
-            'location_id'       => $request->locationId ?? $request->get('trackId') ? Track::find($request->get('trackId'))->location_id : Track::find($race->track_id)->location_id,
+            'location_id'       => (isset($request->locationId)) ? ($request->locationId) : (isset($request->trackId) ? $request->trackId : Track::find($request->trackId)->location_id),
         ]);
         $this->saveFiles($request, $race);
 
@@ -38,8 +38,8 @@ class UpdateRaceAction implements UpdateRaceActionContract
 
     private function saveFiles(UpdateRaceRequest $request, Race $race): void
     {
-            isset($request->imagesDel) ? $this->deleteFiles($request->imagesDel, $race) : null;
-            !empty($request->imagesAdd) ? $this->saveImages($request->imagesAdd, $race) : null;
+        !empty($request->imagesDel) ? $this->deleteFiles($request->imagesDel, $race) : null;
+        !empty($request->imagesAdd) ? $this->saveImages($request->imagesAdd, $race) : null;
 
         if (!empty($request->positionFile)) {
             isset($race->positionFile) ? $this->deleteFile($race->positionFile) : null;

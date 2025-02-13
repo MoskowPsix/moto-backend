@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * @property int $locationId
+ * @property int $trackId
  */
 class UpdateRaceRequest extends FormRequest
 {

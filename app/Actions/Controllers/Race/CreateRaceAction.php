@@ -29,13 +29,15 @@ class CreateRaceAction implements CreateRaceActionContract
 
     private function saveImages( $images, Race $track): void
     {
-        foreach ($images as $file) {
-            $path = $file->store('race/'.$track->id, 'public');
-            $path_arr[] = $path;
+        if($images) {
+            foreach ($images as $file) {
+                $path = $file->store('race/' . $track->id, 'public');
+                $path_arr[] = $path;
+            }
+            $track->update([
+                'images' => $path_arr
+            ]);
         }
-        $track->update([
-            'images' => $path_arr
-        ]);
     }
 
     private function saveFile( $image, Race $race, string $field_name): void
