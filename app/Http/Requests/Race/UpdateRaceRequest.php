@@ -39,7 +39,7 @@ class UpdateRaceRequest extends FormRequest
             'resultsFile'       => 'nullable|file|mimes:pdf',
             'gradeIds'      => 'nullable|array',
             'gradeIds.*'    => 'nullable|integer|exists:grades,id',
-            'locationId'    => 'nullable|integer|exists:location,id'
+            'locationId'    => 'nullable|integer|exists:locations,id'
         ];
     }
 }
