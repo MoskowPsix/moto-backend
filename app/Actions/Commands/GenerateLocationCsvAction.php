@@ -66,7 +66,7 @@ class GenerateLocationCsvAction implements GenerateLocationCsvActionContract
                 'type' => 'республика'
             ],
             'край' => (object)[
-                'type' => 'ррай'
+                'type' => 'край'
             ],
             'АО' => (object)[
                 'type' => 'автономный округ',
