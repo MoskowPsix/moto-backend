@@ -70,7 +70,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
                 'Номер Лицензии'                                                    => $info['licensesNumber'] ?? '',
                 'Спортивное звание (разряд)'                                        => $info['rank'] ?? '',
                 'Дата Рождения'                                                     => isset($info['dateOfBirth']) ? Carbon::parse($info['dateOfBirth'])->format('d.m.Y') : '',
-                'Населенный пункт (город, область)'                                 => $info['city'] ?? '',
+                'Населенный пункт (город, область)'                                 => ($info['region'] ?? '') . ', г. ' . ($info['city'] ?? ''),
                 'Команда (Клуб)'                                                    => $info['community'] ?? '',
                 'Марка мотоцикла'                                                   => $info['motoStamp'] ?? '',
                 'Страховой полис: Срок действия'                                    => isset($info['itWorksDate']) ? Carbon::parse($info['itWorksDate'])->format('d.m.Y') : '',

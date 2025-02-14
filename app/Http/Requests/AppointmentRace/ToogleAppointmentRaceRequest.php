@@ -30,6 +30,7 @@ class ToogleAppointmentRaceRequest extends FormRequest
             'data.patronymic'               => 'nullable|string',
             'data.dateOfBirth'              => 'nullable|timestamp',
             'data.city'                     => 'nullable|string',
+            'data.region'                     => 'nullable|string',
             'data.inn'                      => 'nullable|integer',
             'data.snils'                    => 'nullable|integer',
             'data.phoneNumber'              => 'nullable|integer',
