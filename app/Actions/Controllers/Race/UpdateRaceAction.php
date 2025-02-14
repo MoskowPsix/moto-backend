@@ -29,7 +29,7 @@ class UpdateRaceAction implements UpdateRaceActionContract
             'desc'              => $request->desc ?? $race->desc,
             'date_start'        => Carbon::parse($request->get('dateStart')) ?? $race->date_start,
             'track_id'          => $request->get('trackId') ?? $race->track_id,
-            'location_id'       => (isset($request->locationId)) ? ($request->locationId) : null,
+            'location_id'       => isset($request->locationId) ? $request->locationId : $race->location_id,
         ]);
         $this->saveFiles($request, $race);
         $race->grades()->attach($request->gradeIds);
