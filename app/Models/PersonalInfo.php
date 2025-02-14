@@ -31,6 +31,7 @@ class PersonalInfo extends Model
         'engine',           // двигатель
         'user_id',
         'number_and_seria',   // Серия и номер паспорта
+        'region',
     ];
 
     protected $casts = [
@@ -52,5 +53,6 @@ class PersonalInfo extends Model
         'moto_stamp'        => 'string',
         'engine'            => 'string',
         'number_and_seria'    => 'encrypted',
+        'region'            => 'string',
     ];
 }

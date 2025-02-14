@@ -39,6 +39,7 @@ class UpdatePersonalInfoRequest extends FormRequest
             'motoStamp'         => 'nullable|string',
             'engine'            => 'nullable|string',
             'numberAndSeria'    => 'nullable|integer',
+            'region'            => 'nullable|string',
         ];
     }
 }

@@ -22,6 +22,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property int $rankNumber
  * @property string $motoStamp
  * @property int $numberAndSeria
+ * @property string $region
  */
 class CreatePersonalInfoRequest extends FormRequest
 {
@@ -58,6 +59,7 @@ class CreatePersonalInfoRequest extends FormRequest
             'motoStamp'         => 'nullable|string',
             'engine'            => 'nullable|string',
             'numberAndSeria'    => 'nullable|string',
+            'region'            => 'nullable|string',
         ];
     }
 }

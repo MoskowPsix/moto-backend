@@ -39,6 +39,7 @@ class UpdatePersonalInfoAction implements UpdatePersonalInfoActionContract
             'moto_stamp'        => $request->motoStamp ?? $old_personal->moto_stamp,
             'engine'            => $request->engine ?? $old_personal->engine,
             'number_and_seria'  => $request->numberAndSeria?? $old_personal->number_and_seria,
+            'region'            => $request->region?? $old_personal->region,
         ]);
         return SuccessUpdatePersonalInfoResource::make(auth()->user()->personalInfo()->first());
     }
