@@ -35,7 +35,11 @@ class GenerateLocationCsvAction implements GenerateLocationCsvActionContract
             return;
         }
         $this->cache_region[] = $city->region;
-        Location::where('name', $city->region)->exists() ? $this->upd($city) : $this->save($city);
+        if($city->region == 'Чувашская Республика') {
+            Location::where('name', explode(' ', $city->region)[0])->exists() ? $this->upd($city) : $this->save($city);
+        } else {
+            Location::where('name', $city->region)->exists() ? $this->upd($city) : $this->save($city);
+        }
     }
 
     private function upd(object $region): void
