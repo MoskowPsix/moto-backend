@@ -47,7 +47,7 @@ class RaceResource extends JsonResource
             'position_file'         => $this->position_file,
             'results_file'          => $this->results_file,
             'location'              => LocationResource::make($this->whenLoaded('location')),
-            'grades'                => GradeResource::make($this->whenLoaded('grades')),
+            'grades'                => GradeResource::collection($this->whenLoaded('grades')),
 
         ];
     }
