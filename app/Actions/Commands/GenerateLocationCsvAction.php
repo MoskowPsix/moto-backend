@@ -63,26 +63,26 @@ class GenerateLocationCsvAction implements GenerateLocationCsvActionContract
     {
         return match ($type) {
             'Респ' => (object)[
-                'type' => 'Республика'
+                'type' => 'республика'
             ],
             'край' => (object)[
-                'type' => 'Край'
+                'type' => 'ррай'
             ],
             'АО' => (object)[
-                'type' => 'Автономный округ',
+                'type' => 'автономный округ',
             ],
             'обл' => (object)[
-                'type' => 'Область'
+                'type' => 'область'
             ],
             'г' => (object)[
-                'type' => 'Город'
+                'type' => 'город'
             ],
             'Чувашия' => (object)[
-                'type' => 'Республика',
+                'type' => 'республика',
                 'name' => 'Чувашская'
             ],
             'Аобл' => (object)[
-                'type' => 'Автономная область'
+                'type' => 'автономная область'
             ],
             default => (object)[
                 'type' => $type
