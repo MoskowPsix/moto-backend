@@ -27,8 +27,8 @@ class GetLocationAction implements  GetLocationActionContract
             ->via('apply')
             ->then(function ($races) use ($page, $limit, $request) {
                 return $request->paginate ?
-                    $races->orderBy('name', 'desc')->simplePaginate($limit, ['*'], 'page',  $page) :
-                    $races->orderBy('name', 'desc')->get();
+                    $races->orderBy('name', 'asc')->simplePaginate($limit, ['*'], 'page',  $page) :
+                    $races->orderBy('name', 'asc')->get();
             });
         return SuccessGetLocationResource::make($locations);
     }
