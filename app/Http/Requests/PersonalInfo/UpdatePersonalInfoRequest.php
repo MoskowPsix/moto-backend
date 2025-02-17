@@ -30,7 +30,7 @@ class UpdatePersonalInfoRequest extends FormRequest
             'inn'               => 'nullable|string',
             'snils'             => 'nullable|string',
             'phoneNumber'       => 'nullable|string',
-            'startNumber'       => 'nullable|integer',
+            'startNumber'       => 'nullable|string',
             'group'             => 'nullable|string',
             'rank'              => 'nullable|string',
             'rankNumber'        => 'nullable|string',
@@ -38,7 +38,7 @@ class UpdatePersonalInfoRequest extends FormRequest
             'coach'             => 'nullable|string',
             'motoStamp'         => 'nullable|string',
             'engine'            => 'nullable|string',
-            'numberAndSeria'    => 'nullable|integer',
+            'numberAndSeria'    => 'nullable|string',
             'region'            => 'nullable|string',
         ];
     }
