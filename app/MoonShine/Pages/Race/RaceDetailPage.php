@@ -15,6 +15,7 @@ use MoonShine\UI\Fields\File;
 use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Image;
 use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Fields\Textarea;
 use Throwable;
 
 class RaceDetailPage extends DetailPage
@@ -28,7 +29,7 @@ class RaceDetailPage extends DetailPage
         return [
             ID::make()->sortable(),
             Text::make('Название гонки', 'name'),
-            Text::make('Описание', 'desc'),
+            Textarea::make('Описание', 'desc'),
             Text::make('Дата и время', 'date_start'),
             Checkbox::make('Работает', 'is_work'),
             Image::make('Фото', 'images')->multiple(),

@@ -15,6 +15,7 @@ use MoonShine\UI\Fields\Image;
 use MoonShine\UI\Fields\Json;
 use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Fields\Textarea;
 use Throwable;
 
 class TrackFormPage extends FormPage
@@ -44,7 +45,7 @@ class TrackFormPage extends FormPage
             ->required(),
             Number::make('Длина', 'length'),
             Number::make('Повороты', 'turns'),
-            Text::make('Описание', 'desc'),
+            Textarea::make('Описание', 'desc'),
             Json::make('Спецификации трассы', 'spec')
                 ->fields([
                     Text::make('Название','title'),
