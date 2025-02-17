@@ -14,6 +14,7 @@ use Illuminate\Contracts\Database\Eloquent\Builder;
 
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Laravel\Pages\Page;
+use MoonShine\Support\Enums\ClickAction;
 
 /**
  * @extends ModelResource<Track, TrackIndexPage, TrackFormPage, TrackDetailPage>
@@ -23,7 +24,7 @@ class TrackResource extends ModelResource
     protected string $model = Track::class;
     protected bool $simplePaginate = true;
 
-
+    protected ?\MoonShine\Support\Enums\ClickAction $clickAction = ClickAction::DETAIL;
     protected string $column = 'name';
 
     protected string $title = 'Трассы';

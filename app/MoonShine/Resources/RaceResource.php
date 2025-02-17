@@ -14,6 +14,7 @@ use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Laravel\Pages\Page;
+use MoonShine\Support\Enums\ClickAction;
 use MoonShine\UI\Components\Layout\Column;
 use MoonShine\UI\Components\Table\TableBuilder;
 
@@ -24,6 +25,7 @@ class RaceResource extends ModelResource
 {
     protected string $model = Race::class;
     protected bool $simplePaginate = true;
+    protected ?\MoonShine\Support\Enums\ClickAction $clickAction = ClickAction::DETAIL;
     protected string $title = 'Гонки';
     protected string $column = 'name';
 
