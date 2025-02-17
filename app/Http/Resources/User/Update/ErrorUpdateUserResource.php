@@ -20,7 +20,7 @@ class ErrorUpdateUserResource extends JsonResource
         ];
     }
 
-    public function withResponse($request, $response)
+    public function withResponse($request, $response): void
     {
         $response->setStatusCode(500);
     }

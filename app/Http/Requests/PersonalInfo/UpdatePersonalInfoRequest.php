@@ -40,6 +40,7 @@ class UpdatePersonalInfoRequest extends FormRequest
             'engine'            => 'nullable|string',
             'numberAndSeria'    => 'nullable|string',
             'region'            => 'nullable|string',
+            'locationId'        => 'nullable|integer|exists:locations,id',
         ];
     }
 }
