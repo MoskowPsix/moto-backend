@@ -44,4 +44,22 @@ class GetRaceActionTest extends TestCase
 
         $this->assertInstanceOf(SuccessGetRaceResource::class, $response);
     }
+    public function test_action_success_request_with_paginate(): void
+    {
+        $race = Race::factory()->create();
+        $getRace = new GetRaceRequest([
+            'userId'            => $race->user->id,
+            'paginate'          => 1,
+            'page'              => 1,
+            'limit'             => 10,
+            'appointmentUser'   => 1,
+            'trackId'           => $race->track->id,
+            'pastRace'          => 1,
+        ]);
+
+        $action = app(GetRaceActionContract::class);
+        $response = $action($getRace);
+
+        $this->assertInstanceOf(SuccessGetRaceResource::class, $response);
+    }
 }

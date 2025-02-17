@@ -5,6 +5,7 @@ namespace Race;
 use App\Contracts\Actions\Controllers\Race\CreateRaceActionContract;
 use App\Http\Requests\Race\CreateRaceRequest;
 use App\Http\Resources\Race\Create\SuccessCreateRaceResource;
+use App\Models\Location;
 use App\Models\Race;
 use App\Models\Track;
 use App\Models\User;
@@ -24,6 +25,7 @@ class CreateRaceActionTest extends TestCase
     {
         $user = User::factory()->create();
         $track = Track::factory()->create();
+        $location = Location::factory()->create();
 
         $image = UploadedFile::fake()->create('file.png');
         $positionFile = UploadedFile::fake()->create('position.pdf');
@@ -38,6 +40,7 @@ class CreateRaceActionTest extends TestCase
             'position_file' => [$positionFile],
             'results_file' => [$resultsFile],
             'trackId' => $track->id,
+            'locationId' => $race_seed->location->location_id ?? $location->location_id,
         ];
 
         $raceRequest = new CreateRaceRequest($race);
