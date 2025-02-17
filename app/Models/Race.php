@@ -57,7 +57,6 @@ class Race extends Model
     {
         return $this->hasOne(GoogleSheet::class);
     }
-
     public function location(): BelongsTo
     {
         return $this->belongsTo(Location::class);

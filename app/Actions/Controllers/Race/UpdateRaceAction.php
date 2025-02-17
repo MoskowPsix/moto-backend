@@ -32,7 +32,7 @@ class UpdateRaceAction implements UpdateRaceActionContract
             'location_id'       => $request->locationId ?? $race->location_id,
         ]);
         $this->saveFiles($request, $race);
-        $race->grades()->attach($request->gradeIds);
+        $race->grades()->sync($request->gradeIds);
 
         return SuccessUpdateRaceResource::make($race);
     }

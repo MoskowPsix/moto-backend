@@ -82,6 +82,6 @@ Route::controller(\App\Http\Controllers\Api\GradeController::class)->group(funct
     $role = new \App\Constants\RoleConstant();
     Route::get('grades', 'get')->name('grade.get');
     Route::get('grades/{id}', 'getForId')->name('grade.get_for_id');
-    Route::post('grades', 'create')->middleware(['auth:sanctum'])->name('grade.create');
-    Route::patch('grades/{id}', 'update')->middleware(['auth:sanctum'])->name('grade.update');
+    Route::post('grades', 'create')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('grade.create');
+    Route::patch('grades/{id}', 'update')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('grade.update');
 });
