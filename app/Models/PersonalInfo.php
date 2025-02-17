@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @method static create(array $array)
@@ -32,6 +33,7 @@ class PersonalInfo extends Model
         'user_id',
         'number_and_seria',   // Серия и номер паспорта
         'region',
+        'location_id',
     ];
 
     protected $casts = [
@@ -52,7 +54,16 @@ class PersonalInfo extends Model
         'coach'             => 'string',
         'moto_stamp'        => 'string',
         'engine'            => 'string',
-        'number_and_seria'    => 'encrypted',
+        'number_and_seria'  => 'encrypted',
         'region'            => 'string',
     ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function location(): BelongsTo
+    {
+        return $this->belongsTo(Location::class);
+    }
 }

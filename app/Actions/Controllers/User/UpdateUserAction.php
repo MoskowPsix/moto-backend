@@ -16,25 +16,20 @@ class UpdateUserAction implements UpdateUserActionContract
 
     public function __invoke(UpdateUserRequest $request): SuccessUpdateUserResource | ErrorUpdateUserResource
     {
-        DB::beginTransaction();
-        try {
-            $user = $request->user();
-            $user->update([
-                'name' => $request->name ?? $user->name,
-                'email' => $request->email ?? $user->email,
-            ]);
-            if ($request->avatar) {
-                $this->delete($user->avatar);
-                $this->saveImages($request->avatar, $user);
-            }
-        } catch (Exception $e) {
-            DB::rollBack();
+        $user = auth()->user();
+        if(empty($user)) {
             return new ErrorUpdateUserResource([]);
-        } finally {
-            DB::commit();
-            $upd_user = User::find($user->id);
-            return new SuccessUpdateUserResource($upd_user);
         }
+        $user->update([
+            'name' => $request->name ?? $user->name,
+            'email' => $request->email ?? $user->email,
+        ]);
+        if ($request->avatar) {
+            $this->delete($user->avatar);
+            $this->saveImages($request->avatar, $user);
+        }
+        $upd_user = User::find($user->id);
+        return new SuccessUpdateUserResource($upd_user);
     }
 
     private function saveImages( $image, User $user): void

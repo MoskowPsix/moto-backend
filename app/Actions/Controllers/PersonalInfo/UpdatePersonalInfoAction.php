@@ -21,8 +21,8 @@ class UpdatePersonalInfoAction implements UpdatePersonalInfoActionContract
         if ($old_personal->user_id !== auth()->user()->id) {
             return NotUserPermissionResource::make([]);
         }
-        $personal_info = $old_personal->update([
-            'name'              => $request->name ?? $old_personal,
+        $old_personal->update([
+            'name'              => $request->name ?? $old_personal->name,
             'surname'           => $request->surname ?? $old_personal->surname,
             'patronymic'        => $request->patronymic ?? $old_personal->patronymic,
             'date_of_birth'     => $request->dateOfBirth ?? $old_personal->date_of_birth,
@@ -40,7 +40,9 @@ class UpdatePersonalInfoAction implements UpdatePersonalInfoActionContract
             'engine'            => $request->engine ?? $old_personal->engine,
             'number_and_seria'  => $request->numberAndSeria?? $old_personal->number_and_seria,
             'region'            => $request->region?? $old_personal->region,
+            'location_id'       => $request->locationId ?? $old_personal->location_id,
         ]);
-        return SuccessUpdatePersonalInfoResource::make(auth()->user()->personalInfo()->first());
+
+        return SuccessUpdatePersonalInfoResource::make(auth()->user()->personalInfo()->with('location')->first());
     }
 }
