@@ -15,6 +15,7 @@ use MoonShine\UI\Fields\File;
 use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Image;
 use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Fields\Textarea;
 use Throwable;
 
 class RaceFormPage extends FormPage
@@ -30,7 +31,7 @@ class RaceFormPage extends FormPage
         return [
             ID::make()->sortable(),
             Text::make('Название гонки', 'name')->required(),
-            Text::make('Описание', 'desc'),
+            Textarea::make('Описание', 'desc'),
             Text::make('Дата и время', 'date_start')->required(),
             Checkbox::make('Работает', 'is_work')->required(),
             Image::make('Фото', 'images')->multiple()->dir(isset($item->id) ? "/race/$item->id" : "/race"),
