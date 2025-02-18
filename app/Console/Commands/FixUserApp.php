@@ -23,6 +23,8 @@ class FixUserApp extends Command
      */
     protected $description = 'Command description';
 
+    private string $url = 'https://moto.vokrug.city/document/';
+
     /**
      * Execute the console command.
      */
@@ -48,28 +50,37 @@ class FixUserApp extends Command
                     switch ($doc->type) {
                         case "licenses":
                             if (empty($new_data->licensesFileLink)) {
-                                $new_data->licensesFileLink = $doc->path;
+                                $new_data->licensesFileLink = $this->url . $doc->id;
                             } else {
+                                if (str_starts_with($new_data->licensesFileLink, 'user')) {
+                                    $new_data->licensesFileLink = $this->url . $doc->id;
+                                }
                                 if (strlen($new_data->licensesFileLink) === 0) {
-                                    $new_data->licensesFileLink = $doc->path;
+                                    $new_data->licensesFileLink = $this->url . $doc->id;
                                 }
                             }
                             break;
                         case "polis":
                             if (empty($new_data->polisFileLink)) {
-                                $new_data->polisFileLink = $doc->path;
+                                $new_data->polisFileLink = $this->url . $doc->id;
                             } else {
+                                if (str_starts_with($new_data->polisFileLink, 'user')) {
+                                    $new_data->polisFileLink = $this->url . $doc->id;
+                                }
                                 if (strlen($new_data->polisFileLink) === 0) {
-                                    $new_data->polisFileLink = $doc->path;
+                                    $new_data->polisFileLink = $this->url . $doc->id;
                                 }
                             }
                             break;
                         case "notarius":
                             if (empty($new_data->notariusFileLink)) {
-                                $new_data->notariusFileLink = $doc->path;
+                                $new_data->notariusFileLink = $this->url . $doc->id;
                             } else {
+                                if (str_starts_with($new_data->notariusFileLink, 'user')) {
+                                    $new_data->notariusFileLink = $this->url . $doc->id;
+                                }
                                 if (strlen($new_data->notariusFileLink) === 0) {
-                                    $new_data->notariusFileLink = $doc->path;
+                                    $new_data->notariusFileLink = $this->url . $doc->id;
                                 }
                             }
                             break;
