@@ -22,6 +22,7 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\Track\GetTracksActionContract::class                                     => \App\Actions\Controllers\Track\GetTracksAction::class,
         \App\Contracts\Actions\Controllers\Track\CreateTracksActionContract::class                                  => \App\Actions\Controllers\Track\CreateTracksAction::class,
         \App\Contracts\Actions\Controllers\Track\GetTrackForIdActionContract::class                                 => \App\Actions\Controllers\Track\GetTrackForIdAction::class,
+        \App\Contracts\Actions\Controllers\Track\UpdateTrackActionContract::class                                   => \App\Actions\Controllers\Track\UpdateTrackAction::class,
         \App\Contracts\Actions\Controllers\Role\GetChangeRolesActionContract::class                                 => \App\Actions\Controllers\Role\GetChangeRolesAction::class,
         \App\Contracts\Actions\Controllers\Role\ChangeRoleForDefaultUserActionContract::class                       => \App\Actions\Controllers\Role\ChangeRoleForDefaultUserAction::class,
         \App\Contracts\Actions\Controllers\Race\GetRaceActionContract::class                                        => \App\Actions\Controllers\Race\GetRaceAction::class,

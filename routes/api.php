@@ -32,8 +32,8 @@ Route::controller(\App\Http\Controllers\Api\TrackController::class)-> group(func
     $role = new \App\Constants\RoleConstant();
     Route::get('tracks', 'get')->name('track.get');
     Route::get('tracks/{id}', 'getForId')->name('track.get_for_id');
-    Route::post('tracks', 'create')->middleware(['auth:sanctum', 'role:'. $role::ADMIN, 'email_verification'])->name('track.create');
-//    Route::put('tracks/{track}', 'update')->name('track.update');
+    Route::post('tracks', 'create')->middleware(['auth:sanctum', 'role:'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('track.create');
+    Route::post('tracks/{id}', 'update')->middleware(['auth:sanctum'])->name('track.update');
 //    Route::delete('tracks/{track}', 'delete')->name('track.delete');
 });
 
@@ -47,8 +47,8 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
     $role = new \App\Constants\RoleConstant();
     Route::get('races', 'get')->name('race.get');
     Route::get('races/{id}', 'getForId')->name('race.get_for_id');
-    Route::post('races', 'create')->middleware(['auth:sanctum', 'role:'. $role::ADMIN, 'email_verification'])->name('race.create');
-    Route::post('races/{id}/update', 'update')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('race.update');
+    Route::post('races', 'create')->middleware(['auth:sanctum', 'role:'. $role::ADMIN .'|'.$role::ROOT, 'email_verification'])->name('race.create');
+    Route::post('races/{id}/update', 'update')->middleware(['auth:sanctum', 'role:'. $role::ROOT, 'email_verification'])->name('race.update');
     Route::get('races/{id}/toggle-is-work', 'toggleIsWork')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('race.update');
 });
 Route::controller(\App\Http\Controllers\Api\PersonalInfoController::class)->group(function () {

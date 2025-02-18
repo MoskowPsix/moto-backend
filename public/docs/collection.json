@@ -1,0 +1,1941 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost:8000"
+        }
+    ],
+    "info": {
+        "name": "Laravel",
+        "_postman_id": "c9a53d4f-6988-447b-bbed-54082f61ba19",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "AppointmentRace",
+            "description": "\u041c\u0435\u0442\u043e\u0434\u044b \u043e\u0442\u0432\u0435\u0447\u0430\u044e\u0449\u0438\u0435 \u0437\u0430 \u0437\u0430\u043f\u0438\u0441\u044c \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u043a\u043e\u0432",
+            "item": [
+                {
+                    "name": "toggle",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/races\/:id\/toggle-appointment-race",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/races\/:id\/toggle-appointment-race",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the race."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "\u0417\u0430\u043f\u0438\u0441\u0430\u0442\u044c\u0441\u044f \u0438 \u043e\u0442\u043c\u0435\u043d\u0438\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u044c \u043d\u0430 \u0433\u043e\u043d\u043a\u0443"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.appointment_race.create.success\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.appointment_race.delete.success\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_found\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GetUsersAppointmentRace",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/races\/:id\/appointment-race\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/races\/:id\/appointment-race\/users",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the race."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"paginate\":false,\"page\":\"laboriosam\",\"limit\":15}"
+                        },
+                        "description": "\u0417\u0430\u043f\u0438\u0441\u0430\u0442\u044c\u0441\u044f \u0438 \u043e\u0442\u043c\u0435\u043d\u0438\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u044c \u043d\u0430 \u0433\u043e\u043d\u043a\u0443",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[{\"status\":\"success\",\"message\":\"messages.appointment_race.get_users.success\",\"users\":{\"id\":18,\"name\":\"Madyson Waelchi\",\"avatar\":null,\"personal\":[]}},{\"status\":\"success\",\"message\":\"messages.appointment_race.get_users.success\",\"users\":{\"id\":19,\"name\":\"Mrs. Josianne Schultz Jr.\",\"avatar\":null,\"personal\":[]}}]",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_found\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "getTable",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/races\/:id\/appointment-race\/users-table",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/races\/:id\/appointment-race\/users-table",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the race."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0441\u0441\u044b\u043b\u043a\u0443 \u043d\u0430 \u0442\u0430\u0431\u043b\u0438\u0446\u0443 \u0443\u0447\u0430\u0441\u0442\u043d\u0438\u043a\u043e\u0432"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.appointment.create_table.success\",\"table_url\":[]}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_allowed\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_found\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Auth",
+            "description": "\u0410\u0432\u0442\u043e\u0440\u0438\u0437\u0430\u0446\u0438\u044f \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435\u0439 \u0438 \u0432\u0441\u0451 \u0447\u0442\u043e \u0441 \u043d\u0435\u0439 \u0441\u0432\u044f\u0437\u0430\u043d\u043e.",
+            "item": [
+                {
+                    "name": "Login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"hhoeger@example.com\",\"password\":\"@vhX[&g\"}"
+                        },
+                        "description": "\u0410\u0432\u0442\u043e\u0440\u0438\u0437\u0430\u0446\u0438\u044f \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.auth.login.success\",\"access_token\":\"4|R2Oj0pFWAZgnD8W4gcn9iqRndB1aCePsajhDHMxidb99bdf9\",\"token_type\":\"Bearer\",\"user\":{\"id\":11,\"name\":\"Fletcher Murray\",\"email\":\"hbeer@example.org\",\"email_verified_at\":\"2025-02-18T11:15:09.000000Z\",\"avatar\":null}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.auth.login.error\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Register",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/register",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/register"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "fbnf",
+                                    "type": "text",
+                                    "description": "Must be at least 3 characters. Must not be greater than 50 characters."
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "koelpin.jaquan@example.com",
+                                    "type": "text",
+                                    "description": "Must be a valid email address."
+                                },
+                                {
+                                    "key": "password",
+                                    "value": "\"764_>>*Lpd:Ip{,\\Ly",
+                                    "type": "text",
+                                    "description": "Must be at least 8 characters."
+                                },
+                                {
+                                    "key": "password_confirmation",
+                                    "value": "dignissimos",
+                                    "type": "text",
+                                    "description": "The value and <code>password<\/code> must match."
+                                },
+                                {
+                                    "key": "avatar",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044f \u043d\u043e\u0432\u043e\u0433\u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.auth.register.success\",\"access_token\":\"5|y9uALD6H1KjmiuUrM7oPfwVjbNvlcwUqohTjs2JAfb416e56\",\"token_type\":\"Bearer\",\"user\":{\"id\":12,\"name\":\"Carleton Monahan\",\"email\":\"nathanial54@example.com\",\"email_verified_at\":\"2025-02-18T11:15:10.000000Z\",\"avatar\":null}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.auth.register.error\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "logout",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/logout",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/logout"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u0412\u044b\u0445\u043e\u0434 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.auth.logout.success\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 500,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.auth.logout.error\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Document",
+            "description": "\u041c\u0435\u0442\u043e\u0434\u044b \u0432\u0437\u0430\u0438\u043c\u043e\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u0441 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u043c\u0438 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
+            "item": [
+                {
+                    "name": "Create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/cabinet\/documents",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/cabinet\/documents"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "type",
+                                    "value": "ullam",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "data",
+                                    "value": "qui",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "file",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.document.create.success\",\"document\":{\"id\":null,\"name\":null,\"type\":null,\"path\":null,\"data\":null}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GetForUser",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/cabinet\/documents",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/cabinet\/documents"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0432\u0441\u0435\u0445 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u043e\u0432 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[{\"status\":\"success\",\"message\":\"messages.document.get_for_user.success\",\"documents\":{\"id\":null,\"name\":null,\"type\":null,\"path\":null,\"data\":null}},{\"status\":\"success\",\"message\":\"messages.document.get_for_user.success\",\"documents\":{\"id\":null,\"name\":null,\"type\":null,\"path\":null,\"data\":null}}]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "GetForUserById",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/cabinet\/documents\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/cabinet\/documents\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "13",
+                                    "description": "The ID of the document."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u043e id",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.document.get_for_user_by_id.success\",\"document\":{\"id\":null,\"name\":null,\"type\":null,\"path\":null,\"data\":null}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.document.get_for_user_by_id.not_found\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/cabinet\/documents\/:id\/update",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/cabinet\/documents\/:id\/update",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "14",
+                                    "description": "The ID of the document."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "file",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "\u0418\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.document.update.success\",\"document\":{\"id\":null,\"name\":null,\"type\":null,\"path\":null,\"data\":null}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_allowed\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_found\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/cabinet\/documents\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/cabinet\/documents\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "12",
+                                    "description": "The ID of the document."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.document.delete.success\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_allowed\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_found\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Grade",
+            "description": "\u041c\u0435\u0442\u043e\u0434\u044b \u0441\u0432\u044f\u0437\u0430\u043d\u043d\u044b\u0435 \u0441 \u043a\u043b\u0430\u0441\u0441\u0430\u043c\u0438",
+            "item": [
+                {
+                    "name": "get",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/grades",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/grades"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"userId\":9,\"paginate\":true,\"page\":\"quis\",\"limit\":6}"
+                        },
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0432\u0441\u0435\u0445 \u043a\u043b\u0430\u0441\u0441\u043e\u0432 \u043f\u043e \u0444\u0438\u043b\u044c\u0442\u0440\u0430\u043c",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[{\"status\":\"success\",\"message\":\"messages.grade.get.success\",\"grades\":{\"id\":null,\"name\":\"Lyla Paucek\",\"description\":\"Animi aspernatur qui dolores tenetur. Similique possimus maiores omnis deleniti ut. Animi recusandae voluptas atque recusandae at itaque quo.\"}},{\"status\":\"success\",\"message\":\"messages.grade.get.success\",\"grades\":{\"id\":null,\"name\":\"Sedrick Kirlin\",\"description\":\"Quia qui ut velit est consequatur commodi sint. Modi nulla et ea commodi eum qui sed. Quia recusandae aspernatur cupiditate. Quia accusantium deserunt rerum enim nulla.\"}}]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "getForId",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/grades\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/grades\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the grade."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id\":14,\"userId\":13}"
+                        },
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u043a\u043b\u0430\u0441\u0441\u0430 \u043f\u043e id",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.grade.get_for_id.success\",\"grade\":{\"id\":null,\"name\":\"Dominique Altenwerth\",\"description\":\"Sint sit eius amet debitis. Repellat odio et quo consequuntur dolores est est. Ut illo tenetur omnis reiciendis animi. Officia repudiandae omnis culpa aut maxime. Ratione et est iure molestias.\"}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/grades",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/grades"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"amdsxcqtj\",\"description\":\"Et voluptatem beatae rerum totam beatae.\"}"
+                        },
+                        "description": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043a\u043b\u0430\u0441\u0441\u0430"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.grade.create.success\",\"grade\":{\"id\":null,\"name\":\"Esta Reinger III\",\"description\":\"Aut ullam quo eum reprehenderit. Corporis maiores minima impedit nemo vel. Ad culpa voluptatem enim accusamus quo beatae. Sit illo magni deleniti dolorum.\"}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "update",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/grades\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/grades\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the grade."
+                                }
+                            ]
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"upm\",\"description\":\"Consectetur qui nulla error ratione.\",\"userId\":1}"
+                        },
+                        "description": "\u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u043a\u043b\u0430\u0441\u0441\u0430"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.grade.update.success\",\"grade\":{\"id\":null,\"name\":\"Desiree Von\",\"description\":\"Autem est rerum aspernatur sit. Sed nisi ut eveniet porro sunt. Rerum et dolores enim adipisci. At quia quia quod aut nulla.\"}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_found\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Location",
+            "description": "\u041c\u0435\u0442\u043e\u0434\u044b \u0434\u043b\u044f \u0432\u0437\u0430\u0438\u043c\u043e\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u0441 \u0433\u043e\u0440\u043e\u0434\u0430\u043c\u0438",
+            "item": [
+                {
+                    "name": "get",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/locations",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/locations"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"paginate\":false,\"limit\":19,\"page\":\"in\",\"name\":\"natus\"}"
+                        },
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0432\u0441\u0435\u0445 \u0433\u043e\u0440\u043e\u0434\u043e\u0432 \u0441 \u0444\u0438\u043b\u044c\u0442\u0440\u0430\u0446\u0438\u0435\u0439",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[{\"status\":\"success\",\"message\":\"messages.location.get_all.success\",\"data\":{\"id\":null,\"name\":null,\"type\":null}},{\"status\":\"success\",\"message\":\"messages.location.get_all.success\",\"data\":{\"id\":null,\"name\":null,\"type\":null}}]",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "PersonalInfo",
+            "description": "\u0412\u0441\u0451 \u0447\u0442\u043e \u0441\u0432\u044f\u0437\u0430\u043d\u043d\u043e \u0441 \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u043e\u0439 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0435\u0439 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
+            "item": [
+                {
+                    "name": "Create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/cabinet\/personal-info",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/cabinet\/personal-info"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"omnis\",\"surname\":\"sunt\",\"patronymic\":\"dolorum\",\"dateOfBirth\":\"2025-02-18T11:15:13\",\"city\":\"rerum\",\"inn\":\"libero\",\"snils\":\"commodi\",\"phoneNumber\":\"ea\",\"startNumber\":19,\"group\":\"aliquid\",\"rank\":\"rem\",\"rankNumber\":\"ut\",\"community\":\"qui\",\"coach\":\"magnam\",\"motoStamp\":\"tempore\",\"engine\":\"dolorem\",\"numberAndSeria\":\"qui\",\"region\":\"optio\",\"locationId\":18}"
+                        },
+                        "description": "\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u044c \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0445 \u0434\u0430\u043d\u043d\u044b\u0445"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.personal_info.create.success\",\"personal_info\":{\"name\":\"Prof.\",\"surname\":\"Dr.\",\"patronymic\":\"Dr.\",\"date_of_birth\":\"1970-02-27\",\"city\":\"Wymanburgh\",\"inn\":\"100000000000\",\"snils\":\"9999999999\",\"phone_number\":\"1-713-537-4809\",\"start_number\":\"313\",\"group\":\"Automotive Body Repairer\",\"rank_number\":\"100000\",\"rank\":\"Medical Scientists\",\"community\":\"Brekke, Dooley and Jaskolski\",\"coach\":\"Amy Larkin DDS\",\"moto_stamp\":\"Prof.\",\"engine\":\"Mr.\",\"number_and_seria\":\"9999999999\",\"region\":null}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/cabinet\/personal-info",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/cabinet\/personal-info"
+                        },
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"consequatur\",\"surname\":\"quod\",\"patronymic\":\"reprehenderit\",\"dateOfBirth\":\"2025-02-18T11:15:14\",\"city\":\"facilis\",\"inn\":\"quaerat\",\"snils\":\"voluptate\",\"phoneNumber\":\"non\",\"startNumber\":\"nihil\",\"group\":\"sunt\",\"rank\":\"quas\",\"rankNumber\":\"ratione\",\"community\":\"provident\",\"coach\":\"sit\",\"motoStamp\":\"quia\",\"engine\":\"numquam\",\"numberAndSeria\":\"est\",\"region\":\"mollitia\",\"locationId\":7}"
+                        },
+                        "description": "\u041e\u0431\u043d\u043e\u0432\u0438\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u044c \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0445 \u0434\u0430\u043d\u043d\u044b\u0445"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.personal_info.update.success\",\"personal_info\":{\"name\":\"Dr.\",\"surname\":\"Dr.\",\"patronymic\":\"Prof.\",\"date_of_birth\":\"2015-11-30\",\"city\":\"New Lisandrofort\",\"inn\":\"100000000000\",\"snils\":\"9999999999\",\"phone_number\":\"+1 (412) 654-6120\",\"start_number\":\"299\",\"group\":\"Transportation Inspector\",\"rank_number\":\"99999\",\"rank\":\"Home Economics Teacher\",\"community\":\"Luettgen, Bode and Reichel\",\"coach\":\"Maggie Bins Jr.\",\"moto_stamp\":\"Mr.\",\"engine\":\"Prof.\",\"number_and_seria\":\"10000000000\",\"region\":null}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_allowed\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_found\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Race",
+            "description": "\u041c\u0435\u0442\u043e\u0434\u044b \u0441\u0432\u044f\u0437\u0430\u043d\u043d\u044b\u0435 \u0441 \u0433\u043e\u043d\u043a\u0430\u043c\u0438",
+            "item": [
+                {
+                    "name": "get",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/races",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/races"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"userId\":3,\"paginate\":false,\"page\":\"quo\",\"limit\":13,\"appointmentUser\":true,\"trackId\":10,\"pastRace\":false,\"gradeIds\":[19]}"
+                        },
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0432\u0441\u0435\u0445 \u0433\u043e\u043d\u043e\u043a \u043f\u043e \u0444\u0438\u043b\u044c\u0442\u0440\u0430\u043c",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[{\"status\":\"success\",\"message\":\"messages.race.get.success\",\"races\":{\"id\":23,\"name\":\"Miss Rosemarie Boyle\",\"desc\":\"Nesciunt ut id ut ab. Labore qui iusto sed ab nisi iste. Quia non et alias et voluptatem. Minima qui maiores voluptatem necessitatibus nihil.\",\"is_work\":true,\"date_start\":\"2025-02-18T06:43:33.000000Z\",\"images\":null,\"contacts\":null,\"position_file\":null,\"results_file\":null}},{\"status\":\"success\",\"message\":\"messages.race.get.success\",\"races\":{\"id\":24,\"name\":\"Rosalinda Macejkovic\",\"desc\":\"Perspiciatis similique quas laudantium voluptas. Est recusandae numquam omnis recusandae id praesentium. Ut non quam alias ullam qui. Omnis pariatur facilis nam dolor dignissimos sit.\",\"is_work\":false,\"date_start\":\"2025-02-18T17:53:29.000000Z\",\"images\":null,\"contacts\":null,\"position_file\":null,\"results_file\":null}}]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "getForId",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/races\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/races\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the race."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"userId\":15,\"appointmentUser\":true,\"gradeIds\":[15]}"
+                        },
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e id",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.race.get_for_id.success\",\"race\":{\"id\":25,\"name\":\"Kurt Crooks\",\"desc\":\"Molestias eos ipsam vel impedit. Aut soluta explicabo quas eum aspernatur earum. Doloribus enim qui in at et harum. Rerum aut quis rerum optio excepturi impedit nihil vel.\",\"is_work\":true,\"date_start\":\"2025-02-18T07:59:25.000000Z\",\"images\":null,\"contacts\":null,\"position_file\":null,\"results_file\":null}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/races",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/races"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "gpncyhpdsa",
+                                    "type": "text",
+                                    "description": "Must not be greater than 255 characters. Must be at least 3 characters."
+                                },
+                                {
+                                    "key": "desc",
+                                    "value": "eum",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "dateStart",
+                                    "value": "2025-02-18T11:15:13",
+                                    "type": "text",
+                                    "description": "Must be a valid date."
+                                },
+                                {
+                                    "key": "trackId",
+                                    "value": "19",
+                                    "type": "text",
+                                    "description": "The <code>id<\/code> of an existing record in the tracks table."
+                                },
+                                {
+                                    "key": "gradeIds[0]",
+                                    "value": "5",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "locationId",
+                                    "value": "11",
+                                    "type": "text",
+                                    "description": "The <code>id<\/code> of an existing record in the locations table."
+                                },
+                                {
+                                    "key": "images[]",
+                                    "src": [],
+                                    "type": "file"
+                                },
+                                {
+                                    "key": "positionFile",
+                                    "src": [],
+                                    "type": "file"
+                                },
+                                {
+                                    "key": "resultsFile",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0433\u043e\u043d\u043a\u0438"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.race.create.success\",\"race\":{\"id\":26,\"name\":\"Mr. Reginald Abernathy DDS\",\"desc\":\"Ut est consequuntur nisi earum. Hic saepe molestiae et quidem perferendis soluta. Earum voluptatum eum recusandae ut.\",\"is_work\":true,\"date_start\":\"2025-02-18T01:27:57.000000Z\",\"images\":null,\"contacts\":null,\"position_file\":null,\"results_file\":null}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "update",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/races\/:id\/update",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/races\/:id\/update",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the race."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "zwijv",
+                                    "type": "text",
+                                    "description": "Must not be greater than 255 characters. Must be at least 3 characters."
+                                },
+                                {
+                                    "key": "desc",
+                                    "value": "vero",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "dateStart",
+                                    "value": "2025-02-18T11:15:13",
+                                    "type": "text",
+                                    "description": "Must be a valid date."
+                                },
+                                {
+                                    "key": "trackId",
+                                    "value": "20",
+                                    "type": "text",
+                                    "description": "The <code>id<\/code> of an existing record in the tracks table."
+                                },
+                                {
+                                    "key": "imagesDel[0]",
+                                    "value": "laborum",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "gradeIds[0]",
+                                    "value": "6",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "locationId",
+                                    "value": "20",
+                                    "type": "text",
+                                    "description": "The <code>id<\/code> of an existing record in the locations table."
+                                },
+                                {
+                                    "key": "imagesAdd[]",
+                                    "src": [],
+                                    "type": "file"
+                                },
+                                {
+                                    "key": "positionFile",
+                                    "src": [],
+                                    "type": "file"
+                                },
+                                {
+                                    "key": "resultsFile",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "\u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0433\u043e\u043d\u043a\u0438"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.race.update.success\",\"race\":{\"id\":27,\"name\":\"Prof. Maya Stanton DDS\",\"desc\":\"Et est doloribus soluta sint. Consequuntur sit rerum facere et omnis. Voluptatem vel porro dicta nesciunt.\",\"is_work\":true,\"date_start\":\"2025-02-18T01:19:30.000000Z\",\"images\":null,\"contacts\":null,\"position_file\":null,\"results_file\":null}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_allowed\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_found\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "toggleIsWork",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/races\/:id\/toggle-is-work",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/races\/:id\/toggle-is-work",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the race."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041f\u0435\u0440\u0435\u043a\u043b\u044e\u0447\u0430\u0442\u0435\u043b\u044c \u0433\u043e\u043d\u043a\u0438, \u0441 \u0440\u0430\u0431\u043e\u0447\u0435\u0433\u043e \u043d\u0430 \u043d\u0435\u0440\u0430\u0431\u043e\u0447\u0438\u0439 \u0438 \u043d\u0430\u043e\u0431\u043e\u0440\u043e\u0442"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.race.toggle_is_work.success\",\"race\":{\"id\":28,\"name\":\"Laura Schulist\",\"desc\":\"Consequatur quibusdam nulla omnis veniam aperiam. Quis porro et illo saepe aut possimus quis.\",\"is_work\":true,\"date_start\":\"2025-02-18T19:49:48.000000Z\",\"images\":null,\"contacts\":null,\"position_file\":null,\"results_file\":null}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_allowed\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_found\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Role",
+            "description": "\u041c\u0435\u0442\u043e\u0434\u044b \u0432\u0437\u0430\u0438\u043c\u043e\u0434\u0435\u0441\u0442\u0432\u0438\u044f \u0441 \u0440\u043e\u043b\u044f\u043c\u0438",
+            "item": [
+                {
+                    "name": "GetChangeRoles",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/roles-change",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/roles-change"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0440\u043e\u043b\u0435\u0439 \u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043c\u043e\u0436\u0435\u0442 \u0441\u043c\u0435\u043d\u0438\u0442\u044c \u043e\u0431\u044b\u0447\u043d\u044b\u0439 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[{\"status\":\"success\",\"message\":\"messages.role.get_change_role.success\",\"role\":{\"id\":1,\"name\":\"Root\"}},{\"status\":\"success\",\"message\":\"messages.role.get_change_role.success\",\"role\":{\"id\":1,\"name\":\"Root\"}}]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "ChangeRoleForDefaultUser",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/roles-change",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/roles-change"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"roleId\":16}"
+                        },
+                        "description": "\u0421\u043c\u0435\u043d\u0438\u0442\u044c \u0440\u043e\u043b\u044c \u0434\u043b\u044f \u043e\u0431\u044b\u0447\u043d\u043e\u0433\u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.role.change_role_for_default_user.success\",\"user\":{\"id\":17,\"name\":\"Ivory Hyatt\",\"email\":\"sabina.parisian@example.org\",\"email_verified_at\":\"2025-02-18T11:15:12.000000Z\",\"avatar\":null}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Track",
+            "description": "\u041c\u0435\u0442\u043e\u0434\u044b \u0432\u0437\u0430\u0438\u043c\u043e\u0434\u0435\u0441\u0442\u0432\u0438\u044f \u0441 \u0442\u0440\u0430\u0441\u0441\u0430\u043c\u0438 \u043d\u0430 \u043a\u043e\u0442\u043e\u0440\u044b\u0445 \u043f\u0440\u043e\u0445\u043e\u0434\u044f\u0442 \u0433\u043e\u043d\u043a\u0438",
+            "item": [
+                {
+                    "name": "get",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tracks",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tracks"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"userId\":3,\"paginate\":true,\"page\":\"quidem\",\"limit\":14}"
+                        },
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0442\u0440\u0430\u0441\u0441 \u043f\u043e \u0444\u0438\u043b\u044c\u0442\u0440\u0430\u043c",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[{\"status\":\"success\",\"message\":\"messages.track.get.success\",\"tracks\":{\"id\":25,\"name\":\"Team Assembler\",\"address\":\"9403 Buckridge Lodge Suite 160\\nLake Trishaside, ID 27846\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0412\\u044b\\u0441\\u043e\\u043a\\u0430\\u044f\",\"color\":\"#FD1215\"},\"desc\":\"Tempora ullam error laboriosam dolorem. Voluptas est qui praesentium magnam aut reprehenderit. Odit dolore et enim modi. Omnis ut fugit iste fugiat doloribus fugiat nisi. Minima animi consequatur hic aut amet. Numquam illum in ut asperiores temporibus. Nisi dignissimos iusto magnam. Ut iure nihil nam qui qui sequi. Impedit quaerat a est tempora laudantium assumenda iusto.\",\"length\":785,\"turns\":7,\"free\":true,\"is_work\":false,\"spec\":null}},{\"status\":\"success\",\"message\":\"messages.track.get.success\",\"tracks\":{\"id\":26,\"name\":\"Fishing OR Forestry Supervisor\",\"address\":\"3090 Yvonne Fall\\nSteuberside, TX 94532\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0412\\u044b\\u0441\\u043e\\u043a\\u0430\\u044f\",\"color\":\"#FD1215\"},\"desc\":\"Velit dignissimos itaque doloremque doloremque et et. Laboriosam recusandae alias sed exercitationem iusto temporibus molestiae. Nesciunt doloribus et aspernatur tempora ullam libero distinctio enim. Cupiditate reiciendis dolorem laborum nisi et ducimus. Aut quo ullam doloribus minima mollitia enim cum. Qui laboriosam at debitis sit. Explicabo deserunt non quaerat fugit inventore. Fugiat cumque autem aperiam id facere.\",\"length\":251,\"turns\":70,\"free\":false,\"is_work\":false,\"spec\":null}}]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "getForId",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tracks\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tracks\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the track."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0442\u0440\u0430\u0441\u0441\u044b \u043f\u043e id",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.track.get_for_id.success\",\"track\":{\"id\":27,\"name\":\"Computer Scientist\",\"address\":\"8121 Koelpin Extension Suite 188\\nNorth Gissellefurt, ID 53193\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0421\\u0440\\u0435\\u0434\\u043d\\u044f\\u044f\",\"color\":\"#EF7C08\"},\"desc\":\"Et odit consequatur nostrum dolor quis commodi ut. Maiores rerum beatae veritatis nostrum iste. Sed omnis voluptatem repudiandae voluptatem eos. Voluptates sed odit quia tempore. Qui occaecati consequatur magnam aut. Voluptatum unde necessitatibus iusto eligendi. Nam totam nemo doloribus. Et magni voluptatem aut dolore at. Aut commodi eaque et eveniet praesentium aut. Vitae accusantium minima fugit. Adipisci blanditiis et est. Est sit rerum ut nihil saepe.\",\"length\":326,\"turns\":57,\"free\":false,\"is_work\":false,\"spec\":null}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_found\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tracks",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tracks"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "mdqxhobcrebowzznbtrqlaefvhndgaqsqyhodvdrtmpyilxlx",
+                                    "type": "text",
+                                    "description": "Must be at least 3 characters."
+                                },
+                                {
+                                    "key": "address",
+                                    "value": "qui",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "latitude",
+                                    "value": "-87",
+                                    "type": "text",
+                                    "description": "Must be between -87 and 89."
+                                },
+                                {
+                                    "key": "longitude",
+                                    "value": "-179",
+                                    "type": "text",
+                                    "description": "Must be between -180 and 180."
+                                },
+                                {
+                                    "key": "levelId",
+                                    "value": "15",
+                                    "type": "text",
+                                    "description": "The <code>id<\/code> of an existing record in the levels table."
+                                },
+                                {
+                                    "key": "desc",
+                                    "value": "quas",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "length",
+                                    "value": "18",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "turns",
+                                    "value": "14",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "free",
+                                    "value": "",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "is_work",
+                                    "value": "1",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "contacts",
+                                    "value": "[\"mollitia\",\"animi\"]",
+                                    "type": "text",
+                                    "description": "Must be a valid JSON string."
+                                },
+                                {
+                                    "key": "spec",
+                                    "value": "[\"ut\",\"debitis\"]",
+                                    "type": "text",
+                                    "description": "Must be a valid JSON string."
+                                },
+                                {
+                                    "key": "locationId",
+                                    "value": "10",
+                                    "type": "text",
+                                    "description": "The <code>id<\/code> of an existing record in the locations table."
+                                },
+                                {
+                                    "key": "images[]",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "\u041c\u0435\u0442\u043e\u0434 \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u044f \u0442\u0440\u0435\u043a\u0430"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.track.create.success\",\"track\":{\"id\":28,\"name\":\"Preschool Education Administrators\",\"address\":\"89323 Earl Camp Apt. 512\\nAlfordberg, PA 44410-7631\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0421\\u0440\\u0435\\u0434\\u043d\\u044f\\u044f\",\"color\":\"#EF7C08\"},\"desc\":\"Eligendi quia sequi occaecati sequi dolores rem soluta. Possimus autem qui ducimus voluptas soluta deleniti. Eaque et maiores sed aut id consectetur iure animi. Minus consequuntur consequatur temporibus blanditiis eos. Cum quibusdam a quae eaque praesentium quia. Consequatur in voluptatem et ea qui aliquam maxime. Perferendis quam eveniet quis a eveniet. Repellendus iusto non quo esse.\",\"length\":286,\"turns\":22,\"free\":true,\"is_work\":true,\"spec\":null}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.track.create.error\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "update",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/tracks\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/tracks\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "2",
+                                    "description": "The ID of the track."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "ahjdewtjgijcaooyxaznkigculsgeptenogexuhjktbouek",
+                                    "type": "text",
+                                    "description": "Must be at least 3 characters."
+                                },
+                                {
+                                    "key": "address",
+                                    "value": "et",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "latitude",
+                                    "value": "-87",
+                                    "type": "text",
+                                    "description": "Must be between -87 and 89."
+                                },
+                                {
+                                    "key": "longitude",
+                                    "value": "-180",
+                                    "type": "text",
+                                    "description": "Must be between -180 and 180."
+                                },
+                                {
+                                    "key": "imagesDel[0]",
+                                    "value": "officiis",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "levelId",
+                                    "value": "13",
+                                    "type": "text",
+                                    "description": "The <code>id<\/code> of an existing record in the levels table."
+                                },
+                                {
+                                    "key": "desc",
+                                    "value": "saepe",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "length",
+                                    "value": "14",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "turns",
+                                    "value": "20",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "free",
+                                    "value": "",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "is_work",
+                                    "value": "",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "contacts",
+                                    "value": "[\"quibusdam\",\"veritatis\"]",
+                                    "type": "text",
+                                    "description": "Must be a valid JSON string."
+                                },
+                                {
+                                    "key": "spec",
+                                    "value": "[\"aliquid\",\"laudantium\"]",
+                                    "type": "text",
+                                    "description": "Must be a valid JSON string."
+                                },
+                                {
+                                    "key": "locationId",
+                                    "value": "9",
+                                    "type": "text",
+                                    "description": "The <code>id<\/code> of an existing record in the locations table."
+                                },
+                                {
+                                    "key": "userId",
+                                    "value": "11",
+                                    "type": "text",
+                                    "description": "The <code>id<\/code> of an existing record in the users table."
+                                },
+                                {
+                                    "key": "imagesAdd[]",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "\u041c\u0435\u0442\u043e\u0434 \u0440\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f \u0442\u0440\u0435\u043a\u0430"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.track.update.success\",\"track\":{\"id\":29,\"name\":\"Underground Mining\",\"address\":\"90893 Stoltenberg Gateway Apt. 818\\nSouth Hillary, ID 40812-5675\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u041d\\u0438\\u0437\\u043a\\u0430\\u044f\",\"color\":\"#22CA3D\"},\"desc\":\"Suscipit ipsa eius harum id. Dignissimos sunt iste qui aliquam adipisci esse. Accusamus autem hic qui minima iusto quos facere asperiores. Sint est consequatur consequatur. Accusamus commodi omnis porro voluptas quibusdam aut magni delectus. Quasi consectetur animi eum non. Voluptatem dolor non sequi beatae. Porro pariatur aut itaque impedit ullam rem iusto. Temporibus nobis et inventore nulla. Dolorem beatae iste ipsum omnis.\",\"length\":518,\"turns\":26,\"free\":false,\"is_work\":true,\"spec\":null}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_allowed\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_found\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "User",
+            "description": "\u041c\u0435\u0442\u043e\u0434\u044b \u043c\u0430\u043d\u0438\u043f\u0443\u043b\u044f\u0446\u0438\u0438 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435\u043c.",
+            "item": [
+                {
+                    "name": "GetUserForToken",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0434\u0430\u043d\u043d\u044b\u0435 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u043e \u0442\u043e\u043a\u0435\u043d\u0443"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.user.get_user_for_token.success\",\"user\":{\"id\":14,\"name\":\"Emmy Hamill\",\"email\":\"iosinski@example.org\",\"email_verified_at\":\"2025-02-18T11:15:10.000000Z\",\"avatar\":null}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "getForId",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the user."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u043e id",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.user.get_for_id.success\",\"user\":{\"id\":15,\"name\":\"Mr. Cordell Lindgren\",\"avatar\":null,\"personal\":[]}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_found\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "update",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users\/update",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users\/update"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "rljqkqycbczlr",
+                                    "type": "text",
+                                    "description": "Must be at least 3 characters. Must not be greater than 50 characters."
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "sydni79@example.net",
+                                    "type": "text",
+                                    "description": "Must be a valid email address."
+                                },
+                                {
+                                    "key": "avatar",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "\u041e\u0431\u043d\u043e\u0432\u0438\u0442\u044c \u043f\u0440\u043e\u0444\u0438\u043b\u044c \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.user.update.success\",\"user\":{\"id\":16,\"name\":\"Royal Cronin\",\"email\":\"deja80@example.org\",\"email_verified_at\":\"2025-02-18T11:15:11.000000Z\",\"avatar\":null}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 500,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.user.update.error\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "VerificationEmail",
+            "description": "\u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043d\u0438\u0435 \u043f\u043e\u0447\u0442\u044b \u0447\u0435\u0440\u0435\u0437 \u043f\u0438\u0441\u044c\u043c\u043e",
+            "item": [
+                {
+                    "name": "send",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/verification-email\/send",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/verification-email\/send"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041e\u0442\u043f\u0440\u0430\u0432\u043a\u0430 \u043f\u0438\u0441\u044c\u043c\u0430 \u043d\u0430 \u043f\u043e\u0447\u0442\u0443 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.verification_email.send.success\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.verification_email.send.already_sent\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "verify",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/verification-email\/verify",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/verification-email\/verify"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"code\":7}"
+                        },
+                        "description": "\u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043d\u0438\u0435 \u043f\u043e\u0447\u0442\u044b \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u043e \u043a\u043e\u0434\u0443 \u0438\u0437 \u043f\u0438\u0441\u044c\u043c\u0430"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.verification_email.verification.success\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.verification_email.send.already_sent\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.verification_email.verification.incorrect\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

@@ -5,14 +5,18 @@ namespace App\Http\Controllers\Api;
 use App\Contracts\Actions\Controllers\Track\CreateTracksActionContract;
 use App\Contracts\Actions\Controllers\Track\GetTrackForIdActionContract;
 use App\Contracts\Actions\Controllers\Track\GetTracksActionContract;
+use App\Contracts\Actions\Controllers\Track\UpdateTrackActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Track\CreateTrackRequest;
 use App\Http\Requests\Track\GetTracksRequest;
+use App\Http\Requests\Track\UpdateTrackRequest;
 use App\Http\Resources\Errors\NotFoundResource;
+use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Http\Resources\Track\Create\ErrorCreateResource;
 use App\Http\Resources\Track\Create\SuccessCreateResource;
 use App\Http\Resources\Track\GetTrackForId\SuccessGetTrackForIdResource;
 use App\Http\Resources\Track\GetTracks\SuccessGetTracksResource;
+use App\Http\Resources\Track\Update\SuccessUpdateTrackResource;
 use App\Models\Track;
 use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
@@ -44,8 +48,15 @@ class TrackController extends Controller
     {
         return $actionCreateTrack($request);
     }
-//    public function update()
-//    {}
+    #[Authenticated]
+    #[ResponseFromApiResource(SuccessUpdateTrackResource::class, Track::class, collection: false)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
+    #[Endpoint(title: 'update', description: 'Метод редактирования трека')]
+    public function update(int $id, UpdateTrackRequest $request, UpdateTrackActionContract $action): SuccessUpdateTrackResource|NotFoundResource|NotUserPermissionResource
+    {
+        return $action($id, $request);
+    }
 //    public function delete()
 //    {}
 }

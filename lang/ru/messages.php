@@ -81,6 +81,9 @@ return [
         'get_for_id' => [
             'success' => 'Трек по идентификатору получен успешно.',
         ],
+        'update' => [
+            'success' => 'Трек успешно изменён'
+        ],
     ],
     'role' => [
         'get_change_role' => [
