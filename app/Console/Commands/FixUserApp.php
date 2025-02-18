@@ -47,18 +47,30 @@ class FixUserApp extends Command
                 $user->documents()->each(function ($doc) use ($new_data) {
                     switch ($doc->type) {
                         case "licenses":
-                            if (strlen($new_data->licensesFileLink) === 0) {
+                            if (empty($new_data->licensesFileLink)) {
                                 $new_data->licensesFileLink = $doc->path;
+                            } else {
+                                if (strlen($new_data->licensesFileLink) === 0) {
+                                    $new_data->licensesFileLink = $doc->path;
+                                }
                             }
                             break;
                         case "polis":
-                            if (strlen($new_data->polisFileLink) === 0) {
+                            if (empty($new_data->polisFileLink)) {
                                 $new_data->polisFileLink = $doc->path;
+                            } else {
+                                if (strlen($new_data->polisFileLink) === 0) {
+                                    $new_data->polisFileLink = $doc->path;
+                                }
                             }
                             break;
                         case "notarius":
-                            if (strlen($new_data->notariusFileLink) === 0) {
+                            if (empty($new_data->notariusFileLink)) {
                                 $new_data->notariusFileLink = $doc->path;
+                            } else {
+                                if (strlen($new_data->notariusFileLink) === 0) {
+                                    $new_data->notariusFileLink = $doc->path;
+                                }
                             }
                             break;
                         default:
