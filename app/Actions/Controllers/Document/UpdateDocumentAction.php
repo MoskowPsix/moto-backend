@@ -55,6 +55,8 @@ class UpdateDocumentAction implements UpdateDocumentActionContract
     }
     private function delete($path): string
     {
-        return Storage::delete($path);
+        if ($path !== 'no-file') {
+            return Storage::delete($path);
+        }
     }
 }
