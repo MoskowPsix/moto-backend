@@ -28,7 +28,7 @@ class CreateDocumentRequest extends FormRequest
     {
         return [
             'type'                      => 'required|string',
-            'file'                      => 'required|file|mimes:pdf,jpg,jpeg,png',
+            'file'                      => 'nullable|file|mimes:pdf,jpg,jpeg,png',
             'data'                      => 'required',
             'data.licensesNumber'       => 'nullable|string',
             'data.licensesFileLink'     => 'nullable|string',
