@@ -34,28 +34,29 @@ class FixUserApp extends Command
 
             $data = json_decode($app->data);
             $new_data = $data;
-            if (strlen($data->numberAndSeria) === 0) {
-                if (!empty($pers->number_and_seria) && strlen($pers->number_and_seria) !== 0) {
-                    $new_data->numberAndSeria = $pers->number_and_seria;
-                    $app->update([
-                        'data' => json_encode($new_data)
-                    ]);
-                }
-            }
+//            Паспорт
+//            if (strlen($data->numberAndSeria) === 0) {
+//                if (!empty($pers->number_and_seria) && strlen($pers->number_and_seria) !== 0) {
+//                    $new_data->numberAndSeria = $pers->number_and_seria;
+//                    $app->update([
+//                        'data' => json_encode($new_data)
+//                    ]);
+//                }
+//            }
             $user->documents()->each(function ($doc) use($new_data) {
                 switch ($doc->type) {
                     case "licenses":
-                        if(!empty($new_data->licensesFileLink) && strlen($new_data->licensesFileLink) === 0) {
+                        if(strlen($new_data->licensesFileLink) === 0) {
                             $new_data->licensesFileLink = $doc->path;
                         }
                         break;
                     case "polis":
-                        if(!empty($new_data->polisFileLink) && strlen($new_data->polisFileLink) === 0) {
+                        if(strlen($new_data->polisFileLink) === 0) {
                             $new_data->polisFileLink = $doc->path;
                         }
                         break;
                     case "notarius":
-                        if(!empty($new_data->notariusFileLink) && strlen($new_data->notariusFileLink) === 0) {
+                        if(strlen($new_data->notariusFileLink) === 0) {
                             $new_data->notariusFileLink = $doc->path;
                         }
                         break;
