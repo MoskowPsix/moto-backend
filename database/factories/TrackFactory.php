@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Level;
+use App\Models\Location;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -31,6 +32,7 @@ class TrackFactory extends Factory
             'turns'     => fake()->randomNumber(2),
             'free'      => fake()->boolean(),
             'is_work'   => fake()->boolean(),
+            'location_id' => Location::inRandomOrder()->first()->id,
         ];
     }
 }

@@ -19,7 +19,7 @@ class GetTracksAction implements GetTracksActionContract
 
         $track_q = Track::selectRaw(
             '*, ' . (config('database.default') === 'sqlite' ? 'point' : 'ST_AsGeoJSON(point) as point')
-        )->with('level');
+        )->with('level', 'location');
         $tracks = app(Pipeline::class)
             ->send($track_q)
             ->through([
