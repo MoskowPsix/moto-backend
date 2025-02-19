@@ -2,12 +2,17 @@
 
 namespace App\Http\Requests\Document;
 
+use App\Enums\DocumentType;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 /**
  * @property string $file
  * @property string $type
  * @property array $data
+ * @property string $number
+ * @property string $issuedWhom
+ * @property string $itWorksDate
  */
 class CreateDocumentRequest extends FormRequest
 {
@@ -27,17 +32,12 @@ class CreateDocumentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'type'                      => 'required|string',
+            'type'                      => ['required', Rule::enum(DocumentType::class)],
             'file'                      => 'required|file|mimes:pdf,jpg,jpeg,png',
-            'data'                      => 'required',
-            'data.licensesNumber'       => 'nullable|string',
-            'data.licensesFileLink'     => 'nullable|string',
-            'data.polisNumber'          => 'nullable|string',
-            'data.issuedWhom'           => 'nullable|string',
-            'data.itWorksDate'          => 'nullable|date',
-            'data.numberAndSeria'       => 'nullable|integer',
-            'data.pasportFileLink'      => 'nullable|string',
-            'data.polisFileLink'        => 'nullable|string',
+            'url'                       => 'nullable|string',
+            'number'                    => 'nullable|string',
+            'issuedWhom'                => 'nullable|string',
+            'itWorksDate'               => 'nullable|date',
         ];
     }
 }

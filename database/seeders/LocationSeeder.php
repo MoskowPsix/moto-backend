@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Contracts\Actions\Commands\GenerateLocationCsvActionContract;
 use App\Models\Location;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -11,8 +12,8 @@ class LocationSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(GenerateLocationCsvActionContract $action): void
     {
-        $location = Location::factory()->count(10)->create();
+        $action();
     }
 }

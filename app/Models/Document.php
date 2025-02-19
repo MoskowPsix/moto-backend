@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\DocumentType;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -9,16 +11,27 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Document extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'name',
         'type',
         'path',
         'data',
+        'url_view',
+        'number',
+        'issued_whom',
+        'it_works_date',
+        'is_checked',
         'user_id',
     ];
 
     protected $casts = [
+        'type' => DocumentType::class,
         'data' => 'encrypted',
+        'number' => 'encrypted',
+        'issued_whom' => 'encrypted',
+        'it_works_date' => 'encrypted',
     ];
 
 }
