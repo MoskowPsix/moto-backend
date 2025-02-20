@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * @property mixed $data
+ * @property mixed $gradeId
  */
 class ToogleAppointmentRaceRequest extends FormRequest
 {
@@ -42,6 +43,7 @@ class ToogleAppointmentRaceRequest extends FormRequest
             'motoStamp'                => 'required|string',
             'polisNumber'              => 'required|string',
             'locationId'               => 'required|exists:locations,id',
+            'gradeId'                  => 'required|exists:grades,id',
             'numberAndSeria'           => 'required|string',
             'documentIds'              => 'nullable|array',
             'documentIds.*'            => 'nullable|integer',

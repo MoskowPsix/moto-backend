@@ -5,6 +5,8 @@ namespace App\Actions\Controllers\AppointmentRace;
 use App\Contracts\Actions\Controllers\AppointmentRace\ToggleAppointmentRaceActionContract;
 use App\Enums\DocumentType;
 use App\Http\Requests\AppointmentRace\ToogleAppointmentRaceRequest;
+use App\Http\Resources\AppointmentRace\Create\ExistsAppointmentRaceResource;
+use App\Http\Resources\AppointmentRace\Create\GradeNotExistsAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Create\ManyDocumentAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Create\SuccessCreateAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Delete\SuccessDeleteAppointmentRaceResource;
@@ -16,20 +18,27 @@ use App\Models\Race;
 class ToggleAppointmentRaceAction implements ToggleAppointmentRaceActionContract
 {
 
-    public function __invoke(int $id, ToogleAppointmentRaceRequest $request): SuccessCreateAppointmentRaceResource|NotFoundResource|SuccessDeleteAppointmentRaceResource|ManyDocumentAppointmentRaceResource
+    public function __invoke(int $id, ToogleAppointmentRaceRequest $request):
+    SuccessCreateAppointmentRaceResource|
+    NotFoundResource|
+    SuccessDeleteAppointmentRaceResource|
+    ManyDocumentAppointmentRaceResource|
+    ExistsAppointmentRaceResource|
+    GradeNotExistsAppointmentRaceResource
     {
         $user = auth()->user();
         $race = Race::find($id);
         if (!$race) {
             return new NotFoundResource([]);
         }
+        if ($race->appointments()->where('user_id', $user->id)->exists()) {
+            return ExistsAppointmentRaceResource::make([]);
+        }
+        if (!$race->grades()->where('grade_id', $request->gradeId)->exists()) {
+            return GradeNotExistsAppointmentRaceResource::make([]);
+        }
+
         return $this->createAppointment($user->id, $race->id, $request);
-//      Добавляет функционал переключателя(записаться/отписаться)
-//        if (!$race->appointments()->where('user_id', $user->id)->exists()) {
-//            return $this->createAppointment($user->id, $race->id, $request->data);
-//        } else {
-//            return $this->deleteAppointment($user->id, $race->id);
-//        }
     }
 
     private function deleteAppointment(int $user_id, int $race_id): SuccessDeleteAppointmentRaceResource
@@ -66,6 +75,7 @@ class ToggleAppointmentRaceAction implements ToggleAppointmentRaceActionContract
             'inn'                   => $request->inn,
             'city'                  => $request->city,
             'location_id'           => $request->locationId,
+            'grade_id'              => $request->gradeId,
         ]);
 
         foreach($request->documentIds as $documentId) {

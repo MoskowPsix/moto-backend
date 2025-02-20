@@ -5,7 +5,7 @@ namespace App\Http\Resources\AppointmentRace\Create;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ManyDocumentAppointmentRaceResource extends JsonResource
+class ExistsAppointmentRaceResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,13 +15,13 @@ class ManyDocumentAppointmentRaceResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'status' => 'success',
-            'message' => __('messages.appointment.create_table.many_documents'),
-            'documents' => $this->resource,
+            'status' => 'error',
+            'message' => __('messages.error.exists_appointment_race'),
         ];
     }
+
     public function withResponse($request, $response): void
     {
-        $response->setStatusCode(422);
+        $response->setStatusCode(409);
     }
 }

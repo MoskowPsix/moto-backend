@@ -36,7 +36,8 @@ class AppointmentRace extends Model
         'coach',
         'inn',
         'city',
-        'location_id'
+        'location_id',
+        'grade_id'
     ];
 
     protected $casts = [
@@ -53,5 +54,9 @@ class AppointmentRace extends Model
     public function documents(): BelongsToMany
     {
         return $this->belongsToMany(Document::class);
+    }
+    public function grade(): BelongsTo
+    {
+        return $this->belongsTo(Grade::class);
     }
 }

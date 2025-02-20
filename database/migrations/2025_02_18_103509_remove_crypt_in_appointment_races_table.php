@@ -28,6 +28,7 @@ return new class extends Migration
             $table->text('inn')->nullable(); // Будет шифроватся
             $table->string('city')->nullable();
             $table->foreignId('location_id')->nullable(true)->constrained('locations')->nullOnDelete();
+            $table->foreignId('grade_id')->nullable(true)->constrained('grades')->nullOnDelete();
         });
     }
 

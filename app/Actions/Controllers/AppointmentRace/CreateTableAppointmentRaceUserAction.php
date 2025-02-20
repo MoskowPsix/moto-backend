@@ -34,7 +34,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
         // Получаем поля будующей таблицы
         $fields = $this->getFields();
         // Формируем данные для таблицы участников
-        $rows = $this->formTable($appr->with('location', 'documents')->orderBy('created_at', 'asc')->get()->toArray());
+        $rows = $this->formTable($appr->with('location', 'documents', 'grade')->orderBy('created_at', 'asc')->get()->toArray());
         // Обновляем или создаём таблицу в Google Sheets
         if ($race->sheet()->exists()){
             // Получаем id таблицы в системе google
@@ -65,7 +65,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
                 'Фамилия участника'                                                 => $value['surname'] ?? '',
                 'Имя участника'                                                     => $value['name'] ?? '',
                 'Отчество участника'                                                => $value['patronymic'] ?? '',
-                'Класс'                                                             => $value['group'] ?? '',
+                'Класс'                                                             => $value['grade']['name'] ?? '',
                 'Двигатель'                                                         => $value['engine'] ?? '',
                 'Стартовый Номер'                                                   => $value['start_number'] ?? '',
                 'Спортивное звание (разряд)'                                        => $value['rank'] ?? '',
