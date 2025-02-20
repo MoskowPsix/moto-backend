@@ -21,6 +21,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property boolean $free
  * @property boolean $is_work
  * @property array $spec
+ * @property mixed $location
  */
 class TrackResource extends JsonResource
 {
@@ -46,7 +47,7 @@ class TrackResource extends JsonResource
             'is_work'   => $this->is_work,
             'spec'      => $this->spec,
             'user'      => UserResource::make($this->whenLoaded('user')),
-            'location'  => LocationResource::make($this->whenLoaded('location')),
+            'location'  => $this->whenLoaded('location', LocationResource::make($this->location)),
         ];
     }
 }

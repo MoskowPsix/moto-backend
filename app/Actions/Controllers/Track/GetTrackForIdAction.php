@@ -16,7 +16,7 @@ class GetTrackForIdAction implements  GetTrackForIdActionContract
         }
         $track = Track::selectRaw(
             '*, ' . (config('database.default') === 'sqlite' ? 'point' : 'ST_AsGeoJSON(point) as point')
-        )->with('level')->findOrFail($id);
+        )->with('level', 'location')->findOrFail($id);
 //        $track = Track::selectRaw('*, ST_AsGeoJSON(point) as point')->with('level')->findOrFail($id);
         return SuccessGetTrackForIdResource::make($track);
     }
