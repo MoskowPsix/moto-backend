@@ -44,6 +44,8 @@ class AppointmentRaceFactory extends Factory
                 "itWorksDate"           => fake()->date('Y-m-d'),
                 "licensesNumber"        => fake()->numberBetween(9999, 10000),
                 "licensesFileLink"      => fake()->url(),
+                "polisFileLink"         => fake()->url(),
+                "notariuFileLink"       => fake()->url(),
             ], true),
         ];
     }
