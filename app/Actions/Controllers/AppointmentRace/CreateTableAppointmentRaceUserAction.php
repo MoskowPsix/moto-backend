@@ -33,7 +33,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
         // Получаем поля будующей таблицы
         $fields = $this->getFields();
         // Формируем данные для таблицы участников
-        $rows = $this->formTable($appr->get());
+        $rows = $this->formTable($appr->orderBy('created_at', 'asc')->get());
         // Обновляем или создаём таблицу в Google Sheets
         if ($race->sheet()->exists()){
             // Получаем id таблицы в системе google
@@ -60,7 +60,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
         foreach ($appr->toArray() as $key => $value) {
             $info = json_decode($value['data'], true);
             $rows[] = [
-                'Отметка времени'                                                   => Carbon::now()->format('d.m.Y h:m:s'),
+                'Отметка времени'                                                   => Carbon::parse($value['created_at'])->format('d.m.Y h:m:s'),
                 'Фамилия участника'                                                 => $info['surname'] ?? '',
                 'Имя участника'                                                     => $info['name'] ?? '',
                 'Отчество участника'                                                => $info['patronymic'] ?? '',
