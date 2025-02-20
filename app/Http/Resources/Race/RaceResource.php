@@ -22,6 +22,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property object $contacts
  * @property string $position_file
  * @property string $results_file
+ * @property string $record_end
  */
 class RaceResource extends JsonResource
 {
@@ -40,6 +41,7 @@ class RaceResource extends JsonResource
             'date_start'            => $this->date_start,
             'images'                => $this->images,
             'contacts'              => $this->contacts,
+            'record_end'            => $this->record_end,
             'track'                 => TrackResource::make($this->whenLoaded('track')),
             'user'                  => UserResource::make($this->whenLoaded('user')),
             'appointment_count'     => AppointmentCountResource::make($this->whenLoaded('appointmentCount')),

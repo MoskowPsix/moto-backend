@@ -27,6 +27,7 @@ class UpdateRaceAction implements UpdateRaceActionContract
         $race->update([
             'name'              => $request->name ?? $race->name,
             'desc'              => $request->desc ?? $race->desc,
+            'record_end'        => Carbon::parse($request->recordEnd) ?? $race->recordEnd,
             'date_start'        => Carbon::parse($request->get('dateStart')) ?? $race->date_start,
             'track_id'          => $request->get('trackId') ?? $race->track_id,
             'location_id'       => $request->locationId ?? $race->location_id,
