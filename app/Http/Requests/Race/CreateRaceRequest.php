@@ -39,7 +39,7 @@ class CreateRaceRequest extends FormRequest
             'name'          => 'required|string|max:255|min:3',
             'desc'          => 'nullable|string',
             'dateStart'     => 'required|date',
-            'recordEnd'     => 'nullable|timestamp',
+            'recordEnd'     => 'nullable|date',
             'trackId'       => 'required|integer|exists:tracks,id',
             'images'        => 'array|nullable',
             'images.*'      => 'image|mimes:jpeg,png,jpg,svg,webp',

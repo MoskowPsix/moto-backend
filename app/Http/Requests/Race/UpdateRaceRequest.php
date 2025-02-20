@@ -31,7 +31,7 @@ class UpdateRaceRequest extends FormRequest
             'name'              => 'nullable|string|max:255|min:3',
             'desc'              => 'nullable|string',
             'dateStart'         => 'nullable|date',
-            'recordEnd'         => 'nullable|timestamp',
+            'recordEnd'         => 'nullable|date',
             'trackId'           => 'nullable|integer|exists:tracks,id',
             'imagesAdd'         => 'array|nullable',
             'imagesAdd.*'       => 'image|mimes:jpeg,png,jpg,svg,webp',
