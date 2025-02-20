@@ -30,6 +30,29 @@ return new class extends Migration
             $table->foreignId('location_id')->nullable(true)->constrained('locations')->nullOnDelete();
             $table->foreignId('grade_id')->nullable(true)->constrained('grades')->nullOnDelete();
         });
+        \App\Models\AppointmentRace::all()->each(function ($apps) {
+            $data = json_decode($apps->data, true);
+            if (isset($data)) {
+                $apps->surname = $data['surname'] ?? null;
+                $apps->name = $data['name'] ?? null;
+                $apps->patronymic = $data['patronymic'] ?? null;
+                $apps->engine = $data['engine'] ?? null;
+                $apps->start_number = $data['startNumber'] ?? null;
+                $apps->rank = $data['rank'] ?? null;
+                $apps->date_of_birth = $data['dateOfBirth'] ?? null;
+                $apps->community = $data['community'] ?? null;
+                $apps->moto_stamp = $data['motoStamp'] ?? null;
+                $apps->number_and_seria = $data['numberAndSeria'] ?? null;
+                $apps->snils = $data['snils'] ?? null; // Будет шифроватся
+                $apps->phone_number = $data['phoneNumber'] ?? null;
+                $apps->coach = $data['coach'] ?? null;
+                $apps->inn = $data['inn'] ?? null; // Будет шифроватся
+                $apps->city = $data['city'] ?? null;
+                $apps->location_id = isset($data['region']) ? \App\Models\Location::where('name', explode(' ', $data['region'])[0])->first()->id : null;
+                $apps->grade_id = \App\Models\Grade::where('name', $data['group'])->first()->id ?? null;
+                $apps->save();
+            }
+        });
     }
 
     /**
@@ -42,23 +65,19 @@ return new class extends Migration
             $table->dropColumn('name');
             $table->dropColumn('patronymic');
             $table->dropColumn('engine');
-            $table->dropColumn('startNumber');
-            $table->dropColumn('licensesNumber');
+            $table->dropColumn('start_number');
             $table->dropColumn('rank');
-            $table->dropColumn('dateOfBirth');
+            $table->dropColumn('date_of_birth');
             $table->dropColumn('community');
-            $table->dropColumn('motoStamp');
-            $table->dropColumn('itWorksDate');
-            $table->dropColumn('numberAndSeria');
+            $table->dropColumn('moto_stamp');
+            $table->dropColumn('number_and_seria');
             $table->dropColumn('snils');
-            $table->dropColumn('phoneNumber');
-            $table->dropColumn('polisNumber');
-            $table->dropColumn('issuedWhom');
+            $table->dropColumn('phone_number');
             $table->dropColumn('coach');
             $table->dropColumn('inn');
             $table->dropColumn('city');
             $table->dropColumn('location_id');
-
+            $table->dropColumn('grade_id');
         });
     }
 };

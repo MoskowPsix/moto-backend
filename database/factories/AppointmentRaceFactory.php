@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Grade;
 use App\Models\Location;
 use App\Models\Race;
 use App\Models\User;
@@ -50,21 +51,19 @@ class AppointmentRaceFactory extends Factory
             'name'              => fake()->firstName(),
             'patronymic'        => fake()->firstName(),
             'engine'            => "T" . fake()->numberBetween(1, 20),
-            'startNumber'       => fake()->numberBetween(1, 999),
+            'start_number'      => fake()->numberBetween(1, 999),
             'rank'              => fake()->text(5),
-            'dateOfBirth'       => fake()->date('Y-m-d'),
+            'date_of_birth'     => fake()->date('Y-m-d'),
             'community'         => fake()->text(30),
-            'motoStamp'         => fake()->domainName(),
-            'itWorksDate'       => fake()->date('Y-m-d'),
-            'numberAndSeria'    => fake()->numberBetween(9999, 10000),
+            'moto_stamp'        => fake()->domainName(),
+            'number_and_seria'  => fake()->numberBetween(9999, 10000),
             'snils'             => fake()->numberBetween(9999, 10000),
-            'phoneNumber'       => fake()->numberBetween(999999999, 1000000000),
-            'polisNumber'       => fake()->numberBetween(9999, 10000),
-            'issuedWhom'        => fake()->numberBetween(9999, 10000),
+            'phone_number'      => fake()->numberBetween(999999999, 1000000000),
             'coach'             => fake()->name(),
             'inn'               => fake()->numberBetween(9999, 10000),
             'city'              => fake()->city(),
             'location_id'       => Location::inRandomOrder()->first()->id,
+            'grade_id'          => Grade::inRandomOrder()->first()->id,
         ];
     }
 }
