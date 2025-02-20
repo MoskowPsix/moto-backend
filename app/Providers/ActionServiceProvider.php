@@ -51,6 +51,10 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\Grade\GetForIdGradeActionContract::class                                 => \App\Actions\Controllers\Grade\GetForIdGradeAction::class,
         \App\Contracts\Actions\Controllers\Grade\GetGradeActionContract::class                                      => \App\Actions\Controllers\Grade\GetGradeAction::class,
         \App\Contracts\Actions\Controllers\Grade\UpdateGradeActionContract::class                                   => \App\Actions\Controllers\Grade\UpdateGradeAction::class,
+        \App\Contracts\Actions\Controllers\Command\CreateCommandActionContract::class                               => \App\Actions\Controllers\Command\CreateCommandAction::class,
+        \App\Contracts\Actions\Controllers\Command\GetForIdCommandActionContract::class                             => \App\Actions\Controllers\Command\GetForIdCommandAction::class,
+        \App\Contracts\Actions\Controllers\Command\GetCommandActionContract::class                                  => \App\Actions\Controllers\Command\GetCommandAction::class,
+        \App\Contracts\Actions\Controllers\Command\UpdateCommandActionContract::class                               => \App\Actions\Controllers\Command\UpdateCommandAction::class,
 
     ];
     /**

@@ -25,6 +25,8 @@ use App\MoonShine\Resources\RaceResource;
 use MoonShine\Laravel\Enums\Ability;
 use App\MoonShine\Resources\GoogleSheetResource;
 use App\MoonShine\Resources\GradeResource;
+use App\MoonShine\Resources\CommandResource;
+use App\MoonShine\Resources\LocationResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -53,6 +55,8 @@ class MoonShineServiceProvider extends ServiceProvider
                 RaceResource::class,
                 GoogleSheetResource::class,
                 GradeResource::class,
+                CommandResource::class,
+                LocationResource::class,
             ])
             ->pages([
                 ...$config->getPages(),

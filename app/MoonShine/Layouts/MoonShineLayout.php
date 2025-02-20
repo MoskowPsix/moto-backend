@@ -40,6 +40,8 @@ use App\MoonShine\Resources\ServiceResource;
 use App\MoonShine\Resources\RaceResource;
 use App\MoonShine\Resources\GoogleSheetResource;
 use App\MoonShine\Resources\GradeResource;
+use App\MoonShine\Resources\CommandResource;
+use App\MoonShine\Resources\LocationResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -68,6 +70,7 @@ final class MoonShineLayout extends AppLayout
 //            MenuItem::make('Levels', LevelResource::class),
                 MenuItem::make('Сервисы', ServiceResource::class, 'square-3-stack-3d'),
                 MenuItem::make('Классы', GradeResource::class, 'beaker'),
+                MenuItem::make('Команды', CommandResource::class, 'users'),
             ], 'cube'),
         ];
     }

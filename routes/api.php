@@ -85,3 +85,11 @@ Route::controller(\App\Http\Controllers\Api\GradeController::class)->group(funct
     Route::post('grades', 'create')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('grade.create');
     Route::patch('grades/{id}', 'update')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('grade.update');
 });
+
+Route::controller(\App\Http\Controllers\Api\CommandController::class)->group(function (){
+    $role = new \App\Constants\RoleConstant();
+    Route::get('commands', 'get')->name('command.get');
+    Route::get('commands/{id}', 'getForId')->name('command.get_for_id');
+    Route::post('commands', 'create')->middleware(['auth:sanctum', 'email_verification'])->name('command.create');
+    Route::post('commands/{id}', 'update')->middleware(['auth:sanctum', 'email_verification'])->name('command.update');
+});
