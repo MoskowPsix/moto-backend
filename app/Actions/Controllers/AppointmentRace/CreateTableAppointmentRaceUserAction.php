@@ -61,7 +61,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
         foreach ($appr->toArray() as $key => $value) {
             $info = json_decode($value['data'], true);
             $rows[] = [
-                'Отметка времени'                                                   => Carbon::parse($value['created_at'])->setTimezone('Asia/Yekaterinburg')->format('d.m.Y H:m:s'),
+                'Отметка времени'                                                   => Carbon::parse($value['created_at'])->setTimezone('Asia/Yekaterinburg')->format('d.m.Y H:i:s'),
                 'Фамилия участника'                                                 => $info['surname'] ?? '',
                 'Имя участника'                                                     => $info['name'] ?? '',
                 'Отчество участника'                                                => $info['patronymic'] ?? '',
