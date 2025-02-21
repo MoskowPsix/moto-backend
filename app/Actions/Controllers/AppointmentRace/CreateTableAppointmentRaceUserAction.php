@@ -12,6 +12,7 @@ use App\Models\Race;
 use App\Notifications\CreateTableAppointmentRaceUserNotify;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Config;
 
 class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRaceUserActionContract
 {
@@ -33,7 +34,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
         // Получаем поля будующей таблицы
         $fields = $this->getFields();
         // Формируем данные для таблицы участников
-        $rows = $this->formTable($appr->orderBy('created_at', 'asc')->get());
+        $rows = $this->formTable($appr->oldest('created_at')->get());
         // Обновляем или создаём таблицу в Google Sheets
         if ($race->sheet()->exists()){
             // Получаем id таблицы в системе google
@@ -60,7 +61,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
         foreach ($appr->toArray() as $key => $value) {
             $info = json_decode($value['data'], true);
             $rows[] = [
-                'Отметка времени'                                                   => Carbon::parse($value['created_at'])->format('d.m.Y h:m:s'),
+                'Отметка времени'                                                   => Carbon::parse($value['created_at'])->setTimezone('Asia/Yekaterinburg')->format('d.m.Y H:m:s'),
                 'Фамилия участника'                                                 => $info['surname'] ?? '',
                 'Имя участника'                                                     => $info['name'] ?? '',
                 'Отчество участника'                                                => $info['patronymic'] ?? '',
