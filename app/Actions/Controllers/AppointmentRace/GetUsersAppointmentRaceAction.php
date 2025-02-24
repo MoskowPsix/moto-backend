@@ -26,6 +26,9 @@ class GetUsersAppointmentRaceAction implements GetUsersAppointmentRaceActionCont
         foreach ($app as $class => $userRacesGroup) {
             $formattedData[$class] = AppointmentRaceResource::collection($userRacesGroup);
         }
+        if (!isset($formattedData)) {
+            return new NotFoundResource([]);
+        }
         return SuccessGetUsersAppointmentResource::make($formattedData);
     }
 }
