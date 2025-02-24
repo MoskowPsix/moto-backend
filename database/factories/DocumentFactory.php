@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\DocumentType;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,10 +18,9 @@ class DocumentFactory extends Factory
      */
     public function definition(): array
     {
-        $type = [''];
-        $type_num = 0;
         return [
             'name' => uniqid('file_'),
+            'type' => DocumentType::Notarius,
             'path' => fake()->url(),
             'data' => json_encode([], true),
             'user_id' => User::inRandomOrder()->first()->id,

@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * @property mixed $data
+ * @property mixed $gradeId
  */
 class ToogleAppointmentRaceRequest extends FormRequest
 {
@@ -25,31 +26,27 @@ class ToogleAppointmentRaceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'data'                          => 'nullable|',
-            'data.surname'                  => 'nullable|string',
-            'data.patronymic'               => 'nullable|string',
-            'data.dateOfBirth'              => 'nullable|timestamp',
-            'data.city'                     => 'nullable|string',
-            'data.region'                     => 'nullable|string',
-            'data.inn'                      => 'nullable|integer',
-            'data.snils'                    => 'nullable|integer',
-            'data.phoneNumber'              => 'nullable|integer',
-            'data.startNumber'              => 'nullable|integer|min:1|max:999',
-            'data.group'                    => 'nullable|string',
-            'data.rank'                     => 'nullable|string',
-            'data.rankNumber'               => 'nullable|string',
-            'data.community'                => 'nullable|string',
-            'data.coach'                    => 'nullable|string',
-            'data.motoStamp'                => 'nullable|string',
-            'data.polisNumber'              => 'nullable|string',
-            'data.issuedWhom'               => 'nullable|string',
-            'data.itWorksDate'              => 'nullable|date',
-            'data.polisFileLink'            => 'nullable|string',
-            'data.licensesNumber'           => 'nullable|string',
-            'data.licensesFileLink'         => 'nullable|string',
-            'data.numberAndSeria'           => 'nullable|string',
-            'data.pasportFileLink'          => 'nullable|string',
-
+            'surname'                  => 'required|string',
+            'patronymic'               => 'required|string',
+            'dateOfBirth'              => 'required|date',
+            'city'                     => 'required|string',
+            'region'                   => 'nullable|string',
+            'inn'                      => 'required|integer',
+            'snils'                    => 'required|integer',
+            'phoneNumber'              => 'required|integer',
+            'startNumber'              => 'required|integer|min:1|max:999',
+            'group'                    => 'required|string',
+            'rank'                     => 'required|string',
+            'rankNumber'               => 'required|string',
+            'community'                => 'required|string',
+            'coach'                    => 'required|string',
+            'motoStamp'                => 'required|string',
+            'polisNumber'              => 'required|string',
+            'locationId'               => 'required|exists:locations,id',
+            'gradeId'                  => 'required|exists:grades,id',
+            'numberAndSeria'           => 'required|string',
+            'documentIds'              => 'nullable|array',
+            'documentIds.*'            => 'nullable|integer',
         ];
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Grade;
+use App\Models\Location;
 use App\Models\Race;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -47,6 +49,23 @@ class AppointmentRaceFactory extends Factory
                 "polisFileLink"         => fake()->url(),
                 "notariuFileLink"       => fake()->url(),
             ], true),
+            'surname'           => fake()->firstName(),
+            'name'              => fake()->firstName(),
+            'patronymic'        => fake()->firstName(),
+            'engine'            => "T" . fake()->numberBetween(1, 20),
+            'start_number'      => fake()->numberBetween(1, 999),
+            'rank'              => fake()->text(5),
+            'date_of_birth'     => fake()->date('Y-m-d'),
+            'community'         => fake()->text(30),
+            'moto_stamp'        => fake()->domainName(),
+            'number_and_seria'  => fake()->numberBetween(9999, 10000),
+            'snils'             => fake()->numberBetween(9999, 10000),
+            'phone_number'      => fake()->numberBetween(999999999, 1000000000),
+            'coach'             => fake()->name(),
+            'inn'               => fake()->numberBetween(9999, 10000),
+            'city'              => fake()->city(),
+            'location_id'       => Location::inRandomOrder()->first()->id,
+            'grade_id'          => Grade::inRandomOrder()->first()->id,
         ];
     }
 }

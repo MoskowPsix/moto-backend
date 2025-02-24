@@ -32,23 +32,23 @@ class PersonalInfo extends Model
         'engine',           // двигатель
         'user_id',
         'number_and_seria',   // Серия и номер паспорта
-        'region',
-        'location_id',
+        'region',               // Область в текстовом формате(Оставлена, чтоб не вызывать ошибок)
+        'location_id',          // id области из таблицы locations
     ];
 
     protected $casts = [
-        'name'              => 'encrypted',
+        'name'              => 'string', // Убрано шифрование
         'surname'           => 'string',
-        'patronymic'        => 'encrypted',
+        'patronymic'        => 'string', // Убрано шифрование
         'date_of_birth'     => 'string',
         'gender'            => 'string',
         'city'              => 'string',
         'inn'               => 'encrypted',
         'snils'             => 'encrypted',
-        'phone_number'      => 'encrypted',
+        'phone_number'      => 'string', // Убрано шифрование
         'start_number'      => 'string',
         'group'             => 'string',
-        'rank_number'       => 'encrypted',
+        'rank_number'       => 'string', // Убрано шифрование
         'rank'              => 'string',
         'community'         => 'string',
         'coach'             => 'string',

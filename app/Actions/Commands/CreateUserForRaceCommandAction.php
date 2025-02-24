@@ -17,25 +17,26 @@ class CreateUserForRaceCommandAction implements CreateUserForRaceCommandActionCo
         ]);
 
         $users->each(function ($user) use ($id) {
-            AppointmentRace::factory()->create([
+            $appr = AppointmentRace::factory()->create([
                 "race_id" => $id,
                 "user_id" => $user->id,
             ]);
             PersonalInfo::factory()->create([
                 "user_id" => $user->id,
             ]);
-            Document::factory()->create([
+            $polis = Document::factory()->create([
                 "type" => "polis",
                 "user_id" => $user->id,
             ]);
-            Document::factory()->create([
+            $licenses = Document::factory()->create([
                 "type" => "licenses",
                 "user_id" => $user->id,
             ]);
-            Document::factory()->create([
+            $notarius = Document::factory()->create([
                 "type" => "notarius",
                 "user_id" => $user->id,
             ]);
+            $appr->documents()->sync([$polis->id, $licenses->id, $notarius->id]);
         });
     }
 }
