@@ -27,7 +27,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.user.get_user_for_token.success","user":{"id":14,"name":"Emmy Hamill","email":"iosinski@example.org","email_verified_at":"2025-02-18T11:15:10.000000Z","avatar":null}}'
+        content: '{"status":"success","message":"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043f\u043e \u0442\u043e\u043a\u0435\u043d\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e","user":{"id":193,"name":"\u041c\u0430\u0440\u043a \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447 \u041c\u0438\u0448\u0438\u043d","email":"odmitriev@example.com","email_verified_at":"2025-02-24T09:47:34.000000Z","avatar":null}}'
         headers: []
         description: ''
         custom: []
@@ -58,14 +58,14 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: 1
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 12
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -74,13 +74,13 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.user.get_for_id.success","user":{"id":15,"name":"Mr. Cordell Lindgren","avatar":null,"personal":[]}}'
+        content: '{"status":"success","message":"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","user":{"id":194,"name":"\u041b\u0435\u0431\u0435\u0434\u0435\u0432 \u0410\u043d\u0434\u0440\u0435\u0439 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447","avatar":null,"personal":[]}}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
+        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
         headers: []
         description: ''
         custom: []
@@ -113,9 +113,9 @@ endpoints:
     bodyParameters:
       name:
         name: name
-        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
+        description: 'Количество символов в поле value должно быть не меньше 3. Количество символов в значении поля value не может превышать 50.'
         required: false
-        example: rljqkqycbczlr
+        example: az
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -123,9 +123,9 @@ endpoints:
         custom: []
       email:
         name: email
-        description: 'Must be a valid email address.'
+        description: 'Значение поля value должно быть действительным электронным адресом.'
         required: false
-        example: sydni79@example.net
+        example: xgorczany@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -133,7 +133,7 @@ endpoints:
         custom: []
       avatar:
         name: avatar
-        description: 'Must be an image.'
+        description: 'Файл, указанный в поле value, должен быть изображением.'
         required: false
         example: null
         type: file
@@ -142,20 +142,20 @@ endpoints:
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: rljqkqycbczlr
-      email: sydni79@example.net
+      name: az
+      email: xgorczany@example.net
     fileParameters:
       avatar: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.user.update.success","user":{"id":16,"name":"Royal Cronin","email":"deja80@example.org","email_verified_at":"2025-02-18T11:15:11.000000Z","avatar":null}}'
+        content: '{"status":"success","message":"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0430.","user":{"id":195,"name":"\u041d\u0438\u043d\u0430 \u0421\u0435\u0440\u0433\u0435\u0435\u0432\u043d\u0430 \u0421\u0442\u0440\u0435\u043b\u043a\u043e\u0432\u0430","email":"boleslav93@example.net","email_verified_at":"2025-02-24T09:47:34.000000Z","avatar":null}}'
         headers: []
         description: ''
         custom: []
       -
         status: 500
-        content: '{"status":"success","message":"messages.user.update.error"}'
+        content: '{"status":"success","message":"\u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0438 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0438 \u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435. \u041f\u043e\u043f\u0440\u043e\u0431\u0443\u0439\u0442\u0435 \u043f\u043e\u0437\u0436\u0435."}'
         headers: []
         description: ''
         custom: []
