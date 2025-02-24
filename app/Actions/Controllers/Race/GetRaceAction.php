@@ -4,6 +4,7 @@ namespace App\Actions\Controllers\Race;
 
 use App\Contracts\Actions\Controllers\Race\GetRaceActionContract;
 use App\Filters\Race\RaceAppointmentExists;
+use App\Filters\Race\RaceDateFilter;
 use App\Filters\Race\RaceForTrackFilter;
 use App\Filters\Race\RaceUserIdFilter;
 use App\Http\Requests\Race\GetRaceRequest;
@@ -22,6 +23,7 @@ class GetRaceAction implements GetRaceActionContract
         $races = app(Pipeline::class)
             ->send($races_q)
             ->through([
+                RaceDateFilter::class,
                 RaceUserIdFilter::class,
                 RaceAppointmentExists::class,
                 RaceForTrackFilter::class,
