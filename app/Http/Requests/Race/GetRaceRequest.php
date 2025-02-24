@@ -37,6 +37,8 @@ class GetRaceRequest extends FormRequest
             'pastRace'          => 'nullable|boolean',
             'gradeIds'          => 'nullable|array',
             'gradeIds.*'        => 'nullable|integer|exists:grades,id',
+            'dateStart'         => 'nullable|date',
+            'dateEnd'           => 'nullable|date',
         ];
     }
 }
