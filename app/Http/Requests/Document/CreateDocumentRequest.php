@@ -33,7 +33,7 @@ class CreateDocumentRequest extends FormRequest
     {
         return [
             'type'                      => ['required', Rule::enum(DocumentType::class)],
-            'file'                      => 'required|file|mimes:pdf,jpg,jpeg,png',
+            'file'                      => 'nullable|file|mimes:pdf,jpg,jpeg,png',
             'url'                       => 'nullable|string',
             'number'                    => 'nullable|string',
             'issuedWhom'                => 'nullable|string',
