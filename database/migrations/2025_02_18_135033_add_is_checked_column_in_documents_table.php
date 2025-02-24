@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('issued_whom')->nullable();
             $table->string('it_works_date')->nullable();
         });
-        \App\Models\AppointmentRace::all()->each(function ($apps) {
+        \App\Models\Document::all()->each(function ($apps) {
             $data = json_decode($apps->data, true);
             if (isset($data)) {
                 if(isset($data['polisFileLink'])) {
