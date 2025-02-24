@@ -14,10 +14,10 @@ return new class extends Migration
         DB::table('personal_infos')->orderBy('id')->chunk(1000, function ($infos) {
              $infos->each(function ($info) {
                  \App\Models\PersonalInfo::find($info->id)->update([
-                     'name'              => Crypt::decryptString($info->name),
-                     'patronymic'        => Crypt::decryptString($info->patronymic),
-                     'phone_number'      => Crypt::decryptString($info->phone_number),
-                     'rank_number'       => Crypt::decryptString($info->rank_number),
+                     'name'              => empty($info->name) ? null : Crypt::decryptString($info->name),
+                     'patronymic'        => empty($info->patronymic) ? null : Crypt::decryptString($info->patronymic),
+                     'phone_number'      => empty($info->phone_number) ? null : Crypt::decryptString($info->phone_number),
+                     'rank_number'       => empty($info->rank_number) ? null : Crypt::decryptString($info->rank_number),
                  ]);
              });
         });

@@ -20,7 +20,6 @@ return new class extends Migration
         \App\Models\AppointmentRace::all()->each(function ($apps) {
             $data = json_decode($apps->data, true);
             if (isset($data)) {
-                dump($data);
                 if(isset($data['polisFileLink'])) {
                     $url_arr = explode('/', $data['polisFileLink']);
                     $id = array_pop($url_arr);
