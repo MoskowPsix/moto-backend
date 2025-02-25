@@ -7,6 +7,14 @@ use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * @property int $id
+ * @property string $surname
+ * @property string $name
+ * @property string $patronymic
+ * @property int $start_number
+ * @property string $rank
+ */
 class AppointmentRaceResource extends JsonResource
 {
     /**
@@ -23,6 +31,7 @@ class AppointmentRaceResource extends JsonResource
             'patronymic'    => $this->patronymic,
             'rank'          => $this->rank,
             'city'          => $this->city,
+            'start_number'  => $this->start_number,
             'location'  => $this->whenLoaded('location', LocationResource::make($this->location)),
             'user'      => UserResource::make($this->whenLoaded('user')),
         ];
