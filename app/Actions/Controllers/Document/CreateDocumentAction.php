@@ -20,7 +20,7 @@ class CreateDocumentAction implements CreateDocumentActionContract
         $document = Document::create([
             'name'          => $name,
             'type'          => $request->type,
-            'path'          => $path,
+            'path'          => $path ?? '',
             'number'        => $request->number,
             'issued_whom'   => $request->issuedWhom,
             'it_works_date' => isset($request->itWorksDate) ? Carbon::parse($request->itWorksDate) : null,
