@@ -26,13 +26,14 @@ class UpdateTrackAction implements UpdateTrackActionContract
             return NotUserPermissionResource::make([]);
         }
         $track->update([
-            'name' => $request->name ?? $track->name,
-            'address' => $request->address ?? $track->address,
-            'latitude' => $request->latitude ?? $track->latitude,
-            'longitude' => $request->longitude ?? $track->longitude,
-            'is_work' => $request->is_work ?? $track->is_work,
-            'level_id' => $request->levelId ?? $track->level_id,
-            'location_id' => $request->locationId ?? $track->location_id,
+            'name'          => $request->name ?? $track->name,
+            'desc'          => $request->desc ?? $track->desc,
+            'address'       => $request->address ?? $track->address,
+            'latitude'      => $request->latitude ?? $track->latitude,
+            'longitude'     => $request->longitude ?? $track->longitude,
+            'is_work'       => $request->is_work ?? $track->is_work,
+            'level_id'      => $request->levelId ?? $track->level_id,
+            'location_id'   => $request->locationId ?? $track->location_id,
         ]);
 
         $this->saveFiles($request, $track);
