@@ -1,17 +1,17 @@
-name: Command
-description: 'Методы связанные с командами'
+name: Grade
+description: 'Методы связанные с классами'
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/commands
+    uri: api/grades
     metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
       subgroup: ''
       subgroupDescription: ''
       title: get
-      description: 'Получение всех команд по фильтрам'
+      description: 'Получение всех классов по фильтрам'
       authenticated: false
       custom: []
     headers:
@@ -26,7 +26,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 19
+        example: 6
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -46,7 +46,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: tempora
+        example: nihil
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -56,44 +56,22 @@ endpoints:
         name: limit
         description: 'Значение поля value не может быть больше 50.'
         required: false
-        example: 10
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      locationId:
-        name: locationId
-        description: 'The <code>id</code> of an existing record in the locations table.'
-        required: false
         example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      city:
-        name: city
-        description: ''
-        required: false
-        example: eveniet
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
     cleanBodyParameters:
-      userId: 19
+      userId: 6
       paginate: false
-      page: tempora
-      limit: 10
-      locationId: 2
-      city: eveniet
+      page: nihil
+      limit: 2
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430","commands":{"id":6,"name":"\u0412\u043e\u0440\u043e\u0431\u044c\u0451\u0432\u0430 \u0410\u043b\u044c\u0431\u0438\u043d\u0430 \u041b\u044c\u0432\u043e\u0432\u043d\u0430","city":"\u041e\u0437\u0451\u0440\u044b","avatar":null}},{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430","commands":{"id":7,"name":"\u041b\u0435\u0432 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447 \u0421\u0435\u043b\u0438\u0432\u0435\u0440\u0441\u0442\u043e\u0432","city":"\u041b\u0443\u0445\u043e\u0432\u0438\u0446\u044b","avatar":null}}]'
+        content: '[{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e","grades":{"id":2,"name":"\u0417\u043e\u044f \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u043d\u0430 \u0413\u043e\u0440\u0448\u043a\u043e\u0432\u0430","description":"Nobis omnis omnis quaerat. Dignissimos exercitationem veniam minus exercitationem unde. Aliquam ab explicabo incidunt iste."}},{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e","grades":{"id":3,"name":"\u0414\u043e\u0440\u043e\u043d\u0438\u043d\u0430 \u0421\u043e\u0444\u044c\u044f \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u043d\u0430","description":"Deserunt quo quidem quo voluptas tenetur soluta. Commodi tenetur consectetur perferendis nostrum distinctio. Soluta sit vel deleniti optio quae. Eos ut et enim culpa eligendi dignissimos."}}]'
         headers: []
         description: ''
         custom: []
@@ -106,14 +84,14 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/commands/{id}'
+    uri: 'api/grades/{id}'
     metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
       subgroup: ''
       subgroupDescription: ''
       title: getForId
-      description: 'Получение команд по id'
+      description: 'Получение класса по id'
       authenticated: false
       custom: []
     headers:
@@ -122,24 +100,24 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the command.'
+        description: 'The ID of the grade.'
         required: true
-        example: 2
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 2
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       id:
         name: id
-        description: 'The <code>id</code> of an existing record in the commands table.'
+        description: 'The <code>id</code> of an existing record in the grades table.'
         required: true
-        example: 18
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -155,36 +133,14 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      locationId:
-        name: locationId
-        description: ''
-        required: false
-        example: 7
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      city:
-        name: city
-        description: ''
-        required: false
-        example: eius
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
     cleanBodyParameters:
-      id: 18
+      id: 3
       userId: 3
-      locationId: 7
-      city: eius
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e","command":{"id":8,"name":"\u0423\u0432\u0430\u0440\u043e\u0432 \u0422\u0438\u0442 \u0418\u0432\u0430\u043d\u043e\u0432\u0438\u0447","city":"\u041c\u044b\u0442\u0438\u0449\u0438","avatar":null}}'
+        content: '{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e","grade":{"id":4,"name":"\u0421\u0432\u0435\u0442\u043b\u0430\u043d\u0430 \u0424\u0451\u0434\u043e\u0440\u043e\u0432\u043d\u0430 \u041a\u0438\u0440\u0438\u043b\u043b\u043e\u0432\u0430","description":"Nobis autem atque sequi aspernatur nemo qui quia. Aut nihil quia dignissimos quas est corrupti qui. Asperiores saepe deleniti et asperiores eos. Sed dicta voluptatem omnis soluta velit vel sed."}}'
         headers: []
         description: ''
         custom: []
@@ -197,18 +153,18 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/commands
+    uri: api/grades
     metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
       subgroup: ''
       subgroupDescription: ''
       title: create
-      description: 'Создание команды'
+      description: 'Создание класса'
       authenticated: true
       custom: []
     headers:
-      Content-Type: multipart/form-data
+      Content-Type: application/json
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
@@ -219,52 +175,30 @@ endpoints:
         name: name
         description: 'Количество символов в значении поля value не может превышать 255.'
         required: true
-        example: oqrrb
+        example: ailugonlpbvwqmzqbym
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
-      avatar:
-        name: avatar
-        description: 'Файл, указанный в поле value, должен быть изображением.'
+      description:
+        name: description
+        description: ''
         required: false
-        example: null
-        type: file
+        example: 'Ipsa voluptas accusantium id inventore sed vero eum.'
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      locationId:
-        name: locationId
-        description: 'The <code>id</code> of an existing record in the locations table.'
-        required: true
-        example: 19
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      city:
-        name: city
-        description: 'Количество символов в значении поля value не может превышать 255.'
-        required: true
-        example: rawojvzglrzfpsbu
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
     cleanBodyParameters:
-      name: oqrrb
-      locationId: 19
-      city: rawojvzglrzfpsbu
-    fileParameters:
-      avatar: null
+      name: ailugonlpbvwqmzqbym
+      description: 'Ipsa voluptas accusantium id inventore sed vero eum.'
+    fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430","command":{"id":9,"name":"\u0412\u0430\u0440\u0432\u0430\u0440\u0430 \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u043d\u0430 \u041b\u044b\u0442\u043a\u0438\u043d\u0430","city":"\u041a\u0430\u0448\u0438\u0440\u0430","avatar":null}}'
+        content: '{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d","grade":{"id":5,"name":"\u041c\u0438\u0445\u0430\u0438\u043b \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u0438\u0447 \u041a\u043e\u0441\u0442\u0438\u043d","description":"Exercitationem qui tenetur dolores consequuntur non magnam repellendus non. Aperiam sunt maiores eligendi culpa. Provident eveniet inventore quia architecto."}}'
         headers: []
         description: ''
         custom: []
@@ -276,11 +210,11 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - POST
-    uri: 'api/commands/{id}'
+      - PATCH
+    uri: 'api/grades/{id}'
     metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
       subgroup: ''
       subgroupDescription: ''
       title: update
@@ -288,21 +222,21 @@ endpoints:
       authenticated: true
       custom: []
     headers:
-      Content-Type: multipart/form-data
+      Content-Type: application/json
       Accept: application/json
     urlParameters:
       id:
         name: id
-        description: 'The ID of the command.'
+        description: 'The ID of the grade.'
         required: true
-        example: 20
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 20
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -310,58 +244,41 @@ endpoints:
         name: name
         description: 'Количество символов в значении поля value не может превышать 255.'
         required: false
-        example: aqrlsvelil
+        example: lnjurstnawvnyfhnxysmfl
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      avatar:
-        name: avatar
-        description: 'Файл, указанный в поле value, должен быть изображением.'
+      description:
+        name: description
+        description: ''
         required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      city:
-        name: city
-        description: 'Количество символов в значении поля value не может превышать 255.'
-        required: false
-        example: gf
+        example: 'Veritatis rem aliquid est ipsum.'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      locationId:
-        name: locationId
-        description: 'The <code>id</code> of an existing record in the locations table.'
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 17
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: aqrlsvelil
-      city: gf
-      locationId: 17
-    fileParameters:
-      avatar: null
+      name: lnjurstnawvnyfhnxysmfl
+      description: 'Veritatis rem aliquid est ipsum.'
+      userId: 20
+    fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0430","command":{"id":10,"name":"\u0413\u0443\u043b\u044f\u0435\u0432\u0430 \u041d\u0430\u0434\u0435\u0436\u0434\u0430 \u0414\u043c\u0438\u0442\u0440\u0438\u0435\u0432\u043d\u0430","city":"\u0414\u043e\u0440\u043e\u0445\u043e\u0432\u043e","avatar":null}}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 403
-        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        content: '{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0451\u043d","grade":{"id":6,"name":"\u041a\u0438\u0440\u0438\u043b\u043b \u041b\u044c\u0432\u043e\u0432\u0438\u0447 \u0424\u043e\u043c\u0438\u043d","description":"Sit qui repudiandae debitis quis rerum. Quia voluptates eos ea eligendi molestias eos quasi. Delectus temporibus quisquam minima."}}'
         headers: []
         description: ''
         custom: []

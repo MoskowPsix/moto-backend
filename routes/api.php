@@ -20,7 +20,11 @@ Route::controller(UserController::class)->group(function () {
     Route::get('users', 'getUserForToken')->middleware('auth:sanctum')->name('user.get_user.for_token');
     Route::get('users/{id}', 'getForId')->name('user.get_for_id');
     Route::post('users/update', 'update')->middleware('auth:sanctum')->name('user.get_user.update');
+});
 
+Route::controller(\App\Http\Controllers\Api\RecoveryPassword::class)->group(function () {
+    Route::post('recovery-password/send', 'send')->name('recovery_password.send');
+    Route::post('recovery-password/recovery', 'recovery')->name('recovery_password.recovery');
 });
 
 Route::controller(\App\Http\Controllers\Api\VerificationEmail::class)->group(function () {
