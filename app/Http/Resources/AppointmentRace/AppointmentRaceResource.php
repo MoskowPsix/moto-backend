@@ -22,6 +22,7 @@ class AppointmentRaceResource extends JsonResource
             'name'          => $this->name,
             'patronymic'    => $this->patronymic,
             'rank'          => $this->rank,
+            'city'          => $this->city,
             'location'  => $this->whenLoaded('location', LocationResource::make($this->location)),
             'user'      => UserResource::make($this->whenLoaded('user')),
         ];
