@@ -30,9 +30,10 @@ class AppointmentRaceResource extends JsonResource
             'name'          => $this->name,
             'patronymic'    => $this->patronymic,
             'rank'          => $this->rank,
+            'city'          => $this->city,
             'start_number'  => $this->start_number,
-            'location'      => $this->whenLoaded('location', LocationResource::make($this->location)),
-            'user'          => UserResource::make($this->whenLoaded('user')),
+            'location'  => $this->whenLoaded('location', LocationResource::make($this->location)),
+            'user'      => UserResource::make($this->whenLoaded('user')),
         ];
     }
 }
