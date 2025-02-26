@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Enums\DocumentType;
+use App\Models\AppointmentRace;
 use App\Models\Document;
 use App\Services\GoogleSheetService;
 use Illuminate\Console\Command;
@@ -28,8 +29,20 @@ class test extends Command
      */
     public function handle()
     {
+        $coms = [];
+        $apps = AppointmentRace::query()->get()->toArray();
+        foreach ($apps as $app) {
+            $data = json_decode($app['data'], true);
+            $coms[] = trim($data['community']);
+        }
+        $valueCounts = array_count_values($coms);
+        $uniqueValues = array_keys(array_filter($valueCounts, function($count) {
+            return $count === 1;
+        }));
+        $unic = $uniqueValues;
+        dd($unic);
         Document::all()->each(function ($apps) {
-            $data = json_decode($apps->data, true);
+            $data = json_decode(json_decode($apps->data, true), true);
 
             if (isset($data)) {
                 if($apps->type->value === DocumentType::Polis->value) {
