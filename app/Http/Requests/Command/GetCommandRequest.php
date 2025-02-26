@@ -28,6 +28,7 @@ class GetCommandRequest extends FormRequest
             'limit'             => 'nullable|integer|max:50',
             'locationId'        => 'nullable|integer|exists:locations,id',
             'city'              => 'nullable|string',
+            'name'              => 'nullable|string',
         ];
     }
 }
