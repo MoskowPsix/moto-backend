@@ -43,6 +43,7 @@ class ToogleAppointmentRaceRequest extends FormRequest
             'motoStamp'                => 'required|string',
             'locationId'               => 'required|exists:locations,id',
             'gradeId'                  => 'required|exists:grades,id',
+            'commandId'                => 'required|exists:commands,id',
             'numberAndSeria'           => 'required|string',
             'documentIds'              => 'nullable|array',
             'documentIds.*'            => 'nullable|integer',

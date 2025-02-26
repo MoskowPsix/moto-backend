@@ -9,6 +9,7 @@ use App\Http\Resources\AppointmentRace\SuccessCreateTableAppointmentRaceResource
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\AppointmentRace;
+use App\Models\Command;
 use App\Models\Race;
 use App\Notifications\CreateTableAppointmentRaceUserNotify;
 use Carbon\Carbon;
@@ -71,7 +72,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
                 'Спортивное звание (разряд)'                                        => $value['rank'] ?? '',
                 'Дата Рождения'                                                     => isset($value['date_of_birth']) ? Carbon::parse($value['date_of_birth'])->format('d.m.Y') : '',
                 'Населенный пункт (город, область)'                                 => 'г. ' . ($value['city'] ?? '') . ', ' . ($value['location']['name'] ?? ''),
-                'Команда (Клуб)'                                                    => $value['community'] ?? '',
+                'Команда (Клуб)'                                                    => Command::find($value['command_id'])->name ?? '',
                 'Марка мотоцикла'                                                   => $value['moto_stamp'] ?? '',
                 'Серия и номер паспорта/ свидетельства о рождении'                  => $value['number_and_seria'] ?? '',
                 'Пенсионное страховое свидетельство (СНИЛС)'                        => $value['snils'] ?? '',

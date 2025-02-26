@@ -24,6 +24,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property int $numberAndSeria
  * @property string $region
  * @property int $locationId
+ * @property int $commandId
  */
 class CreatePersonalInfoRequest extends FormRequest
 {
@@ -62,6 +63,7 @@ class CreatePersonalInfoRequest extends FormRequest
             'numberAndSeria'    => 'nullable|string',
             'region'            => 'nullable|string',
             'locationId'        => 'nullable|integer|exists:locations,id',
+            'commandId'         => 'nullable|integer|exists:commands,id',
         ];
     }
 }

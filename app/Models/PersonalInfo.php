@@ -14,26 +14,27 @@ class PersonalInfo extends Model
 {
     use HasFactory;
     protected $fillable =[
-        'name',             // Имя
-        'surname',          // Фамилия
-        'patronymic',       // Отчество
-        'date_of_birth',    // Дата рождения
-        'city',             // Город
-        'inn',              // ИНН
-        'snils',            // СНИЛС
-        'phone_number',     // Номер телефона
-        'start_number',     // Стартовый номер
-        'group',            // Группа гонки
-        'rank_number',      // Номер удостеверения МСМК, МС, КМС
-        'rank',             // Звание или разряд
-        'community',        // Команда
-        'coach',            // Тренер
-        'moto_stamp',       // Марка мотоцикла
-        'engine',           // двигатель
+        'name',                 // Имя
+        'surname',              // Фамилия
+        'patronymic',           // Отчество
+        'date_of_birth',        // Дата рождения
+        'city',                 // Город
+        'inn',                  // ИНН
+        'snils',                // СНИЛС
+        'phone_number',         // Номер телефона
+        'start_number',         // Стартовый номер
+        'group',                // Группа гонки
+        'rank_number',          // Номер удостеверения МСМК, МС, КМС
+        'rank',                 // Звание или разряд
+        'community',            // Команда
+        'coach',                // Тренер
+        'moto_stamp',           // Марка мотоцикла
+        'engine',               // двигатель
         'user_id',
-        'number_and_seria',   // Серия и номер паспорта
+        'number_and_seria',     // Серия и номер паспорта
         'region',               // Область в текстовом формате(Оставлена, чтоб не вызывать ошибок)
         'location_id',          // id области из таблицы locations
+        'command_id',
     ];
 
     protected $casts = [
@@ -65,5 +66,10 @@ class PersonalInfo extends Model
     public function location(): BelongsTo
     {
         return $this->belongsTo(Location::class);
+    }
+
+    public function command(): BelongsTo
+    {
+        return $this->belongsTo(Command::class);
     }
 }
