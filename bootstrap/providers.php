@@ -7,4 +7,5 @@ return [
     App\Providers\ServicesServiceProvider::class,
     App\Providers\TelescopeServiceProvider::class,
     Spatie\Permission\PermissionServiceProvider::class,
+    \Barryvdh\DomPDF\ServiceProvider::class
 ];

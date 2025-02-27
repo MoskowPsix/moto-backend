@@ -22,7 +22,6 @@ class GetForIdCommandRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'id'            => 'required|integer|exists:commands,id',
             'userId'        => 'nullable|integer',
             'locationId'    => 'nullable|integer',
             'city'          => 'nullable|string',
