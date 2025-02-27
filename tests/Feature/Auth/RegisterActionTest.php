@@ -34,7 +34,7 @@ class RegisterActionTest extends TestCase
             'name' => $user_seed->name,
             'email' => $user_seed->email,
             'password' => $user_seed->password,
-            'avatar' => $user_seed->$image,
+            'avatar' => $image,
         ];
 
         $request = new RegisterRequest($user);

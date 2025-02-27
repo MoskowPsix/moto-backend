@@ -42,6 +42,8 @@ class UpdateCommandAction implements UpdateCommandActionContract
 
     private function saveAvatar($avatar, Command $command): void
     {
+        $path = $command->avatar;
+
         if($command->avatar){
             $this->deleteAvatar($command->avatar);
         }

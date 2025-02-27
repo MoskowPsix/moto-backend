@@ -16,9 +16,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             LevelSeeder::class,
             RoleSeeder::class,
+            LocationSeeder::class,
             UserSeeder::class,
             TrackSeeder::class,
-            RaceSeeder::class
+            RaceSeeder::class,
+            GradeSeeder::class,
+            CommandSeeder::class,
         ]);
     }
 }

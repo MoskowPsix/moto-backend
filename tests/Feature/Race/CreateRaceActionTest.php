@@ -11,21 +11,22 @@ use App\Models\Track;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Artisan;
 use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 
 class CreateRaceActionTest extends TestCase
 {
     use RefreshDatabase;
-    protected $seed = true;
+    protected bool $seed = true;
     /**
      * A basic feature test example.
      */
+
     public function test_action_success(): void
     {
         $user = User::factory()->create();
         $track = Track::factory()->create();
-        $location = Location::factory()->create();
 
         $image = UploadedFile::fake()->create('file.png');
         $positionFile = UploadedFile::fake()->create('position.pdf');
@@ -37,10 +38,10 @@ class CreateRaceActionTest extends TestCase
             'desc' => $race_seed->desc,
             'dateStart' => $race_seed->date_start,
             'images' => [$image],
-            'position_file' => [$positionFile],
-            'results_file' => [$resultsFile],
+            'positionFile' => $positionFile,
+            'resultsFile' => $resultsFile,
             'trackId' => $track->id,
-            'locationId' => $race_seed->location->location_id ?? $location->location_id,
+            'locationId' => $track->location_id,
         ];
 
         $raceRequest = new CreateRaceRequest($race);

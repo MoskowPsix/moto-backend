@@ -93,3 +93,7 @@ Route::controller(\App\Http\Controllers\Api\CommandController::class)->group(fun
     Route::post('commands', 'create')->middleware(['auth:sanctum', 'email_verification'])->name('command.create');
     Route::post('commands/{id}', 'update')->middleware(['auth:sanctum', 'email_verification'])->name('command.update');
 });
+
+Route::controller(\App\Http\Controllers\Api\RequestPdfController::class)->group(function () {
+    Route::get('pdf/generate', 'create')->name('request.get');
+});

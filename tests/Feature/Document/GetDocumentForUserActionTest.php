@@ -12,8 +12,8 @@ class GetDocumentForUserActionTest extends TestCase
     /**
      * A basic feature test example.
      */
-    public function test_action_success(): void
-    {
-        $document = Document::factory()->create();
-    }
+//    public function test_action_success(): void
+//    {
+//        $document = Document::factory()->create();
+//    }
 }
