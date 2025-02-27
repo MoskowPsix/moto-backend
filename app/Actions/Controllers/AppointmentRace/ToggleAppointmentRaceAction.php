@@ -76,9 +76,9 @@ class ToggleAppointmentRaceAction implements ToggleAppointmentRaceActionContract
             'city'                  => $request->city,
             'location_id'           => $request->locationId,
             'grade_id'              => $request->gradeId,
+            'command_id'            => $request->commandId ?? null,
         ]);
 
-        isset($request->commandId) ? $app->command()->attach($request->commandId) : null;
         foreach($request->documentIds as $documentId) {
             if (!auth()->user()->documents()->where('id', $documentId)->exists()) {
                 break;
