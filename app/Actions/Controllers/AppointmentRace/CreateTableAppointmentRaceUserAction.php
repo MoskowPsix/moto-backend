@@ -72,7 +72,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
                 'Спортивное звание (разряд)'                                        => $value['rank'] ?? '',
                 'Дата Рождения'                                                     => isset($value['date_of_birth']) ? Carbon::parse($value['date_of_birth'])->format('d.m.Y') : '',
                 'Населенный пункт (город, область)'                                 => 'г. ' . ($value['city'] ?? '') . ', ' . ($value['location']['name'] ?? ''),
-                'Команда (Клуб)'                                                    => Command::find($value['command_id'])->name ?? '',
+                'Команда (Клуб)'                                                    => !empty($value['command_id']) ? Command::find($value['command_id'])->name : '',
                 'Марка мотоцикла'                                                   => $value['moto_stamp'] ?? '',
                 'Серия и номер паспорта/ свидетельства о рождении'                  => $value['number_and_seria'] ?? '',
                 'Пенсионное страховое свидетельство (СНИЛС)'                        => $value['snils'] ?? '',

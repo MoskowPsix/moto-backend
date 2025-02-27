@@ -31,12 +31,12 @@ class test extends Command
      */
     public function handle()
     {
-
-        $pdf = Pdf::loadView('template_doc.appr_temp_pdf');
-
-        $pdf->setOption(['dpi' => 150, 'defaultFont' => 'sans-serif'])->setPaper('a4', 'landscape')->save('my_stored_file.pdf')->stream('download.pdf');
-        dd();
-
+//
+//        $pdf = Pdf::loadView('template_doc.appr_temp_pdf');
+//
+//        $pdf->setOption(['dpi' => 150, 'defaultFont' => 'sans-serif'])->setPaper('a4', 'landscape')->save('my_stored_file.pdf')->stream('download.pdf');
+//        dd();
+//
 
 
         $coms = [];
