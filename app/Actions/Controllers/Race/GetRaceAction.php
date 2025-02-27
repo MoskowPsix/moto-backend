@@ -5,6 +5,7 @@ namespace App\Actions\Controllers\Race;
 use App\Contracts\Actions\Controllers\Race\GetRaceActionContract;
 use App\Filters\Race\RaceAppointmentExists;
 use App\Filters\Race\RaceDateFilter;
+use App\Filters\Race\RaceForLocationIdsFilter;
 use App\Filters\Race\RaceForTrackFilter;
 use App\Filters\Race\RaceUserIdFilter;
 use App\Http\Requests\Race\GetRaceRequest;
@@ -27,6 +28,7 @@ class GetRaceAction implements GetRaceActionContract
                 RaceUserIdFilter::class,
                 RaceAppointmentExists::class,
                 RaceForTrackFilter::class,
+                RaceForLocationIdsFilter::class,
             ])
             ->via('apply')
             ->then(function ($races) use ($page, $limit, $request) {
