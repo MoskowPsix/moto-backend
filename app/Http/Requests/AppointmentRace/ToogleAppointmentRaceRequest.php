@@ -38,7 +38,7 @@ class ToogleAppointmentRaceRequest extends FormRequest
             'group'                    => 'required|string',
             'rank'                     => 'required|string',
             'rankNumber'               => 'nullable|string',
-            'community'                => 'required|string',
+            'community'                => 'nullable|string',
             'coach'                    => 'nullable|string',
             'motoStamp'                => 'required|string',
             'locationId'               => 'required|exists:locations,id',

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Contracts\Actions\Controllers\AppointmentRace\CreateTableAppointmentRaceUserActionContract;
+use App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentPDFActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\GetUsersAppointmentRaceActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\ToggleAppointmentRaceActionContract;
 use App\Http\Controllers\Controller;
@@ -22,6 +23,8 @@ use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\ResponseFromApiResource;
+use Knuckles\Scribe\Attributes\ResponseFromFile;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 #[Group(name: 'AppointmentRace', description: 'Методы отвечающие за запись участников')]
 class AppointmentRaceController extends Controller
@@ -55,6 +58,14 @@ class AppointmentRaceController extends Controller
     #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
     #[Endpoint(title: 'getTable', description: 'Получить ссылку на таблицу участников')]
     public function getUsersAppointmentRaceInTable(int $id, CreateTableAppointmentRaceUserActionContract $action): SuccessCreateTableAppointmentRaceResource | NotUserPermissionResource | NotFoundResource
+    {
+        return $action($id);
+    }
+    #[Authenticated]
+    #[ResponseFromFile(file: "storage/app/private/user/documents/URsB0gs6G0ATlQnF2TdirtS1hCOJfMOFoxmkBWgo.png")]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[Endpoint(title: 'getAppointmentPDF', description: 'Возвращает документ заявки гонщика для комиссии')]
+    public function getAppointmentPDF(int $id, GetAppointmentPDFActionContract $action): BinaryFileResponse|NotFoundResource
     {
         return $action($id);
     }
