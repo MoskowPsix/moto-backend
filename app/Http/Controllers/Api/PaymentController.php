@@ -10,7 +10,7 @@ class PaymentController extends Controller
     public function paymentForm()
     {
         $merchant_login = 'demo';
-        $password_1 = 'F8KDRr8GupU68RCP0ROW';
+        $password_1 = '';
         $invid = 617;
         $description = 'Тестовая оплата';
         $default_sum = 100;
@@ -32,7 +32,7 @@ class PaymentController extends Controller
         $inv_id = $request->input('InvId');
         $signature = $request->input('SignatureValue');
 
-        $password_2 = "kcdUsu2IT8s4S7W8VvjM";
+        $password_2 = "";
 
         $expected_signature = strtoupper(md5("$out_sum:$inv_id:$password_2"));
 

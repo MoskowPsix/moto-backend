@@ -6,6 +6,7 @@ use App\Enums\DocumentType;
 use App\Models\Document;
 use App\Services\GoogleSheetService;
 use Illuminate\Console\Command;
+use Unetway\LaravelRobokassa\Robokassa;
 
 class test extends Command
 {
@@ -28,6 +29,15 @@ class test extends Command
      */
     public function handle()
     {
+        $robokassa = new Robokassa();
+
+        $link = $robokassa->generateLink([
+            'OutSum' => 123.45,
+            'Description' => 'Описание',
+            'InvoiceID' => 7,
+        ]);
+
+        dd($link);
         Document::all()->each(function ($apps) {
             $data = json_decode($apps->data, true);
 
