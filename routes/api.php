@@ -101,3 +101,9 @@ Route::controller(\App\Http\Controllers\Api\CommandController::class)->group(fun
 Route::controller(\App\Http\Controllers\Api\PdfController::class)->group(function () {
     Route::get('pdf/generate/{id}', 'create')->name('request.get');
 });
+
+//Оплата Robokassa
+Route::controller(\App\Http\Controllers\Api\PaymentController::class)->group(function () {
+    Route::get('payments', 'paymentForm')->name('payment.payform');
+    Route::post('payments/callback', 'paymentCallBack')->name('payment.callback');
+});
