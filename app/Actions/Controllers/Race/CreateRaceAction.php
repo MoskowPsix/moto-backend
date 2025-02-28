@@ -7,6 +7,7 @@ use App\Http\Requests\Race\CreateRaceRequest;
 use App\Http\Resources\Race\Create\SuccessCreateRaceResource;
 use App\Models\Race;
 use App\Models\Track;
+use Carbon\Carbon;
 
 class CreateRaceAction implements CreateRaceActionContract
 {
@@ -18,6 +19,7 @@ class CreateRaceAction implements CreateRaceActionContract
             'desc'          => $request->desc,
             'date_start'    => $request->dateStart,
             'track_id'      => $request->trackId,
+            'record_end'    => isset($request->recordEnd) ? Carbon::parse($request->recordEnd) : null,
             'user_id'       => $user->id,
             'location_id'   => $request->locationId ?? Track::find($request->locationId)->location_id,
         ]);

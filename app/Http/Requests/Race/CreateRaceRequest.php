@@ -16,6 +16,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property mixed $locationId
  * @property array $gradeIds
  * @property string $dateStart
+ * @property string $recordEnd
  */
 class CreateRaceRequest extends FormRequest
 {
@@ -38,6 +39,7 @@ class CreateRaceRequest extends FormRequest
             'name'          => 'required|string|max:255|min:3',
             'desc'          => 'nullable|string',
             'dateStart'     => 'required|date',
+            'recordEnd'     => 'nullable|date',
             'trackId'       => 'required|integer|exists:tracks,id',
             'images'        => 'array|nullable',
             'images.*'      => 'image|mimes:jpeg,png,jpg,svg,webp',

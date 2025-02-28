@@ -1,69 +1,159 @@
-name: Document
-description: 'Методы взаимодействия с документами пользователя'
+name: PersonalInfo
+description: 'Всё что связанно с персональной информацией пользователя'
 endpoints:
   -
     httpMethods:
       - POST
-    uri: api/users/cabinet/documents
+    uri: api/users/cabinet/personal-info
     metadata:
-      groupName: Document
-      groupDescription: 'Методы взаимодействия с документами пользователя'
+      groupName: PersonalInfo
+      groupDescription: 'Всё что связанно с персональной информацией пользователя'
       subgroup: ''
       subgroupDescription: ''
       title: Create
-      description: 'Создание документа пользователя'
-      authenticated: false
+      description: 'Создать запись персональных данных'
+      authenticated: true
       custom: []
     headers:
-      Content-Type: multipart/form-data
+      Content-Type: application/json
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      type:
-        name: type
-        description: ''
-        required: true
-        example: ullam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      file:
-        name: file
-        description: 'Must be a file.'
-        required: true
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      data:
-        name: data
-        description: ''
-        required: true
-        example: qui
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      data.licensesNumber:
-        name: data.licensesNumber
+      name:
+        name: name
         description: ''
         required: false
-        example: consequatur
+        example: quo
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      data.licensesFileLink:
-        name: data.licensesFileLink
+      surname:
+        name: surname
+        description: ''
+        required: false
+        example: facere
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      patronymic:
+        name: patronymic
+        description: ''
+        required: false
+        example: aut
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      dateOfBirth:
+        name: dateOfBirth
+        description: 'Значение поля value не является датой.'
+        required: false
+        example: '2025-02-25T07:52:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: false
+        example: aspernatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      inn:
+        name: inn
+        description: ''
+        required: false
+        example: voluptatibus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      snils:
+        name: snils
+        description: ''
+        required: false
+        example: nulla
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      phoneNumber:
+        name: phoneNumber
+        description: ''
+        required: false
+        example: nulla
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      startNumber:
+        name: startNumber
+        description: 'Значение поля value должно быть не меньше 1. Значение поля value не может быть больше 999.'
+        required: false
+        example: 18
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      group:
+        name: group
+        description: ''
+        required: false
+        example: sed
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      rank:
+        name: rank
+        description: ''
+        required: false
+        example: eius
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      rankNumber:
+        name: rankNumber
+        description: ''
+        required: false
+        example: qui
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      community:
+        name: community
+        description: ''
+        required: false
+        example: dolorem
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
         description: ''
         required: false
         example: et
@@ -72,75 +162,81 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      data.polisNumber:
-        name: data.polisNumber
+      motoStamp:
+        name: motoStamp
         description: ''
         required: false
-        example: perspiciatis
+        example: dolore
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      data.issuedWhom:
-        name: data.issuedWhom
+      engine:
+        name: engine
         description: ''
         required: false
-        example: omnis
+        example: in
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      data.itWorksDate:
-        name: data.itWorksDate
-        description: 'Must be a valid date.'
+      numberAndSeria:
+        name: numberAndSeria
+        description: ''
         required: false
-        example: '2025-02-18T11:15:14'
+        example: corrupti
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      data.numberAndSeria:
-        name: data.numberAndSeria
+      region:
+        name: region
         description: ''
         required: false
-        example: 9
+        example: facilis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 14
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      data.pasportFileLink:
-        name: data.pasportFileLink
-        description: ''
-        required: false
-        example: quos
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      data.polisFileLink:
-        name: data.polisFileLink
-        description: ''
-        required: false
-        example: omnis
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
     cleanBodyParameters:
-      type: ullam
-      data: qui
-    fileParameters:
-      file: null
+      name: quo
+      surname: facere
+      patronymic: aut
+      dateOfBirth: '2025-02-25T07:52:00'
+      city: aspernatur
+      inn: voluptatibus
+      snils: nulla
+      phoneNumber: nulla
+      startNumber: 18
+      group: sed
+      rank: eius
+      rankNumber: qui
+      community: dolorem
+      coach: et
+      motoStamp: dolore
+      engine: in
+      numberAndSeria: corrupti
+      region: facilis
+      locationId: 14
+    fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.document.create.success","document":{"id":null,"name":null,"type":null,"path":null,"data":null}}'
+        content: '{"status":"success","message":"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435 \u0441\u043e\u0437\u0434\u0430\u043d\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","personal_info":{"name":"Prof.","surname":"Mr.","patronymic":"Miss","date_of_birth":"1979-07-13","city":"\u041d\u0430\u0440\u043e-\u0424\u043e\u043c\u0438\u043d\u0441\u043a","inn":"100000000000","snils":"10000000000","phone_number":"8-800-639-0150","start_number":"609","group":"\u041a\u0440\u0435\u0430\u0442\u0438\u0432\u043d\u044b\u0439 \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440","rank_number":"100000","rank":"\u0424\u0438\u0437\u0438\u043a","community":"\u041e\u041e\u041e \u041a\u043e\u043c\u043f\u0430\u043d\u0438\u044f \u041c\u0438\u043a\u0440\u043e\u0424\u0438\u043d\u0430\u043d\u0441\u0422\u0435\u043b\u0435\u043a\u043e\u043c\u0411\u0430\u043d\u043a","coach":"\u0412\u0438\u043a\u0442\u043e\u0440\u0438\u044f \u0415\u0432\u0433\u0435\u043d\u044c\u0435\u0432\u043d\u0430 \u0410\u0444\u0430\u043d\u0430\u0441\u044c\u0435\u0432\u0430","moto_stamp":"Dr.","engine":"Mr.","number_and_seria":"10000000000","region":null}}'
         headers: []
         description: ''
         custom: []
@@ -152,16 +248,16 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - GET
-    uri: api/users/cabinet/documents
+      - PATCH
+    uri: api/users/cabinet/personal-info
     metadata:
-      groupName: Document
-      groupDescription: 'Методы взаимодействия с документами пользователя'
+      groupName: PersonalInfo
+      groupDescription: 'Всё что связанно с персональной информацией пользователя'
       subgroup: ''
       subgroupDescription: ''
-      title: GetForUser
-      description: 'Получение всех документов пользователя'
-      authenticated: false
+      title: Update
+      description: 'Обновить запись персональных данных'
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -170,205 +266,234 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '[{"status":"success","message":"messages.document.get_for_user.success","documents":{"id":null,"name":null,"type":null,"path":null,"data":null}},{"status":"success","message":"messages.document.get_for_user.success","documents":{"id":null,"name":null,"type":null,"path":null,"data":null}}]'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/users/cabinet/documents/{id}'
-    metadata:
-      groupName: Document
-      groupDescription: 'Методы взаимодействия с документами пользователя'
-      subgroup: ''
-      subgroupDescription: ''
-      title: GetForUserById
-      description: 'Получение документа пользователя по id'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the document.'
-        required: true
-        example: 13
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 13
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.document.get_for_user_by_id.success","document":{"id":null,"name":null,"type":null,"path":null,"data":null}}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.document.get_for_user_by_id.not_found"}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/users/cabinet/documents/{id}/update'
-    metadata:
-      groupName: Document
-      groupDescription: 'Методы взаимодействия с документами пользователя'
-      subgroup: ''
-      subgroupDescription: ''
-      title: Update
-      description: 'Изменение документа пользователя'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: multipart/form-data
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the document.'
-        required: true
-        example: 14
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 14
-    queryParameters: []
-    cleanQueryParameters: []
     bodyParameters:
-      file:
-        name: file
-        description: 'Must be a file.'
-        required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      data:
-        name: data
+      name:
+        name: name
         description: ''
         required: false
-        example: null
+        example: aut
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-    cleanBodyParameters: []
-    fileParameters:
-      file: null
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.document.update.success","document":{"id":null,"name":null,"type":null,"path":null,"data":null}}'
-        headers: []
+      surname:
+        name: surname
         description: ''
+        required: false
+        example: eum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
         custom: []
-      -
-        status: 403
-        content: '{"status":"error","message":"messages.error.not_allowed"}'
-        headers: []
+      patronymic:
+        name: patronymic
         description: ''
+        required: false
+        example: minima
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
         custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
-        headers: []
+      dateOfBirth:
+        name: dateOfBirth
+        description: 'Значение поля value не является датой.'
+        required: false
+        example: '2025-02-25T07:52:00'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
         description: ''
+        required: false
+        example: rerum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
         custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/users/cabinet/documents/{id}'
-    metadata:
-      groupName: Document
-      groupDescription: 'Методы взаимодействия с документами пользователя'
-      subgroup: ''
-      subgroupDescription: ''
-      title: Delete
-      description: 'Удаление документа пользователя'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the document.'
-        required: true
-        example: 12
+      inn:
+        name: inn
+        description: ''
+        required: false
+        example: asperiores
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      snils:
+        name: snils
+        description: ''
+        required: false
+        example: doloremque
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      phoneNumber:
+        name: phoneNumber
+        description: ''
+        required: false
+        example: temporibus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      startNumber:
+        name: startNumber
+        description: ''
+        required: false
+        example: excepturi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      group:
+        name: group
+        description: ''
+        required: false
+        example: inventore
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      rank:
+        name: rank
+        description: ''
+        required: false
+        example: natus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      rankNumber:
+        name: rankNumber
+        description: ''
+        required: false
+        example: necessitatibus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      community:
+        name: community
+        description: ''
+        required: false
+        example: quidem
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: ''
+        required: false
+        example: soluta
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      motoStamp:
+        name: motoStamp
+        description: ''
+        required: false
+        example: est
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      engine:
+        name: engine
+        description: ''
+        required: false
+        example: sequi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      numberAndSeria:
+        name: numberAndSeria
+        description: ''
+        required: false
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      region:
+        name: region
+        description: ''
+        required: false
+        example: dolorum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 10
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         custom: []
-    cleanUrlParameters:
-      id: 12
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    cleanBodyParameters:
+      name: aut
+      surname: eum
+      patronymic: minima
+      dateOfBirth: '2025-02-25T07:52:00'
+      city: rerum
+      inn: asperiores
+      snils: doloremque
+      phoneNumber: temporibus
+      startNumber: excepturi
+      group: inventore
+      rank: natus
+      rankNumber: necessitatibus
+      community: quidem
+      coach: soluta
+      motoStamp: est
+      engine: sequi
+      numberAndSeria: et
+      region: dolorum
+      locationId: 10
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.document.delete.success"}'
+        content: '{"status":"success","message":"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0430.","personal_info":{"name":"Ms.","surname":"Prof.","patronymic":"Prof.","date_of_birth":"2013-10-19","city":"\u041f\u0430\u0432\u043b\u043e\u0432\u0441\u043a\u0438\u0439 \u041f\u043e\u0441\u0430\u0434","inn":"100000000000","snils":"9999999999","phone_number":"(35222) 14-7421","start_number":"723","group":"\u0424\u0440\u0435\u0437\u0435\u0440\u043e\u0432\u0449\u0438\u043a","rank_number":"99999","rank":"\u0421\u0442\u043e\u0440\u043e\u0436","community":"\u041e\u041e\u041e \u041b\u0438\u0444\u0442","coach":"\u0421\u0435\u0440\u0433\u0435\u0439 \u0411\u043e\u0440\u0438\u0441\u043e\u0432\u0438\u0447 \u0422\u0435\u0440\u0435\u043d\u0442\u044c\u0435\u0432","moto_stamp":"Mr.","engine":"Prof.","number_and_seria":"10000000000","region":null}}'
         headers: []
         description: ''
         custom: []
       -
         status: 403
-        content: '{"status":"error","message":"messages.error.not_allowed"}'
+        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
+        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
         headers: []
         description: ''
         custom: []

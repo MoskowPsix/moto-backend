@@ -25,6 +25,7 @@ class Race extends Model
         'images',
         'position_file',
         'results_file',
+        'record_end',
         'track_id',
         'user_id',
         'location_id',

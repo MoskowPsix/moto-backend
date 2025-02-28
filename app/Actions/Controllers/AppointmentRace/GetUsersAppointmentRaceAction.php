@@ -4,8 +4,10 @@ namespace App\Actions\Controllers\AppointmentRace;
 
 use App\Contracts\Actions\Controllers\AppointmentRace\GetUsersAppointmentRaceActionContract;
 use App\Http\Requests\AppointmentRace\GetUsersAppointmentRaceRequest;
+use App\Http\Resources\AppointmentRace\AppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\GetUsers\SuccessGetUsersAppointmentResource;
 use App\Http\Resources\Errors\NotFoundResource;
+use App\Models\AppointmentRace;
 use App\Models\Race;
 
 class GetUsersAppointmentRaceAction implements GetUsersAppointmentRaceActionContract
@@ -20,9 +22,13 @@ class GetUsersAppointmentRaceAction implements GetUsersAppointmentRaceActionCont
         if (!$race) {
             return new NotFoundResource([]);
         }
-        $users = $request->paginate ?
-            $race->appointments()->simplePaginate($limit, ['*'], 'page',  $page) :
-            $race->appointments()->get();
-        return SuccessGetUsersAppointmentResource::make($users);
+        $app = AppointmentRace::where('race_id', $id)->orderBy('created_at', 'asc')->get()->groupBy('grade.name');
+        foreach ($app as $class => $userRacesGroup) {
+            $formattedData[$class] = AppointmentRaceResource::collection($userRacesGroup);
+        }
+        if (!isset($formattedData)) {
+            return new NotFoundResource([]);
+        }
+        return SuccessGetUsersAppointmentResource::make($formattedData);
     }
 }

@@ -9,7 +9,7 @@ class PDFSaveFile
 {
     public function saveFile(Fpdi $pdf): string
     {
-        $outputFileName = 'filled_template_' . time() . '.pdf';
+        $outputFileName = 'Document' . time() . '.pdf';
         $outputPath = storage_path("app/public/{$outputFileName}");
 
         // Сохраняем заполненный PDF

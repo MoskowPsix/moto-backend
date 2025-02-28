@@ -3,12 +3,11 @@
 namespace App\Contracts\Services;
 
 use App\Http\Resources\Errors\NotFoundResource;
+use App\Models\AppointmentRace;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 interface PDFServiceContract
 {
-    public function create(array $fields): string|NotFoundResource;
+    public function create(AppointmentRace $fields): BinaryFileResponse;
 
-    //Заполнение pdf шаблона файлами
-    //fields массив полей с координатами (x,y), размерами (width, height) и значениями (value, align)
-    //string путь к сгенерированному файлу
 }

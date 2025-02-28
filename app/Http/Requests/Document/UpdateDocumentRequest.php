@@ -26,7 +26,9 @@ class UpdateDocumentRequest extends FormRequest
     {
         return [
             'file'  => 'nullable|file|mimes:pdf,jpg,jpeg,png',
-            'data'  => 'nullable',
+            'number'                    => 'nullable|string',
+            'issuedWhom'                => 'nullable|string',
+            'itWorksDate'               => 'nullable|date',
         ];
     }
 }

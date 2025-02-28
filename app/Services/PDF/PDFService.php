@@ -4,13 +4,16 @@ namespace App\Services\PDF;
 
 use App\Contracts\Services\PDFServiceContract;
 use App\Http\Resources\Errors\NotFoundResource;
+use App\Models\AppointmentRace;
 use Illuminate\Support\Facades\Storage;
+use mysql_xdevapi\Exception;
 use setasign\Fpdi\Tcpdf\Fpdi;
 use setasign\Fpdi\PdfParser\CrossReference\CrossReferenceException;
 use setasign\Fpdi\PdfParser\Filter\FilterException;
 use setasign\Fpdi\PdfParser\PdfParserException;
 use setasign\Fpdi\PdfParser\Type\PdfTypeException;
 use setasign\Fpdi\PdfReader\PdfReaderException;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 class PDFService implements PDFServiceContract
 {
@@ -27,11 +30,11 @@ class PDFService implements PDFServiceContract
      * @throws PdfTypeException
      * @throws FilterException
      */
-    public function create(array $fields): string|NotFoundResource
+    public function create(AppointmentRace $fields): BinaryFileResponse
     {
         $pdfPathChecker = new PdfPathChecker($this->templatePath);
         if(!$pdfPathChecker->checkPath()){
-            return new NotFoundResource([]);
+            throw new Exception('PDF path check failed');
         }
 
         $pdf = new Fpdi();
@@ -39,7 +42,6 @@ class PDFService implements PDFServiceContract
         $pdf->SetFont('freesans', '', 12);
         $pdf->SetTextColor(0, 0, 0);
 
-        //Загружаем шаблон
         $pageCount = $pdf->setSourceFile($this->templatePath);
         $templateId = $pdf->importPage(1);
         $pdf->AddPage();
@@ -49,9 +51,10 @@ class PDFService implements PDFServiceContract
         $pdfDataWriter = new PdfDataWriter($pdf);
         $pdfDataWriter->writePDF($fields);
 
-        //Сохранение
-        $pdfSaveFile = new PDFSaveFile();
+        $outputFileName = 'Document' . time() . '.pdf';
+        $outputPath = storage_path("app/public/{$outputFileName}");
 
-        return $pdfSaveFile->saveFile($pdf);
+        $pdf->Output($outputPath, 'F');
+        return response()->download($outputPath)->deleteFileAfterSend(true);
     }
 }

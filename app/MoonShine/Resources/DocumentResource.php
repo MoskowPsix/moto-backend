@@ -44,7 +44,7 @@ class DocumentResource extends ModelResource
         return [
             ID::make()->sortable(),
             Text::make('Имя', 'name'),
-            Text::make('Имя', 'type'),
+            Text::make('Имя', 'type.value'),
             File::make('Файл', 'path'),
         ];
     }
@@ -69,7 +69,7 @@ class DocumentResource extends ModelResource
         return [
             ID::make()->sortable(),
             Text::make('Имя', 'name'),
-            Text::make('Имя', 'type'),
+            Text::make('Имя', 'type.value'),
             File::make('Файл', 'path'),
 //            Code::make('Поля', 'data')
         ];

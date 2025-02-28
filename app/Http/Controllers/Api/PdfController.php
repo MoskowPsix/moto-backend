@@ -4,102 +4,93 @@ namespace App\Http\Controllers\Api;
 
 use App\Contracts\Services\PDFServiceContract;
 use App\Http\Controllers\Controller;
+use App\Models\AppointmentRace;
 use Illuminate\Http\Request;
 use Google\Service\Exception;
 use setasign\Fpdi\Tcpdf\Fpdi;
-class RequestPdfController extends Controller
+use setasign\Fpdi\PdfParser\CrossReference\CrossReferenceException;
+use setasign\Fpdi\PdfParser\Filter\FilterException;
+use setasign\Fpdi\PdfParser\PdfParserException;
+use setasign\Fpdi\PdfParser\Type\PdfTypeException;
+use setasign\Fpdi\PdfReader\PdfReaderException;
+class PdfController extends Controller
 {
     protected PDFServiceContract $pdfService;
     public function __construct(PDFServiceContract $pdfService)
     {
         $this->pdfService = $pdfService;
     }
-
     public function create(Request $request)
     {
-        $data = $request->validate([
-            'fields'            => 'nullable|array',
-            'fields.*.x'        => 'nullable|numeric',
-            'fields.*.y'        => 'nullable|numeric',
-            'fields.*.width'    => 'nullable|numeric',
-            'fields.*.height'   => 'nullable|numeric',
-            'fields.*.value'    => 'nullable|string',
-            'fields.*.align'    => 'nullable|string|in:L,C,R',
-        ]);
-
-        try{
-            $outputPath = $this->pdfService->create($data['fields']);
-
-            return response()->download($outputPath)->deleteFileAfterSend(true);
-        }
-        catch(Exception $e) {
-            return response()->json(['error' => 'Failed to fill PDF', 'details' => $e->getMessage()], 500);
-        }
+        // Находим запись AppointmentRace
+        $app = AppointmentRace::find(13);
+        return $this->pdfService->create($app);
     }
 
 //    public function fillPDF(Request $request)
 //    {
 //        $data = $request->validate([
-//            'RaceName'                  => 'nullable|string|',
-//            'RaceAdr'                   => 'nullable|string',
-//            'RaceDate'                  => 'nullable|date',
-//            'RiderSurname'              => 'nullable|string',
-//            'RiderName'                 => 'nullable|string',
-//            'RiderPatronymic'           => 'nullable|string',
-//            'Class'                     => 'nullable|string',
-//            'Engine'                    => 'nullable|string',
-//            'SensorNumber'              => 'nullable|string',
-//            'StartNum'                  => 'nullable|string',
-//            'data_birth'                => 'nullable|date',
-//            'citizenship'               => 'nullable|string',
-//            'region'                    => 'nullable|string',
-//            'regionalCertificate'       => 'nullable|string',
-//            'team'                      => 'nullable|string',
+////            'RaceName'                  => 'nullable|string|',
+////            'RaceAdr'                   => 'nullable|string',
+////            'RaceDate'                  => 'nullable|date',
+////            'RiderSurname'              => 'nullable|string',
+////            'RiderName'                 => 'nullable|string',
+////            'RiderPatronymic'           => 'nullable|string',
+////            'Class'                     => 'nullable|string',
+////            'Engine'                    => 'nullable|string',
+////            'SensorNumber'              => 'nullable|string',
+////            'StartNum'                  => 'nullable|string',
+////            'data_birth'                => 'nullable|date',
+////            'citizenship'               => 'nullable|string',
+////            'region'                    => 'nullable|string',
+////            'regionalCertificate'       => 'nullable|string',
+////            'team'                      => 'nullable|string',
+////
+////            "firstMotoMark"             => 'nullable|string',
+////            "firstMotoMarkNumber"       => 'nullable|string',
+////            "firstMotoMarkYear"         => 'nullable|string',
+////
+////            "secondMotoMark"            => 'nullable|string',
+////            "secondMotoMarkNumber"      => 'nullable|string',
+////            "secondMotoMarkYear"        => 'nullable|string',
+////
+////            "Trener"                    => 'nullable|string',
+////            "Mechanic"                  => 'nullable|string',
+////
+////            "serial_snils"              => 'nullable|string',
+////            "whoGive"                   => 'nullable|string',
+////            'period'                    => 'nullable|string',
+////
+////            "medDolusk"                 => 'nullable|string',
+////            "serial_passport"           => 'nullable|string',
+////            "whoWereGive"               => 'nullable|string',
+////            "INN"                       => 'nullable|string',
+////            'pensionCertificate'        => 'nullable|string',
+////            "phoneNumber"               => 'nullable|string',
 //
-//            "firstMotoMark"             => 'nullable|string',
-//            "firstMotoMarkNumber"       => 'nullable|string',
-//            "firstMotoMarkYear"         => 'nullable|string',
-//
-//            "secondMotoMark"            => 'nullable|string',
-//            "secondMotoMarkNumber"      => 'nullable|string',
-//            "secondMotoMarkYear"        => 'nullable|string',
-//
-//            "Trener"                    => 'nullable|string',
-//            "Mechanic"                  => 'nullable|string',
-//
-//            "serial_snils"              => 'nullable|string',
-//            "whoGive"                   => 'nullable|string',
-//            'period'                    => 'nullable|string',
-//
-//            "medDolusk"                 => 'nullable|string',
-//            "serial_passport"           => 'nullable|string',
-//            "whoWereGive"               => 'nullable|string',
-//            "INN"                       => 'nullable|string',
-//            'pensionCertificate'        => 'nullable|string',
-//            "phoneNumber"               => 'nullable|string',
+//                "rank" => "nullable|string",
+//                "rankBr" => "nullable|string",
 //        ]);
-//
-//        // Путь к шаблону PDF
+////
+////        // Путь к шаблону PDF
 //        $templatePath = public_path('pdf_templates/RequestShablon.pdf');
-//
+////
 //        if (!file_exists($templatePath)) {
-//            return response()->json(['error' => 'PDF template not found'], 404);
+//           return response()->json(['error' => 'PDF template not found'], 404);
 //        }
-//
+////
 //        $pdf = new Fpdi();
-//
-//        // Загружаем шаблон PDF
+////
+////        // Загружаем шаблон PDF
 //        $pageCount = $pdf->setSourceFile($templatePath);
 //        $templateId = $pdf->importPage(1);
 //        $pdf->AddPage();
 //        $pdf->useImportedPage($templateId);
-//
-//        // Устанавливаем шрифт и размер текста
+////
+////        // Устанавливаем шрифт и размер текста
 //        $pdf->SetFont('Arial', '', 12);
 //        $pdf->SetTextColor(0, 0, 0);
-//
-//        $pdf->SetXY(12, 65);
-//        $pdf->MultiCell(191, 5, $data['RaceName'], 0, 'C', true);
+////
 //
 //        $pdf->SetXY(12, 70);
 //        $pdf->MultiCell(138, 5, $data['RaceAdr'], 0, 'C', true);

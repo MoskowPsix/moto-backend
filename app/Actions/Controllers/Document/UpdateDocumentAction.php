@@ -8,6 +8,7 @@ use App\Http\Resources\Document\Update\SuccessUpdateDocumentResource;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\Document;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 class UpdateDocumentAction implements UpdateDocumentActionContract
@@ -25,25 +26,26 @@ class UpdateDocumentAction implements UpdateDocumentActionContract
 
         if (isset($request->file)) {
             $this->delete($document->first()->path);
-            $this->updateFile($request->file, $document);
+            $this->updateFile($request, $document);
         }
 
-        if ($request->data) {
-            $this->updateFields($request->data, Document::find($id));
-        }
+        $this->updateFields($request, Document::find($id));
 
         return SuccessUpdateDocumentResource::make(Document::find($id));
     }
 
-    private function updateFields($data, $document): void
+    private function updateFields($request, $document): void
     {
         $document->update([
-            'data' => json_encode($data),
+            'type'          => $request->type ?? $document->type,
+            'number'        => $request->number ?? $document->number,
+            'issued_whom'   => $request->issuedWhom ?? $document->issued_whom,
+            'it_works_date' => isset($request->itWorksDate) ? Carbon::parse($request->itWorksDate) : $document->it_works_date,
         ]);
     }
-    private function updateFile($file, $document): void
+    private function updateFile($request, $document): void
     {
-        $new_path = $this->save($file);
+        $new_path = $this->save($request->file);
         $document->update([
             'name' => uniqid('file_'),
             'path' => $new_path,
@@ -53,8 +55,11 @@ class UpdateDocumentAction implements UpdateDocumentActionContract
     {
         return $file->store('user/documents', 'local');
     }
-    private function delete($path): string
+    private function delete($path): string | null
     {
-        return Storage::delete($path);
+        if (isset($path) || $path !== 'no-file') {
+            return Storage::delete($path);
+        }
+        return null;
     }
 }
