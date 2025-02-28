@@ -20,7 +20,7 @@ class PDFService implements PDFServiceContract
     public string $templatePath;
     public function __construct()
     {
-        $this->templatePath = public_path('pdf_templates/RequestShablon.pdf');
+        $this->templatePath = public_path('pdf_templates/RequestShablonS.pdf');
     }
 
     /**

@@ -23,7 +23,7 @@ class PdfController extends Controller
     public function create(Request $request)
     {
         // Находим запись AppointmentRace
-        $app = AppointmentRace::find(13);
+        $app = AppointmentRace::find(207);
         return $this->pdfService->create($app);
     }
 

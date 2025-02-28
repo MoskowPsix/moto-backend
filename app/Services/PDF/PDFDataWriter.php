@@ -109,8 +109,6 @@ class PDFDataWriter
                 'width' => 80,
                 'height' => 5,
                 'align' => 'L',
-                'value' => $fields->community
-//                'value' => $fields->command()->first()->name
             ],
             'class' => [
                 'x' => 12,
@@ -118,7 +116,6 @@ class PDFDataWriter
                 'width' => 45,
                 'height' => 12,
                 'align' => 'C',
-//                'value' => $fields->command()->first()->name
             ],
             'coach' => [
                 'x' => 107,
@@ -193,6 +190,9 @@ class PDFDataWriter
             }
             else if($fieldName === 'class' && $fields->grade){
                 $value = $fields->grade->name;
+            }
+            else if($fieldName === 'community' && $fields->command){
+                $value = $fields->command->first()->name;
             }
             else {
                 $value = $fields->$fieldName ?? null;
