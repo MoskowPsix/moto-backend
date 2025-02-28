@@ -41,6 +41,16 @@ class RaceResource extends ModelResource
         ];
     }
 
+    protected function search(): array
+    {
+        return [
+            'id',
+            'name',
+            'user.name',
+            'track.name',
+        ];
+    }
+
     /**
      * @param Race $item
      *

@@ -29,13 +29,13 @@ class TrackDetailPage extends DetailPage
         return [
             Image::make('images')->multiple()->dir("/track/$item->id"),
             Checkbox::make('Работает', 'is_work'),
-            Checkbox::make('Бесплатное', 'free')->sortable(),
             Text::make('Название', 'name'),
             Text::make('Адрес', 'address'),
             Text::make('Местоположение', 'point'),
-            Number::make('Длина', 'length'),
-            Number::make('Повороты', 'turns'),
-            Textarea::make('Описание', 'desc'),
+            Textarea::make('Описание', 'desc')
+            ->customAttributes([
+                'rows' => 6,
+            ]),
             Json::make('Спецификации трассы', 'spec')
                 ->fields([
                     Text::make('Название'),

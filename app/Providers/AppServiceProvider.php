@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Contracts\Services\PDFServiceContract;
 use App\Repositories\Search\Track\TrackElasticRepository;
 use App\Repositories\Search\Track\TrackElasticRepositoryInterface;
 use App\Repositories\Search\Track\TrackEloquentRepository;
+use App\Services\PDF\PDFService;
 use Elastic\Elasticsearch\Client;
 use Elastic\Elasticsearch\ClientBuilder;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -34,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
             );
         });
         $this->bindSearchClient();
+        $this->app->bind(PdfServiceContract::class, PdfService::class);
     }
 
     /**

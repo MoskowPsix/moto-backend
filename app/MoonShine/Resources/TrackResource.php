@@ -47,6 +47,17 @@ class TrackResource extends ModelResource
         return $builder->selectRaw('*, ST_AsGeoJSON(point) as point');
     }
 
+    protected function search(): array
+    {
+        return [
+            'id',
+            'name',
+            'address',
+            'length',
+            'turns'
+        ];
+    }
+
     /**
      * @param Track $item
      *

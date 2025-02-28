@@ -18,11 +18,8 @@ use Tests\TestCase;
 class CreateTracksActionTest extends TestCase
 {
     use RefreshDatabase;
-    protected $seed = true;
+    protected bool $seed = true;
 
-    /**
-     * A basic feature test example.
-     */
     public function test_action_error(): void
     {
         $tracks = [

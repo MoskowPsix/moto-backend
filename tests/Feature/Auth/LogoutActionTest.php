@@ -14,7 +14,7 @@ class LogoutActionTest extends TestCase
 {
     use RefreshDatabase;
 
-//    protected bool $seed = true;
+    protected bool $seed = true;
 
     public function test_action_error(): void
     {

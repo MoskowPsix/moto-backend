@@ -43,15 +43,11 @@ class TrackFormPage extends FormPage
                     return $item;
                 })
             ->required(),
-            Number::make('Длина', 'length'),
-            Number::make('Повороты', 'turns'),
-            Textarea::make('Описание', 'desc'),
+            Textarea::make('Описание', 'desc')
+            ->customAttributes([
+                'rows' => 6,
+            ]),
             Json::make('Спецификации трассы', 'spec')
-                ->fields([
-                    Text::make('Название','title'),
-                    Text::make('Значение', 'value'),
-                ]),
-            Json::make('Спецификации трассы', 'contacts')
                 ->fields([
                     Text::make('Название','title'),
                     Text::make('Значение', 'value'),

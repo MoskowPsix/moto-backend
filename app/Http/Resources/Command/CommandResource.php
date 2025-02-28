@@ -11,6 +11,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 /**
  * @property int $id
  * @property string $name
+ * @property string $fullname
+ * @property string $coach
  * @property string $avatar
  * @property string $city
  * @property int $user
@@ -29,6 +31,8 @@ class CommandResource extends JsonResource
         return [
             'id'        => $this->id,
             'name'      => $this->name,
+            'fullname'  => $this->fullname,
+            'coach'     => $this->coach,
             'city'      => $this->city,
             'avatar'    => $this->avatar,
             'user'      => UserResource::make($this->whenLoaded('user')),
