@@ -7,43 +7,39 @@ use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
-    public function showPaymentButton(Request $request)
+    public function paymentForm()
     {
-        $merchant_login = "mototrack";
-        $password_1 = "F8KDRr8GupU68RCP0ROW";
-        $invid = 678678;
-        $description = "Тестовая оплата";
-        $out_sum = "100";
-        $IsTest = 1;
-        $signature_value = md5("$merchant_login:$out_sum:$invid:$password_1");
+        $merchant_login = 'demo';
+        $password_1 = 'F8KDRr8GupU68RCP0ROW';
+        $invid = 617;
+        $description = 'Тестовая оплата';
+        $default_sum = 100;
+        $signature_value = md5("$merchant_login:$default_sum:$invid:$password_1");
+        $is_test = 1;
 
-        return view('payment.form', compact(
-            'merchant_login',
-            'out_sum',
-            'invid',
-            'description',
-            'signature_value',
-            'IsTest',
-        ));
+        return view('payment.payform', [
+            'merchant_login' => $merchant_login,
+            'default_sum' => $default_sum,
+            'invid' => $invid,
+            'description' => urlencode($description),
+            'signature_value' => $signature_value,
+            'is_test' => $is_test
+        ]);
     }
-
-    public function handleResult(Request $request)
+    public function paymentCallBack(Request $request)
     {
-        // Данные из запроса
-        $out_sum = $request->input('OutSum');
+        $out_sum = $request->input('DefaultSum');
         $inv_id = $request->input('InvId');
-        $signature_value = $request->input('SignatureValue');
+        $signature = $request->input('SignatureValue');
 
-        $password_2 = "F8KDRr8GupU68RCP0ROW";
+        $password_2 = "kcdUsu2IT8s4S7W8VvjM";
 
         $expected_signature = strtoupper(md5("$out_sum:$inv_id:$password_2"));
 
-        if (strtoupper($signature_value) === $expected_signature) {
-            return response('OK', 200);
+        if ($signature === $expected_signature) {
+            return response("OK$inv_id");
         } else {
-            // Подпись неверна, возвращаем ошибку
-            return response('Invalid signature', 400);
+            return response("Invalid signature", 400);
         }
     }
-
 }
