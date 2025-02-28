@@ -14,6 +14,9 @@ use setasign\Fpdi\PdfParser\PdfParserException;
 use setasign\Fpdi\PdfParser\Type\PdfTypeException;
 use setasign\Fpdi\PdfReader\PdfReaderException;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use \App\Services\PDF\PDFPathChecker;
+use \App\Services\PDF\PDFDataWriter;
+
 
 class PDFService implements PDFServiceContract
 {
