@@ -29,9 +29,6 @@ class TrackIndexPage extends IndexPage
             Text::make('Название', 'name')->sortable(),
             Text::make('Адрес', 'address')->sortable(),
             Image::make('Фото','images')->multiple(),
-            Checkbox::make('Бесплатное', 'free')->sortable(),
-            Number::make('Длина', 'length')->sortable(),
-            Number::make('Повороты', 'turns')->sortable(),
             Date::make('Создано', 'created_at')->sortable(),
             Date::make('Обновлено', 'updated_at')->sortable(),
         ];

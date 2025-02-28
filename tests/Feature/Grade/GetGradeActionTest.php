@@ -13,7 +13,7 @@ use Tests\TestCase;
 class GetGradeActionTest extends TestCase
 {
     use RefreshDatabase;
-    protected $seed = true;
+    protected bool $seed = true;
 
     public function test_action_success(): void
     {
