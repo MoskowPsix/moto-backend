@@ -99,3 +99,13 @@ Route::controller(\App\Http\Controllers\Api\CommandController::class)->group(fun
     Route::post('commands', 'create')->middleware(['auth:sanctum', 'email_verification'])->name('command.create');
     Route::post('commands/{id}', 'update')->middleware(['auth:sanctum', 'email_verification'])->name('command.update');
 });
+
+Route::controller(\App\Http\Controllers\Api\PdfController::class)->group(function () {
+    Route::get('pdf/generate/{id}', 'create')->name('request.get');
+});
+
+//Оплата Robokassa
+Route::controller(\App\Http\Controllers\Api\PaymentController::class)->group(function () {
+    Route::get('payments', 'paymentForm')->name('payment.payform');
+    Route::post('payments/callback', 'paymentCallBack')->name('payment.callback');
+});

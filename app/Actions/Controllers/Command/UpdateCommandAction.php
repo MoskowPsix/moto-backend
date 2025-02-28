@@ -25,6 +25,8 @@ class UpdateCommandAction implements UpdateCommandActionContract
         }
         $command->update([
             'name'          => $request->name ?? $command->name,
+            'fullname'      => $request->fullname ?? $command->fullname,
+            'coach'         => $request->coach ?? $command->coach,
             'city'          => $request->city ?? $command->city,
             'location_id'   => $request->locationId ?? $command->location_id,
         ]);

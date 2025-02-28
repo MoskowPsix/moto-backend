@@ -23,6 +23,8 @@ class UpdateCommandRequest extends FormRequest
     {
         return [
             'name'          =>  'nullable|string|max:255',
+            'fullname'      =>  'nullable|string|max:255',
+            'coach'         =>  'nullable|string|max:255',
             'avatar'        =>  'nullable|image|mimes:jpeg,png,jpg,svg,webp',
             'city'          =>  'nullable|string|max:255',
             'locationId'    =>  'nullable|integer|exists:locations,id',

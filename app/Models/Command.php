@@ -22,7 +22,9 @@ class Command extends Model
         'avatar',
         'city',
         'user_id',
-        'location_id'
+        'location_id',
+        'fullname',
+        'coach',
     ];
 
 
