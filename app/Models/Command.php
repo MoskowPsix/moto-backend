@@ -23,7 +23,7 @@ class Command extends Model
         'city',
         'user_id',
         'location_id',
-        'fullName',
+        'full_name',
         'coach',
     ];
     public function user(): BelongsTo
