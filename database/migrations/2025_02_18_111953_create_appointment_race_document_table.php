@@ -23,19 +23,16 @@ return new class extends Migration
                 if(isset($data['polisFileLink'])) {
                     $url_arr = explode('/', $data['polisFileLink']);
                     $id = array_pop($url_arr);
-                    dump();
-                    $apps->documents()->attach($id);
                 }
                 if(isset($data['licensesFileLink'])) {
                     $url_arr = explode('/', $data['licensesFileLink']);
                     $id = array_pop($url_arr);
-                    $apps->documents()->attach($id);
                 }
                 if(isset($data['notariusFileLink'])) {
                     $url_arr = explode('/', $data['notariusFileLink']);
                     $id = array_pop($url_arr);
-                    $apps->documents()->attach($id);
                 }
+                isset($id) ? $apps->documents()->attach($id) : null;
             }
         });
     }

@@ -6,6 +6,7 @@ use App\Enums\DocumentType;
 use App\Models\AppointmentRace;
 use App\Models\Document;
 use App\Services\GoogleSheetService;
+use Exception;
 use Illuminate\Console\Command;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Storage;
@@ -31,52 +32,49 @@ class test extends Command
      */
     public function handle()
     {
-//
-//        $pdf = Pdf::loadView('template_doc.appr_temp_pdf');
-//
-//        $pdf->setOption(['dpi' => 150, 'defaultFont' => 'sans-serif'])->setPaper('a4', 'landscape')->save('my_stored_file.pdf')->stream('download.pdf');
-//        dd();
-//
-
-
-        $coms = [];
-        $apps = AppointmentRace::query()->get()->toArray();
-        foreach ($apps as $app) {
-            $data = json_decode($app['data'], true);
-            $coms[] = trim($data['community']);
-        }
-        $valueCounts = array_count_values($coms);
-        $uniqueValues = array_keys(array_filter($valueCounts, function($count) {
-            return $count === 1;
-        }));
-        $unic = $uniqueValues;
-        dd($unic);
+//        $coms = [];
+//        $apps = AppointmentRace::query()->get()->toArray();
+//        foreach ($apps as $app) {
+//            $data = json_decode($app['data'], true);
+//            $coms[] = trim($data['community']);
+//        }
+//        $valueCounts = array_count_values($coms);
+//        $uniqueValues = array_keys(array_filter($valueCounts, function($count) {
+//            return $count === 1;
+//        }));
+//        $unic = $uniqueValues;
+//        dd($unic);
         Document::all()->each(function ($apps) {
-            $data = json_decode(json_decode($apps->data, true), true);
-
-            if (isset($data)) {
-                if($apps->type->value === DocumentType::Polis->value) {
-                    $apps->update([
-                        'type' => 'polis',
-                        'url_view' => $data['polisFileLink'] ?? 'https://dev-moto.vokrug.city/document/' . $apps->id,
-                        'number' => $data['polisNumber'] ?? '',
-                        'issued_whom' => $data['polisIssuedWhom'] ?? '',
-                        'it_works_date' => $data['polisItWorksDate'] ?? '',
-                    ]);
+            try {
+                $data = json_decode($apps->data);
+                gettype($data) === gettype('string') ? $data = (array)json_decode($data, true) : $data = (array)$data;
+                dump($data);
+                if (isset($data)) {
+                    if ($apps->type->value === DocumentType::Polis->value) {
+                        $apps->update([
+                            'type' => 'polis',
+                            'url_view' => $data['polisFileLink'] ?? 'https://dev-moto.vokrug.city/document/' . $apps->id,
+                            'number' => $data['polisNumber'] ?? '',
+                            'issued_whom' => $data['polisIssuedWhom'] ?? '',
+                            'it_works_date' => $data['polisItWorksDate'] ?? '',
+                        ]);
+                    }
+                    if ($apps->type->value === DocumentType::Licenses->value) {
+                        $apps->update([
+                            'type' => 'licenses',
+                            'url_view' => $data['licensesFileLink'] ?? 'https://dev-moto.vokrug.city/document/' . $apps->id,
+                            'number' => $data['licensesNumber'] ?? '',
+                        ]);
+                    }
+                    if ($apps->type->value === DocumentType::Notarius->value) {
+                        $apps->update([
+                            'type' => 'notarius',
+                            'url_view' => $data['notariusFileLink'] ?? 'https://dev-moto.vokrug.city/document/' . $apps->id,
+                        ]);
+                    }
                 }
-                if($apps->type->value === DocumentType::Licenses->value) {
-                    $apps->update([
-                        'type' => 'licenses',
-                        'url_view' => $data['licensesFileLink'] ?? 'https://dev-moto.vokrug.city/document/' . $apps->id,
-                        'number' => $data['licensesNumber'] ?? '',
-                    ]);
-                }
-                if($apps->type->value === DocumentType::Notarius->value) {
-                    $apps->update([
-                        'type' => 'notarius',
-                        'url_view' => $data['notariusFileLink'] ?? 'https://dev-moto.vokrug.city/document/' . $apps->id,
-                    ]);
-                }
+            } catch (Exception $e) {
+                dd($apps);
             }
         });
         return 1;
