@@ -28,7 +28,7 @@ class UpdateDocumentRequest extends FormRequest
             'file'  => 'nullable|file|mimes:pdf,jpg,jpeg,png',
             'number'                    => 'nullable|string',
             'issuedWhom'                => 'nullable|string',
-            'itWorksDate'               => 'nullable|date',
+            'itWorksDate'               => 'nullable|string',
         ];
     }
 }

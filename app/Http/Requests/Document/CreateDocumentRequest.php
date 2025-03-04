@@ -37,7 +37,7 @@ class CreateDocumentRequest extends FormRequest
             'url'                       => 'nullable|string',
             'number'                    => 'nullable|string',
             'issuedWhom'                => 'nullable|string',
-            'itWorksDate'               => 'nullable|date',
+            'itWorksDate'               => 'nullable|string',
         ];
     }
 }
