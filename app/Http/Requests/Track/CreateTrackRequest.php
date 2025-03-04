@@ -52,7 +52,8 @@ class CreateTrackRequest extends FormRequest
             'is_work'       => 'boolean|required',
             'contacts'      => 'json|nullable',
             'spec'          => 'json|nullable',
-            'locationId'   => 'integer|nullable|exists:locations,id',
+            'locationId'    =>  'integer|nullable|exists:locations,id',
+            'storeId'       =>  'integer|nullable|exists:stores,id',
         ];
     }
 }

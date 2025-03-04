@@ -32,6 +32,7 @@ class Track extends Model
         'contacts',
         'location_id',
         'attendance_id',
+        'store_id',
     ];
 
     protected $casts =[

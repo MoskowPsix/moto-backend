@@ -41,6 +41,10 @@ Route::controller(\App\Http\Controllers\Api\TrackController::class)-> group(func
 //    Route::delete('tracks/{track}', 'delete')->name('track.delete');
 });
 
+Route::controller(\App\Http\Controllers\Api\StoreController::class)->group(function () {
+   Route::post('stores', 'create')->middleware('auth:sanctum')->name('store.create');
+});
+
 Route::controller(\App\Http\Controllers\Api\RoleController::class)->group(function () {
     $role = new \App\Constants\RoleConstant();
     Route::get('roles-change', 'getChangeRoles')->name('role.get_change_roles');

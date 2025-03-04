@@ -40,6 +40,7 @@ class UpdateTrackRequest extends FormRequest
             'spec'          => 'json|nullable',
             'locationId'    => 'integer|nullable|exists:locations,id',
             'userId'        => 'integer|nullable|exists:users,id',
+            'storeId'       =>  'integer|nullable|exists:stores,id',
         ];
     }
 }

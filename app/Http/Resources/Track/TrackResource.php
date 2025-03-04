@@ -4,6 +4,7 @@ namespace App\Http\Resources\Track;
 
 use App\Http\Resources\Level\LevelResource;
 use App\Http\Resources\Location\LocationResource;
+use App\Http\Resources\Store\StoreResource;
 use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -22,6 +23,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property boolean $is_work
  * @property array $spec
  * @property mixed $location
+ * @property mixed $store
  */
 class TrackResource extends JsonResource
 {
@@ -48,6 +50,7 @@ class TrackResource extends JsonResource
             'spec'      => $this->spec,
             'user'      => UserResource::make($this->whenLoaded('user')),
             'location'  => $this->whenLoaded('location', LocationResource::make($this->location)),
+            'store'     => $this->whenLoaded('store', StoreResource::make($this->store)),
         ];
     }
 }
