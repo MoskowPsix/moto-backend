@@ -48,7 +48,7 @@ return new class extends Migration
                 $apps->coach = $data['coach'] ?? null;
                 $apps->inn = $data['inn'] ?? null; // Будет шифроватся
                 $apps->city = $data['city'] ?? null;
-                $apps->location_id = isset($data['region']) ? \App\Models\Location::where('name', explode(' ', $data['region'])[0])->first()->id : null;
+                $apps->location_id = isset($data['region']) && \App\Models\Location::where('name', explode(' ', $data['region'])[0])->exists() ? \App\Models\Location::where('name', explode(' ', $data['region'])[0])->first()->id : null;
                 $apps->grade_id = \App\Models\Grade::where('name', $data['group'])->first()->id ?? null;
                 $apps->save();
             }
