@@ -17,6 +17,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property string $city
  * @property int $user
  * @property int $location
+ * @property string $full_name
  */
 
 class CommandResource extends JsonResource
@@ -31,7 +32,7 @@ class CommandResource extends JsonResource
         return [
             'id'        => $this->id,
             'name'      => $this->name,
-            'fullName'  => $this->fullName,
+            'full_name'  => $this->full_name,
             'coach'     => $this->coach,
             'city'      => $this->city,
             'avatar'    => $this->avatar,
