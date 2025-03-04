@@ -15,7 +15,7 @@ class CreateCommandAction implements CreateCommandActionContract
         $user = auth()->user();
         $command = Command::create([
             'name'          => $request->name,
-            'fullname'      => $request->fullname,
+            'fullName'      => $request->fullname,
             'coach'         => $request->coach,
             'user_id'       => $user->id,
             'location_id'   => $request->locationId,

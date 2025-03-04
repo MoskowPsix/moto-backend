@@ -25,7 +25,7 @@ class GetForIdCommandRequest extends FormRequest
             'userId'        => 'nullable|integer',
             'locationId'    => 'nullable|integer',
             'city'          => 'nullable|string',
-            'fullname'      => 'nullable|string',
+            'fullName'      => 'nullable|string',
             'coach'         => 'nullable|string',
         ];
     }

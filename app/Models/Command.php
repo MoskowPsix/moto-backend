@@ -23,11 +23,9 @@ class Command extends Model
         'city',
         'user_id',
         'location_id',
-        'fullname',
+        'fullName',
         'coach',
     ];
-
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

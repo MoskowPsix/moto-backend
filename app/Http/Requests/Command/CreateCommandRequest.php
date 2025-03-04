@@ -29,7 +29,7 @@ class CreateCommandRequest extends FormRequest
     {
         return [
             'name'          => 'required|string|max:255',
-            'fullname'      => 'nullable|string|max:255',
+            'fullName'      => 'nullable|string|max:255',
             'coach'         => 'nullable|string|max:255',
             'avatar'        => 'nullable|image|mimes:jpeg,png,jpg,svg,webp',
             'locationId'    => 'required|integer|exists:locations,id',
