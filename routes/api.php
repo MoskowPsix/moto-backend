@@ -42,7 +42,8 @@ Route::controller(\App\Http\Controllers\Api\TrackController::class)-> group(func
 });
 
 Route::controller(\App\Http\Controllers\Api\StoreController::class)->group(function () {
-   Route::post('stores', 'create')->middleware('auth:sanctum')->name('store.create');
+    $role = new \App\Constants\RoleConstant();
+   Route::post('stores', 'create')->middleware(['auth:sanctum', 'role:'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('store.create');
 });
 
 Route::controller(\App\Http\Controllers\Api\RoleController::class)->group(function () {
@@ -102,12 +103,10 @@ Route::controller(\App\Http\Controllers\Api\CommandController::class)->group(fun
     Route::post('commands/{id}', 'update')->middleware(['auth:sanctum', 'email_verification'])->name('command.update');
 });
 
-Route::controller(\App\Http\Controllers\Api\PdfController::class)->group(function () {
-    Route::get('pdf/generate/{id}', 'create')->name('request.get');
-});
-
-//Оплата Robokassa
-Route::controller(\App\Http\Controllers\Api\PaymentController::class)->group(function () {
-    Route::get('payments', 'paymentForm')->name('payment.payform');
-    Route::post('payments/callback', 'paymentCallBack')->name('payment.callback');
+Route::controller(\App\Http\Controllers\Api\AttendanceController::class)->group(function (){
+    $role = new \App\Constants\RoleConstant();
+    Route::get('attendances/{id}', 'getForId')->name('attendance.get_for_id');
+    Route::post('attendances', 'create')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('attendance.create');
+    Route::post('attendance/{id}', 'update')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('attendance.update');
+    Route::delete('attendance/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('attendance.delete');
 });

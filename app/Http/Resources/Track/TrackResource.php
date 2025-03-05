@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Track;
 
+use App\Http\Resources\Attendance\AttendanceResource;
 use App\Http\Resources\Level\LevelResource;
 use App\Http\Resources\Location\LocationResource;
 use App\Http\Resources\Store\StoreResource;
