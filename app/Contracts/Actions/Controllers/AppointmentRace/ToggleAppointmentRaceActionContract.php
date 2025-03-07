@@ -9,6 +9,7 @@ use App\Http\Resources\AppointmentRace\Create\ManyDocumentAppointmentRaceResourc
 use App\Http\Resources\AppointmentRace\Create\SuccessCreateAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Delete\SuccessDeleteAppointmentRaceResource;
 use App\Http\Resources\Errors\NotFoundResource;
+use App\Http\Resources\Errors\NotUserPermissionResource;
 
 interface ToggleAppointmentRaceActionContract
 {
@@ -18,5 +19,6 @@ interface ToggleAppointmentRaceActionContract
     NotFoundResource|
     SuccessDeleteAppointmentRaceResource|
     ExistsAppointmentRaceResource|
-    GradeNotExistsAppointmentRaceResource;
+    GradeNotExistsAppointmentRaceResource|
+    NotUserPermissionResource;
 }

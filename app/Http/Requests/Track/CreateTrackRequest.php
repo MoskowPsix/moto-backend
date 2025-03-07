@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Track;
 
+use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
@@ -33,7 +34,7 @@ class CreateTrackRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, ValidationRule|array|string>
      */
     public function rules(): array
     {
@@ -50,9 +51,13 @@ class CreateTrackRequest extends FormRequest
             'turns'         => 'integer|nullable',
             'free'          => 'boolean|nullable',
             'is_work'       => 'boolean|required',
-            'contacts'      => 'json|nullable',
-            'spec'          => 'json|nullable',
-            'locationId'   => 'integer|nullable|exists:locations,id',
+            'contacts'      => 'array|nullable',
+            'spec'          => 'array|nullable',
+            'locationId'    => 'integer|nullable|exists:locations,id',
+            'logo'          => 'image|mimes:jpeg,png,jpg,svg,webp|nullable',
+            'light'         => 'boolean|nullable',
+            'season'        => 'boolean|nullable',
+            'schemaImg'    => 'image|mimes:jpeg,png,jpg,svg,webp|nullable',
         ];
     }
 }

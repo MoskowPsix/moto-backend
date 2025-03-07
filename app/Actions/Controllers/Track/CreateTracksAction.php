@@ -30,9 +30,23 @@ class CreateTracksAction implements CreateTracksActionContract
                 'contacts'      => $request->contacts ?? json_encode([]),
                 'user_id'       => auth()->user()->id,
                 'location_id'   => $request->locationId,
+                'light'         => isset($request->light),
+                'season'        => isset($request->season),
             ]);
             if(isset($request->images)) {
                 $this->saveImages($request->images, $track);
+            }
+            if(isset($request->logo)) {
+                $path_l = $request->logo->store('track/'.$track->id, 'public');
+                $track->update([
+                    'logo' => $path_l
+                ]);
+            }
+            if(isset($request->schemaImg)) {
+                $path_s = $request->schemaImg->store('track/'.$track->id, 'public');
+                $track->update([
+                    'schema_img' => $path_s
+                ]);
             }
             DB::commit();
             return SuccessCreateResource::make($track); // Возвращает нулевые координаты, потом надо исправить, пока не критично

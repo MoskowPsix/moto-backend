@@ -32,6 +32,10 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
         if (!$appr->exists()) {
             return NotFoundResource::make([]);
         }
+        if (!$race->commissions()->where('users.id', auth()->user()->id)->exists())
+        {
+            return NotUserPermissionResource::make([]);
+        }
         // Получаем поля будующей таблицы
         $fields = $this->getFields();
         // Формируем данные для таблицы участников
@@ -61,6 +65,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
     {
         $rows = [];
         foreach ($appr as $value) {
+            $location = isset($value['location']) ? ($value['location']['name'] . ' ' . $value['location']['type']) : '';
             $row = [
                 'Отметка времени'                                                   => Carbon::parse($value['created_at'])->format('d.m.Y h:m:s'),
                 'Фамилия участника'                                                 => $value['surname'] ?? '',
@@ -71,7 +76,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
                 'Стартовый Номер'                                                   => $value['start_number'] ?? '',
                 'Спортивное звание (разряд)'                                        => $value['rank'] ?? '',
                 'Дата Рождения'                                                     => isset($value['date_of_birth']) ? Carbon::parse($value['date_of_birth'])->format('d.m.Y') : '',
-                'Населенный пункт (город, область)'                                 => 'г. ' . ($value['city'] ?? '') . ', ' . ($value['location']['name'] . ' ' . $value['location']['type'] ?? ''),
+                'Населенный пункт (город, область)'                                 => 'г. ' . ($value['city'] ?? '') . ', ' . $location,
                 'Команда (Клуб)'                                                    => !empty($value['command_id']) ? Command::find($value['command_id'])->name : 'Лично',
                 'Марка мотоцикла'                                                   => $value['moto_stamp'] ?? '',
                 'Серия и номер паспорта/ свидетельства о рождении'                  => $value['number_and_seria'] ?? '',

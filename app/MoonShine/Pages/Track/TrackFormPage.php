@@ -9,6 +9,7 @@ use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
 use MoonShine\Laravel\Pages\Crud\FormPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
+use MoonShine\UI\Fields\Checkbox;
 use MoonShine\UI\Fields\Field;
 use MoonShine\UI\Fields\File;
 use MoonShine\UI\Fields\Image;
@@ -30,7 +31,15 @@ class TrackFormPage extends FormPage
         return [
             Text::make('Название', 'name')->required(),
             Text::make('Адрес', 'address')->required(),
-            Image::make('images')->multiple()->dir(isset($item->id) ? "/track/$item->id" : "/track"),
+            Image::make('Фото', 'images')->multiple()->dir(isset($item->id) ? "/track/$item->id" : "/track"),
+            Image::make('Лого', 'logo')->dir(isset($item->id) ? "/track/$item->id" : "/track"),
+            Image::make('Схема трека', 'schema_img')->dir(isset($item->id) ? "/track/$item->id" : "/track"),
+            Text::make('Длинна', 'length'),
+            Text::make('Повороты', 'turns'),
+            Checkbox::make('Бесплатно', 'free'),
+            Checkbox::make('Работает', 'is_work'),
+            Checkbox::make('Всесезонный', 'season'),
+            Checkbox::make('Освещение', 'light'),
             Text::make('Координаты', 'point',)
                 ->placeholder('POINT(<latitude> <longitude>)')
                 ->onBeforeRender(function (Field $item) {

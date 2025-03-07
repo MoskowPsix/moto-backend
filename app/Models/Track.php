@@ -29,6 +29,10 @@ class Track extends Model
         'user_id',
         'contacts',
         'location_id',
+        'logo',
+        'light',
+        'season',
+        'schema_img'
     ];
 
     protected $casts =[

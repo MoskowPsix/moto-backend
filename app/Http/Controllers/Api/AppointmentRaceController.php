@@ -41,7 +41,8 @@ class AppointmentRaceController extends Controller
     NotFoundResource|
     ManyDocumentAppointmentRaceResource|
     ExistsAppointmentRaceResource|
-    GradeNotExistsAppointmentRaceResource
+    GradeNotExistsAppointmentRaceResource|
+    NotUserPermissionResource
     {
         return $action($id, $request);
     }

@@ -22,6 +22,10 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property boolean $is_work
  * @property array $spec
  * @property mixed $location
+ * @property boolean $light
+ * @property boolean $season
+ * @property string $schema_img
+ * @property string $logo
  */
 class TrackResource extends JsonResource
 {
@@ -48,6 +52,10 @@ class TrackResource extends JsonResource
             'spec'      => $this->spec,
             'user'      => UserResource::make($this->whenLoaded('user')),
             'location'  => $this->whenLoaded('location', LocationResource::make($this->location)),
+            'light'     => $this->light,
+            'season'    => $this->season,
+            'schema_img' => $this->schema_img,
+            'logo'      => $this->logo
         ];
     }
 }

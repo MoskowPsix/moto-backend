@@ -11,6 +11,7 @@ use App\Http\Resources\AppointmentRace\Create\ManyDocumentAppointmentRaceResourc
 use App\Http\Resources\AppointmentRace\Create\SuccessCreateAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Delete\SuccessDeleteAppointmentRaceResource;
 use App\Http\Resources\Errors\NotFoundResource;
+use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\AppointmentRace;
 use App\Models\Document;
 use App\Models\Race;
@@ -24,7 +25,8 @@ class ToggleAppointmentRaceAction implements ToggleAppointmentRaceActionContract
     SuccessDeleteAppointmentRaceResource|
     ManyDocumentAppointmentRaceResource|
     ExistsAppointmentRaceResource|
-    GradeNotExistsAppointmentRaceResource
+    GradeNotExistsAppointmentRaceResource|
+    NotUserPermissionResource
     {
         $user = auth()->user();
         $race = Race::find($id);

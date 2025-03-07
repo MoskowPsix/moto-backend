@@ -24,4 +24,8 @@ trait RaceResourceTrait
     {
         return BelongsToMany::make('Классы', 'grades', resource: \App\MoonShine\Resources\GradeResource::class)->searchable()->selectMode();
     }
+    public function commission(): BelongsToMany
+    {
+        return BelongsToMany::make('Комиссия', 'commissions', resource: \App\MoonShine\Resources\UserResource::class)->searchable()->selectMode();
+    }
 }
