@@ -26,6 +26,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property boolean $season
  * @property string $schema_img
  * @property string $logo
+ * @property array $contacts
  */
 class TrackResource extends JsonResource
 {
@@ -50,6 +51,7 @@ class TrackResource extends JsonResource
             'free'      => $this->free,
             'is_work'   => $this->is_work,
             'spec'      => $this->spec,
+            'contacts'  => $this->contacts,
             'user'      => UserResource::make($this->whenLoaded('user')),
             'location'  => $this->whenLoaded('location', LocationResource::make($this->location)),
             'light'     => $this->light,
