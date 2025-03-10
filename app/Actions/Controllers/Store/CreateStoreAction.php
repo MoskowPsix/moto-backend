@@ -16,6 +16,7 @@ class CreateStoreAction implements CreateStoreActionContract
             'password_1'    => $request->password_1,
             'password_2'    => $request->password_2,
             'token'         => $request->token,
+            'user_id'       => auth()->user()->id,
         ]);
         return SuccessCreateStoreResource::make($store);
     }

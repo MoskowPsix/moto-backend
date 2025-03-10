@@ -7,14 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+/**
+ * @method static create(array $array)
+ * @method static findOrFail(int $id)
+ */
 class Transaction extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'status',
-        'desc_status',
-        'person_count',
+        'desc',
+        'count',
         'user_id',
         'date',
         'attendance_id',
@@ -25,8 +29,8 @@ class Transaction extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function attendance(): BelongsTo
+    public function attendances(): BelongsToMany
     {
-        return $this->belongsTo(Attendance::class);
+        return $this->belongsToMany(Attendance::class, 'attendance_transaction', 'transaction_id', 'attendance_id');
     }
 }

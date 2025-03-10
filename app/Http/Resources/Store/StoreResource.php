@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Store;
 
+use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -11,6 +12,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property string $password_1
  * @property string $password_2
  * @property string $token
+ * @property mixed  $user
  */
 class StoreResource extends JsonResource
 {
@@ -27,6 +29,7 @@ class StoreResource extends JsonResource
             'password_1'    => $this->password_1,
             'password_2'    => $this->password_2,
             'token'         => $this->token,
+            'user'          => $this->whenLoaded('user', UserResource::make($this->user)),
         ];
     }
 }

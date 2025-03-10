@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\UserController;
-use App\Http\Controllers\GoogleSheetController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -43,7 +42,13 @@ Route::controller(\App\Http\Controllers\Api\TrackController::class)-> group(func
 
 Route::controller(\App\Http\Controllers\Api\StoreController::class)->group(function () {
     $role = new \App\Constants\RoleConstant();
-   Route::post('stores', 'create')->middleware(['auth:sanctum', 'role:'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('store.create');
+    Route::post('stores', 'create')->middleware(['auth:sanctum', 'role:'. $role::ADMIN.'|'.$role::ROOT. '|' .$role::ORGANIZATION, 'email_verification'])->name('store.create');
+});
+
+Route::controller(\App\Http\Controllers\Api\TransactionController::class)->group(function () {
+    Route::post('transactions', 'create')->middleware('auth:sanctum')->name('transaction.create');
+    Route::post('transactions/result', 'result')->middleware('auth:sanctum')->name('transaction.result');
+    Route::get('transactions/success', 'success')->middleware('auth:sanctum')->name('transaction.success');
 });
 
 Route::controller(\App\Http\Controllers\Api\RoleController::class)->group(function () {

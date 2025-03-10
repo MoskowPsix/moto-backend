@@ -27,6 +27,9 @@ use App\MoonShine\Resources\GoogleSheetResource;
 use App\MoonShine\Resources\GradeResource;
 use App\MoonShine\Resources\CommandResource;
 use App\MoonShine\Resources\LocationResource;
+use App\MoonShine\Resources\StoreResource;
+use App\MoonShine\Resources\TransactionResource;
+use App\MoonShine\Resources\AttendanceResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -57,6 +60,9 @@ class MoonShineServiceProvider extends ServiceProvider
                 GradeResource::class,
                 CommandResource::class,
                 LocationResource::class,
+                StoreResource::class,
+                TransactionResource::class,
+                AttendanceResource::class,
             ])
             ->pages([
                 ...$config->getPages(),

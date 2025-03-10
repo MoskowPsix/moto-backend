@@ -18,7 +18,7 @@ class SuccessGetAttendanceForIdResource extends JsonResource
         return [
             'status'    => 'success',
             'message' => __('messages.attendance.get_for_id.success'),
-            'attendance' => AttendanceResource::make($this->resource)
+            'attendance' => $this->resource instanceof AttendanceResource ? AttendanceResource::make($this->resource) : AttendanceResource::collection($this->resource)
         ];
     }
 }

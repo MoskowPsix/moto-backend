@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Contracts\Services\PaymentServiceContract;
 use App\Contracts\Services\PDFServiceContract;
 use App\Repositories\Search\Track\TrackElasticRepository;
 use App\Repositories\Search\Track\TrackElasticRepositoryInterface;
 use App\Repositories\Search\Track\TrackEloquentRepository;
+use App\Services\Payment\PaymentService;
 use App\Services\PDF\PDFService;
 use Elastic\Elasticsearch\Client;
 use Elastic\Elasticsearch\ClientBuilder;
@@ -37,6 +39,7 @@ class AppServiceProvider extends ServiceProvider
         });
         $this->bindSearchClient();
         $this->app->bind(PdfServiceContract::class, PdfService::class);
+        $this->app->bind(PaymentServiceContract::class, PaymentService::class);
     }
 
     /**

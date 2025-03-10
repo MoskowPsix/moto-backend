@@ -13,12 +13,10 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->boolean('status')->default(false);
-            $table->string('desc');
-            $table->integer('count');
+            $table->boolean('status')->nullable(true);
+            $table->string('desc')->nullable(true);
             $table->timestamp('date')->nullable(true);
             $table->foreignId('user_id')->nullable(true)->constrained('users')->nullOnUpdate();
-            $table->foreignId('attendance_id')->nullable(true)->constrained('attendances')->nullOnUpdate();
             $table->timestamps();
         });
     }

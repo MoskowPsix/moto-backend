@@ -1,37 +1,320 @@
-name: Grade
-description: 'Методы связанные с классами'
+name: AppointmentRace
+description: 'Методы отвечающие за запись участников'
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/grades
+      - POST
+    uri: 'api/races/{id}/toggle-appointment-race'
     metadata:
-      groupName: Grade
-      groupDescription: 'Методы связанные с классами'
+      groupName: AppointmentRace
+      groupDescription: 'Методы отвечающие за запись участников'
       subgroup: ''
       subgroupDescription: ''
-      title: get
-      description: 'Получение всех классов по фильтрам'
+      title: toggle
+      description: 'Записаться и отменить запись на гонку'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the race.'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 2
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      surname:
+        name: surname
+        description: ''
+        required: true
+        example: repellat
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      patronymic:
+        name: patronymic
+        description: ''
+        required: true
+        example: laboriosam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      dateOfBirth:
+        name: dateOfBirth
+        description: 'Must be a valid date.'
+        required: true
+        example: '2025-03-10T11:06:39'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: true
+        example: quis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      region:
+        name: region
+        description: ''
+        required: false
+        example: dicta
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      inn:
+        name: inn
+        description: ''
+        required: true
+        example: 9
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      snils:
+        name: snils
+        description: ''
+        required: true
+        example: 4
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      phoneNumber:
+        name: phoneNumber
+        description: ''
+        required: true
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      startNumber:
+        name: startNumber
+        description: 'Must be at least 1. Must not be greater than 999.'
+        required: true
+        example: 12
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      group:
+        name: group
+        description: ''
+        required: true
+        example: expedita
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      rank:
+        name: rank
+        description: ''
+        required: true
+        example: voluptatem
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      rankNumber:
+        name: rankNumber
+        description: ''
+        required: false
+        example: possimus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      community:
+        name: community
+        description: ''
+        required: true
+        example: natus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      coach:
+        name: coach
+        description: ''
+        required: false
+        example: earum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      motoStamp:
+        name: motoStamp
+        description: ''
+        required: true
+        example: neque
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: true
+        example: in
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      gradeId:
+        name: gradeId
+        description: 'The <code>id</code> of an existing record in the grades table.'
+        required: true
+        example: beatae
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      numberAndSeria:
+        name: numberAndSeria
+        description: ''
+        required: true
+        example: est
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      documentIds:
+        name: documentIds
+        description: ''
+        required: false
+        example:
+          - 15
+        type: 'integer[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      surname: repellat
+      patronymic: laboriosam
+      dateOfBirth: '2025-03-10T11:06:39'
+      city: quis
+      region: dicta
+      inn: 9
+      snils: 4
+      phoneNumber: 5
+      startNumber: 12
+      group: expedita
+      rank: voluptatem
+      rankNumber: possimus
+      community: natus
+      coach: earum
+      motoStamp: neque
+      locationId: in
+      gradeId: beatae
+      numberAndSeria: est
+      documentIds:
+        - 15
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.appointment_race.create.success"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.appointment.create.grade_not_exists"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 409
+        content: '{"status":"error","message":"messages.error.exists_appointment_race"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"status":"success","message":"messages.appointment.create_table.many_documents","documents":[]}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/races/{id}/appointment-race/users'
+    metadata:
+      groupName: AppointmentRace
+      groupDescription: 'Методы отвечающие за запись участников'
+      subgroup: ''
+      subgroupDescription: ''
+      title: GetUsersAppointmentRace
+      description: 'Записаться и отменить запись на гонку'
       authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      userId:
-        name: userId
-        description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
-        example: 6
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the race.'
+        required: true
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         custom: []
+    cleanUrlParameters:
+      id: 2
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
       paginate:
         name: paginate
         description: ''
@@ -46,7 +329,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: nihil
+        example: sit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -54,24 +337,29 @@ endpoints:
         custom: []
       limit:
         name: limit
-        description: 'Значение поля value не может быть больше 50.'
+        description: 'Must not be greater than 50.'
         required: false
-        example: 2
+        example: 7
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      userId: 6
       paginate: false
-      page: nihil
-      limit: 2
+      page: sit
+      limit: 7
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e","grades":{"id":2,"name":"\u0417\u043e\u044f \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u043d\u0430 \u0413\u043e\u0440\u0448\u043a\u043e\u0432\u0430","description":"Nobis omnis omnis quaerat. Dignissimos exercitationem veniam minus exercitationem unde. Aliquam ab explicabo incidunt iste."}},{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e","grades":{"id":3,"name":"\u0414\u043e\u0440\u043e\u043d\u0438\u043d\u0430 \u0421\u043e\u0444\u044c\u044f \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u043d\u0430","description":"Deserunt quo quidem quo voluptas tenetur soluta. Commodi tenetur consectetur perferendis nostrum distinctio. Soluta sit vel deleniti optio quae. Eos ut et enim culpa eligendi dignissimos."}}]'
+        content: '[{"status":"success","message":"messages.appointment_race.get_users.success","users":{"id":118,"name":"Ricardo Kuvalis","email":"shaniya.nienow@example.com","email_verified_at":"2025-03-10T11:06:39.000000Z","created_at":"2025-03-10T11:06:39.000000Z","updated_at":"2025-03-10T11:06:39.000000Z","avatar":null}},{"status":"success","message":"messages.appointment_race.get_users.success","users":{"id":119,"name":"Caleb Veum","email":"koch.richard@example.net","email_verified_at":"2025-03-10T11:06:39.000000Z","created_at":"2025-03-10T11:06:39.000000Z","updated_at":"2025-03-10T11:06:39.000000Z","avatar":null}}]'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
@@ -84,141 +372,14 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/grades/{id}'
+    uri: 'api/races/{id}/appointment-race/users-table'
     metadata:
-      groupName: Grade
-      groupDescription: 'Методы связанные с классами'
+      groupName: AppointmentRace
+      groupDescription: 'Методы отвечающие за запись участников'
       subgroup: ''
       subgroupDescription: ''
-      title: getForId
-      description: 'Получение класса по id'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the grade.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      id:
-        name: id
-        description: 'The <code>id</code> of an existing record in the grades table.'
-        required: true
-        example: 3
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      userId:
-        name: userId
-        description: ''
-        required: false
-        example: 3
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      id: 3
-      userId: 3
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e","grade":{"id":4,"name":"\u0421\u0432\u0435\u0442\u043b\u0430\u043d\u0430 \u0424\u0451\u0434\u043e\u0440\u043e\u0432\u043d\u0430 \u041a\u0438\u0440\u0438\u043b\u043b\u043e\u0432\u0430","description":"Nobis autem atque sequi aspernatur nemo qui quia. Aut nihil quia dignissimos quas est corrupti qui. Asperiores saepe deleniti et asperiores eos. Sed dicta voluptatem omnis soluta velit vel sed."}}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/grades
-    metadata:
-      groupName: Grade
-      groupDescription: 'Методы связанные с классами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: create
-      description: 'Создание класса'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'Количество символов в значении поля value не может превышать 255.'
-        required: true
-        example: ailugonlpbvwqmzqbym
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      description:
-        name: description
-        description: ''
-        required: false
-        example: 'Ipsa voluptas accusantium id inventore sed vero eum.'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      name: ailugonlpbvwqmzqbym
-      description: 'Ipsa voluptas accusantium id inventore sed vero eum.'
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d","grade":{"id":5,"name":"\u041c\u0438\u0445\u0430\u0438\u043b \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u0438\u0447 \u041a\u043e\u0441\u0442\u0438\u043d","description":"Exercitationem qui tenetur dolores consequuntur non magnam repellendus non. Aperiam sunt maiores eligendi culpa. Provident eveniet inventore quia architecto."}}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PATCH
-    uri: 'api/grades/{id}'
-    metadata:
-      groupName: Grade
-      groupDescription: 'Методы связанные с классами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: update
-      description: 'Редактирование класса'
+      title: getTable
+      description: 'Получить ссылку на таблицу участников'
       authenticated: true
       custom: []
     headers:
@@ -227,64 +388,37 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the grade.'
+        description: 'The ID of the race.'
         required: true
-        example: 1
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'Количество символов в значении поля value не может превышать 255.'
-        required: false
-        example: lnjurstnawvnyfhnxysmfl
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      description:
-        name: description
-        description: ''
-        required: false
-        example: 'Veritatis rem aliquid est ipsum.'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      userId:
-        name: userId
-        description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
-        example: 20
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      name: lnjurstnawvnyfhnxysmfl
-      description: 'Veritatis rem aliquid est ipsum.'
-      userId: 20
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0451\u043d","grade":{"id":6,"name":"\u041a\u0438\u0440\u0438\u043b\u043b \u041b\u044c\u0432\u043e\u0432\u0438\u0447 \u0424\u043e\u043c\u0438\u043d","description":"Sit qui repudiandae debitis quis rerum. Quia voluptates eos ea eligendi molestias eos quasi. Delectus temporibus quisquam minima."}}'
+        content: '{"status":"success","message":"messages.appointment.create_table.success","table_url":[]}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []

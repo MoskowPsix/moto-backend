@@ -13,6 +13,6 @@ class GetAttendanceForIdAction implements GetForIdAttendanceActionContract
     public function __invoke(int $trackId, GetForIdAttendanceRequest $request): SuccessGetAttendanceForIdResource
     {
         $attendance = Attendance::where('track_id', $trackId)->get();
-        return SuccessGetAttendanceForIdResource::make($attendance->first());
+        return SuccessGetAttendanceForIdResource::make($attendance);
     }
 }
