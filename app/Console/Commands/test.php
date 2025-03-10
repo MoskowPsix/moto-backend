@@ -55,8 +55,8 @@ class test extends Command
                             'type' => 'polis',
                             'url_view' => $data['polisFileLink'] ?? 'https://dev-moto.vokrug.city/document/' . $apps->id,
                             'number' => $data['polisNumber'] ?? '',
-                            'issued_whom' => $data['polisIssuedWhom'] ?? '',
-                            'it_works_date' => $data['polisItWorksDate'] ?? '',
+                            'issued_whom' => $data['issuedWhom'] ?? '',
+                            'it_works_date' => $data['itWorksDate'] ?? '',
                         ]);
                     }
                     if ($apps->type->value === DocumentType::Licenses->value) {
