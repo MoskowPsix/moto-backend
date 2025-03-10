@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\MoonShine\Pages\Track;
 
 use App\Traits\MoonShine\Resources\TrackResourceTrait;
+use MoonShine\Laravel\Fields\Relationships\HasMany;
+use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\Laravel\Pages\Crud\DetailPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
@@ -48,6 +50,11 @@ class TrackDetailPage extends DetailPage
                 ]),
             $this->user(),
             $this->level(),
+            HasMany::make('Услуги', 'attendance')
+                ->fields([
+                    Text::make('Название', 'name'),
+                    Number::make('Цена', 'price'),
+                ]),
             Date::make('Создано', 'created_at'),
             Date::make('Обновлено', 'updated_at'),
         ];

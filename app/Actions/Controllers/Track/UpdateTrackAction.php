@@ -36,6 +36,7 @@ class UpdateTrackAction implements UpdateTrackActionContract
             'location_id'   => $request->locationId ?? $track->location_id,
             'light'         => $request->light ?? $track->light,
             'season'        => $request->season ?? $track->season,
+            'store_id'      => $request->storeId ?? $track->store_id,
         ]);
 
         $this->saveFiles($request, $track);

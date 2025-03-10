@@ -58,6 +58,7 @@ class CreateTrackRequest extends FormRequest
             'light'         => 'boolean|nullable',
             'season'        => 'boolean|nullable',
             'schemaImg'    => 'image|mimes:jpeg,png,jpg,svg,webp|nullable',
+            'storeId'       =>  'integer|nullable|exists:stores,id',
         ];
     }
 }

@@ -6,6 +6,8 @@ use App\Traits\Models\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * @method static create(array $array)
@@ -32,7 +34,9 @@ class Track extends Model
         'logo',
         'light',
         'season',
-        'schema_img'
+        'schema_img',
+        'attendance_id',
+        'store_id',
     ];
 
     protected $casts =[
@@ -66,5 +70,13 @@ class Track extends Model
     public function location(): BelongsTo
     {
         return $this->belongsTo(Location::class);
+    }
+    public function attendance(): HasMany
+    {
+        return $this->hasMany(Attendance::class);
+    }
+    public function store(): BelongsTo
+    {
+        return $this->belongsTo(Store::class);
     }
 }

@@ -32,6 +32,7 @@ class CreateTracksAction implements CreateTracksActionContract
                 'location_id'   => $request->locationId,
                 'light'         => isset($request->light),
                 'season'        => isset($request->season),
+                'store_id'      => $request->storeId,
             ]);
             if(isset($request->images)) {
                 $this->saveImages($request->images, $track);

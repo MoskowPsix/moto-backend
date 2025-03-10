@@ -27,6 +27,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property string $schema_img
  * @property string $logo
  * @property array $contacts
+ * @property mixed $store
  */
 class TrackResource extends JsonResource
 {
@@ -57,7 +58,8 @@ class TrackResource extends JsonResource
             'light'     => $this->light,
             'season'    => $this->season,
             'schema_img' => $this->schema_img,
-            'logo'      => $this->logo
+            'logo'      => $this->logo,
+            'store'     => $this->whenLoaded('store', StoreResource::make($this->store)),
         ];
     }
 }

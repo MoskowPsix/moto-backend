@@ -6,6 +6,7 @@ namespace App\MoonShine\Pages\Track;
 
 use App\Traits\MoonShine\Resources\TrackResourceTrait;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
+use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\Laravel\Pages\Crud\FormPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
@@ -62,7 +63,12 @@ class TrackFormPage extends FormPage
                     Text::make('Значение', 'value'),
                 ]),
             $this->user()->required(),
-            $this->level()->required()
+            $this->level()->required(),
+            HasMany::make('Услуги', 'attendance')
+                ->fields([
+                    Text::make('Название', 'name'),
+                    Number::make('Цена', 'price'),
+                ])->creatable(),
         ];
     }
 

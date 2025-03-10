@@ -64,6 +64,14 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\Command\UpdateCommandActionContract::class                               => \App\Actions\Controllers\Command\UpdateCommandAction::class,
         \App\Contracts\Actions\Controllers\RecoveryPassword\SendRecoveryPasswordActionContract::class               => \App\Actions\Controllers\RecoveryPassword\SendRecoveryPasswordAction::class,
         \App\Contracts\Actions\Controllers\RecoveryPassword\RecoveryRecoveryPasswordActionContract::class           => \App\Actions\Controllers\RecoveryPassword\RecoveryRecoveryPasswordAction::class,
+        \App\Contracts\Actions\Controllers\Store\CreateStoreActionContract::class                                   => \App\Actions\Controllers\Store\CreateStoreAction::class,
+        \App\Contracts\Actions\Controllers\Attendance\CreateAttendanceActionContract::class                         => \App\Actions\Controllers\Attendance\CreateAttendanceAction::class,
+        \App\Contracts\Actions\Controllers\Attendance\GetForIdAttendanceActionContract::class                       => \App\Actions\Controllers\Attendance\GetAttendanceForIdAction::class,
+        \App\Contracts\Actions\Controllers\Attendance\UpdateAttendanceActionContract::class                         => \App\Actions\Controllers\Attendance\UpdateAttendanceAction::class,
+        \App\Contracts\Actions\Controllers\Attendance\DeleteAttendanceActionContract::class                         => \App\Actions\Controllers\Attendance\DeleteAttendanceAction::class,
+        \App\Contracts\Actions\Controllers\Transaction\CreateTransactionActionContract::class                       => \App\Actions\Controllers\Transaction\CreateTransactionAction::class,
+        \App\Contracts\Actions\Controllers\Transaction\ResultTransactionActionContract::class                       => \App\Actions\Controllers\Transaction\ResultTransactionAction::class,
+        \App\Contracts\Actions\Controllers\Transaction\SuccessTransactionActionContract::class                      => \App\Actions\Controllers\Transaction\SuccessTransactionAction::class,
 
     ];
     /**
