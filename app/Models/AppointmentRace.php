@@ -19,9 +19,54 @@ class AppointmentRace extends Model
         'race_id',
         'user_id',
         'data',
+        'surname',
+        'name',
+        'patronymic',
+        'engine',
+        'start_number',
+        'licenses_number',
+        'rank',
+        'date_of_birth',
+        'community',
+        'moto_stamp',
+        'number_and_seria',
+        'snils',
+        'phone_number',
+        'polis_number',
+        'coach',
+        'inn',
+        'city',
+        'location_id',
+        'grade_id',
+        'command_id',
     ];
 
     protected $casts = [
         'data'              => 'encrypted',
+        'number_and_seria'  => 'encrypted',
+        'snils'             => 'encrypted',
+        'inn'               => 'encrypted',
     ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function location(): BelongsTo
+    {
+        return $this->belongsTo(Location::class);
+    }
+    public function documents(): BelongsToMany
+    {
+        return $this->belongsToMany(Document::class);
+    }
+    public function grade(): BelongsTo
+    {
+        return $this->belongsTo(Grade::class);
+    }
+    public function command(): BelongsTo
+    {
+        return $this->belongsTo(Command::class);
+    }
 }

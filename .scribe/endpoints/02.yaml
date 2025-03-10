@@ -1,18 +1,18 @@
-name: VerificationEmail
-description: 'Подтверждение почты через письмо'
+name: RecoveryPassword
+description: 'Методы связанные с восстановлением пароля'
 endpoints:
   -
     httpMethods:
       - POST
-    uri: api/verification-email/send
+    uri: api/recovery-password/send
     metadata:
-      groupName: VerificationEmail
-      groupDescription: 'Подтверждение почты через письмо'
+      groupName: RecoveryPassword
+      groupDescription: 'Методы связанные с восстановлением пароля'
       subgroup: ''
       subgroupDescription: ''
       title: send
-      description: 'Отправка письма на почту пользователя'
-      authenticated: true
+      description: 'Отправка токена восстановления на почту'
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
@@ -21,19 +21,41 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Must be a valid email address. The <code>email</code> of an existing record in the users table.'
+        required: true
+        example: alfred.nicolas@example.org
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      url:
+        name: url
+        description: 'Must be a valid URL.'
+        required: true
+        example: 'https://armstrong.info/molestiae-amet-numquam-sed-quaerat-mollitia-reprehenderit-error.html'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      email: alfred.nicolas@example.org
+      url: 'https://armstrong.info/molestiae-amet-numquam-sed-quaerat-mollitia-reprehenderit-error.html'
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.verification_email.send.success"}'
+        content: '{"status":"success","message":"messages.recovery_password.send.success"}'
         headers: []
         description: ''
         custom: []
       -
-        status: 403
-        content: '{"status":"error","message":"messages.verification_email.send.already_sent"}'
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
@@ -46,15 +68,15 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/verification-email/verify
+    uri: api/recovery-password/recovery
     metadata:
-      groupName: VerificationEmail
-      groupDescription: 'Подтверждение почты через письмо'
+      groupName: RecoveryPassword
+      groupDescription: 'Методы связанные с восстановлением пароля'
       subgroup: ''
       subgroupDescription: ''
-      title: verify
-      description: 'Подтверждение почты пользователя по коду из письма'
-      authenticated: true
+      title: recovery
+      description: 'Смена пароля с токена из почты'
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
@@ -64,35 +86,51 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      code:
-        name: code
-        description: 'Must be at least 999. Must not be greater than 10000.'
+      token:
+        name: token
+        description: ''
         required: true
-        example: 7
-        type: integer
+        example: aut
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'Must be at least 8 characters.'
+        required: true
+        example: 'qR|uVKA.qQ6]`J.1WO'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'The value and <code>password</code> must match.'
+        required: true
+        example: accusantium
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      code: 7
+      token: aut
+      password: 'qR|uVKA.qQ6]`J.1WO'
+      password_confirmation: accusantium
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.verification_email.verification.success"}'
+        content: '{"status":"success","message":"messages.recovery_password.recovery.success"}'
         headers: []
         description: ''
         custom: []
       -
         status: 403
-        content: '{"status":"error","message":"messages.verification_email.send.already_sent"}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 403
-        content: '{"status":"error","message":"messages.verification_email.verification.incorrect"}'
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
         headers: []
         description: ''
         custom: []

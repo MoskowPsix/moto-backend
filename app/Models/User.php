@@ -16,6 +16,7 @@ use Spatie\Permission\Traits\HasRoles;
 /**
  * @method static create(array $array)
  * @method static where(string $string, mixed $name)
+ * @method static whereIn(string $string, array $usersIds)
  */
 class User extends Authenticatable
 {
@@ -72,5 +73,17 @@ class User extends Authenticatable
     public function ecode(): HasOne
     {
         return $this->hasOne(ECode::class);
+    }
+//    public function commissions(): BelongsToMany
+//    {
+//        return $this->belongsToMany(User::class, 'race_commission', 'race_id', 'user_id');
+//    }
+    public function transactions(): HasMany
+    {
+        return $this->hasMany(Transaction::class);
+    }
+    public function stores(): HasMany
+    {
+        return $this->hasMany(Store::class);
     }
 }

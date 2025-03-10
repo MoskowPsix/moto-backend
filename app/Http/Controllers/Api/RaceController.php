@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Contracts\Actions\Controllers\Race\AddCommissionActionContract;
 use App\Contracts\Actions\Controllers\Race\CreateRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\GetForIdRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\GetRaceActionContract;
+use App\Contracts\Actions\Controllers\Race\RemoveCommissionActionContract;
 use App\Contracts\Actions\Controllers\Race\ToggleIsWorkRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\UpdateRaceActionContract;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Race\AddCommissionRequest;
 use App\Http\Requests\Race\CreateRaceRequest;
 use App\Http\Requests\Race\GetForIdRaceRequest;
 use App\Http\Requests\Race\GetRaceRequest;
@@ -19,6 +22,8 @@ use App\Http\Resources\Race\GetRaceForId\SuccessGetRaceForIdResource;
 use App\Http\Resources\Race\GetRaces\SuccessGetRaceResource;
 use App\Http\Resources\Race\ToggleIsWork\SuccessToogleIsWorkRaceResource;
 use App\Http\Resources\Race\Update\SuccessUpdateRaceResource;
+use App\Http\Resources\User\AddCommission\SuccessAddCommissionResource;
+use App\Http\Resources\User\AddCommission\UserIncorectRoleAddCommissionResource;
 use App\Models\Race;
 use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
@@ -60,11 +65,23 @@ class RaceController extends Controller
     #[ResponseFromApiResource(SuccessToogleIsWorkRaceResource::class, Race::class, collection: false)]
     #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
     #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
-    #[Endpoint(title: 'toggleIsWork', description: 'Переключатель гонки, с рабочего на нерабочий и наоборот')]
+    #[Endpoint(title: 'toggleIsWork', description: 'Переключатель гонки, с рабочего на нерабочий и наоборот.')]
     public function toggleIsWork($id, ToggleIsWorkRaceActionContract $action): SuccessToogleIsWorkRaceResource|NotFoundResource|NotUserPermissionResource
     {
         return $action($id);
     }
-//    public function delete()
-//    {}
+    #[Authenticated]
+    #[ResponseFromApiResource(SuccessAddCommissionResource::class, Race::class, collection: false)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
+    #[ResponseFromApiResource(UserIncorectRoleAddCommissionResource::class, status: 403)]
+    #[Endpoint(title: 'addCommission', description: 'Прикрепить судей к гонке.')]
+    public function addCommission(int $id, AddCommissionRequest $request, AddCommissionActionContract $action):
+    NotUserPermissionResource|
+    UserIncorectRoleAddCommissionResource|
+    SuccessAddCommissionResource|
+    NotFoundResource
+    {
+        return $action($id, $request);
+    }
 }

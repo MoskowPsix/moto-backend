@@ -3,11 +3,14 @@
 namespace App\Http\Controllers\Api;
 
 use App\Actions\Controllers\User\GetUserForTokenAction;
+use App\Contracts\Actions\Controllers\User\GetCommisionUserActionContract;
 use App\Contracts\Actions\Controllers\User\GetUserForIdActionContract;
 use App\Contracts\Actions\Controllers\User\UpdateUserActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\User\GetCommisionUserRequest;
 use App\Http\Resources\Errors\NotFoundResource;
+use App\Http\Resources\User\GetCommision\SuccessGetCommisionUserResource;
 use App\Http\Resources\User\GetForId\SuccessUserGetForIdResource;
 use App\Http\Resources\User\GetUserForToken\SuccessGetUserForTokenResource;
 use App\Http\Resources\User\Update\ErrorUpdateUserResource;
@@ -42,5 +45,12 @@ class UserController extends Controller
     public function getForId(int $id, GetUserForIdActionContract $action): SuccessUserGetForIdResource | NotFoundResource
     {
         return $action($id);
+    }
+    #[Authenticated]
+    #[ResponseFromApiResource(SuccessGetCommisionUserResource::class, User::class, collection: true)]
+    #[Endpoint(title: 'getCommissions', description: 'Получить список судей')]
+    public function getCommissions(GetCommisionUserRequest $request, GetCommisionUserActionContract $action): SuccessGetCommisionUserResource
+    {
+        return $action($request);
     }
 }

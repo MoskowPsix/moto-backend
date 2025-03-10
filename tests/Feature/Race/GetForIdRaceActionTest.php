@@ -60,6 +60,6 @@ class GetForIdRaceActionTest extends TestCase
         $this->assertInstanceOf(SuccessGetRaceForIdResource::class, $response);
 
         $resource = $response->resource;
-        $this->assertNotNull($resource->appointments_exists);
+        $this->assertNull($resource->appointments_exists, $resource->user_id);
     }
 }

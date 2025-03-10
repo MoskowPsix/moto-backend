@@ -27,13 +27,16 @@ class UpdateTrackAction implements UpdateTrackActionContract
         }
         $track->update([
             'name'          => $request->name ?? $track->name,
-            'desc'          => $request->desc ?? $track->desc,
             'address'       => $request->address ?? $track->address,
+            'desc'          => $request->desc ?? $track->desc,
             'latitude'      => $request->latitude ?? $track->latitude,
             'longitude'     => $request->longitude ?? $track->longitude,
             'is_work'       => $request->is_work ?? $track->is_work,
             'level_id'      => $request->levelId ?? $track->level_id,
             'location_id'   => $request->locationId ?? $track->location_id,
+            'light'         => $request->light ?? $track->light,
+            'season'        => $request->season ?? $track->season,
+            'store_id'      => $request->storeId ?? $track->store_id,
         ]);
 
         $this->saveFiles($request, $track);
@@ -43,6 +46,9 @@ class UpdateTrackAction implements UpdateTrackActionContract
     {
         !empty($request->imagesDel) ? $this->deleteFiles($request->imagesDel, $track) : null;
         !empty($request->imagesAdd) ? $this->saveImages($request->imagesAdd, $track) : null;
+        !empty($request->logo) ? $this->saveImg($request->logo, $track, 'logo') : null;
+        !empty($request->schemaImg) ? $this->saveImg($request->schemaImg, $track, 'schema_img') : null;
+
     }
 
     public function saveImages(array $images, Track $track): void
@@ -54,6 +60,14 @@ class UpdateTrackAction implements UpdateTrackActionContract
         }
         $track->update([
             'images' => $path_arr
+        ]);
+    }
+
+    public function saveImg($file, Track $track, string $field): void
+    {
+        $path = $file->store('track/'.$track->id, 'public');
+        $track->update([
+            $field => $path
         ]);
     }
 

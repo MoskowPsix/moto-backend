@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\MoonShine\Pages\Track;
 
 use App\Traits\MoonShine\Resources\TrackResourceTrait;
+use MoonShine\Laravel\Fields\Relationships\HasMany;
+use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\Laravel\Pages\Crud\DetailPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
@@ -29,13 +31,13 @@ class TrackDetailPage extends DetailPage
         return [
             Image::make('images')->multiple()->dir("/track/$item->id"),
             Checkbox::make('Работает', 'is_work'),
-            Checkbox::make('Бесплатное', 'free')->sortable(),
             Text::make('Название', 'name'),
             Text::make('Адрес', 'address'),
             Text::make('Местоположение', 'point'),
-            Number::make('Длина', 'length'),
-            Number::make('Повороты', 'turns'),
-            Textarea::make('Описание', 'desc'),
+            Textarea::make('Описание', 'desc')
+            ->customAttributes([
+                'rows' => 6,
+            ]),
             Json::make('Спецификации трассы', 'spec')
                 ->fields([
                     Text::make('Название'),
@@ -48,6 +50,11 @@ class TrackDetailPage extends DetailPage
                 ]),
             $this->user(),
             $this->level(),
+            HasMany::make('Услуги', 'attendance')
+                ->fields([
+                    Text::make('Название', 'name'),
+                    Number::make('Цена', 'price'),
+                ]),
             Date::make('Создано', 'created_at'),
             Date::make('Обновлено', 'updated_at'),
         ];

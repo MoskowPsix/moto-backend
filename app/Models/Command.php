@@ -22,10 +22,10 @@ class Command extends Model
         'avatar',
         'city',
         'user_id',
-        'location_id'
+        'location_id',
+        'full_name',
+        'coach',
     ];
-
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

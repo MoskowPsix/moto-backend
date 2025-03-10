@@ -6,6 +6,9 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * @property mixed $name
+ * @property mixed $fullname
+ * @property mixed $city
+ * @property mixed $coach
  */
 class CreateCommandRequest extends FormRequest
 {
@@ -26,6 +29,8 @@ class CreateCommandRequest extends FormRequest
     {
         return [
             'name'          => 'required|string|max:255',
+            'fullName'      => 'nullable|string|max:255',
+            'coach'         => 'nullable|string|max:255',
             'avatar'        => 'nullable|image|mimes:jpeg,png,jpg,svg,webp',
             'locationId'    => 'required|integer|exists:locations,id',
             'city'          => 'required|string|max:255',

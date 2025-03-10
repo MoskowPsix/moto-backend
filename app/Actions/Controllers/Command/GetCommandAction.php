@@ -4,6 +4,7 @@ namespace App\Actions\Controllers\Command;
 
 use App\Contracts\Actions\Controllers\Command\GetCommandActionContract;
 use App\Filters\Command\CommandUserIdFilter;
+use App\Filters\Command\NameCommandFilter;
 use App\Http\Requests\Command\GetCommandRequest;
 use App\Http\Resources\Command\GetCommand\SuccessGetCommandResource;
 use App\Models\Command;
@@ -22,6 +23,7 @@ class GetCommandAction implements GetCommandActionContract
             ->send($command_q)
             ->through([
                 CommandUserIdFilter::class,
+                NameCommandFilter::class,
             ])
             ->via('apply')
             ->then(function ($commands) use ($page, $limit, $request) {

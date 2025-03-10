@@ -32,6 +32,7 @@ class CreatePersonalInfoAction implements CreatePersonalInfoActionContract
             'region'            => $request->region,
             'number_and_seria'  => $request->numberAndSeria,
             'location_id'       => $request->locationId,
+            'command_id'        => $request->commandId,
         ]);
         return SuccessCreatePersonalInfoResource::make($info);
     }

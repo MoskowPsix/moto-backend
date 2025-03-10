@@ -24,7 +24,6 @@ class GoogleSheetService implements GoogleSheetServiceContract
 {
     public string $table_name;
 
-    private string $sheetNameUsers = 'Sheet1';
     public string $url;
 
     public string $sourceIdSheet = "1t3WuY3wiyCxTU52krYmBdOWcZtm9OcdPIkoLgiwIzcM";
@@ -57,11 +56,24 @@ class GoogleSheetService implements GoogleSheetServiceContract
                 $race->name
             ]
         ];
-        $values_race = [];
 
         $table = $this->copySheets($this->sourceIdSheet);
         $this->updateRows($table, $fields, $value, 'список');
         $this->updateRaceTable($table, $fields_race,'гонка');
+        // Создаём листы для классов гонки
+        $race->grades()->each(function ($grade) use($table, $fields, $value) {
+            $this->createNewSheet($table->spreadsheetId, $grade->name);
+            $new_val = [];
+            foreach ($value as $val) {
+                if ($val['Класс'] === $grade->name) {
+                    $new_val[] = $val;
+                }
+            }
+            $this->updateRows($table, $fields, $new_val, $grade->name);
+
+        });
+//        $this->updateRaceTable($table, $fields_race,'гонка');
+
 
         $this->addAccess($table);
 
@@ -92,13 +104,45 @@ class GoogleSheetService implements GoogleSheetServiceContract
                 $race->name
             ]
         ];
-        $values_race = [];
 
-//        $this->fields = $fields;
-//        $this->values = $value;
-//        $this->addAccess($table);
         $this->updateRows($table, $fields, $value, 'список'); // Самое долгое место
         $this->updateRaceTable($table, $fields_race,'гонка');
+        $race->grades()->each(function ($grade) use($table, $fields, $value) {
+            $grade_fields = [
+                'id',
+                'Стартовый номер',
+                'Фамилия, Имя участника',
+                'Отчество участника',
+                'Дата рождения',
+                'Тип и номер лицензии',
+                'Разряд',
+                'Населённый пункт(регион)',
+                'Команда(Клуб)',
+                'Марка мото',
+            ];
+            $new_val = [];
+            $i = 0;
+            foreach ($value as $val) {
+                $i++;
+                if ($val['Класс'] === $grade->name) {
+                    $new_val[] = [
+                        'id'                        => $i,
+                        'Стартовый номер'           => $val['Стартовый Номер'] ?? '',
+                        'Фамилия, Имя участника'    => ($val['Фамилия участника'] ?? '') . ' ' . ($val['Имя участника'] ?? ''),
+                        'Отчество участника'        => $val['Отчество участника'] ?? '',
+                        'Дата рождения'             => $val['Дата Рождения'] ?? '',
+                        'Тип и номер лицензии'      => $val['Номер Лицензии'] ?? '',
+                        'Разряд'                    => $val['Спортивное звание (разряд)'] ?? '',
+                        'Населённый пункт(регион)'  => $val['Населенный пункт (город, область)'] ?? '',
+                        'Команда(Клуб)'             => $val['Команда (Клуб)'] ?? '',
+                        'Марка мото'                => $val['Марка мотоцикла'] ?? '',
+                    ];
+                }
+            }
+            $this->updateRows($table, $grade_fields, $new_val, $grade->name);
+
+        });
+
         $url = "https://docs.google.com/spreadsheets/d/$id";
         $spriteSheetID = $table->spreadsheetId;
         return (object)['url' => $url, 'sheetID' => $spriteSheetID];
@@ -231,7 +275,7 @@ class GoogleSheetService implements GoogleSheetServiceContract
         }
 
         // 2. Создаем новый Google Sheet
-        $newSpreadsheet = $this->createTable("Копия " . $spreadsheet->getProperties()->getTitle());
+        $newSpreadsheet = $this->createTable($spreadsheet->getProperties()->getTitle());
         $newSpreadsheetId = $newSpreadsheet->spreadsheetId;
 
         // 3. Копируем и переименовываем листы
@@ -258,10 +302,6 @@ class GoogleSheetService implements GoogleSheetServiceContract
 
         // 6. Возвращаем объект с информацией о новом файле
         return $newSpreadsheet;
-//        return (object)[
-//            'url' => "https://docs.google.com/spreadsheets/d/$newSpreadsheetId",
-//            'sheetID' => $newSpreadsheetId
-//        ];
     }
 
     private function renameSheet(string $spreadsheetId, int $sheetId, string $newTitle): void
@@ -308,5 +348,23 @@ class GoogleSheetService implements GoogleSheetServiceContract
                 }
             }
         }
+    }
+    private function createNewSheet(string $spreadsheetId, string $sheetTitle): void
+    {
+        $sheetsService = new Sheets($this->client);
+
+        $request = new \Google_Service_Sheets_BatchUpdateSpreadsheetRequest([
+            'requests' => [
+                [
+                    'addSheet' => [
+                        'properties' => [
+                            'title' => $sheetTitle
+                        ]
+                    ]
+                ]
+            ]
+        ]);
+
+        $sheetsService->spreadsheets->batchUpdate($spreadsheetId, $request);
     }
 }

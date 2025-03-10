@@ -4,8 +4,18 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Pages;
 
+use App\Models\Track;
+use App\Models\User;
+use App\MoonShine\Pages\Race\RaceIndexPage;
+use App\MoonShine\Resources\RaceResource;
+use App\MoonShine\Resources\TrackResource;
+use App\MoonShine\Resources\UserResource;
 use MoonShine\Laravel\Pages\Page;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\MenuManager\MenuGroup;
+use MoonShine\MenuManager\MenuItem;
+use MoonShine\UI\Components\Metrics\Wrapped\ValueMetric;
+use App\Models\Race;
 
 class Dashboard extends Page
 {
@@ -21,7 +31,7 @@ class Dashboard extends Page
 
     public function getTitle(): string
     {
-        return $this->title ?: 'Dashboard';
+        return $this->title ?: 'Приборная панель';
     }
 
     /**
@@ -29,6 +39,18 @@ class Dashboard extends Page
      */
     protected function components(): iterable
 	{
-		return [];
+		return [
+            MenuGroup::make('Контент', [
+                MenuItem::make('Гонки', RaceResource::class, 'map'),
+                MenuItem::make('Трассы', TrackResource::class, 'map-pin'),
+                MenuItem::make('Пользователи', UserResource::class),
+            ]),
+            ValueMetric::make('Гонок')
+            ->value(fn(): int => Race::all()->count()),
+            ValueMetric::make('Трасс')
+            ->value(fn(): int => Track::all()->count()),
+            ValueMetric::make('Пользователей')
+            ->value(fn(): int => User::all()->count()),
+        ];
 	}
 }

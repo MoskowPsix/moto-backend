@@ -41,6 +41,8 @@ class UpdatePersonalInfoAction implements UpdatePersonalInfoActionContract
             'number_and_seria'  => $request->numberAndSeria?? $old_personal->number_and_seria,
             'region'            => $request->region?? $old_personal->region,
             'location_id'       => $request->locationId ?? $old_personal->location_id,
+            'command_id'       => $request->commandId ?? $old_personal->command_id,
+
         ]);
 
         return SuccessUpdatePersonalInfoResource::make(auth()->user()->personalInfo()->with('location')->first());

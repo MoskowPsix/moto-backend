@@ -11,7 +11,7 @@ use Tests\TestCase;
 class GetTracksActionTest extends TestCase
 {
     use RefreshDatabase;
-    protected $seed = true;
+    protected bool $seed = true;
     /**
      * A basic feature test example.
      */
@@ -27,7 +27,13 @@ class GetTracksActionTest extends TestCase
 
     public function test_get_tracks_with_user_filter_success(): void
     {
-        $getTrack = new GetTracksRequest(['userId' => 1]);
+        $getTrack = new GetTracksRequest(
+            [
+                'userId'    => 1,
+                'paginate'  => 1,
+                'page'      => 1,
+                'limit'     => 10,
+            ]);
 
         $action = app(GetTracksActionContract::class);
         $response = $action($getTrack);

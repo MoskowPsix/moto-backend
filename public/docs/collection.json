@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "c9a53d4f-6988-447b-bbed-54082f61ba19",
+        "_postman_id": "f5a314f1-5c88-4240-a505-85973b133560",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -49,7 +49,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "[]"
+                            "raw": "{\"surname\":\"repellat\",\"patronymic\":\"laboriosam\",\"dateOfBirth\":\"2025-03-10T11:06:39\",\"city\":\"quis\",\"region\":\"dicta\",\"inn\":9,\"snils\":4,\"phoneNumber\":5,\"startNumber\":12,\"group\":\"expedita\",\"rank\":\"voluptatem\",\"rankNumber\":\"possimus\",\"community\":\"natus\",\"coach\":\"earum\",\"motoStamp\":\"neque\",\"locationId\":\"in\",\"gradeId\":\"beatae\",\"numberAndSeria\":\"est\",\"documentIds\":[15]}"
                         },
                         "description": "\u0417\u0430\u043f\u0438\u0441\u0430\u0442\u044c\u0441\u044f \u0438 \u043e\u0442\u043c\u0435\u043d\u0438\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u044c \u043d\u0430 \u0433\u043e\u043d\u043a\u0443"
                     },
@@ -62,14 +62,26 @@
                         },
                         {
                             "header": [],
-                            "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.appointment_race.delete.success\"}",
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_found\"}",
                             "name": ""
                         },
                         {
                             "header": [],
                             "code": 404,
-                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_found\"}",
+                            "body": "{\"status\":\"error\",\"message\":\"messages.appointment.create.grade_not_exists\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 409,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.exists_appointment_race\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.appointment.create_table.many_documents\",\"documents\":[]}",
                             "name": ""
                         }
                     ]
@@ -104,7 +116,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"paginate\":false,\"page\":\"laboriosam\",\"limit\":15}"
+                            "raw": "{\"paginate\":false,\"page\":\"sit\",\"limit\":7}"
                         },
                         "description": "\u0417\u0430\u043f\u0438\u0441\u0430\u0442\u044c\u0441\u044f \u0438 \u043e\u0442\u043c\u0435\u043d\u0438\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u044c \u043d\u0430 \u0433\u043e\u043d\u043a\u0443",
                         "auth": {
@@ -115,7 +127,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "[{\"status\":\"success\",\"message\":\"messages.appointment_race.get_users.success\",\"users\":{\"id\":18,\"name\":\"Madyson Waelchi\",\"avatar\":null,\"personal\":[]}},{\"status\":\"success\",\"message\":\"messages.appointment_race.get_users.success\",\"users\":{\"id\":19,\"name\":\"Mrs. Josianne Schultz Jr.\",\"avatar\":null,\"personal\":[]}}]",
+                            "body": "[{\"status\":\"success\",\"message\":\"messages.appointment_race.get_users.success\",\"users\":{\"id\":118,\"name\":\"Ricardo Kuvalis\",\"email\":\"shaniya.nienow@example.com\",\"email_verified_at\":\"2025-03-10T11:06:39.000000Z\",\"created_at\":\"2025-03-10T11:06:39.000000Z\",\"updated_at\":\"2025-03-10T11:06:39.000000Z\",\"avatar\":null}},{\"status\":\"success\",\"message\":\"messages.appointment_race.get_users.success\",\"users\":{\"id\":119,\"name\":\"Caleb Veum\",\"email\":\"koch.richard@example.net\",\"email_verified_at\":\"2025-03-10T11:06:39.000000Z\",\"created_at\":\"2025-03-10T11:06:39.000000Z\",\"updated_at\":\"2025-03-10T11:06:39.000000Z\",\"avatar\":null}}]",
                             "name": ""
                         },
                         {
@@ -181,6 +193,133 @@
             ]
         },
         {
+            "name": "Attendance",
+            "description": "\u041c\u0435\u0442\u043e\u0434\u044b \u0441\u0432\u044f\u0437\u0430\u043d\u043d\u044b\u0435 \u0441 \u043f\u043b\u0430\u0442\u043d\u044b\u043c\u0438 \u0443\u0441\u043b\u0443\u0433\u0430\u043c\u0438",
+            "item": [
+                {
+                    "name": "create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/attendances",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/attendances"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"atuyutssayaah\",\"desc\":\"tijnvjwfbcgobys\",\"price\":6516.9,\"trackId\":20}"
+                        },
+                        "description": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043f\u043b\u0430\u0442\u043d\u043e\u0439 \u0443\u0441\u043b\u0443\u0433\u0438"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.attendance.create.success\",\"attendance\":{\"id\":24,\"name\":\"Vilma Lubowitz\",\"desc\":\"Aut est provident dolorum nulla velit voluptatibus praesentium. Dolorem est qui assumenda. Nemo facilis ut alias sit et. Est saepe sit et quidem est non.\",\"price\":\"16\"}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "update",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/attendance\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/attendance\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the attendance."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"ptohrivp\",\"desc\":\"o\",\"price\":5691.2438302,\"trackId\":9}"
+                        },
+                        "description": "\u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u043f\u043b\u0430\u0442\u043d\u043e\u0439 \u0443\u0441\u043b\u0443\u0433\u0438"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.attendance.update.success\",\"attendance\":{\"id\":25,\"name\":\"Robin Gibson\",\"desc\":\"Accusantium eum aspernatur ratione unde enim sit. Qui et enim placeat cum. Officia fuga amet quia illo temporibus laborum dolorem. Dolore quo tempora sed numquam nam.\",\"price\":\"7.449748e+06\"}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "delete",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/attendance\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/attendance\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The ID of the attendance."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id\":5}"
+                        },
+                        "description": "\u0423\u0434\u0430\u043b\u0435\u043d\u0438\u0435 \u043f\u043b\u0430\u0442\u043d\u043e\u0439 \u0443\u0441\u043b\u0443\u0433\u0438"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.attendance.delete.success\",\"attendance\":{\"id\":26,\"name\":\"Breanna Erdman\",\"desc\":\"Eaque iure impedit dignissimos in. Accusantium voluptatem eos optio delectus quis tempore. Sunt voluptas hic molestias quia non. Quidem accusamus debitis ducimus labore.\",\"price\":\"5.849683e+06\"}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Auth",
             "description": "\u0410\u0432\u0442\u043e\u0440\u0438\u0437\u0430\u0446\u0438\u044f \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435\u0439 \u0438 \u0432\u0441\u0451 \u0447\u0442\u043e \u0441 \u043d\u0435\u0439 \u0441\u0432\u044f\u0437\u0430\u043d\u043e.",
             "item": [
@@ -206,7 +345,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"hhoeger@example.com\",\"password\":\"@vhX[&g\"}"
+                            "raw": "{\"email\":\"mariano60@example.org\",\"password\":\"B@}(r;&z]\"}"
                         },
                         "description": "\u0410\u0432\u0442\u043e\u0440\u0438\u0437\u0430\u0446\u0438\u044f \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
                         "auth": {
@@ -217,7 +356,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.auth.login.success\",\"access_token\":\"4|R2Oj0pFWAZgnD8W4gcn9iqRndB1aCePsajhDHMxidb99bdf9\",\"token_type\":\"Bearer\",\"user\":{\"id\":11,\"name\":\"Fletcher Murray\",\"email\":\"hbeer@example.org\",\"email_verified_at\":\"2025-02-18T11:15:09.000000Z\",\"avatar\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.auth.login.success\",\"access_token\":\"4|1SGVxmLH25bAQq8M5IoskkQc2MCagaA0RfpdfZiN7982a6e6\",\"token_type\":\"Bearer\",\"user\":{\"id\":111,\"name\":\"Miss Michele Heller\",\"email\":\"bayer.jeffery@example.com\",\"email_verified_at\":\"2025-03-10T11:06:36.000000Z\",\"avatar\":null}}",
                             "name": ""
                         },
                         {
@@ -253,25 +392,25 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "fbnf",
+                                    "value": "nivftrpitzirretcsnok",
                                     "type": "text",
                                     "description": "Must be at least 3 characters. Must not be greater than 50 characters."
                                 },
                                 {
                                     "key": "email",
-                                    "value": "koelpin.jaquan@example.com",
+                                    "value": "tillman.wyman@example.com",
                                     "type": "text",
                                     "description": "Must be a valid email address."
                                 },
                                 {
                                     "key": "password",
-                                    "value": "\"764_>>*Lpd:Ip{,\\Ly",
+                                    "value": "c'+UG`*W4I}fz(Ww",
                                     "type": "text",
                                     "description": "Must be at least 8 characters."
                                 },
                                 {
                                     "key": "password_confirmation",
-                                    "value": "dignissimos",
+                                    "value": "corrupti",
                                     "type": "text",
                                     "description": "The value and <code>password<\/code> must match."
                                 },
@@ -291,7 +430,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.auth.register.success\",\"access_token\":\"5|y9uALD6H1KjmiuUrM7oPfwVjbNvlcwUqohTjs2JAfb416e56\",\"token_type\":\"Bearer\",\"user\":{\"id\":12,\"name\":\"Carleton Monahan\",\"email\":\"nathanial54@example.com\",\"email_verified_at\":\"2025-02-18T11:15:10.000000Z\",\"avatar\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.auth.register.success\",\"access_token\":\"5|UnxpQBfNx24BxzX5jgqSdEClbszgwQzoIrXtvlqA194f18c5\",\"token_type\":\"Bearer\",\"user\":{\"id\":112,\"name\":\"Amelie Altenwerth Jr.\",\"email\":\"coty85@example.net\",\"email_verified_at\":\"2025-03-10T11:06:37.000000Z\",\"avatar\":null}}",
                             "name": ""
                         },
                         {
@@ -343,6 +482,258 @@
             ]
         },
         {
+            "name": "Command",
+            "description": "\u041c\u0435\u0442\u043e\u0434\u044b \u0441\u0432\u044f\u0437\u0430\u043d\u043d\u044b\u0435 \u0441 \u043a\u043e\u043c\u0430\u043d\u0434\u0430\u043c\u0438",
+            "item": [
+                {
+                    "name": "get",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/commands",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/commands"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"userId\":17,\"paginate\":false,\"page\":\"sunt\",\"limit\":16,\"locationId\":19,\"city\":\"ut\",\"fullname\":\"blanditiis\",\"coach\":\"earum\"}"
+                        },
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0432\u0441\u0435\u0445 \u043a\u043e\u043c\u0430\u043d\u0434 \u043f\u043e \u0444\u0438\u043b\u044c\u0442\u0440\u0430\u043c",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "[{\"status\":\"success\",\"message\":\"messages.command.get.success\",\"commands\":{\"id\":28,\"name\":\"Noemie Osinski\",\"fullname\":null,\"coach\":null,\"city\":\"New Polly\",\"avatar\":null}},{\"status\":\"success\",\"message\":\"messages.command.get.success\",\"commands\":{\"id\":29,\"name\":\"Porter Wiegand\",\"fullname\":null,\"coach\":null,\"city\":\"South Modestomouth\",\"avatar\":null}}]",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "getForId",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/commands\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/commands\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "3",
+                                    "description": "The ID of the command."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id\":6,\"userId\":8,\"locationId\":20,\"city\":\"odio\",\"fullname\":\"enim\",\"coach\":\"et\"}"
+                        },
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u043a\u043e\u043c\u0430\u043d\u0434 \u043f\u043e id",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.command.get_for_id.success\",\"command\":{\"id\":30,\"name\":\"Jazmyn Treutel DDS\",\"fullname\":null,\"coach\":null,\"city\":\"Lanefort\",\"avatar\":null}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/commands",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/commands"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "cpysmvwzcqlwyz",
+                                    "type": "text",
+                                    "description": "Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "fullname",
+                                    "value": "bvhhdndwvvxzjzwqripdfq",
+                                    "type": "text",
+                                    "description": "Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "coach",
+                                    "value": "mkneykqfjzrhdbheyq",
+                                    "type": "text",
+                                    "description": "Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "locationId",
+                                    "value": "13",
+                                    "type": "text",
+                                    "description": "The <code>id<\/code> of an existing record in the locations table."
+                                },
+                                {
+                                    "key": "city",
+                                    "value": "xuvspjm",
+                                    "type": "text",
+                                    "description": "Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "avatar",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043a\u043e\u043c\u0430\u043d\u0434\u044b"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.command.create.success\",\"command\":{\"id\":31,\"name\":\"Mr. Marcellus Ondricka\",\"fullname\":null,\"coach\":null,\"city\":\"Larkinhaven\",\"avatar\":null}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "update",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/commands\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/commands\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "3",
+                                    "description": "The ID of the command."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart\/form-data"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "name",
+                                    "value": "pyiyhqw",
+                                    "type": "text",
+                                    "description": "Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "fullname",
+                                    "value": "rwqykbibxw",
+                                    "type": "text",
+                                    "description": "Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "coach",
+                                    "value": "pzulxzc",
+                                    "type": "text",
+                                    "description": "Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "city",
+                                    "value": "qjqgnflwnitpapawnctils",
+                                    "type": "text",
+                                    "description": "Must not be greater than 255 characters."
+                                },
+                                {
+                                    "key": "locationId",
+                                    "value": "6",
+                                    "type": "text",
+                                    "description": "The <code>id<\/code> of an existing record in the locations table."
+                                },
+                                {
+                                    "key": "avatar",
+                                    "src": [],
+                                    "type": "file"
+                                }
+                            ]
+                        },
+                        "description": "\u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u043a\u043b\u0430\u0441\u0441\u0430"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.command.update.success\",\"command\":{\"id\":32,\"name\":\"Dr. Emilie Beahan\",\"fullname\":null,\"coach\":null,\"city\":\"Ciaramouth\",\"avatar\":null}}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_allowed\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_found\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Document",
             "description": "\u041c\u0435\u0442\u043e\u0434\u044b \u0432\u0437\u0430\u0438\u043c\u043e\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f \u0441 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u043c\u0438 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f",
             "item": [
@@ -371,15 +762,33 @@
                             "formdata": [
                                 {
                                     "key": "type",
-                                    "value": "ullam",
+                                    "value": "notarius",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
-                                    "key": "data",
-                                    "value": "qui",
+                                    "key": "url",
+                                    "value": "https:\/\/dare.org\/consequuntur-quae-reiciendis-id-nemo-numquam-architecto-delectus.html",
                                     "type": "text",
                                     "description": ""
+                                },
+                                {
+                                    "key": "number",
+                                    "value": "in",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "issuedWhom",
+                                    "value": "alias",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "itWorksDate",
+                                    "value": "2025-03-10T11:06:38",
+                                    "type": "text",
+                                    "description": "Must be a valid date."
                                 },
                                 {
                                     "key": "file",
@@ -397,7 +806,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.document.create.success\",\"document\":{\"id\":null,\"name\":null,\"type\":null,\"path\":null,\"data\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.document.create.success\",\"document\":{\"id\":157,\"name\":\"file_67cec7bed5cae\",\"type\":\"notarius\",\"url_view\":null,\"number\":null,\"issued_whom\":null,\"it_works_date\":null,\"is_checked\":null}}",
                             "name": ""
                         }
                     ]
@@ -432,7 +841,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "[{\"status\":\"success\",\"message\":\"messages.document.get_for_user.success\",\"documents\":{\"id\":null,\"name\":null,\"type\":null,\"path\":null,\"data\":null}},{\"status\":\"success\",\"message\":\"messages.document.get_for_user.success\",\"documents\":{\"id\":null,\"name\":null,\"type\":null,\"path\":null,\"data\":null}}]",
+                            "body": "[{\"status\":\"success\",\"message\":\"messages.document.get_for_user.success\",\"documents\":{\"id\":158,\"name\":\"file_67cec7bee4181\",\"type\":\"notarius\",\"url_view\":null,\"number\":null,\"issued_whom\":null,\"it_works_date\":null,\"is_checked\":null}},{\"status\":\"success\",\"message\":\"messages.document.get_for_user.success\",\"documents\":{\"id\":159,\"name\":\"file_67cec7bee9fe4\",\"type\":\"notarius\",\"url_view\":null,\"number\":null,\"issued_whom\":null,\"it_works_date\":null,\"is_checked\":null}}]",
                             "name": ""
                         }
                     ]
@@ -449,7 +858,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "13",
+                                    "value": "1",
                                     "description": "The ID of the document."
                                 }
                             ]
@@ -475,7 +884,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.document.get_for_user_by_id.success\",\"document\":{\"id\":null,\"name\":null,\"type\":null,\"path\":null,\"data\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.document.get_for_user_by_id.success\",\"document\":{\"id\":160,\"name\":\"file_67cec7bf0786c\",\"type\":\"notarius\",\"url_view\":null,\"number\":null,\"issued_whom\":null,\"it_works_date\":null,\"is_checked\":null}}",
                             "name": ""
                         },
                         {
@@ -498,7 +907,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "14",
+                                    "value": "1",
                                     "description": "The ID of the document."
                                 }
                             ]
@@ -518,6 +927,24 @@
                             "mode": "formdata",
                             "formdata": [
                                 {
+                                    "key": "number",
+                                    "value": "eligendi",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "issuedWhom",
+                                    "value": "non",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
+                                    "key": "itWorksDate",
+                                    "value": "2025-03-10T11:06:39",
+                                    "type": "text",
+                                    "description": "Must be a valid date."
+                                },
+                                {
                                     "key": "file",
                                     "src": [],
                                     "type": "file"
@@ -533,7 +960,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.document.update.success\",\"document\":{\"id\":null,\"name\":null,\"type\":null,\"path\":null,\"data\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.document.update.success\",\"document\":{\"id\":161,\"name\":\"file_67cec7bf1a6cb\",\"type\":\"notarius\",\"url_view\":null,\"number\":null,\"issued_whom\":null,\"it_works_date\":null,\"is_checked\":null}}",
                             "name": ""
                         },
                         {
@@ -562,7 +989,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "12",
+                                    "value": "1",
                                     "description": "The ID of the document."
                                 }
                             ]
@@ -608,6 +1035,85 @@
             ]
         },
         {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/transactions",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/transactions"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"attendanceIds\":[8],\"date\":\"2025-03-10T11:06:38\"}"
+                        },
+                        "description": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u0442\u0440\u0430\u043d\u0437\u0430\u043a\u0446\u0438\u0438",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.transaction.create.success\",\"payment_link\":null,\"transaction\":{\"id\":64,\"status\":false,\"desc\":\"\\u0422\\u0440\\u0430\\u043d\\u0437\\u0430\\u043a\\u0446\\u0438\\u044f \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0430\",\"count\":5,\"date\":\"2025-03-07 09:57:33\",\"user\":{\"id\":1,\"name\":\"root\",\"email\":\"bolshe.kivi@gmail.com\",\"email_verified_at\":\"2025-02-20T07:28:21.000000Z\",\"avatar\":null}}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "result",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/transactions\/result",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/transactions\/result"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u043e\u0442\u0432\u0435\u0442\u0430",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"id\":64,\"status\":false,\"desc\":\"\\u0422\\u0440\\u0430\\u043d\\u0437\\u0430\\u043a\\u0446\\u0438\\u044f \\u0441\\u043e\\u0437\\u0434\\u0430\\u043d\\u0430\",\"count\":5,\"date\":\"2025-03-07 09:57:33\",\"user\":{\"id\":1,\"name\":\"root\",\"email\":\"bolshe.kivi@gmail.com\",\"email_verified_at\":\"2025-02-20T07:28:21.000000Z\",\"avatar\":null}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Grade",
             "description": "\u041c\u0435\u0442\u043e\u0434\u044b \u0441\u0432\u044f\u0437\u0430\u043d\u043d\u044b\u0435 \u0441 \u043a\u043b\u0430\u0441\u0441\u0430\u043c\u0438",
             "item": [
@@ -633,7 +1139,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"userId\":9,\"paginate\":true,\"page\":\"quis\",\"limit\":6}"
+                            "raw": "{\"userId\":2,\"paginate\":true,\"page\":\"consectetur\",\"limit\":22}"
                         },
                         "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0432\u0441\u0435\u0445 \u043a\u043b\u0430\u0441\u0441\u043e\u0432 \u043f\u043e \u0444\u0438\u043b\u044c\u0442\u0440\u0430\u043c",
                         "auth": {
@@ -644,7 +1150,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "[{\"status\":\"success\",\"message\":\"messages.grade.get.success\",\"grades\":{\"id\":null,\"name\":\"Lyla Paucek\",\"description\":\"Animi aspernatur qui dolores tenetur. Similique possimus maiores omnis deleniti ut. Animi recusandae voluptas atque recusandae at itaque quo.\"}},{\"status\":\"success\",\"message\":\"messages.grade.get.success\",\"grades\":{\"id\":null,\"name\":\"Sedrick Kirlin\",\"description\":\"Quia qui ut velit est consequatur commodi sint. Modi nulla et ea commodi eum qui sed. Quia recusandae aspernatur cupiditate. Quia accusantium deserunt rerum enim nulla.\"}}]",
+                            "body": "[{\"status\":\"success\",\"message\":\"messages.grade.get.success\",\"grades\":{\"id\":7,\"name\":\"Wilburn Mertz\",\"description\":\"Quia consequatur iure voluptatem aut. Nisi ut non occaecati qui natus. Officiis vitae molestiae eum quis est ut rerum cumque.\"}},{\"status\":\"success\",\"message\":\"messages.grade.get.success\",\"grades\":{\"id\":8,\"name\":\"Roselyn Bogisich\",\"description\":\"Quasi recusandae quia maiores eveniet aut. Quidem laboriosam ipsa aspernatur ratione laborum qui. Id quos minima fuga. Culpa ipsum culpa minima.\"}}]",
                             "name": ""
                         }
                     ]
@@ -679,7 +1185,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"id\":14,\"userId\":13}"
+                            "raw": "{\"id\":11,\"userId\":5}"
                         },
                         "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u043a\u043b\u0430\u0441\u0441\u0430 \u043f\u043e id",
                         "auth": {
@@ -690,7 +1196,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.grade.get_for_id.success\",\"grade\":{\"id\":null,\"name\":\"Dominique Altenwerth\",\"description\":\"Sint sit eius amet debitis. Repellat odio et quo consequuntur dolores est est. Ut illo tenetur omnis reiciendis animi. Officia repudiandae omnis culpa aut maxime. Ratione et est iure molestias.\"}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.grade.get_for_id.success\",\"grade\":{\"id\":9,\"name\":\"Adrienne Brakus\",\"description\":\"Voluptate cum modi odio. Ad voluptatem et labore pariatur aut numquam. Autem temporibus minima eos quos itaque ab dolorem maxime. Est provident qui vitae et. Facilis dolor magni aut ullam quibusdam.\"}}",
                             "name": ""
                         }
                     ]
@@ -717,7 +1223,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"amdsxcqtj\",\"description\":\"Et voluptatem beatae rerum totam beatae.\"}"
+                            "raw": "{\"name\":\"tuh\",\"description\":\"Autem voluptate delectus velit distinctio consectetur numquam.\"}"
                         },
                         "description": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043a\u043b\u0430\u0441\u0441\u0430"
                     },
@@ -725,7 +1231,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.grade.create.success\",\"grade\":{\"id\":null,\"name\":\"Esta Reinger III\",\"description\":\"Aut ullam quo eum reprehenderit. Corporis maiores minima impedit nemo vel. Ad culpa voluptatem enim accusamus quo beatae. Sit illo magni deleniti dolorum.\"}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.grade.create.success\",\"grade\":{\"id\":10,\"name\":\"Stacey Grant\",\"description\":\"Adipisci rem tempore et. Iure consequatur maiores qui dolorem tenetur omnis qui tempora. Aut nobis ut corrupti officiis officia assumenda sed.\"}}",
                             "name": ""
                         }
                     ]
@@ -760,7 +1266,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"upm\",\"description\":\"Consectetur qui nulla error ratione.\",\"userId\":1}"
+                            "raw": "{\"name\":\"zetxrrifpodyfmiuef\",\"description\":\"Nisi ut autem repudiandae reiciendis.\",\"userId\":17}"
                         },
                         "description": "\u0420\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u043a\u043b\u0430\u0441\u0441\u0430"
                     },
@@ -768,7 +1274,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.grade.update.success\",\"grade\":{\"id\":null,\"name\":\"Desiree Von\",\"description\":\"Autem est rerum aspernatur sit. Sed nisi ut eveniet porro sunt. Rerum et dolores enim adipisci. At quia quia quod aut nulla.\"}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.grade.update.success\",\"grade\":{\"id\":11,\"name\":\"Samara Toy\",\"description\":\"Placeat alias expedita doloribus corrupti eaque perspiciatis cum. Libero delectus sint explicabo. Omnis quibusdam accusantium facere qui. Cum molestiae voluptas nostrum et fugit expedita voluptas.\"}}",
                             "name": ""
                         },
                         {
@@ -807,7 +1313,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"paginate\":false,\"limit\":19,\"page\":\"in\",\"name\":\"natus\"}"
+                            "raw": "{\"paginate\":true,\"limit\":22,\"page\":\"nihil\",\"name\":\"et\"}"
                         },
                         "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0432\u0441\u0435\u0445 \u0433\u043e\u0440\u043e\u0434\u043e\u0432 \u0441 \u0444\u0438\u043b\u044c\u0442\u0440\u0430\u0446\u0438\u0435\u0439",
                         "auth": {
@@ -851,7 +1357,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"omnis\",\"surname\":\"sunt\",\"patronymic\":\"dolorum\",\"dateOfBirth\":\"2025-02-18T11:15:13\",\"city\":\"rerum\",\"inn\":\"libero\",\"snils\":\"commodi\",\"phoneNumber\":\"ea\",\"startNumber\":19,\"group\":\"aliquid\",\"rank\":\"rem\",\"rankNumber\":\"ut\",\"community\":\"qui\",\"coach\":\"magnam\",\"motoStamp\":\"tempore\",\"engine\":\"dolorem\",\"numberAndSeria\":\"qui\",\"region\":\"optio\",\"locationId\":18}"
+                            "raw": "{\"name\":\"dolores\",\"surname\":\"ut\",\"patronymic\":\"amet\",\"dateOfBirth\":\"2025-03-10T11:06:38\",\"city\":\"sint\",\"inn\":\"qui\",\"snils\":\"tenetur\",\"phoneNumber\":\"et\",\"startNumber\":19,\"group\":\"sit\",\"rank\":\"facilis\",\"rankNumber\":\"laborum\",\"community\":\"optio\",\"coach\":\"deserunt\",\"motoStamp\":\"quos\",\"engine\":\"ex\",\"numberAndSeria\":\"in\",\"region\":\"quia\",\"locationId\":2}"
                         },
                         "description": "\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u044c \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0445 \u0434\u0430\u043d\u043d\u044b\u0445"
                     },
@@ -859,7 +1365,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.personal_info.create.success\",\"personal_info\":{\"name\":\"Prof.\",\"surname\":\"Dr.\",\"patronymic\":\"Dr.\",\"date_of_birth\":\"1970-02-27\",\"city\":\"Wymanburgh\",\"inn\":\"100000000000\",\"snils\":\"9999999999\",\"phone_number\":\"1-713-537-4809\",\"start_number\":\"313\",\"group\":\"Automotive Body Repairer\",\"rank_number\":\"100000\",\"rank\":\"Medical Scientists\",\"community\":\"Brekke, Dooley and Jaskolski\",\"coach\":\"Amy Larkin DDS\",\"moto_stamp\":\"Prof.\",\"engine\":\"Mr.\",\"number_and_seria\":\"9999999999\",\"region\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.personal_info.create.success\",\"personal_info\":{\"name\":\"Prof.\",\"surname\":\"Prof.\",\"patronymic\":\"Mrs.\",\"date_of_birth\":\"1980-03-14\",\"city\":\"North Christellestad\",\"inn\":\"100000000000\",\"snils\":\"9999999999\",\"phone_number\":\"+1-980-757-6525\",\"start_number\":\"457\",\"group\":\"Command Control Center Officer\",\"rank_number\":\"100000\",\"rank\":\"Credit Analyst\",\"community\":\"Wisoky, Kirlin and Konopelski\",\"coach\":\"Ms. Thelma Casper III\",\"moto_stamp\":\"Dr.\",\"engine\":\"Dr.\",\"number_and_seria\":\"10000000000\",\"region\":null}}",
                             "name": ""
                         }
                     ]
@@ -886,7 +1392,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"consequatur\",\"surname\":\"quod\",\"patronymic\":\"reprehenderit\",\"dateOfBirth\":\"2025-02-18T11:15:14\",\"city\":\"facilis\",\"inn\":\"quaerat\",\"snils\":\"voluptate\",\"phoneNumber\":\"non\",\"startNumber\":\"nihil\",\"group\":\"sunt\",\"rank\":\"quas\",\"rankNumber\":\"ratione\",\"community\":\"provident\",\"coach\":\"sit\",\"motoStamp\":\"quia\",\"engine\":\"numquam\",\"numberAndSeria\":\"est\",\"region\":\"mollitia\",\"locationId\":7}"
+                            "raw": "{\"name\":\"est\",\"surname\":\"reprehenderit\",\"patronymic\":\"dolore\",\"dateOfBirth\":\"2025-03-10T11:06:38\",\"city\":\"voluptates\",\"inn\":\"animi\",\"snils\":\"quod\",\"phoneNumber\":\"consequuntur\",\"startNumber\":\"totam\",\"group\":\"odio\",\"rank\":\"qui\",\"rankNumber\":\"totam\",\"community\":\"quia\",\"coach\":\"hic\",\"motoStamp\":\"aspernatur\",\"engine\":\"sed\",\"numberAndSeria\":\"sed\",\"region\":\"aut\",\"locationId\":14}"
                         },
                         "description": "\u041e\u0431\u043d\u043e\u0432\u0438\u0442\u044c \u0437\u0430\u043f\u0438\u0441\u044c \u043f\u0435\u0440\u0441\u043e\u043d\u0430\u043b\u044c\u043d\u044b\u0445 \u0434\u0430\u043d\u043d\u044b\u0445"
                     },
@@ -894,7 +1400,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.personal_info.update.success\",\"personal_info\":{\"name\":\"Dr.\",\"surname\":\"Dr.\",\"patronymic\":\"Prof.\",\"date_of_birth\":\"2015-11-30\",\"city\":\"New Lisandrofort\",\"inn\":\"100000000000\",\"snils\":\"9999999999\",\"phone_number\":\"+1 (412) 654-6120\",\"start_number\":\"299\",\"group\":\"Transportation Inspector\",\"rank_number\":\"99999\",\"rank\":\"Home Economics Teacher\",\"community\":\"Luettgen, Bode and Reichel\",\"coach\":\"Maggie Bins Jr.\",\"moto_stamp\":\"Mr.\",\"engine\":\"Prof.\",\"number_and_seria\":\"10000000000\",\"region\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.personal_info.update.success\",\"personal_info\":{\"name\":\"Prof.\",\"surname\":\"Dr.\",\"patronymic\":\"Prof.\",\"date_of_birth\":\"2017-04-15\",\"city\":\"Lambertchester\",\"inn\":\"99999999999\",\"snils\":\"9999999999\",\"phone_number\":\"+18069919792\",\"start_number\":\"916\",\"group\":\"Municipal Court Clerk\",\"rank_number\":\"99999\",\"rank\":\"Postmasters\",\"community\":\"Heller, Wiegand and Gutkowski\",\"coach\":\"Kaitlyn Schroeder\",\"moto_stamp\":\"Dr.\",\"engine\":\"Prof.\",\"number_and_seria\":\"10000000000\",\"region\":null}}",
                             "name": ""
                         },
                         {
@@ -939,7 +1445,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"userId\":3,\"paginate\":false,\"page\":\"quo\",\"limit\":13,\"appointmentUser\":true,\"trackId\":10,\"pastRace\":false,\"gradeIds\":[19]}"
+                            "raw": "{\"userId\":20,\"paginate\":false,\"page\":\"eum\",\"limit\":13,\"appointmentUser\":false,\"trackId\":13,\"pastRace\":false,\"gradeIds\":[16],\"dateStart\":\"2025-03-10T11:06:38\",\"dateEnd\":\"2025-03-10T11:06:38\"}"
                         },
                         "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0432\u0441\u0435\u0445 \u0433\u043e\u043d\u043e\u043a \u043f\u043e \u0444\u0438\u043b\u044c\u0442\u0440\u0430\u043c",
                         "auth": {
@@ -950,7 +1456,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "[{\"status\":\"success\",\"message\":\"messages.race.get.success\",\"races\":{\"id\":23,\"name\":\"Miss Rosemarie Boyle\",\"desc\":\"Nesciunt ut id ut ab. Labore qui iusto sed ab nisi iste. Quia non et alias et voluptatem. Minima qui maiores voluptatem necessitatibus nihil.\",\"is_work\":true,\"date_start\":\"2025-02-18T06:43:33.000000Z\",\"images\":null,\"contacts\":null,\"position_file\":null,\"results_file\":null}},{\"status\":\"success\",\"message\":\"messages.race.get.success\",\"races\":{\"id\":24,\"name\":\"Rosalinda Macejkovic\",\"desc\":\"Perspiciatis similique quas laudantium voluptas. Est recusandae numquam omnis recusandae id praesentium. Ut non quam alias ullam qui. Omnis pariatur facilis nam dolor dignissimos sit.\",\"is_work\":false,\"date_start\":\"2025-02-18T17:53:29.000000Z\",\"images\":null,\"contacts\":null,\"position_file\":null,\"results_file\":null}}]",
+                            "body": "[{\"status\":\"success\",\"message\":\"messages.race.get.success\",\"races\":{\"id\":17,\"name\":\"Jacky McKenzie\",\"desc\":\"Aut nam sit cupiditate. Maxime commodi dolorem possimus et fugit molestiae. Accusantium earum animi sunt. Saepe aperiam officia exercitationem et atque provident dolor architecto.\",\"is_work\":false,\"date_start\":\"2025-03-10T10:59:19.000000Z\",\"images\":null,\"contacts\":null,\"record_end\":null,\"position_file\":null,\"results_file\":null}},{\"status\":\"success\",\"message\":\"messages.race.get.success\",\"races\":{\"id\":18,\"name\":\"Eloy Zemlak\",\"desc\":\"Est non fugit recusandae nemo sit maiores a magni. Ipsam odit doloribus quidem illum. Eius fugit ipsa perspiciatis et inventore. Excepturi adipisci et quas soluta et ad commodi.\",\"is_work\":false,\"date_start\":\"2025-03-10T18:54:30.000000Z\",\"images\":null,\"contacts\":null,\"record_end\":null,\"position_file\":null,\"results_file\":null}}]",
                             "name": ""
                         }
                     ]
@@ -985,7 +1491,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"userId\":15,\"appointmentUser\":true,\"gradeIds\":[15]}"
+                            "raw": "{\"userId\":12,\"appointmentUser\":true,\"gradeIds\":[10]}"
                         },
                         "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e id",
                         "auth": {
@@ -996,7 +1502,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.race.get_for_id.success\",\"race\":{\"id\":25,\"name\":\"Kurt Crooks\",\"desc\":\"Molestias eos ipsam vel impedit. Aut soluta explicabo quas eum aspernatur earum. Doloribus enim qui in at et harum. Rerum aut quis rerum optio excepturi impedit nihil vel.\",\"is_work\":true,\"date_start\":\"2025-02-18T07:59:25.000000Z\",\"images\":null,\"contacts\":null,\"position_file\":null,\"results_file\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.race.get_for_id.success\",\"race\":{\"id\":19,\"name\":\"Norval Johnson\",\"desc\":\"Nostrum laborum rerum harum. Deserunt harum et sed vero animi voluptatem. Aliquam alias eligendi id sed.\",\"is_work\":true,\"date_start\":\"2025-03-10T05:32:59.000000Z\",\"images\":null,\"contacts\":null,\"record_end\":null,\"position_file\":null,\"results_file\":null}}",
                             "name": ""
                         }
                     ]
@@ -1026,37 +1532,43 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "gpncyhpdsa",
+                                    "value": "hbplzjd",
                                     "type": "text",
                                     "description": "Must not be greater than 255 characters. Must be at least 3 characters."
                                 },
                                 {
                                     "key": "desc",
-                                    "value": "eum",
+                                    "value": "nisi",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "dateStart",
-                                    "value": "2025-02-18T11:15:13",
+                                    "value": "2025-03-10T11:06:38",
+                                    "type": "text",
+                                    "description": "Must be a valid date."
+                                },
+                                {
+                                    "key": "recordEnd",
+                                    "value": "2025-03-10T11:06:38",
                                     "type": "text",
                                     "description": "Must be a valid date."
                                 },
                                 {
                                     "key": "trackId",
-                                    "value": "19",
+                                    "value": "7",
                                     "type": "text",
                                     "description": "The <code>id<\/code> of an existing record in the tracks table."
                                 },
                                 {
                                     "key": "gradeIds[0]",
-                                    "value": "5",
+                                    "value": "10",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "locationId",
-                                    "value": "11",
+                                    "value": "2",
                                     "type": "text",
                                     "description": "The <code>id<\/code> of an existing record in the locations table."
                                 },
@@ -1083,7 +1595,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.race.create.success\",\"race\":{\"id\":26,\"name\":\"Mr. Reginald Abernathy DDS\",\"desc\":\"Ut est consequuntur nisi earum. Hic saepe molestiae et quidem perferendis soluta. Earum voluptatum eum recusandae ut.\",\"is_work\":true,\"date_start\":\"2025-02-18T01:27:57.000000Z\",\"images\":null,\"contacts\":null,\"position_file\":null,\"results_file\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.race.create.success\",\"race\":{\"id\":20,\"name\":\"Wilburn Witting\",\"desc\":\"Et sit quos voluptatibus suscipit. Dolorem saepe ut voluptatem sit unde ad. Quibusdam sunt rerum et quasi.\",\"is_work\":false,\"date_start\":\"2025-03-10T16:44:37.000000Z\",\"images\":null,\"contacts\":null,\"record_end\":null,\"position_file\":null,\"results_file\":null}}",
                             "name": ""
                         }
                     ]
@@ -1121,43 +1633,49 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "zwijv",
+                                    "value": "aakm",
                                     "type": "text",
                                     "description": "Must not be greater than 255 characters. Must be at least 3 characters."
                                 },
                                 {
                                     "key": "desc",
-                                    "value": "vero",
+                                    "value": "quia",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "dateStart",
-                                    "value": "2025-02-18T11:15:13",
+                                    "value": "2025-03-10T11:06:38",
+                                    "type": "text",
+                                    "description": "Must be a valid date."
+                                },
+                                {
+                                    "key": "recordEnd",
+                                    "value": "2025-03-10T11:06:38",
                                     "type": "text",
                                     "description": "Must be a valid date."
                                 },
                                 {
                                     "key": "trackId",
-                                    "value": "20",
+                                    "value": "11",
                                     "type": "text",
                                     "description": "The <code>id<\/code> of an existing record in the tracks table."
                                 },
                                 {
                                     "key": "imagesDel[0]",
-                                    "value": "laborum",
+                                    "value": "sed",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "gradeIds[0]",
-                                    "value": "6",
+                                    "value": "13",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "locationId",
-                                    "value": "20",
+                                    "value": "3",
                                     "type": "text",
                                     "description": "The <code>id<\/code> of an existing record in the locations table."
                                 },
@@ -1184,7 +1702,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.race.update.success\",\"race\":{\"id\":27,\"name\":\"Prof. Maya Stanton DDS\",\"desc\":\"Et est doloribus soluta sint. Consequuntur sit rerum facere et omnis. Voluptatem vel porro dicta nesciunt.\",\"is_work\":true,\"date_start\":\"2025-02-18T01:19:30.000000Z\",\"images\":null,\"contacts\":null,\"position_file\":null,\"results_file\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.race.update.success\",\"race\":{\"id\":21,\"name\":\"Ms. Lelia Vandervort DDS\",\"desc\":\"Dolorem numquam minima nemo eum. Dolores quo amet in aliquam. Rerum labore voluptate possimus atque rem. Nulla quo et voluptas et. Pariatur culpa veritatis tempora veniam sapiente.\",\"is_work\":false,\"date_start\":\"2025-03-10T14:16:06.000000Z\",\"images\":null,\"contacts\":null,\"record_end\":null,\"position_file\":null,\"results_file\":null}}",
                             "name": ""
                         },
                         {
@@ -1236,7 +1754,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.race.toggle_is_work.success\",\"race\":{\"id\":28,\"name\":\"Laura Schulist\",\"desc\":\"Consequatur quibusdam nulla omnis veniam aperiam. Quis porro et illo saepe aut possimus quis.\",\"is_work\":true,\"date_start\":\"2025-02-18T19:49:48.000000Z\",\"images\":null,\"contacts\":null,\"position_file\":null,\"results_file\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.race.toggle_is_work.success\",\"race\":{\"id\":22,\"name\":\"Mr. Wyatt Gleichner\",\"desc\":\"Modi quae accusantium aut. Qui et odit sint. Dolorem nihil sapiente quaerat excepturi. Soluta aut deserunt earum nihil est.\",\"is_work\":true,\"date_start\":\"2025-03-10T01:36:12.000000Z\",\"images\":null,\"contacts\":null,\"record_end\":null,\"position_file\":null,\"results_file\":null}}",
                             "name": ""
                         },
                         {
@@ -1249,6 +1767,100 @@
                             "header": [],
                             "code": 404,
                             "body": "{\"status\":\"error\",\"message\":\"messages.error.not_found\"}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "RecoveryPassword",
+            "description": "\u041c\u0435\u0442\u043e\u0434\u044b \u0441\u0432\u044f\u0437\u0430\u043d\u043d\u044b\u0435 \u0441 \u0432\u043e\u0441\u0441\u0442\u0430\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0435\u043c \u043f\u0430\u0440\u043e\u043b\u044f",
+            "item": [
+                {
+                    "name": "send",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/recovery-password\/send",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/recovery-password\/send"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"email\":\"alfred.nicolas@example.org\",\"url\":\"https:\\\/\\\/armstrong.info\\\/molestiae-amet-numquam-sed-quaerat-mollitia-reprehenderit-error.html\"}"
+                        },
+                        "description": "\u041e\u0442\u043f\u0440\u0430\u0432\u043a\u0430 \u0442\u043e\u043a\u0435\u043d\u0430 \u0432\u043e\u0441\u0441\u0442\u0430\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u044f \u043d\u0430 \u043f\u043e\u0447\u0442\u0443",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.recovery_password.send.success\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 404,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_found\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "recovery",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/recovery-password\/recovery",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/recovery-password\/recovery"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"token\":\"aut\",\"password\":\"qR|uVKA.qQ6]`J.1WO\",\"password_confirmation\":\"accusantium\"}"
+                        },
+                        "description": "\u0421\u043c\u0435\u043d\u0430 \u043f\u0430\u0440\u043e\u043b\u044f \u0441 \u0442\u043e\u043a\u0435\u043d\u0430 \u0438\u0437 \u043f\u043e\u0447\u0442\u044b",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.recovery_password.recovery.success\"}",
+                            "name": ""
+                        },
+                        {
+                            "header": [],
+                            "code": 403,
+                            "body": "{\"status\":\"error\",\"message\":\"messages.error.not_allowed\"}",
                             "name": ""
                         }
                     ]
@@ -1313,7 +1925,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"roleId\":16}"
+                            "raw": "{\"roleId\":3}"
                         },
                         "description": "\u0421\u043c\u0435\u043d\u0438\u0442\u044c \u0440\u043e\u043b\u044c \u0434\u043b\u044f \u043e\u0431\u044b\u0447\u043d\u043e\u0433\u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f"
                     },
@@ -1321,7 +1933,48 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.role.change_role_for_default_user.success\",\"user\":{\"id\":17,\"name\":\"Ivory Hyatt\",\"email\":\"sabina.parisian@example.org\",\"email_verified_at\":\"2025-02-18T11:15:12.000000Z\",\"avatar\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.role.change_role_for_default_user.success\",\"user\":{\"id\":117,\"name\":\"Mr. Deangelo Dibbert MD\",\"email\":\"wilson09@example.org\",\"email_verified_at\":\"2025-03-10T11:06:38.000000Z\",\"avatar\":null}}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Store",
+            "description": "\u041c\u0435\u0442\u043e\u0434\u044b \u0441\u0432\u044f\u0437\u0430\u043d\u043d\u044b\u0435 \u0441 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0430\u043c\u0438",
+            "item": [
+                {
+                    "name": "create",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/stores",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/stores"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"login\":\"qrfk\",\"password_1\":\"pbjhxgxbu\",\"password_2\":\"qghmughisqcmbnmfwaeb\",\"token\":\"ldroefgbuhx\"}"
+                        },
+                        "description": "\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043c\u0430\u0433\u0430\u0437\u0438\u043d\u0430"
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\"status\":\"success\",\"message\":\"messages.store.create.success\",\"store\":{\"id\":1,\"login\":\"shakalik\",\"password_1\":\"fdsfgwergtwretgwrtgrtg\",\"password_2\":\"gregweghgfjyjytkjtjffh\",\"token\":\"test\",\"user\":{\"id\":1,\"name\":\"root\",\"email\":\"bolshe.kivi@gmail.com\",\"email_verified_at\":\"2025-02-20T07:28:21.000000Z\",\"avatar\":null}}}",
                             "name": ""
                         }
                     ]
@@ -1354,7 +2007,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"userId\":3,\"paginate\":true,\"page\":\"quidem\",\"limit\":14}"
+                            "raw": "{\"userId\":18,\"paginate\":true,\"page\":\"aut\",\"limit\":8}"
                         },
                         "description": "\u041f\u043e\u043b\u0443\u0447\u0435\u043d\u0438\u0435 \u0442\u0440\u0430\u0441\u0441 \u043f\u043e \u0444\u0438\u043b\u044c\u0442\u0440\u0430\u043c",
                         "auth": {
@@ -1365,7 +2018,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "[{\"status\":\"success\",\"message\":\"messages.track.get.success\",\"tracks\":{\"id\":25,\"name\":\"Team Assembler\",\"address\":\"9403 Buckridge Lodge Suite 160\\nLake Trishaside, ID 27846\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0412\\u044b\\u0441\\u043e\\u043a\\u0430\\u044f\",\"color\":\"#FD1215\"},\"desc\":\"Tempora ullam error laboriosam dolorem. Voluptas est qui praesentium magnam aut reprehenderit. Odit dolore et enim modi. Omnis ut fugit iste fugiat doloribus fugiat nisi. Minima animi consequatur hic aut amet. Numquam illum in ut asperiores temporibus. Nisi dignissimos iusto magnam. Ut iure nihil nam qui qui sequi. Impedit quaerat a est tempora laudantium assumenda iusto.\",\"length\":785,\"turns\":7,\"free\":true,\"is_work\":false,\"spec\":null}},{\"status\":\"success\",\"message\":\"messages.track.get.success\",\"tracks\":{\"id\":26,\"name\":\"Fishing OR Forestry Supervisor\",\"address\":\"3090 Yvonne Fall\\nSteuberside, TX 94532\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0412\\u044b\\u0441\\u043e\\u043a\\u0430\\u044f\",\"color\":\"#FD1215\"},\"desc\":\"Velit dignissimos itaque doloremque doloremque et et. Laboriosam recusandae alias sed exercitationem iusto temporibus molestiae. Nesciunt doloribus et aspernatur tempora ullam libero distinctio enim. Cupiditate reiciendis dolorem laborum nisi et ducimus. Aut quo ullam doloribus minima mollitia enim cum. Qui laboriosam at debitis sit. Explicabo deserunt non quaerat fugit inventore. Fugiat cumque autem aperiam id facere.\",\"length\":251,\"turns\":70,\"free\":false,\"is_work\":false,\"spec\":null}}]",
+                            "body": "[{\"status\":\"success\",\"message\":\"messages.track.get.success\",\"tracks\":{\"id\":20,\"name\":\"Silversmith\",\"address\":\"12541 Melvina Route\\nRomagueramouth, MD 68703-6356\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0412\\u044b\\u0441\\u043e\\u043a\\u0430\\u044f\",\"color\":\"#FD1215\"},\"desc\":\"Dolorum minima amet amet. Animi in eos excepturi tempore quo. Totam corporis quasi nam natus esse fugiat ullam. Libero nisi perspiciatis dolores fugiat ut rerum. Saepe ex deserunt consectetur voluptas qui quod. Quia qui quia facere et iure et quis. Quis a mollitia et saepe. Modi ea est officiis hic est. Corporis debitis accusamus voluptates explicabo incidunt at tempora. Non perspiciatis voluptatem earum enim dolor quis.\",\"length\":348,\"turns\":83,\"free\":false,\"is_work\":true,\"spec\":null,\"location\":{\"id\":85,\"name\":\"\\u042f\\u0440\\u043e\\u0441\\u043b\\u0430\\u0432\\u0441\\u043a\\u0430\\u044f\",\"type\":\"\\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c\"},\"store\":null}},{\"status\":\"success\",\"message\":\"messages.track.get.success\",\"tracks\":{\"id\":21,\"name\":\"Naval Architects\",\"address\":\"641 Sawayn Pines Apt. 540\\nJettiemouth, RI 16106\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0421\\u0440\\u0435\\u0434\\u043d\\u044f\\u044f\",\"color\":\"#EF7C08\"},\"desc\":\"Occaecati et qui magnam mollitia totam. Ullam at et commodi et perferendis doloribus. Et deserunt exercitationem in consequatur nemo et perspiciatis. Autem dolorem dolores sint eaque. Sint nobis consequatur nesciunt minima neque. Laborum dolore deleniti perferendis eius non. Veniam laudantium ut ad ut dolorem ex mollitia. Voluptas eum provident reprehenderit quia optio voluptas doloribus.\",\"length\":803,\"turns\":89,\"free\":true,\"is_work\":false,\"spec\":null,\"location\":{\"id\":43,\"name\":\"\\u041c\\u043e\\u0441\\u043a\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f\",\"type\":\"\\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c\"},\"store\":null}}]",
                             "name": ""
                         }
                     ]
@@ -1382,7 +2035,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "2",
+                                    "value": "7",
                                     "description": "The ID of the track."
                                 }
                             ]
@@ -1408,7 +2061,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.track.get_for_id.success\",\"track\":{\"id\":27,\"name\":\"Computer Scientist\",\"address\":\"8121 Koelpin Extension Suite 188\\nNorth Gissellefurt, ID 53193\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0421\\u0440\\u0435\\u0434\\u043d\\u044f\\u044f\",\"color\":\"#EF7C08\"},\"desc\":\"Et odit consequatur nostrum dolor quis commodi ut. Maiores rerum beatae veritatis nostrum iste. Sed omnis voluptatem repudiandae voluptatem eos. Voluptates sed odit quia tempore. Qui occaecati consequatur magnam aut. Voluptatum unde necessitatibus iusto eligendi. Nam totam nemo doloribus. Et magni voluptatem aut dolore at. Aut commodi eaque et eveniet praesentium aut. Vitae accusantium minima fugit. Adipisci blanditiis et est. Est sit rerum ut nihil saepe.\",\"length\":326,\"turns\":57,\"free\":false,\"is_work\":false,\"spec\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.track.get_for_id.success\",\"track\":{\"id\":22,\"name\":\"Industrial Engineering Technician\",\"address\":\"23493 Veum Walk\\nOrtizmouth, NH 39303\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u041d\\u0438\\u0437\\u043a\\u0430\\u044f\",\"color\":\"#22CA3D\"},\"desc\":\"Sint quisquam aut ullam ipsam quod. Voluptate ipsa expedita labore quasi facere ducimus qui fugit. Ea enim ipsa commodi consequatur nihil. Voluptates sint dolorem velit in est. Temporibus optio omnis excepturi voluptatem dignissimos commodi. Possimus quia quia voluptatem ut excepturi perspiciatis ullam. Neque modi eos qui qui dignissimos modi. Et hic quas omnis nesciunt aut. Velit voluptatum ratione repudiandae error aut et.\",\"length\":774,\"turns\":84,\"free\":false,\"is_work\":false,\"spec\":null,\"location\":{\"id\":85,\"name\":\"\\u042f\\u0440\\u043e\\u0441\\u043b\\u0430\\u0432\\u0441\\u043a\\u0430\\u044f\",\"type\":\"\\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c\"},\"store\":null}}",
                             "name": ""
                         },
                         {
@@ -1444,43 +2097,43 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "mdqxhobcrebowzznbtrqlaefvhndgaqsqyhodvdrtmpyilxlx",
+                                    "value": "jhichbcgaurnzni",
                                     "type": "text",
                                     "description": "Must be at least 3 characters."
                                 },
                                 {
                                     "key": "address",
-                                    "value": "qui",
+                                    "value": "dolorem",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "latitude",
-                                    "value": "-87",
+                                    "value": "-86",
                                     "type": "text",
                                     "description": "Must be between -87 and 89."
                                 },
                                 {
                                     "key": "longitude",
-                                    "value": "-179",
+                                    "value": "-180",
                                     "type": "text",
                                     "description": "Must be between -180 and 180."
                                 },
                                 {
                                     "key": "levelId",
-                                    "value": "15",
+                                    "value": "9",
                                     "type": "text",
                                     "description": "The <code>id<\/code> of an existing record in the levels table."
                                 },
                                 {
                                     "key": "desc",
-                                    "value": "quas",
+                                    "value": "ipsam",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "length",
-                                    "value": "18",
+                                    "value": "15",
                                     "type": "text",
                                     "description": ""
                                 },
@@ -1492,33 +2145,39 @@
                                 },
                                 {
                                     "key": "free",
-                                    "value": "",
-                                    "type": "text",
-                                    "description": ""
-                                },
-                                {
-                                    "key": "is_work",
                                     "value": "1",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
+                                    "key": "is_work",
+                                    "value": "",
+                                    "type": "text",
+                                    "description": ""
+                                },
+                                {
                                     "key": "contacts",
-                                    "value": "[\"mollitia\",\"animi\"]",
+                                    "value": "[\"velit\",\"quisquam\"]",
                                     "type": "text",
                                     "description": "Must be a valid JSON string."
                                 },
                                 {
                                     "key": "spec",
-                                    "value": "[\"ut\",\"debitis\"]",
+                                    "value": "[\"itaque\",\"blanditiis\"]",
                                     "type": "text",
                                     "description": "Must be a valid JSON string."
                                 },
                                 {
                                     "key": "locationId",
-                                    "value": "10",
+                                    "value": "13",
                                     "type": "text",
                                     "description": "The <code>id<\/code> of an existing record in the locations table."
+                                },
+                                {
+                                    "key": "storeId",
+                                    "value": "7",
+                                    "type": "text",
+                                    "description": "The <code>id<\/code> of an existing record in the stores table."
                                 },
                                 {
                                     "key": "images[]",
@@ -1533,7 +2192,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.track.create.success\",\"track\":{\"id\":28,\"name\":\"Preschool Education Administrators\",\"address\":\"89323 Earl Camp Apt. 512\\nAlfordberg, PA 44410-7631\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0421\\u0440\\u0435\\u0434\\u043d\\u044f\\u044f\",\"color\":\"#EF7C08\"},\"desc\":\"Eligendi quia sequi occaecati sequi dolores rem soluta. Possimus autem qui ducimus voluptas soluta deleniti. Eaque et maiores sed aut id consectetur iure animi. Minus consequuntur consequatur temporibus blanditiis eos. Cum quibusdam a quae eaque praesentium quia. Consequatur in voluptatem et ea qui aliquam maxime. Perferendis quam eveniet quis a eveniet. Repellendus iusto non quo esse.\",\"length\":286,\"turns\":22,\"free\":true,\"is_work\":true,\"spec\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.track.create.success\",\"track\":{\"id\":23,\"name\":\"Pediatricians\",\"address\":\"287 Anderson Key\\nNew Venaburgh, OH 18975-5715\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u0412\\u044b\\u0441\\u043e\\u043a\\u0430\\u044f\",\"color\":\"#FD1215\"},\"desc\":\"Eligendi laborum quod et est sunt occaecati et. Quam iure hic odit quod. Blanditiis nesciunt explicabo voluptatem cumque. Repellendus aperiam tenetur excepturi. Sed maxime placeat ipsa aut molestiae labore. Saepe eum temporibus ducimus omnis alias nesciunt. Quos fuga omnis eos. Qui rerum iste qui optio et. Molestias sit atque sunt facilis occaecati nobis perferendis asperiores. Non vero adipisci fuga molestiae soluta facere.\",\"length\":153,\"turns\":23,\"free\":true,\"is_work\":false,\"spec\":null,\"location\":{\"id\":79,\"name\":\"\\u0427\\u0435\\u043b\\u044f\\u0431\\u0438\\u043d\\u0441\\u043a\\u0430\\u044f\",\"type\":\"\\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c\"},\"store\":null}}",
                             "name": ""
                         },
                         {
@@ -1556,7 +2215,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "2",
+                                    "value": "7",
                                     "description": "The ID of the track."
                                 }
                             ]
@@ -1577,55 +2236,55 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "ahjdewtjgijcaooyxaznkigculsgeptenogexuhjktbouek",
+                                    "value": "zwbjljlzisxkddxjfmd",
                                     "type": "text",
                                     "description": "Must be at least 3 characters."
                                 },
                                 {
                                     "key": "address",
-                                    "value": "et",
+                                    "value": "fuga",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "latitude",
-                                    "value": "-87",
+                                    "value": "-86",
                                     "type": "text",
                                     "description": "Must be between -87 and 89."
                                 },
                                 {
                                     "key": "longitude",
-                                    "value": "-180",
+                                    "value": "-179",
                                     "type": "text",
                                     "description": "Must be between -180 and 180."
                                 },
                                 {
                                     "key": "imagesDel[0]",
-                                    "value": "officiis",
+                                    "value": "culpa",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "levelId",
-                                    "value": "13",
+                                    "value": "8",
                                     "type": "text",
                                     "description": "The <code>id<\/code> of an existing record in the levels table."
                                 },
                                 {
                                     "key": "desc",
-                                    "value": "saepe",
+                                    "value": "vel",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "length",
-                                    "value": "14",
+                                    "value": "12",
                                     "type": "text",
                                     "description": ""
                                 },
                                 {
                                     "key": "turns",
-                                    "value": "20",
+                                    "value": "5",
                                     "type": "text",
                                     "description": ""
                                 },
@@ -1643,27 +2302,33 @@
                                 },
                                 {
                                     "key": "contacts",
-                                    "value": "[\"quibusdam\",\"veritatis\"]",
+                                    "value": "[\"aperiam\",\"explicabo\"]",
                                     "type": "text",
                                     "description": "Must be a valid JSON string."
                                 },
                                 {
                                     "key": "spec",
-                                    "value": "[\"aliquid\",\"laudantium\"]",
+                                    "value": "[\"alias\",\"quae\"]",
                                     "type": "text",
                                     "description": "Must be a valid JSON string."
                                 },
                                 {
                                     "key": "locationId",
-                                    "value": "9",
+                                    "value": "15",
                                     "type": "text",
                                     "description": "The <code>id<\/code> of an existing record in the locations table."
                                 },
                                 {
                                     "key": "userId",
-                                    "value": "11",
+                                    "value": "14",
                                     "type": "text",
                                     "description": "The <code>id<\/code> of an existing record in the users table."
+                                },
+                                {
+                                    "key": "storeId",
+                                    "value": "12",
+                                    "type": "text",
+                                    "description": "The <code>id<\/code> of an existing record in the stores table."
                                 },
                                 {
                                     "key": "imagesAdd[]",
@@ -1678,7 +2343,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.track.update.success\",\"track\":{\"id\":29,\"name\":\"Underground Mining\",\"address\":\"90893 Stoltenberg Gateway Apt. 818\\nSouth Hillary, ID 40812-5675\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u041d\\u0438\\u0437\\u043a\\u0430\\u044f\",\"color\":\"#22CA3D\"},\"desc\":\"Suscipit ipsa eius harum id. Dignissimos sunt iste qui aliquam adipisci esse. Accusamus autem hic qui minima iusto quos facere asperiores. Sint est consequatur consequatur. Accusamus commodi omnis porro voluptas quibusdam aut magni delectus. Quasi consectetur animi eum non. Voluptatem dolor non sequi beatae. Porro pariatur aut itaque impedit ullam rem iusto. Temporibus nobis et inventore nulla. Dolorem beatae iste ipsum omnis.\",\"length\":518,\"turns\":26,\"free\":false,\"is_work\":true,\"spec\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.track.update.success\",\"track\":{\"id\":24,\"name\":\"Logistician\",\"address\":\"9042 Kris Wall Apt. 201\\nNorth Geoffreyhaven, FL 95116\",\"images\":null,\"latitude\":0,\"longitude\":0,\"level\":{\"name\":\"\\u041d\\u0438\\u0437\\u043a\\u0430\\u044f\",\"color\":\"#22CA3D\"},\"desc\":\"Expedita id dolor officiis. At temporibus fuga velit debitis suscipit sint ex. Sit occaecati quam numquam quam voluptas. Provident sit praesentium dolore rerum deleniti nam. Beatae quaerat sit eum minus corrupti aut. Molestias eaque et quia totam ab. Suscipit nostrum eos unde id aut eveniet natus. Eum sit tempore ad.\",\"length\":521,\"turns\":9,\"free\":true,\"is_work\":true,\"spec\":null,\"location\":{\"id\":43,\"name\":\"\\u041c\\u043e\\u0441\\u043a\\u043e\\u0432\\u0441\\u043a\\u0430\\u044f\",\"type\":\"\\u043e\\u0431\\u043b\\u0430\\u0441\\u0442\\u044c\"},\"store\":null}}",
                             "name": ""
                         },
                         {
@@ -1728,7 +2393,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.user.get_user_for_token.success\",\"user\":{\"id\":14,\"name\":\"Emmy Hamill\",\"email\":\"iosinski@example.org\",\"email_verified_at\":\"2025-02-18T11:15:10.000000Z\",\"avatar\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.user.get_user_for_token.success\",\"user\":{\"id\":114,\"name\":\"Mr. Ryleigh Ferry Jr.\",\"email\":\"brielle01@example.org\",\"email_verified_at\":\"2025-03-10T11:06:37.000000Z\",\"avatar\":null}}",
                             "name": ""
                         }
                     ]
@@ -1771,7 +2436,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.user.get_for_id.success\",\"user\":{\"id\":15,\"name\":\"Mr. Cordell Lindgren\",\"avatar\":null,\"personal\":[]}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.user.get_for_id.success\",\"user\":{\"id\":115,\"name\":\"Jaquan Littel\",\"avatar\":null,\"personal\":[]}}",
                             "name": ""
                         },
                         {
@@ -1807,13 +2472,13 @@
                             "formdata": [
                                 {
                                     "key": "name",
-                                    "value": "rljqkqycbczlr",
+                                    "value": "qhsixonlggzb",
                                     "type": "text",
                                     "description": "Must be at least 3 characters. Must not be greater than 50 characters."
                                 },
                                 {
                                     "key": "email",
-                                    "value": "sydni79@example.net",
+                                    "value": "gottlieb.wade@example.com",
                                     "type": "text",
                                     "description": "Must be a valid email address."
                                 },
@@ -1830,7 +2495,7 @@
                         {
                             "header": [],
                             "code": 200,
-                            "body": "{\"status\":\"success\",\"message\":\"messages.user.update.success\",\"user\":{\"id\":16,\"name\":\"Royal Cronin\",\"email\":\"deja80@example.org\",\"email_verified_at\":\"2025-02-18T11:15:11.000000Z\",\"avatar\":null}}",
+                            "body": "{\"status\":\"success\",\"message\":\"messages.user.update.success\",\"user\":{\"id\":116,\"name\":\"Nella Littel\",\"email\":\"demond89@example.net\",\"email_verified_at\":\"2025-03-10T11:06:37.000000Z\",\"avatar\":null}}",
                             "name": ""
                         },
                         {
@@ -1907,7 +2572,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"code\":7}"
+                            "raw": "{\"code\":12}"
                         },
                         "description": "\u041f\u043e\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043d\u0438\u0435 \u043f\u043e\u0447\u0442\u044b \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u043e \u043a\u043e\u0434\u0443 \u0438\u0437 \u043f\u0438\u0441\u044c\u043c\u0430"
                     },

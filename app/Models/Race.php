@@ -66,4 +66,8 @@ class Race extends Model
     {
         return $this->belongsToMany(Grade::class);
     }
+    public function commissions(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'race_commission', 'race_id', 'user_id');
+    }
 }

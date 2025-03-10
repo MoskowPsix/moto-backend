@@ -6,6 +6,9 @@ use App\Contracts\Actions\Commands\GenerateLocationCsvActionContract;
 use App\Contracts\Actions\Controllers\Grade\GetForIdGradeActionContract;
 use App\Contracts\Actions\Controllers\Grade\GetGradeActionContract;
 use App\Contracts\Actions\Controllers\Grade\UpdateGradeActionContract;
+use App\Contracts\Actions\Controllers\Race\AddCommissionActionContract;
+use App\Contracts\Actions\Controllers\Race\RemoveCommissionActionContract;
+use App\Contracts\Actions\Controllers\User\GetCommisionUserActionContract;
 use Illuminate\Support\ServiceProvider;
 
 class ActionServiceProvider extends ServiceProvider
@@ -25,10 +28,12 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\Track\UpdateTrackActionContract::class                                   => \App\Actions\Controllers\Track\UpdateTrackAction::class,
         \App\Contracts\Actions\Controllers\Role\GetChangeRolesActionContract::class                                 => \App\Actions\Controllers\Role\GetChangeRolesAction::class,
         \App\Contracts\Actions\Controllers\Role\ChangeRoleForDefaultUserActionContract::class                       => \App\Actions\Controllers\Role\ChangeRoleForDefaultUserAction::class,
+        \App\Contracts\Actions\Controllers\Role\AddCommissionUserActionContract::class                              => \App\Actions\Controllers\Role\AddCommissionUserAction::class,
         \App\Contracts\Actions\Controllers\Race\GetRaceActionContract::class                                        => \App\Actions\Controllers\Race\GetRaceAction::class,
         \App\Contracts\Actions\Controllers\Race\GetForIdRaceActionContract::class                                   => \App\Actions\Controllers\Race\GetForIdRaceAction::class,
         \App\Contracts\Actions\Controllers\Race\CreateRaceActionContract::class                                     => \App\Actions\Controllers\Race\CreateRaceAction::class,
         \App\Contracts\Actions\Controllers\Race\UpdateRaceActionContract::class                                     => \App\Actions\Controllers\Race\UpdateRaceAction::class,
+        \App\Contracts\Actions\Controllers\Race\AddCommissionActionContract::class                                  => \App\Actions\Controllers\Race\AddCommissionAction::class,
         \App\Contracts\Actions\Controllers\Race\ToggleIsWorkRaceActionContract::class                               => \App\Actions\Controllers\Race\ToggleIsWorkRaceAction::class,
         \App\Contracts\Actions\Controllers\PersonalInfo\CreatePersonalInfoActionContract::class                     => \App\Actions\Controllers\PersonalInfo\CreatePersonalInfoAction::class,
         \App\Contracts\Actions\Controllers\PersonalInfo\UpdatePersonalInfoActionContract::class                     => \App\Actions\Controllers\PersonalInfo\UpdatePersonalInfoAction::class,
@@ -42,8 +47,10 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\AppointmentRace\DeleteAppointmentRaceActionContract::class               => \App\Actions\Controllers\AppointmentRace\DeleteAppointmentRaceAction::class,
         \App\Contracts\Actions\Controllers\AppointmentRace\GetUsersAppointmentRaceActionContract::class             => \App\Actions\Controllers\AppointmentRace\GetUsersAppointmentRaceAction::class,
         \App\Contracts\Actions\Controllers\AppointmentRace\CreateTableAppointmentRaceUserActionContract::class      => \App\Actions\Controllers\AppointmentRace\CreateTableAppointmentRaceUserAction::class,
+        \App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentPDFActionContract::class                   => \App\Actions\Controllers\AppointmentRace\GetAppointmentPDFAction::class,
         \App\Contracts\Actions\Controllers\User\UpdateUserActionContract::class                                     => \App\Actions\Controllers\User\UpdateUserAction::class,
         \App\Contracts\Actions\Controllers\User\GetUserForIdActionContract::class                                   => \App\Actions\Controllers\User\GetUserForIdAction::class,
+        \App\Contracts\Actions\Controllers\User\GetCommisionUserActionContract::class                                   => \App\Actions\Controllers\User\GetCommisionUserAction::class,
         \App\Contracts\Actions\Controllers\VerificationEmail\VerificationActionContract::class                      => \App\Actions\Controllers\VerificationEmail\VerificationAction::class,
         \App\Contracts\Actions\Controllers\VerificationEmail\SendActionContract::class                              => \App\Actions\Controllers\VerificationEmail\SendAction::class,
         \App\Contracts\Actions\Controllers\Location\GetLocationActionContract::class                                => \App\Actions\Controllers\Location\GetLocationAction::class,
@@ -55,6 +62,16 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\Command\GetForIdCommandActionContract::class                             => \App\Actions\Controllers\Command\GetForIdCommandAction::class,
         \App\Contracts\Actions\Controllers\Command\GetCommandActionContract::class                                  => \App\Actions\Controllers\Command\GetCommandAction::class,
         \App\Contracts\Actions\Controllers\Command\UpdateCommandActionContract::class                               => \App\Actions\Controllers\Command\UpdateCommandAction::class,
+        \App\Contracts\Actions\Controllers\RecoveryPassword\SendRecoveryPasswordActionContract::class               => \App\Actions\Controllers\RecoveryPassword\SendRecoveryPasswordAction::class,
+        \App\Contracts\Actions\Controllers\RecoveryPassword\RecoveryRecoveryPasswordActionContract::class           => \App\Actions\Controllers\RecoveryPassword\RecoveryRecoveryPasswordAction::class,
+        \App\Contracts\Actions\Controllers\Store\CreateStoreActionContract::class                                   => \App\Actions\Controllers\Store\CreateStoreAction::class,
+        \App\Contracts\Actions\Controllers\Attendance\CreateAttendanceActionContract::class                         => \App\Actions\Controllers\Attendance\CreateAttendanceAction::class,
+        \App\Contracts\Actions\Controllers\Attendance\GetForIdAttendanceActionContract::class                       => \App\Actions\Controllers\Attendance\GetAttendanceForIdAction::class,
+        \App\Contracts\Actions\Controllers\Attendance\UpdateAttendanceActionContract::class                         => \App\Actions\Controllers\Attendance\UpdateAttendanceAction::class,
+        \App\Contracts\Actions\Controllers\Attendance\DeleteAttendanceActionContract::class                         => \App\Actions\Controllers\Attendance\DeleteAttendanceAction::class,
+        \App\Contracts\Actions\Controllers\Transaction\CreateTransactionActionContract::class                       => \App\Actions\Controllers\Transaction\CreateTransactionAction::class,
+        \App\Contracts\Actions\Controllers\Transaction\ResultTransactionActionContract::class                       => \App\Actions\Controllers\Transaction\ResultTransactionAction::class,
+        \App\Contracts\Actions\Controllers\Transaction\SuccessTransactionActionContract::class                      => \App\Actions\Controllers\Transaction\SuccessTransactionAction::class,
 
     ];
     /**

@@ -1,18 +1,18 @@
-name: Location
-description: 'Методы для взаимодействия с городами'
+name: PersonalInfo
+description: 'Всё что связанно с персональной информацией пользователя'
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/locations
+      - POST
+    uri: api/users/cabinet/personal-info
     metadata:
-      groupName: Location
-      groupDescription: 'Методы для взаимодействия с городами'
+      groupName: PersonalInfo
+      groupDescription: 'Всё что связанно с персональной информацией пользователя'
       subgroup: ''
       subgroupDescription: ''
-      title: get
-      description: 'Получение всех городов с фильтрацией'
-      authenticated: false
+      title: Create
+      description: 'Создать запись персональных данных'
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -22,19 +22,89 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      paginate:
-        name: paginate
+      name:
+        name: name
         description: ''
         required: false
-        example: false
-        type: boolean
+        example: dolores
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      limit:
-        name: limit
-        description: 'Must not be greater than 100.'
+      surname:
+        name: surname
+        description: ''
+        required: false
+        example: ut
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      patronymic:
+        name: patronymic
+        description: ''
+        required: false
+        example: amet
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      dateOfBirth:
+        name: dateOfBirth
+        description: 'Must be a valid date.'
+        required: false
+        example: '2025-03-10T11:06:38'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: false
+        example: sint
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      inn:
+        name: inn
+        description: ''
+        required: false
+        example: qui
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      snils:
+        name: snils
+        description: ''
+        required: false
+        example: tenetur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      phoneNumber:
+        name: phoneNumber
+        description: ''
+        required: false
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      startNumber:
+        name: startNumber
+        description: 'Must be at least 1. Must not be greater than 999.'
         required: false
         example: 19
         type: integer
@@ -42,8 +112,78 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      page:
-        name: page
+      group:
+        name: group
+        description: ''
+        required: false
+        example: sit
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      rank:
+        name: rank
+        description: ''
+        required: false
+        example: facilis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      rankNumber:
+        name: rankNumber
+        description: ''
+        required: false
+        example: laborum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      community:
+        name: community
+        description: ''
+        required: false
+        example: optio
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: ''
+        required: false
+        example: deserunt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      motoStamp:
+        name: motoStamp
+        description: ''
+        required: false
+        example: quos
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      engine:
+        name: engine
+        description: ''
+        required: false
+        example: ex
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      numberAndSeria:
+        name: numberAndSeria
         description: ''
         required: false
         example: in
@@ -52,26 +192,308 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      name:
-        name: name
+      region:
+        name: region
         description: ''
         required: false
-        example: natus
+        example: quia
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
     cleanBodyParameters:
-      paginate: false
-      limit: 19
-      page: in
-      name: natus
+      name: dolores
+      surname: ut
+      patronymic: amet
+      dateOfBirth: '2025-03-10T11:06:38'
+      city: sint
+      inn: qui
+      snils: tenetur
+      phoneNumber: et
+      startNumber: 19
+      group: sit
+      rank: facilis
+      rankNumber: laborum
+      community: optio
+      coach: deserunt
+      motoStamp: quos
+      engine: ex
+      numberAndSeria: in
+      region: quia
+      locationId: 2
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.location.get_all.success","data":{"id":null,"name":null,"type":null}},{"status":"success","message":"messages.location.get_all.success","data":{"id":null,"name":null,"type":null}}]'
+        content: '{"status":"success","message":"messages.personal_info.create.success","personal_info":{"name":"Prof.","surname":"Prof.","patronymic":"Mrs.","date_of_birth":"1980-03-14","city":"North Christellestad","inn":"100000000000","snils":"9999999999","phone_number":"+1-980-757-6525","start_number":"457","group":"Command Control Center Officer","rank_number":"100000","rank":"Credit Analyst","community":"Wisoky, Kirlin and Konopelski","coach":"Ms. Thelma Casper III","moto_stamp":"Dr.","engine":"Dr.","number_and_seria":"10000000000","region":null}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: api/users/cabinet/personal-info
+    metadata:
+      groupName: PersonalInfo
+      groupDescription: 'Всё что связанно с персональной информацией пользователя'
+      subgroup: ''
+      subgroupDescription: ''
+      title: Update
+      description: 'Обновить запись персональных данных'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: false
+        example: est
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      surname:
+        name: surname
+        description: ''
+        required: false
+        example: reprehenderit
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      patronymic:
+        name: patronymic
+        description: ''
+        required: false
+        example: dolore
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      dateOfBirth:
+        name: dateOfBirth
+        description: 'Must be a valid date.'
+        required: false
+        example: '2025-03-10T11:06:38'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: false
+        example: voluptates
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      inn:
+        name: inn
+        description: ''
+        required: false
+        example: animi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      snils:
+        name: snils
+        description: ''
+        required: false
+        example: quod
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      phoneNumber:
+        name: phoneNumber
+        description: ''
+        required: false
+        example: consequuntur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      startNumber:
+        name: startNumber
+        description: ''
+        required: false
+        example: totam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      group:
+        name: group
+        description: ''
+        required: false
+        example: odio
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      rank:
+        name: rank
+        description: ''
+        required: false
+        example: qui
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      rankNumber:
+        name: rankNumber
+        description: ''
+        required: false
+        example: totam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      community:
+        name: community
+        description: ''
+        required: false
+        example: quia
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: ''
+        required: false
+        example: hic
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      motoStamp:
+        name: motoStamp
+        description: ''
+        required: false
+        example: aspernatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      engine:
+        name: engine
+        description: ''
+        required: false
+        example: sed
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      numberAndSeria:
+        name: numberAndSeria
+        description: ''
+        required: false
+        example: sed
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      region:
+        name: region
+        description: ''
+        required: false
+        example: aut
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 14
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      name: est
+      surname: reprehenderit
+      patronymic: dolore
+      dateOfBirth: '2025-03-10T11:06:38'
+      city: voluptates
+      inn: animi
+      snils: quod
+      phoneNumber: consequuntur
+      startNumber: totam
+      group: odio
+      rank: qui
+      rankNumber: totam
+      community: quia
+      coach: hic
+      motoStamp: aspernatur
+      engine: sed
+      numberAndSeria: sed
+      region: aut
+      locationId: 14
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.personal_info.update.success","personal_info":{"name":"Prof.","surname":"Dr.","patronymic":"Prof.","date_of_birth":"2017-04-15","city":"Lambertchester","inn":"99999999999","snils":"9999999999","phone_number":"+18069919792","start_number":"916","group":"Municipal Court Clerk","rank_number":"99999","rank":"Postmasters","community":"Heller, Wiegand and Gutkowski","coach":"Kaitlyn Schroeder","moto_stamp":"Dr.","engine":"Prof.","number_and_seria":"10000000000","region":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []

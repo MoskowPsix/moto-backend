@@ -19,7 +19,7 @@ use Tests\TestCase;
 class UpdateGradeActionTest extends TestCase
 {
     use RefreshDatabase;
-    protected $seed = true;
+    protected bool $seed = true;
 
     public function test_action_not_found(): void
     {
@@ -33,7 +33,7 @@ class UpdateGradeActionTest extends TestCase
         Sanctum::actingAs($user);
         $gradeRequest = new UpdateGradeRequest($grade);
         $action = app(UpdateGradeActionContract::class);
-        $response = $action($user->id, $gradeRequest);
+        $response = $action(-1, $gradeRequest);
 
         $this->assertInstanceOf(NotFoundResource::class, $response);
     }

@@ -25,6 +25,8 @@ class UpdateCommandAction implements UpdateCommandActionContract
         }
         $command->update([
             'name'          => $request->name ?? $command->name,
+            'fullName'      => $request->fullname ?? $command->fullname,
+            'coach'         => $request->coach ?? $command->coach,
             'city'          => $request->city ?? $command->city,
             'location_id'   => $request->locationId ?? $command->location_id,
         ]);
@@ -42,6 +44,8 @@ class UpdateCommandAction implements UpdateCommandActionContract
 
     private function saveAvatar($avatar, Command $command): void
     {
+        $path = $command->avatar;
+
         if($command->avatar){
             $this->deleteAvatar($command->avatar);
         }

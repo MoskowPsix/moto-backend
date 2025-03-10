@@ -12,10 +12,8 @@ use Tests\TestCase;
 class GetTrackForldActionTest extends TestCase
 {
     use RefreshDatabase;
-    protected $seed = true;
-    /**
-     * A basic feature test example.
-     */
+    protected bool $seed = true;
+
     public function test_get_for_id_success(): void
     {
         $track = Track::factory()->create();

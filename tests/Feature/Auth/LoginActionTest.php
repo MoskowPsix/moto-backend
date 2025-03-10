@@ -10,9 +10,13 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
+use Exception;
 
 class LoginActionTest extends TestCase
 {
+    /**
+     * @throws Exception
+     */
     use RefreshDatabase;
 
     protected bool $seed = true;
@@ -58,4 +62,25 @@ class LoginActionTest extends TestCase
 
         $this->assertInstanceOf(ErrorLoginResource::class, $userAction);
     }
+
+//    public function test_action_throw_exception(): void
+//    {
+//        $pass = fake()->password();
+//        $user = User::factory()->create([
+//            'password' => Hash::make($pass),
+//        ]);
+//
+//        $request = new LoginRequest([
+//            'password' => '',
+//            'email' => $user->email,
+//        ]);
+//        $action = app(LoginActionContract::class);
+//        $response = $action($request);
+//
+//        $this->assertInstanceOf(ErrorLoginResource::class, $response);
+//
+//        $this->assertEquals('Неверные учетные данные.', $response->resource['Login failed']);
+//
+//    }
+
 }

@@ -24,6 +24,11 @@ class UpdateUserAction implements UpdateUserActionContract
             'name' => $request->name ?? $user->name,
             'email' => $request->email ?? $user->email,
         ]);
+        if (isset($request->email)) {
+            $user->update([
+                'email_verified_at' => null,
+            ]);
+        }
         if ($request->avatar) {
             $this->delete($user->avatar);
             $this->saveImages($request->avatar, $user);

@@ -3,11 +3,15 @@
 namespace App\Http\Controllers\Api;
 
 use App\Contracts\Actions\Controllers\AppointmentRace\CreateTableAppointmentRaceUserActionContract;
+use App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentPDFActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\GetUsersAppointmentRaceActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\ToggleAppointmentRaceActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AppointmentRace\GetUsersAppointmentRaceRequest;
 use App\Http\Requests\AppointmentRace\ToogleAppointmentRaceRequest;
+use App\Http\Resources\AppointmentRace\Create\ExistsAppointmentRaceResource;
+use App\Http\Resources\AppointmentRace\Create\GradeNotExistsAppointmentRaceResource;
+use App\Http\Resources\AppointmentRace\Create\ManyDocumentAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Create\SuccessCreateAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Delete\SuccessDeleteAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\GetUsers\SuccessGetUsersAppointmentResource;
@@ -19,16 +23,26 @@ use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\ResponseFromApiResource;
+use Knuckles\Scribe\Attributes\ResponseFromFile;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 #[Group(name: 'AppointmentRace', description: 'Методы отвечающие за запись участников')]
 class AppointmentRaceController extends Controller
 {
     #[Authenticated]
     #[ResponseFromApiResource(SuccessCreateAppointmentRaceResource::class)]
-    #[ResponseFromApiResource(SuccessDeleteAppointmentRaceResource::class)]
     #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[ResponseFromApiResource(ManyDocumentAppointmentRaceResource::class, status: 422)]
+    #[ResponseFromApiResource(ExistsAppointmentRaceResource::class, status: 409)]
+    #[ResponseFromApiResource(GradeNotExistsAppointmentRaceResource::class, status: 404)]
     #[Endpoint(title: 'toggle', description: 'Записаться и отменить запись на гонку')]
-    public function toggle(int $id, ToogleAppointmentRaceRequest $request, ToggleAppointmentRaceActionContract $action): SuccessCreateAppointmentRaceResource | NotFoundResource | SuccessDeleteAppointmentRaceResource
+    public function toggle(int $id, ToogleAppointmentRaceRequest $request, ToggleAppointmentRaceActionContract $action):
+    SuccessCreateAppointmentRaceResource|
+    NotFoundResource|
+    ManyDocumentAppointmentRaceResource|
+    ExistsAppointmentRaceResource|
+    GradeNotExistsAppointmentRaceResource|
+    NotUserPermissionResource
     {
         return $action($id, $request);
     }
@@ -45,6 +59,14 @@ class AppointmentRaceController extends Controller
     #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
     #[Endpoint(title: 'getTable', description: 'Получить ссылку на таблицу участников')]
     public function getUsersAppointmentRaceInTable(int $id, CreateTableAppointmentRaceUserActionContract $action): SuccessCreateTableAppointmentRaceResource | NotUserPermissionResource | NotFoundResource
+    {
+        return $action($id);
+    }
+    #[Authenticated]
+    #[ResponseFromFile(file: "storage/app/private/user/documents/URsB0gs6G0ATlQnF2TdirtS1hCOJfMOFoxmkBWgo.png")]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[Endpoint(title: 'getAppointmentPDF', description: 'Возвращает документ заявки гонщика для комиссии')]
+    public function getAppointmentPDF(int $id, GetAppointmentPDFActionContract $action): BinaryFileResponse|NotFoundResource
     {
         return $action($id);
     }

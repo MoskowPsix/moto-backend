@@ -10,15 +10,16 @@ use App\Models\Track;
 
 class CreateCommandAction implements CreateCommandActionContract
 {
-
     public function __invoke(CreateCommandRequest $request): SuccessCreateCommandResource
     {
         $user = auth()->user();
         $command = Command::create([
-            'name' => $request->name,
-            'user_id' => $user->id,
-            'location_id' => $request->locationId,
-            'city' => $request->city
+            'name'          => $request->name,
+            'full_name'      => $request->fullname,
+            'coach'         => $request->coach,
+            'user_id'       => $user->id,
+            'location_id'   => $request->locationId,
+            'city'          => $request->city
         ]);
         $this->saveImages($request->file('avatar'), $command);
         return SuccessCreateCommandResource::make($command);

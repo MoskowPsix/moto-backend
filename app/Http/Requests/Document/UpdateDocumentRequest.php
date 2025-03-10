@@ -25,8 +25,10 @@ class UpdateDocumentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'file'  => 'nullable|file|mimes:pdf,jpg,jpeg,png',
-            'data'  => 'nullable',
+            'file'                      => 'nullable|file|mimes:pdf,jpg,jpeg,png',
+            'number'                    => 'nullable|string',
+            'issuedWhom'                => 'nullable|string',
+            'itWorksDate'               => 'nullable|string',
         ];
     }
 }

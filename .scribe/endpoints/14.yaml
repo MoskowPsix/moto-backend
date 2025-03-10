@@ -1,0 +1,467 @@
+name: Command
+description: 'Методы связанные с командами'
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/commands
+    metadata:
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: get
+      description: 'Получение всех команд по фильтрам'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      paginate:
+        name: paginate
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: sunt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      limit:
+        name: limit
+        description: 'Must not be greater than 50.'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 19
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: false
+        example: ut
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      fullname:
+        name: fullname
+        description: ''
+        required: false
+        example: blanditiis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: ''
+        required: false
+        example: earum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      userId: 17
+      paginate: false
+      page: sunt
+      limit: 16
+      locationId: 19
+      city: ut
+      fullname: blanditiis
+      coach: earum
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"status":"success","message":"messages.command.get.success","commands":{"id":28,"name":"Noemie Osinski","fullname":null,"coach":null,"city":"New Polly","avatar":null}},{"status":"success","message":"messages.command.get.success","commands":{"id":29,"name":"Porter Wiegand","fullname":null,"coach":null,"city":"South Modestomouth","avatar":null}}]'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/commands/{id}'
+    metadata:
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: getForId
+      description: 'Получение команд по id'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the command.'
+        required: true
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 3
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The <code>id</code> of an existing record in the commands table.'
+        required: true
+        example: 6
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      userId:
+        name: userId
+        description: ''
+        required: false
+        example: 8
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: ''
+        required: false
+        example: 20
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: false
+        example: odio
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      fullname:
+        name: fullname
+        description: ''
+        required: false
+        example: enim
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: ''
+        required: false
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      id: 6
+      userId: 8
+      locationId: 20
+      city: odio
+      fullname: enim
+      coach: et
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.command.get_for_id.success","command":{"id":30,"name":"Jazmyn Treutel DDS","fullname":null,"coach":null,"city":"Lanefort","avatar":null}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/commands
+    metadata:
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: create
+      description: 'Создание команды'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: cpysmvwzcqlwyz
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      fullname:
+        name: fullname
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: bvhhdndwvvxzjzwqripdfq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: mkneykqfjzrhdbheyq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      avatar:
+        name: avatar
+        description: 'Must be an image.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: true
+        example: 13
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      city:
+        name: city
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: xuvspjm
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: cpysmvwzcqlwyz
+      fullname: bvhhdndwvvxzjzwqripdfq
+      coach: mkneykqfjzrhdbheyq
+      locationId: 13
+      city: xuvspjm
+    fileParameters:
+      avatar: null
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.command.create.success","command":{"id":31,"name":"Mr. Marcellus Ondricka","fullname":null,"coach":null,"city":"Larkinhaven","avatar":null}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/commands/{id}'
+    metadata:
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: update
+      description: 'Редактирование класса'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the command.'
+        required: true
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 3
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: pyiyhqw
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      fullname:
+        name: fullname
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: rwqykbibxw
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: pzulxzc
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      avatar:
+        name: avatar
+        description: 'Must be an image.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: qjqgnflwnitpapawnctils
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 6
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      name: pyiyhqw
+      fullname: rwqykbibxw
+      coach: pzulxzc
+      city: qjqgnflwnitpapawnctils
+      locationId: 6
+    fileParameters:
+      avatar: null
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.command.update.success","command":{"id":32,"name":"Dr. Emilie Beahan","fullname":null,"coach":null,"city":"Ciaramouth","avatar":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

@@ -4,10 +4,12 @@ namespace App\Actions\Controllers\AppointmentRace;
 
 use App\Contracts\Actions\Controllers\AppointmentRace\CreateTableAppointmentRaceUserActionContract;
 use App\Contracts\Services\GoogleSheetServiceContract;
+use App\Enums\DocumentType;
 use App\Http\Resources\AppointmentRace\SuccessCreateTableAppointmentRaceResource;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\AppointmentRace;
+use App\Models\Command;
 use App\Models\Race;
 use App\Notifications\CreateTableAppointmentRaceUserNotify;
 use Carbon\Carbon;
@@ -31,10 +33,14 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
         if (!$appr->exists()) {
             return NotFoundResource::make([]);
         }
+        if (!$race->commissions()->where('users.id', auth()->user()->id)->exists())
+        {
+            return NotUserPermissionResource::make([]);
+        }
         // Получаем поля будующей таблицы
         $fields = $this->getFields();
         // Формируем данные для таблицы участников
-        $rows = $this->formTable($appr->oldest('created_at')->get());
+        $rows = $this->formTable($appr->with('location', 'documents', 'grade')->orderBy('created_at', 'asc')->orderBy('created_at', 'asc')->get()->toArray());
         // Обновляем или создаём таблицу в Google Sheets
         if ($race->sheet()->exists()){
             // Получаем id таблицы в системе google
@@ -56,37 +62,57 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
         return SuccessCreateTableAppointmentRaceResource::make($url->url);
     }
 
-    private function formTable(Collection $appr): array
+    private function formTable(array $appr): array
     {
-        foreach ($appr->toArray() as $key => $value) {
-            $info = json_decode($value['data'], true);
-            $rows[] = [
-                'Отметка времени'                                                   => Carbon::parse($value['created_at'])->setTimezone('Asia/Yekaterinburg')->format('d.m.Y H:i:s'),
-                'Фамилия участника'                                                 => $info['surname'] ?? '',
-                'Имя участника'                                                     => $info['name'] ?? '',
-                'Отчество участника'                                                => $info['patronymic'] ?? '',
-                'Класс'                                                             => $info['group'] ?? '',
-                'Двигатель'                                                         => $info['engine'] ?? '',
-                'Стартовый Номер'                                                   => $info['startNumber'] ?? '',
-                'Номер Лицензии'                                                    => $info['licensesNumber'] ?? '',
-                'Спортивное звание (разряд)'                                        => $info['rank'] ?? '',
-                'Дата Рождения'                                                     => isset($info['dateOfBirth']) ? Carbon::parse($info['dateOfBirth'])->format('d.m.Y') : '',
-                'Населенный пункт (город, область)'                                 => 'г. ' . ($info['city'] ?? '') . ', ' . ($info['region'] ?? ''),
-                'Команда (Клуб)'                                                    => $info['community'] ?? '',
-                'Марка мотоцикла'                                                   => $info['motoStamp'] ?? '',
-                'Страховой полис: Срок действия'                                    => isset($info['itWorksDate']) ? Carbon::parse($info['itWorksDate'])->format('d.m.Y') : '',
-                'Серия и номер паспорта/ свидетельства о рождении'                  => $info['numberAndSeria'] ?? '',
-                'Пенсионное страховое свидетельство (СНИЛС)'                        => $info['snils'] ?? '',
-                'Номер телефона'                                                    => $info['phoneNumber'] ?? '',
-                'Страховой полис: Серия и номер'                                    => $info['polisNumber'] ?? '',
-                'Страховой полис: Кем выдан'                                        => $info['issuedWhom'] ?? '',
-                'Тренер: ФИО'                                                       => $info['coach'] ?? '',
-                'ИНН (для спортсменов младше 18 лет указываем ИНН представителя)'   => $info['inn'] ?? '',
+        $rows = [];
+        foreach ($appr as $value) {
+            $location = isset($value['location']) ? ($value['location']['name'] . ' ' . $value['location']['type']) : '';
+            $row = [
+                'Отметка времени'                                                   => Carbon::parse($value['created_at'])->format('d.m.Y h:m:s'),
+                'Фамилия участника'                                                 => $value['surname'] ?? '',
+                'Имя участника'                                                     => $value['name'] ?? '',
+                'Отчество участника'                                                => $value['patronymic'] ?? '',
+                'Класс'                                                             => $value['grade']['name'] ?? '',
+                'Двигатель'                                                         => $value['engine'] ?? '',
+                'Стартовый Номер'                                                   => $value['start_number'] ?? '',
+                'Спортивное звание (разряд)'                                        => $value['rank'] ?? '',
+                'Дата Рождения'                                                     => isset($value['date_of_birth']) ? Carbon::parse($value['date_of_birth'])->format('d.m.Y') : '',
+                'Населенный пункт (город, область)'                                 => 'г. ' . ($value['city'] ?? '') . ', ' . $location,
+                'Команда (Клуб)'                                                    => !empty($value['command_id']) ? Command::find($value['command_id'])->name : 'Лично',
+                'Марка мотоцикла'                                                   => $value['moto_stamp'] ?? '',
+                'Серия и номер паспорта/ свидетельства о рождении'                  => $value['number_and_seria'] ?? '',
+                'Пенсионное страховое свидетельство (СНИЛС)'                        => $value['snils'] ?? '',
+                'Номер телефона'                                                    => $value['phone_number'] ?? '',
+                'Тренер: ФИО'                                                       => $value['coach'] ?? '',
+                'ИНН (для спортсменов младше 18 лет указываем ИНН представителя)'   => $value['inn'] ?? '',
                 ''                                                                  => '',
-                'Скан или фотография Страховки'                                     => $info['polisFileLink'] ?? '',
-                'Скан или фотография Лицензии'                                      => $info['licensesFileLink'] ?? '',
-                'Скан или фотография нотариального согласия от обоих родителей'     => $info['notariusFileLink'] ?? '',
+                'Скан или фотография Страховки'                                     => '',
+                'Страховой полис: Серия и номер'                                    => '',
+                'Страховой полис: Кем выдан'                                        => '',
+                'Страховой полис: Срок действия'                                    => '',
+                'Скан или фотография Лицензии'                                      => '',
+                'Номер Лицензии'                                                    => '',
+                'Скан или фотография нотариального согласия от обоих родителей'     => '',
             ];
+
+            foreach ($value['documents'] as $document) {
+                switch ($document['type']) {
+                    case DocumentType::Polis->value:
+                        $row['Скан или фотография Страховки'] = $document['url_view'] . ' , ' . $row['Скан или фотография Страховки'];
+                        $row['Страховой полис: Серия и номер'] = $document['number'];
+                        $row['Страховой полис: Кем выдан'] = $document['issued_whom'];
+                        $row['Страховой полис: Срок действия'] = $document['it_works_date'];
+                        break;
+                    case DocumentType::Licenses->value:
+                        $row['Скан или фотография Лицензии'] = !empty($row['Скан или фотография Лицензии']) ? $document['url_view'] . ' , ' . $row['Скан или фотография Лицензии'] : $document['url_view'];
+                        $row['Номер Лицензии'] = $document['number'];
+                        break;
+                    case DocumentType::Notarius->value:
+                        $row['Скан или фотография нотариального согласия от обоих родителей'] = $document['url_view'] . ' , ' . $row['Скан или фотография нотариального согласия от обоих родителей'];
+                        break;
+                }
+            }
+            $rows[] = $row;
         }
         return $rows;
     }

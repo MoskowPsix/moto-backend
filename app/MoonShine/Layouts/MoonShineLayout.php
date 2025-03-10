@@ -42,6 +42,9 @@ use App\MoonShine\Resources\GoogleSheetResource;
 use App\MoonShine\Resources\GradeResource;
 use App\MoonShine\Resources\CommandResource;
 use App\MoonShine\Resources\LocationResource;
+use App\MoonShine\Resources\StoreResource;
+use App\MoonShine\Resources\TransactionResource;
+use App\MoonShine\Resources\AttendanceResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -71,6 +74,8 @@ final class MoonShineLayout extends AppLayout
                 MenuItem::make('Сервисы', ServiceResource::class, 'square-3-stack-3d'),
                 MenuItem::make('Классы', GradeResource::class, 'beaker'),
                 MenuItem::make('Команды', CommandResource::class, 'users'),
+                MenuItem::make('Магазины', StoreResource::class, 'building-storefront'),
+                MenuItem::make('Транзакции', TransactionResource::class, 'credit-card'),
             ], 'cube'),
         ];
     }

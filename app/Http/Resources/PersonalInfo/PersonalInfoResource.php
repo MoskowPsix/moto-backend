@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\PersonalInfo;
 
+use App\Http\Resources\Command\CommandResource;
 use App\Http\Resources\Location\LocationResource;
 use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Request;
@@ -57,7 +58,8 @@ class PersonalInfoResource extends JsonResource
             'user'              => UserResource::make($this->whenLoaded('user')),
             'number_and_seria'  => $this->number_and_seria,
             'region'            => $this->region,
-            'location'          => LocationResource::make($this->whenLoaded('location'))
+            'location'          => LocationResource::make($this->whenLoaded('location')),
+            'command'           => CommandResource::make($this->whenLoaded('command'))
         ];
     }
 }
