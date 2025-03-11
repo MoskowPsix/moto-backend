@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Store extends Model
 {
+    use HasFactory;
     protected $fillable = [
         'login',
         'password_1',

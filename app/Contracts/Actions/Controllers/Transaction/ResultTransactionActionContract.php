@@ -7,5 +7,5 @@ use Illuminate\Http\Request;
 
 interface ResultTransactionActionContract
 {
-    public function handleResult(Request $request);
+    public function __invoke(Request $request);
 }
