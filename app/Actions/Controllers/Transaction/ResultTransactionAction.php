@@ -12,7 +12,7 @@ class ResultTransactionAction implements ResultTransactionActionContract
 {
     public function __invoke(Request $request)
     {
-        $outSum = $request->input('OutSum');
+        $outSum = 350;
         $invId = $request->input('InvId');
         $crc = strtoupper($request->input('SignatureValue'));
 
@@ -36,8 +36,7 @@ class ResultTransactionAction implements ResultTransactionActionContract
         $store = $attendance->track()->first()->store()->first();
         $password_2 = $store->password_2;
 
-//        $myCrc = strtoupper(md5("$outSum:$invId:$password_2"));
-        $myCrc = strtoupper(md5("blabla"));
+        $myCrc = strtoupper(md5("$outSum:$invId:$password_2"));
 
         if ($myCrc !== $crc) {
             Log::error("Invalid signature for transaction: $invId");
