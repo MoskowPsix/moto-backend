@@ -10,27 +10,42 @@ use Log;
 
 class ResultTransactionAction implements ResultTransactionActionContract
 {
-    public function handleResult(Request $request)
+    public function __invoke(Request $request)
     {
-        Log::info('Robokassa Result Request:', $request->all());
+        Log::info('Robokassa ResultUrl request:', [
+            'OutSum' => $request->input('OutSum'),
+            'InvId' => $request->input('InvId'),
+            'SignatureValue' => $request->input('SignatureValue'),
+        ]);
 
-        $invoiceId = $request->input('InvId');
         $outSum = $request->input('OutSum');
-        $signature = $request->input('SignatureValue');
+        $invId = $request->input('InvId');
+        $crc = strtoupper($request->input('SignatureValue'));
 
-        $transaction = Transaction::findOrFail($invoiceId);
-
-        $store = $transaction->attendance()->first()->track()->first()->store();
-        $password = $store->password_2;
-        $expectedSignature = strtoupper(md5("$outSum:$invoiceId:$password"));
-
-        if ($expectedSignature === strtoupper($signature)) {
-            $transaction->update(['status' => true]);
-
-            return response('OK', 200);
+        $transaction = Transaction::find($invId);
+        if (!$transaction) {
+            Log::error("Transaction not found for InvId: $invId");
+            http_response_code(404);
         }
 
-        return response('Invalid signature', 400);
+        $attendance = $transaction->attendances()->first();
+        if (!$attendance) {
+            Log::error("Attendance not found for transaction: $invId");
+            http_response_code(400);
+        }
+
+        $store = $attendance->track()->first()->store()->first();
+        $password_2 = $store->password_2;
+
+        $myCrc = strtoupper(md5("$outSum:$invId:$password_2"));
+
+        if ($myCrc !== $crc) {
+            Log::error("Invalid signature for transaction: $invId");
+            http_response_code(400);
+        }
+        Log::info('Success');
+        echo "OK$invId\n";
+        exit;
     }
 }
 

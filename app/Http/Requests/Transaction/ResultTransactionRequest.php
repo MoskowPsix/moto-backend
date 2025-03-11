@@ -24,6 +24,7 @@ class ResultTransactionRequest extends FormRequest
         return [
             'OutSum'            => 'nullable|numeric',
             'InvId'             => 'nullable|integer|exists:transactions,id',
+            'SignatureValue'    => 'nullable|string',
         ];
     }
 }
