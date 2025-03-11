@@ -31,57 +31,29 @@ class test extends Command
      */
     public function handle()
     {
-        $login = env('ROBOKASSA_LOGIN');
-        $password = env('ROBOKASSA_TEST_PASSWORD1');
-
-        $invoiceId = 678678;
-        $description = 'Услуга от 500';
-        $outSum = 500;
-        $IsTest = 1;
-
-        $crc = md5("$login:$outSum:$invoiceId:$password");
-
-        $link = "https://auth.robokassa.ru/Merchant/Index.aspx?" .
-            http_build_query([
-                'MrchLogin' => $login,
-                'OutSum' => $outSum,
-                'InvId' => $invoiceId,
-                'Desc' => $description,
-                'SignatureValue' => strtoupper($crc),
-                'IsTest' => $IsTest,
-            ]);
-        $this->info("Перейдите по следующей ссылке для тестовой оплаты:");
-        $this->line($link);
-
-//        Document::all()->each(function ($apps) {
-//            $data = json_decode($apps->data, true);
-//
-//            if (isset($data)) {
-//                if($apps->type->value === DocumentType::Polis->value) {
-//                    $apps->update([
-//                        'type' => 'polis',
-//                        'url_view' => $data['polisFileLink'] ?? 'https://dev-moto.vokrug.city/document/' . $apps->id,
-//                        'number' => $data['polisNumber'] ?? '',
-//                        'issued_whom' => $data['polisIssuedWhom'] ?? '',
-//                        'it_works_date' => $data['polisItWorksDate'] ?? '',
-//                    ]);
-//                }
-//                if($apps->type->value === DocumentType::Licenses->value) {
-//                    $apps->update([
-//                        'type' => 'licenses',
-//                        'url_view' => $data['licensesFileLink'] ?? 'https://dev-moto.vokrug.city/document/' . $apps->id,
-//                        'number' => $data['licensesNumber'] ?? '',
-//                    ]);
-//                }
-//                if($apps->type->value === DocumentType::Notarius->value) {
-//                    $apps->update([
-//                        'type' => 'notarius',
-//                        'url_view' => $data['notariusFileLink'] ?? 'https://dev-moto.vokrug.city/document/' . $apps->id,
-//                    ]);
-//                }
-//            }
-//        });
-//        return 1;
-//    }
+        $key = '1P2enXHUZrAux3kcD8S67cec5d998cd7de24485f155604cf921cf88bf9895a6f';
+        $method = 'push_msg';
+        $format = 'json';
+        $phone = 79920178526;
+        $time = 60;
+        $text = 1114;
+        $name = 'moto.vokrug';
+        $ch = curl_init('https://ssl.bs00.ru/?key=' . $key .
+            '&method=' . $method .
+            '&format=' . $format .
+            '&phone=' . $phone .
+            '&route=pc' .
+            '&text=' . $text .
+            '&sender_name=' . $name .
+            '&call_protection=' . $time
+        );
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        $res = curl_exec($ch);
+        curl_close($ch);
+        $res = json_decode($res, true);
+        dd($res);
+        return 0;
     }
 }
