@@ -31,12 +31,13 @@ class UpdateTrackAction implements UpdateTrackActionContract
             'desc'          => $request->desc ?? $track->desc,
             'latitude'      => $request->latitude ?? $track->latitude,
             'longitude'     => $request->longitude ?? $track->longitude,
-            'is_work'       => $request->is_work ?? $track->is_work,
+            'is_work'       => isset($request->is_work),
             'level_id'      => $request->levelId ?? $track->level_id,
             'location_id'   => $request->locationId ?? $track->location_id,
-            'light'         => $request->light ?? $track->light,
-            'season'        => $request->season ?? $track->season,
+            'light'         => isset($request->light),
+            'season'        => isset($request->season),
             'store_id'      => $request->storeId ?? $track->store_id,
+            'contacts'      => $request->contacts ?? $track->contacts,
         ]);
 
         $this->saveFiles($request, $track);
