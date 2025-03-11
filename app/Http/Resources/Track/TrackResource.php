@@ -4,6 +4,7 @@ namespace App\Http\Resources\Track;
 
 use App\Http\Resources\Level\LevelResource;
 use App\Http\Resources\Location\LocationResource;
+use App\Http\Resources\Store\StoreResource;
 use App\Http\Resources\User\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
