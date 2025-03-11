@@ -12,7 +12,12 @@ class ResultTransactionAction implements ResultTransactionActionContract
 {
     public function __invoke(Request $request)
     {
-        $outSum = 350;
+        Log::info('Robokassa ResultUrl request:', [
+            'OutSum' => 31,
+            'InvId' => 17,
+            'SignatureValue' => $request->input('SignatureValue'),
+        ]);
+        $outSum = $request->input('OutSum');
         $invId = $request->input('InvId');
         $crc = strtoupper($request->input('SignatureValue'));
 
