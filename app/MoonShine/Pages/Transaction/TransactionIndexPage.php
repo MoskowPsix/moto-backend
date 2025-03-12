@@ -15,6 +15,7 @@ use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\UI\Fields\Checkbox;
 use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\ID;
+use MoonShine\UI\Fields\Json;
 use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Text;
 use Throwable;
@@ -33,6 +34,7 @@ class TransactionIndexPage extends IndexPage
             Text::make('Описание', 'desc')->sortable(),
             $this->user()->sortable(),
             Date::make('Дата', 'created_at')->sortable()->withTime(),
+//            Json::make('Платёж', 'data'),
             Date::make('Создано', 'created_at')->sortable(),
             Date::make('Обновлено', 'updated_at')->sortable(),
         ];
