@@ -49,7 +49,7 @@ Route::controller(\App\Http\Controllers\Api\StoreController::class)->group(funct
 });
 
 Route::controller(\App\Http\Controllers\Api\TransactionController::class)->group(function () {
-    Route::post('transactions', 'create')->name('transaction.create');
+    Route::post('transactions', 'create')->middleware('auth:sanctum')->name('transaction.create');
     Route::post('transactions/result', 'result')->name('transaction.result');
     Route::get('transactions/success', 'success')->name('transaction.success');
 });
