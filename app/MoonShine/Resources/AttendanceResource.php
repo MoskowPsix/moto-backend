@@ -36,6 +36,7 @@ class AttendanceResource extends ModelResource
     protected function indexFields(): iterable
     {
         return [
+            ID::make()->sortable(),
             Text::make('Название', 'name'),
             Text::make('Описание', 'desc'),
             Number::make('Цена', 'price')->sortable()->min(0)->step(0.01),

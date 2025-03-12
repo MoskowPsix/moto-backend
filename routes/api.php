@@ -51,7 +51,7 @@ Route::controller(\App\Http\Controllers\Api\StoreController::class)->group(funct
 Route::controller(\App\Http\Controllers\Api\TransactionController::class)->group(function () {
     Route::post('transactions', 'create')->middleware('auth:sanctum')->name('transaction.create');
     Route::post('transactions/result', 'result')->name('transaction.result');
-    Route::get('transactions/success', 'success')->middleware('auth:sanctum')->name('transaction.success');
+    Route::get('transactions/success', 'success')->name('transaction.success');
 });
 
 Route::controller(\App\Http\Controllers\Api\RoleController::class)->group(function () {
