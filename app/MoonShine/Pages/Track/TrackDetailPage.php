@@ -50,6 +50,7 @@ class TrackDetailPage extends DetailPage
                 ]),
             $this->user(),
             $this->level(),
+            $this->store(),
             HasMany::make('Услуги', 'attendance')
                 ->fields([
                     Text::make('Название', 'name'),

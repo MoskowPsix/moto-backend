@@ -64,6 +64,7 @@ class TrackFormPage extends FormPage
                 ]),
             $this->user()->required(),
             $this->level()->required(),
+            $this->store(),
             HasMany::make('Услуги', 'attendance')
                 ->fields([
                     Text::make('Название', 'name'),
