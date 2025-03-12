@@ -24,6 +24,7 @@ class StoreFormPage extends FormPage
             Text::make('Логин', 'login')->sortable(),
             Text::make('Пароль 1', 'password_1')->sortable(),
             Text::make('Пароль 2', 'password_2')->sortable(),
+            Text::make('Токен', 'token')->sortable(),
             Date::make('Создано', 'created_at')->sortable(),
             Date::make('Обновлено', 'updated_at')->sortable(),
         ];

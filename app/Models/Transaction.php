@@ -23,6 +23,7 @@ class Transaction extends Model
         'user_id',
         'date',
         'attendance_id',
+        'data'
     ];
 
     public function user(): BelongsTo

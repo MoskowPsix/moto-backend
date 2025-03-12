@@ -12,11 +12,6 @@ class ResultTransactionAction implements ResultTransactionActionContract
 {
     public function __invoke(Request $request)
     {
-        Log::info('Robokassa ResultUrl request:', [
-            'OutSum' => 31,
-            'InvId' => 17,
-            'SignatureValue' => $request->input('SignatureValue'),
-        ]);
         $outSum = $request->input('OutSum');
         $invId = $request->input('InvId');
         $crc = strtoupper($request->input('SignatureValue'));
@@ -47,9 +42,11 @@ class ResultTransactionAction implements ResultTransactionActionContract
             Log::error("Invalid signature for transaction: $invId");
             return response("Invalid signature for transaction: $invId", 400);
         }
+        $transaction->update([
+            'data' => $request->except('SignatureValue'),
+        ]);
         Log::info('Success');
-        echo "OK$invId\n";
-        exit;
+        return response("OK$invId\n", 200);
     }
 }
 
