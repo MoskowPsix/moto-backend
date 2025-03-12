@@ -34,7 +34,6 @@ class TransactionIndexPage extends IndexPage
             Text::make('Описание', 'desc')->sortable(),
             $this->user()->sortable(),
             Date::make('Дата', 'created_at')->sortable()->withTime(),
-            Json::make('Платёж', 'data'),
             Date::make('Создано', 'created_at')->sortable(),
             Date::make('Обновлено', 'updated_at')->sortable(),
         ];
