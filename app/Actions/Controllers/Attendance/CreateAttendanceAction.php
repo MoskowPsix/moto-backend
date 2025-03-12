@@ -7,7 +7,7 @@ use App\Http\Requests\Attendance\CreateAttendanceRequest;
 use App\Http\Resources\Attendance\Create\SuccessCreateAttendanceResource;
 use App\Models\Attendance;
 
-class CreateAttendanceAction implements CreateAttendanceActionContract
+class  CreateAttendanceAction implements CreateAttendanceActionContract
 {
     public function __invoke(CreateAttendanceRequest $request): SuccessCreateAttendanceResource
     {

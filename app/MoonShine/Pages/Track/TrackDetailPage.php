@@ -51,11 +51,7 @@ class TrackDetailPage extends DetailPage
             $this->user(),
             $this->level(),
             $this->store(),
-            HasMany::make('Услуги', 'attendance')
-                ->fields([
-                    Text::make('Название', 'name'),
-                    Number::make('Цена', 'price'),
-                ]),
+            $this->attendance(),
             Date::make('Создано', 'created_at'),
             Date::make('Обновлено', 'updated_at'),
         ];
