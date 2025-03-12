@@ -42,6 +42,9 @@ class ResultTransactionAction implements ResultTransactionActionContract
             Log::error("Invalid signature for transaction: $invId");
             return response("Invalid signature for transaction: $invId", 400);
         }
+        $transaction->update([
+            'data' => $request->except('SignatureValue'),
+        ]);
         Log::info('Success');
         return response("OK$invId\n", 200);
     }
