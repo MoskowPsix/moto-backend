@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Actions\Controllers\AuthPhoneController\RegisterPhoneAction;
+use App\Actions\Controllers\AuthPhone\RegisterPhoneAction;
 use App\Contracts\Actions\Controllers\AuthPhoneController\HookPhoneVerifyActionContract;
 use App\Contracts\Actions\Controllers\AuthPhoneController\LoginPhoneActionContract;
 use App\Contracts\Actions\Controllers\AuthPhoneController\RegisterPhoneActionContract;

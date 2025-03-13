@@ -33,6 +33,19 @@ class UpdateUserAction implements UpdateUserActionContract
             $this->delete($user->avatar);
             $this->saveImages($request->avatar, $user);
         }
+        if (isset($request->number)) {
+            if ($user->phone()->exists()) {
+                $user->phone()->update([
+                    'number' => $request->number,
+                    'last_num' => substr($request->number, -4),
+                ]);
+            } else {
+                $user->phone()->create([
+                    'number' => $request->number,
+                    'last_num' => substr($request->number, -4),
+                ]);
+            }
+        }
         $upd_user = User::find($user->id);
         return new SuccessUpdateUserResource($upd_user);
     }

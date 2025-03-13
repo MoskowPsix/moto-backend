@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions\Controllers\AuthPhoneController;
+namespace App\Actions\Controllers\AuthPhone;
 
 use App\Contracts\Actions\Controllers\AuthPhoneController\VerifyPhoneActionContract;
 use App\Http\Requests\AuthPhone\RegisterRequest;
