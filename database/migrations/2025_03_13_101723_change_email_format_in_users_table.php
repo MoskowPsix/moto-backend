@@ -15,6 +15,7 @@ return new class extends Migration
         User::query()->orderBy('id')->chunk(1000, function($users) {
             $users->each(function($user) {
                 $user->update([
+                    'name' => mb_strtolower($user->email),
                     'email' => mb_strtolower($user->email),
                 ]);
             });
