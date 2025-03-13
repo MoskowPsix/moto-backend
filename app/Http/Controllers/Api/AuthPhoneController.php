@@ -16,6 +16,7 @@ use App\Http\Resources\AuthPhone\Login\SuccessLoginPhoneResource;
 use App\Http\Resources\AuthPhone\Login\SuccessLoginResource;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
+use App\Http\Resources\Errors\TimeOutWarningResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Knuckles\Scribe\Attributes\Endpoint;
@@ -27,7 +28,7 @@ class AuthPhoneController extends Controller
 {
     #[ResponseFromApiResource(SuccessLoginPhoneResource::class)]
     #[Endpoint(title: 'Login', description: 'Вход пользователя через телефон.')]
-    public function login(LoginRequest $request, LoginPhoneActionContract $action):  SuccessLoginPhoneResource
+    public function login(LoginRequest $request, LoginPhoneActionContract $action):  SuccessLoginPhoneResource|TimeOutWarningResource
     {
         return $action($request);
     }
