@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\AuthPhoneController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -13,6 +14,13 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login')->name('user.login');
     Route::post('register', 'register')->name('user.register');
     Route::post('logout', 'logout')->middleware('auth:sanctum')->name('user.logout');
+});
+
+Route::controller(AuthPhoneController::class)->group(function () {
+    Route::post('phone/login', 'login')->name('user.phone.login');
+    Route::post('phone/register', 'register')->name('user.phone.register');
+    Route::post('phone/verify', 'verify')->name('user.phone.verify');
+    Route::post('phone/verify/hook', 'hook')->name('user.phone.hook');
 });
 
 Route::controller(UserController::class)->group(function () {

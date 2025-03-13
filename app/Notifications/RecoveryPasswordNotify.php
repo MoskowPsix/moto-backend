@@ -46,7 +46,7 @@ class RecoveryPasswordNotify extends Notification
 
     protected function recoveryPasswordUrl(): string
     {
-        return $this->url . '?token=' . $this->token;
+        return $this->url . '/' . $this->token;
     }
 
     /**

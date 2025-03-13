@@ -18,13 +18,16 @@ class RegisterAction implements RegisterActionContract
      */
     public function __invoke(RegisterRequest $request): ErrorRegisterResource | SuccessRegisterResource
     {
+        if (User::where('email', mb_strtolower($request->email))->exists()) {
+            return ErrorRegisterResource::make(['email' => 'Email already exists']);
+        }
         DB::beginTransaction();
         try {
             $pass = bcrypt($request->password);
             $user =  User::create([
                 'name' => $request->name,
                 'password' => $pass,
-                'email' => $request->email,
+                'email' => mb_strtolower($request->email),
             ]);
             if ($request->avatar) {
                 $this->saveImages($request->avatar, $user);
