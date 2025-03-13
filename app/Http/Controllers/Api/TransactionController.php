@@ -42,7 +42,7 @@ class TransactionController extends Controller
     #[Endpoint(title: 'success', description: 'Успешная оплата')]
     public function success(Request $request, ResultTransactionActionContract $action)
     {
-        Log::info('Robokassa ResultUrl request:', $request->all());
+        Log::info('Robokassa SuccessUrl request:', $request->all());
         return $action($request);
     }
 }
