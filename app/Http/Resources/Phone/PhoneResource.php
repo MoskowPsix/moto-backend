@@ -8,6 +8,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 /**
  * @property int $number
  * @property int $last_num
+ * @property string $number_verified_at
  */
 class PhoneResource extends JsonResource
 {
@@ -19,8 +20,9 @@ class PhoneResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'number'    => $this->number,
-            'last_num'  => $this->last_num,
+            'number'                => $this->number,
+            'last_num'              => $this->last_num,
+            'number_verified_at'    => $this->number_verified_at
         ];
     }
 }
