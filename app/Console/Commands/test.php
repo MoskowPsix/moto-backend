@@ -31,29 +31,45 @@ class test extends Command
      */
     public function handle()
     {
-        $key = '1P2enXHUZrAux3kcD8S67cec5d998cd7de24485f155604cf921cf88bf9895a6f';
-        $method = 'push_msg';
-        $format = 'json';
-        $phone = 79920178526;
-        $time = 60;
-        $text = 1114;
-        $name = 'moto.vokrug';
-        $ch = curl_init('https://ssl.bs00.ru/?key=' . $key .
-            '&method=' . $method .
-            '&format=' . $format .
-            '&phone=' . $phone .
-            '&route=pc' .
-            '&text=' . $text .
-            '&sender_name=' . $name .
-            '&call_protection=' . $time
+        $code = '2223';
+        $client = new \GuzzleHttp\Client();
+        $response = $client->post(
+            'https://restapi.plusofon.ru/api/v1/flash-call/send',
+            [
+                'headers' => [
+                    'Content-Type'  => 'application/json',
+                    'Accept'        => 'application/json',
+                    'Client'        => env('PLUS_PHONE_CLIENT_ID'),
+                    'Authorization' => 'Bearer ' . env('PLUS_PHONE_CALL_KEY'),
+                ],
+                'json' => [
+                    'phone' => '79826190989',
+                    'pin' => $code,
+                ],
+            ]
         );
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        $res = curl_exec($ch);
-        curl_close($ch);
-        $res = json_decode($res, true);
-        dd($res);
+        $body = $response->getBody();
+        $result = json_decode((string) $body);
+
+        $client = new \GuzzleHttp\Client();
+        $response = $client->post(
+            'https://restapi.plusofon.ru/api/v1/flash-call/check',
+            [
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'Accept' => 'application/json',
+                    'Client' => env('PLUS_PHONE_CLIENT_ID'),
+                    'Authorization' => 'Bearer ' . env('PLUS_PHONE_CALLBACK_KEY'),
+                ],
+                'json' => [
+                    'key' => $result->data->key,
+                    'pin' => $code,
+                ],
+            ]
+        );
+        dd($response);
+        $body = $response->getBody();
+        dd(json_decode((string) $body));
         return 0;
     }
 }
