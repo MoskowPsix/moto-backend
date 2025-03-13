@@ -38,11 +38,4 @@ class TransactionController extends Controller
         Log::info('Robokassa ResultUrl request:', $request->all());
         return $action($request);
     }
-    #[ResponseFromApiResource(TransactionResource::class, Transaction::class, collection: false)]
-    #[Endpoint(title: 'success', description: 'Успешная оплата')]
-    public function success(Request $request, ResultTransactionActionContract $action)
-    {
-        Log::info('Robokassa SuccessUrl request:', $request->all());
-        return $action($request);
-    }
 }
