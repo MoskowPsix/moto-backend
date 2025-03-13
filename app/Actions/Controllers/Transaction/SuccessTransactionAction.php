@@ -12,11 +12,11 @@ class SuccessTransactionAction implements SuccessTransactionActionContract
 {
     public function __invoke(Request $request)
     {
-        Log::info('Robokassa SuccessUrl request received:', $request->all());
-
         $outSum = $request->input("OutSum");
         $invId = $request->input("InvId");
-        $crc = strtoupper($request->input('SignatureValue'));
+        $crc = ($request->input('SignatureValue'));
+
+        $crc = strtoupper($crc);
 
         if (!$invId) {
             Log::error('InvId is missing in the request');
@@ -36,12 +36,19 @@ class SuccessTransactionAction implements SuccessTransactionActionContract
         $store = $attendance->track()->first()->store()->first();
 
         $password_1 = $store->password_1;
-        Log::info($password_1);
         $myCrc = strtoupper(md5("$outSum:$invId:$password_1"));
 
         if ($myCrc !== $crc) {
             Log::error("Invalid signature for transaction: $invId");
         }
+
+        Log::info('Robokassa SuccessUrl request:', [
+            'OutSum' => $outSum,
+            'InvId' => $invId,
+            'IncomingSignature' => $crc,
+            'GeneratedSignature' => $myCrc,
+        ]);
+
         Log::info("Transaction result for InvId: $invId");
         return response("Спасибо за использование нашего сервиса", 200);
     }
