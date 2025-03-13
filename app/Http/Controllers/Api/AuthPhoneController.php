@@ -13,7 +13,7 @@ use App\Http\Requests\AuthPhone\LoginRequest;
 use App\Http\Requests\AuthPhone\RegisterRequest;
 use App\Http\Requests\AuthPhone\VerifyPhoneRequest;
 use App\Http\Resources\AuthPhone\Login\SuccessLoginPhoneResource;
-use App\Http\Resources\AuthPhone\Login\SuccessLoginResource;
+use App\Http\Resources\Auth\Login\SuccessLoginResource;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Http\Resources\Errors\TimeOutWarningResource;
