@@ -3,28 +3,32 @@
 namespace App\Actions\Controllers\Transaction;
 
 use App\Contracts\Actions\Controllers\Transaction\SuccessTransactionActionContract;
-use App\Http\Requests\Transaction\SuccessTransactionRequest;
 use App\Http\Resources\Transaction\SuccessTransaction\SuccessTransactionResource;
 use App\Models\Transaction;
+use Illuminate\Http\Request;
+use Log;
 
 class SuccessTransactionAction implements SuccessTransactionActionContract
 {
-    public function __invoke(SuccessTransactionRequest $request): SuccessTransactionResource
+    public function __invoke(Request $request)
     {
-        $password = env('ROBOKASSA_TEST_PASSWORD1');
 
         $outSum = $request->input("OutSum");
         $invId = $request->input("InvId");
-        $crc = $request->input("SignatureValue");
+        $crc = strtoupper($request->input('SignatureValue'));
 
-        $transaction = Transaction::findOrFail($invId);
+        $transaction = Transaction::find($invId);
+        $attendance = $transaction->attendances()->first();
+        $store = $attendance->track()->first()->store()->first();
 
-        $crc = strtoupper($crc);
-        $checkCrc = strtoupper(md5("$outSum:$invId:$password"));
+        $password_1 = $store->password_1;
 
-        if ($crc === $checkCrc) {
-            $transaction->update(['status' => 'complete']);
+        $myCrc = strtoupper(md5("$outSum:$invId:$password_1"));
+
+        if ($myCrc !== $crc) {
+            Log::error("Invalid signature for transaction: $invId");
         }
-        return SuccessTransactionResource::make($transaction);
+        Log::info("Transaction result for InvId: $invId");
+        return response("Спасибо за использование нашего сервиса", 200);
     }
 }

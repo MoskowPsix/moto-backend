@@ -36,6 +36,13 @@ class TransactionController extends Controller
     public function result(Request $request, ResultTransactionActionContract $action)
     {
         Log::info('Robokassa ResultUrl request:', $request->all());
-        $action($request);
+        return $action($request);
+    }
+    #[ResponseFromApiResource(TransactionResource::class, Transaction::class, collection: false)]
+    #[Endpoint(title: 'success', description: 'Успешная оплата')]
+    public function success(Request $request, ResultTransactionActionContract $action)
+    {
+        Log::info('Robokassa ResultUrl request:', $request->all());
+        return $action($request);
     }
 }
