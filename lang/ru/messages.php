@@ -191,5 +191,9 @@ return [
         'not_verification_email' => 'Почта пользователя не подтверждена',
         'timeout_warning' => 'До следующе попытки осталось :time',
     ],
-
+    'status' => [
+        'get_all' => [
+            'success' => 'Статусы получены успешно.',
+        ]
+    ],
 ];

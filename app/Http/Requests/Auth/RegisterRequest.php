@@ -33,12 +33,10 @@ class RegisterRequest extends FormRequest
                 'required',
                 'min:3',
                 'max:50',
-                Rule::unique('users'),
             ],
             'email'                  => [
                 'required',
                 'email',
-                Rule::unique('users'),
             ],
             'password'               => 'required|min:8',
             'password_confirmation'  => 'required|same:password',

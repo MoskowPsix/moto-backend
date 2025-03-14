@@ -10,6 +10,7 @@ use Illuminate\Validation\Rule;
 use MoonShine\Laravel\Enums\Action;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Fields\Relationships\HasMany;
+use MoonShine\Laravel\Fields\Relationships\HasOne;
 use MoonShine\Laravel\Fields\Relationships\MorphToMany;
 use MoonShine\Laravel\Models\MoonshineUser;
 use MoonShine\Laravel\Resources\ModelResource;
@@ -31,8 +32,10 @@ use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Image;
 use MoonShine\UI\Fields\Password;
 use MoonShine\UI\Fields\PasswordRepeat;
+use MoonShine\UI\Fields\Phone;
 use MoonShine\UI\Fields\Text;
 use Spatie\Permission\Models\Role;
+use App\MoonShine\Resources\PhoneResource;
 
 #[Icon('users')]
 /**
@@ -125,6 +128,9 @@ class UserResource extends ModelResource
                             Email::make(__('moonshine::ui.resource.email'), 'email')
                                 ->required(),
                             Date::make('Подтверждение почты', 'email_verified_at')->withTime(),
+                            Phone::make('Телефон(Не изменяемое поле)', 'phone.number'),
+                            Date::make('Подтверждение телефона(Не изменяемое поле)', 'phone.number_verified_at')->withTime(),
+
                         ]),
 
                         Image::make(__('moonshine::ui.resource.avatar'), 'avatar')

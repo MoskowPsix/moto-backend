@@ -86,4 +86,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Store::class);
     }
+    public function phone(): HasOne
+    {
+        return $this->hasOne(Phone::class);
+    }
 }

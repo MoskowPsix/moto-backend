@@ -3,11 +3,15 @@
 namespace App\Providers;
 
 use App\Contracts\Actions\Commands\GenerateLocationCsvActionContract;
+use App\Contracts\Actions\Controllers\AuthPhoneController\LoginPhoneActionContract;
+use App\Contracts\Actions\Controllers\AuthPhoneController\RegisterPhoneActionContract;
+use App\Contracts\Actions\Controllers\AuthPhoneController\VerifyPhoneActionContract;
 use App\Contracts\Actions\Controllers\Grade\GetForIdGradeActionContract;
 use App\Contracts\Actions\Controllers\Grade\GetGradeActionContract;
 use App\Contracts\Actions\Controllers\Grade\UpdateGradeActionContract;
 use App\Contracts\Actions\Controllers\Race\AddCommissionActionContract;
 use App\Contracts\Actions\Controllers\Race\RemoveCommissionActionContract;
+use App\Contracts\Actions\Controllers\Status\GetStatusesActionContract;
 use App\Contracts\Actions\Controllers\User\GetCommisionUserActionContract;
 use Illuminate\Support\ServiceProvider;
 
@@ -71,6 +75,11 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\Attendance\DeleteAttendanceActionContract::class                         => \App\Actions\Controllers\Attendance\DeleteAttendanceAction::class,
         \App\Contracts\Actions\Controllers\Transaction\CreateTransactionActionContract::class                       => \App\Actions\Controllers\Transaction\CreateTransactionAction::class,
         \App\Contracts\Actions\Controllers\Transaction\ResultTransactionActionContract::class                       => \App\Actions\Controllers\Transaction\ResultTransactionAction::class,
+        \App\Contracts\Actions\Controllers\AuthPhoneController\LoginPhoneActionContract::class                      => \App\Actions\Controllers\AuthPhone\LoginPhoneAction::class,
+        \App\Contracts\Actions\Controllers\AuthPhoneController\HookPhoneVerifyActionContract::class                 => \App\Actions\Controllers\AuthPhone\HookPhoneVerifyAction::class,
+        \App\Contracts\Actions\Controllers\AuthPhoneController\VerifyPhoneActionContract::class                     => \App\Actions\Controllers\AuthPhone\VerifyPhoneAction::class,
+        \App\Contracts\Actions\Controllers\AuthPhoneController\RegisterPhoneActionContract::class                   => \App\Actions\Controllers\AuthPhone\RegisterPhoneAction::class,
+        \App\Contracts\Actions\Controllers\Status\GetStatusesActionContract::class                                  => \App\Actions\Controllers\Status\GetStatusesAction::class,
     ];
     /**
      * Register services.
