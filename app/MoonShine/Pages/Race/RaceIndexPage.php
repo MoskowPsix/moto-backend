@@ -38,6 +38,7 @@ class RaceIndexPage extends IndexPage
             $this->user(),
             $this->track(),
             $this->appointmentsCount(),
+            $this->status(),
             Date::make('Создано', 'created_at')->sortable(),
             Date::make('Обновлено', 'updated_at')->sortable(),
         ];

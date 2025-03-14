@@ -82,6 +82,9 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
 
     Route::post('races/{id}/commission/add', 'addCommission')->middleware('auth:sanctum')->name('race.commission.add');
 });
+Route::controller(\App\Http\Controllers\Api\StatusController::class)->group(function() {
+    Route::get('statuses', 'get')->name('status.get');
+});
 Route::controller(\App\Http\Controllers\Api\PersonalInfoController::class)->group(function () {
     Route::post('users/cabinet/personal-info', 'create')->middleware('auth:sanctum')->name('personal_info.create');
     Route::patch('users/cabinet/personal-info', 'update')->middleware('auth:sanctum')->name('personal_info.update');

@@ -36,6 +36,7 @@ class RaceFormPage extends FormPage
             Date::make('Конец регистрации', 'record_end'),
             Checkbox::make('Работает', 'is_work')->required(),
             Image::make('Фото', 'images')->multiple()->dir(isset($item->id) ? "/race/$item->id" : "/race"),
+            $this->status(),
             $this->user()->required(),
             $this->track()->required(),
             $this->commission(),

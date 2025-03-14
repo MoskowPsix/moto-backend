@@ -45,6 +45,8 @@ use App\MoonShine\Resources\LocationResource;
 use App\MoonShine\Resources\StoreResource;
 use App\MoonShine\Resources\TransactionResource;
 use App\MoonShine\Resources\AttendanceResource;
+use App\MoonShine\Resources\PhoneResource;
+use App\MoonShine\Resources\StatusResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -67,6 +69,7 @@ final class MoonShineLayout extends AppLayout
                 MenuItem::make('Документация API', '/docs', 'code-bracket-square'),
             ], 'cpu-chip'),
             MenuGroup::make('Контент', [
+                MenuItem::make('Statuses', StatusResource::class, 'minus-circle'),
                 MenuItem::make('Трассы', TrackResource::class, 'map-pin'),
                 MenuItem::make('Гонки', RaceResource::class, 'map'),
                 MenuItem::make('Таблицы', GoogleSheetResource::class, 'clipboard-document-list'),
