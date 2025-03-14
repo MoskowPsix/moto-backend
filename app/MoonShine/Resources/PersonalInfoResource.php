@@ -24,6 +24,7 @@ class PersonalInfoResource extends ModelResource
 
     protected string $title = 'Персональные данные';
     protected ?\MoonShine\Support\Enums\ClickAction $clickAction = ClickAction::DETAIL;
+    protected string $column = 'surname';
     /**
      * @return list<FieldContract>
      */
