@@ -22,7 +22,7 @@ class GetForRaceIdCupRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'raceId'       => 'nullable|exists:race,id',
+            'raceId'       => 'nullable|integer|exists:race,id',
         ];
     }
 }

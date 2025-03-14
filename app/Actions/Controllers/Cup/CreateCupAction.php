@@ -12,11 +12,12 @@ class CreateCupAction implements CreateCupActionContract
 
     public function __invoke(CreateCupRequest $request): SuccessCreateCupResource
     {
+        $user = auth()->user();
         $cup = Cup::create([
             'name'          => $request->name,
             'year'          => $request->year,
             'location_id'   => $request->locationId,
-            'user_id'       => $request->userId,
+            'user_id'       => $user->id,
         ]);
         return SuccessCreateCupResource::make($cup);
     }

@@ -26,7 +26,6 @@ class CupResource extends JsonResource
             'id'        => $this->id,
             'name'      => $this->name,
             'year'      => $this->year,
-            'region'    => $this->region,
             'user'      => UserResource::make($this->whenLoaded('user')),
             'location'  => LocationResource::make($this->whenLoaded('location')),
         ];

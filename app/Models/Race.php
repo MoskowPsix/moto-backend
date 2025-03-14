@@ -68,6 +68,6 @@ class Race extends Model
     }
     public function cups(): BelongsToMany
     {
-        return $this->belongsToMany(Cup::class, 'race_cup', 'race_id', 'cup_id');
+        return $this->belongsToMany(Cup::class, 'race_cup');
     }
 }

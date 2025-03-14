@@ -30,7 +30,6 @@ class CreateCupRequest extends FormRequest
         return [
             'name'          => 'required|string|max:255',
             'year'          => 'required|integer',
-            'userId'        => 'nullable|integer|exists:users,id',
             'locationId'    => 'nullable|integer|exists:locations,id',
         ];
     }

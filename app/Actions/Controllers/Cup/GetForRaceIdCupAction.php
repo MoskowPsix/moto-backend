@@ -13,7 +13,7 @@ class GetForRaceIdCupAction implements GetForRaceIdCupActionContract
     public function __invoke(int $raceId, GetForRaceIdCupRequest $request): SuccessGetForRaceIdCupResource
     {
         $race = Race::find($raceId);
-        $race->raceCups()->first();
-        return SuccessGetForRaceIdCupResource::make($race);
+        $cups = $race->cups()->get();
+        return SuccessGetForRaceIdCupResource::make($cups);
     }
 }
