@@ -75,7 +75,6 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\Attendance\DeleteAttendanceActionContract::class                         => \App\Actions\Controllers\Attendance\DeleteAttendanceAction::class,
         \App\Contracts\Actions\Controllers\Transaction\CreateTransactionActionContract::class                       => \App\Actions\Controllers\Transaction\CreateTransactionAction::class,
         \App\Contracts\Actions\Controllers\Transaction\ResultTransactionActionContract::class                       => \App\Actions\Controllers\Transaction\ResultTransactionAction::class,
-        \App\Contracts\Actions\Controllers\Transaction\SuccessTransactionActionContract::class                      => \App\Actions\Controllers\Transaction\SuccessTransactionAction::class,
         \App\Contracts\Actions\Controllers\AuthPhoneController\LoginPhoneActionContract::class                      => \App\Actions\Controllers\AuthPhone\LoginPhoneAction::class,
         \App\Contracts\Actions\Controllers\AuthPhoneController\HookPhoneVerifyActionContract::class                 => \App\Actions\Controllers\AuthPhone\HookPhoneVerifyAction::class,
         \App\Contracts\Actions\Controllers\AuthPhoneController\VerifyPhoneActionContract::class                     => \App\Actions\Controllers\AuthPhone\VerifyPhoneAction::class,
