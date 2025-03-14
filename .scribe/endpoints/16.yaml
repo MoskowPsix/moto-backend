@@ -1,21 +1,258 @@
-name: Attendance
-description: 'Методы связанные с платными услугами'
+name: Command
+description: 'Методы связанные с командами'
 endpoints:
   -
     httpMethods:
-      - POST
-    uri: api/attendances
+      - GET
+    uri: api/commands
     metadata:
-      groupName: Attendance
-      groupDescription: 'Методы связанные с платными услугами'
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
       subgroup: ''
       subgroupDescription: ''
-      title: create
-      description: 'Создание платной услуги'
-      authenticated: true
+      title: get
+      description: 'Получение всех команд по фильтрам'
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 12
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      paginate:
+        name: paginate
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: omnis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      limit:
+        name: limit
+        description: 'Значение поля value не может быть больше 50.'
+        required: false
+        example: 22
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: false
+        example: recusandae
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      fullName:
+        name: fullName
+        description: ''
+        required: false
+        example: quia
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: ''
+        required: false
+        example: voluptate
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: false
+        example: libero
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      userId: 12
+      paginate: true
+      page: omnis
+      limit: 22
+      locationId: 16
+      city: recusandae
+      fullName: quia
+      coach: voluptate
+      name: libero
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430","commands":{"id":26,"name":"\u041b\u0435\u0432 \u041b\u044c\u0432\u043e\u0432\u0438\u0447 \u041c\u0430\u043a\u0441\u0438\u043c\u043e\u0432","full_name":null,"coach":null,"city":"\u041f\u043e\u0434\u043e\u043b\u044c\u0441\u043a","avatar":null}},{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430","commands":{"id":27,"name":"\u0428\u0435\u0441\u0442\u0430\u043a\u043e\u0432 \u0412\u0430\u0434\u0438\u043c \u0424\u0451\u0434\u043e\u0440\u043e\u0432\u0438\u0447","full_name":null,"coach":null,"city":"\u041e\u0440\u0435\u0445\u043e\u0432\u043e-\u0417\u0443\u0435\u0432\u043e","avatar":null}}]'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/commands/{id}'
+    metadata:
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: getForId
+      description: 'Получение команд по id'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the command.'
+        required: true
+        example: 12
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 12
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      userId:
+        name: userId
+        description: ''
+        required: false
+        example: 7
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: ''
+        required: false
+        example: 4
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: false
+        example: atque
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      fullName:
+        name: fullName
+        description: ''
+        required: false
+        example: magnam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: ''
+        required: false
+        example: eum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      userId: 7
+      locationId: 4
+      city: atque
+      fullName: magnam
+      coach: eum
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e","command":{"id":28,"name":"\u041b\u0435\u0432 \u0424\u0451\u0434\u043e\u0440\u043e\u0432\u0438\u0447 \u0411\u043e\u0433\u0434\u0430\u043d\u043e\u0432","full_name":null,"coach":null,"city":"\u041d\u0430\u0440\u043e-\u0424\u043e\u043c\u0438\u043d\u0441\u043a","avatar":null}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/commands
+    metadata:
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: create
+      description: 'Создание команды'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
@@ -26,52 +263,74 @@ endpoints:
         name: name
         description: 'Количество символов в значении поля value не может превышать 255.'
         required: true
-        example: hrobhvzzthszz
+        example: icgikmmvhvzkxya
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
-      desc:
-        name: desc
+      fullName:
+        name: fullName
         description: 'Количество символов в значении поля value не может превышать 255.'
-        required: true
-        example: txgahlv
+        required: false
+        example: xa
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         custom: []
-      price:
-        name: price
-        description: ''
-        required: true
-        example: 221293825.0
-        type: number
+      coach:
+        name: coach
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: false
+        example: sfvisldrksb
+        type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         custom: []
-      trackId:
-        name: trackId
-        description: 'The <code>id</code> of an existing record in the tracks table.'
+      avatar:
+        name: avatar
+        description: 'Файл, указанный в поле value, должен быть изображением.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
         required: true
-        example: 10
+        example: 5
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
+      city:
+        name: city
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: true
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
     cleanBodyParameters:
-      name: hrobhvzzthszz
-      desc: txgahlv
-      price: 221293825.0
-      trackId: 10
-    fileParameters: []
+      name: icgikmmvhvzkxya
+      fullName: xa
+      coach: sfvisldrksb
+      locationId: 5
+      city: b
+    fileParameters:
+      avatar: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u041f\u043b\u0430\u0442\u043d\u0430\u044f \u0443\u0441\u043b\u0443\u0433\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430.","attendance":{"id":2,"name":"\u0410\u043f\u043e\u043b\u043b\u043e\u043d \u041b\u044c\u0432\u043e\u0432\u0438\u0447 \u0414\u044c\u044f\u0447\u043a\u043e\u0432","desc":"Quam nostrum quis eius ad. Amet minus rerum saepe ut doloribus cumque omnis. Aperiam minima qui et sit et nisi. Quia commodi aperiam et accusamus.","price":"3.1701514e+08"}}'
+        content: '{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430","command":{"id":29,"name":"\u0422\u0430\u0438\u0441\u0438\u044f \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u043d\u0430 \u0413\u0430\u043b\u043a\u0438\u043d\u0430","full_name":null,"coach":null,"city":"\u0429\u0451\u043b\u043a\u043e\u0432\u043e","avatar":null}}'
         headers: []
         description: ''
         custom: []
@@ -84,143 +343,119 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: 'api/attendance/{id}'
+    uri: 'api/commands/{id}'
     metadata:
-      groupName: Attendance
-      groupDescription: 'Методы связанные с платными услугами'
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
       subgroup: ''
       subgroupDescription: ''
       title: update
-      description: 'Редактирование платной услуги'
+      description: 'Редактирование класса'
       authenticated: true
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       id:
         name: id
-        description: 'The ID of the attendance.'
+        description: 'The ID of the command.'
         required: true
-        example: 1
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 3
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       name:
         name: name
         description: 'Количество символов в значении поля value не может превышать 255.'
-        required: true
-        example: muisv
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      desc:
-        name: desc
-        description: 'Количество символов в значении поля value не может превышать 255.'
         required: false
-        example: lliuidkxqqznkuxlbnxkrr
+        example: awschaqp
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      price:
-        name: price
-        description: ''
-        required: true
-        example: 94100.2
-        type: number
+      fullName:
+        name: fullName
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: false
+        example: wlhegiiuqkqudqqkenminbhp
+        type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         custom: []
-      trackId:
-        name: trackId
-        description: 'The <code>id</code> of an existing record in the tracks table.'
-        required: true
-        example: 12
+      coach:
+        name: coach
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: false
+        example: dvjwxjjfjwbhyt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      avatar:
+        name: avatar
+        description: 'Файл, указанный в поле value, должен быть изображением.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: false
+        example: tzpicpxkqdeyzty
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 7
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         custom: []
     cleanBodyParameters:
-      name: muisv
-      desc: lliuidkxqqznkuxlbnxkrr
-      price: 94100.2
-      trackId: 12
-    fileParameters: []
+      name: awschaqp
+      fullName: wlhegiiuqkqudqqkenminbhp
+      coach: dvjwxjjfjwbhyt
+      city: tzpicpxkqdeyzty
+      locationId: 7
+    fileParameters:
+      avatar: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u041f\u043b\u0430\u0442\u043d\u0430\u044f \u0443\u0441\u043b\u0443\u0433\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0430.","attendance":{"id":3,"name":"\u0418\u0441\u043a\u0440\u0430 \u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432\u043d\u0430 \u0422\u0430\u0440\u0430\u0441\u043e\u0432\u0430","desc":"Porro id reiciendis in. Ut ipsam et tenetur assumenda ut deserunt aliquam. Dolores et ipsam ut consequatur quia assumenda quo.","price":"6.2694684e+07"}}'
+        content: '{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0430","command":{"id":30,"name":"\u0417\u0438\u043d\u0430\u0438\u0434\u0430 \u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432\u043d\u0430 \u041a\u043e\u0440\u043e\u043b\u0451\u0432\u0430","full_name":null,"coach":null,"city":"\u041b\u0443\u0445\u043e\u0432\u0438\u0446\u044b","avatar":null}}'
         headers: []
         description: ''
         custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/attendance/{id}'
-    metadata:
-      groupName: Attendance
-      groupDescription: 'Методы связанные с платными услугами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: delete
-      description: 'Удаление платной услуги'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the attendance.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      id:
-        name: id
-        description: 'The <code>id</code> of an existing record in the attendances table.'
-        required: false
-        example: 3
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      id: 3
-    fileParameters: []
-    responses:
       -
-        status: 200
-        content: '{"status":"success","message":"\u041f\u043b\u0430\u0442\u043d\u0430\u044f \u0443\u0441\u043b\u0443\u0433\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0443\u0434\u0430\u043b\u0435\u043d\u0430","attendance":{"id":4,"name":"\u0415\u0432\u0433\u0435\u043d\u0438\u0439 \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u0438\u0447 \u0414\u0430\u043d\u0438\u043b\u043e\u0432","desc":"Ut numquam qui occaecati qui harum. Nemo quidem dolore perferendis harum perferendis tenetur corrupti. Vero pariatur occaecati non quo doloremque nisi minus.","price":"86380"}}'
+        status: 403
+        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
         headers: []
         description: ''
         custom: []

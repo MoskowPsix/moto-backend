@@ -10,11 +10,11 @@ class RaceForStatusFilter implements Pipe
 {
     public function apply($content, Closure $next)
     {
-        if(request()->get('statusIds')){
-            $content->whereHas('status', function ($q) {
-                $q->whereIn('id', request()->get('statusIds'));
-            });
-        }
+//        if(request()->get('statusIds')){
+//            $content->whereHas('status', function ($q) {
+//                $q->whereIn('id', request()->get('statusIds'));
+//            });
+//        }
         return $next($content);
     }
 }
