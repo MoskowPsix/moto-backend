@@ -49,7 +49,7 @@ class CreateRaceRequest extends FormRequest
             'gradeIds'      => 'nullable|array',
             'gradeIds.*'    => 'nullable|integer|exists:grades,id',
             'locationId'    => 'integer|nullable|exists:locations,id',
-            'statusId'      => 'integer|nullable|exists:statuses.id'
+            'statusId'      => 'integer|nullable|exists:statuses,id'
         ];
     }
 }

@@ -42,7 +42,7 @@ class UpdateRaceRequest extends FormRequest
             'gradeIds'          => 'nullable|array',
             'gradeIds.*'        => 'nullable|integer|exists:grades,id',
             'locationId'        => 'nullable|integer|exists:locations,id',
-            'statusId'          => 'integer|nullable|exists:statuses.id'
+            'statusId'          => 'integer|nullable|exists:statuses,id'
         ];
     }
 }
