@@ -10,11 +10,13 @@ use Illuminate\Validation\Rule;
 use MoonShine\Laravel\Enums\Action;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Fields\Relationships\HasMany;
+use MoonShine\Laravel\Fields\Relationships\HasOne;
 use MoonShine\Laravel\Fields\Relationships\MorphToMany;
 use MoonShine\Laravel\Models\MoonshineUser;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Laravel\Models\MoonshineUserRole;
 use MoonShine\Support\Attributes\Icon;
+use MoonShine\Support\Enums\ClickAction;
 use MoonShine\Support\Enums\Color;
 use MoonShine\Support\ListOf;
 use MoonShine\UI\Components\Badge;
@@ -49,15 +51,11 @@ class UserResource extends ModelResource
     protected bool $simplePaginate = true;
 
     protected bool $columnSelection = true;
+    protected ?\MoonShine\Support\Enums\ClickAction $clickAction = ClickAction::DETAIL;
 
     public function getTitle(): string
     {
-        return __('Пользователь');
-    }
-
-    protected function activeActions(): ListOf
-    {
-        return parent::activeActions()->except(Action::VIEW);
+        return __('Пользователи');
     }
 
     protected function indexFields(): iterable
@@ -78,8 +76,10 @@ class UserResource extends ModelResource
                     $value
                 )
             ),
-
-            Text::make(__('moonshine::ui.resource.name'), 'name'),
+            Text::make(__('moonshine::ui.resource.name'), 'name')->sortable(),
+//            Text::make(__('moonshine::ui.resource.surname'), 'surname')->sortable(),
+//            Text::make(__('moonshine::ui.resource.city'), 'city')->sortable(),
+//            Text::make(__('moonshine::ui.resource.location'), 'location')->sortable(),
 
             Image::make(__('moonshine::ui.resource.avatar'), 'avatar')->modifyRawValue(fn (
                 ?string $raw
@@ -121,7 +121,12 @@ class UserResource extends ModelResource
                         Flex::make([
                             Text::make(__('moonshine::ui.resource.name'), 'name')
                                 ->required(),
-
+                            Text::make(__('moonshine::ui.resource.surname'), 'surname')
+                                ->required(),
+                            Text::make(__('moonshine::ui.resource.city'), 'city')
+                                ->required(),
+                            Text::make(__('moonshine::ui.resource.location'), 'location')
+                                ->required(),
                             Email::make(__('moonshine::ui.resource.email'), 'email')
                                 ->required(),
                             Date::make('Подтверждение почты', 'email_verified_at')->withTime(),
@@ -162,6 +167,7 @@ class UserResource extends ModelResource
         return [
             'name' => 'required',
 //            'moonshine_user_role_id' => 'required',
+            'surname' => 'required',
             'email' => [
                 'sometimes',
                 'bail',
