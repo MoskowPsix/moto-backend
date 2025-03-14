@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Race;
 
 use App\Http\Resources\AppointmentCount\AppointmentCountResource;
+use App\Http\Resources\Cup\CupResource;
 use App\Http\Resources\Grade\GradeResource;
 use App\Http\Resources\Location\LocationResource;
 use App\Http\Resources\Track\TrackResource;
@@ -50,7 +51,7 @@ class RaceResource extends JsonResource
             'results_file'          => $this->results_file,
             'location'              => LocationResource::make($this->whenLoaded('location')),
             'grades'                => GradeResource::collection($this->whenLoaded('grades')),
-
+            'cups'                  => CupResource::collection($this->whenLoaded('cups')),
         ];
     }
 }

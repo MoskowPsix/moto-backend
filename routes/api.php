@@ -65,6 +65,15 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
     Route::post('races/{id}/update', 'update')->middleware(['auth:sanctum', 'role:'. $role::ROOT, 'email_verification'])->name('race.update');
     Route::get('races/{id}/toggle-is-work', 'toggleIsWork')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('race.update');
 });
+
+Route::controller(\App\Http\Controllers\Api\CupController::class)->group(function () {
+    $role = new \App\Constants\RoleConstant();
+    Route::get('cups/{id}', 'getForId')->middleware('auth:sanctum')->name('cup.get_for_id');
+    Route::get('cups/{id}', 'getForRaceId')->middleware('auth:sanctum')->name('cup.get_for_race_id');
+    Route::post('cups', 'create')->middleware('auth:sanctum')->name('cup.create');
+    Route::post('cups/{id}', 'update')->middleware('auth:sanctum')->name('cup.update');
+});
+
 Route::controller(\App\Http\Controllers\Api\PersonalInfoController::class)->group(function () {
     Route::post('users/cabinet/personal-info', 'create')->middleware('auth:sanctum')->name('personal_info.create');
     Route::patch('users/cabinet/personal-info', 'update')->middleware('auth:sanctum')->name('personal_info.update');
