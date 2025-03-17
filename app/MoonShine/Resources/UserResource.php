@@ -160,7 +160,6 @@ class UserResource extends ModelResource
         return [
             'name' => 'required',
 //            'moonshine_user_role_id' => 'required',
-            'surname' => 'required',
             'email' => [
                 'sometimes',
                 'bail',
