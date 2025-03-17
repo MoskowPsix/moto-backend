@@ -1,0 +1,646 @@
+name: Track
+description: 'Методы взаимодествия с трассами на которых проходят гонки'
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/tracks
+    metadata:
+      groupName: Track
+      groupDescription: 'Методы взаимодествия с трассами на которых проходят гонки'
+      subgroup: ''
+      subgroupDescription: ''
+      title: get
+      description: 'Получение трасс по фильтрам'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      paginate:
+        name: paginate
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: eligendi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      limit:
+        name: limit
+        description: 'Значение поля value не может быть больше 50.'
+        required: false
+        example: 23
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      userId: 15
+      paginate: false
+      page: eligendi
+      limit: 23
+      locationId: 5
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"status":"success","message":"\u0422\u0440\u0435\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","tracks":{"id":85,"name":"\u041f\u0441\u0438\u0445\u043e\u043b\u043e\u0433","address":"571636, \u041d\u043e\u0432\u0433\u043e\u0440\u043e\u0434\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041a\u0440\u0430\u0441\u043d\u043e\u0433\u043e\u0440\u0441\u043a, \u043f\u0440\u043e\u0435\u0437\u0434 \u0413\u0430\u0433\u0430\u0440\u0438\u043d\u0430, 76","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Vel impedit dolorem beatae exercitationem ea ipsum minima. Quos recusandae autem exercitationem sint aut. Dolorum eius quam assumenda suscipit sed sed culpa tenetur. Perspiciatis et sint voluptatum deleniti quia natus. Adipisci ut delectus aut porro voluptatem mollitia non. Totam illo et iste et. Qui sed et ut aut quo. Vel non enim ducimus dolores libero aut. Minus veritatis quod impedit accusamus laudantium quam. Aliquid expedita perspiciatis enim voluptatem. Accusantium a quaerat in.","length":977,"turns":15,"free":false,"is_work":true,"spec":null,"contacts":null,"location":{"id":46,"name":"\u041d\u0438\u0436\u0435\u0433\u043e\u0440\u043e\u0434\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}},{"status":"success","message":"\u0422\u0440\u0435\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","tracks":{"id":86,"name":"\u0412\u043e\u0434\u043e\u043b\u0430\u0437","address":"966100, \u041a\u0443\u0440\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0415\u0433\u043e\u0440\u044c\u0435\u0432\u0441\u043a, \u0443\u043b. \u041b\u043e\u043c\u043e\u043d\u043e\u0441\u043e\u0432\u0430, 82","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Itaque natus laboriosam debitis hic error odit. Error quia placeat reiciendis dolore autem dolore. Autem labore atque sint. Ad modi aut nulla modi voluptate explicabo. Asperiores et dolorem assumenda laborum. Similique soluta cumque non. Ab illo doloribus quidem. Praesentium necessitatibus vitae voluptate delectus minima voluptatem distinctio deserunt. Deserunt sint corrupti voluptatem fugit voluptas consequatur tempora.","length":751,"turns":45,"free":true,"is_work":false,"spec":null,"contacts":null,"location":{"id":14,"name":"\u0412\u043e\u0440\u043e\u043d\u0435\u0436\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}]'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/tracks/{id}'
+    metadata:
+      groupName: Track
+      groupDescription: 'Методы взаимодествия с трассами на которых проходят гонки'
+      subgroup: ''
+      subgroupDescription: ''
+      title: getForId
+      description: 'Получение трассы по id'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the track.'
+        required: true
+        example: 24
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 24
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u0422\u0440\u0435\u043a \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","track":{"id":87,"name":"\u0421\u0442\u043e\u0440\u043e\u0436","address":"636775, \u041e\u0440\u0435\u043d\u0431\u0443\u0440\u0433\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041a\u0440\u0430\u0441\u043d\u043e\u0433\u043e\u0440\u0441\u043a, \u043f\u043b. \u0421\u0442\u0430\u043b\u0438\u043d\u0430, 53","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Itaque earum ipsa consequuntur et voluptas fuga. Consequatur enim aut sit at id. Voluptatem illum aut exercitationem officiis nihil quasi nobis omnis. Laudantium laudantium ipsam accusamus saepe cupiditate sunt eum illo. In possimus nemo vel sit voluptatem dolor officiis. Incidunt rerum ut voluptate. Consequuntur praesentium commodi enim sit qui id eaque sed. Exercitationem quas maiores quam non minima aut ut. Itaque modi rem ut et eius deserunt.","length":838,"turns":51,"free":true,"is_work":true,"spec":null,"contacts":null,"location":{"id":2,"name":"\u0410\u043b\u0442\u0430\u0439","type":"\u0440\u0435\u0441\u043f\u0443\u0431\u043b\u0438\u043a\u0430"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/tracks
+    metadata:
+      groupName: Track
+      groupDescription: 'Методы взаимодествия с трассами на которых проходят гонки'
+      subgroup: ''
+      subgroupDescription: ''
+      title: create
+      description: 'Метод создания трека'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Количество символов в поле value должно быть не меньше 3.'
+        required: true
+        example: rtstdttozoknfghtltjqtkqcu
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      address:
+        name: address
+        description: ''
+        required: true
+        example: est
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      latitude:
+        name: latitude
+        description: 'Значение поля value должно быть между -87 и 89.'
+        required: true
+        example: -87
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      longitude:
+        name: longitude
+        description: 'Значение поля value должно быть между -180 и 180.'
+        required: true
+        example: -179
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      images:
+        name: images
+        description: 'Файл, указанный в поле value, должен быть изображением.'
+        required: false
+        example:
+          - null
+        type: 'file[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      levelId:
+        name: levelId
+        description: 'The <code>id</code> of an existing record in the levels table.'
+        required: false
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      desc:
+        name: desc
+        description: ''
+        required: false
+        example: molestiae
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      length:
+        name: length
+        description: ''
+        required: false
+        example: 9
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      turns:
+        name: turns
+        description: ''
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      free:
+        name: free
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      is_work:
+        name: is_work
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      contacts:
+        name: contacts
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      spec:
+        name: spec
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 13
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      logo:
+        name: logo
+        description: 'Файл, указанный в поле value, должен быть изображением.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      light:
+        name: light
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      season:
+        name: season
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      schemaImg:
+        name: schemaImg
+        description: 'Файл, указанный в поле value, должен быть изображением.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      storeId:
+        name: storeId
+        description: 'The <code>id</code> of an existing record in the stores table.'
+        required: false
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      name: rtstdttozoknfghtltjqtkqcu
+      address: est
+      latitude: -87
+      longitude: -179
+      levelId: 2
+      desc: molestiae
+      length: 9
+      turns: 1
+      free: true
+      is_work: false
+      locationId: 13
+      light: false
+      season: true
+      storeId: 2
+    fileParameters:
+      images:
+        - null
+      logo: null
+      schemaImg: null
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u0422\u0440\u0435\u043a \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d.","track":{"id":88,"name":"\u0411\u0438\u0437\u043d\u0435\u0441-\u0430\u043d\u0430\u043b\u0438\u0442\u0438\u043a","address":"934831, \u0427\u0435\u043b\u044f\u0431\u0438\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0412\u043e\u043b\u043e\u043a\u043e\u043b\u0430\u043c\u0441\u043a, \u0441\u043f\u0443\u0441\u043a \u0411\u0443\u0434\u0430\u043f\u0435\u0448\u0442\u0441\u0442\u043a\u0430\u044f, 23","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Consectetur nemo praesentium porro. Tenetur enim sint sed nulla saepe ullam. Et explicabo omnis error vitae quaerat sequi voluptas. Eligendi at officia perferendis voluptas. Nihil est rerum occaecati voluptate laudantium. Quo in quis debitis est voluptatem. Distinctio magnam vero est qui facere exercitationem repellendus similique. Quo nulla adipisci ut dolore iste aut quo. Quam enim non doloribus quasi. Provident odit delectus id vero non.","length":339,"turns":94,"free":false,"is_work":true,"spec":null,"contacts":null,"location":{"id":2,"name":"\u0410\u043b\u0442\u0430\u0439","type":"\u0440\u0435\u0441\u043f\u0443\u0431\u043b\u0438\u043a\u0430"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"status":"error","message":"\u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u0438 \u0442\u0440\u0435\u043a\u0430."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/tracks/{id}'
+    metadata:
+      groupName: Track
+      groupDescription: 'Методы взаимодествия с трассами на которых проходят гонки'
+      subgroup: ''
+      subgroupDescription: ''
+      title: update
+      description: 'Метод редактирования трека'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the track.'
+        required: true
+        example: 24
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 24
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Количество символов в поле value должно быть не меньше 3.'
+        required: true
+        example: qazkgblrkcblsazjkclspitrnvknhmtqhjvbqttlibpcg
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      address:
+        name: address
+        description: ''
+        required: true
+        example: minus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      latitude:
+        name: latitude
+        description: 'Значение поля value должно быть между -87 и 89.'
+        required: true
+        example: -86
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      longitude:
+        name: longitude
+        description: 'Значение поля value должно быть между -180 и 180.'
+        required: true
+        example: -179
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      imagesAdd:
+        name: imagesAdd
+        description: 'Файл, указанный в поле value, должен быть изображением.'
+        required: false
+        example:
+          - null
+        type: 'file[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      imagesDel:
+        name: imagesDel
+        description: ''
+        required: false
+        example:
+          - fugiat
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      levelId:
+        name: levelId
+        description: 'The <code>id</code> of an existing record in the levels table.'
+        required: false
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      desc:
+        name: desc
+        description: ''
+        required: false
+        example: cumque
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      length:
+        name: length
+        description: ''
+        required: false
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      turns:
+        name: turns
+        description: ''
+        required: false
+        example: 20
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      free:
+        name: free
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      is_work:
+        name: is_work
+        description: ''
+        required: true
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      contacts:
+        name: contacts
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      spec:
+        name: spec
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 7
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 6
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      storeId:
+        name: storeId
+        description: 'The <code>id</code> of an existing record in the stores table.'
+        required: false
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      name: qazkgblrkcblsazjkclspitrnvknhmtqhjvbqttlibpcg
+      address: minus
+      latitude: -86
+      longitude: -179
+      imagesDel:
+        - fugiat
+      levelId: 2
+      desc: cumque
+      length: 10
+      turns: 20
+      free: true
+      is_work: true
+      locationId: 7
+      userId: 6
+      storeId: 2
+    fileParameters:
+      imagesAdd:
+        - null
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u0422\u0440\u0435\u043a \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0451\u043d.","track":{"id":89,"name":"\u0422\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u043f\u0438\u0441\u0430\u0442\u0435\u043b\u044c","address":"912864, \u0410\u0440\u0445\u0430\u043d\u0433\u0435\u043b\u044c\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0421\u0435\u0440\u0435\u0431\u0440\u044f\u043d\u044b\u0435 \u041f\u0440\u0443\u0434\u044b, \u043d\u0430\u0431. \u041a\u043e\u0441\u043c\u043e\u043d\u0430\u0432\u0442\u043e\u0432, 74","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Dolore vel aut ipsam et repudiandae modi. Velit provident nisi minima aut. Assumenda illum ut magni vel laudantium. Omnis inventore eos id doloremque sit. Magni dolorem eos et. Unde consequuntur velit aut facere inventore repellat. Distinctio omnis eum repellendus non quis. Omnis quibusdam consequuntur dolorem omnis quia aut. Cupiditate aliquam dolorem facere est quisquam. Assumenda praesentium incidunt eum molestias.","length":544,"turns":85,"free":false,"is_work":false,"spec":null,"contacts":null,"location":{"id":5,"name":"\u0410\u0440\u0445\u0430\u043d\u0433\u0435\u043b\u044c\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

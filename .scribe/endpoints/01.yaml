@@ -1,0 +1,241 @@
+name: AuthPhone
+description: 'Авторизация пользователей через телефон.'
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/phone/login
+    metadata:
+      groupName: AuthPhone
+      groupDescription: 'Авторизация пользователей через телефон.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: Login
+      description: 'Вход пользователя через телефон.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      number:
+        name: number
+        description: 'The <code>number</code> of an existing record in the phones table. Количество символов в поле value должно быть не меньше 10. Количество символов в значении поля value не может превышать 12.'
+        required: true
+        example: wedsyrgmkws
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      callback:
+        name: callback
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      number: wedsyrgmkws
+      callback: false
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.auth_phone.login.success"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/phone/register
+    metadata:
+      groupName: AuthPhone
+      groupDescription: 'Авторизация пользователей через телефон.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: Register
+      description: 'Регистрация нового пользователя через телефон.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      number:
+        name: number
+        description: 'Количество символов в поле value должно быть не меньше 10. Количество символов в значении поля value не может превышать 12.'
+        required: true
+        example: zyxwxpzt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      callback:
+        name: callback
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      number: zyxwxpzt
+      callback: false
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.auth_phone.login.success"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/phone/verify
+    metadata:
+      groupName: AuthPhone
+      groupDescription: 'Авторизация пользователей через телефон.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: Verify
+      description: 'Подтверждение телефона и вход пользователя.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      pin:
+        name: pin
+        description: 'Количество символов в поле value должно быть не меньше 3. Количество символов в значении поля value не может превышать 4.'
+        required: true
+        example: a
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      number:
+        name: number
+        description: 'The <code>number</code> of an existing record in the phones table. Количество символов в поле value должно быть не меньше 10. Количество символов в значении поля value не может превышать 12.'
+        required: true
+        example: stpfjkvvx
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      pin: a
+      number: stpfjkvvx
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u0412\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043b\u0438\u0441\u044c.","access_token":"885|XOWQ7tpHmU6tvlcTa9lT9XOwyLdqGweg6wWW9Fhy225f302e","token_type":"Bearer","user":{"id":617,"name":null,"email":"nikiforova.emma@example.net","email_verified_at":"2025-03-17T10:28:26.000000Z","avatar":null,"personal":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/phone/verify/hook
+    metadata:
+      groupName: AuthPhone
+      groupDescription: 'Авторизация пользователей через телефон.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      key:
+        name: key
+        description: ''
+        required: true
+        example: quia
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      phone:
+        name: phone
+        description: ''
+        required: true
+        example: porro
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      key: quia
+      phone: porro
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
