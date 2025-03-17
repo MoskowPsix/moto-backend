@@ -21,7 +21,7 @@ class LoginAction implements LoginActionContract
             if (!User::where('email', mb_strtolower($request->email))->exists()){
                 return ErrorLoginResource::make([]);
             }
-            $user = User::with('roles')->where('email', mb_strtolower($request->email))->firstOrFail();
+            $user = User::with('roles', 'phone')->where('email', mb_strtolower($request->email))->firstOrFail();
 
             if (!$user || !Hash::check($request->password, $user->password)) {
                 throw new Exception('Login failed');
