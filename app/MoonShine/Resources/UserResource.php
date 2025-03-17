@@ -81,9 +81,6 @@ class UserResource extends ModelResource
                 )
             ),
             Text::make(__('moonshine::ui.resource.name'), 'name'),
-            Text::make(__('moonshine::ui.resource.surname'), 'surname'),
-            Text::make(__('moonshine::ui.resource.city'), 'city'),
-            Text::make(__('moonshine::ui.resource.location'), 'location'),
 
             Image::make(__('moonshine::ui.resource.avatar'), 'avatar')->modifyRawValue(fn (
                 ?string $raw
@@ -182,7 +179,7 @@ class UserResource extends ModelResource
     {
         return [
             'id',
-            'personalInfo.surname',
+//            'personalInfo.surname',
             'email',
         ];
     }

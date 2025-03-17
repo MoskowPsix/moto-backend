@@ -92,20 +92,20 @@ class User extends Authenticatable
         return $this->hasOne(Phone::class);
     }
 
-    public function getNameAttribute(): ?string
-    {
-        return $this->personalInfo?->name;
-    }
-    public function getSurnameAttribute(): ?string
-    {
-        return $this->personalInfo?->surname;
-    }
-    public function getCityAttribute(): ?string
-    {
-        return $this->personalInfo?->city;
-    }
-    public function getLocationAttribute(): ?string
-    {
-        return $this->personalInfo?->location?->name;
-    }
+//    public function getNameAttribute(): ?string
+//    {
+//        return $this->personalInfo?->name;
+//    }
+//    public function getSurnameAttribute(): ?string
+//    {
+//        return $this->personalInfo?->surname;
+//    }
+//    public function getCityAttribute(): ?string
+//    {
+//        return $this->personalInfo?->city;
+//    }
+//    public function getLocationAttribute(): ?string
+//    {
+//        return $this->personalInfo?->location?->name;
+//    }
 }
