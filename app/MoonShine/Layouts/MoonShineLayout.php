@@ -47,6 +47,7 @@ use App\MoonShine\Resources\TransactionResource;
 use App\MoonShine\Resources\AttendanceResource;
 use App\MoonShine\Resources\PhoneResource;
 use App\MoonShine\Resources\StatusResource;
+use App\MoonShine\Resources\PersonalInfoResource;
 
 final class MoonShineLayout extends AppLayout
 {

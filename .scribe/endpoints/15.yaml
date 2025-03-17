@@ -1,17 +1,17 @@
-name: Grade
-description: 'Методы связанные с классами'
+name: Command
+description: 'Методы связанные с командами'
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/grades
+    uri: api/commands
     metadata:
-      groupName: Grade
-      groupDescription: 'Методы связанные с классами'
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
       subgroup: ''
       subgroupDescription: ''
       title: get
-      description: 'Получение всех классов по фильтрам'
+      description: 'Получение всех команд по фильтрам'
       authenticated: false
       custom: []
     headers:
@@ -26,7 +26,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 7
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -36,7 +36,7 @@ endpoints:
         name: paginate
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -46,7 +46,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: corrupti
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -54,24 +54,68 @@ endpoints:
         custom: []
       limit:
         name: limit
-        description: 'Значение поля value не может быть больше 50.'
+        description: 'Must not be greater than 50.'
         required: false
-        example: 12
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 7
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: false
+        example: rerum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      fullname:
+        name: fullname
+        description: ''
+        required: false
+        example: enim
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: ''
+        required: false
+        example: nisi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
     cleanBodyParameters:
-      userId: 7
-      paginate: false
-      page: corrupti
-      limit: 12
+      userId: 11
+      paginate: true
+      page: qui
+      limit: 11
+      locationId: 7
+      city: rerum
+      fullname: enim
+      coach: nisi
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e","grades":{"id":80,"name":"\u0415\u043c\u0435\u043b\u044c\u044f\u043d\u043e\u0432\u0430 \u041c\u0430\u0440\u0438\u043d\u0430 \u041b\u044c\u0432\u043e\u0432\u043d\u0430","description":"Eum ut quam error ab laborum voluptatem molestiae. Eligendi aliquam qui sed. Doloribus id quo debitis molestias aliquam aut."}},{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e","grades":{"id":81,"name":"\u0412\u0438\u043a\u0442\u043e\u0440 \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447 \u0411\u0435\u043b\u043e\u0432","description":"Nihil est ut omnis provident enim consequuntur. Quo cupiditate doloribus voluptas illum dolores. Qui explicabo corrupti et aut vel eius sequi."}}]'
+        content: '[{"status":"success","message":"messages.command.get.success","commands":{"id":48,"name":"Prof. Isac Keeling MD","fullname":null,"coach":null,"city":"Hartmannfort","avatar":null}},{"status":"success","message":"messages.command.get.success","commands":{"id":49,"name":"Miss Adrienne Robel","fullname":null,"coach":null,"city":"Schulistport","avatar":null}}]'
         headers: []
         description: ''
         custom: []
@@ -84,14 +128,14 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/grades/{id}'
+    uri: 'api/commands/{id}'
     metadata:
-      groupName: Grade
-      groupDescription: 'Методы связанные с классами'
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
       subgroup: ''
       subgroupDescription: ''
       title: getForId
-      description: 'Получение класса по id'
+      description: 'Получение команд по id'
       authenticated: false
       custom: []
     headers:
@@ -100,24 +144,24 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the grade.'
+        description: 'The ID of the command.'
         required: true
-        example: 2
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 2
+      id: 3
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       id:
         name: id
-        description: 'The <code>id</code> of an existing record in the grades table.'
+        description: 'The <code>id</code> of an existing record in the commands table.'
         required: true
-        example: 2
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -127,20 +171,64 @@ endpoints:
         name: userId
         description: ''
         required: false
-        example: 15
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
+      locationId:
+        name: locationId
+        description: ''
+        required: false
+        example: 12
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: false
+        example: praesentium
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      fullname:
+        name: fullname
+        description: ''
+        required: false
+        example: illo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: ''
+        required: false
+        example: odit
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
     cleanBodyParameters:
-      id: 2
-      userId: 15
+      id: 13
+      userId: 12
+      locationId: 12
+      city: praesentium
+      fullname: illo
+      coach: odit
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e","grade":{"id":82,"name":"\u041c\u0430\u0440\u0433\u0430\u0440\u0438\u0442\u0430 \u0421\u0435\u0440\u0433\u0435\u0435\u0432\u043d\u0430 \u0428\u0430\u0440\u0430\u043f\u043e\u0432\u0430","description":"Minus nihil sit aut aut labore. Explicabo repellat consectetur saepe assumenda temporibus expedita placeat. Libero id sunt nesciunt sit similique. Vel quia ex est ab molestiae."}}'
+        content: '{"status":"success","message":"messages.command.get_for_id.success","command":{"id":50,"name":"Paula Jakubowski","fullname":null,"coach":null,"city":"Justenfort","avatar":null}}'
         headers: []
         description: ''
         custom: []
@@ -153,18 +241,18 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/grades
+    uri: api/commands
     metadata:
-      groupName: Grade
-      groupDescription: 'Методы связанные с классами'
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
       subgroup: ''
       subgroupDescription: ''
       title: create
-      description: 'Создание класса'
+      description: 'Создание команды'
       authenticated: true
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
@@ -173,32 +261,76 @@ endpoints:
     bodyParameters:
       name:
         name: name
-        description: 'Количество символов в значении поля value не может превышать 255.'
+        description: 'Must not be greater than 255 characters.'
         required: true
-        example: eveypgjd
+        example: l
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
-      description:
-        name: description
-        description: ''
+      fullname:
+        name: fullname
+        description: 'Must not be greater than 255 characters.'
         required: false
-        example: 'Natus neque laborum ratione amet voluptatem illum accusantium ratione.'
+        example: ujoloofrdudnhjdu
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
+      coach:
+        name: coach
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: vmjokbonsb
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      avatar:
+        name: avatar
+        description: 'Must be an image.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: true
+        example: 6
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      city:
+        name: city
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: eytewnmznzxv
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
     cleanBodyParameters:
-      name: eveypgjd
-      description: 'Natus neque laborum ratione amet voluptatem illum accusantium ratione.'
-    fileParameters: []
+      name: l
+      fullname: ujoloofrdudnhjdu
+      coach: vmjokbonsb
+      locationId: 6
+      city: eytewnmznzxv
+    fileParameters:
+      avatar: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d","grade":{"id":83,"name":"\u0414\u0438\u0430\u043d\u0430 \u0424\u0451\u0434\u043e\u0440\u043e\u0432\u043d\u0430 \u0421\u0438\u043c\u043e\u043d\u043e\u0432\u0430","description":"Aliquid sapiente consequuntur minima totam et. Mollitia qui quibusdam et molestias sequi iusto. Accusantium distinctio consequatur pariatur dicta in voluptatem. Ex illo quo a."}}'
+        content: '{"status":"success","message":"messages.command.create.success","command":{"id":51,"name":"Raquel Glover","fullname":null,"coach":null,"city":"South Javonte","avatar":null}}'
         headers: []
         description: ''
         custom: []
@@ -210,11 +342,11 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - PATCH
-    uri: 'api/grades/{id}'
+      - POST
+    uri: 'api/commands/{id}'
     metadata:
-      groupName: Grade
-      groupDescription: 'Методы связанные с классами'
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
       subgroup: ''
       subgroupDescription: ''
       title: update
@@ -222,69 +354,108 @@ endpoints:
       authenticated: true
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters:
       id:
         name: id
-        description: 'The ID of the grade.'
+        description: 'The ID of the command.'
         required: true
-        example: 2
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 2
+      id: 3
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       name:
         name: name
-        description: 'Количество символов в значении поля value не может превышать 255.'
+        description: 'Must not be greater than 255 characters.'
         required: false
-        example: yyaaghqaaqtxmgzixerauedvc
+        example: cxvlwsoljyfcesiglrrzngb
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      description:
-        name: description
-        description: ''
+      fullname:
+        name: fullname
+        description: 'Must not be greater than 255 characters.'
         required: false
-        example: 'Aut iure tempora porro et nemo sit maxime.'
+        example: drtncl
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      userId:
-        name: userId
-        description: 'The <code>id</code> of an existing record in the users table.'
+      coach:
+        name: coach
+        description: 'Must not be greater than 255 characters.'
         required: false
-        example: 11
+        example: tfdjnvgntgktfnbd
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      avatar:
+        name: avatar
+        description: 'Must be an image.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: izyxvfozud
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 5
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: yyaaghqaaqtxmgzixerauedvc
-      description: 'Aut iure tempora porro et nemo sit maxime.'
-      userId: 11
-    fileParameters: []
+      name: cxvlwsoljyfcesiglrrzngb
+      fullname: drtncl
+      coach: tfdjnvgntgktfnbd
+      city: izyxvfozud
+      locationId: 5
+    fileParameters:
+      avatar: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0451\u043d","grade":{"id":84,"name":"\u041c\u043e\u0440\u043e\u0437\u043e\u0432\u0430 \u0410\u043d\u0430\u0441\u0442\u0430\u0441\u0438\u044f \u0421\u0435\u0440\u0433\u0435\u0435\u0432\u043d\u0430","description":"Mollitia aliquid earum nihil soluta dolores consectetur. Eos voluptatum illo nihil esse est. Dicta eligendi dignissimos rerum aspernatur voluptatem quo. Et odit et perspiciatis officiis voluptas."}}'
+        content: '{"status":"success","message":"messages.command.update.success","command":{"id":52,"name":"Fay Zulauf","fullname":null,"coach":null,"city":"Rhiannamouth","avatar":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []

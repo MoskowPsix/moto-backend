@@ -28,6 +28,7 @@ class CreateRaceAction implements CreateRaceActionContract
         $this->saveFile($request->positionFile, $race, 'position_file');
         $this->saveFile($request->resultsFile, $race, 'results_file');
         $race->grades()->attach($request->gradeIds);
+        $race->cups()->attach($request->cupIds);
         return SuccessCreateRaceResource::make($race);
     }
 
