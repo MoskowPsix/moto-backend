@@ -45,7 +45,6 @@ use App\MoonShine\Resources\PhoneResource;
  */
 class UserResource extends ModelResource
 {
-    use UserResourceTrait;
     protected string $model = User::class;
 
     protected string $column = 'name';
@@ -179,7 +178,6 @@ class UserResource extends ModelResource
     {
         return [
             'id',
-//            'personalInfo.surname',
             'email',
         ];
     }
