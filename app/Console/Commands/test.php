@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Enums\DocumentType;
 use App\Models\Document;
+use App\Models\Phone;
 use App\Models\User;
 use App\Services\GoogleSheetService;
 use Exception;
@@ -49,10 +50,12 @@ class test extends Command
                         if (strlen($phone) === 11)
                         {
                             if ($user->phone()->exists()) {
-                                $user->phone()->update([
-                                    'number' => $phone,
-                                    'last_num' => (string)substr($phone, -4),
-                                ]);
+                                if (!Phone::where('number', $phone)->exists()) {
+                                    $user->phone()->update([
+                                        'number' => $phone,
+                                        'last_num' => (string)substr($phone, -4),
+                                    ]);
+                                }
                             } else {
                                 $user->phone()->create([
                                     'number' => $phone,
