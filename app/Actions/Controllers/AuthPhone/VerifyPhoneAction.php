@@ -35,6 +35,6 @@ class VerifyPhoneAction implements VerifyPhoneActionContract
         if ($phone->p_code()->exists()) {
             $phone->p_code()->delete();
         }
-        return SuccessLoginResource::make($phone->user()->with('roles', 'phone')->first());
+        return SuccessLoginResource::make($phone->user()->with('roles', 'phone', 'roles')->first());
     }
 }
