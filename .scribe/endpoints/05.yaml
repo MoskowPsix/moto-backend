@@ -26,7 +26,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 13
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -36,7 +36,7 @@ endpoints:
         name: paginate
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -46,7 +46,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: eum
+        example: saepe
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -56,22 +56,33 @@ endpoints:
         name: limit
         description: 'Значение поля value не может быть больше 50.'
         required: false
-        example: 15
+        example: 18
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      userId: 13
-      paginate: false
-      page: eum
-      limit: 15
+      userId: 20
+      paginate: true
+      page: saepe
+      limit: 18
+      locationId: 1
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"\u0422\u0440\u0435\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","tracks":{"id":55,"name":"\u041c\u0435\u043d\u0435\u0434\u0436\u0435\u0440","address":"182748, \u041c\u0443\u0440\u043c\u0430\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041f\u0430\u0432\u043b\u043e\u0432\u0441\u043a\u0438\u0439 \u041f\u043e\u0441\u0430\u0434, \u043f\u0435\u0440. \u0411\u0443\u0445\u0430\u0440\u0435\u0441\u0442\u0441\u043a\u0430\u044f, 20","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Atque rerum et fugit animi ea qui nulla. Eaque laborum aliquid saepe inventore esse. Quibusdam unde occaecati sint vitae veniam officiis dolores. Est quo sint sunt accusamus. Amet quis doloribus quo et. Unde recusandae sint fugit molestiae ratione rerum. Omnis ad qui iste est ea. Exercitationem non odit pariatur nesciunt.","length":517,"turns":22,"free":false,"is_work":true,"spec":null,"contacts":null,"location":{"id":65,"name":"\u0421\u043c\u043e\u043b\u0435\u043d\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}},{"status":"success","message":"\u0422\u0440\u0435\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","tracks":{"id":56,"name":"\u041a\u0440\u0435\u0430\u0442\u0438\u0432\u043d\u044b\u0439 \u0434\u0438\u0440\u0435\u043a\u0442\u043e\u0440","address":"633907, \u041e\u043c\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041a\u0440\u0430\u0441\u043d\u043e\u0433\u043e\u0440\u0441\u043a, \u043d\u0430\u0431. \u0411\u0430\u043b\u043a\u0430\u043d\u0441\u043a\u0430\u044f, 28","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Ut qui similique incidunt rerum molestiae quod aperiam est. Eius explicabo sed sit mollitia voluptate distinctio iste. Accusamus ut et iusto commodi et. Tenetur sed accusamus esse atque cupiditate aut. Impedit distinctio sit praesentium rem velit molestiae ut. Dolorem et sint ducimus quam voluptas optio. Earum vitae ea nam.","length":283,"turns":79,"free":true,"is_work":false,"spec":null,"contacts":null,"location":{"id":43,"name":"\u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}]'
+        content: '[{"status":"success","message":"\u0422\u0440\u0435\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","tracks":{"id":70,"name":"\u041f\u0441\u0438\u0445\u043e\u043b\u043e\u0433","address":"850359, \u0423\u043b\u044c\u044f\u043d\u043e\u0432\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041a\u0440\u0430\u0441\u043d\u043e\u0433\u043e\u0440\u0441\u043a, \u043f\u0435\u0440. \u041b\u0430\u0434\u044b\u0433\u0438\u043d\u0430, 52","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Soluta aut ut recusandae debitis omnis. Est magnam necessitatibus aut aperiam unde. Aut commodi animi qui aut unde veritatis fuga id. Nihil perspiciatis omnis sed consequatur. Iste qui odit consequatur tempore sunt adipisci corrupti. Ut inventore ipsa laborum et. Esse quis officia maiores iure veritatis suscipit laborum. Reiciendis unde culpa sint sint necessitatibus. Cum modi dolores dolore dolor.","length":592,"turns":87,"free":true,"is_work":false,"spec":null,"contacts":null,"location":{"id":26,"name":"\u041a\u0430\u0440\u0430\u0447\u0430\u0435\u0432\u043e-\u0427\u0435\u0440\u043a\u0435\u0441\u0441\u043a\u0430\u044f","type":"\u0440\u0435\u0441\u043f\u0443\u0431\u043b\u0438\u043a\u0430"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}},{"status":"success","message":"\u0422\u0440\u0435\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","tracks":{"id":71,"name":"\u0410\u0432\u0442\u043e\u0438\u043d\u0441\u0442\u0440\u0443\u043a\u0442\u043e\u0440","address":"606588, \u041a\u0435\u043c\u0435\u0440\u043e\u0432\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0421\u043e\u043b\u043d\u0435\u0447\u043d\u043e\u0433\u043e\u0440\u0441\u043a, \u0441\u043f\u0443\u0441\u043a \u041a\u043e\u0441\u0438\u043e\u0440\u0430, 10","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Cupiditate placeat in et voluptatem harum dolore. Temporibus cumque libero odit cupiditate ut nesciunt ut sed. Maxime accusantium a qui voluptatem alias. Aut corrupti repellendus dolor saepe. Et architecto delectus suscipit nisi sed non. Rerum quos aut fuga dignissimos est laudantium. Repellendus qui sint nesciunt earum animi porro doloremque. Molestiae officia porro rerum minima rerum.","length":206,"turns":87,"free":true,"is_work":true,"spec":null,"contacts":null,"location":{"id":29,"name":"\u041a\u0438\u0440\u043e\u0432\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}]'
         headers: []
         description: ''
         custom: []
@@ -118,7 +129,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0422\u0440\u0435\u043a \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","track":{"id":57,"name":"\u0421\u0442\u0438\u043b\u0438\u0441\u0442","address":"501741, \u041d\u043e\u0432\u0433\u043e\u0440\u043e\u0434\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0418\u0441\u0442\u0440\u0430, \u043f\u043b. \u041b\u043e\u043c\u043e\u043d\u043e\u0441\u043e\u0432\u0430, 88","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Porro modi aliquam laborum. Culpa sint maxime voluptatibus ut ut assumenda. Pariatur iste ut et ut amet et dolores. Libero voluptatem fugit nemo eum porro ad sed. Reprehenderit quaerat in nesciunt in. Quod est laudantium ipsa adipisci labore. Eum beatae aut beatae. Saepe dolorum numquam cumque voluptatem. Recusandae iusto dolores quia aspernatur et impedit. Asperiores praesentium voluptatum suscipit minima. Vel perferendis velit dolorem incidunt aut vero repudiandae.","length":774,"turns":15,"free":true,"is_work":true,"spec":null,"contacts":null,"location":{"id":8,"name":"\u0411\u0435\u043b\u0433\u043e\u0440\u043e\u0434\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
+        content: '{"status":"success","message":"\u0422\u0440\u0435\u043a \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","track":{"id":72,"name":"\u041f\u0440\u043e\u0434\u044e\u0441\u0435\u0440","address":"897025, \u041a\u0443\u0440\u0433\u0430\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0414\u043e\u043c\u043e\u0434\u0435\u0434\u043e\u0432\u043e, \u043f\u043b. \u0411\u0443\u0445\u0430\u0440\u0435\u0441\u0442\u0441\u043a\u0430\u044f, 91","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Accusantium qui amet et officia rerum quaerat. Velit autem qui quaerat qui quos laudantium ea voluptas. Quisquam vitae molestiae error libero inventore. Ab perspiciatis corporis natus expedita omnis. Suscipit inventore tempore voluptatem ad et. Itaque cupiditate fugit veniam eum dolore. Quam in atque quisquam et tempora illum. Minus quia provident sed animi dolore repudiandae fugit. Laudantium inventore numquam necessitatibus placeat velit aut.","length":117,"turns":14,"free":true,"is_work":true,"spec":null,"contacts":null,"location":{"id":49,"name":"\u041e\u043c\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
         headers: []
         description: ''
         custom: []
@@ -159,7 +170,7 @@ endpoints:
         name: name
         description: 'Количество символов в поле value должно быть не меньше 3.'
         required: true
-        example: jwxgmsyqytsewkgljjhxakcxscyitwvbrcvytxfgzlvuarvsktcuthkjquxpomwrxkjkrzi
+        example: whboscyunnvwtonnnbijuxhccdfhwtsnunayogocbfmjstucrvnjmfsibiubxrqiwhncyeduhwhzdxvyidktoxpey
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -169,7 +180,7 @@ endpoints:
         name: address
         description: ''
         required: true
-        example: quod
+        example: nostrum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -189,7 +200,7 @@ endpoints:
         name: longitude
         description: 'Значение поля value должно быть между -180 и 180.'
         required: true
-        example: -179
+        example: -180
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -210,7 +221,7 @@ endpoints:
         name: levelId
         description: 'The <code>id</code> of an existing record in the levels table.'
         required: false
-        example: 16
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -220,7 +231,7 @@ endpoints:
         name: desc
         description: ''
         required: false
-        example: ipsum
+        example: eum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -230,7 +241,7 @@ endpoints:
         name: length
         description: ''
         required: false
-        example: 9
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -240,7 +251,7 @@ endpoints:
         name: turns
         description: ''
         required: false
-        example: 14
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -250,7 +261,7 @@ endpoints:
         name: free
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -290,7 +301,7 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 5
+        example: 14
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -310,7 +321,7 @@ endpoints:
         name: light
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -320,7 +331,7 @@ endpoints:
         name: season
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -340,27 +351,27 @@ endpoints:
         name: storeId
         description: 'The <code>id</code> of an existing record in the stores table.'
         required: false
-        example: 15
+        example: 9
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: jwxgmsyqytsewkgljjhxakcxscyitwvbrcvytxfgzlvuarvsktcuthkjquxpomwrxkjkrzi
-      address: quod
+      name: whboscyunnvwtonnnbijuxhccdfhwtsnunayogocbfmjstucrvnjmfsibiubxrqiwhncyeduhwhzdxvyidktoxpey
+      address: nostrum
       latitude: -86
-      longitude: -179
-      levelId: 16
-      desc: ipsum
-      length: 9
-      turns: 14
-      free: false
+      longitude: -180
+      levelId: 11
+      desc: eum
+      length: 3
+      turns: 20
+      free: true
       is_work: true
-      locationId: 5
-      light: true
-      season: false
-      storeId: 15
+      locationId: 14
+      light: false
+      season: true
+      storeId: 9
     fileParameters:
       images:
         - null
@@ -369,7 +380,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0422\u0440\u0435\u043a \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d.","track":{"id":58,"name":"\u0411\u0430\u0440\u0438\u0441\u0442\u0430","address":"555429, \u0418\u0440\u043a\u0443\u0442\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0428\u0430\u0445\u043e\u0432\u0441\u043a\u0430\u044f, \u0443\u043b. \u0414\u043e\u043c\u043e\u0434\u0435\u0434\u043e\u0432\u0441\u043a\u0430\u044f, 93","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Voluptas omnis labore eligendi doloribus quia. Totam sequi voluptas et facere velit. Voluptates quibusdam magni impedit ipsum quae quis minima. Quia voluptatem et et illo ea amet. Pariatur sunt et velit corrupti rerum. Illum rerum quia consequuntur nobis sed. Repudiandae qui quod et. Similique aliquam vero rerum vero voluptas eos ipsum.","length":545,"turns":45,"free":false,"is_work":true,"spec":null,"contacts":null,"location":{"id":62,"name":"\u0421\u0432\u0435\u0440\u0434\u043b\u043e\u0432\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
+        content: '{"status":"success","message":"\u0422\u0440\u0435\u043a \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d.","track":{"id":73,"name":"\u0413\u0435\u0440\u043e\u043b\u044c\u0434","address":"171046, \u041b\u0438\u043f\u0435\u0446\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041d\u0430\u0440\u043e-\u0424\u043e\u043c\u0438\u043d\u0441\u043a, \u043d\u0430\u0431. \u041a\u043e\u0441\u043c\u043e\u043d\u0430\u0432\u0442\u043e\u0432, 35","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Ea beatae necessitatibus corrupti omnis ducimus. Autem non aut dolor possimus illo blanditiis voluptas. Excepturi sunt rerum eius ipsum id assumenda. Quae quam ut saepe voluptas. Officia est atque saepe adipisci. Mollitia odio est consequatur voluptatum pariatur consequuntur maiores iure. Exercitationem occaecati magni quibusdam dolorem ratione sunt repudiandae. In hic repellendus id rem eum est. Odio ad non quia quis. Ea id non aut voluptate cumque magni et. Dolore et placeat esse aut.","length":730,"turns":54,"free":false,"is_work":false,"spec":null,"contacts":null,"location":{"id":24,"name":"\u041a\u0430\u043b\u0443\u0436\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
         headers: []
         description: ''
         custom: []
@@ -421,7 +432,7 @@ endpoints:
         name: name
         description: 'Количество символов в поле value должно быть не меньше 3.'
         required: true
-        example: imfbvkdxbrwrsypcirkdkj
+        example: taokytvydcxbdpjjcwpvhoczchzsxmvmdotmhndpnyyfmcfvptcqkupdyugwcthcdvjtybyqwtpyhg
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -431,7 +442,7 @@ endpoints:
         name: address
         description: ''
         required: true
-        example: sed
+        example: itaque
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -441,7 +452,7 @@ endpoints:
         name: latitude
         description: 'Значение поля value должно быть между -87 и 89.'
         required: true
-        example: -87
+        example: -86
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -473,7 +484,7 @@ endpoints:
         description: ''
         required: false
         example:
-          - quia
+          - debitis
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -483,7 +494,7 @@ endpoints:
         name: levelId
         description: 'The <code>id</code> of an existing record in the levels table.'
         required: false
-        example: 11
+        example: 14
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -493,7 +504,7 @@ endpoints:
         name: desc
         description: ''
         required: false
-        example: nihil
+        example: nobis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -503,7 +514,7 @@ endpoints:
         name: length
         description: ''
         required: false
-        example: 16
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -513,7 +524,7 @@ endpoints:
         name: turns
         description: ''
         required: false
-        example: 8
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -563,7 +574,7 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 20
+        example: 19
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -573,7 +584,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 18
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -583,35 +594,35 @@ endpoints:
         name: storeId
         description: 'The <code>id</code> of an existing record in the stores table.'
         required: false
-        example: 19
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: imfbvkdxbrwrsypcirkdkj
-      address: sed
-      latitude: -87
+      name: taokytvydcxbdpjjcwpvhoczchzsxmvmdotmhndpnyyfmcfvptcqkupdyugwcthcdvjtybyqwtpyhg
+      address: itaque
+      latitude: -86
       longitude: -179
       imagesDel:
-        - quia
-      levelId: 11
-      desc: nihil
-      length: 16
-      turns: 8
+        - debitis
+      levelId: 14
+      desc: nobis
+      length: 2
+      turns: 18
       free: false
       is_work: true
-      locationId: 20
-      userId: 18
-      storeId: 19
+      locationId: 19
+      userId: 13
+      storeId: 8
     fileParameters:
       imagesAdd:
         - null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0422\u0440\u0435\u043a \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0451\u043d","track":{"id":59,"name":"\u0421\u0442\u043e\u043b\u044f\u0440","address":"688497, \u0427\u0435\u043b\u044f\u0431\u0438\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0429\u0451\u043b\u043a\u043e\u0432\u043e, \u0448\u043e\u0441\u0441\u0435 \u0413\u043e\u0433\u043e\u043b\u044f, 39","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Voluptates dolor necessitatibus molestias expedita saepe. Sed eligendi eos dolores iste tempora. Veritatis facilis dolore deleniti aperiam occaecati quaerat fuga veritatis. Libero minima quo mollitia itaque. Hic sunt earum tempora. Sequi facere consequatur aut eveniet eaque. Quis eveniet laborum atque minus deserunt totam. Officia nisi veritatis dolorem omnis laborum. Sit ea officiis maiores aspernatur iure optio. Eveniet consequatur facere recusandae excepturi doloribus.","length":103,"turns":6,"free":false,"is_work":false,"spec":null,"contacts":null,"location":{"id":18,"name":"\u0418\u0432\u0430\u043d\u043e\u0432\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
+        content: '{"status":"success","message":"\u0422\u0440\u0435\u043a \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0451\u043d","track":{"id":74,"name":"\u042d\u043b\u0435\u043a\u0442\u0440\u043e\u043c\u043e\u043d\u0442\u0451\u0440","address":"310345, \u0410\u043c\u0443\u0440\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0411\u0430\u043b\u0430\u0448\u0438\u0445\u0430, \u0441\u043f\u0443\u0441\u043a \u041a\u043e\u0441\u043c\u043e\u043d\u0430\u0432\u0442\u043e\u0432, 80","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Corrupti et doloremque accusamus numquam ut aperiam qui. Vel officiis reprehenderit id incidunt omnis. Est magnam eius dolorem eligendi nostrum est. Placeat eum saepe eius nihil minima totam ea. Sint aperiam rerum incidunt possimus sit. Qui ipsa voluptatibus maiores aut sed molestiae molestiae corrupti. Dolorem molestiae in recusandae sunt voluptates.","length":972,"turns":98,"free":true,"is_work":true,"spec":null,"contacts":null,"location":{"id":51,"name":"\u041e\u0440\u043b\u043e\u0432\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
         headers: []
         description: ''
         custom: []

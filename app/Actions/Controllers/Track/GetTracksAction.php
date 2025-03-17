@@ -3,6 +3,8 @@
 namespace App\Actions\Controllers\Track;
 
 use App\Contracts\Actions\Controllers\Track\GetTracksActionContract;
+use App\Filters\Race\RaceForLocationIdsFilter;
+use App\Filters\Track\TrackForLocationIdsFilter;
 use App\Filters\Track\TrackUserIdFilter;
 use App\Http\Requests\Track\GetTracksRequest;
 use App\Http\Resources\Track\GetTracks\SuccessGetTracksResource;
@@ -23,7 +25,8 @@ class GetTracksAction implements GetTracksActionContract
         $tracks = app(Pipeline::class)
             ->send($track_q)
             ->through([
-                TrackUserIdFilter::class
+                TrackUserIdFilter::class,
+                TrackForLocationIdsFilter::class,
             ])
             ->via('apply')
             ->then(function ($tracks) use ($page, $limit, $request) {
