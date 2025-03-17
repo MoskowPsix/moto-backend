@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources;
 
+use App\Models\Phone;
 use Illuminate\Database\Eloquent\Model;
 
 use MoonShine\Laravel\Resources\ModelResource;
