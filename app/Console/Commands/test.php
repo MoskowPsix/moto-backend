@@ -49,13 +49,11 @@ class test extends Command
                         }
                         if (strlen($phone) === 11)
                         {
-                            if ($user->phone()->exists()) {
-                                if (!Phone::where('number', $phone)->exists()) {
+                            if ($user->phone()->exists() && !Phone::where('number', $phone)->exists()) {
                                     $user->phone()->update([
                                         'number' => $phone,
                                         'last_num' => (string)substr($phone, -4),
                                     ]);
-                                }
                             } else {
                                 $user->phone()->create([
                                     'number' => $phone,
