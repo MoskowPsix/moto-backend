@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Actions\Controllers\User\GetUserForTokenAction;
+use App\Contracts\Actions\Controllers\User\DeleteUserActionContract;
 use App\Contracts\Actions\Controllers\User\GetCommisionUserActionContract;
 use App\Contracts\Actions\Controllers\User\GetUserForIdActionContract;
 use App\Contracts\Actions\Controllers\User\UpdateUserActionContract;
@@ -10,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\User\GetCommisionUserRequest;
 use App\Http\Resources\Errors\NotFoundResource;
+use App\Http\Resources\User\Delete\SuccessUserDeleteResource;
 use App\Http\Resources\User\GetCommision\SuccessGetCommisionUserResource;
 use App\Http\Resources\User\GetForId\SuccessUserGetForIdResource;
 use App\Http\Resources\User\GetUserForToken\SuccessGetUserForTokenResource;
@@ -52,5 +54,12 @@ class UserController extends Controller
     public function getCommissions(GetCommisionUserRequest $request, GetCommisionUserActionContract $action): SuccessGetCommisionUserResource
     {
         return $action($request);
+    }
+    #[Authenticated]
+    #[ResponseFromApiResource(SuccessUserDeleteResource::class)]
+    #[Endpoint(title: 'Delete', description: 'Удаление аккаунта пользователя')]
+    public function delete(DeleteUserActionContract $action): SuccessUserDeleteResource
+    {
+        return $action();
     }
 }
