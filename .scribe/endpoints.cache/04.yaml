@@ -28,7 +28,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 18
+        example: 10
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -38,7 +38,7 @@ endpoints:
         name: paginate
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -48,7 +48,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: aut
+        example: incidunt
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -58,22 +58,22 @@ endpoints:
         name: limit
         description: 'Must not be greater than 50.'
         required: false
-        example: 8
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      userId: 18
-      paginate: true
-      page: aut
-      limit: 8
+      userId: 10
+      paginate: false
+      page: incidunt
+      limit: 13
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.track.get.success","tracks":{"id":20,"name":"Silversmith","address":"12541 Melvina Route\nRomagueramouth, MD 68703-6356","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Dolorum minima amet amet. Animi in eos excepturi tempore quo. Totam corporis quasi nam natus esse fugiat ullam. Libero nisi perspiciatis dolores fugiat ut rerum. Saepe ex deserunt consectetur voluptas qui quod. Quia qui quia facere et iure et quis. Quis a mollitia et saepe. Modi ea est officiis hic est. Corporis debitis accusamus voluptates explicabo incidunt at tempora. Non perspiciatis voluptatem earum enim dolor quis.","length":348,"turns":83,"free":false,"is_work":true,"spec":null,"location":{"id":85,"name":"\u042f\u0440\u043e\u0441\u043b\u0430\u0432\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"store":null}},{"status":"success","message":"messages.track.get.success","tracks":{"id":21,"name":"Naval Architects","address":"641 Sawayn Pines Apt. 540\nJettiemouth, RI 16106","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Occaecati et qui magnam mollitia totam. Ullam at et commodi et perferendis doloribus. Et deserunt exercitationem in consequatur nemo et perspiciatis. Autem dolorem dolores sint eaque. Sint nobis consequatur nesciunt minima neque. Laborum dolore deleniti perferendis eius non. Veniam laudantium ut ad ut dolorem ex mollitia. Voluptas eum provident reprehenderit quia optio voluptas doloribus.","length":803,"turns":89,"free":true,"is_work":false,"spec":null,"location":{"id":43,"name":"\u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"store":null}}]'
+        content: '[{"status":"success","message":"messages.track.get.success","tracks":{"id":25,"name":"Jewelry Model OR Mold Makers","address":"49037 Elsa Ville Suite 771\nPierceview, LA 30648","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Ut commodi mollitia praesentium. Est eaque est voluptatem aut ut sit qui. Dolores maiores aspernatur atque in. Enim quis sequi quia quod assumenda maxime. Sed consequatur dolor ipsam nihil magnam provident. Repudiandae eum et facere quaerat. Quia atque laborum deleniti. Quo velit id voluptate nihil quisquam non qui. Error tempore vel impedit ratione. Temporibus unde aspernatur non aspernatur quidem. Et optio aut et voluptas. Voluptatem animi ipsam voluptatem et ipsum.","length":980,"turns":94,"free":false,"is_work":false,"spec":null,"location":{"id":86,"name":"\u0427\u0443\u0432\u0430\u0448\u0441\u043a\u0430\u044f \u0420\u0435\u0441\u043f\u0443\u0431\u043b\u0438\u043a\u0430","type":"\u0440\u0435\u0441\u043f\u0443\u0431\u043b\u0438\u043a\u0430"},"store":null}},{"status":"success","message":"messages.track.get.success","tracks":{"id":26,"name":"Manager of Weapons Specialists","address":"315 Imogene Mission\nWintheiserville, SD 92240-0447","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Quo aut porro magnam quae non voluptatem. Placeat voluptas id sapiente et. Ut dolorem consequatur harum molestias. Harum enim minus aut placeat quia id occaecati et. Velit mollitia iusto est placeat rerum eius fuga magnam. Iusto nulla rerum molestias excepturi blanditiis nobis. Maxime in sit et tempore reiciendis reprehenderit.","length":772,"turns":8,"free":false,"is_work":false,"spec":null,"location":{"id":65,"name":"\u0421\u043c\u043e\u043b\u0435\u043d\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"store":null}}]'
         headers: []
         description: ''
         custom: []
@@ -120,7 +120,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.track.get_for_id.success","track":{"id":22,"name":"Industrial Engineering Technician","address":"23493 Veum Walk\nOrtizmouth, NH 39303","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Sint quisquam aut ullam ipsam quod. Voluptate ipsa expedita labore quasi facere ducimus qui fugit. Ea enim ipsa commodi consequatur nihil. Voluptates sint dolorem velit in est. Temporibus optio omnis excepturi voluptatem dignissimos commodi. Possimus quia quia voluptatem ut excepturi perspiciatis ullam. Neque modi eos qui qui dignissimos modi. Et hic quas omnis nesciunt aut. Velit voluptatum ratione repudiandae error aut et.","length":774,"turns":84,"free":false,"is_work":false,"spec":null,"location":{"id":85,"name":"\u042f\u0440\u043e\u0441\u043b\u0430\u0432\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"store":null}}'
+        content: '{"status":"success","message":"messages.track.get_for_id.success","track":{"id":27,"name":"Training Manager OR Development Manager","address":"627 Avery Point Apt. 562\nNew Reina, RI 35870-6075","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Libero omnis et aut dolorem neque eos quia. Velit reprehenderit velit incidunt veritatis non beatae eius. Eaque molestiae quos maiores sint occaecati error excepturi illum. Aperiam odit recusandae assumenda corrupti. Eos ut et nulla quidem excepturi. Dignissimos et sunt error. Porro quas velit in rerum. Qui minus omnis expedita quibusdam et quia. Aut consequuntur numquam ipsam. Voluptas veniam aliquam asperiores et. Esse ut illo eligendi. Reprehenderit dolores quibusdam voluptatem.","length":306,"turns":69,"free":false,"is_work":false,"spec":null,"location":{"id":14,"name":"\u0412\u043e\u0440\u043e\u043d\u0435\u0436\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"store":null}}'
         headers: []
         description: ''
         custom: []
@@ -161,7 +161,7 @@ endpoints:
         name: name
         description: 'Must be at least 3 characters.'
         required: true
-        example: jhichbcgaurnzni
+        example: erfotidubmekjc
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -171,7 +171,7 @@ endpoints:
         name: address
         description: ''
         required: true
-        example: dolorem
+        example: porro
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -181,7 +181,7 @@ endpoints:
         name: latitude
         description: 'Must be between -87 and 89.'
         required: true
-        example: -86
+        example: -87
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -212,7 +212,7 @@ endpoints:
         name: levelId
         description: 'The <code>id</code> of an existing record in the levels table.'
         required: false
-        example: 9
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -222,7 +222,7 @@ endpoints:
         name: desc
         description: ''
         required: false
-        example: ipsam
+        example: dolorem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -232,7 +232,7 @@ endpoints:
         name: length
         description: ''
         required: false
-        example: 15
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -242,7 +242,7 @@ endpoints:
         name: turns
         description: ''
         required: false
-        example: 14
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -252,7 +252,7 @@ endpoints:
         name: free
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -272,7 +272,7 @@ endpoints:
         name: contacts
         description: 'Must be a valid JSON string.'
         required: false
-        example: '["velit","quisquam"]'
+        example: '["quis","deserunt"]'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -282,7 +282,7 @@ endpoints:
         name: spec
         description: 'Must be a valid JSON string.'
         required: false
-        example: '["itaque","blanditiis"]'
+        example: '["omnis","optio"]'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -292,7 +292,7 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 13
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -302,34 +302,34 @@ endpoints:
         name: storeId
         description: 'The <code>id</code> of an existing record in the stores table.'
         required: false
-        example: 7
+        example: 10
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: jhichbcgaurnzni
-      address: dolorem
-      latitude: -86
+      name: erfotidubmekjc
+      address: porro
+      latitude: -87
       longitude: -180
-      levelId: 9
-      desc: ipsam
-      length: 15
-      turns: 14
-      free: true
+      levelId: 16
+      desc: dolorem
+      length: 8
+      turns: 3
+      free: false
       is_work: false
-      contacts: '["velit","quisquam"]'
-      spec: '["itaque","blanditiis"]'
-      locationId: 13
-      storeId: 7
+      contacts: '["quis","deserunt"]'
+      spec: '["omnis","optio"]'
+      locationId: 11
+      storeId: 10
     fileParameters:
       images:
         - null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.track.create.success","track":{"id":23,"name":"Pediatricians","address":"287 Anderson Key\nNew Venaburgh, OH 18975-5715","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Eligendi laborum quod et est sunt occaecati et. Quam iure hic odit quod. Blanditiis nesciunt explicabo voluptatem cumque. Repellendus aperiam tenetur excepturi. Sed maxime placeat ipsa aut molestiae labore. Saepe eum temporibus ducimus omnis alias nesciunt. Quos fuga omnis eos. Qui rerum iste qui optio et. Molestias sit atque sunt facilis occaecati nobis perferendis asperiores. Non vero adipisci fuga molestiae soluta facere.","length":153,"turns":23,"free":true,"is_work":false,"spec":null,"location":{"id":79,"name":"\u0427\u0435\u043b\u044f\u0431\u0438\u043d\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"store":null}}'
+        content: '{"status":"success","message":"messages.track.create.success","track":{"id":28,"name":"CSI","address":"1985 King Rapids\nLake Tavares, NE 26182","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Deserunt dolor illo maiores reiciendis quis saepe. Sint sit officia a animi distinctio quis. Aut hic numquam voluptatem doloremque voluptatum veritatis. Ex sit amet reprehenderit unde atque. Explicabo aliquid assumenda beatae autem aut nemo. Quia occaecati perspiciatis cumque molestiae numquam. Repudiandae vitae atque dolor doloribus molestiae ullam deserunt. Minima molestiae delectus pariatur. Rerum ea aut id eos in voluptatem.","length":996,"turns":2,"free":false,"is_work":true,"spec":null,"location":{"id":39,"name":"\u041c\u0430\u0433\u0430\u0434\u0430\u043d\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"store":null}}'
         headers: []
         description: ''
         custom: []
@@ -381,7 +381,7 @@ endpoints:
         name: name
         description: 'Must be at least 3 characters.'
         required: true
-        example: zwbjljlzisxkddxjfmd
+        example: urrlqxldsbfifogvbsyxoxcjrfxghnxrptuzqhjteqrhzognhzsfgwymxwzmynekkhxrpmb
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -391,7 +391,7 @@ endpoints:
         name: address
         description: ''
         required: true
-        example: fuga
+        example: nesciunt
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -411,7 +411,7 @@ endpoints:
         name: longitude
         description: 'Must be between -180 and 180.'
         required: true
-        example: -179
+        example: -180
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -433,7 +433,7 @@ endpoints:
         description: ''
         required: false
         example:
-          - culpa
+          - dolores
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -443,7 +443,7 @@ endpoints:
         name: levelId
         description: 'The <code>id</code> of an existing record in the levels table.'
         required: false
-        example: 8
+        example: 10
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -453,7 +453,7 @@ endpoints:
         name: desc
         description: ''
         required: false
-        example: vel
+        example: eos
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -463,7 +463,7 @@ endpoints:
         name: length
         description: ''
         required: false
-        example: 12
+        example: 14
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -473,7 +473,7 @@ endpoints:
         name: turns
         description: ''
         required: false
-        example: 5
+        example: 19
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -483,7 +483,7 @@ endpoints:
         name: free
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -503,7 +503,7 @@ endpoints:
         name: contacts
         description: 'Must be a valid JSON string.'
         required: false
-        example: '["aperiam","explicabo"]'
+        example: '["dolor","voluptatem"]'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -513,7 +513,7 @@ endpoints:
         name: spec
         description: 'Must be a valid JSON string.'
         required: false
-        example: '["alias","quae"]'
+        example: '["earum","odit"]'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -523,7 +523,7 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 15
+        example: 17
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -533,7 +533,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 14
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -543,37 +543,37 @@ endpoints:
         name: storeId
         description: 'The <code>id</code> of an existing record in the stores table.'
         required: false
-        example: 12
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: zwbjljlzisxkddxjfmd
-      address: fuga
+      name: urrlqxldsbfifogvbsyxoxcjrfxghnxrptuzqhjteqrhzognhzsfgwymxwzmynekkhxrpmb
+      address: nesciunt
       latitude: -86
-      longitude: -179
+      longitude: -180
       imagesDel:
-        - culpa
-      levelId: 8
-      desc: vel
-      length: 12
-      turns: 5
-      free: false
+        - dolores
+      levelId: 10
+      desc: eos
+      length: 14
+      turns: 19
+      free: true
       is_work: false
-      contacts: '["aperiam","explicabo"]'
-      spec: '["alias","quae"]'
-      locationId: 15
-      userId: 14
-      storeId: 12
+      contacts: '["dolor","voluptatem"]'
+      spec: '["earum","odit"]'
+      locationId: 17
+      userId: 12
+      storeId: 16
     fileParameters:
       imagesAdd:
         - null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.track.update.success","track":{"id":24,"name":"Logistician","address":"9042 Kris Wall Apt. 201\nNorth Geoffreyhaven, FL 95116","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Expedita id dolor officiis. At temporibus fuga velit debitis suscipit sint ex. Sit occaecati quam numquam quam voluptas. Provident sit praesentium dolore rerum deleniti nam. Beatae quaerat sit eum minus corrupti aut. Molestias eaque et quia totam ab. Suscipit nostrum eos unde id aut eveniet natus. Eum sit tempore ad.","length":521,"turns":9,"free":true,"is_work":true,"spec":null,"location":{"id":43,"name":"\u041c\u043e\u0441\u043a\u043e\u0432\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"store":null}}'
+        content: '{"status":"success","message":"messages.track.update.success","track":{"id":29,"name":"Paralegal","address":"2514 Mosciski Center Suite 501\nNorth Laurianne, OR 56433-6927","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Aut eveniet enim consequuntur. Impedit qui labore eum quos eum omnis. Voluptatibus iusto impedit tempore suscipit animi ullam excepturi necessitatibus. Non saepe ipsam dolores harum ut ipsum laborum. Reprehenderit autem deleniti qui velit odio. Et aut veritatis ullam impedit. Quam similique et velit. Minima voluptatem qui impedit autem beatae consequatur ducimus ab. Et qui consequatur qui voluptatibus. Est facere fugit error impedit eum.","length":514,"turns":51,"free":true,"is_work":true,"spec":null,"location":{"id":82,"name":"\u0427\u0443\u043a\u043e\u0442\u0441\u043a\u0438\u0439","type":"\u0430\u0432\u0442\u043e\u043d\u043e\u043c\u043d\u044b\u0439 \u043e\u043a\u0440\u0443\u0433"},"store":null}}'
         headers: []
         description: ''
         custom: []
