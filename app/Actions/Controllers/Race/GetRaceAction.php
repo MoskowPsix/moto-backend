@@ -8,6 +8,7 @@ use App\Filters\Race\RaceDateFilter;
 use App\Filters\Race\RaceForLocationIdsFilter;
 use App\Filters\Race\RaceForStatusFilter;
 use App\Filters\Race\RaceForTrackFilter;
+use App\Filters\Race\RaceSortFilter;
 use App\Filters\Race\RaceUserIdFilter;
 use App\Http\Requests\Race\GetRaceRequest;
 use App\Http\Resources\Race\GetRaces\SuccessGetRaceResource;
@@ -30,13 +31,14 @@ class GetRaceAction implements GetRaceActionContract
                 RaceAppointmentExists::class,
                 RaceForTrackFilter::class,
                 RaceForLocationIdsFilter::class,
-                RaceForStatusFilter::class
+                RaceForStatusFilter::class,
+                RaceSortFilter::class
             ])
             ->via('apply')
             ->then(function ($races) use ($page, $limit, $request) {
                 return $request->paginate ?
-                    $races->orderBy('date_start', 'asc')->simplePaginate($limit, ['*'], 'page',  $page) :
-                    $races->orderBy('date_start', 'asc')->get();
+                    $races->simplePaginate($limit, ['*'], 'page',  $page) :
+                    $races->get();
             });
         return SuccessGetRaceResource::make($races);
     }
