@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources;
 
+use App\Models\Phone;
 use Illuminate\Database\Eloquent\Model;
 
 use MoonShine\Laravel\Resources\ModelResource;
@@ -32,8 +33,8 @@ class PhoneResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-//            Phone::make('Номер', 'number')->sortable(),
-//            Date::make('Подтверждение телефона', 'number_verified_at')->sortable(),
+            Phone::make('Номер', 'number')->sortable(),
+            Date::make('Подтверждение телефона', 'number_verified_at')->sortable(),
         ];
     }
 
@@ -44,8 +45,8 @@ class PhoneResource extends ModelResource
     {
         return [
             Box::make([
-//                Phone::make('Номер', 'number'),
-//                Date::make('Подтверждение телефона', 'number_verified_at'),
+                Phone::make('Номер', 'number'),
+                Date::make('Подтверждение телефона', 'number_verified_at'),
             ])
         ];
     }

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\MoonShine\Resources;
 
 use App\Models\User;
-use App\Traits\MoonShine\Resources\UserResourceTrait;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Validation\Rule;
 use MoonShine\Laravel\Enums\Action;
@@ -45,7 +44,6 @@ use App\MoonShine\Resources\PhoneResource;
  */
 class UserResource extends ModelResource
 {
-    use UserResourceTrait;
     protected string $model = User::class;
 
     protected string $column = 'name';
@@ -125,9 +123,8 @@ class UserResource extends ModelResource
                             Email::make(__('moonshine::ui.resource.email'), 'email')
                                 ->required(),
                             Date::make('Подтверждение почты', 'email_verified_at')->withTime(),
-                            Phone::make('Телефон(Не изменяемое поле)', 'phone.number'),
-                            Date::make('Подтверждение телефона(Не изменяемое поле)', 'phone.number_verified_at')->withTime(),
-
+//                            Phone::make('Телефон(Не изменяемое поле)', 'phone.number'),
+//                            Date::make('Подтверждение телефона(Не изменяемое поле)', 'phone.number_verified_at')->withTime(),
                         ]),
 
                         Image::make(__('moonshine::ui.resource.avatar'), 'avatar')
@@ -162,7 +159,6 @@ class UserResource extends ModelResource
         return [
             'name' => 'required',
 //            'moonshine_user_role_id' => 'required',
-            'surname' => 'required',
             'email' => [
                 'sometimes',
                 'bail',
@@ -179,7 +175,6 @@ class UserResource extends ModelResource
     {
         return [
             'id',
-//            'personalInfo.surname',
             'email',
         ];
     }
