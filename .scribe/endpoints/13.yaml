@@ -1,17 +1,122 @@
-name: Location
-description: 'Методы для взаимодействия с городами'
+name: Document
+description: 'Методы взаимодействия с документами пользователя'
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/locations
+      - POST
+    uri: api/users/cabinet/documents
     metadata:
-      groupName: Location
-      groupDescription: 'Методы для взаимодействия с городами'
+      groupName: Document
+      groupDescription: 'Методы взаимодействия с документами пользователя'
       subgroup: ''
       subgroupDescription: ''
-      title: get
-      description: 'Получение всех городов с фильтрацией'
+      title: Create
+      description: 'Создание документа пользователя'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      type:
+        name: type
+        description: ''
+        required: true
+        example: licenses
+        type: string
+        enumValues:
+          - licenses
+          - polis
+          - notarius
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      file:
+        name: file
+        description: 'Must be a file.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      url:
+        name: url
+        description: ''
+        required: false
+        example: 'https://koss.com/sed-ratione-reiciendis-provident-nulla.html'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      number:
+        name: number
+        description: ''
+        required: false
+        example: nihil
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      issuedWhom:
+        name: issuedWhom
+        description: ''
+        required: false
+        example: ut
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      itWorksDate:
+        name: itWorksDate
+        description: ''
+        required: false
+        example: consequuntur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      type: licenses
+      url: 'https://koss.com/sed-ratione-reiciendis-provident-nulla.html'
+      number: nihil
+      issuedWhom: ut
+      itWorksDate: consequuntur
+    fileParameters:
+      file: null
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.document.create.success","document":{"id":182,"name":"file_67d7f0f0b8236","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/users/cabinet/documents
+    metadata:
+      groupName: Document
+      groupDescription: 'Методы взаимодействия с документами пользователя'
+      subgroup: ''
+      subgroupDescription: ''
+      title: GetForUser
+      description: 'Получение всех документов пользователя'
       authenticated: false
       custom: []
     headers:
@@ -21,57 +126,228 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      paginate:
-        name: paginate
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"status":"success","message":"messages.document.get_for_user.success","documents":{"id":183,"name":"file_67d7f0f0c4511","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}},{"status":"success","message":"messages.document.get_for_user.success","documents":{"id":184,"name":"file_67d7f0f0ca44a","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}]'
+        headers: []
         description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
         custom: []
-      limit:
-        name: limit
-        description: 'Must not be greater than 100.'
-        required: false
-        example: 24
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/users/cabinet/documents/{id}'
+    metadata:
+      groupName: Document
+      groupDescription: 'Методы взаимодействия с документами пользователя'
+      subgroup: ''
+      subgroupDescription: ''
+      title: GetForUserById
+      description: 'Получение документа пользователя по id'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the document.'
+        required: true
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.document.get_for_user_by_id.success","document":{"id":185,"name":"file_67d7f0f0d8a12","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.document.get_for_user_by_id.not_found"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/users/cabinet/documents/{id}/update'
+    metadata:
+      groupName: Document
+      groupDescription: 'Методы взаимодействия с документами пользователя'
+      subgroup: ''
+      subgroupDescription: ''
+      title: Update
+      description: 'Изменение документа пользователя'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the document.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      file:
+        name: file
+        description: 'Must be a file.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
         nullable: true
         custom: []
-      page:
-        name: page
+      number:
+        name: number
         description: ''
         required: false
-        example: mollitia
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      name:
-        name: name
+      issuedWhom:
+        name: issuedWhom
         description: ''
         required: false
-        example: dolorum
+        example: consectetur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      itWorksDate:
+        name: itWorksDate
+        description: ''
+        required: false
+        example: non
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      paginate: false
-      limit: 24
-      page: mollitia
-      name: dolorum
+      number: et
+      issuedWhom: consectetur
+      itWorksDate: non
+    fileParameters:
+      file: null
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.document.update.success","document":{"id":186,"name":"file_67d7f0f0e973c","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/users/cabinet/documents/{id}'
+    metadata:
+      groupName: Document
+      groupDescription: 'Методы взаимодействия с документами пользователя'
+      subgroup: ''
+      subgroupDescription: ''
+      title: Delete
+      description: 'Удаление документа пользователя'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the document.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.location.get_all.success","data":{"id":null,"name":null,"type":null}},{"status":"success","message":"messages.location.get_all.success","data":{"id":null,"name":null,"type":null}}]'
+        content: '{"status":"success","message":"messages.document.delete.success"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []

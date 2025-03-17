@@ -1,18 +1,18 @@
-name: User
-description: 'Методы манипуляции пользователем.'
+name: AuthPhone
+description: 'Авторизация пользователей через телефон.'
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/users
+      - POST
+    uri: api/phone/login
     metadata:
-      groupName: User
-      groupDescription: 'Методы манипуляции пользователем.'
+      groupName: AuthPhone
+      groupDescription: 'Авторизация пользователей через телефон.'
       subgroup: ''
       subgroupDescription: ''
-      title: GetUserForToken
-      description: 'Получить данные пользователя по токену'
-      authenticated: true
+      title: Login
+      description: 'Вход пользователя через телефон.'
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
@@ -21,13 +21,35 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      number:
+        name: number
+        description: 'The <code>number</code> of an existing record in the phones table. Must be at least 10 characters. Must not be greater than 12 characters.'
+        required: true
+        example: corjvdjk
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      callback:
+        name: callback
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      number: corjvdjk
+      callback: true
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.user.get_user_for_token.success","user":{"id":150,"name":null,"email":"zmorar@example.com","email_verified_at":"2025-03-17T07:13:50.000000Z","avatar":null,"personal":null}}'
+        content: '{"status":"success","message":"messages.auth_phone.login.success"}'
         headers: []
         description: ''
         custom: []
@@ -39,42 +61,117 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - GET
-    uri: 'api/users/{id}'
+      - POST
+    uri: api/phone/register
     metadata:
-      groupName: User
-      groupDescription: 'Методы манипуляции пользователем.'
+      groupName: AuthPhone
+      groupDescription: 'Авторизация пользователей через телефон.'
       subgroup: ''
       subgroupDescription: ''
-      title: getForId
-      description: 'Получить пользователя по id'
+      title: Register
+      description: 'Регистрация нового пользователя через телефон.'
       authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the user.'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      number:
+        name: number
+        description: 'Must be at least 10 characters. Must not be greater than 12 characters.'
         required: true
-        example: 1
-        type: integer
+        example: psf
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+      callback:
+        name: callback
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      number: psf
+      callback: false
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.user.get_for_id.success","user":{"id":151,"name":null,"avatar":null,"personal":[]}}'
+        content: '{"status":"success","message":"messages.auth_phone.login.success"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/phone/verify
+    metadata:
+      groupName: AuthPhone
+      groupDescription: 'Авторизация пользователей через телефон.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: Verify
+      description: 'Подтверждение телефона и вход пользователя.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      pin:
+        name: pin
+        description: 'Must be at least 3 characters. Must not be greater than 4 characters.'
+        required: true
+        example: gj
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      number:
+        name: number
+        description: 'The <code>number</code> of an existing record in the phones table. Must be at least 10 characters. Must not be greater than 12 characters.'
+        required: true
+        example: acblytbmfjx
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      pin: gj
+      number: acblytbmfjx
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.auth.login.success","access_token":"17|XpCTh9s7QEg8i1AZr9tF766oRffjZYBq2zOeJCta9481bf48","token_type":"Bearer","user":{"id":159,"name":null,"email":"fredrick98@example.org","email_verified_at":"2025-03-17T09:52:46.000000Z","avatar":null,"personal":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
         headers: []
         description: ''
         custom: []
@@ -93,72 +190,49 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/users/update
+    uri: api/phone/verify/hook
     metadata:
-      groupName: User
-      groupDescription: 'Методы манипуляции пользователем.'
+      groupName: AuthPhone
+      groupDescription: 'Авторизация пользователей через телефон.'
       subgroup: ''
       subgroupDescription: ''
-      title: update
-      description: 'Обновить профиль пользователя'
-      authenticated: true
+      title: ''
+      description: ''
+      authenticated: false
       custom: []
     headers:
-      Content-Type: multipart/form-data
+      Content-Type: application/json
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
-        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
-        required: false
-        example: zp
+      key:
+        name: key
+        description: ''
+        required: true
+        example: mollitia
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         custom: []
-      email:
-        name: email
-        description: 'Must be a valid email address.'
-        required: false
-        example: osinski.emerson@example.com
+      phone:
+        name: phone
+        description: ''
+        required: true
+        example: eius
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
-        custom: []
-      avatar:
-        name: avatar
-        description: 'Must be an image.'
-        required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
+        nullable: false
         custom: []
     cleanBodyParameters:
-      name: zp
-      email: osinski.emerson@example.com
-    fileParameters:
-      avatar: null
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.user.update.success","user":{"id":152,"name":null,"email":"ratke.dennis@example.com","email_verified_at":"2025-03-17T07:13:50.000000Z","avatar":null,"personal":null}}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 500
-        content: '{"status":"success","message":"messages.user.update.error"}'
-        headers: []
-        description: ''
-        custom: []
+      key: mollitia
+      phone: eius
+    fileParameters: []
+    responses: []
     responseFields: []
     auth: []
     controller: null

@@ -1,115 +1,24 @@
-name: Track
-description: 'Методы взаимодествия с трассами на которых проходят гонки'
+name: VerificationEmail
+description: 'Подтверждение почты через письмо'
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/tracks
+      - POST
+    uri: api/verification-email/send
     metadata:
-      groupName: Track
-      groupDescription: 'Методы взаимодествия с трассами на которых проходят гонки'
+      groupName: VerificationEmail
+      groupDescription: 'Подтверждение почты через письмо'
       subgroup: ''
       subgroupDescription: ''
-      title: get
-      description: 'Получение трасс по фильтрам'
-      authenticated: false
+      title: send
+      description: 'Отправка письма на почту пользователя'
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      userId:
-        name: userId
-        description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
-        example: 3
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      paginate:
-        name: paginate
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      page:
-        name: page
-        description: ''
-        required: false
-        example: qui
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      limit:
-        name: limit
-        description: 'Must not be greater than 50.'
-        required: false
-        example: 20
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      userId: 3
-      paginate: false
-      page: qui
-      limit: 20
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '[{"status":"success","message":"messages.track.get.success","tracks":{"id":40,"name":"Assembler","address":"900 Schulist Ramp\nBobbiehaven, MI 74202-9559","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Laudantium quis fugit ut fugit sapiente. Vel quae quo expedita ut aliquam vel. Consectetur aut aut odit veniam aut. Error nesciunt esse itaque fuga itaque molestiae illum. Culpa quia aperiam et quisquam dolores. Et ad qui soluta et distinctio et. Quas nihil eveniet accusamus magni. Ipsum laboriosam voluptatem animi dolore illo recusandae. Ratione amet autem commodi ducimus et est excepturi impedit. Qui sed commodi fugiat qui et. Tempore mollitia aspernatur sit maxime neque quo corporis.","length":39,"turns":0,"free":true,"is_work":false,"spec":null,"location":{"id":45,"name":"\u041d\u0435\u043d\u0435\u0446\u043a\u0438\u0439","type":"\u0430\u0432\u0442\u043e\u043d\u043e\u043c\u043d\u044b\u0439 \u043e\u043a\u0440\u0443\u0433"},"store":null}},{"status":"success","message":"messages.track.get.success","tracks":{"id":41,"name":"Bookbinder","address":"2550 Woodrow Glens\nTremblayhaven, OK 94499-9399","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Laboriosam labore amet officiis dolor voluptas. Dolore provident voluptatem atque ratione distinctio consequatur possimus. Iure aut sunt nobis recusandae explicabo. Qui est nihil necessitatibus sit atque beatae magnam autem. Dolor quia est est rerum. Est eum quia omnis unde vero. Et omnis et a et temporibus eos asperiores. Cumque sequi officiis id et est quo qui. Dicta a sunt maxime provident iusto esse perferendis. Nemo enim numquam nemo sit dolorem beatae veritatis sed.","length":68,"turns":83,"free":false,"is_work":false,"spec":null,"location":{"id":46,"name":"\u041d\u0438\u0436\u0435\u0433\u043e\u0440\u043e\u0434\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"store":null}}]'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/tracks/{id}'
-    metadata:
-      groupName: Track
-      groupDescription: 'Методы взаимодествия с трассами на которых проходят гонки'
-      subgroup: ''
-      subgroupDescription: ''
-      title: getForId
-      description: 'Получение трассы по id'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the track.'
-        required: true
-        example: 7
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 7
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -118,13 +27,13 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.track.get_for_id.success","track":{"id":42,"name":"Welder","address":"85889 Ferry Summit Suite 696\nHeidenreichstad, OK 87801","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Omnis culpa numquam deleniti cumque repellendus praesentium. Nihil in id sunt sequi dolor odit reiciendis ut. Provident sed voluptatem perferendis est in. Ratione nobis dolorem eum. Temporibus sint dolore tempore nostrum beatae nemo assumenda saepe. Ut qui esse ratione repellendus sapiente itaque iste. Itaque et nulla doloremque saepe.","length":920,"turns":84,"free":false,"is_work":false,"spec":null,"location":{"id":10,"name":"\u0411\u0443\u0440\u044f\u0442\u0438\u044f","type":"\u0440\u0435\u0441\u043f\u0443\u0431\u043b\u0438\u043a\u0430"},"store":null}}'
+        content: '{"status":"success","message":"messages.verification_email.send.success"}'
         headers: []
         description: ''
         custom: []
       -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
+        status: 403
+        content: '{"status":"error","message":"messages.verification_email.send.already_sent"}'
         headers: []
         description: ''
         custom: []
@@ -137,453 +46,53 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/tracks
+    uri: api/verification-email/verify
     metadata:
-      groupName: Track
-      groupDescription: 'Методы взаимодествия с трассами на которых проходят гонки'
+      groupName: VerificationEmail
+      groupDescription: 'Подтверждение почты через письмо'
       subgroup: ''
       subgroupDescription: ''
-      title: create
-      description: 'Метод создания трека'
+      title: verify
+      description: 'Подтверждение почты пользователя по коду из письма'
       authenticated: true
       custom: []
     headers:
-      Content-Type: multipart/form-data
+      Content-Type: application/json
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
-        description: 'Must be at least 3 characters.'
+      code:
+        name: code
+        description: 'Must be at least 999. Must not be greater than 10000.'
         required: true
-        example: rhajlybkkphtfycecpdekeqmfmlcddtdoszisugnbeacdcm
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      address:
-        name: address
-        description: ''
-        required: true
-        example: corporis
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      latitude:
-        name: latitude
-        description: 'Must be between -87 and 89.'
-        required: true
-        example: -86
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      longitude:
-        name: longitude
-        description: 'Must be between -180 and 180.'
-        required: true
-        example: -180
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      images:
-        name: images
-        description: 'Must be an image.'
-        required: false
-        example:
-          - null
-        type: 'file[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      levelId:
-        name: levelId
-        description: 'The <code>id</code> of an existing record in the levels table.'
-        required: false
-        example: 13
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      desc:
-        name: desc
-        description: ''
-        required: false
-        example: assumenda
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      length:
-        name: length
-        description: ''
-        required: false
-        example: 7
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      turns:
-        name: turns
-        description: ''
-        required: false
-        example: 4
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      free:
-        name: free
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      is_work:
-        name: is_work
-        description: ''
-        required: true
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      contacts:
-        name: contacts
-        description: 'Must be a valid JSON string.'
-        required: false
-        example: '["voluptatem","ut"]'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      spec:
-        name: spec
-        description: 'Must be a valid JSON string.'
-        required: false
-        example: '["earum","et"]'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      locationId:
-        name: locationId
-        description: 'The <code>id</code> of an existing record in the locations table.'
-        required: false
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      storeId:
-        name: storeId
-        description: 'The <code>id</code> of an existing record in the stores table.'
-        required: false
         example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         custom: []
     cleanBodyParameters:
-      name: rhajlybkkphtfycecpdekeqmfmlcddtdoszisugnbeacdcm
-      address: corporis
-      latitude: -86
-      longitude: -180
-      levelId: 13
-      desc: assumenda
-      length: 7
-      turns: 4
-      free: true
-      is_work: false
-      contacts: '["voluptatem","ut"]'
-      spec: '["earum","et"]'
-      locationId: 16
-      storeId: 8
-    fileParameters:
-      images:
-        - null
+      code: 8
+    fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.track.create.success","track":{"id":43,"name":"Bicycle Repairer","address":"786 Labadie Islands Apt. 258\nEast Meda, NJ 41264-7466","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Quaerat optio consectetur rerum incidunt. Quidem error consectetur vitae dolor quia et suscipit. Aperiam at debitis et nihil sunt. Et et et nemo. Et suscipit modi voluptatum omnis nihil reiciendis. Numquam dolorum quae minima aperiam nihil. Dolor omnis optio non qui ut quidem odio. Deserunt ratione quae quis possimus ratione. Et commodi qui nisi voluptatem repellendus doloremque repellendus. Pariatur quibusdam omnis incidunt a.","length":128,"turns":2,"free":false,"is_work":false,"spec":null,"location":{"id":41,"name":"\u041c\u043e\u0440\u0434\u043e\u0432\u0438\u044f","type":"\u0440\u0435\u0441\u043f\u0443\u0431\u043b\u0438\u043a\u0430"},"store":null}}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 422
-        content: '{"status":"error","message":"messages.track.create.error"}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/tracks/{id}'
-    metadata:
-      groupName: Track
-      groupDescription: 'Методы взаимодествия с трассами на которых проходят гонки'
-      subgroup: ''
-      subgroupDescription: ''
-      title: update
-      description: 'Метод редактирования трека'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: multipart/form-data
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the track.'
-        required: true
-        example: 7
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 7
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'Must be at least 3 characters.'
-        required: true
-        example: kyiuhvuwexkhegwzxwrfusbiurihqdrhpspfrhhtfgmiaoebhempqiirqlililevjnbwstdhifycrha
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      address:
-        name: address
-        description: ''
-        required: true
-        example: distinctio
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      latitude:
-        name: latitude
-        description: 'Must be between -87 and 89.'
-        required: true
-        example: -87
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      longitude:
-        name: longitude
-        description: 'Must be between -180 and 180.'
-        required: true
-        example: -179
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      imagesAdd:
-        name: imagesAdd
-        description: 'Must be an image.'
-        required: false
-        example:
-          - null
-        type: 'file[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      imagesDel:
-        name: imagesDel
-        description: ''
-        required: false
-        example:
-          - aut
-        type: 'string[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      levelId:
-        name: levelId
-        description: 'The <code>id</code> of an existing record in the levels table.'
-        required: false
-        example: 2
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      desc:
-        name: desc
-        description: ''
-        required: false
-        example: sapiente
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      length:
-        name: length
-        description: ''
-        required: false
-        example: 4
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      turns:
-        name: turns
-        description: ''
-        required: false
-        example: 9
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      free:
-        name: free
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      is_work:
-        name: is_work
-        description: ''
-        required: true
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      contacts:
-        name: contacts
-        description: 'Must be a valid JSON string.'
-        required: false
-        example: '["ea","similique"]'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      spec:
-        name: spec
-        description: 'Must be a valid JSON string.'
-        required: false
-        example: '["eum","molestiae"]'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      locationId:
-        name: locationId
-        description: 'The <code>id</code> of an existing record in the locations table.'
-        required: false
-        example: 12
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      userId:
-        name: userId
-        description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
-        example: 17
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      storeId:
-        name: storeId
-        description: 'The <code>id</code> of an existing record in the stores table.'
-        required: false
-        example: 13
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      name: kyiuhvuwexkhegwzxwrfusbiurihqdrhpspfrhhtfgmiaoebhempqiirqlililevjnbwstdhifycrha
-      address: distinctio
-      latitude: -87
-      longitude: -179
-      imagesDel:
-        - aut
-      levelId: 2
-      desc: sapiente
-      length: 4
-      turns: 9
-      free: true
-      is_work: false
-      contacts: '["ea","similique"]'
-      spec: '["eum","molestiae"]'
-      locationId: 12
-      userId: 17
-      storeId: 13
-    fileParameters:
-      imagesAdd:
-        - null
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.track.update.success","track":{"id":44,"name":"Production Planning","address":"2008 Hayes Plaza\nNew Bridie, SD 79387-6280","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Saepe voluptate assumenda dignissimos et voluptates delectus quod. Consequuntur eligendi libero provident dignissimos et. Quis sint commodi nam eum rem amet placeat sit. Aut corporis molestiae non corporis. Possimus praesentium nemo harum non in et. Tempora est consequatur facilis minima. Consequatur dolorem magni ipsum minima iste. Sunt veniam dolore quia laudantium qui.","length":821,"turns":40,"free":true,"is_work":false,"spec":null,"location":{"id":59,"name":"\u0421\u0430\u043d\u043a\u0442-\u041f\u0435\u0442\u0435\u0440\u0431\u0443\u0440\u0433","type":"\u0433\u043e\u0440\u043e\u0434"},"store":null}}'
+        content: '{"status":"success","message":"messages.verification_email.verification.success"}'
         headers: []
         description: ''
         custom: []
       -
         status: 403
-        content: '{"status":"error","message":"messages.error.not_allowed"}'
+        content: '{"status":"error","message":"messages.verification_email.send.already_sent"}'
         headers: []
         description: ''
         custom: []
       -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
+        status: 403
+        content: '{"status":"error","message":"messages.verification_email.verification.incorrect"}'
         headers: []
         description: ''
         custom: []

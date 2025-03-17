@@ -1,17 +1,166 @@
-name: Attendance
-description: 'Методы связанные с платными услугами'
+name: Grade
+description: 'Методы связанные с классами'
 endpoints:
   -
     httpMethods:
-      - POST
-    uri: api/attendances
+      - GET
+    uri: api/grades
     metadata:
-      groupName: Attendance
-      groupDescription: 'Методы связанные с платными услугами'
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: get
+      description: 'Получение всех классов по фильтрам'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      paginate:
+        name: paginate
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: occaecati
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      limit:
+        name: limit
+        description: 'Must not be greater than 50.'
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      userId: 2
+      paginate: false
+      page: occaecati
+      limit: 15
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"status":"success","message":"messages.grade.get.success","grades":{"id":32,"name":"Enos Price","description":"Voluptate enim commodi inventore vel et temporibus. Sed est quos et ratione. Quasi accusantium eos quaerat qui sequi repellendus et. Omnis id quis id saepe."}},{"status":"success","message":"messages.grade.get.success","grades":{"id":33,"name":"Esther Shields","description":"Nobis sit porro quibusdam odio dolores. Sunt unde libero quod sit nulla totam non. Officiis ea voluptatibus qui."}}]'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/grades/{id}'
+    metadata:
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: getForId
+      description: 'Получение класса по id'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the grade.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The <code>id</code> of an existing record in the grades table.'
+        required: true
+        example: 11
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      userId:
+        name: userId
+        description: ''
+        required: false
+        example: 20
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      id: 11
+      userId: 20
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.grade.get_for_id.success","grade":{"id":34,"name":"Camren Rogahn","description":"Dolorem adipisci est voluptatem nulla consequatur animi est. In architecto fugiat et excepturi quo. Accusamus quo et dolores iure maxime vel illo."}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/grades
+    metadata:
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
       subgroup: ''
       subgroupDescription: ''
       title: create
-      description: 'Создание платной услуги'
+      description: 'Создание класса'
       authenticated: true
       custom: []
     headers:
@@ -26,52 +175,30 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: vbscozymqxticmtcc
+        example: lamsfznrbwqlphh
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
-      desc:
-        name: desc
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: tjgwrjjdoxxhncfooefld
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      price:
-        name: price
+      description:
+        name: description
         description: ''
-        required: true
-        example: 7858031.937161
-        type: number
+        required: false
+        example: 'Dolorum soluta quia repudiandae voluptatem qui rem.'
+        type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
-        custom: []
-      trackId:
-        name: trackId
-        description: 'The <code>id</code> of an existing record in the tracks table.'
-        required: true
-        example: 7
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
+        nullable: true
         custom: []
     cleanBodyParameters:
-      name: vbscozymqxticmtcc
-      desc: tjgwrjjdoxxhncfooefld
-      price: 7858031.937161
-      trackId: 7
+      name: lamsfznrbwqlphh
+      description: 'Dolorum soluta quia repudiandae voluptatem qui rem.'
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.attendance.create.success","attendance":{"id":55,"name":"Antonina Botsford","desc":"Sunt culpa inventore qui earum eum esse. Ab non enim itaque qui qui optio officiis. Molestiae ut autem id.","price":"239"}}'
+        content: '{"status":"success","message":"messages.grade.create.success","grade":{"id":35,"name":"Miss Myah O''Connell","description":"In modi nesciunt consequatur dolorem tempora dolorum. Assumenda accusamus repudiandae totam fugit. Occaecati autem corrupti nostrum est dolores corporis. Velit harum ad nulla sed accusamus."}}'
         headers: []
         description: ''
         custom: []
@@ -83,15 +210,15 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - POST
-    uri: 'api/attendance/{id}'
+      - PATCH
+    uri: 'api/grades/{id}'
     metadata:
-      groupName: Attendance
-      groupDescription: 'Методы связанные с платными услугами'
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
       subgroup: ''
       subgroupDescription: ''
       title: update
-      description: 'Редактирование платной услуги'
+      description: 'Редактирование класса'
       authenticated: true
       custom: []
     headers:
@@ -100,7 +227,7 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the attendance.'
+        description: 'The ID of the grade.'
         required: true
         example: 1
         type: integer
@@ -116,111 +243,48 @@ endpoints:
       name:
         name: name
         description: 'Must not be greater than 255 characters.'
-        required: true
-        example: x
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      desc:
-        name: desc
-        description: 'Must not be greater than 255 characters.'
         required: false
-        example: qsmkburwbjgyovm
+        example: lmxmchlg
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      price:
-        name: price
+      description:
+        name: description
         description: ''
-        required: true
-        example: 0.889
-        type: number
+        required: false
+        example: 'Saepe voluptate eligendi saepe eligendi vel.'
+        type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         custom: []
-      trackId:
-        name: trackId
-        description: 'The <code>id</code> of an existing record in the tracks table.'
-        required: true
-        example: 9
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 14
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         custom: []
     cleanBodyParameters:
-      name: x
-      desc: qsmkburwbjgyovm
-      price: 0.889
-      trackId: 9
+      name: lmxmchlg
+      description: 'Saepe voluptate eligendi saepe eligendi vel.'
+      userId: 14
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.attendance.update.success","attendance":{"id":56,"name":"Mrs. Raina Bartell PhD","desc":"Saepe repellendus rem id quia dolorem sed fuga. Quis dolorem asperiores explicabo aut. Eligendi quia delectus numquam architecto.","price":"7.830246e+08"}}'
+        content: '{"status":"success","message":"messages.grade.update.success","grade":{"id":36,"name":"Prof. Calista Ullrich IV","description":"Quo dolor dolores aut dolores fugiat. Non consequatur velit perferendis tempora dolor qui. In ex optio dolorem quia voluptas ex."}}'
         headers: []
         description: ''
         custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/attendance/{id}'
-    metadata:
-      groupName: Attendance
-      groupDescription: 'Методы связанные с платными услугами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: delete
-      description: 'Удаление платной услуги'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the attendance.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      id:
-        name: id
-        description: 'The <code>id</code> of an existing record in the attendances table.'
-        required: false
-        example: 6
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      id: 6
-    fileParameters: []
-    responses:
       -
-        status: 200
-        content: '{"status":"success","message":"messages.attendance.delete.success","attendance":{"id":57,"name":"Bartholome Franecki","desc":"Et excepturi sunt enim adipisci expedita ducimus vitae consequatur. Voluptatem quam reiciendis ut itaque. Qui ad molestiae numquam quo in non. At sit rem quisquam quia repellat asperiores.","price":"52995"}}'
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
