@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Enums\DocumentType;
 use App\Models\Document;
+use App\Models\User;
 use App\Services\GoogleSheetService;
 use Exception;
 use Illuminate\Console\Command;
@@ -32,45 +33,38 @@ class test extends Command
      */
     public function handle()
     {
-        $code = '2223';
-        $client = new \GuzzleHttp\Client();
-        $response = $client->post(
-            'https://restapi.plusofon.ru/api/v1/flash-call/send',
-            [
-                'headers' => [
-                    'Content-Type'  => 'application/json',
-                    'Accept'        => 'application/json',
-                    'Client'        => env('PLUS_PHONE_CLIENT_ID'),
-                    'Authorization' => 'Bearer ' . env('PLUS_PHONE_CALL_KEY'),
-                ],
-                'json' => [
-                    'phone' => '79826190989',
-                    'pin' => $code,
-                ],
-            ]
-        );
-        $body = $response->getBody();
-        $result = json_decode((string) $body);
+        // Не трогать и не перекрывать код. Я потом сам его уберу, когда посчитаю нужным. bolshe.kivi
+        User::query()->orderBy('id')->chunk(1000, function ($users) {
+            $users->each(function ($user) {
+                if ($user->personalInfo()->exists()) {
+                    $phone = $user->personalInfo()->first()->phone_number;
+                    $phone = rtrim($phone);
+                    $phone = preg_replace('/[^0-9]/', '', $phone);
+                    if (isset($phone) && strlen($phone) !== 0) {
+                        if (strlen($phone) === 11) {
+                            $phone[0] = "7";
+                        } elseif(strlen($phone) === 10) {
+                            $phone = "7" . $phone;
+                        }
+                        if (strlen($phone) === 11)
+                        {
+                            if ($user->phone()->exists()) {
+                                $user->phone()->update([
+                                    'number' => $phone,
+                                    'last_num' => (string)substr($phone, -4),
+                                ]);
+                            } else {
+                                $user->phone()->create([
+                                    'number' => $phone,
+                                    'last_num' => (string)substr($phone, -4),
+                                ]);
+                            }
+                        }
+                    }
 
-        $client = new \GuzzleHttp\Client();
-        $response = $client->post(
-            'https://restapi.plusofon.ru/api/v1/flash-call/check',
-            [
-                'headers' => [
-                    'Content-Type' => 'application/json',
-                    'Accept' => 'application/json',
-                    'Client' => env('PLUS_PHONE_CLIENT_ID'),
-                    'Authorization' => 'Bearer ' . env('PLUS_PHONE_CALLBACK_KEY'),
-                ],
-                'json' => [
-                    'key' => $result->data->key,
-                    'pin' => $code,
-                ],
-            ]
-        );
-        dd($response);
-        $body = $response->getBody();
-        dd(json_decode((string) $body));
+                }
+            });
+        });
         return 0;
     }
 }
