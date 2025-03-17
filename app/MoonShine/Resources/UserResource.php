@@ -123,9 +123,8 @@ class UserResource extends ModelResource
                             Email::make(__('moonshine::ui.resource.email'), 'email')
                                 ->required(),
                             Date::make('Подтверждение почты', 'email_verified_at')->withTime(),
-                            Phone::make('Телефон(Не изменяемое поле)', 'phone.number'),
-                            Date::make('Подтверждение телефона(Не изменяемое поле)', 'phone.number_verified_at')->withTime(),
-
+//                            Phone::make('Телефон(Не изменяемое поле)', 'phone.number'),
+//                            Date::make('Подтверждение телефона(Не изменяемое поле)', 'phone.number_verified_at')->withTime(),
                         ]),
 
                         Image::make(__('moonshine::ui.resource.avatar'), 'avatar')
