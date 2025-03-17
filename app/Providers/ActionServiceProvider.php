@@ -12,6 +12,7 @@ use App\Contracts\Actions\Controllers\Grade\UpdateGradeActionContract;
 use App\Contracts\Actions\Controllers\Race\AddCommissionActionContract;
 use App\Contracts\Actions\Controllers\Race\RemoveCommissionActionContract;
 use App\Contracts\Actions\Controllers\Status\GetStatusesActionContract;
+use App\Contracts\Actions\Controllers\User\DeleteUserActionContract;
 use App\Contracts\Actions\Controllers\User\GetCommisionUserActionContract;
 use Illuminate\Support\ServiceProvider;
 
@@ -54,7 +55,8 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentPDFActionContract::class                   => \App\Actions\Controllers\AppointmentRace\GetAppointmentPDFAction::class,
         \App\Contracts\Actions\Controllers\User\UpdateUserActionContract::class                                     => \App\Actions\Controllers\User\UpdateUserAction::class,
         \App\Contracts\Actions\Controllers\User\GetUserForIdActionContract::class                                   => \App\Actions\Controllers\User\GetUserForIdAction::class,
-        \App\Contracts\Actions\Controllers\User\GetCommisionUserActionContract::class                                   => \App\Actions\Controllers\User\GetCommisionUserAction::class,
+        \App\Contracts\Actions\Controllers\User\GetCommisionUserActionContract::class                               => \App\Actions\Controllers\User\GetCommisionUserAction::class,
+        \App\Contracts\Actions\Controllers\User\DeleteUserActionContract::class                                     => \App\Actions\Controllers\User\DeleteUserAction::class,
         \App\Contracts\Actions\Controllers\VerificationEmail\VerificationActionContract::class                      => \App\Actions\Controllers\VerificationEmail\VerificationAction::class,
         \App\Contracts\Actions\Controllers\VerificationEmail\SendActionContract::class                              => \App\Actions\Controllers\VerificationEmail\SendAction::class,
         \App\Contracts\Actions\Controllers\Location\GetLocationActionContract::class                                => \App\Actions\Controllers\Location\GetLocationAction::class,

@@ -28,6 +28,7 @@ Route::controller(UserController::class)->group(function () {
     Route::get('users/{id}', 'getForId')->name('user.get_for_id');
     Route::post('users/update', 'update')->middleware('auth:sanctum')->name('user.get_user.update');
     Route::get('users-commissions', 'getCommissions')->name('user.get_user_commissions');
+    Route::delete('users', 'delete')->middleware(['auth:sanctum'])->name('user.delete');
 });
 
 Route::controller(\App\Http\Controllers\Api\RecoveryPassword::class)->group(function () {

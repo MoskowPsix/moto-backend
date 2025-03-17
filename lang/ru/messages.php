@@ -19,6 +19,9 @@ return [
         'commision_get' => [
             'success' => 'Судьи были получены успешно.',
         ],
+        'delete' => [
+            'success' => 'Пользователь был успешно удалён.',
+        ],
     ],
     'recovery_password' => [
         'recovery' => [
