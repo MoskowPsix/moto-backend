@@ -68,7 +68,6 @@ class MoonShineServiceProvider extends ServiceProvider
                 AttendanceResource::class,
                 PhoneResource::class,
                 StatusResource::class,
-                PersonalInfoResource::class,
             ])
             ->pages([
                 ...$config->getPages(),
