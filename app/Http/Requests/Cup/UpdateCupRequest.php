@@ -24,6 +24,7 @@ class UpdateCupRequest extends FormRequest
         return [
             'name'          => 'nullable|string|max:255',
             'year'          => 'nullable|integer',
+            'stages'        => 'nullable|string|max:255',
             'locationId'    => 'nullable|integer|exists:locations,id',
             'userId'        => 'nullable|integer|exists:users,id',
         ];

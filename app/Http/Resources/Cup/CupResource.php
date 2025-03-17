@@ -11,6 +11,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property integer    $id
  * @property string     $name
  * @property string     $region
+ * @property string     $stages
  * @property integer    $year
  */
 class CupResource extends JsonResource
@@ -26,6 +27,7 @@ class CupResource extends JsonResource
             'id'        => $this->id,
             'name'      => $this->name,
             'year'      => $this->year,
+            'stages'    => $this->stages,
             'user'      => UserResource::make($this->whenLoaded('user')),
             'location'  => LocationResource::make($this->whenLoaded('location')),
         ];

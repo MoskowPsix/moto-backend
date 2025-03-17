@@ -25,6 +25,7 @@ class UpdateCupAction implements UpdateCupActionContract
         $cup->update([
             'name'          => $request->name ?? $cup->name,
             'year'          => $request->year ?? $cup->year,
+            'stages'        => $request->stages ?? $cup->stages,
             'location_id'   => $request->locationId ?? $cup->location_id,
             'update_id'     => $request->updateId ?? $cup->update_id,
         ]);

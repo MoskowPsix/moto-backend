@@ -9,6 +9,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property mixed $year
  * @property mixed $locationId
  * @property mixed $userId
+ * @property mixed $stages
  */
 class CreateCupRequest extends FormRequest
 {
@@ -30,6 +31,7 @@ class CreateCupRequest extends FormRequest
         return [
             'name'          => 'required|string|max:255',
             'year'          => 'required|integer',
+            'stages'        => 'nullable|string|max:255',
             'locationId'    => 'nullable|integer|exists:locations,id',
         ];
     }

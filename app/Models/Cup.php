@@ -17,6 +17,7 @@ class Cup extends Model
         'name',
         'year',
         'region',
+        'stages',
         'location_id',
         'user_id',
     ];

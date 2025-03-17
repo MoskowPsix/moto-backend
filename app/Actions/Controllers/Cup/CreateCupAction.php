@@ -16,6 +16,7 @@ class CreateCupAction implements CreateCupActionContract
         $cup = Cup::create([
             'name'          => $request->name,
             'year'          => $request->year,
+            'stages'        => $request->stages,
             'location_id'   => $request->locationId,
             'user_id'       => $user->id,
         ]);
