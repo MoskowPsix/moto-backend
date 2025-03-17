@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -89,5 +90,22 @@ class User extends Authenticatable
     public function phone(): HasOne
     {
         return $this->hasOne(Phone::class);
+    }
+
+    public function getNameAttribute(): ?string
+    {
+        return $this->personalInfo?->name;
+    }
+    public function getSurnameAttribute(): ?string
+    {
+        return $this->personalInfo?->surname;
+    }
+    public function getCityAttribute(): ?string
+    {
+        return $this->personalInfo?->city;
+    }
+    public function getLocationAttribute(): ?string
+    {
+        return $this->personalInfo?->location?->name;
     }
 }

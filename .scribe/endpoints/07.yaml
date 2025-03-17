@@ -27,7 +27,7 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the attendances table.'
         required: true
         example:
-          - 3
+          - 6
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
@@ -35,9 +35,9 @@ endpoints:
         custom: []
       date:
         name: date
-        description: 'Значение поля value не является датой.'
+        description: 'Must be a valid date.'
         required: false
-        example: '2025-03-17T07:30:22'
+        example: '2025-03-17T09:52:47'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -45,13 +45,13 @@ endpoints:
         custom: []
     cleanBodyParameters:
       attendanceIds:
-        - 3
-      date: '2025-03-17T07:30:22'
+        - 6
+      date: '2025-03-17T09:52:47'
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0422\u0440\u0430\u043d\u0437\u0430\u043a\u0446\u0438\u044f \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430.","payment_link":null,"transaction":{"id":11,"status":null,"desc":null,"count":null,"date":null,"user":null}}'
+        content: '{"status":"success","message":"messages.transaction.create.success","payment_link":null,"transaction":{"id":112,"status":false,"desc":null,"count":null,"date":null,"user":null}}'
         headers: []
         description: ''
         custom: []
@@ -87,7 +87,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":12,"status":null,"desc":null,"count":null,"date":null,"user":null}'
+        content: '{"id":113,"status":false,"desc":null,"count":null,"date":null,"user":null}'
         headers: []
         description: ''
         custom: []

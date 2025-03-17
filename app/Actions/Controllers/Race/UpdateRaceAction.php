@@ -35,6 +35,7 @@ class UpdateRaceAction implements UpdateRaceActionContract
         ]);
         $this->saveFiles($request, $race);
         $race->grades()->sync($request->gradeIds);
+        $race->cups()->sync($request->cupIds);
 
         return SuccessUpdateRaceResource::make($race);
     }

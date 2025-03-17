@@ -27,7 +27,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043f\u043e \u0442\u043e\u043a\u0435\u043d\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e","user":{"id":596,"name":"\u041c\u0438\u043b\u0430\u043d \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447 \u0415\u0432\u0441\u0435\u0435\u0432","email":"danisimov@example.org","email_verified_at":"2025-03-17T07:30:22.000000Z","avatar":null}}'
+        content: '{"status":"success","message":"messages.user.get_user_for_token.success","user":{"id":160,"name":null,"email":"tiara.mueller@example.org","email_verified_at":"2025-03-17T09:52:46.000000Z","avatar":null,"personal":null}}'
         headers: []
         description: ''
         custom: []
@@ -58,14 +58,14 @@ endpoints:
         name: id
         description: 'The ID of the user.'
         required: true
-        example: 14
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 14
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -74,13 +74,13 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","user":{"id":597,"name":"\u0418\u0441\u043a\u0440\u0430 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u043d\u0430 \u0410\u043a\u0441\u0451\u043d\u043e\u0432\u0430","avatar":null,"personal":[]}}'
+        content: '{"status":"success","message":"messages.user.get_for_id.success","user":{"id":161,"name":null,"avatar":null,"personal":[]}}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
@@ -113,9 +113,9 @@ endpoints:
     bodyParameters:
       name:
         name: name
-        description: 'Количество символов в поле value должно быть не меньше 3. Количество символов в значении поля value не может превышать 50.'
+        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
         required: false
-        example: whwvfacvzpktjcpjvekb
+        example: fep
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -123,9 +123,9 @@ endpoints:
         custom: []
       email:
         name: email
-        description: 'Значение поля value должно быть действительным электронным адресом.'
+        description: 'Must be a valid email address.'
         required: false
-        example: ekutch@example.org
+        example: drunolfsdottir@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -133,7 +133,7 @@ endpoints:
         custom: []
       avatar:
         name: avatar
-        description: 'Файл, указанный в поле value, должен быть изображением.'
+        description: 'Must be an image.'
         required: false
         example: null
         type: file
@@ -143,30 +143,30 @@ endpoints:
         custom: []
       number:
         name: number
-        description: 'Количество символов в поле value должно быть не меньше 10. Количество символов в значении поля value не может превышать 12.'
+        description: 'Must be at least 10 characters. Must not be greater than 12 characters.'
         required: false
-        example: vxzbczv
+        example: mhqows
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: whwvfacvzpktjcpjvekb
-      email: ekutch@example.org
-      number: vxzbczv
+      name: fep
+      email: drunolfsdottir@example.org
+      number: mhqows
     fileParameters:
       avatar: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0430.","user":{"id":598,"name":"\u041b\u0435\u0431\u0435\u0434\u0435\u0432\u0430 \u041d\u0438\u043d\u0430 \u0418\u0432\u0430\u043d\u043e\u0432\u043d\u0430","email":"milan71@example.com","email_verified_at":"2025-03-17T07:30:22.000000Z","avatar":null}}'
+        content: '{"status":"success","message":"messages.user.update.success","user":{"id":162,"name":null,"email":"cornelius66@example.org","email_verified_at":"2025-03-17T09:52:46.000000Z","avatar":null,"personal":null}}'
         headers: []
         description: ''
         custom: []
       -
         status: 500
-        content: '{"status":"success","message":"\u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0438 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0438 \u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435. \u041f\u043e\u043f\u0440\u043e\u0431\u0443\u0439\u0442\u0435 \u043f\u043e\u0437\u0436\u0435."}'
+        content: '{"status":"success","message":"messages.user.update.error"}'
         headers: []
         description: ''
         custom: []
@@ -201,7 +201,7 @@ endpoints:
         name: name
         description: ''
         required: false
-        example: numquam
+        example: dolor
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -211,7 +211,7 @@ endpoints:
         name: paginate
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -221,7 +221,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: perspiciatis
+        example: sunt
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -229,24 +229,24 @@ endpoints:
         custom: []
       limit:
         name: limit
-        description: 'Значение поля value не может быть больше 50.'
+        description: 'Must not be greater than 50.'
         required: false
-        example: 5
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: numquam
-      paginate: true
-      page: perspiciatis
-      limit: 5
+      name: dolor
+      paginate: false
+      page: sunt
+      limit: 12
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"\u0421\u0443\u0434\u044c\u0438 \u0431\u044b\u043b\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","users":{"id":599,"name":"\u041f\u0435\u0442\u0443\u0445\u043e\u0432\u0430 \u0410\u043b\u0451\u043d\u0430 \u0415\u0432\u0433\u0435\u043d\u044c\u0435\u0432\u043d\u0430","avatar":null,"personal":[]}},{"status":"success","message":"\u0421\u0443\u0434\u044c\u0438 \u0431\u044b\u043b\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","users":{"id":600,"name":"\u041c\u0430\u0441\u043b\u043e\u0432\u0430 \u0418\u043d\u043d\u0430 \u0424\u0451\u0434\u043e\u0440\u043e\u0432\u043d\u0430","avatar":null,"personal":[]}}]'
+        content: '[{"status":"success","message":"messages.user.commision_get.success","users":{"id":163,"name":null,"avatar":null,"personal":[]}},{"status":"success","message":"messages.user.commision_get.success","users":{"id":164,"name":null,"avatar":null,"personal":[]}}]'
         headers: []
         description: ''
         custom: []
