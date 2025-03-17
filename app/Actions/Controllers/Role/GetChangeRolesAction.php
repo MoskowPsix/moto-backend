@@ -11,7 +11,7 @@ class GetChangeRolesAction implements GetChangeRolesActionContract
 {
     public function __invoke(): SuccessGetChangeRoleResource
     {
-        $roles = Role::whereIn('name', [RoleConstant::RIDER, RoleConstant::ORGANIZATION])->get();
+        $roles = Role::whereIn('name', [RoleConstant::RIDER, RoleConstant::ORGANIZATION, RoleConstant::COUCH])->get();
         return SuccessGetChangeRoleResource::make($roles);
     }
 }

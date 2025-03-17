@@ -22,14 +22,14 @@ endpoints:
         name: id
         description: 'The ID of the cup.'
         required: true
-        example: assumenda
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: assumenda
+      id: et
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -45,9 +45,9 @@ endpoints:
         custom: []
       limit:
         name: limit
-        description: 'Must not be greater than 100.'
+        description: 'Значение поля value не может быть больше 100.'
         required: false
-        example: 25
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -57,7 +57,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: quis
+        example: aut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -67,7 +67,7 @@ endpoints:
         name: name
         description: ''
         required: false
-        example: sit
+        example: minus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -75,14 +75,14 @@ endpoints:
         custom: []
     cleanBodyParameters:
       paginate: true
-      limit: 25
-      page: quis
-      name: sit
+      limit: 20
+      page: aut
+      name: minus
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.cup.get_for_id.success","cup":{"id":1,"name":"\u041a\u0443\u0431\u043e\u043a \u0420\u043e\u0441\u0441\u0438\u0438","year":2025,"stages":null}}'
+        content: '{"status":"success","message":"\u041a\u0443\u0431\u043e\u043a \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","cup":{"id":null,"name":null,"year":null,"stages":null}}'
         headers: []
         description: ''
         custom: []
@@ -115,9 +115,9 @@ endpoints:
     bodyParameters:
       name:
         name: name
-        description: 'Must not be greater than 255 characters.'
+        description: 'Количество символов в значении поля value не может превышать 255.'
         required: true
-        example: av
+        example: uxdmpzugepqchtuoi
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -127,7 +127,7 @@ endpoints:
         name: year
         description: ''
         required: true
-        example: 20
+        example: 10
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -135,9 +135,9 @@ endpoints:
         custom: []
       stages:
         name: stages
-        description: 'Must not be greater than 255 characters.'
+        description: 'Количество символов в значении поля value не может превышать 255.'
         required: false
-        example: yytwqstko
+        example: pyoogaqdlkepggl
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -154,15 +154,15 @@ endpoints:
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: av
-      year: 20
-      stages: yytwqstko
+      name: uxdmpzugepqchtuoi
+      year: 10
+      stages: pyoogaqdlkepggl
       locationId: 13
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.cup.create.success","cup":{"id":1,"name":"\u041a\u0443\u0431\u043e\u043a \u0420\u043e\u0441\u0441\u0438\u0438","year":2025,"stages":null}}'
+        content: '{"status":"success","message":"\u041a\u0443\u0431\u043e\u043a \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d","cup":{"id":null,"name":null,"year":null,"stages":null}}'
         headers: []
         description: ''
         custom: []
@@ -193,22 +193,22 @@ endpoints:
         name: id
         description: 'The ID of the cup.'
         required: true
-        example: 1
+        example: 14
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 14
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       name:
         name: name
-        description: 'Must not be greater than 255 characters.'
+        description: 'Количество символов в значении поля value не может превышать 255.'
         required: false
-        example: afn
+        example: akxelftbszhaocwrpb
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -218,7 +218,7 @@ endpoints:
         name: year
         description: ''
         required: false
-        example: 4
+        example: 7
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -226,9 +226,9 @@ endpoints:
         custom: []
       stages:
         name: stages
-        description: 'Must not be greater than 255 characters.'
+        description: 'Количество символов в значении поля value не может превышать 255.'
         required: false
-        example: dtybym
+        example: pfztnecqfuttr
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -248,23 +248,23 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 3
+        example: 7
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: afn
-      year: 4
-      stages: dtybym
+      name: akxelftbszhaocwrpb
+      year: 7
+      stages: pfztnecqfuttr
       locationId: 12
-      userId: 3
+      userId: 7
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.cup.update.success","cup":{"id":1,"name":"\u041a\u0443\u0431\u043e\u043a \u0420\u043e\u0441\u0441\u0438\u0438","year":2025,"stages":null}}'
+        content: '{"status":"success","message":"\u041a\u0443\u0431\u043e\u043a \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u043e\u0431\u043d\u043e\u0432\u043b\u0451\u043d","cup":{"id":null,"name":null,"year":null,"stages":null}}'
         headers: []
         description: ''
         custom: []
