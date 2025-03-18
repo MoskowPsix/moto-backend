@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('command_id')->constrained('commands')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->timestamp('joined')->nullable(true);
             $table->timestamps();
         });
     }

@@ -57,4 +57,20 @@ class CommandController extends Controller
     {
         return $action($id, $request);
     }
+    #[Authenticated]
+    #[Endpoint(title: 'getCoaches', description: 'Получение всех тренеров команды.')]
+    public function getCoaches(int $id)
+    {}
+    #[Authenticated]
+    #[Endpoint(title: 'toggleCouch', description: 'Добавление и удаление тренера из команды.')]
+    public function addCouch(int $command_id, int $user_id)
+    {}
+    #[Authenticated]
+    #[Endpoint(title: 'getMembers', description: 'Получить всех участников команды.')]
+    public function getMembers(int $id)
+    {}
+    #[Authenticated]
+    #[Endpoint(title: 'toggleMember', description: 'Привязка пользователя к команде')]
+    public function toggleMember(int $command_id, int $user_id)
+    {}
 }
