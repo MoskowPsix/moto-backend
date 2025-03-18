@@ -147,6 +147,9 @@ Route::controller(\App\Http\Controllers\Api\CommandController::class)->group(fun
     Route::get('commands/{id}', 'getForId')->name('command.get_for_id');
     Route::post('commands', 'create')->middleware(['auth:sanctum', 'email_verification', 'role:'. $role::COUCH .'|'. $role::ADMIN.'|'.$role::ROOT])->name('command.create');
     Route::post('commands/{id}', 'update')->middleware(['auth:sanctum', 'email_verification', 'role:'. $role::COUCH .'|'.$role::ROOT])->name('command.update');
+
+    Route::get('commands/{command_id}/couches', 'getCoaches')->name('command.get.couch');
+    Route::post('commands/{command_id}/couches/{user_id}', 'toggleCouch')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])->name('command.add.couch');
 });
 
 Route::controller(\App\Http\Controllers\Api\AttendanceController::class)->group(function (){
