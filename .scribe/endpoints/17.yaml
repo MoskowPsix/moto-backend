@@ -1,0 +1,467 @@
+name: Command
+description: 'Методы связанные с командами'
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/commands
+    metadata:
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: get
+      description: 'Получение всех команд по фильтрам'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      paginate:
+        name: paginate
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: sed
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      limit:
+        name: limit
+        description: 'Значение поля value не может быть больше 50.'
+        required: false
+        example: 25
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 14
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: false
+        example: possimus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      fullName:
+        name: fullName
+        description: ''
+        required: false
+        example: quae
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: ''
+        required: false
+        example: qui
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: false
+        example: dolor
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      userId: 5
+      paginate: false
+      page: sed
+      limit: 25
+      locationId: 14
+      city: possimus
+      fullName: quae
+      coach: qui
+      name: dolor
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430.","commands":{"id":61,"name":"\u0411\u043e\u0440\u0438\u0441\u043e\u0432\u0430 \u041a\u0430\u043f\u0438\u0442\u043e\u043b\u0438\u043d\u0430 \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u043d\u0430","full_name":null,"coach":null,"city":"\u041b\u043e\u0442\u043e\u0448\u0438\u043d\u043e","avatar":null}},{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430.","commands":{"id":62,"name":"\u0414\u043e\u0440\u043e\u043d\u0438\u043d\u0430 \u041a\u0440\u0438\u0441\u0442\u0438\u043d\u0430 \u041c\u0430\u043a\u0441\u0438\u043c\u043e\u0432\u043d\u0430","full_name":null,"coach":null,"city":"\u0412\u043e\u0441\u043a\u0440\u0435\u0441\u0435\u043d\u0441\u043a","avatar":null}}]'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/commands/{id}'
+    metadata:
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: getForId
+      description: 'Получение команд по id'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the command.'
+        required: true
+        example: 7
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 7
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      userId:
+        name: userId
+        description: ''
+        required: false
+        example: 7
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: ''
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: false
+        example: delectus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      fullName:
+        name: fullName
+        description: ''
+        required: false
+        example: labore
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: ''
+        required: false
+        example: non
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      userId: 7
+      locationId: 15
+      city: delectus
+      fullName: labore
+      coach: non
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","command":{"id":63,"name":"\u0420\u043e\u043c\u0430\u043d \u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432\u0438\u0447 \u0410\u043a\u0441\u0451\u043d\u043e\u0432","full_name":null,"coach":null,"city":"\u0421\u0435\u0440\u0433\u0438\u0435\u0432 \u041f\u043e\u0441\u0430\u0434","avatar":null}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/commands
+    metadata:
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: create
+      description: 'Создание команды'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: true
+        example: mrtwfdohdmsbdqptqeqfto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      fullName:
+        name: fullName
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: false
+        example: gcfchdiwobtbnyqptmtge
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: false
+        example: gcencpd
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      avatar:
+        name: avatar
+        description: 'Файл, указанный в поле value, должен быть изображением.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: true
+        example: 10
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      city:
+        name: city
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: true
+        example: xwlzxdjnxdt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: mrtwfdohdmsbdqptqeqfto
+      fullName: gcfchdiwobtbnyqptmtge
+      coach: gcencpd
+      locationId: 10
+      city: xwlzxdjnxdt
+    fileParameters:
+      avatar: null
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430.","command":{"id":64,"name":"\u0412\u0430\u0440\u0432\u0430\u0440\u0430 \u0411\u043e\u0440\u0438\u0441\u043e\u0432\u043d\u0430 \u041b\u0443\u043a\u0438\u043d\u0430","full_name":null,"coach":null,"city":"\u041a\u0430\u0448\u0438\u0440\u0430","avatar":null}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/commands/{id}'
+    metadata:
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: update
+      description: 'Редактирование класса'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the command.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 16
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: false
+        example: zjeygag
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      fullName:
+        name: fullName
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: false
+        example: bxfvrsuodgqciardbwanvq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: false
+        example: swfiur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      avatar:
+        name: avatar
+        description: 'Файл, указанный в поле value, должен быть изображением.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: false
+        example: xnedpwealwxdqsybiifmlsha
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 12
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      name: zjeygag
+      fullName: bxfvrsuodgqciardbwanvq
+      coach: swfiur
+      city: xnedpwealwxdqsybiifmlsha
+      locationId: 12
+    fileParameters:
+      avatar: null
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0430.","command":{"id":65,"name":"\u0410\u0440\u043a\u0430\u0434\u0438\u0439 \u0424\u0451\u0434\u043e\u0440\u043e\u0432\u0438\u0447 \u0424\u043e\u043c\u0438\u0447\u0451\u0432","full_name":null,"coach":null,"city":"\u041a\u043e\u043b\u043e\u043c\u043d\u0430","avatar":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

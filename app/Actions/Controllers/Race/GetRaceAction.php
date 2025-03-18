@@ -6,7 +6,9 @@ use App\Contracts\Actions\Controllers\Race\GetRaceActionContract;
 use App\Filters\Race\RaceAppointmentExists;
 use App\Filters\Race\RaceDateFilter;
 use App\Filters\Race\RaceForLocationIdsFilter;
+use App\Filters\Race\RaceForStatusFilter;
 use App\Filters\Race\RaceForTrackFilter;
+use App\Filters\Race\RaceSortFilter;
 use App\Filters\Race\RaceUserIdFilter;
 use App\Http\Requests\Race\GetRaceRequest;
 use App\Http\Resources\Race\GetRaces\SuccessGetRaceResource;
@@ -20,7 +22,7 @@ class GetRaceAction implements GetRaceActionContract
         $page = $request->page;
         $limit = $request->limit && ($request->limit < 50) ? $request->limit : 6;
 
-        $races_q = Race::with('track', 'user', 'appointmentCount', 'grades');
+        $races_q = Race::with('track', 'user', 'appointmentCount', 'grades', 'status');
         $races = app(Pipeline::class)
             ->send($races_q)
             ->through([
@@ -29,12 +31,14 @@ class GetRaceAction implements GetRaceActionContract
                 RaceAppointmentExists::class,
                 RaceForTrackFilter::class,
                 RaceForLocationIdsFilter::class,
+                RaceForStatusFilter::class,
+                RaceSortFilter::class
             ])
             ->via('apply')
             ->then(function ($races) use ($page, $limit, $request) {
                 return $request->paginate ?
-                    $races->orderBy('date_start', 'asc')->simplePaginate($limit, ['*'], 'page',  $page) :
-                    $races->orderBy('date_start', 'asc')->get();
+                    $races->simplePaginate($limit, ['*'], 'page',  $page) :
+                    $races->get();
             });
         return SuccessGetRaceResource::make($races);
     }

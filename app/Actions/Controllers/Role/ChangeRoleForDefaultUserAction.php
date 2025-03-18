@@ -15,14 +15,31 @@ class ChangeRoleForDefaultUserAction implements ChangeRoleForDefaultUserActionCo
 
     public function __invoke(ChangeRoleForDefaultUserRequest $request): SuccessChangeRoleForDefaultUserResource | NoRoleChangeRoleForDefaultUserResource
     {
-        $rider_role = Role::findByName(RoleConstant::RIDER, 'web');
-        $org_role = Role::findByName(RoleConstant::ORGANIZATION, 'web');
-        if ($rider_role->id != $request->roleId &&  $org_role->id != $request->roleId) {
-            return NoRoleChangeRoleForDefaultUserResource::make([]);
+        $role = Role::find($request->roleId);
+
+        switch ($role->name) {
+            case RoleConstant::RIDER:
+                    auth()->user()->assignRole($role);
+                break;
+            case RoleConstant::COUCH:
+            case RoleConstant::ORGANIZATION:
+                if (auth()->user()->phone()->exists() ||
+                    !empty(auth()->user()->phone()->phone_verified_at)
+                ) {
+                    auth()->user()->assignRole($role);
+                }
+                break;
+            default:
+                return NoRoleChangeRoleForDefaultUserResource::make([]);
         }
         $new_role = Role::find($request->roleId);
         auth()->user()->syncRoles($new_role);
         $user = User::where('id', auth()->id())->with('roles')->firstOrFail();
         return SuccessChangeRoleForDefaultUserResource::make($user);
+    }
+
+    public function changeRole(Role $role)
+    {
+
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Traits\MoonShine\Resources;
 
+use App\MoonShine\Resources\StatusResource;
 use App\MoonShine\Resources\TrackResource;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
@@ -27,5 +28,9 @@ trait RaceResourceTrait
     public function commission(): BelongsToMany
     {
         return BelongsToMany::make('Комиссия', 'commissions', resource: \App\MoonShine\Resources\UserResource::class)->searchable()->selectMode();
+    }
+    public function status(): BelongsTo
+    {
+        return BelongsTo::make('Статус', 'status', resource: StatusResource::class)->searchable();
     }
 }

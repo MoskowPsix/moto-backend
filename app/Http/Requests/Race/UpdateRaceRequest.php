@@ -8,6 +8,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property int $locationId
  * @property int $trackId
  * @property array $gradeIds
+ * @property array $cupIds
  * @property string $recordEnd
  */
 class UpdateRaceRequest extends FormRequest
@@ -39,9 +40,12 @@ class UpdateRaceRequest extends FormRequest
             'imagesDel.*'       => 'string',
             'positionFile'      => 'nullable|file|mimes:pdf',
             'resultsFile'       => 'nullable|file|mimes:pdf',
-            'gradeIds'      => 'nullable|array',
-            'gradeIds.*'    => 'nullable|integer|exists:grades,id',
-            'locationId'    => 'nullable|integer|exists:locations,id'
+            'gradeIds'          => 'nullable|array',
+            'gradeIds.*'        => 'nullable|integer|exists:grades,id',
+            'locationId'        => 'nullable|integer|exists:locations,id',
+            'statusId'          => 'integer|nullable|exists:statuses,id',
+            'cupIds'        => 'nullable|array',
+            'cupIds.*'      => 'nullable|integer|exists:cups,id',
         ];
     }
 }

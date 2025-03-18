@@ -1,18 +1,18 @@
-name: PersonalInfo
-description: 'Всё что связанно с персональной информацией пользователя'
+name: Race
+description: 'Методы связанные с гонками'
 endpoints:
   -
     httpMethods:
-      - POST
-    uri: api/users/cabinet/personal-info
+      - GET
+    uri: api/races
     metadata:
-      groupName: PersonalInfo
-      groupDescription: 'Всё что связанно с персональной информацией пользователя'
+      groupName: Race
+      groupDescription: 'Методы связанные с гонками'
       subgroup: ''
       subgroupDescription: ''
-      title: Create
-      description: 'Создать запись персональных данных'
-      authenticated: true
+      title: get
+      description: 'Получение всех гонок по фильтрам'
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
@@ -22,181 +22,102 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
-        description: ''
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: dolores
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      surname:
-        name: surname
-        description: ''
-        required: false
-        example: ut
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      patronymic:
-        name: patronymic
-        description: ''
-        required: false
-        example: amet
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      dateOfBirth:
-        name: dateOfBirth
-        description: 'Must be a valid date.'
-        required: false
-        example: '2025-03-10T11:06:38'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      city:
-        name: city
-        description: ''
-        required: false
-        example: sint
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      inn:
-        name: inn
-        description: ''
-        required: false
-        example: qui
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      snils:
-        name: snils
-        description: ''
-        required: false
-        example: tenetur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      phoneNumber:
-        name: phoneNumber
-        description: ''
-        required: false
-        example: et
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      startNumber:
-        name: startNumber
-        description: 'Must be at least 1. Must not be greater than 999.'
-        required: false
-        example: 19
+        example: 17
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      group:
-        name: group
+      paginate:
+        name: paginate
         description: ''
         required: false
-        example: sit
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: eum
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      rank:
-        name: rank
+      limit:
+        name: limit
+        description: 'Значение поля value не может быть больше 50.'
+        required: false
+        example: 21
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      appointmentUser:
+        name: appointmentUser
         description: ''
         required: false
-        example: facilis
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      trackId:
+        name: trackId
+        description: 'The <code>id</code> of an existing record in the tracks table.'
+        required: false
+        example: 11
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      pastRace:
+        name: pastRace
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      gradeIds:
+        name: gradeIds
+        description: 'The <code>id</code> of an existing record in the grades table.'
+        required: false
+        example:
+          - 14
+        type: 'integer[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      dateStart:
+        name: dateStart
+        description: 'Значение поля value не является датой.'
+        required: false
+        example: '2025-03-17T11:06:39'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      rankNumber:
-        name: rankNumber
-        description: ''
+      dateEnd:
+        name: dateEnd
+        description: 'Значение поля value не является датой.'
         required: false
-        example: laborum
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      community:
-        name: community
-        description: ''
-        required: false
-        example: optio
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      coach:
-        name: coach
-        description: ''
-        required: false
-        example: deserunt
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      motoStamp:
-        name: motoStamp
-        description: ''
-        required: false
-        example: quos
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      engine:
-        name: engine
-        description: ''
-        required: false
-        example: ex
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      numberAndSeria:
-        name: numberAndSeria
-        description: ''
-        required: false
-        example: in
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      region:
-        name: region
-        description: ''
-        required: false
-        example: quia
+        example: '2025-03-17T11:06:39'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -206,37 +127,43 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 2
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
+      statusIds:
+        name: statusIds
+        description: 'The <code>id</code> of an existing record in the statuses table.'
+        required: false
+        example:
+          - 7
+        type: 'integer[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
     cleanBodyParameters:
-      name: dolores
-      surname: ut
-      patronymic: amet
-      dateOfBirth: '2025-03-10T11:06:38'
-      city: sint
-      inn: qui
-      snils: tenetur
-      phoneNumber: et
-      startNumber: 19
-      group: sit
-      rank: facilis
-      rankNumber: laborum
-      community: optio
-      coach: deserunt
-      motoStamp: quos
-      engine: ex
-      numberAndSeria: in
-      region: quia
-      locationId: 2
+      userId: 17
+      paginate: false
+      page: eum
+      limit: 21
+      appointmentUser: false
+      trackId: 11
+      pastRace: true
+      gradeIds:
+        - 14
+      dateStart: '2025-03-17T11:06:39'
+      dateEnd: '2025-03-17T11:06:39'
+      locationId: 12
+      statusIds:
+        - 7
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.personal_info.create.success","personal_info":{"name":"Prof.","surname":"Prof.","patronymic":"Mrs.","date_of_birth":"1980-03-14","city":"North Christellestad","inn":"100000000000","snils":"9999999999","phone_number":"+1-980-757-6525","start_number":"457","group":"Command Control Center Officer","rank_number":"100000","rank":"Credit Analyst","community":"Wisoky, Kirlin and Konopelski","coach":"Ms. Thelma Casper III","moto_stamp":"Dr.","engine":"Dr.","number_and_seria":"10000000000","region":null}}'
+        content: '[{"status":"success","message":"\u0413\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","races":{"id":111,"name":"\u0421\u0435\u0440\u0433\u0435\u0435\u0432 \u0415\u0433\u043e\u0440 \u0421\u0435\u0440\u0433\u0435\u0435\u0432\u0438\u0447","desc":"Nobis enim fugiat quidem provident ut. Qui temporibus non pariatur blanditiis quaerat ut. Voluptatem sint quidem expedita odit fugiat aut.","is_work":false,"date_start":"2025-03-17T09:10:59.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}},{"status":"success","message":"\u0413\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","races":{"id":112,"name":"\u0418\u0433\u043d\u0430\u0442\u044c\u0435\u0432 \u0410\u0440\u0441\u0435\u043d\u0438\u0439 \u0415\u0432\u0433\u0435\u043d\u044c\u0435\u0432\u0438\u0447","desc":"Est dicta ad doloremque sint tempora architecto sequi. Non magnam est esse alias illum illo laudantium. Quae sunt quod repudiandae nulla ea. Quo nam omnis et facilis et iste.","is_work":true,"date_start":"2025-03-17T13:23:10.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}}]'
         headers: []
         description: ''
         custom: []
@@ -248,19 +175,101 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - PATCH
-    uri: api/users/cabinet/personal-info
+      - GET
+    uri: 'api/races/{id}'
     metadata:
-      groupName: PersonalInfo
-      groupDescription: 'Всё что связанно с персональной информацией пользователя'
+      groupName: Race
+      groupDescription: 'Методы связанные с гонками'
       subgroup: ''
       subgroupDescription: ''
-      title: Update
-      description: 'Обновить запись персональных данных'
-      authenticated: true
+      title: getForId
+      description: 'Получение гонки по id'
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the race.'
+        required: true
+        example: 24
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 24
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      userId:
+        name: userId
+        description: ''
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      appointmentUser:
+        name: appointmentUser
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      gradeIds:
+        name: gradeIds
+        description: 'The <code>id</code> of an existing record in the grades table.'
+        required: false
+        example:
+          - 1
+        type: 'integer[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      userId: 16
+      appointmentUser: true
+      gradeIds:
+        - 1
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u0413\u043e\u043d\u043a\u0430 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","race":{"id":113,"name":"\u0412\u043b\u0430\u0441\u043e\u0432 \u041b\u0435\u0432 \u041c\u0430\u043a\u0441\u0438\u043c\u043e\u0432\u0438\u0447","desc":"Aut odio est quia nihil quaerat aut. Et tenetur harum dolorum quae. Dolores dolores aut voluptas asperiores porro magni aperiam. Aut aut debitis quidem rerum optio sit.","is_work":false,"date_start":"2025-03-17T04:17:25.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/races
+    metadata:
+      groupName: Race
+      groupDescription: 'Методы связанные с гонками'
+      subgroup: ''
+      subgroupDescription: ''
+      title: create
+      description: 'Создание гонки'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
@@ -269,180 +278,92 @@ endpoints:
     bodyParameters:
       name:
         name: name
+        description: 'Количество символов в значении поля value не может превышать 255. Количество символов в поле value должно быть не меньше 3.'
+        required: true
+        example: ndwpgcfjwmnopqsmkqapncwfdszowjgzysynxsxcdzson
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      desc:
+        name: desc
         description: ''
         required: false
-        example: est
+        example: error
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      surname:
-        name: surname
-        description: ''
+      dateStart:
+        name: dateStart
+        description: 'Значение поля value не является датой.'
+        required: true
+        example: '2025-03-17T11:06:39'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      recordEnd:
+        name: recordEnd
+        description: 'Значение поля value не является датой.'
         required: false
-        example: reprehenderit
+        example: '2025-03-17T11:06:39'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      patronymic:
-        name: patronymic
-        description: ''
+      trackId:
+        name: trackId
+        description: 'The <code>id</code> of an existing record in the tracks table.'
         required: false
-        example: dolore
-        type: string
+        example: 13
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      dateOfBirth:
-        name: dateOfBirth
-        description: 'Must be a valid date.'
+      images:
+        name: images
+        description: 'Файл, указанный в поле value, должен быть изображением.'
         required: false
-        example: '2025-03-10T11:06:38'
-        type: string
+        example:
+          - null
+        type: 'file[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      positionFile:
+        name: positionFile
+        description: 'Must be a file.'
+        required: false
+        example: null
+        type: file
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      city:
-        name: city
-        description: ''
+      resultsFile:
+        name: resultsFile
+        description: 'Must be a file.'
         required: false
-        example: voluptates
-        type: string
+        example: null
+        type: file
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      inn:
-        name: inn
-        description: ''
+      gradeIds:
+        name: gradeIds
+        description: 'The <code>id</code> of an existing record in the grades table.'
         required: false
-        example: animi
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      snils:
-        name: snils
-        description: ''
-        required: false
-        example: quod
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      phoneNumber:
-        name: phoneNumber
-        description: ''
-        required: false
-        example: consequuntur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      startNumber:
-        name: startNumber
-        description: ''
-        required: false
-        example: totam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      group:
-        name: group
-        description: ''
-        required: false
-        example: odio
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      rank:
-        name: rank
-        description: ''
-        required: false
-        example: qui
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      rankNumber:
-        name: rankNumber
-        description: ''
-        required: false
-        example: totam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      community:
-        name: community
-        description: ''
-        required: false
-        example: quia
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      coach:
-        name: coach
-        description: ''
-        required: false
-        example: hic
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      motoStamp:
-        name: motoStamp
-        description: ''
-        required: false
-        example: aspernatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      engine:
-        name: engine
-        description: ''
-        required: false
-        example: sed
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      numberAndSeria:
-        name: numberAndSeria
-        description: ''
-        required: false
-        example: sed
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      region:
-        name: region
-        description: ''
-        required: false
-        example: aut
-        type: string
+        example:
+          - 11
+        type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
         nullable: true
@@ -457,43 +378,395 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
+      statusId:
+        name: statusId
+        description: 'The <code>id</code> of an existing record in the statuses table.'
+        required: false
+        example: 14
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      cupIds:
+        name: cupIds
+        description: 'The <code>id</code> of an existing record in the cups table.'
+        required: false
+        example:
+          - 13
+        type: 'integer[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
     cleanBodyParameters:
-      name: est
-      surname: reprehenderit
-      patronymic: dolore
-      dateOfBirth: '2025-03-10T11:06:38'
-      city: voluptates
-      inn: animi
-      snils: quod
-      phoneNumber: consequuntur
-      startNumber: totam
-      group: odio
-      rank: qui
-      rankNumber: totam
-      community: quia
-      coach: hic
-      motoStamp: aspernatur
-      engine: sed
-      numberAndSeria: sed
-      region: aut
+      name: ndwpgcfjwmnopqsmkqapncwfdszowjgzysynxsxcdzson
+      desc: error
+      dateStart: '2025-03-17T11:06:39'
+      recordEnd: '2025-03-17T11:06:39'
+      trackId: 13
+      gradeIds:
+        - 11
       locationId: 14
-    fileParameters: []
+      statusId: 14
+      cupIds:
+        - 13
+    fileParameters:
+      images:
+        - null
+      positionFile: null
+      resultsFile: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.personal_info.update.success","personal_info":{"name":"Prof.","surname":"Dr.","patronymic":"Prof.","date_of_birth":"2017-04-15","city":"Lambertchester","inn":"99999999999","snils":"9999999999","phone_number":"+18069919792","start_number":"916","group":"Municipal Court Clerk","rank_number":"99999","rank":"Postmasters","community":"Heller, Wiegand and Gutkowski","coach":"Kaitlyn Schroeder","moto_stamp":"Dr.","engine":"Prof.","number_and_seria":"10000000000","region":null}}'
+        content: '{"status":"success","message":"\u0413\u043e\u043d\u043a\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430.","race":{"id":114,"name":"\u0421\u0438\u043c\u043e\u043d\u043e\u0432 \u0415\u0433\u043e\u0440 \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447","desc":"Dolores quasi officia quia non sint sint animi exercitationem. Expedita ipsa qui est voluptatem natus ducimus ut. Delectus unde neque magni voluptatum. Quo impedit asperiores quis facere officiis.","is_work":false,"date_start":"2025-03-17T04:42:33.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/races/{id}/update'
+    metadata:
+      groupName: Race
+      groupDescription: 'Методы связанные с гонками'
+      subgroup: ''
+      subgroupDescription: ''
+      title: update
+      description: 'Редактирование гонки'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the race.'
+        required: true
+        example: 24
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 24
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Количество символов в значении поля value не может превышать 255. Количество символов в поле value должно быть не меньше 3.'
+        required: false
+        example: kcdrhwwo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      desc:
+        name: desc
+        description: ''
+        required: false
+        example: sit
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      dateStart:
+        name: dateStart
+        description: 'Значение поля value не является датой.'
+        required: false
+        example: '2025-03-17T11:06:39'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      recordEnd:
+        name: recordEnd
+        description: 'Значение поля value не является датой.'
+        required: false
+        example: '2025-03-17T11:06:39'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      trackId:
+        name: trackId
+        description: 'The <code>id</code> of an existing record in the tracks table.'
+        required: false
+        example: 12
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      imagesAdd:
+        name: imagesAdd
+        description: 'Файл, указанный в поле value, должен быть изображением.'
+        required: false
+        example:
+          - null
+        type: 'file[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      imagesDel:
+        name: imagesDel
+        description: ''
+        required: false
+        example:
+          - quidem
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      positionFile:
+        name: positionFile
+        description: 'Must be a file.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      resultsFile:
+        name: resultsFile
+        description: 'Must be a file.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      gradeIds:
+        name: gradeIds
+        description: 'The <code>id</code> of an existing record in the grades table.'
+        required: false
+        example:
+          - 2
+        type: 'integer[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 20
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      statusId:
+        name: statusId
+        description: 'The <code>id</code> of an existing record in the statuses table.'
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      cupIds:
+        name: cupIds
+        description: 'The <code>id</code> of an existing record in the cups table.'
+        required: false
+        example:
+          - 4
+        type: 'integer[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      name: kcdrhwwo
+      desc: sit
+      dateStart: '2025-03-17T11:06:39'
+      recordEnd: '2025-03-17T11:06:39'
+      trackId: 12
+      imagesDel:
+        - quidem
+      gradeIds:
+        - 2
+      locationId: 20
+      statusId: 15
+      cupIds:
+        - 4
+    fileParameters:
+      imagesAdd:
+        - null
+      positionFile: null
+      resultsFile: null
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.race.update.success","race":{"id":115,"name":"\u041e\u0434\u0438\u043d\u0446\u043e\u0432\u0430 \u041b\u044e\u0431\u043e\u0432\u044c \u0411\u043e\u0440\u0438\u0441\u043e\u0432\u043d\u0430","desc":"Odio nihil eos sed dolor. Tenetur quidem reprehenderit sunt ab ut sapiente est. Vitae eveniet aut officiis nisi suscipit aut facere.","is_work":true,"date_start":"2025-03-17T23:19:20.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}}'
         headers: []
         description: ''
         custom: []
       -
         status: 403
-        content: '{"status":"error","message":"messages.error.not_allowed"}'
+        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
+        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/races/{id}/toggle-is-work'
+    metadata:
+      groupName: Race
+      groupDescription: 'Методы связанные с гонками'
+      subgroup: ''
+      subgroupDescription: ''
+      title: toggleIsWork
+      description: 'Переключатель гонки, с рабочего на нерабочий и наоборот.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the race.'
+        required: true
+        example: 24
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 24
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u0421\u043e\u0441\u0442\u043e\u044f\u043d\u0438\u0435 \u0433\u043e\u043d\u043a\u0438 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u043e \u043d\u0430 \u043d\u0435 \u0440\u0430\u0431\u043e\u0447\u0435\u0435.","race":{"id":116,"name":"\u0412\u0430\u0434\u0438\u043c \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u0438\u0447 \u0411\u0435\u043b\u044f\u043a\u043e\u0432","desc":"Nulla optio debitis ut eveniet. Autem rerum quidem fugiat. Fuga vel quam quo ad.","is_work":false,"date_start":"2025-03-17T12:53:51.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/races/{id}/commission/add'
+    metadata:
+      groupName: Race
+      groupDescription: 'Методы связанные с гонками'
+      subgroup: ''
+      subgroupDescription: ''
+      title: addCommission
+      description: 'Прикрепить судей к гонке.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the race.'
+        required: true
+        example: 24
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 24
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      usersIds:
+        name: usersIds
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example:
+          - 16
+        type: 'integer[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      usersIds:
+        - 16
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.commission.add.success"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.user.add_commission.incorrect_role"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
         headers: []
         description: ''
         custom: []

@@ -31,9 +31,11 @@ class UpdateRaceAction implements UpdateRaceActionContract
             'date_start'        => Carbon::parse($request->get('dateStart')) ?? $race->date_start,
             'track_id'          => $request->get('trackId') ?? $race->track_id,
             'location_id'       => $request->locationId ?? $race->location_id,
+            'status_id'         => $request->statusId ?? $race->status_id,
         ]);
         $this->saveFiles($request, $race);
         $race->grades()->sync($request->gradeIds);
+        $race->cups()->sync($request->cupIds);
 
         return SuccessUpdateRaceResource::make($race);
     }

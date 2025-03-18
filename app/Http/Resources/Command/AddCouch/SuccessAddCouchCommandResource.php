@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Transaction\FailedTransaction;
+namespace App\Http\Resources\Command\AddCouch;
 
-use App\Http\Resources\Transaction\TransactionResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class FailedTransactionResource extends JsonResource
+class SuccessAddCouchCommandResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,8 +15,8 @@ class FailedTransactionResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'status' => 'failed',
-            'message' => __('messages.transaction.failed'),
+            'status' => 'success',
+            'message' => __('messages.command.add_couch.success', ['is_attach' => $this->resource ? 'добавлен' : 'удалён']),
         ];
     }
 }

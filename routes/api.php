@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\AuthPhoneController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,11 +16,19 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('logout', 'logout')->middleware('auth:sanctum')->name('user.logout');
 });
 
+Route::controller(AuthPhoneController::class)->group(function () {
+    Route::post('phone/login', 'login')->name('user.phone.login');
+    Route::post('phone/register', 'register')->name('user.phone.register');
+    Route::post('phone/verify', 'verify')->name('user.phone.verify');
+    Route::post('phone/verify/hook', 'hook')->name('user.phone.hook');
+});
+
 Route::controller(UserController::class)->group(function () {
     Route::get('users', 'getUserForToken')->middleware('auth:sanctum')->name('user.get_user.for_token');
     Route::get('users/{id}', 'getForId')->name('user.get_for_id');
     Route::post('users/update', 'update')->middleware('auth:sanctum')->name('user.get_user.update');
     Route::get('users-commissions', 'getCommissions')->name('user.get_user_commissions');
+    Route::delete('users', 'delete')->middleware(['auth:sanctum'])->name('user.delete');
 });
 
 Route::controller(\App\Http\Controllers\Api\RecoveryPassword::class)->group(function () {
@@ -37,31 +46,34 @@ Route::controller(\App\Http\Controllers\Api\TrackController::class)-> group(func
     Route::get('tracks', 'get')->name('track.get');
     Route::get('tracks/{id}', 'getForId')->name('track.get_for_id');
     Route::post('tracks', 'create')
-        ->middleware(['auth:sanctum', 'role:'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])
+        ->middleware(['auth:sanctum', 'role:'.$role::ROOT.'|'.$role::ORGANIZATION])
         ->name('track.create');
-    Route::post('tracks/{id}', 'update')->middleware(['auth:sanctum'])->name('track.update');
+    Route::post('tracks/{id}', 'update')
+        ->middleware(['auth:sanctum', 'role:'.$role::ROOT.'|'.$role::ORGANIZATION])
+        ->name('track.update');
 //    Route::delete('tracks/{track}', 'delete')->name('track.delete');
 });
 
 Route::controller(\App\Http\Controllers\Api\StoreController::class)->group(function () {
     $role = new \App\Constants\RoleConstant();
-    Route::post('stores', 'create')->middleware(['auth:sanctum', 'role:'. $role::ADMIN.'|'.$role::ROOT. '|' .$role::ORGANIZATION, 'email_verification'])->name('store.create');
+    Route::post('stores', 'create')
+        ->middleware(['auth:sanctum', 'role:'.$role::ROOT. '|' .$role::ORGANIZATION, 'email_verification'])
+        ->name('store.create');
 });
 
 Route::controller(\App\Http\Controllers\Api\TransactionController::class)->group(function () {
     Route::post('transactions', 'create')->middleware('auth:sanctum')->name('transaction.create');
     Route::post('transactions/result', 'result')->name('transaction.result');
-    Route::get('transactions/success', 'success')->middleware('auth:sanctum')->name('transaction.success');
 });
 
 Route::controller(\App\Http\Controllers\Api\RoleController::class)->group(function () {
     $role = new \App\Constants\RoleConstant();
     Route::get('roles-change', 'getChangeRoles')->name('role.get_change_roles');
     Route::post('roles-change', 'changeRoleForDefaultUser')
-        ->middleware(['auth:sanctum', 'email_verification'])
+        ->middleware(['auth:sanctum'])
         ->name('role.change_roles_for_default_user');
     Route::post('roles-change/{id}/commission', 'addCommission')
-        ->middleware(['auth:sanctum', 'email_verification', 'role:'. $role::COMMISSION . '|'.$role::ROOT])
+        ->middleware(['auth:sanctum', 'email_verification', 'phone_verification', 'role:'. $role::COMMISSION . '|'.$role::ROOT])
         ->name('role.change_roles_for_default_user');
 });
 
@@ -69,12 +81,29 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
     $role = new \App\Constants\RoleConstant();
     Route::get('races', 'get')->name('race.get');
     Route::get('races/{id}', 'getForId')->name('race.get_for_id');
-    Route::post('races', 'create')->middleware(['auth:sanctum', 'role:'. $role::ADMIN .'|'.$role::ROOT, 'email_verification'])->name('race.create');
-    Route::post('races/{id}/update', 'update')->middleware(['auth:sanctum', 'role:'. $role::ROOT, 'email_verification'])->name('race.update');
-    Route::get('races/{id}/toggle-is-work', 'toggleIsWork')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('race.update');
-
+    Route::post('races', 'create')
+        ->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'.$role::ROOT])
+        ->name('race.create');
+    Route::post('races/{id}/update', 'update')
+        ->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])
+        ->name('race.update');
+    Route::get('races/{id}/toggle-is-work', 'toggleIsWork')
+        ->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])
+        ->name('race.update');
     Route::post('races/{id}/commission/add', 'addCommission')->middleware('auth:sanctum')->name('race.commission.add');
 });
+Route::controller(\App\Http\Controllers\Api\StatusController::class)->group(function() {
+    Route::get('statuses', 'get')->name('status.get');
+});
+
+Route::controller(\App\Http\Controllers\Api\CupController::class)->group(function () {
+    $role = new \App\Constants\RoleConstant();
+    Route::get('cups/{id}', 'getForId')->name('cup.get_for_id');
+    Route::get('cups/race/{id}', 'getForRaceId')->name('cup.get_for_race_id');
+    Route::post('cups', 'create')->middleware('auth:sanctum')->name('cup.create');
+    Route::post('cups/{id}', 'update')->middleware('auth:sanctum')->name('cup.update');
+});
+
 Route::controller(\App\Http\Controllers\Api\PersonalInfoController::class)->group(function () {
     Route::post('users/cabinet/personal-info', 'create')->middleware('auth:sanctum')->name('personal_info.create');
     Route::patch('users/cabinet/personal-info', 'update')->middleware('auth:sanctum')->name('personal_info.update');
@@ -109,15 +138,18 @@ Route::controller(\App\Http\Controllers\Api\GradeController::class)->group(funct
     Route::get('grades', 'get')->name('grade.get');
     Route::get('grades/{id}', 'getForId')->name('grade.get_for_id');
     Route::post('grades', 'create')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('grade.create');
-    Route::patch('grades/{id}', 'update')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('grade.update');
+    Route::patch('grades/{id}', 'update')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'.$role::ROOT, 'email_verification'])->name('grade.update');
 });
 
 Route::controller(\App\Http\Controllers\Api\CommandController::class)->group(function (){
     $role = new \App\Constants\RoleConstant();
     Route::get('commands', 'get')->name('command.get');
     Route::get('commands/{id}', 'getForId')->name('command.get_for_id');
-    Route::post('commands', 'create')->middleware(['auth:sanctum', 'email_verification'])->name('command.create');
-    Route::post('commands/{id}', 'update')->middleware(['auth:sanctum', 'email_verification'])->name('command.update');
+    Route::post('commands', 'create')->middleware(['auth:sanctum', 'email_verification', 'role:'. $role::COUCH .'|'. $role::ADMIN.'|'.$role::ROOT])->name('command.create');
+    Route::post('commands/{id}', 'update')->middleware(['auth:sanctum', 'email_verification', 'role:'. $role::COUCH .'|'.$role::ROOT])->name('command.update');
+
+    Route::get('commands/{command_id}/couches', 'getCoaches')->name('command.get.couch');
+    Route::post('commands/{command_id}/couches/{user_id}', 'toggleCouch')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])->name('command.add.couch');
 });
 
 Route::controller(\App\Http\Controllers\Api\AttendanceController::class)->group(function (){

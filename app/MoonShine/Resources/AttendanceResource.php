@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources;
 
+use App\Traits\MoonShine\Resources\AttendanceResourceTrait;
+use App\Traits\MoonShine\Resources\TrackResourceTrait;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Attendance;
 
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Support\Enums\ClickAction;
 use MoonShine\UI\Components\Layout\Box;
@@ -26,14 +29,18 @@ class AttendanceResource extends ModelResource
     protected string $title = 'Услуги';
     protected ?\MoonShine\Support\Enums\ClickAction $clickAction = ClickAction::DETAIL;
     protected string $column = 'name';
+    use AttendanceResourceTrait;
     /**
      * @return list<FieldContract>
      */
     protected function indexFields(): iterable
     {
         return [
+            ID::make()->sortable(),
             Text::make('Название', 'name'),
+            Text::make('Описание', 'desc'),
             Number::make('Цена', 'price')->sortable()->min(0)->step(0.01),
+            $this->track(),
         ];
     }
 
@@ -44,6 +51,8 @@ class AttendanceResource extends ModelResource
     {
         return [
             Text::make('Название', 'name'),
+            Text::make('Описание', 'desc'),
+            $this->track()->required(),
             Number::make('Цена', 'price')->sortable()->min(0)->step(0.01),
         ];
     }
@@ -54,8 +63,7 @@ class AttendanceResource extends ModelResource
     protected function detailFields(): iterable
     {
         return [
-            Text::make('Название', 'name'),
-            Number::make('Цена', 'price')->sortable()->min(0)->step(0.01),
+
         ];
     }
 
@@ -68,8 +76,9 @@ class AttendanceResource extends ModelResource
     protected function rules(mixed $item): array
     {
         return [
-            Text::make('Название', 'name'),
-            Number::make('Цена', 'price')->sortable()->min(0)->step(0.01),
+            'name'      =>      ['required', 'string', 'max:255'], // Название
+            'desc'      =>      ['nullable', 'string'], // Описание
+            'price'     =>      ['required', 'numeric', 'min:0'],
         ];
     }
 }

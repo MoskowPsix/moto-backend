@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 /**
  * @method static create(array $array)
  * @method static findOrFail(int $id)
+ * @method static find(mixed $invId)
  */
 class Transaction extends Model
 {
@@ -22,6 +23,7 @@ class Transaction extends Model
         'user_id',
         'date',
         'attendance_id',
+        'data'
     ];
 
     public function user(): BelongsTo

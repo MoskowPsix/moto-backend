@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use App\Enums\DocumentType;
 use App\Models\Document;
+use App\Models\Phone;
+use App\Models\User;
 use App\Services\GoogleSheetService;
 use Exception;
 use Illuminate\Console\Command;
@@ -32,60 +34,38 @@ class test extends Command
      */
     public function handle()
     {
-//        $login = env('ROBOKASSA_LOGIN');
-//        $password = env('ROBOKASSA_TEST_PASSWORD1');
-//
-//        $invoiceId = 678678;
-//        $description = 'Услуга от 500';
-//        $outSum = 500;
-//        $IsTest = 1;
-//
-//        $crc = md5("$login:$outSum:$invoiceId:$password");
-//
-//        $link = "https://auth.robokassa.ru/Merchant/Index.aspx?" .
-//            http_build_query([
-//                'MrchLogin' => $login,
-//                'OutSum' => $outSum,
-//                'InvId' => $invoiceId,
-//                'Desc' => $description,
-//                'SignatureValue' => strtoupper($crc),
-//                'IsTest' => $IsTest,
-//            ]);
-//        $this->info("Перейдите по следующей ссылке для тестовой оплаты:");
-//        $this->line($link);
+        // Не трогать и не перекрывать код. Я потом сам его уберу, когда посчитаю нужным. bolshe.kivi
+        User::query()->orderBy('id')->chunk(1000, function ($users) {
+            $users->each(function ($user) {
+                if ($user->personalInfo()->exists()) {
+                    $phone = $user->personalInfo()->first()->phone_number;
+                    $phone = rtrim($phone);
+                    $phone = preg_replace('/[^0-9]/', '', $phone);
+                    if (isset($phone) && strlen($phone) !== 0) {
+                        if (strlen($phone) === 11) {
+                            $phone[0] = "7";
+                        } elseif(strlen($phone) === 10) {
+                            $phone = "7" . $phone;
+                        }
+                        if (strlen($phone) === 11 && !Phone::where('number', $phone)->exists())
+                        {
+                            if ($user->phone()->exists()) {
+                                    $user->phone()->update([
+                                        'number' => $phone,
+                                        'last_num' => (string)substr($phone, -4),
+                                    ]);
+                            } else {
+                                $user->phone()->create([
+                                    'number' => $phone,
+                                    'last_num' => (string)substr($phone, -4),
+                                ]);
+                            }
+                        }
+                    }
 
-        Document::all()->each(function ($apps) {
-            try {
-                $data = json_decode($apps->data);
-                gettype($data) === gettype('string') ? $data = (array)json_decode($data, true) : $data = (array)$data;
-                dump($data);
-                if (isset($data)) {
-                    if ($apps->type->value === DocumentType::Polis->value) {
-                        $apps->update([
-                            'type' => 'polis',
-                            'url_view' => $data['polisFileLink'] ?? 'https://dev-moto.vokrug.city/document/' . $apps->id,
-                            'number' => $data['polisNumber'] ?? '',
-                            'issued_whom' => $data['issuedWhom'] ?? '',
-                            'it_works_date' => $data['itWorksDate'] ?? '',
-                        ]);
-                    }
-                    if ($apps->type->value === DocumentType::Licenses->value) {
-                        $apps->update([
-                            'type' => 'licenses',
-                            'url_view' => $data['licensesFileLink'] ?? 'https://dev-moto.vokrug.city/document/' . $apps->id,
-                            'number' => $data['licensesNumber'] ?? '',
-                        ]);
-                    }
-                    if ($apps->type->value === DocumentType::Notarius->value) {
-                        $apps->update([
-                            'type' => 'notarius',
-                            'url_view' => $data['notariusFileLink'] ?? 'https://dev-moto.vokrug.city/document/' . $apps->id,
-                        ]);
-                    }
                 }
-            } catch (Exception $e) {
-                dd($apps);
-            }
+            });
         });
+        return 0;
     }
 }

@@ -87,5 +87,4 @@ class UpdateTrackAction implements UpdateTrackActionContract
     {
         Storage::delete($path);
     }
-
 }

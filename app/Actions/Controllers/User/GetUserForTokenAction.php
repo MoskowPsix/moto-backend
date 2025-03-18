@@ -10,7 +10,7 @@ class GetUserForTokenAction implements GetUserForTokenActionContract
 {
     public function __invoke(): SuccessGetUserForTokenResource
     {
-        $user = User::with('roles', 'personalInfo.location', 'personalInfo.command')->where('id', auth()->user()->id)->first();
+        $user = User::with('roles', 'personalInfo.location', 'personalInfo.command', 'phone')->where('id', auth()->user()->id)->first();
         return SuccessGetUserForTokenResource::make($user);
     }
 }

@@ -33,9 +33,9 @@ class TransactionController extends Controller
 
     #[ResponseFromApiResource(TransactionResource::class, Transaction::class, collection: false)]
     #[Endpoint(title: 'result', description: 'Получение ответа')]
-    public function result(ResultTransactionRequest $request, ResultTransactionActionContract $action)
+    public function result(Request $request, ResultTransactionActionContract $action)
     {
         Log::info('Robokassa ResultUrl request:', $request->all());
-        $action($request);
+        return $action($request);
     }
 }

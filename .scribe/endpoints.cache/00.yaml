@@ -26,9 +26,9 @@ endpoints:
     bodyParameters:
       email:
         name: email
-        description: 'Must be a valid email address. The <code>email</code> of an existing record in the users table. Must be at least 3 characters.'
+        description: 'Значение поля value должно быть действительным электронным адресом. Количество символов в поле value должно быть не меньше 3.'
         required: true
-        example: mariano60@example.org
+        example: alice.russel@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -36,28 +36,28 @@ endpoints:
         custom: []
       password:
         name: password
-        description: 'Must be at least 3 characters.'
+        description: 'Количество символов в поле value должно быть не меньше 3.'
         required: true
-        example: 'B@}(r;&z]'
+        example: 'tL[Zf(=-UA,>!'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      email: mariano60@example.org
-      password: 'B@}(r;&z]'
+      email: alice.russel@example.com
+      password: 'tL[Zf(=-UA,>!'
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.auth.login.success","access_token":"4|1SGVxmLH25bAQq8M5IoskkQc2MCagaA0RfpdfZiN7982a6e6","token_type":"Bearer","user":{"id":111,"name":"Miss Michele Heller","email":"bayer.jeffery@example.com","email_verified_at":"2025-03-10T11:06:36.000000Z","avatar":null}}'
+        content: '{"status":"success","message":"\u0412\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043b\u0438\u0441\u044c.","access_token":"887|hTairEIPWPzR10bBxeoZ8az9pEd0cU2hPwfL7V0j4c46e18d","token_type":"Bearer","user":{"id":627,"name":null,"email":"tarasova.rozalina@example.net","email_verified_at":"2025-03-17T11:06:38.000000Z","avatar":null,"personal":null}}'
         headers: []
         description: ''
         custom: []
       -
         status: 403
-        content: '{"status":"success","message":"messages.auth.login.error"}'
+        content: '{"status":"success","message":"\u041d\u0435\u0443\u0434\u0430\u0447\u043d\u0430\u044f \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u0430\u0446\u0438\u0438."}'
         headers: []
         description: ''
         custom: []
@@ -90,9 +90,9 @@ endpoints:
     bodyParameters:
       name:
         name: name
-        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
+        description: 'Количество символов в поле value должно быть не меньше 3. Количество символов в значении поля value не может превышать 50.'
         required: true
-        example: nivftrpitzirretcsnok
+        example: qadmejrdqvvltcibkyjwkhii
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -100,9 +100,9 @@ endpoints:
         custom: []
       email:
         name: email
-        description: 'Must be a valid email address.'
+        description: 'Значение поля value должно быть действительным электронным адресом.'
         required: true
-        example: tillman.wyman@example.com
+        example: kovacek.bianka@example.net
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -110,9 +110,9 @@ endpoints:
         custom: []
       password:
         name: password
-        description: 'Must be at least 8 characters.'
+        description: 'Количество символов в поле value должно быть не меньше 8.'
         required: true
-        example: "c'+UG`*W4I}fz(Ww"
+        example: 'XduKY5WB},Rq'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -122,7 +122,7 @@ endpoints:
         name: password_confirmation
         description: 'The value and <code>password</code> must match.'
         required: true
-        example: corrupti
+        example: veniam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -130,7 +130,7 @@ endpoints:
         custom: []
       avatar:
         name: avatar
-        description: 'Must be an image.'
+        description: 'Файл, указанный в поле value, должен быть изображением.'
         required: false
         example: null
         type: file
@@ -139,22 +139,22 @@ endpoints:
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: nivftrpitzirretcsnok
-      email: tillman.wyman@example.com
-      password: "c'+UG`*W4I}fz(Ww"
-      password_confirmation: corrupti
+      name: qadmejrdqvvltcibkyjwkhii
+      email: kovacek.bianka@example.net
+      password: 'XduKY5WB},Rq'
+      password_confirmation: veniam
     fileParameters:
       avatar: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.auth.register.success","access_token":"5|UnxpQBfNx24BxzX5jgqSdEClbszgwQzoIrXtvlqA194f18c5","token_type":"Bearer","user":{"id":112,"name":"Amelie Altenwerth Jr.","email":"coty85@example.net","email_verified_at":"2025-03-10T11:06:37.000000Z","avatar":null}}'
+        content: '{"status":"success","message":"\u0412\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0437\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043e\u0432\u0430\u043d\u044b.","access_token":"888|DG9PbnAONuxBKrc3i2u57rLJmAueI8PqnDHx9XT7d2503d8b","token_type":"Bearer","user":{"id":628,"name":null,"email":"pzueva@example.org","email_verified_at":"2025-03-17T11:06:38.000000Z","avatar":null,"personal":null}}'
         headers: []
         description: ''
         custom: []
       -
         status: 403
-        content: '{"status":"error","message":"messages.auth.register.error"}'
+        content: '{"status":"error","message":"\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044f \u043f\u0440\u043e\u0448\u043b\u0430 \u043d\u0435\u0443\u0434\u0430\u0447\u043d\u043e."}'
         headers: []
         description: ''
         custom: []
@@ -190,13 +190,13 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.auth.logout.success"}'
+        content: '{"status":"success","message":"\u041f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044c \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0432\u044b\u0448\u0435\u043b."}'
         headers: []
         description: ''
         custom: []
       -
         status: 500
-        content: '{"status":"success","message":"messages.auth.logout.error"}'
+        content: '{"status":"success","message":"\u041f\u0440\u0438 \u0432\u044b\u0445\u043e\u0434\u0435 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u0440\u043e\u0438\u0437\u043e\u0448\u043b\u0430 \u043a\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u044f \u043e\u0448\u0438\u0431\u043a\u0430."}'
         headers: []
         description: ''
         custom: []

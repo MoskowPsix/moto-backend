@@ -12,26 +12,25 @@ class ResultTransactionAction implements ResultTransactionActionContract
 {
     public function __invoke(Request $request)
     {
-        Log::info('Robokassa ResultUrl request:', [
-            'OutSum' => $request->input('OutSum'),
-            'InvId' => $request->input('InvId'),
-            'SignatureValue' => $request->input('SignatureValue'),
-        ]);
-
         $outSum = $request->input('OutSum');
         $invId = $request->input('InvId');
         $crc = strtoupper($request->input('SignatureValue'));
 
+        if (!$invId) {
+            Log::error('InvId is missing in the request');
+            return response('InvId is missing', 400);
+        }
+
         $transaction = Transaction::find($invId);
         if (!$transaction) {
             Log::error("Transaction not found for InvId: $invId");
-            http_response_code(404);
+            return response("Transaction not found for InvId: $invId", 404);
         }
 
         $attendance = $transaction->attendances()->first();
         if (!$attendance) {
             Log::error("Attendance not found for transaction: $invId");
-            http_response_code(400);
+            return response("Attendance not found for transaction: $invId", 400);
         }
 
         $store = $attendance->track()->first()->store()->first();
@@ -41,11 +40,14 @@ class ResultTransactionAction implements ResultTransactionActionContract
 
         if ($myCrc !== $crc) {
             Log::error("Invalid signature for transaction: $invId");
-            http_response_code(400);
+            return response("Invalid signature for transaction: $invId", 400);
         }
+        $transaction->update([
+            'data' => $request->except('SignatureValue'),
+        ]);
         Log::info('Success');
-        echo "OK$invId\n";
-        exit;
+        Log::info("Transaction result for InvId: $invId");
+        return response("OK$invId\n", 200);
     }
 }
 

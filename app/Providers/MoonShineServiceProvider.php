@@ -30,6 +30,9 @@ use App\MoonShine\Resources\LocationResource;
 use App\MoonShine\Resources\StoreResource;
 use App\MoonShine\Resources\TransactionResource;
 use App\MoonShine\Resources\AttendanceResource;
+use App\MoonShine\Resources\PhoneResource;
+use App\MoonShine\Resources\StatusResource;
+use App\MoonShine\Resources\PersonalInfoResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -63,6 +66,8 @@ class MoonShineServiceProvider extends ServiceProvider
                 StoreResource::class,
                 TransactionResource::class,
                 AttendanceResource::class,
+                PhoneResource::class,
+                StatusResource::class,
             ])
             ->pages([
                 ...$config->getPages(),

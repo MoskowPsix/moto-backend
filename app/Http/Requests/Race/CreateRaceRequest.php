@@ -15,8 +15,10 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property mixed $resultsFile
  * @property mixed $locationId
  * @property array $gradeIds
+ * @property array $cupIds
  * @property string $dateStart
  * @property string $recordEnd
+ * @property int $statusId
  */
 class CreateRaceRequest extends FormRequest
 {
@@ -40,14 +42,17 @@ class CreateRaceRequest extends FormRequest
             'desc'          => 'nullable|string',
             'dateStart'     => 'required|date',
             'recordEnd'     => 'nullable|date',
-            'trackId'       => 'required|integer|exists:tracks,id',
+            'trackId'       => 'nullable|integer|exists:tracks,id',
             'images'        => 'array|nullable',
             'images.*'      => 'image|mimes:jpeg,png,jpg,svg,webp',
             'positionFile'  => 'nullable|file|mimes:pdf',
             'resultsFile'   => 'nullable|file|mimes:pdf',
             'gradeIds'      => 'nullable|array',
             'gradeIds.*'    => 'nullable|integer|exists:grades,id',
-            'locationId'   => 'integer|nullable|exists:locations,id',
+            'locationId'    => 'integer|nullable|exists:locations,id',
+            'statusId'      => 'integer|nullable|exists:statuses,id',
+            'cupIds'        => 'nullable|array',
+            'cupIds.*'      => 'nullable|integer|exists:cups,id',
         ];
     }
 }

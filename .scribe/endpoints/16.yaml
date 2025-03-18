@@ -1,0 +1,296 @@
+name: Grade
+description: 'Методы связанные с классами'
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/grades
+    metadata:
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: get
+      description: 'Получение всех классов по фильтрам'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 13
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      paginate:
+        name: paginate
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: iusto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      limit:
+        name: limit
+        description: 'Значение поля value не может быть больше 50.'
+        required: false
+        example: 20
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      userId: 13
+      paginate: true
+      page: iusto
+      limit: 20
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","grades":{"id":90,"name":"\u041a\u0430\u043f\u0438\u0442\u043e\u043b\u0438\u043d\u0430 \u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432\u043d\u0430 \u0411\u0430\u0440\u0430\u043d\u043e\u0432\u0430","description":"Quis exercitationem quo molestiae et pariatur et. Dicta porro voluptatem labore velit dignissimos sequi voluptatem. Totam repellat deserunt consectetur et distinctio ea omnis."}},{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","grades":{"id":91,"name":"\u041b\u0438\u0434\u0438\u044f \u0418\u0432\u0430\u043d\u043e\u0432\u043d\u0430 \u0421\u0443\u0431\u0431\u043e\u0442\u0438\u043d\u0430","description":"Pariatur adipisci quibusdam et consequatur perspiciatis. Aspernatur tempore minima eum non autem dolor autem. Animi repellat cumque voluptatem laudantium."}}]'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/grades/{id}'
+    metadata:
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: getForId
+      description: 'Получение класса по id'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the grade.'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 2
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The <code>id</code> of an existing record in the grades table.'
+        required: true
+        example: 12
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      userId:
+        name: userId
+        description: ''
+        required: false
+        example: 11
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      id: 12
+      userId: 11
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","grade":{"id":92,"name":"\u0414\u043c\u0438\u0442\u0440\u0438\u0435\u0432\u0430 \u0412\u0430\u043b\u0435\u043d\u0442\u0438\u043d\u0430 \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u043d\u0430","description":"Recusandae dolor doloribus sit nesciunt quia incidunt. Fugiat quasi rerum optio aut earum quo. Ut quo quia libero accusamus doloremque rem sapiente. Et qui cupiditate repellendus rerum voluptas."}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/grades
+    metadata:
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: create
+      description: 'Создание класса'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: true
+        example: zufcqejjgvrcbyvtuuvxp
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Aut aut quaerat quas suscipit repellat officiis et.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      name: zufcqejjgvrcbyvtuuvxp
+      description: 'Aut aut quaerat quas suscipit repellat officiis et.'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d.","grade":{"id":93,"name":"\u041a\u043d\u044f\u0437\u0435\u0432\u0430 \u0412\u0435\u0440\u043e\u043d\u0438\u043a\u0430 \u0415\u0432\u0433\u0435\u043d\u044c\u0435\u0432\u043d\u0430","description":"Illo repellat porro id. Tempore iusto distinctio temporibus illo harum voluptas. Sed nobis accusamus expedita aut ullam voluptatem vel. Quia odio vitae dolores vero."}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/grades/{id}'
+    metadata:
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: update
+      description: 'Редактирование класса'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the grade.'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 2
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: false
+        example: uvnccywggzszsy
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Voluptatum atque nesciunt at inventore est est.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 6
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      name: uvnccywggzszsy
+      description: 'Voluptatum atque nesciunt at inventore est est.'
+      userId: 6
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0451\u043d.","grade":{"id":94,"name":"\u041a\u043e\u0448\u0435\u043b\u0435\u0432 \u041c\u0430\u043a\u0441\u0438\u043c \u0418\u0432\u0430\u043d\u043e\u0432\u0438\u0447","description":"Minus perspiciatis non reiciendis iste pariatur ex recusandae. Ut recusandae repellendus id optio saepe consequatur illo."}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

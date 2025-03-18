@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Transaction\SuccessTransaction;
+namespace App\Http\Resources\User\Delete;
 
-use App\Http\Resources\Transaction\TransactionResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SuccessTransactionResource extends JsonResource
+class SuccessUserDeleteResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -17,8 +16,7 @@ class SuccessTransactionResource extends JsonResource
     {
         return [
             'status' => 'success',
-            'message' => __('messages.transaction.success'),
-            'transaction' => TransactionResource::make($this->resource)
+            'message' => __('messages.user.delete.success'),
         ];
     }
 }

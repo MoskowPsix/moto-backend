@@ -29,6 +29,7 @@ class Race extends Model
         'track_id',
         'user_id',
         'location_id',
+        'status_id'
     ];
     protected $casts = [
         'name' => 'string',
@@ -69,5 +70,13 @@ class Race extends Model
     public function commissions(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'race_commission', 'race_id', 'user_id');
+    }
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo(Status::class);
+    }
+    public function cups(): BelongsToMany
+    {
+        return $this->belongsToMany(Cup::class, 'race_cup', 'race_id', 'cup_id');
     }
 }

@@ -22,11 +22,13 @@ class CreateRaceAction implements CreateRaceActionContract
             'record_end'    => isset($request->recordEnd) ? Carbon::parse($request->recordEnd) : null,
             'user_id'       => $user->id,
             'location_id'   => $request->locationId ?? Track::find($request->locationId)->location_id,
+            'status_id'     => $request->statusId,
         ]);
         $this->saveImages($request->images, $race);
         $this->saveFile($request->positionFile, $race, 'position_file');
         $this->saveFile($request->resultsFile, $race, 'results_file');
         $race->grades()->attach($request->gradeIds);
+        $race->cups()->attach($request->cupIds);
         return SuccessCreateRaceResource::make($race);
     }
 

@@ -36,6 +36,10 @@ class Command extends Model
     }
     public function coaches(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'user_command_coach', 'command_id', 'user_id');
+        return $this->belongsToMany(User::class, 'command_coach', 'command_id', 'user_id');
+    }
+    public function members(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'user_command_member', 'command_id', 'user_id');
     }
 }

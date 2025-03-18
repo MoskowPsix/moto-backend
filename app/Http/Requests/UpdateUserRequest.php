@@ -40,7 +40,8 @@ class UpdateUserRequest extends FormRequest
                                             'email',
                                             Rule::unique('users'),
                                         ],
-            'avatar'                 => 'nullable|image|mimes:jpeg,png,jpg,svg,webp'
+            'avatar'                 => 'nullable|image|mimes:jpeg,png,jpg,svg,webp',
+            'number'                  => 'nullable|string|min:10|max:12|unique:phones,number',
         ];
     }
 }
