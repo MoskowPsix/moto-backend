@@ -70,7 +70,7 @@ Route::controller(\App\Http\Controllers\Api\RoleController::class)->group(functi
     $role = new \App\Constants\RoleConstant();
     Route::get('roles-change', 'getChangeRoles')->name('role.get_change_roles');
     Route::post('roles-change', 'changeRoleForDefaultUser')
-        ->middleware(['auth:sanctum', 'email_verification'])
+        ->middleware(['auth:sanctum'])
         ->name('role.change_roles_for_default_user');
     Route::post('roles-change/{id}/commission', 'addCommission')
         ->middleware(['auth:sanctum', 'email_verification', 'phone_verification', 'role:'. $role::COMMISSION . '|'.$role::ROOT])

@@ -23,7 +23,7 @@ class ChangeRoleForDefaultUserAction implements ChangeRoleForDefaultUserActionCo
                 break;
             case RoleConstant::COUCH:
             case RoleConstant::ORGANIZATION:
-                if (auth()->user()->phone()->exists() &&
+                if (auth()->user()->phone()->exists() ||
                     !empty(auth()->user()->phone()->phone_verified_at)
                 ) {
                     auth()->user()->assignRole($role);
