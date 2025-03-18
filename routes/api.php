@@ -46,7 +46,7 @@ Route::controller(\App\Http\Controllers\Api\TrackController::class)-> group(func
     Route::get('tracks', 'get')->name('track.get');
     Route::get('tracks/{id}', 'getForId')->name('track.get_for_id');
     Route::post('tracks', 'create')
-        ->middleware(['auth:sanctum', 'role:'. $role::ADMIN.'|'.$role::ROOT.'|'.$role::ORGANIZATION])
+        ->middleware(['auth:sanctum', 'role:'.$role::ROOT.'|'.$role::ORGANIZATION])
         ->name('track.create');
     Route::post('tracks/{id}', 'update')
         ->middleware(['auth:sanctum', 'role:'.$role::ROOT.'|'.$role::ORGANIZATION])
@@ -82,7 +82,7 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
     Route::get('races', 'get')->name('race.get');
     Route::get('races/{id}', 'getForId')->name('race.get_for_id');
     Route::post('races', 'create')
-        ->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])
+        ->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'.$role::ROOT])
         ->name('race.create');
     Route::post('races/{id}/update', 'update')
         ->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])
