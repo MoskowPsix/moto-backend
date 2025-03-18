@@ -15,7 +15,7 @@ use function PHPUnit\Framework\assertInstanceOf;
 class CreateGradeActionTest extends TestCase
 {
     use RefreshDatabase;
-    protected $seed = true;
+    protected bool $seed = true;
 
     public function test_action_success(): void
     {

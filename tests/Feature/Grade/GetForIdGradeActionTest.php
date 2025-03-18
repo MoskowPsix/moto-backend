@@ -14,7 +14,7 @@ use Tests\TestCase;
 class GetForIdGradeActionTest extends TestCase
 {
     use RefreshDatabase;
-    protected $seed = true;
+    protected bool $seed = true;
 
     public function test_action_success(): void
     {
