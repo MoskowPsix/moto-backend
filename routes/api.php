@@ -91,6 +91,7 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
         ->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])
         ->name('race.update');
     Route::post('races/{id}/commission/add', 'addCommission')->middleware('auth:sanctum')->name('race.commission.add');
+    Route::delete('races/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])->name('race.delete');
 });
 Route::controller(\App\Http\Controllers\Api\StatusController::class)->group(function() {
     Route::get('statuses', 'get')->name('status.get');

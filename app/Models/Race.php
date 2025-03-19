@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @method static create(array $array)
@@ -16,7 +17,11 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Race extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+
     protected $table = 'races';
+    protected $dates = ['deleted_at'];
+
     protected $fillable = [
         'name',
         'desc',
