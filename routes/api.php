@@ -51,7 +51,7 @@ Route::controller(\App\Http\Controllers\Api\TrackController::class)-> group(func
     Route::post('tracks/{id}', 'update')
         ->middleware(['auth:sanctum', 'role:'.$role::ROOT.'|'.$role::ORGANIZATION])
         ->name('track.update');
-//    Route::delete('tracks/{track}', 'delete')->name('track.delete');
+    Route::delete('tracks/{id}', 'delete')->middleware(['auth:sanctum', 'role:'.$role::ROOT.'|'.$role::ORGANIZATION])->name('track.delete');
 });
 
 Route::controller(\App\Http\Controllers\Api\StoreController::class)->group(function () {
@@ -91,6 +91,7 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
         ->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])
         ->name('race.update');
     Route::post('races/{id}/commission/add', 'addCommission')->middleware('auth:sanctum')->name('race.commission.add');
+    Route::delete('races/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])->name('race.delete');
 });
 Route::controller(\App\Http\Controllers\Api\StatusController::class)->group(function() {
     Route::get('statuses', 'get')->name('status.get');
@@ -147,9 +148,20 @@ Route::controller(\App\Http\Controllers\Api\CommandController::class)->group(fun
     Route::get('commands/{id}', 'getForId')->name('command.get_for_id');
     Route::post('commands', 'create')->middleware(['auth:sanctum', 'email_verification', 'role:'. $role::COUCH .'|'. $role::ADMIN.'|'.$role::ROOT])->name('command.create');
     Route::post('commands/{id}', 'update')->middleware(['auth:sanctum', 'email_verification', 'role:'. $role::COUCH .'|'.$role::ROOT])->name('command.update');
+    Route::delete('commands/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::COUCH .'|'. $role::ADMIN.'|'.$role::ROOT])->name('command.delete');
 
     Route::get('commands/{command_id}/couches', 'getCoaches')->name('command.get.couch');
-    Route::post('commands/{command_id}/couches/{user_id}', 'toggleCouch')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])->name('command.add.couch');
+    Route::post('commands/{command_id}/couches/{user_id}', 'toggleCouch')
+        ->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])
+        ->name('command.add.couch');
+    Route::post('commands/{command_id}/members', 'toggleMember')
+        ->middleware(['auth:sanctum', 'role:'. $role::RIDER.'|'.$role::ORGANIZATION.'|'.$role::COUCH.'|'.$role::COMMISSION.'|'.$role::ADMIN.'|'.$role::ROOT])
+        ->name('command.add.member');
+    Route::get('commands/{command_id}/members', 'getMembers')
+        ->name('command.get.member');
+    Route::get('commands/{command_id}/members-for-coach', 'getMembersForCoach')
+        ->middleware(['auth:sanctum', 'role:'. $role::COUCH.'|'.$role::ROOT])
+        ->name('command.get_for_coach.member');
 });
 
 Route::controller(\App\Http\Controllers\Api\AttendanceController::class)->group(function (){

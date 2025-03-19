@@ -69,6 +69,9 @@ return [
         'toggle_is_work' => [
             'success' => 'Состояние гонки успешно изменено на :state.',
         ],
+        'delete' => [
+            'success' => 'Гонка успешно удалена.',
+        ],
     ],
     'cup' => [
         'get_for_race_id' => [
@@ -109,10 +112,16 @@ return [
             'success' => 'Команда по идентификатору получена успешно.',
         ],
         'update' => [
-            'success' => 'Команда успешно изменена.'
+            'success' => 'Команда успешно изменена.',
+        ],
+        'delete' => [
+            'success' => 'Команда успешно удаленаю',
         ],
         'add_couch' => [
             'success' => 'Тренер успешно :is_attach.'
+        ],
+        'member_toggle' => [
+            'success' => 'Участник :is_attach.',
         ],
     ],
     'track' => [
@@ -128,6 +137,9 @@ return [
         ],
         'update' => [
             'success' => 'Трек успешно изменён.'
+        ],
+        'delete' => [
+            'success' => 'Трек успешно удалён.',
         ],
     ],
     'attendance' => [

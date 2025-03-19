@@ -28,7 +28,7 @@ class UpdateTrackAction implements UpdateTrackActionContract
         $track->update([
             'name'          => $request->name ?? $track->name,
             'address'       => $request->address ?? $track->address,
-            'desc'          => $request->desc ?? $track->desc,
+            'desc'          => $request->desc,
             'latitude'      => $request->latitude ?? $track->latitude,
             'longitude'     => $request->longitude ?? $track->longitude,
             'is_work'       => $request->is_work,
