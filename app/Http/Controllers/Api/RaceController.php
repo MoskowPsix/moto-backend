@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Contracts\Actions\Controllers\Race\AddCommissionActionContract;
 use App\Contracts\Actions\Controllers\Race\CreateRaceActionContract;
+use App\Contracts\Actions\Controllers\Race\DeleteRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\GetForIdRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\GetRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\RemoveCommissionActionContract;
@@ -18,6 +19,7 @@ use App\Http\Requests\Race\UpdateRaceRequest;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Http\Resources\Race\Create\SuccessCreateRaceResource;
+use App\Http\Resources\Race\Delete\SuccessDeleteRaceResource;
 use App\Http\Resources\Race\GetRaceForId\SuccessGetRaceForIdResource;
 use App\Http\Resources\Race\GetRaces\SuccessGetRaceResource;
 use App\Http\Resources\Race\ToggleIsWork\SuccessToogleIsWorkRaceResource;
@@ -60,6 +62,14 @@ class RaceController extends Controller
     public function update(int $id, UpdateRaceRequest $request, UpdateRaceActionContract $action): SuccessUpdateRaceResource|NotFoundResource|NotUserPermissionResource
     {
         return $action($id, $request);
+    }
+    #[ResponseFromApiResource(SuccessDeleteRaceResource::class, Race::class, collection: false)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
+    #[Endpoint(title: 'delete', description: 'Удаление гонки')]
+    public function delete(int $id, DeleteRaceActionContract $action): SuccessDeleteRaceResource|NotFoundResource|NotUserPermissionResource
+    {
+        return $action($id);
     }
     #[Authenticated]
     #[ResponseFromApiResource(SuccessToogleIsWorkRaceResource::class, Race::class, collection: false)]

@@ -69,6 +69,9 @@ return [
         'toggle_is_work' => [
             'success' => 'Состояние гонки успешно изменено на :state.',
         ],
+        'delete' => [
+            'success' => 'Гонка успешно удалена.',
+        ],
     ],
     'cup' => [
         'get_for_race_id' => [
