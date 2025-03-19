@@ -158,6 +158,9 @@ Route::controller(\App\Http\Controllers\Api\CommandController::class)->group(fun
         ->name('command.add.member');
     Route::get('commands/{command_id}/members', 'getMembers')
         ->name('command.get.member');
+    Route::get('commands/{command_id}/members-for-coach', 'getMembersForCoach')
+        ->middleware(['auth:sanctum', 'role:'. $role::COUCH.'|'.$role::ROOT])
+        ->name('command.get_for_coach.member');
 });
 
 Route::controller(\App\Http\Controllers\Api\AttendanceController::class)->group(function (){

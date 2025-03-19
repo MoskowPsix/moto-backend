@@ -9,6 +9,7 @@ use App\Contracts\Actions\Controllers\Command\GetCommandActionContract;
 use App\Contracts\Actions\Controllers\Command\GetCouchesActionContract;
 use App\Contracts\Actions\Controllers\Command\GetForIdCommandActionContract;
 use App\Contracts\Actions\Controllers\Command\GetMembersActionContract;
+use App\Contracts\Actions\Controllers\Command\GetMembersForCoachActionContract;
 use App\Contracts\Actions\Controllers\Command\ToggleMemberActionContract;
 use App\Contracts\Actions\Controllers\Command\UpdateCommandActionContract;
 use App\Http\Controllers\Controller;
@@ -24,6 +25,7 @@ use App\Http\Resources\Command\GetCommand\SuccessGetCommandResource;
 use App\Http\Resources\Command\GetCommandForId\SuccessGetCommandForIdResource;
 use App\Http\Resources\Command\GetCouches\SuccessGetCouchesCommandResource;
 use App\Http\Resources\Command\GetMember\SuccessGetMemberCommandResource;
+use App\Http\Resources\Command\GetMembersForCoach\GetMembersForCoachCommandResource;
 use App\Http\Resources\Command\ToggleMember\SuccessToggleMemberCommandResource;
 use App\Http\Resources\Command\Update\SuccessUpdateCommandResource;
 use App\Http\Resources\Errors\NotFoundResource;
@@ -119,4 +121,15 @@ class CommandController extends Controller
     {
         return $action($command_id);
     }
+    public function getMembersForCoach(int $id, GetMembersForCoachActionContract $action, GetCouchesCommandRequest $request):
+    NotUserPermissionResource|
+    NotFoundResource|
+    GetMembersForCoachCommandResource
+    {
+        return $action($id, $request);
+    }
+//    public function getMemberForCoachForId($command_id, $user_id)
+//    {
+//
+//    }
 }
