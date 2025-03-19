@@ -28,7 +28,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: licenses
+        example: polis
         type: string
         enumValues:
           - licenses
@@ -51,7 +51,7 @@ endpoints:
         name: url
         description: ''
         required: false
-        example: 'http://grimes.com/cum-veritatis-explicabo-voluptas-et-sapiente-et-eveniet.html'
+        example: 'http://www.macejkovic.info/'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -61,7 +61,7 @@ endpoints:
         name: number
         description: ''
         required: false
-        example: consequatur
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -71,7 +71,7 @@ endpoints:
         name: issuedWhom
         description: ''
         required: false
-        example: consequuntur
+        example: necessitatibus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -81,7 +81,7 @@ endpoints:
         name: itWorksDate
         description: ''
         required: false
-        example: accusamus
+        example: quas
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -89,16 +89,16 @@ endpoints:
         custom: []
     cleanBodyParameters:
       type: licenses
-      url: 'http://grimes.com/cum-veritatis-explicabo-voluptas-et-sapiente-et-eveniet.html'
-      number: consequatur
-      issuedWhom: consequuntur
-      itWorksDate: accusamus
+      url: 'http://stroman.net/unde-beatae-commodi-et-ea-maiores-reiciendis-molestias.html'
+      number: quia
+      issuedWhom: et
+      itWorksDate: non
     fileParameters:
       file: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d.","document":{"id":918,"name":"file_67da784296c50","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
+        content: '{"status":"success","message":"messages.document.create.success","document":{"id":192,"name":"file_67da6ea59e81c","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
         headers: []
         description: ''
         custom: []
@@ -134,7 +134,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","documents":{"id":919,"name":"file_67da78429e85f","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}},{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","documents":{"id":920,"name":"file_67da7842a207d","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}]'
+        content: '[{"status":"success","message":"messages.document.get_for_user.success","documents":{"id":193,"name":"file_67da6ea5c740b","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}},{"status":"success","message":"messages.document.get_for_user.success","documents":{"id":194,"name":"file_67da6ea5d265c","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}]'
         headers: []
         description: ''
         custom: []
@@ -224,7 +224,7 @@ endpoints:
         name: id
         description: 'The ID of the document.'
         required: true
-        example: 7
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -240,13 +240,13 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","document":{"id":921,"name":"file_67da7842ad81d","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
+        content: '{"status":"success","message":"messages.document.get_for_user_by_id.success","document":{"id":195,"name":"file_67da6ea60ae25","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.document.get_for_user_by_id.not_found"}'
         headers: []
         description: ''
         custom: []
@@ -277,7 +277,7 @@ endpoints:
         name: id
         description: 'The ID of the document.'
         required: true
-        example: 7
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -302,7 +302,7 @@ endpoints:
         name: number
         description: ''
         required: false
-        example: sequi
+        example: molestias
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -312,7 +312,7 @@ endpoints:
         name: issuedWhom
         description: ''
         required: false
-        example: esse
+        example: nobis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -322,34 +322,34 @@ endpoints:
         name: itWorksDate
         description: ''
         required: false
-        example: voluptas
+        example: a
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      number: sequi
-      issuedWhom: esse
-      itWorksDate: voluptas
+      number: eaque
+      issuedWhom: minus
+      itWorksDate: alias
     fileParameters:
       file: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0451\u043d.","document":{"id":922,"name":"file_67da7842b69d3","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
+        content: '{"status":"success","message":"messages.document.update.success","document":{"id":196,"name":"file_67da6ea638eaf","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
         headers: []
         description: ''
         custom: []
       -
         status: 403
-        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
@@ -380,7 +380,7 @@ endpoints:
         name: id
         description: 'The ID of the document.'
         required: true
-        example: 7
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -396,19 +396,19 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0443\u0434\u0430\u043b\u0451\u043d."}'
+        content: '{"status":"success","message":"messages.document.delete.success"}'
         headers: []
         description: ''
         custom: []
       -
         status: 403
-        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
