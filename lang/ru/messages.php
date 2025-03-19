@@ -114,6 +114,9 @@ return [
         'delete' => [
             'success' => 'Команда успешно удаленаю',
         ],
+        'add_couch' => [
+            'success' => 'Тренер успешно :is_attach.'
+        ],
     ],
     'track' => [
         'create' => [

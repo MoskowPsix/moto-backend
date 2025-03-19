@@ -2,24 +2,30 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Contracts\Actions\Controllers\Command\AddCouchActionContract;
 use App\Contracts\Actions\Controllers\Command\CreateCommandActionContract;
 use App\Contracts\Actions\Controllers\Command\DeleteCommandActionContract;
 use App\Contracts\Actions\Controllers\Command\GetCommandActionContract;
+use App\Contracts\Actions\Controllers\Command\GetCouchesActionContract;
 use App\Contracts\Actions\Controllers\Command\GetForIdCommandActionContract;
 use App\Contracts\Actions\Controllers\Command\UpdateCommandActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Command\CreateCommandRequest;
 use App\Http\Requests\Command\GetCommandRequest;
+use App\Http\Requests\Command\GetCouchesCommandRequest;
 use App\Http\Requests\Command\GetForIdCommandRequest;
 use App\Http\Requests\Command\UpdateCommandRequest;
+use App\Http\Resources\Command\AddCouch\SuccessAddCouchCommandResource;
 use App\Http\Resources\Command\Create\SuccessCreateCommandResource;
 use App\Http\Resources\Command\Delete\SuccessDeleteCommandResource;
 use App\Http\Resources\Command\GetCommand\SuccessGetCommandResource;
 use App\Http\Resources\Command\GetCommandForId\SuccessGetCommandForIdResource;
+use App\Http\Resources\Command\GetCouches\SuccessGetCouchesCommandResource;
 use App\Http\Resources\Command\Update\SuccessUpdateCommandResource;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\Command;
+use App\Models\User;
 use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
@@ -70,19 +76,33 @@ class CommandController extends Controller
     }
 
     #[Authenticated]
+    #[ResponseFromApiResource(SuccessGetCouchesCommandResource::class, User::class)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
     #[Endpoint(title: 'getCoaches', description: 'Получение всех тренеров команды.')]
-    public function getCoaches(int $id)
-    {}
+    public function getCoaches(int $id, GetCouchesCommandRequest $request, GetCouchesActionContract $action):
+    NotFoundResource|
+    SuccessGetCouchesCommandResource
+    {
+        return $action($id, $request);
+    }
     #[Authenticated]
-    #[Endpoint(title: 'toggleCouch', description: 'Добавление и удаление тренера из команды.')]
-    public function addCouch(int $command_id, int $user_id)
-    {}
+    #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[ResponseFromApiResource(SuccessAddCouchCommandResource::class)]
+    #[Endpoint(title: 'toggleCouch', description: 'Добавление и удаление тренера из команды, может пользоваться только владелец команды.')]
+    public function toggleCouch(int $command_id, int $user_id, AddCouchActionContract $action):
+    NotFoundResource|
+    NotUserPermissionResource|
+    SuccessAddCouchCommandResource
+    {
+        return $action($command_id, $user_id);
+    }
     #[Authenticated]
     #[Endpoint(title: 'getMembers', description: 'Получить всех участников команды.')]
     public function getMembers(int $id)
     {}
     #[Authenticated]
-    #[Endpoint(title: 'toggleMember', description: 'Привязка пользователя к команде')]
+    #[Endpoint(title: 'toggleMember', description: 'Привязка пользователя к команде от имени самого пользователя.')]
     public function toggleMember(int $command_id, int $user_id)
     {}
 }
