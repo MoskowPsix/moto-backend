@@ -11,9 +11,7 @@ class RaceForLocationIdsFilter implements Pipe
     public function apply($content, Closure $next)
     {
         if(request()->get('locationId')){
-            $content->whereHas('track', function ($q) {
-                $q->where('location_id', request()->get('locationId'));
-            });
+            $content->where('location_id', request()->get('locationId'));
         }
         return $next($content);
     }
