@@ -80,6 +80,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="appointmentrace-GETapi-races--id--appointment-race-users-table">
                                 <a href="#appointmentrace-GETapi-races--id--appointment-race-users-table">getTable</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="appointmentrace-GETapi-races-appointment-race--id--pdf">
+                                <a href="#appointmentrace-GETapi-races-appointment-race--id--pdf">getAppointmentPDF</a>
+                            </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-attendance" class="tocify-header">
@@ -153,6 +156,18 @@
                                                                                 <li class="tocify-item level-2" data-unique="command-DELETEapi-commands--id-">
                                 <a href="#command-DELETEapi-commands--id-">delete</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="command-GETapi-commands--command_id--couches">
+                                <a href="#command-GETapi-commands--command_id--couches">getCoaches</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="command-POSTapi-commands--command_id--couches--user_id-">
+                                <a href="#command-POSTapi-commands--command_id--couches--user_id-">toggleCouch</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="command-POSTapi-commands--command_id--members">
+                                <a href="#command-POSTapi-commands--command_id--members">toggleMember</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="command-GETapi-commands--command_id--members">
+                                <a href="#command-GETapi-commands--command_id--members">getMembers</a>
+                            </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-cup" class="tocify-header">
@@ -181,6 +196,9 @@
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="document-GETapi-users-cabinet-documents">
                                 <a href="#document-GETapi-users-cabinet-documents">GetForUser</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="document-GETapi-users-cabinet-documents--id--files">
+                                <a href="#document-GETapi-users-cabinet-documents--id--files">GET api/users/cabinet/documents/{id}/files</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="document-GETapi-users-cabinet-documents--id-">
                                 <a href="#document-GETapi-users-cabinet-documents--id-">GetForUserById</a>
@@ -1224,6 +1242,228 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                    <h2 id="appointmentrace-GETapi-races-appointment-race--id--pdf">getAppointmentPDF</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Возвращает документ заявки гонщика для комиссии</p>
+
+<span id="example-requests-GETapi-races-appointment-race--id--pdf">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/races/appointment-race/exercitationem/pdf" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/races/appointment-race/exercitationem/pdf"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-races-appointment-race--id--pdf">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">�PNG
+
+   IHDR  !   �   l(�h   sBIT|d�   tEXtSoftware gnome-screenshot��&gt;   .iTXtCreation Time     Чт 06 фев 2025 19:17:01^]d-    IDATx���\Te���.4��v/�4DA҂��-�|� 4n!M���2�`QIT��B1YX�,���`��R����RZ醍{1��d�
+�zf�&gt;� 3��h�����&lt;t&Mu;��u��}��\�\g��?��B!�B1D~z�3 �B!���&quot;�!�B!Đ�A�B!�bH� D!�B1�d&quot;�B!�R2B!�B)�!�B!��B�B!�CJ!B!�B�!%�!�B!Đ��������?�����2i!�B!��&#039;vvp�M�T��&#039;7�4����?\��t~�-?\�|-�B!�B�H�d�0�n�yp߹��&zeta;6~��6!�B!ď�OT*�m^���	�[�!�B�o����o��y�������,!�B!?\�����M�^� �{E���!�B!��u|puӱl�!�B!�ŝ�^!�B!D[���
+�B!�CJ!B!�B�!%�!�B!Đ�A�B!�bH� D!�B1�d&quot;�B!�R2B!�B)�!�B!��B�B!�CJ!B!�B�!%�!�B!Đ�A�B!�bH� D!�B1�d&quot;�B!�R2B!�B)�!�B!��B�B!�CJ!B!�B�!%�!�B!Đ�A�B!�bH� D!�B1��� ��$�c48��NC��?��4Z[{��#w��4cx�&quot;|�w�_����z�J!�B������G���/��el~��zg�Gkؔ�9���т���ؐN�W�B!���эuZ�QKΆ]|��A����w�~�~�Ͳ{�&quot;����)K!�Bq����	�:�y6~��:k5��L&Kappa;�~���p���q�-�E�Ů�ə��&amp;���[zO�t�ܤ��0k_(�𨫆�����b��I/Wu/�|�0+���]�h~΂g� @-/=���|ڵ�4-�����U���&amp;M����t�w�,&amp;�Ww㠽�{�%�ӳC.�r�}sX���[��}��o�����q�vy͆��&amp;p����~�����a#FpK��HO7l��ܔ���z.�����S�M�ܸ���&#039;���*��5-KC���wC^z�=C�r��\���;�&gt;}�y&quot;��C�բ	x��C�\*_~��k4��5�Jޭn�J�	!�B��8����O����i����-]�;j��V���֐���so��gt&amp;&thetasym;T��dw�!�pfu|Aᡓ\�z���&lt;��^��=���&amp;bV�!v�E
+�?A�[���k&amp;�6e�s��3��W2ٹi9�@�o��ь����d����M:��Di�q�I*�PR_Ig��E
+���ގ*r2
+h�y���Wx��ֳ���&#039;��g��.���BY�c&lt;��&gt;�&#039;.$51
+��],��5�]�u(\R�=���X��7�zm�r��C��/�h�s=�3�Y�M��&frac34;_��y&quot;����m�lڼ��_Ԑ�|1[�\�.g�+�d����=�NYF�+��\5��6��ʶm�7!�Ba�1���s����X��?ֱ��2�IyJ0&lt;#l� �����hR}�����7?X��d5�?8La=3��j5_�Q��P�*P֩z�&amp;m��ٛe;3Y��a0ǃs�;r��x[ޡQ�3&lt;t��l�vJoO�hn5~�u�����!��Ll}�Ҍ?Q�9�6��Y�i	s~�Ce@�GN�5eZ�M}��
+���&gt;&#039;�&amp;������0�g��`��2���h��$�jj�Ӹ�w`��*ɤh�ab��=g9��`��;��\�aY�$�����er��|�O\&amp;8yY1wQ������tC��}�m&amp;Y��7�@��W
+g��tE3��O#���E���A�|c]}�+����o��ބB!�U7Ɲ�@��L�w|�֮^W߿���k~�ĉ=������7*Ϛ�py��|��0�\�&quot;����4���o�I�P���fP���[��� ��3�*��r�����ݍ������%����]���kj��fZ���u�\��&quot;�Cs�݌Ϩ�r&#039;\��^� ��&gt;����ֳm �;�ƭ�u���{棳�m|:�Ib~i�5�&lt;�-gt�?�=L��������mj��=�6~&lt;c�
+�]��\���������СP��~C���ǂ�.��o��;�&gt;����߳2j�{ލf�&gt;:�b��mʻ�m�ZoB!�&sup2;b2�PR7呟�-_�_�N�m���G�p�0�g�a�ы?j��ӏ�4�LA�*������G}z��q��Y}�����9׮u�w;ac��1�q���&amp;�-X���9,���vp��Hl�)Kf�;�U8��yQ�.�1{��r�6R��B̪h�n���a�f2ǥ�7�:C�[|�E̤=+�׳������V�Q=S��CϿի\O����X�d߿&gt;���+���א��9�e����%�?��zB!�����.�1�l
+E�[I�4&gt;{q��7�����\����O|͝�{&psi;^�w��(����o�]���ߣ̟$ڍ�Y�Z���_~�㣙s��
+jF{x@��h���	��0ߟ�{LҼg&amp;Y��s�~�
+�p�m����e_0lt��r����03S�:.s�ka�(���yG�U|�?�����K�����mH�ݼ]\���5�l&lt;U�_�}ă�CI���&gt;�D�(w��hG�O�����8C����ц;U_}�ӝ#�8��n�V�;��&quot;�߀��\����_xpk�`�&frac34;�-��Ƴ0n&amp;������}�!��mk�	!�B�n�gBz�A̦T�}p1��%�G̸h���X����F3���Q�-�^f�_���|1SR��_˭s�3��&egrave;`K�L�Ɍ;v��G�PV��z}~��]��f@uc������r�9�`Xg��&lt;	�ʽ ��&quot;�d}���]#�|t+��s��ת 0}�\y��O=&upsilon;)�p��6J�;�y$�dP�p��&#039;I�t�1����&lt;q&amp;��a=_ ����o����l��e&amp;��A�,���3ky3s=.�n�&gt;~� ����O�nd���sA=�[���.W�]BG�O4��Y�_�����wO��]�8}(�R��T����nw��0�$�������1LǺ��b���;����b[�	!�B�n�;! ��$k�Ln��;����`�]yl�2�ӯ?OJ�&#039;8G����&#039;{�EuS�h��;��h��2��Y8ӛa?%&amp;|��|�9�I�X��I�[��G�y���(b6d�l����+龎1&#039;�a|C�&amp;?���Ļ��ݼ��_���w�)��Ώ�(�$,���T\]M�=n�=Q̝�f�ę}���O�͡_r��V�\@����ypsF]�����|w���	,Z�@|�.�P��D^��,۵��Y�|��-�d꨿#��/E��屰�Og�3Ƈ�G����n}$
+��������w��ڶ��&amp;�B!���?��&Otilde;~��k�aT�Tˣ��C5y������ͻ�EQ�s&amp;��c;�ͼwxhW{&quot;-���g�!�B�X�G���΍w&#039;D�xɴ$!�Ba����5��e;8t�N����O�s�4���B!���XB!�B�kH�c	!�B!n82B!�B)�!�B!��B�B!�CJ!B!�B�!%�!�B!Đ�A�B!�bH� D!��jM�ؗ&omega;��!��q��1����p�O�\#h���0�yB!lt�����);~]�i��w�����GX43����&quot;vd)qs�p�&lt;@����u����pM0���QJ�Y�+GB!��T�Ka���^~��7�츩����B3FL%)���u�)Pn���D^�� ��8�պ����Dmw�r$�B��8�5�&lt;I;���!��F���dޘv������LHU!��I�IazD &gt;���,J���8�����ف��Z���&lt;�N��\&gt;�&amp;�9��N�G=��U哼d�&#039;���2�ҵ���O�3y&gt;9��g��i0�U��Ex`(�7S�SW�Ţ١�2i�22�7uo�ĆP|���b������1;0�ԏ{&gt;o&lt;���������s &gt;��]�+�n���ܲ�rr�=EHh &gt;�3��!��vs	�R��	}�t���(� :N��㛲���O@ �g.%ݤ����&lt;�m�gQO�)%��	\E��쾲����e���������LO��s��2�N�3�)r�|v������z���`��p|���vm��;�ҿ���QGO�O;	�LJ�&quot;5�1C��=F\n��U��3��ޤ.���&lt;n�̆,��;��k�m\JHX ����,JCW5@ a�8�TN��	x�,k9�G��L�sr8���Q�:P��T�Oa��P|��]JcW��(�Y��@&lt;��V�gnYG&#039;^]���@|C	�Ϡ�+���a+%f�3=���x��6Ե�6Ұ�Ǔ�c���eL
+|����4�{���4a���Ykl��y�~�L��&#039;0���R��&#039;.��Y�/}�u�6����u6��~���x~+V�ݎt����� i�CC	yb9Ҧ6�d��m�6�(H�sve��u��)|�gQi,�~}�������_픬�i��O��4�I�M�,��cUB;���x|f���.�)+�fKڒ�A��5d�$&lt;��{��}��زv�X���|7�̀@&amp;�]J��5(抸�_2Y|�|C{7�L����j���6�C�b�����G�UO��eH��5,�yE�c�e��]3yɨ2���\r��x! �T���-o��w��!�+��4���f�r��gʷ(v.Dg�AQ1�^����:O�e��^�[H���_���� ��RI�9G��\����^Nz�����H��@KI
+��r��[)ܿ��p(X�DN��A��_-���dYc&gt;qqy4��獽9��~��\E��O�,�א���&gt;���)ܺ��j�X����	�)U )��eZṮ��?��SQQ����o��ʡ�l�J�_��K
+LH�����
+�s@ݽ�U�&#039;,#�?��R��9&amp;_:Bܳ�Yj�:��T��Z��S��Ԗw�x&lt;�Ǚ����k�]��\J�I�(�Ѓ�	�_���m�����j=~�TԠy|���x�_�&quot;�m�6����U&gt;���o���r��wh�0��:��%-%�OD��&ntilde;�[I��S�㖑[7�wz�S�z�F�E��I\���9*�X�b��A�Sf���XOo��R|��+�h&gt;�B�{퀞���$�Y/����=���{!���Z��){e)q&#039;T�ڰ��[Y8��&gt;��k�ک�I �I[�ግ�h���j9����d���0v�+�Lt@��V&Delta;�ϙ�m,tU�&gt;�u&gt;(y�3�F�M���9����b�)+_�x�V~�DΊ%���V���i[r��V�u�b
+�}�3%�d�;�Oq��)y��;Y?v[�9�PC�����_&amp;��+rz��J��v�E�����n�Ѹ1��ZE�v�����D�#����~�R�Ǌ]�]�J����şm�Nf�Zb:�oE�b�ߌ!eg�!�N$���U&lt;��)�On����d�AѺ����ƛ-eh=�
+�c��qbK�����(�����h���7�p���cE�|�A�X1���SH.2_���r�m;�-�C�&gt;V�ʕ�z=h�%����9��&lt;�_��^k��!����y3w`�7WD�{�=�?����� �+�G��������f����&lt;zN�Qy�B�,�������d$M��4 �.D�}��fkv��fr�DN���%MA@={?d��TR&frac12;q׺4�9z6Pt���k�${e��@k�eo�Qᵘ�g��ru�k�bV�;P�n)�&#039;6���y�	&amp;im4A.�{O!iQ0��#���\��V&#039;C��rB��9�@�TAZ����9�]j)(�&brvbar;r�&quot;z�K�1�QNhF������u��!��ń�vA�L_t�w��#�x��V���qAG=���h]zV�A���&#039;�6�w��ӓɘ=����W3};��^c����}N��fK��p�?��qN��Uh&#039;ǳ,LE�;ƺ��~��_���uB�ɼI.�T�\���|�r���JQ+RY8���7+S�u�&quot;�M�^ju�pXa��ɀQ3�����l0^Z��޸;���Xǀ�(&lt;�iӼ�:�����*���S�&gt;�e�=���As#�ꬡ�� ��SQIki�z���{��ʤ��p
+O���_&amp;����Ţ��+m��푞��&lt;�]_�f�62q�r�q�᥶T7��zoK�;��v&quot;R��4�EB*	��-�;5�m�j�Ǫ�m٫����M*�~��6�M�SMP�!}w?����^���+�-�y���f��m�t�h�L&quot;�����LʚH(J#��I�{������&#039;m�� ��F����,e�h��e5TT���1�y8��fG��Bw�ͬ��x�$艵$=t3��_��8@��P�V�`-�,&#039;6� �N�sg7�nw���f-MQ���Ϲ�������Z�Xʿ�ǰ�vh��Z���wT,�B2ʯ�&gt;����Ӧ�pp���7��.����4�����!�	�bO�sR�K��˛���j=A�k��N���|K�8������ն�㍻Iɨ�1����Ӄ�
+FM!i~&gt;!��۰N��P@E���u=��^KE���y��3�L��� �A�n��,�O������qiյ�(՛		��kʨs�� � k�������$���,գtz��
+\�+�w��]Enc
+N��]{%i�M���g����H�M�#���z��Do�s	:��}EMD�sA9�&amp;�s~,�����}WCu�
+��&gt;�Nм~�����w�m�*0��ϲZ�3_R���du�upAӦ#3~5&#039;&gt;;O�^��]EWd�Ǡ��q!�Y�� ��L&gt;uc��9��H �m������RIҿHb�ٵ�g�T���U(��s$�P�9��_���	�&amp;�b2B��o� 1��Sz�M`2���qQQ�z
+k��W��(����+�*TWK��&amp;ʞ���L�z��iW��ݒ@t��{H���c�\[ѧ���˴��)����.`|.��$R&lt;�Ͷ�-&gt;���NO&quot;}M�GƎ��Du��&gt;Vmؖ�@�-��?�Ppe��I��n��r&quot;�zZ0s&quot;ܫ��F=���W�{�C*&Nu;G� �z4����x�IL5�U�Cu`�MҦȞ����Nd�C4{�jX�ޕgܵPv�C��#qWYL����Y���i�:��u&quot; :jt��)C�y�W�W�ڊ�@
+�0��z|c��:P����[��~�;����M5ӇY����ws�3m���j����h^�i��rim��w%}d;ʷ0�������t��v�vpel�&lt;��L�x|Z�Ǉڏ{(�}R������)~�	��&gt;��ц� ��^E�k�t��W_���4��mPϾXK��D�o�&quot;�#ԅEO�@EP�R&amp;�Isx��s�ֵ=�o�|�&quot;3���O�F���V�f�Z�xһw��И�a=uo,�g_�E��&gt;1ԣ��,�����[ͥwe�Nz�Ԗr�6��q� �m�����O=���A�{��Gc��`)&lt;�J��|2��1����ˠ��	��i���ŏ��L�^�.���=&gt;��-�h�Ce�\��Q+1�w{^�ġ&lt;�Ƕ(f��Z���2�i&amp;cK ��kN�p��r�
+]�fR����}Q�먝�Z_�Vd�?��x�,R߻���T�l\J�S�ؒL���aQ��4ͻ��C;o��񟽿�vr����J�gi$�B���I��b��h��6�Z&lt;�&quot;kNe�&chi;�ؘGz�d��k})����P�yk�+�u��|�t[��*ckէmR=���w�Lۼ�&euml;x�UX�a�\p�o&quot;����:%�;&frac34;��?v�2�+� �%?N��LAA�q�6�Z����e5:^8��}.��7&amp;-�b�f�&#039;o�.Ea�-o���y6~nK;����t�u���t*��|�5�H�&gt;H�8sg�*�Ng��AQ�(%���&lt;�ϓ����N��p߻�!�bՄ���]��X�W�G��+5Z�bզ4m8������D���1���?3�(�Z?&gt;��L5    IDAT~\ӱPW������\p�nm�	���ӿ1��&quot;�S�zkll&#039;n7��#�ˁ�-�t�R]EE�+^�*@Ou�&amp;t��0_����nB����_GsW�R�s;���&gt;JO]}+�ڮר�h�L�;�=�R�� ���2���N=��{3�&lt;?�������@�g�(��l�֑h4O�p$�&reg;m�M%ʹ系�\Q7�Ө6IO;�(&#039;�f�jZw�*j�h�tEmS�_�9�@{��;p��&#039;|�	��9��)��=-��W��E�?�c׮&lt;�}�L���e=���TT��vW]YE�-��s@_ŉ�Zю�3�����j�����w{h��r&gt;~?Q3!��&#039;��X�A�ʉ۴.���ˮ���5�@��T6�x��W��o��&laquo;���Է�9�O���.����5&amp;���h�,��&amp;q�f8�g��{
+e�a}ߐh&quot;�j���:j8�q;��D  ��ɍ%��S7O�s}��4�X
+��ބů&#039;�����~Vc0�8P]w}:`iS&lt;�P;y�;m-i�:r�tV�Ŕ] I{��� ���|v�7wQOY��V*��jW�&gt;&lt;z�z۲��u�ݮ��OL�﨡�l;ڻ���{l��T�����,��bhW;�i�&gt;ft[vp��h���5�fԪ��}_$I��h9�FN�C�����} :طEG��Db�����{�������]��h:���V]cZ��T�g�y���m�2�-&pi;�&gt;v0�ձe�������ߩQ�����O��ٰ�����t��S�d�T/W���!c���P�W�G��:E����}lO���h�=5��w�Z7�&amp;/d��h&lt;k���	�����k�Vǉ�&amp;kKIO�q�9�Yz����d&quot;�}+=��YX�z���6*��F�ۨcM�Q�ϵR��|�7�����X������߆{4/�I�.����D���(���ԝk��|��&amp;�d�A�D�@� �s�V�&curren;h3�yU͎f�:_:BeC����I�͌�Vp ���w�@�S��!�D�*&#039;s]Eg�hl��({	!Kt��\�Yz�oF�q=��5e�Q��AT�&#039;6��1.���jx��S����[�M��Jv�r�&#039;��毢8N�&amp;ڥ��y���;E��p��,�r��!�y#)ٝ���f�r��&#039;�s�i{;�䷫hln��8�5���;w&amp;�߷S��t��D�#����N���z�GO[i��U4����p�� h�T�����o?D��յU��K!��V���I�]�)ז�r�Ӱ�gK1�Ǩ�����(�EC}���$3���	��o�⫱�&amp;)�L}���v��VC|4�=B��z=��N7��7Q�f�W���J��&lt;�kUxy����Z8[�&amp;E����#��}��N&Otilde;��X&lt;N�Sy2DEI�*r�����4f?�DA߿���$vm&lt;c��&quot;�m����ڰ��6��ȘI���g��&#039;������p�N�k��&gt;�䮀�T���)�L#�#c\䤐Yu�s�xR8�c�*�e�صFM%:LEIN�7��\C�o_D��GtT�4!�m���m(�y��곧н�&quot;�u���X�ۛɬIT��~ǜvZ&lt;ݿ&quot;7]Gu6Ɵ�v��z*/���2j,� ������f9[�)}{o���h��L�1C����X���ȾSg�7Keh[���&gt;֤�{;J��^}M�ul)�]l��b+u&#039;�(�R����/���[Z��7�=B��V]=�_�T��a�[j��V^#����&gt;���x��]�p��X}W�َ�	ʷ��uؚ�ǣ���KG�9P��U�v�� �я�$6�s����X@e���SI۲_�WKԣ�����r_��S$)OY8r�浭*ҳw�M(n����g���&#039;7=��N���s�}c�(YE�#�eD���2oؽJ��U��VP��$(*�����^�&gt;�H����xİ�7*R��xz~�p�N�KF��Y��GJ�V4�9���h�t�}�T���x.�F�q�,{)鵭����ސLlW����$���K���4�����Ve�U���,��d*Q]zWy����-�!�����]&quot;��Y�J��Q3�=���3���~�`�����H�[F�&amp;��aq[I��F����5&lt;\��Dx�4. ���1�[��v@��g�?�1�z��n=�2)�&#039;f��vI;/�Ib�.5��X���[Z�7n����5���庥hw �Xc�w�⟰��e��n��j�����k��!���)f�`�&lt;��-ߒ���ي�.���ZB�?rj����Y�s�[�Ƀ��&lt;l�����q�Rc�Q���XC�E4^�
+���ʉ�u��؞E&Phi;�ȼ ���Z�Q������:���S��&quot;ɾ{��%-�5`����Q�W�I��9�dq�&gt;�0[ֶs h�62r6��~��j���f��p�+��y�z���ە~X���W�&amp;����`������R���z��o&amp;s�S�ڻ�?u.	�S��VZ�����LN%���{7.�EAl.�L��&lt;7��gizi/ND$��	ИO�5�}v�!M��y����K�K�mVи�O���0Fe=ޖ[�7���V����L�7y?��?���2� )���	�(�楒&gt;�N������8��;1��.5?0�X/ٸ��!+m������QNzl��0�WR����a�I�C��y/�+�9R�pcl�Z�c&lt;�^ۗ���?��&Otilde;~��y�+]+UY�,�����R�M�)C�hK,f�k�T��_�᥄��Bvq2A}.Tg��?ER�7�ʠ����p�3�3�X\s��&gt;��Lٻ�X�k���6Ե��7i󮞔���v������܃���T�Q������d�\���h��Y��6K1���G!�B���㚎%����d��k��F$��te�J|��b2�6���#	!��g�{�&amp;�vW3W����dc:�V�x�c	!�B!nx2K!�Bq&Ntilde;A�B!�bH� D!�B1�d&quot;�B!�R2��U!��f���.�B!�ՑA�0��XUJ����l���\�_[�7ָ�)&lt;&#039;L�5~���ū�D�S�,z�:��Ň�x~�&Delta;B�՝B����K�����k(�^�왡���q��:��V���!���Lg��|���n�2�?�G��}��,��O` �g/#�x��罣��͟��ɏ�~�j��!&#039;D@�QR�n���_�^&#039;*��z����!������ud5Q�z)�땧k��P�e)!�a��gx~��!���5%���PTݎ�fhi�o�XNj�2
+&amp;v�V6z���찕���Ho
+&amp;ek2c��&quot;g�fё��)h��[�N^��w@��bѺ��Ĭ��&#039;�f��n9��{H�V]Y�i�d�S$~t3O��گ&lt;���A���nd��N_E��&lt;ڢ^�inr��9�Ѻ�k�����Yd�&gt;�zgC!��ͤ_�gc0��x�d��T楡S��37��V�k|���TDe&gt;G��
+p#cm!K�Q�0�XW�u����7O���){������� 4��3���u:�&gt;$�;����ռC��ߐz�f��E�h3qC��ӱ:jȜ;&pi;��m��٥S$GL�sr��mA=��d�h��V�̥$�]C[���&lt;0ϙYT��ewv��L8ҳ~k9�댷Cg0{��-�s:f����I���f`~ڍ�i*V��QC��@�_��]&gt;&amp;˔�e����{��)Y�g�e}7�DI�*�G�J�S)�~�sߴ��)��4�����7�������B��֫��p���s뵣���bz�q���?n9�G��L0|Me�EdR.�O����uڧO��N�&#039;�1e���a(���@�ӡ�3(뀖�t$&gt;5���	�O\n9-&amp;�Q�����iL�T&gt;@�^���DAb(��3(3�C㾧���u���g�|rj���\N�1�=C	Y�AQCOb����Ԁ��Ԉ	�dV�������[o&gt;6k�8�ײ���b%,8�!�%�=ux��ԙ�4Yf)���U�L�����=ո�)|&amp;L`�n����6�j~��o��|���`|``w9�`މ����ھ�گ�i/&#039;}~ ���:�-SX�s�F3�\d�ǹ}�hf?{���e&amp;Ǉ��p�&#039;���9�T��g�hv(&gt;��L���LK�D.�S�������ͳ�=h��*c;�y�P��H5���9�bC_aK���R�
+��Uu톱�M�ȶ2�Z6�#��qh��p���&#039; ��s���X?����6�}V���g�_�ͦ�d{�I�S�5�	�������]&lt;� ����_�3L���_ᆻ�Iz���W7P�gNV��G9?!Ҙn;��]�L�8���R[C]�QE��P�s�l�;�x�%p!; 1S֍o/cR�c��6�I�zX�y�6�١��~�J���э�LHg��ޕ�r4���ޫ�������8�L�p�^��BE�R���,�����ΉCG��4Y��!3a:}0)�R�u1��f�hS�M&#039;?ܳ��w��LI1�����S\�&gt;gJ�g����؜�Ah;�Ej��y��H_J\���S�w+	�l&quot;g�rjkT|TN�I�����o����d�o,�9��,���9
+�;ə]���*&auml;��){e)q&#039;T�ڰ��[Y8�C�WfQ��哸ZG��s8Tȱ���W���톓��c/�(���t�r nu�V�|�Ӷ�i&lt;�T@����f!��&quot;�$��_:EDm(�L��ٻ_�Q�����&lt;��G�x���+��|`��34Bu{�H,��~��ϙ�=$���깊zq!ju2��&#039;9����bWc��롂�rV,C�~?)�rl��D��H�:��a@O��b��������J���ʏ����W����&lt;��?���f�r��K9k�l�+�����|=]��&quot;+�ץ嘎����t�m��Z�_���ˣqL&lt;o�=ȁ���*-�!ދ),*6�yQ!a��4S���[On�*
+�Ѽ��,�UV���z��.)0!�b[�x%�U�&#039;,#�?��R��9&amp;_:Bܳ�C��$��_9�����CZ8�K�n&#039;{k�h�R�O;�a�v��B�IMx��m�:O�e��^�kh���_������Rh8&gt;&gt;X�Z@Z��)���-y�����ś�B��W�t&Chi;�?���C��E떓�g��c��z��&gt;[Ҹ֮]{i�T�_�G�؜Ǣ��&#039;�נ���YDO�1nƑ&amp;M�����L*S_N�Q��i��hL��hkn�ߧ��ٻ�Iԯ\l�{G5p��җ&lt;Ƥ�P&amp;�]F����W��LcіƮ~��������$�Y/����=���{!�93	�;J�\��Ry�o�Ub�b��p��DG�Eゎz
+��њbG���p|8���~�k��L�쑔�-�9y�s��CE����ۛ�#��Ϊ�h;���`��F�Ⴛ����&lt;�	[�e{�#p��M*�����m�`\*&#039;3����͜$v9w��%�D$���՛��T&lt;��[�B+���Q\�ٲ&lt;w7�&amp;ǐ�b
+�qE�M�&lt;�&#039;����#IYL��#��j~��b�JZK�87���D&#039;���E��d�?Ȟg��Һ����ݩ�����ܽ��i�h�]�
+�I��BuU��j7ԫW[�����h2V�V�KA#0�P����0@��dx� e�
+�|�3�=�����x6&gt;s?�U�B;�4�_���tե����z��IY	Ei��6	�K5�l��|@&lt;i��uo�Bؚ�9�!� ��~,���P�]O�)��Q�pE3�	��	G�@���{����}e釴yM%&micro;��A�9WF��Z��\�V���ŀ�:^8�0���$�J�`��h�O���^�vBG�E�&amp;W��Ͱ%�Ư��7��ZL�3�x���5y1���x���6�V�l��QNhF��&gt;p&lt;��W߷R�a9��L%#}1��j��y֣\����ې�+��ݗ&gt;$�����.h=�I��k�.���c�@={?d��TR&frac12;q׺4�9z6Pt������$D,7�y�~D�y�h�V*&gt;�e{zN�Qy�B�,��iǒ���\
+@�`���Pjn|?�Z��`��l`.��U�����֘&#039;O��XK�C7�X���cɦ6+}��i\k׬�����y}&#039;N����k�P������6$���ކ��]�D����U��P{=E�Y]�3��R9u�u0�㺎gA!���(���M(�i�8��7����t&quot;h^&lt;&#039;����ii�s�D9�Dv������������*�gח�Y�����N�3^�@N��8wv#hn$^�5T|ַO���E*�ײsy�q�%lq&lt;��1`.A�7�����y.(g�DwΏ�� s�q��j�nR�5֧�	�ׯ�мY�_�����&Mu;�&Ouml;��f��ՇS�:���ud����.֓^j���Ӄ�V��OCْ��&quot;��WP��U&Acirc;�����;=��u0Y���q�������E��=q7�G/o�8E]�I���-�il.�R}���gC(0YG�����8��o�B��#��`(�Q.�O�J�Rq�&lt;J�ף��Ib���)0������cǱ~�e3՟�A;�	�WT�+h|��]��/sp��w��D9~����;�V��K0^��81���pB�e[��P�y��)�d?�:4��i3%7�:�(�~=��Ц�� ��1�w(���=}��Q���
+��#��ZOP�Z���(l)[KԶĀ5��f�h��J��E��X�ğ`�ʬG���Y��&#039;�	�D��q�����;�cR״�(�j����z3!��{w�QF��|$���z5җX
+8�OP����zo��j��iӃ�(�c�/=uo,�g`����͉&#039;e��ME�ym�k$����?�= ���[�h�s6o&gt;y&amp;�t�	��0�g5|�&#039;��5ik���3 ��R+�&Aring;��V4c�{���q~��=����zu1��� T��vped��xd�WO]�
+/O�m;��u&quot;�m߆6�\l���[O�݆��k�^��+(v�nH%ژ��u1�MϢ��s���E{Onx��5Y��������_�xKWY�S��)FNy_�s��d�kW��n&gt;���=�(_7*�tBs%�W��M&#039;e�!���i��c���$o?��GO]���zL&quot;�sz?�qQQ�z
+k��W��(����Y5��L
+��șru����~�It�:ݛT&gt;�gK�T&quot;F�ٽ���]�/+�W�s$�u�*%�UMn�y����L���Q�u��s{u���V��^&#039;����;qߠ��ּ�t�]k�2�F��aav4�ϥX޶��e5��}w�ܩ�&gt;Y��w:��&amp;a{*��&#039;u���Y�p*����U��7��=�u�^�ӯ����炣}�O��KRvND��F�O+���(�L݉�s@j�&#039;,�1��֦1�ʰE�G�a�W�b��a�G����ĕx���&#039;Vo�����8�-_}9�N��w-{��rR��Ư1��y���N�7tr�F�Or��9��CtH�[�e�b�b�pB��k�����і���e��LƖ ��?(���	�&amp;b�2r�.�߽ ]�&#039;�k|h9ݓƵl3��w �)ky��&gt;������6P�v��Gҫ�(�)�l�eָ����z���6��q��A�
+�G��~�uG;u� y�2ҝ�&amp;e��8�8������t�Q|��5����BT��!eb�5����ҳ�y�� {U�����EV�
+[�0(����z�f9�51n�-mp_�}��i�KI4]�B��/X��k�^�r��vj�a�l��_.��O�R�F��f$)����cS�犿��i~���=���w�������vZ�A㤦d]8E���/x��&amp;�*چ��n�߮����׆�����CVl�#���&ucirc;��l\J�S�ؒL���aQ���	��ag��udn;E��27�t,P��E�?�c׮&lt;�}�L���3���TT���[]YE�-��nz&#039;�މ��Sq&lt;�#g���T�C{_����uS=�j�ڮ�H4��p�jT윈X�����F�H�`yw$�&reg;��M%ʹOZ��ۢ�}Z&quot;��~������E=e�sEZ���W�]=q�w�n&#039;��~�뷷۪���΍�wwm�w�-UU4�9�u�&lt;����9�f�l    IDAT����h�g�Iޠ���wW7��Dx-��4v��&#039;(c#Y8��P����Fu��Z�Sƌ����׭y�r�q���Ry���MMK�rl9�G�&gt;ハ#|�vD�I����J�b b�^ ��m��ۣI���țQ�Fr�}�$-��P9]���)k����S�풾���qB{��҆Ma�?�u�Q}������oH?�FBBd��a��ld{D��(/�ZOP\&lt;A}�e-Ɵ�zj?�g�Rq(���Gh�&amp;�O�x�����H��t��z�[M��H4��y��R�v���Į���&lt;Vd�2��V�6�Y��&amp;��fe��3�Z���=M�-����{&gt;��aOW���C��2������
+�YH�����&gt;*�3_�7���v��[�#v�@:#[fCt��� �&amp;=@Ll_�_&quot;�C&quot;�(�	�#B�d@�c���,v`�Q�	���o:pOZ&lt;{�؝�S=8�4/4t�2�$��Z��]�U�S��ԯ����C` �0ځ���e��ѣ�չiSK�s�[g������zH���zޝ �47q���v��P}��4\#o����C;r-e��ijnq�W�4���� ��`���ư2�&gt;��&amp;�������퍷���n�k&gt;�܎�5���M�B�ӡU٩��/�&quot;�������	���~���Ӏ�}L&#039;!jj�a&gt;�L͍.�];�vZ_��T�֍c���yJK��0�u-�l�����I� �2�f��~A�&amp;��b,��ɬ��g]�;$4�̉E͞2�|4�gX��O ���؎�y�	��v��X{�f&#039;�{/�����J�7�ЌD���کF�F7����ʳ�X,MT.g�rS���y����i܌fx�봫z;����\m��h���Ҏ���55�9�|ڊ�B5EY�7���d�@x��	�&amp;��W�|���T�o|���Fb��6�B;�&lt;F�v�&#039;K�C�i	Č��Y4UEM�Ko�r���#9�z*���`9Z̆]�?[A��V����}T�Ǣ�*#�h�g�0���3(�3j&#039;&lt;=��_����+=��H�~����?�P�T��R�K�0_h��D)�[J8٩�P&Zeta;���S�78���s8Z(/*���Ӂ���b9����Q$��ԯl�H%�p��\�3x�i u+�o�Q��ƚb���\UP���Q��C,�&#039;��&quot;]�E��v?�D��&amp;� �8���E�t,����(ǳ�5 K�&#039;����n��,.���&#039;�	o/�踆�Y��ͺim�P��8E�22�+�T��֎�\E鳘�ڍ���絟1	�G��Lf����C��-����+��O�p,�X�Z鰶�A�����$�J�؞v3�y��v��_�K�5�c1�Q�q&#039;�#����`��C�U�~��v̟��&gt;w�&#039;�&lt;죟΢H(߾��&amp;g9(ߺ�죗Ў�b��md����5^F��!rI^�����&#039;��ۮ�j�&icirc;�\U�u���o�K����h���m�v�ʸO0II�t�m#����/�a��u(���x��}���`��O�f���wun����H3�e�c�}�ه���l)�^7c�s�����&#039;`��J�jJ6.ge�RV��5�-�W���h�m�&Icirc;��D��/+��h*iS�뿕��Ŕ��B^G���e��\ZZ�-ɡ�&lt;���8��Ƽ�~�m ��7�2���iv &gt;~�p��*?o���
+r���sd�?�)kș���5��ӱ�LHJd&iexcl;RN��/��&#039;�y��KW�UA=&amp;���;�HtwgǏ��&amp;SԦ0&#039;����d�7���e&amp;:��0&lt;:��u��y�ז���O�����_&#039;�h��kW��`Y^6)ݣ(#o���b�?Վ�Gx|6{9�; ��P��嬜{��a��tv��u��#f���Q@�������$����� ��m���&lt;�hE�ߏ	�����~Ђ��\�F��Ŕ��&gt;}6iO���V:``#�O��rw0��vM �^���i�\��/e�V5�olf�[VЍ#&amp;q9��BI��KӲɈ��~�B��r�?K&amp;�F^���\�&amp;��:��Mڣn���*��e%l|w
+�Ē����],Y��5L�8&psi;r����Ƞ�%����&gt;�s�3-��F���?���$�/�C[&lt;��w&gt;��~Mi�_��e���O���NJL1�_&amp;a|D5p���j3�J�P�-d�Nم�&lt;;7e���&amp;��ԕk4�y��7&amp;��O�dk�q�c�tއH������({��S_�V��c��Y��wu�U0�;�n�I�bl�x(,����=�&gt;�U��E��/1�PA=:����A���w�P�z�W�&amp;N&#039;&#039;?�yq���o��*r{�� �cֱ���(יg &gt;/ff\q��f&psi;#�%����v�7dy��2nx�U�d���䢂��d�6���G&lt;�/�F&lt;�}�m�f��&gt;�#A��)d3�[�E���&lt;���\[�鼊��]y�R�a�_�b|h4Y�?�kj�TRi�&amp;k�rq���ӏ���D��A�ӡ�i�l�����3��G��c���a�b2w9˥�?�ܞ_����Z�m�*��K9�����!~1���uX����EL����V���y`�T���٤4.&#039;wC1w/%H^[��=�������K�&lt;�$�j�=s�Y9�}S=\�����&lt;{q)G���!�Z�Ԭ�E��:�~&#039;sm����}ק��2*���2�:���l�&amp;��Y�e�Avϸ���z�x��	B����6T���&omega;��.����Z!����%�r���
+ff�� w*	B�Կ����� ���;iYG���N�B����`�snw&quot;�Pd:�B!���f:֝��XB!�B�	B�B!���!B!�B�[J�!�B!�-%A�7�������z���/�WB��#A�7́���{�X�v��z��ݤ��ig����X)O#$�Z.�u��֫���b���-/� ��̎#$&quot;����YRx�k;r����y|J!S☱�D�e;w��A1�K�&amp;�����vjw�Č�H#&quot;�����Z��O��Ϙ��S�t�O�Gr�5c!�L����kh��X&gt;� w�bf�5\�)ώv*�WI`�4�.ɡ�\�|�&gt;7������1�}��f�&Ocirc;���Ki�	Ӧ�L�IȔ8fm,�����]&Upsilon;�Q� D�a�&amp;{A37���JET�[�K	�ݩ��&amp;�ꮥO�ǕU}���W1!b2���f�o:�zf6���#���K,)j��J;%�20٦���T��_���� �?�%��7�y��~~�j�寽��b_���C�(�WQ�e�&#039;���[)Y����Id�j�R&gt;W̳���٧rrK�7��T�G�5�^�����q���3☚^@y]����g�o�@z�����8��U��O�L�Lmw��d�)拠����~y
+���/kw�(K5���x|n�5���8e�|�*r��l�&gt;�\ʃ����{n��?&amp;�q�M�+Ŗ�&amp;z����L�7{q#�^��T|G�i�8F���̉���|p%2���Pc������0���y&#039;�\M��Q$�ZJ����X2�OG]WA�Ew;U��
+ �w���5��ߪ�����L\��e���� ��J��:�:��5�/K%~��G�Z4��1j/8��&lt;�-l!Y3���xf)��S^�fT�
+&amp;.�Ѫ}��s�BXOy�l��D+�&#039;S�y0����B&iquest;���ѹ����LgUZ,Ac�0D.%c�X�VUcv�(��˾#G�;s�Fˇ�}�&quot;i���0&lt;�@޺d�u�)o��t.ŏ�mB�Ԭ�F�R��a�2#���ett��?+��]�=K-GV�x�ӽw.����&gt;&gt;{��{#~���ܮ!���iL]����e�bE�&Igrave;��Ә�&lt;�ʶ�����9�����l#dJ32���0H�;[ȟ�24ɤ��&Rho;�wE��O9WʬiӘ���k�A�y&Rho;�H�s�l��`bVd٧\6�泎OM�/�ɤ�0B�沲��%��p��Y������+�U��|���!Z;5���󙋦�F�%�(��DF:���.���J�[W8����&lambda;��;�H������ZO\A��]�FH�\V�i�ɷ��X&amp;�g3�1)�i�o��|�eC��A�-D&lt;M�9+��L�T׻���g�W�2�y�Z����Ϯ�����M5T}�ʛ����xQ&amp;��+d&#039;�L�X��0�L!;[L\D�i����IH�4���Qٽ?o��s5�iO;�\����LP���ˬxU]�S�!aa&lt;��n��ˁń��1cOo;�M��8m@���Y̌�i�w��b�&quot;���%s�����8]�c��X��m���Y�D������Ӷ��M��&gt;��TF��v�̾�[N��x�bJ\�ww�Y�sh��
+X2k!���=7��ϼh7�l��{ڏ�1{|k�Ŷ�Ĭi3�&lt;�MY�RY�!�$3@M�3��-
+�X��Z�F�J[_H��w��0����S�)�IKL]���b�@�n�޽�$��&amp;c�����T�U]_�t�S���e�*j�ۨ�4�)����[[�ǻ���I��^�~R��&lt;WU��.�Z�z�W�i4�[�A.��C[f��D�i�u�RH[˄�n�&quot;��/p� �.�Ǉ�n�t���s.�qW�ϕ2#2��g��Z�z�RO&lt;��p�Q��@{�Դu}d�����
+�~kw��a�&amp;��{�� �V�^��&euml;9�vLr0] :[(Z����Xrv��ۯ��k {C��⣳��ի0�&#039;���A���*F��\o��a�dG�i�(�:��T�^&Ocirc;+�|&gt;�z�`_Rax�u�VV���]=�ˇ�Ȭ�z�߅j�W�`�����Qd0?�mb6���͹~��_��C�����-���R:&amp;�������z�]��ޫ}(ߢ�&Oslash;w�9��g)��Oۉ�k&lt;�j�/Mf�;&#039;8�&Rho;�ht����Ud�i0��\���9�,]��tp������#�(��Ϡ�+*��̒�|g�Ru�0�|�^&quot;�����	e�&amp;+�M����D�s6rʇ��|V��U�N��
+&Uuml;����#&gt;��7Y6�����b���]d����)�7�����n�L��c�2џ�Ʒ�zϷ+K�k]�h���
+�}����߯`e���M��z{)#������5����cd��Ɵ�f��ۇ9�)��Y�}��/��|�g5U�iP?�JU�G|V����]w��8j���cg��A��m�#�v�n�7?��qvj�~ҳ��=�y�t~�?�:�L��/G�VE�S�����z�W��&ntilde;�6^�)�\(c�]|1.����ڱ�O籲����
+:j����������ȉ��n����ts�n��e�^� f�&gt;g�T����.�B	D=&lt;�ū�se���ǘ�u�U��&amp;ʠ�]�^G��K&lt;4m
+@��A�A�z�2\�;6;����d��!����ch�\N�r��J�(bb���O!!��ow���(y��b�	�-��@��&gt;��W����q�1�&gt;��N˗��&Lambda;7�VjK˨�M&#039;�Q�y���p��O�R߯qن��	$��ϻDiF���k��7�^��g7�\z��JI^	g����wv�Ēw��}1b�������v�\�@�n�leYJ ʩO��%#Z\�Zˁ����7�w����uW����1��1�
+���@�;���cH�?H�~hU ~�סn��1k�&quot;^�^�GʌP�ן��0�s�m�0}Bơ�Čvn#m�s�fJ�.$|� ��p���eZ�F�Ԟ���֑�z3�����&lambda;�-�ޮC����t7�L�.41��r�Le��\8���/�?G�s���l������DG���&gt;|�+
+F���Fp�`Aȕ��1j| nǈ�$ia,�-���F�K)�4�	��&omicron;��Ͻ��ύ�w�s���~hq�����D�U���Ek0�q�UM,[�:���=�0t�|�I$���)oj��~X.�Q�����&gt;�!�&lt;Z���D�h�N{.ZЩA=P��wdwcnG탳������b�:��n�;w�&lt;�1ػ]_01��~~�S������OݠS7𮦇2��9)����&gt;��`0��9�!����2�CJ��~��e��C�� i�:��8�mL_H�T�J&#039;|�5��U�(b����P�&gt;�29/�cj���E�$���OT�B;R�}�wת`��L�Z0.s&gt;[a�5Q~�������6M}_ה�]�&amp;��]Ǩ�M��Vj?&gt;�~j�3=j@��yB���A��z�W)C���G�v� ��yӦx0b2����&lt; _@����K���:p�5
+v#�V���Q��� �a�R�Ϣ���eˮ5O��;�ϴAh6���4�}\ʳ&amp;�Jo��+�&lt;��$�`�X�ٺ���ٗ�̓2h�{��.$͋�eo w�	%&amp;�e=� e��Sr�9-�ј
+�&amp;t���ˍ�g��Ȳ��&gt;��t U )��!���j 舚�J���z(�x%�L�o2D+��T^v0��-��;�C���G�Ə&gt;�kb����Q&lt;����z�˨��q��� U(�Q~�;�y�X,�u��9d�	�\2�I%�~$��g�2_?�oe����[�(���
+��M�-79�p %!A&gt; �v��n��T��C���P������G�|82��qPt�p�80�G��+|#3yw��w�Sy&lt;h��+�u^� ����vAC���_��N��_x����U�w�?9/ƺ_�`&quot;p���&gt;F�}�-ھ7����D��Ⱦ���zL`/�@~�S��%����H?|;�Ȍɠ�[\�0a���t��~|2�(����z���X��N_���	8��3��� �@�RmP0A�an����MC��ت*(����Wa��v:�]j;Q@�� �r#�H�Z~�C�4:������8���͋)r�ύ�7�������䙰?�M�c3�}����f�!LM�dC�C��O&amp;�A��w���h��N��S)w���p��F\Cz��X+X2k�
+���G�����7u~����&#039;��1��.�vA&amp;Q��)?�	��K�:Y̟�V��2��J`����ى	���m,�k�d{x�W��VLi��|4�&gt;�q�R�� �q��M��_���ԗ���6����H�&amp;H�&gt;�M$=��ov,�(�g�~��m&Zeta;�#��5�ΐe��톆��G����btW0z�.~H�Q��4}����H�4��ݩL�T=dlH}-A��]�b�|���F���ސ��B���Sٽ }�9*�v�����1���&lt;��Nm��(�.��#����#;��f�vg?�!�w]�,�Hʦ5��0sZ�tLxr2��G�@���w8�+���JT�:�{2�qY�\Q�~OW�C��v��A0�7���#5�o �O!&lt;-��]*���l���[Jɭ��qݝ���-+�j:y�3��׀��%q�� p!�ߎGqX�ߓC��RbM�L�[��͢~�:�ގ&amp;H��YLZ�.�r*����\u�t_��bw�&quot; �&#039;s�m�wn�#�6��ȑ������^�&ocirc;&gt;����Z�u���D��
+}*}w&#039;��&scaron;��o�8y���A��bb�!H)42�B��+�����{!^��P�J���8�����6L��E� �Uz�&amp;Y�ĳ� e���=�֧���pv�j�2���U��r��*���d�a�&quot;;1��a *������/&lt;ƨEob|��OC^~&lt;��K�F����\4��]���]��2��y]�&amp;o{��Q�I`N�����_MI�%��O��K�;L����~��i���3(�tr��:kS�;����e����T#�XEI�R���b\B�I��n�̎�&amp;&gt;t�G�h�x�/��{�� ^�+�a:�_~��5(����!{u��^%�Zw9Զ܍�֦�;�g�Ky6��Ss9�=��И?�y��b��%��&amp;��]̤����@t�
+
+�&quot;*uY��;S�G����y���]�8��ݘ�0�e�X�Z��ن�5Nm&gt;��:�ws?*h9������U��D �(l��*���@�  tIDAT�ŋ&gt;fhVj^y������^�s���(��JV��kd!����8�T)%���	��`�s�9D�+J״��1�?���F��u&Uuml;����:,�St���e�h5�Z��(��QР���O ���V��ж�2�}�}���?�V*�9=q)U��a��w�����t����@�^��ױ~K��mT�(��3���\K�
+�n�XG�SZj����kQg��쌏Mr^�\Qz����lʣ�M��? &oslash;P�O������@[��3+�yAخ8v��w� URu`YS4=��C����N�^G������Y3�?�c�0�1Fj�����t��:�M&amp;��X�6�Yյ��=��tcK�����x�0�c��tĿ��+��_����Q�t���&gt;�;N�����/�a���Ώ�*QW�ؿ݄��t�{1��yg����|��a�(��+5�rȭ���&gt; �!��9	L��B�돜�n�����?�G���veb)a~&Omega;#�vl��L��u�&Xi;��궦&amp;��ćo�|t���w�3U��8�o��`�u�:�Ӟm�k��.�6-?�xy[�&lt;�Lt��u5v��2�w�B&gt;:bfMG{�D�5�������C��|A�^�����o�ŋ��u�����)��&middot;k�Zk+�a��=o�;�P�3�9�^)E*�EI���X��3����U-&lt;4-�k�Zx�Wݴ?p�C(ƹ��k��]�e[^�)C�j���I��U��廾�����9�gG���|�rDo`8&lt; �h�VkO���Џ����M5��\w���l���ˊ�vcd1�Z�c��s��;��9�+u��?�Inˁ�DK�ۈڐOF�Q&#039;�!��h��%�WZ�a&amp; C�6�k��Ho$kg&amp;1���rEA�Q9��vSi�������r�ť�l����C�=�2�yv8���ߥ��Q�V9P��l������.?�bnn��&gt;�_�N�Ve���
+�4����e7�\:�����KKpsl�|a����c�B���mu���@�c�1ބ2y� EE�򍤌9C�b���=��z���[h����u����c�p�sW@��J������:F�A���`P�R�v�g[h�)&amp;���UťGP�t��i�\.&gt;@;ňѯ����Ԛ۱��(ٸ���I��&sup1;r|K�e;��V,g+(�����؈�NYC�55��O ���؎�y�	��v��X{�f&#039;�:�������Ӹ�IU�T��R�K�0_h��D)�[J8٩���&gt;XN���	������j+��D��\�wC&Icirc;s�^39��c��8;&amp;��0�����J�Q�i+[�-��&amp;v2��a:Պ��Be^��q$�*�cQN�����u�^�L�����&#039;��nbm~5��XN����&#039;hm$Fw�?��њA�����Ԥd=^�(?^��1��*h�2Ć��e}�h�2������%c�н����n�d�H�����,���&amp;�%���`��J�f=������i�hn�_y��X�l�d����v�&#039;KI�݀oW��5��&Oacute;Ʉ��Qt\CҬ�:�-���X��m���OB�����U7�7V:�V:.�Ps�8���_׵K/��M�������L��h&gt;�D�,2��
+W���Ў֡N_&gt;�g�b��!�@��?-#}�,2O�{��f�Yݿp�n(gKX����թ���d�m؛0��K�@G�����̉8EL9[ʳ?D3/��`�Ǿ��� �cI�D��j��X�U���C�����a����p�Y�d�A0��J�p��&gt;�Sy��w4��4Z�t�5`�^J���LT*�����R�5a��J��m���%�7�i��y3�:��&lt;�G0�`��j&zeta;�q���=��~DE;gQ�F&amp;�1�wT�|��b6���q�]#aV�Sr��F�m[i&gt;UM��嬬A�*c����8��t�mc�t��h��ƪ]�?�Z�˾@�&gt;�}:�a�t���!.NU��mX��E�����d�&ograve;���ee(�`��-��J,�&sigma;O i[�a{	ًLt\ՠ�N��T�ņ*��M�d��b�&quot;�a2�yF��g�}x3VLF���w���:
+K �h�Q���&lt;�=T��c�c���sQ+�Ii\N�b&amp;�^J�ټK٥��۪�B��d$z����[�d����oYA7����,pn�w�}t6P���Z]Y�#&lt;�AG|�5ܑ@���xc�&lt;/*���tr�/e�
+�o��O �i�&#039;��&lt;���#�[�%iC.�􌀌ď��䞳��qS�s9�`#9����i1%&gt;~�O�M��(�����`�͝�]X���Q4���f�N�U&gt;�����l�7��ܔyTq�!+�������H�m�;���,�ٌ #-֋;�~$=5��6�9��ꋎ�����FE[���&amp;����F_{HO��w��H�l��]��[��	 �ׯ���������覓SL��I·�O���2;|2�5�|5���-/���U+�k���w\4i�ָ�&gt;���RݦxA�X*�-��a_3����D��hLǾ�����&#039;���a��}�%f*�G��IF�ƫi�=���p�P�k�Ҵl�6ݹ�@&scaron;2�g#Qc�l���{�Ƽ���}՗�h��a�b��wY������tl/p�����73�뵝��2L�U����2�-����
+��Ϥ�uٰ`2�{�}y;rKy��l�0L�9��=yP��R�Za�U�mwֽ�������.;�p������C�}X�u��҄�;��P�6�&beta;�_�BK&zeta;Kd���ӉVx ���\r����vj���?�Iy��aV*7�#��Q��&amp;k�B�]�sr���=�����k+c�+Bd*�n�x��������r�K�W��xq����x7R�850u��~�t֑&gt;-[z����$w��w��V��c.eƢOH����_+E�Q����M�������9��~f���=�/c
+�#�3�&ocirc;dn�H�����LE��&gt;� B�媎���&gt;i�p9�0�p��bJ�&#039;�#��������&lt;!�޺�A��D�_i`�5.䗡��.��p}/��u�bZ��%����9-J����`�snw&quot;����ӱ�B!�?�LǺ���%�B!��Q� D!�BqKI&quot;�B!���$B!�B�R�!�B!n�;#q��A1�K�&amp;��c��o��XL��kX�Vɒ*��8h&gt;�&igrave;���dҬd״����vjw�Č�H#&quot;�����Z��*������G�}2�変�ԧy|Z$����ٍ�s���#$�i���qo�B!��nt{_V��&fnof;V�SGǽԗ_�vt&#039;�ǭ� /&ordm;PA�����P9��%�_���a#�/ }�h|���n�����&ograve;�����`�. }�
+�Ars�][�^�62��W����(��P�̇2����SK�YL��K���d�)�i�x��`�_T��)��8�g�E_B!���6��(\V��w��К�ߘ~��L|&quot;�a�V�R�� sT�}�;��&lt;�-l!Y3�я	 ��5��?Oye��8(�:��E�X�\A*F���c-=�uX/�O	4�	�t���t�p��ܢ&amp;+_goZQ��޻����LgUZ,Ac�0D.%c�X�VUc���	!�Bq���A���9�#Ъ�Z�NmA�AKɘ��&#039;l#��h��G�uB:��ܦ��y ڞ�zX���� ��Y�f�y�����6��)��;�B��M�KV���$Ŗ���&beta;� ����V�G�K�e�m-����&amp;�B!�]��x&amp;����O�������2k5�o�!&lt;-����~��;���ϧ��j��`t	O&amp;��
+|��0%� �D9[M�y1��=�]�/;J[�&amp;N#$2���D�)k�R��m� �oZ�ԘiL�1��%&Pi;���p���K}�5vl��8HB!�B�%n�3!^��@~�1���#i��+5�wrz�o9&lt;E�Vઇ}h�1�v���@�JL.�zVq0�g��+�$=9�O;5o�$u��cc��jG9�GN/�-�_�s��[���q�!�4��B!�B� ��A���]yT����ֶ�Ivc{b���ϐx��VL�/Q&gt;�Ⱦ���\*&amp;,�ޞ�4N�%�%*��c�J&#039;h���pY��{�ְ�?�UYMs��!�4��4!�B!�rwvb}��Z�]-fftqׇ�&gt;����&gt;������dv��8��TB�K��[S���;��vE���b�&Omega;y�r�G��{)����&amp;� ?�/Y���`��O�26���� �F_+}F=���(hPk�o\!�B��;;9����^��)f��V��sIzxZ�Ļ&gt;��	ٳ�P��E�T?�&gt;j5��-t�5Z�N�9;�
+d��AcQ��de��u�դ�.E�aY�v=Y�h�|сf��01��34wF�u����P|}@;. &gt;j��db�ss��yX]!�B��;��t�z?�.��ja�����*���.��G��B=2 �h�&quot;��*%�P�����FI�X�~�܏�	SQ)�]/@���`|1���V:��vg@�	%*���(�����ʼ*�$OqN3&lt;9��oL��RA����l��b1 ��	Dq���4_h�|����g|�s9�i&lt;TL�	k��&quot;�B!�]��	�I�a��Vظgq��cB�_�
+˺_Tx���Ce&lt;��F�|[)?PG�(I�I�놆���[��uĿ�:JaE�����&amp;-wF}׺�X����J�7�t㈚���d���9�.��c&#039;O&#039;Z� �s{�w^�de9�q!�DF�s&quot;B!�������r�K73-B!�B����(��sugO�B!�B��H&quot;�B!���$B!�B�R�!�B!n)	B�B!���!B!�B�[J�!�B!�-%A�B!�▒ D!�BqKI&quot;�B!���$B!�B�R�!�B!n)	B�B!���!B!�B�[J�!�B!�-%A�B!�▒ D!�BqKI&quot;�B!���$B!�B�R�!�B!n)	B�B!���!B!�B�[J�!�B!�-uCA�=&AElig;ݬt!�B!�r��76���ׅB!�? ^�7�ܫ��F�.�B!���6&gt;���X?��$B!�����㞟�x��?�&gt;l��Q�nt3B!�B���=*�F��~��������~����ؔB!��.q�}�]S 71�����M����|���ڬB!��rϰa�p��)X}�3�!�B!��D^V(�B!���$B!�B�R�!�B!n)	B�B!���!B!�B�[J�!�B!�-���f�Nl�%    IEND�B`�</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Запрашиваемый ресурс не найден.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-races-appointment-race--id--pdf" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-races-appointment-race--id--pdf"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-races-appointment-race--id--pdf"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-races-appointment-race--id--pdf" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-races-appointment-race--id--pdf">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-races-appointment-race--id--pdf" data-method="GET"
+      data-path="api/races/appointment-race/{id}/pdf"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-races-appointment-race--id--pdf', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-races-appointment-race--id--pdf"
+                    onclick="tryItOut('GETapi-races-appointment-race--id--pdf');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-races-appointment-race--id--pdf"
+                    onclick="cancelTryOut('GETapi-races-appointment-race--id--pdf');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-races-appointment-race--id--pdf"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/races/appointment-race/{id}/pdf</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-races-appointment-race--id--pdf"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-races-appointment-race--id--pdf"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="id"                data-endpoint="GETapi-races-appointment-race--id--pdf"
+               value="exercitationem"
+               data-component="url">
+    <br>
+<p>The ID of the appointment race. Example: <code>exercitationem</code></p>
+            </div>
+                    </form>
+
                 <h1 id="attendance">Attendance</h1>
 
     <p>Методы связанные с платными услугами</p>
@@ -1962,8 +2202,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "name=gebpyzwqtil"\
     --form "email=lurline.borer@example.org"\
     --form "password=M=IWP_xNL"\
-    --form "password_confirmation=enim"\
-    --form "avatar=@C:\Users\develop\AppData\Local\Temp\phpBBE4.tmp" </code></pre></div>
+    --form "password_confirmation=enim"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -1981,7 +2220,6 @@ body.append('name', 'gebpyzwqtil');
 body.append('email', 'lurline.borer@example.org');
 body.append('password', 'M=IWP_xNL');
 body.append('password_confirmation', 'enim');
-body.append('avatar', document.querySelector('input[name="avatar"]').files[0]);
 
 fetch(url, {
     method: "POST",
@@ -2040,7 +2278,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi-register" data-method="POST"
       data-path="api/register"
       data-authed="0"
-      data-hasfiles="1"
+      data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-register', this);">
@@ -2145,7 +2383,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Example: <code>C:\Users\develop\AppData\Local\Temp\phpBBE4.tmp</code></p>
+<p>Must be an image.</p>
         </div>
         </form>
 
@@ -3440,8 +3678,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "fullName=spglugrahkaqi"\
     --form "coach=ereakibz"\
     --form "locationId=15"\
-    --form "city=ofiyjqthyxjhdkxlztfkxmywi"\
-    --form "avatar=@C:\Users\develop\AppData\Local\Temp\phpE19B.tmp" </code></pre></div>
+    --form "city=ofiyjqthyxjhdkxlztfkxmywi"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -3460,7 +3697,6 @@ body.append('fullName', 'spglugrahkaqi');
 body.append('coach', 'ereakibz');
 body.append('locationId', '15');
 body.append('city', 'ofiyjqthyxjhdkxlztfkxmywi');
-body.append('avatar', document.querySelector('input[name="avatar"]').files[0]);
 
 fetch(url, {
     method: "POST",
@@ -3508,7 +3744,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi-commands" data-method="POST"
       data-path="api/commands"
       data-authed="1"
-      data-hasfiles="1"
+      data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-commands', this);">
@@ -3602,7 +3838,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Example: <code>C:\Users\develop\AppData\Local\Temp\phpE19B.tmp</code></p>
+<p>Must be an image.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>locationId</code></b>&nbsp;&nbsp;
@@ -3649,8 +3885,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "fullName=gfzh"\
     --form "coach=vgnvukapdqahindehsty"\
     --form "city=eiopxkun"\
-    --form "locationId=2"\
-    --form "avatar=@C:\Users\develop\AppData\Local\Temp\phpE257.tmp" </code></pre></div>
+    --form "locationId=2"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -3669,7 +3904,6 @@ body.append('fullName', 'gfzh');
 body.append('coach', 'vgnvukapdqahindehsty');
 body.append('city', 'eiopxkun');
 body.append('locationId', '2');
-body.append('avatar', document.querySelector('input[name="avatar"]').files[0]);
 
 fetch(url, {
     method: "POST",
@@ -3737,7 +3971,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi-commands--id-" data-method="POST"
       data-path="api/commands/{id}"
       data-authed="1"
-      data-hasfiles="1"
+      data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-commands--id-', this);">
@@ -3843,7 +4077,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Example: <code>C:\Users\develop\AppData\Local\Temp\phpE257.tmp</code></p>
+<p>Must be an image.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
@@ -3882,14 +4116,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/commands/4" \
+    "http://localhost:8000/api/commands/66" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/commands/4"
+    "http://localhost:8000/api/commands/66"
 );
 
 const headers = {
@@ -3912,13 +4146,13 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
-    &quot;message&quot;: &quot;messages.command.delete.success&quot;,
+    &quot;message&quot;: &quot;Команда успешно удаленаю&quot;,
     &quot;command&quot;: {
-        &quot;id&quot;: 68,
-        &quot;name&quot;: &quot;Graciela Lubowitz&quot;,
+        &quot;id&quot;: 77,
+        &quot;name&quot;: &quot;Степанова Виктория Борисовна&quot;,
         &quot;full_name&quot;: null,
         &quot;coach&quot;: null,
-        &quot;city&quot;: &quot;West Agustin&quot;,
+        &quot;city&quot;: &quot;Ногинск&quot;,
         &quot;avatar&quot;: null
     }
 }</code>
@@ -3930,7 +4164,7 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;error&quot;,
-    &quot;message&quot;: &quot;messages.error.not_allowed&quot;
+    &quot;message&quot;: &quot;Доступ запрещен.&quot;
 }</code>
  </pre>
             <blockquote>
@@ -3940,7 +4174,7 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;error&quot;,
-    &quot;message&quot;: &quot;messages.error.not_found&quot;
+    &quot;message&quot;: &quot;Запрашиваемый ресурс не найден.&quot;
 }</code>
  </pre>
     </span>
@@ -4020,12 +4254,723 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-commands--id-"
-               value="4"
+               value="66"
                data-component="url">
     <br>
-<p>The ID of the command. Example: <code>4</code></p>
+<p>The ID of the command. Example: <code>66</code></p>
             </div>
                     </form>
+
+                    <h2 id="command-GETapi-commands--command_id--couches">getCoaches</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Получение всех тренеров команды.</p>
+
+<span id="example-requests-GETapi-commands--command_id--couches">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/commands/66/couches" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"paginate\": false,
+    \"page\": \"provident\",
+    \"limit\": 1
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/commands/66/couches"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "paginate": false,
+    "page": "provident",
+    "limit": 1
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-commands--command_id--couches">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;messages.couches.get.success&quot;,
+    &quot;couches&quot;: {
+        &quot;id&quot;: 665,
+        &quot;name&quot;: &quot;Леонид Андреевич Воронов&quot;,
+        &quot;avatar&quot;: null,
+        &quot;personal&quot;: []
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Запрашиваемый ресурс не найден.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-commands--command_id--couches" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-commands--command_id--couches"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-commands--command_id--couches"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-commands--command_id--couches" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-commands--command_id--couches">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-commands--command_id--couches" data-method="GET"
+      data-path="api/commands/{command_id}/couches"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-commands--command_id--couches', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-commands--command_id--couches"
+                    onclick="tryItOut('GETapi-commands--command_id--couches');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-commands--command_id--couches"
+                    onclick="cancelTryOut('GETapi-commands--command_id--couches');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-commands--command_id--couches"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/commands/{command_id}/couches</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-commands--command_id--couches"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-commands--command_id--couches"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>command_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="command_id"                data-endpoint="GETapi-commands--command_id--couches"
+               value="66"
+               data-component="url">
+    <br>
+<p>The ID of the command. Example: <code>66</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>paginate</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+                <label data-endpoint="GETapi-commands--command_id--couches" style="display: none">
+            <input type="radio" name="paginate"
+                   value="true"
+                   data-endpoint="GETapi-commands--command_id--couches"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="GETapi-commands--command_id--couches" style="display: none">
+            <input type="radio" name="paginate"
+                   value="false"
+                   data-endpoint="GETapi-commands--command_id--couches"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="page"                data-endpoint="GETapi-commands--command_id--couches"
+               value="provident"
+               data-component="body">
+    <br>
+<p>Example: <code>provident</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi-commands--command_id--couches"
+               value="1"
+               data-component="body">
+    <br>
+<p>Значение поля value не может быть больше 50. Example: <code>1</code></p>
+        </div>
+        </form>
+
+                    <h2 id="command-POSTapi-commands--command_id--couches--user_id-">toggleCouch</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Добавление и удаление тренера из команды, может пользоваться только владелец команды.</p>
+
+<span id="example-requests-POSTapi-commands--command_id--couches--user_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/commands/66/couches/architecto" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/commands/66/couches/architecto"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-commands--command_id--couches--user_id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;Тренер успешно удалён.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Доступ запрещен.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Запрашиваемый ресурс не найден.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-commands--command_id--couches--user_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-commands--command_id--couches--user_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-commands--command_id--couches--user_id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-commands--command_id--couches--user_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-commands--command_id--couches--user_id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-commands--command_id--couches--user_id-" data-method="POST"
+      data-path="api/commands/{command_id}/couches/{user_id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-commands--command_id--couches--user_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-commands--command_id--couches--user_id-"
+                    onclick="tryItOut('POSTapi-commands--command_id--couches--user_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-commands--command_id--couches--user_id-"
+                    onclick="cancelTryOut('POSTapi-commands--command_id--couches--user_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-commands--command_id--couches--user_id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/commands/{command_id}/couches/{user_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-commands--command_id--couches--user_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-commands--command_id--couches--user_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>command_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="command_id"                data-endpoint="POSTapi-commands--command_id--couches--user_id-"
+               value="66"
+               data-component="url">
+    <br>
+<p>The ID of the command. Example: <code>66</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="user_id"                data-endpoint="POSTapi-commands--command_id--couches--user_id-"
+               value="architecto"
+               data-component="url">
+    <br>
+<p>The ID of the user. Example: <code>architecto</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="command-POSTapi-commands--command_id--members">toggleMember</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Привязка пользователя к команде от имени самого пользователя.</p>
+
+<span id="example-requests-POSTapi-commands--command_id--members">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost:8000/api/commands/66/members" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/commands/66/members"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-commands--command_id--members">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;Участник удалён.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Запрашиваемый ресурс не найден.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-POSTapi-commands--command_id--members" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-commands--command_id--members"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-commands--command_id--members"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-commands--command_id--members" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-commands--command_id--members">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-commands--command_id--members" data-method="POST"
+      data-path="api/commands/{command_id}/members"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-commands--command_id--members', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-commands--command_id--members"
+                    onclick="tryItOut('POSTapi-commands--command_id--members');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-commands--command_id--members"
+                    onclick="cancelTryOut('POSTapi-commands--command_id--members');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-commands--command_id--members"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/commands/{command_id}/members</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-commands--command_id--members"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-commands--command_id--members"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>command_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="command_id"                data-endpoint="POSTapi-commands--command_id--members"
+               value="66"
+               data-component="url">
+    <br>
+<p>The ID of the command. Example: <code>66</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="command-GETapi-commands--command_id--members">getMembers</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Получить всех участников команды.</p>
+
+<span id="example-requests-GETapi-commands--command_id--members">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/commands/66/members" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"paginate\": true,
+    \"page\": \"tempora\",
+    \"limit\": 5
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/commands/66/members"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "paginate": true,
+    "page": "tempora",
+    "limit": 5
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-commands--command_id--members">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;messages.couches.get.success&quot;,
+    &quot;members&quot;: {
+        &quot;id&quot;: 666,
+        &quot;name&quot;: &quot;Макарова Лариса Ивановна&quot;,
+        &quot;avatar&quot;: null,
+        &quot;personal&quot;: []
+    }
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Запрашиваемый ресурс не найден.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-commands--command_id--members" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-commands--command_id--members"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-commands--command_id--members"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-commands--command_id--members" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-commands--command_id--members">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-commands--command_id--members" data-method="GET"
+      data-path="api/commands/{command_id}/members"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-commands--command_id--members', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-commands--command_id--members"
+                    onclick="tryItOut('GETapi-commands--command_id--members');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-commands--command_id--members"
+                    onclick="cancelTryOut('GETapi-commands--command_id--members');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-commands--command_id--members"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/commands/{command_id}/members</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-commands--command_id--members"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-commands--command_id--members"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>command_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="command_id"                data-endpoint="GETapi-commands--command_id--members"
+               value="66"
+               data-component="url">
+    <br>
+<p>The ID of the command. Example: <code>66</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>paginate</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+                <label data-endpoint="GETapi-commands--command_id--members" style="display: none">
+            <input type="radio" name="paginate"
+                   value="true"
+                   data-endpoint="GETapi-commands--command_id--members"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="GETapi-commands--command_id--members" style="display: none">
+            <input type="radio" name="paginate"
+                   value="false"
+                   data-endpoint="GETapi-commands--command_id--members"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>true</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="page"                data-endpoint="GETapi-commands--command_id--members"
+               value="tempora"
+               data-component="body">
+    <br>
+<p>Example: <code>tempora</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>limit</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="limit"                data-endpoint="GETapi-commands--command_id--members"
+               value="5"
+               data-component="body">
+    <br>
+<p>Значение поля value не может быть больше 50. Example: <code>5</code></p>
+        </div>
+        </form>
 
                 <h1 id="cup">Cup</h1>
 
@@ -4656,8 +5601,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "url=http://www.macejkovic.info/"\
     --form "number=voluptatem"\
     --form "issuedWhom=necessitatibus"\
-    --form "itWorksDate=quas"\
-    --form "file=@C:\Users\develop\AppData\Local\Temp\phpD729.tmp" </code></pre></div>
+    --form "itWorksDate=quas"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -4676,7 +5620,6 @@ body.append('url', 'http://www.macejkovic.info/');
 body.append('number', 'voluptatem');
 body.append('issuedWhom', 'necessitatibus');
 body.append('itWorksDate', 'quas');
-body.append('file', document.querySelector('input[name="file"]').files[0]);
 
 fetch(url, {
     method: "POST",
@@ -4726,7 +5669,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi-users-cabinet-documents" data-method="POST"
       data-path="api/users/cabinet/documents"
       data-authed="0"
-      data-hasfiles="1"
+      data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-users-cabinet-documents', this);">
@@ -4800,7 +5743,7 @@ Must be one of:
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Example: <code>C:\Users\develop\AppData\Local\Temp\phpD729.tmp</code></p>
+<p>Must be a file.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>url</code></b>&nbsp;&nbsp;
@@ -4992,6 +5935,237 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+                    <h2 id="document-GETapi-users-cabinet-documents--id--files">GET api/users/cabinet/documents/{id}/files</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-users-cabinet-documents--id--files">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/users/cabinet/documents/7/files" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/users/cabinet/documents/7/files"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-users-cabinet-documents--id--files">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">�PNG
+
+   IHDR  !   �   l(�h   sBIT|d�   tEXtSoftware gnome-screenshot��&gt;   .iTXtCreation Time     Чт 06 фев 2025 19:17:01^]d-    IDATx���\Te���.4��v/�4DA҂��-�|� 4n!M���2�`QIT��B1YX�,���`��R����RZ醍{1��d�
+�zf�&gt;� 3��h�����&lt;t&Mu;��u��}��\�\g��?��B!�B1D~z�3 �B!���&quot;�!�B!Đ�A�B!�bH� D!�B1�d&quot;�B!�R2B!�B)�!�B!��B�B!�CJ!B!�B�!%�!�B!Đ��������?�����2i!�B!��&#039;vvp�M�T��&#039;7�4����?\��t~�-?\�|-�B!�B�H�d�0�n�yp߹��&zeta;6~��6!�B!ď�OT*�m^���	�[�!�B�o����o��y�������,!�B!?\�����M�^� �{E���!�B!��u|puӱl�!�B!�ŝ�^!�B!D[���
+�B!�CJ!B!�B�!%�!�B!Đ�A�B!�bH� D!�B1�d&quot;�B!�R2B!�B)�!�B!��B�B!�CJ!B!�B�!%�!�B!Đ�A�B!�bH� D!�B1�d&quot;�B!�R2B!�B)�!�B!��B�B!�CJ!B!�B�!%�!�B!Đ�A�B!�bH� D!�B1��� ��$�c48��NC��?��4Z[{��#w��4cx�&quot;|�w�_����z�J!�B������G���/��el~��zg�Gkؔ�9���т���ؐN�W�B!���эuZ�QKΆ]|��A����w�~�~�Ͳ{�&quot;����)K!�Bq����	�:�y6~��:k5��L&Kappa;�~���p���q�-�E�Ů�ə��&amp;���[zO�t�ܤ��0k_(�𨫆�����b��I/Wu/�|�0+���]�h~΂g� @-/=���|ڵ�4-�����U���&amp;M����t�w�,&amp;�Ww㠽�{�%�ӳC.�r�}sX���[��}��o�����q�vy͆��&amp;p����~�����a#FpK��HO7l��ܔ���z.�����S�M�ܸ���&#039;���*��5-KC���wC^z�=C�r��\���;�&gt;}�y&quot;��C�բ	x��C�\*_~��k4��5�Jޭn�J�	!�B��8����O����i����-]�;j��V���֐���so��gt&amp;&thetasym;T��dw�!�pfu|Aᡓ\�z���&lt;��^��=���&amp;bV�!v�E
+�?A�[���k&amp;�6e�s��3��W2ٹi9�@�o��ь����d����M:��Di�q�I*�PR_Ig��E
+���ގ*r2
+h�y���Wx��ֳ���&#039;��g��.���BY�c&lt;��&gt;�&#039;.$51
+��],��5�]�u(\R�=���X��7�zm�r��C��/�h�s=�3�Y�M��&frac34;_��y&quot;����m�lڼ��_Ԑ�|1[�\�.g�+�d����=�NYF�+��\5��6��ʶm�7!�Ba�1���s����X��?ֱ��2�IyJ0&lt;#l� �����hR}�����7?X��d5�?8La=3��j5_�Q��P�*P֩z�&amp;m��ٛe;3Y��a0ǃs�;r��x[ޡQ�3&lt;t��l�vJoO�hn5~�u�����!��Ll}�Ҍ?Q�9�6��Y�i	s~�Ce@�GN�5eZ�M}��
+���&gt;&#039;�&amp;������0�g��`��2���h��$�jj�Ӹ�w`��*ɤh�ab��=g9��`��;��\�aY�$�����er��|�O\&amp;8yY1wQ������tC��}�m&amp;Y��7�@��W
+g��tE3��O#���E���A�|c]}�+����o��ބB!�U7Ɲ�@��L�w|�֮^W߿���k~�ĉ=������7*Ϛ�py��|��0�\�&quot;����4���o�I�P���fP���[��� ��3�*��r�����ݍ������%����]���kj��fZ���u�\��&quot;�Cs�݌Ϩ�r&#039;\��^� ��&gt;����ֳm �;�ƭ�u���{棳�m|:�Ib~i�5�&lt;�-gt�?�=L��������mj��=�6~&lt;c�
+�]��\���������СP��~C���ǂ�.��o��;�&gt;����߳2j�{ލf�&gt;:�b��mʻ�m�ZoB!�&sup2;b2�PR7呟�-_�_�N�m���G�p�0�g�a�ы?j��ӏ�4�LA�*������G}z��q��Y}�����9׮u�w;ac��1�q���&amp;�-X���9,���vp��Hl�)Kf�;�U8��yQ�.�1{��r�6R��B̪h�n���a�f2ǥ�7�:C�[|�E̤=+�׳������V�Q=S��CϿի\O����X�d߿&gt;���+���א��9�e����%�?��zB!�����.�1�l
+E�[I�4&gt;{q��7�����\����O|͝�{&psi;^�w��(����o�]���ߣ̟$ڍ�Y�Z���_~�㣙s��
+jF{x@��h���	��0ߟ�{LҼg&amp;Y��s�~�
+�p�m����e_0lt��r����03S�:.s�ka�(���yG�U|�?�����K�����mH�ݼ]\���5�l&lt;U�_�}ă�CI���&gt;�D�(w��hG�O�����8C����ц;U_}�ӝ#�8��n�V�;��&quot;�߀��\����_xpk�`�&frac34;�-��Ƴ0n&amp;������}�!��mk�	!�B�n�gBz�A̦T�}p1��%�G̸h���X����F3���Q�-�^f�_���|1SR��_˭s�3��&egrave;`K�L�Ɍ;v��G�PV��z}~��]��f@uc������r�9�`Xg��&lt;	�ʽ ��&quot;�d}���]#�|t+��s��ת 0}�\y��O=&upsilon;)�p��6J�;�y$�dP�p��&#039;I�t�1����&lt;q&amp;��a=_ ����o����l��e&amp;��A�,���3ky3s=.�n�&gt;~� ����O�nd���sA=�[���.W�]BG�O4��Y�_�����wO��]�8}(�R��T����nw��0�$�������1LǺ��b���;����b[�	!�B�n�;! ��$k�Ln��;����`�]yl�2�ӯ?OJ�&#039;8G����&#039;{�EuS�h��;��h��2��Y8ӛa?%&amp;|��|�9�I�X��I�[��G�y���(b6d�l����+龎1&#039;�a|C�&amp;?���Ļ��ݼ��_���w�)��Ώ�(�$,���T\]M�=n�=Q̝�f�ę}���O�͡_r��V�\@����ypsF]�����|w���	,Z�@|�.�P��D^��,۵��Y�|��-�d꨿#��/E��屰�Og�3Ƈ�G����n}$
+��������w��ڶ��&amp;�B!���?��&Otilde;~��k�aT�Tˣ��C5y������ͻ�EQ�s&amp;��c;�ͼwxhW{&quot;-���g�!�B�X�G���΍w&#039;D�xɴ$!�Ba����5��e;8t�N����O�s�4���B!���XB!�B�kH�c	!�B!n82B!�B)�!�B!��B�B!�CJ!B!�B�!%�!�B!Đ�A�B!�bH� D!��jM�ؗ&omega;��!��q��1����p�O�\#h���0�yB!lt�����);~]�i��w�����GX43����&quot;vd)qs�p�&lt;@����u����pM0���QJ�Y�+GB!��T�Ka���^~��7�츩����B3FL%)���u�)Pn���D^�� ��8�պ����Dmw�r$�B��8�5�&lt;I;���!��F���dޘv������LHU!��I�IazD &gt;���,J���8�����ف��Z���&lt;�N��\&gt;�&amp;�9��N�G=��U哼d�&#039;���2�ҵ���O�3y&gt;9��g��i0�U��Ex`(�7S�SW�Ţ١�2i�22�7uo�ĆP|���b������1;0�ԏ{&gt;o&lt;���������s &gt;��]�+�n���ܲ�rr�=EHh &gt;�3��!��vs	�R��	}�t���(� :N��㛲���O@ �g.%ݤ����&lt;�m�gQO�)%��	\E��쾲����e���������LO��s��2�N�3�)r�|v������z���`��p|���vm��;�ҿ���QGO�O;	�LJ�&quot;5�1C��=F\n��U��3��ޤ.���&lt;n�̆,��;��k�m\JHX ����,JCW5@ a�8�TN��	x�,k9�G��L�sr8���Q�:P��T�Oa��P|��]JcW��(�Y��@&lt;��V�gnYG&#039;^]���@|C	�Ϡ�+���a+%f�3=���x��6Ե�6Ұ�Ǔ�c���eL
+|����4�{���4a���Ykl��y�~�L��&#039;0���R��&#039;.��Y�/}�u�6����u6��~���x~+V�ݎt����� i�CC	yb9Ҧ6�d��m�6�(H�sve��u��)|�gQi,�~}�������_픬�i��O��4�I�M�,��cUB;���x|f���.�)+�fKڒ�A��5d�$&lt;��{��}��زv�X���|7�̀@&amp;�]J��5(抸�_2Y|�|C{7�L����j���6�C�b�����G�UO��eH��5,�yE�c�e��]3yɨ2���\r��x! �T���-o��w��!�+��4���f�r��gʷ(v.Dg�AQ1�^����:O�e��^�[H���_���� ��RI�9G��\����^Nz�����H��@KI
+��r��[)ܿ��p(X�DN��A��_-���dYc&gt;qqy4��獽9��~��\E��O�,�א���&gt;���)ܺ��j�X����	�)U )��eZṮ��?��SQQ����o��ʡ�l�J�_��K
+LH�����
+�s@ݽ�U�&#039;,#�?��R��9&amp;_:Bܳ�Yj�:��T��Z��S��Ԗw�x&lt;�Ǚ����k�]��\J�I�(�Ѓ�	�_���m�����j=~�TԠy|���x�_�&quot;�m�6����U&gt;���o���r��wh�0��:��%-%�OD��&ntilde;�[I��S�㖑[7�wz�S�z�F�E��I\���9*�X�b��A�Sf���XOo��R|��+�h&gt;�B�{퀞���$�Y/����=���{!���Z��){e)q&#039;T�ڰ��[Y8��&gt;��k�ک�I �I[�ግ�h���j9����d���0v�+�Lt@��V&Delta;�ϙ�m,tU�&gt;�u&gt;(y�3�F�M���9����b�)+_�x�V~�DΊ%���V���i[r��V�u�b
+�}�3%�d�;�Oq��)y��;Y?v[�9�PC�����_&amp;��+rz��J��v�E�����n�Ѹ1��ZE�v�����D�#����~�R�Ǌ]�]�J����şm�Nf�Zb:�oE�b�ߌ!eg�!�N$���U&lt;��)�On����d�AѺ����ƛ-eh=�
+�c��qbK�����(�����h���7�p���cE�|�A�X1���SH.2_���r�m;�-�C�&gt;V�ʕ�z=h�%����9��&lt;�_��^k��!����y3w`�7WD�{�=�?����� �+�G��������f����&lt;zN�Qy�B�,�������d$M��4 �.D�}��fkv��fr�DN���%MA@={?d��TR&frac12;q׺4�9z6Pt���k�${e��@k�eo�Qᵘ�g��ru�k�bV�;P�n)�&#039;6���y�	&amp;im4A.�{O!iQ0��#���\��V&#039;C��rB��9�@�TAZ����9�]j)(�&brvbar;r�&quot;z�K�1�QNhF������u��!��ń�vA�L_t�w��#�x��V���qAG=���h]zV�A���&#039;�6�w��ӓɘ=����W3};��^c����}N��fK��p�?��qN��Uh&#039;ǳ,LE�;ƺ��~��_���uB�ɼI.�T�\���|�r���JQ+RY8���7+S�u�&quot;�M�^ju�pXa��ɀQ3�����l0^Z��޸;���Xǀ�(&lt;�iӼ�:�����*���S�&gt;�e�=���As#�ꬡ�� ��SQIki�z���{��ʤ��p
+O���_&amp;����Ţ��+m��푞��&lt;�]_�f�62q�r�q�᥶T7��zoK�;��v&quot;R��4�EB*	��-�;5�m�j�Ǫ�m٫����M*�~��6�M�SMP�!}w?����^���+�-�y���f��m�t�h�L&quot;�����LʚH(J#��I�{������&#039;m�� ��F����,e�h��e5TT���1�y8��fG��Bw�ͬ��x�$艵$=t3��_��8@��P�V�`-�,&#039;6� �N�sg7�nw���f-MQ���Ϲ�������Z�Xʿ�ǰ�vh��Z���wT,�B2ʯ�&gt;����Ӧ�pp���7��.����4�����!�	�bO�sR�K��˛���j=A�k��N���|K�8������ն�㍻Iɨ�1����Ӄ�
+FM!i~&gt;!��۰N��P@E���u=��^KE���y��3�L��� �A�n��,�O������qiյ�(՛		��kʨs�� � k�������$���,գtz��
+\�+�w��]Enc
+N��]{%i�M���g����H�M�#���z��Do�s	:��}EMD�sA9�&amp;�s~,�����}WCu�
+��&gt;�Nм~�����w�m�*0��ϲZ�3_R���du�upAӦ#3~5&#039;&gt;;O�^��]EWd�Ǡ��q!�Y�� ��L&gt;uc��9��H �m������RIҿHb�ٵ�g�T���U(��s$�P�9��_���	�&amp;�b2B��o� 1��Sz�M`2���qQQ�z
+k��W��(����+�*TWK��&amp;ʞ���L�z��iW��ݒ@t��{H���c�\[ѧ���˴��)����.`|.��$R&lt;�Ͷ�-&gt;���NO&quot;}M�GƎ��Du��&gt;Vmؖ�@�-��?�Ppe��I��n��r&quot;�zZ0s&quot;ܫ��F=���W�{�C*&Nu;G� �z4����x�IL5�U�Cu`�MҦȞ����Nd�C4{�jX�ޕgܵPv�C��#qWYL����Y���i�:��u&quot; :jt��)C�y�W�W�ڊ�@
+�0��z|c��:P����[��~�;����M5ӇY����ws�3m���j����h^�i��rim��w%}d;ʷ0�������t��v�vpel�&lt;��L�x|Z�Ǉڏ{(�}R������)~�	��&gt;��ц� ��^E�k�t��W_���4��mPϾXK��D�o�&quot;�#ԅEO�@EP�R&amp;�Isx��s�ֵ=�o�|�&quot;3���O�F���V�f�Z�xһw��И�a=uo,�g_�E��&gt;1ԣ��,�����[ͥwe�Nz�Ԗr�6��q� �m�����O=���A�{��Gc��`)&lt;�J��|2��1����ˠ��	��i���ŏ��L�^�.���=&gt;��-�h�Ce�\��Q+1�w{^�ġ&lt;�Ƕ(f��Z���2�i&amp;cK ��kN�p��r�
+]�fR����}Q�먝�Z_�Vd�?��x�,R߻���T�l\J�S�ؒL���aQ��4ͻ��C;o��񟽿�vr����J�gi$�B���I��b��h��6�Z&lt;�&quot;kNe�&chi;�ؘGz�d��k})����P�yk�+�u��|�t[��*ckէmR=���w�Lۼ�&euml;x�UX�a�\p�o&quot;����:%�;&frac34;��?v�2�+� �%?N��LAA�q�6�Z����e5:^8��}.��7&amp;-�b�f�&#039;o�.Ea�-o���y6~nK;����t�u���t*��|�5�H�&gt;H�8sg�*�Ng��AQ�(%���&lt;�ϓ����N��p߻�!�bՄ���]��X�W�G��+5Z�bզ4m8������D���1���?3�(�Z?&gt;��L5    IDAT~\ӱPW������\p�nm�	���ӿ1��&quot;�S�zkll&#039;n7��#�ˁ�-�t�R]EE�+^�*@Ou�&amp;t��0_����nB����_GsW�R�s;���&gt;JO]}+�ڮר�h�L�;�=�R�� ���2���N=��{3�&lt;?�������@�g�(��l�֑h4O�p$�&reg;m�M%ʹ系�\Q7�Ө6IO;�(&#039;�f�jZw�*j�h�tEmS�_�9�@{��;p��&#039;|�	��9��)��=-��W��E�?�c׮&lt;�}�L���e=���TT��vW]YE�-��s@_ŉ�Zю�3�����j�����w{h��r&gt;~?Q3!��&#039;��X�A�ʉ۴.���ˮ���5�@��T6�x��W��o��&laquo;���Է�9�O���.����5&amp;���h�,��&amp;q�f8�g��{
+e�a}ߐh&quot;�j���:j8�q;��D  ��ɍ%��S7O�s}��4�X
+��ބů&#039;�����~Vc0�8P]w}:`iS&lt;�P;y�;m-i�:r�tV�Ŕ] I{��� ���|v�7wQOY��V*��jW�&gt;&lt;z�z۲��u�ݮ��OL�﨡�l;ڻ���{l��T�����,��bhW;�i�&gt;ft[vp��h���5�fԪ��}_$I��h9�FN�C�����} :طEG��Db�����{�������]��h:���V]cZ��T�g�y���m�2�-&pi;�&gt;v0�ձe�������ߩQ�����O��ٰ�����t��S�d�T/W���!c���P�W�G��:E����}lO���h�=5��w�Z7�&amp;/d��h&lt;k���	�����k�Vǉ�&amp;kKIO�q�9�Yz����d&quot;�}+=��YX�z���6*��F�ۨcM�Q�ϵR��|�7�����X������߆{4/�I�.����D���(���ԝk��|��&amp;�d�A�D�@� �s�V�&curren;h3�yU͎f�:_:BeC����I�͌�Vp ���w�@�S��!�D�*&#039;s]Eg�hl��({	!Kt��\�Yz�oF�q=��5e�Q��AT�&#039;6��1.���jx��S����[�M��Jv�r�&#039;��毢8N�&amp;ڥ��y���;E��p��,�r��!�y#)ٝ���f�r��&#039;�s�i{;�䷫hln��8�5���;w&amp;�߷S��t��D�#����N���z�GO[i��U4����p�� h�T�����o?D��յU��K!��V���I�]�)ז�r�Ӱ�gK1�Ǩ�����(�EC}���$3���	��o�⫱�&amp;)�L}���v��VC|4�=B��z=��N7��7Q�f�W���J��&lt;�kUxy����Z8[�&amp;E����#��}��N&Otilde;��X&lt;N�Sy2DEI�*r�����4f?�DA߿���$vm&lt;c��&quot;�m����ڰ��6��ȘI���g��&#039;������p�N�k��&gt;�䮀�T���)�L#�#c\䤐Yu�s�xR8�c�*�e�صFM%:LEIN�7��\C�o_D��GtT�4!�m���m(�y��곧н�&quot;�u���X�ۛɬIT��~ǜvZ&lt;ݿ&quot;7]Gu6Ɵ�v��z*/���2j,� ������f9[�)}{o���h��L�1C����X���ȾSg�7Keh[���&gt;֤�{;J��^}M�ul)�]l��b+u&#039;�(�R����/���[Z��7�=B��V]=�_�T��a�[j��V^#����&gt;���x��]�p��X}W�َ�	ʷ��uؚ�ǣ���KG�9P��U�v�� �я�$6�s����X@e���SI۲_�WKԣ�����r_��S$)OY8r�浭*ҳw�M(n����g���&#039;7=��N���s�}c�(YE�#�eD���2oؽJ��U��VP��$(*�����^�&gt;�H����xİ�7*R��xz~�p�N�KF��Y��GJ�V4�9���h�t�}�T���x.�F�q�,{)鵭����ސLlW����$���K���4�����Ve�U���,��d*Q]zWy����-�!�����]&quot;��Y�J��Q3�=���3���~�`�����H�[F�&amp;��aq[I��F����5&lt;\��Dx�4. ���1�[��v@��g�?�1�z��n=�2)�&#039;f��vI;/�Ib�.5��X���[Z�7n����5���庥hw �Xc�w�⟰��e��n��j�����k��!���)f�`�&lt;��-ߒ���ي�.���ZB�?rj����Y�s�[�Ƀ��&lt;l�����q�Rc�Q���XC�E4^�
+���ʉ�u��؞E&Phi;�ȼ ���Z�Q������:���S��&quot;ɾ{��%-�5`����Q�W�I��9�dq�&gt;�0[ֶs h�62r6��~��j���f��p�+��y�z���ە~X���W�&amp;����`������R���z��o&amp;s�S�ڻ�?u.	�S��VZ�����LN%���{7.�EAl.�L��&lt;7��gizi/ND$��	ИO�5�}v�!M��y����K�K�mVи�O���0Fe=ޖ[�7���V����L�7y?��?���2� )���	�(�楒&gt;�N������8��;1��.5?0�X/ٸ��!+m������QNzl��0�WR����a�I�C��y/�+�9R�pcl�Z�c&lt;�^ۗ���?��&Otilde;~��y�+]+UY�,�����R�M�)C�hK,f�k�T��_�᥄��Bvq2A}.Tg��?ER�7�ʠ����p�3�3�X\s��&gt;��Lٻ�X�k���6Ե��7i󮞔���v������܃���T�Q������d�\���h��Y��6K1���G!�B���㚎%����d��k��F$��te�J|��b2�6���#	!��g�{�&amp;�vW3W����dc:�V�x�c	!�B!nx2K!�Bq&Ntilde;A�B!�bH� D!�B1�d&quot;�B!�R2��U!��f���.�B!�ՑA�0��XUJ����l���\�_[�7ָ�)&lt;&#039;L�5~���ū�D�S�,z�:��Ň�x~�&Delta;B�՝B����K�����k(�^�왡���q��:��V���!���Lg��|���n�2�?�G��}��,��O` �g/#�x��罣��͟��ɏ�~�j��!&#039;D@�QR�n���_�^&#039;*��z����!������ud5Q�z)�땧k��P�e)!�a��gx~��!���5%���PTݎ�fhi�o�XNj�2
+&amp;v�V6z���찕���Ho
+&amp;ek2c��&quot;g�fё��)h��[�N^��w@��bѺ��Ĭ��&#039;�f��n9��{H�V]Y�i�d�S$~t3O��گ&lt;���A���nd��N_E��&lt;ڢ^�inr��9�Ѻ�k�����Yd�&gt;�zgC!��ͤ_�gc0��x�d��T楡S��37��V�k|���TDe&gt;G��
+p#cm!K�Q�0�XW�u����7O���){������� 4��3���u:�&gt;$�;����ռC��ߐz�f��E�h3qC��ӱ:jȜ;&pi;��m��٥S$GL�sr��mA=��d�h��V�̥$�]C[���&lt;0ϙYT��ewv��L8ҳ~k9�댷Cg0{��-�s:f����I���f`~ڍ�i*V��QC��@�_��]&gt;&amp;˔�e����{��)Y�g�e}7�DI�*�G�J�S)�~�sߴ��)��4�����7�������B��֫��p���s뵣���bz�q���?n9�G��L0|Me�EdR.�O����uڧO��N�&#039;�1e���a(���@�ӡ�3(뀖�t$&gt;5���	�O\n9-&amp;�Q�����iL�T&gt;@�^���DAb(��3(3�C㾧���u���g�|rj���\N�1�=C	Y�AQCOb����Ԁ��Ԉ	�dV�������[o&gt;6k�8�ײ���b%,8�!�%�=ux��ԙ�4Yf)���U�L�����=ո�)|&amp;L`�n����6�j~��o��|���`|``w9�`މ����ھ�گ�i/&#039;}~ ���:�-SX�s�F3�\d�ǹ}�hf?{���e&amp;Ǉ��p�&#039;���9�T��g�hv(&gt;��L���LK�D.�S�������ͳ�=h��*c;�y�P��H5���9�bC_aK���R�
+��Uu톱�M�ȶ2�Z6�#��qh��p���&#039; ��s���X?����6�}V���g�_�ͦ�d{�I�S�5�	�������]&lt;� ����_�3L���_ᆻ�Iz���W7P�gNV��G9?!Ҙn;��]�L�8���R[C]�QE��P�s�l�;�x�%p!; 1S֍o/cR�c��6�I�zX�y�6�١��~�J���э�LHg��ޕ�r4���ޫ�������8�L�p�^��BE�R���,�����ΉCG��4Y��!3a:}0)�R�u1��f�hS�M&#039;?ܳ��w��LI1�����S\�&gt;gJ�g����؜�Ah;�Ej��y��H_J\���S�w+	�l&quot;g�rjkT|TN�I�����o����d�o,�9��,���9
+�;ə]���*&auml;��){e)q&#039;T�ڰ��[Y8�C�WfQ��哸ZG��s8Tȱ���W���톓��c/�(���t�r nu�V�|�Ӷ�i&lt;�T@����f!��&quot;�$��_:EDm(�L��ٻ_�Q�����&lt;��G�x���+��|`��34Bu{�H,��~��ϙ�=$���깊zq!ju2��&#039;9����bWc��롂�rV,C�~?)�rl��D��H�:��a@O��b��������J���ʏ����W����&lt;��?���f�r��K9k�l�+�����|=]��&quot;+�ץ嘎����t�m��Z�_���ˣqL&lt;o�=ȁ���*-�!ދ),*6�yQ!a��4S���[On�*
+�Ѽ��,�UV���z��.)0!�b[�x%�U�&#039;,#�?��R��9&amp;_:Bܳ�C��$��_9�����CZ8�K�n&#039;{k�h�R�O;�a�v��B�IMx��m�:O�e��^�kh���_������Rh8&gt;&gt;X�Z@Z��)���-y�����ś�B��W�t&Chi;�?���C��E떓�g��c��z��&gt;[Ҹ֮]{i�T�_�G�؜Ǣ��&#039;�נ���YDO�1nƑ&amp;M�����L*S_N�Q��i��hL��hkn�ߧ��ٻ�Iԯ\l�{G5p��җ&lt;Ƥ�P&amp;�]F����W��LcіƮ~��������$�Y/����=���{!�93	�;J�\��Ry�o�Ub�b��p��DG�Eゎz
+��њbG���p|8���~�k��L�쑔�-�9y�s��CE����ۛ�#��Ϊ�h;���`��F�Ⴛ����&lt;�	[�e{�#p��M*�����m�`\*&#039;3����͜$v9w��%�D$���՛��T&lt;��[�B+���Q\�ٲ&lt;w7�&amp;ǐ�b
+�qE�M�&lt;�&#039;����#IYL��#��j~��b�JZK�87���D&#039;���E��d�?Ȟg��Һ����ݩ�����ܽ��i�h�]�
+�I��BuU��j7ԫW[�����h2V�V�KA#0�P����0@��dx� e�
+�|�3�=�����x6&gt;s?�U�B;�4�_���tե����z��IY	Ei��6	�K5�l��|@&lt;i��uo�Bؚ�9�!� ��~,���P�]O�)��Q�pE3�	��	G�@���{����}e釴yM%&micro;��A�9WF��Z��\�V���ŀ�:^8�0���$�J�`��h�O���^�vBG�E�&amp;W��Ͱ%�Ư��7��ZL�3�x���5y1���x���6�V�l��QNhF��&gt;p&lt;��W߷R�a9��L%#}1��j��y֣\����ې�+��ݗ&gt;$�����.h=�I��k�.���c�@={?d��TR&frac12;q׺4�9z6Pt������$D,7�y�~D�y�h�V*&gt;�e{zN�Qy�B�,��iǒ���\
+@�`���Pjn|?�Z��`��l`.��U�����֘&#039;O��XK�C7�X���cɦ6+}��i\k׬�����y}&#039;N����k�P������6$���ކ��]�D����U��P{=E�Y]�3��R9u�u0�㺎gA!���(���M(�i�8��7����t&quot;h^&lt;&#039;����ii�s�D9�Dv������������*�gח�Y�����N�3^�@N��8wv#hn$^�5T|ַO���E*�ײsy�q�%lq&lt;��1`.A�7�����y.(g�DwΏ�� s�q��j�nR�5֧�	�ׯ�мY�_�����&Mu;�&Ouml;��f��ՇS�:���ud����.֓^j���Ӄ�V��OCْ��&quot;��WP��U&Acirc;�����;=��u0Y���q�������E��=q7�G/o�8E]�I���-�il.�R}���gC(0YG�����8��o�B��#��`(�Q.�O�J�Rq�&lt;J�ף��Ib���)0������cǱ~�e3՟�A;�	�WT�+h|��]��/sp��w��D9~����;�V��K0^��81���pB�e[��P�y��)�d?�:4��i3%7�:�(�~=��Ц�� ��1�w(���=}��Q���
+��#��ZOP�Z���(l)[KԶĀ5��f�h��J��E��X�ğ`�ʬG���Y��&#039;�	�D��q�����;�cR״�(�j����z3!��{w�QF��|$���z5җX
+8�OP����zo��j��iӃ�(�c�/=uo,�g`����͉&#039;e��ME�ym�k$����?�= ���[�h�s6o&gt;y&amp;�t�	��0�g5|�&#039;��5ik���3 ��R+�&Aring;��V4c�{���q~��=����zu1��� T��vped��xd�WO]�
+/O�m;��u&quot;�m߆6�\l���[O�݆��k�^��+(v�nH%ژ��u1�MϢ��s���E{Onx��5Y��������_�xKWY�S��)FNy_�s��d�kW��n&gt;���=�(_7*�tBs%�W��M&#039;e�!���i��c���$o?��GO]���zL&quot;�sz?�qQQ�z
+k��W��(����Y5��L
+��șru����~�It�:ݛT&gt;�gK�T&quot;F�ٽ���]�/+�W�s$�u�*%�UMn�y����L���Q�u��s{u���V��^&#039;����;qߠ��ּ�t�]k�2�F��aav4�ϥX޶��e5��}w�ܩ�&gt;Y��w:��&amp;a{*��&#039;u���Y�p*����U��7��=�u�^�ӯ����炣}�O��KRvND��F�O+���(�L݉�s@j�&#039;,�1��֦1�ʰE�G�a�W�b��a�G����ĕx���&#039;Vo�����8�-_}9�N��w-{��rR��Ư1��y���N�7tr�F�Or��9��CtH�[�e�b�b�pB��k�����і���e��LƖ ��?(���	�&amp;b�2r�.�߽ ]�&#039;�k|h9ݓƵl3��w �)ky��&gt;������6P�v��Gҫ�(�)�l�eָ����z���6��q��A�
+�G��~�uG;u� y�2ҝ�&amp;e��8�8������t�Q|��5����BT��!eb�5����ҳ�y�� {U�����EV�
+[�0(����z�f9�51n�-mp_�}��i�KI4]�B��/X��k�^�r��vj�a�l��_.��O�R�F��f$)����cS�犿��i~���=���w�������vZ�A㤦d]8E���/x��&amp;�*چ��n�߮����׆�����CVl�#���&ucirc;��l\J�S�ؒL���aQ���	��ag��udn;E��27�t,P��E�?�c׮&lt;�}�L���3���TT���[]YE�-��nz&#039;�މ��Sq&lt;�#g���T�C{_����uS=�j�ڮ�H4��p�jT윈X�����F�H�`yw$�&reg;��M%ʹOZ��ۢ�}Z&quot;��~������E=e�sEZ���W�]=q�w�n&#039;��~�뷷۪���΍�wwm�w�-UU4�9�u�&lt;����9�f�l    IDAT����h�g�Iޠ���wW7��Dx-��4v��&#039;(c#Y8��P����Fu��Z�Sƌ����׭y�r�q���Ry���MMK�rl9�G�&gt;ハ#|�vD�I����J�b b�^ ��m��ۣI���țQ�Fr�}�$-��P9]���)k����S�풾���qB{��҆Ma�?�u�Q}������oH?�FBBd��a��ld{D��(/�ZOP\&lt;A}�e-Ɵ�zj?�g�Rq(���Gh�&amp;�O�x�����H��t��z�[M��H4��y��R�v���Į���&lt;Vd�2��V�6�Y��&amp;��fe��3�Z���=M�-����{&gt;��aOW���C��2������
+�YH�����&gt;*�3_�7���v��[�#v�@:#[fCt��� �&amp;=@Ll_�_&quot;�C&quot;�(�	�#B�d@�c���,v`�Q�	���o:pOZ&lt;{�؝�S=8�4/4t�2�$��Z��]�U�S��ԯ����C` �0ځ���e��ѣ�չiSK�s�[g������zH���zޝ �47q���v��P}��4\#o����C;r-e��ijnq�W�4���� ��`���ư2�&gt;��&amp;�������퍷���n�k&gt;�܎�5���M�B�ӡU٩��/�&quot;�������	���~���Ӏ�}L&#039;!jj�a&gt;�L͍.�];�vZ_��T�֍c���yJK��0�u-�l�����I� �2�f��~A�&amp;��b,��ɬ��g]�;$4�̉E͞2�|4�gX��O ���؎�y�	��v��X{�f&#039;�{/�����J�7�ЌD���کF�F7����ʳ�X,MT.g�rS���y����i܌fx�봫z;����\m��h���Ҏ���55�9�|ڊ�B5EY�7���d�@x��	�&amp;��W�|���T�o|���Fb��6�B;�&lt;F�v�&#039;K�C�i	Č��Y4UEM�Ko�r���#9�z*���`9Z̆]�?[A��V����}T�Ǣ�*#�h�g�0���3(�3j&#039;&lt;=��_����+=��H�~����?�P�T��R�K�0_h��D)�[J8٩�P&Zeta;���S�78���s8Z(/*���Ӂ���b9����Q$��ԯl�H%�p��\�3x�i u+�o�Q��ƚb���\UP���Q��C,�&#039;��&quot;]�E��v?�D��&amp;� �8���E�t,����(ǳ�5 K�&#039;����n��,.���&#039;�	o/�踆�Y��ͺim�P��8E�22�+�T��֎�\E鳘�ڍ���絟1	�G��Lf����C��-����+��O�p,�X�Z鰶�A�����$�J�؞v3�y��v��_�K�5�c1�Q�q&#039;�#����`��C�U�~��v̟��&gt;w�&#039;�&lt;죟΢H(߾��&amp;g9(ߺ�죗Ў�b��md����5^F��!rI^�����&#039;��ۮ�j�&icirc;�\U�u���o�K����h���m�v�ʸO0II�t�m#����/�a��u(���x��}���`��O�f���wun����H3�e�c�}�ه���l)�^7c�s�����&#039;`��J�jJ6.ge�RV��5�-�W���h�m�&Icirc;��D��/+��h*iS�뿕��Ŕ��B^G���e��\ZZ�-ɡ�&lt;���8��Ƽ�~�m ��7�2���iv &gt;~�p��*?o���
+r���sd�?�)kș���5��ӱ�LHJd&iexcl;RN��/��&#039;�y��KW�UA=&amp;���;�HtwgǏ��&amp;SԦ0&#039;����d�7���e&amp;:��0&lt;:��u��y�ז���O�����_&#039;�h��kW��`Y^6)ݣ(#o���b�?Վ�Gx|6{9�; ��P��嬜{��a��tv��u��#f���Q@�������$����� ��m���&lt;�hE�ߏ	�����~Ђ��\�F��Ŕ��&gt;}6iO���V:``#�O��rw0��vM �^���i�\��/e�V5�olf�[VЍ#&amp;q9��BI��KӲɈ��~�B��r�?K&amp;�F^���\�&amp;��:��Mڣn���*��e%l|w
+�Ē����],Y��5L�8&psi;r����Ƞ�%����&gt;�s�3-��F���?���$�/�C[&lt;��w&gt;��~Mi�_��e���O���NJL1�_&amp;a|D5p���j3�J�P�-d�Nم�&lt;;7e���&amp;��ԕk4�y��7&amp;��O�dk�q�c�tއH������({��S_�V��c��Y��wu�U0�;�n�I�bl�x(,����=�&gt;�U��E��/1�PA=:����A���w�P�z�W�&amp;N&#039;&#039;?�yq���o��*r{�� �cֱ���(יg &gt;/ff\q��f&psi;#�%����v�7dy��2nx�U�d���䢂��d�6���G&lt;�/�F&lt;�}�m�f��&gt;�#A��)d3�[�E���&lt;���\[�鼊��]y�R�a�_�b|h4Y�?�kj�TRi�&amp;k�rq���ӏ���D��A�ӡ�i�l�����3��G��c���a�b2w9˥�?�ܞ_����Z�m�*��K9�����!~1���uX����EL����V���y`�T���٤4.&#039;wC1w/%H^[��=�������K�&lt;�$�j�=s�Y9�}S=\�����&lt;{q)G���!�Z�Ԭ�E��:�~&#039;sm����}ק��2*���2�:���l�&amp;��Y�e�Avϸ���z�x��	B����6T���&omega;��.����Z!����%�r���
+ff�� w*	B�Կ����� ���;iYG���N�B����`�snw&quot;�Pd:�B!���f:֝��XB!�B�	B�B!���!B!�B�[J�!�B!�-%A�7�������z���/�WB��#A�7́���{�X�v��z��ݤ��ig����X)O#$�Z.�u��֫���b���-/� ��̎#$&quot;����YRx�k;r����y|J!S☱�D�e;w��A1�K�&amp;�����vjw�Č�H#&quot;�����Z��O��Ϙ��S�t�O�Gr�5c!�L����kh��X&gt;� w�bf�5\�)ώv*�WI`�4�.ɡ�\�|�&gt;7������1�}��f�&Ocirc;���Ki�	Ӧ�L�IȔ8fm,�����]&Upsilon;�Q� D�a�&amp;{A37���JET�[�K	�ݩ��&amp;�ꮥO�ǕU}���W1!b2���f�o:�zf6���#���K,)j��J;%�20٦���T��_���� �?�%��7�y��~~�j�寽��b_���C�(�WQ�e�&#039;���[)Y����Id�j�R&gt;W̳���٧rrK�7��T�G�5�^�����q���3☚^@y]����g�o�@z�����8��U��O�L�Lmw��d�)拠����~y
+���/kw�(K5���x|n�5���8e�|�*r��l�&gt;�\ʃ����{n��?&amp;�q�M�+Ŗ�&amp;z����L�7{q#�^��T|G�i�8F���̉���|p%2���Pc������0���y&#039;�\M��Q$�ZJ����X2�OG]WA�Ew;U��
+ �w���5��ߪ�����L\��e���� ��J��:�:��5�/K%~��G�Z4��1j/8��&lt;�-l!Y3���xf)��S^�fT�
+&amp;.�Ѫ}��s�BXOy�l��D+�&#039;S�y0����B&iquest;���ѹ����LgUZ,Ac�0D.%c�X�VUcv�(��˾#G�;s�Fˇ�}�&quot;i���0&lt;�@޺d�u�)o��t.ŏ�mB�Ԭ�F�R��a�2#���ett��?+��]�=K-GV�x�ӽw.����&gt;&gt;{��{#~���ܮ!���iL]����e�bE�&Igrave;��Ә�&lt;�ʶ�����9�����l#dJ32���0H�;[ȟ�24ɤ��&Rho;�wE��O9WʬiӘ���k�A�y&Rho;�H�s�l��`bVd٧\6�泎OM�/�ɤ�0B�沲��%��p��Y������+�U��|���!Z;5���󙋦�F�%�(��DF:���.���J�[W8����&lambda;��;�H������ZO\A��]�FH�\V�i�ɷ��X&amp;�g3�1)�i�o��|�eC��A�-D&lt;M�9+��L�T׻���g�W�2�y�Z����Ϯ�����M5T}�ʛ����xQ&amp;��+d&#039;�L�X��0�L!;[L\D�i����IH�4���Qٽ?o��s5�iO;�\����LP���ˬxU]�S�!aa&lt;��n��ˁń��1cOo;�M��8m@���Y̌�i�w��b�&quot;���%s�����8]�c��X��m���Y�D������Ӷ��M��&gt;��TF��v�̾�[N��x�bJ\�ww�Y�sh��
+X2k!���=7��ϼh7�l��{ڏ�1{|k�Ŷ�Ĭi3�&lt;�MY�RY�!�$3@M�3��-
+�X��Z�F�J[_H��w��0����S�)�IKL]���b�@�n�޽�$��&amp;c�����T�U]_�t�S���e�*j�ۨ�4�)����[[�ǻ���I��^�~R��&lt;WU��.�Z�z�W�i4�[�A.��C[f��D�i�u�RH[˄�n�&quot;��/p� �.�Ǉ�n�t���s.�qW�ϕ2#2��g��Z�z�RO&lt;��p�Q��@{�Դu}d�����
+�~kw��a�&amp;��{�� �V�^��&euml;9�vLr0] :[(Z����Xrv��ۯ��k {C��⣳��ի0�&#039;���A���*F��\o��a�dG�i�(�:��T�^&Ocirc;+�|&gt;�z�`_Rax�u�VV���]=�ˇ�Ȭ�z�߅j�W�`�����Qd0?�mb6���͹~��_��C�����-���R:&amp;�������z�]��ޫ}(ߢ�&Oslash;w�9��g)��Oۉ�k&lt;�j�/Mf�;&#039;8�&Rho;�ht����Ud�i0��\���9�,]��tp������#�(��Ϡ�+*��̒�|g�Ru�0�|�^&quot;�����	e�&amp;+�M����D�s6rʇ��|V��U�N��
+&Uuml;����#&gt;��7Y6�����b���]d����)�7�����n�L��c�2џ�Ʒ�zϷ+K�k]�h���
+�}����߯`e���M��z{)#������5����cd��Ɵ�f��ۇ9�)��Y�}��/��|�g5U�iP?�JU�G|V����]w��8j���cg��A��m�#�v�n�7?��qvj�~ҳ��=�y�t~�?�:�L��/G�VE�S�����z�W��&ntilde;�6^�)�\(c�]|1.����ڱ�O籲����
+:j����������ȉ��n����ts�n��e�^� f�&gt;g�T����.�B	D=&lt;�ū�se���ǘ�u�U��&amp;ʠ�]�^G��K&lt;4m
+@��A�A�z�2\�;6;����d��!����ch�\N�r��J�(bb���O!!��ow���(y��b�	�-��@��&gt;��W����q�1�&gt;��N˗��&Lambda;7�VjK˨�M&#039;�Q�y���p��O�R߯qن��	$��ϻDiF���k��7�^��g7�\z��JI^	g����wv�Ēw��}1b�������v�\�@�n�leYJ ʩO��%#Z\�Zˁ����7�w����uW����1��1�
+���@�;���cH�?H�~hU ~�סn��1k�&quot;^�^�GʌP�ן��0�s�m�0}Bơ�Čvn#m�s�fJ�.$|� ��p���eZ�F�Ԟ���֑�z3�����&lambda;�-�ޮC����t7�L�.41��r�Le��\8���/�?G�s���l������DG���&gt;|�+
+F���Fp�`Aȕ��1j| nǈ�$ia,�-���F�K)�4�	��&omicron;��Ͻ��ύ�w�s���~hq�����D�U���Ek0�q�UM,[�:���=�0t�|�I$���)oj��~X.�Q�����&gt;�!�&lt;Z���D�h�N{.ZЩA=P��wdwcnG탳������b�:��n�;w�&lt;�1ػ]_01��~~�S������OݠS7𮦇2��9)����&gt;��`0��9�!����2�CJ��~��e��C�� i�:��8�mL_H�T�J&#039;|�5��U�(b����P�&gt;�29/�cj���E�$���OT�B;R�}�wת`��L�Z0.s&gt;[a�5Q~�������6M}_ה�]�&amp;��]Ǩ�M��Vj?&gt;�~j�3=j@��yB���A��z�W)C���G�v� ��yӦx0b2����&lt; _@����K���:p�5
+v#�V���Q��� �a�R�Ϣ���eˮ5O��;�ϴAh6���4�}\ʳ&amp;�Jo��+�&lt;��$�`�X�ٺ���ٗ�̓2h�{��.$͋�eo w�	%&amp;�e=� e��Sr�9-�ј
+�&amp;t���ˍ�g��Ȳ��&gt;��t U )��!���j 舚�J���z(�x%�L�o2D+��T^v0��-��;�C���G�Ə&gt;�kb����Q&lt;����z�˨��q��� U(�Q~�;�y�X,�u��9d�	�\2�I%�~$��g�2_?�oe����[�(���
+��M�-79�p %!A&gt; �v��n��T��C���P������G�|82��qPt�p�80�G��+|#3yw��w�Sy&lt;h��+�u^� ����vAC���_��N��_x����U�w�?9/ƺ_�`&quot;p���&gt;F�}�-ھ7����D��Ⱦ���zL`/�@~�S��%����H?|;�Ȍɠ�[\�0a���t��~|2�(����z���X��N_���	8��3��� �@�RmP0A�an����MC��ت*(����Wa��v:�]j;Q@�� �r#�H�Z~�C�4:������8���͋)r�ύ�7�������䙰?�M�c3�}����f�!LM�dC�C��O&amp;�A��w���h��N��S)w���p��F\Cz��X+X2k�
+���G�����7u~����&#039;��1��.�vA&amp;Q��)?�	��K�:Y̟�V��2��J`����ى	���m,�k�d{x�W��VLi��|4�&gt;�q�R�� �q��M��_���ԗ���6����H�&amp;H�&gt;�M$=��ov,�(�g�~��m&Zeta;�#��5�ΐe��톆��G����btW0z�.~H�Q��4}����H�4��ݩL�T=dlH}-A��]�b�|���F���ސ��B���Sٽ }�9*�v�����1���&lt;��Nm��(�.��#����#;��f�vg?�!�w]�,�Hʦ5��0sZ�tLxr2��G�@���w8�+���JT�:�{2�qY�\Q�~OW�C��v��A0�7���#5�o �O!&lt;-��]*���l���[Jɭ��qݝ���-+�j:y�3��׀��%q�� p!�ߎGqX�ߓC��RbM�L�[��͢~�:�ގ&amp;H��YLZ�.�r*����\u�t_��bw�&quot; �&#039;s�m�wn�#�6��ȑ������^�&ocirc;&gt;����Z�u���D��
+}*}w&#039;��&scaron;��o�8y���A��bb�!H)42�B��+�����{!^��P�J���8�����6L��E� �Uz�&amp;Y�ĳ� e���=�֧���pv�j�2���U��r��*���d�a�&quot;;1��a *������/&lt;ƨEob|��OC^~&lt;��K�F����\4��]���]��2��y]�&amp;o{��Q�I`N�����_MI�%��O��K�;L����~��i���3(�tr��:kS�;����e����T#�XEI�R���b\B�I��n�̎�&amp;&gt;t�G�h�x�/��{�� ^�+�a:�_~��5(����!{u��^%�Zw9Զ܍�֦�;�g�Ky6��Ss9�=��И?�y��b��%��&amp;��]̤����@t�
+
+�&quot;*uY��;S�G����y���]�8��ݘ�0�e�X�Z��ن�5Nm&gt;��:�ws?*h9������U��D �(l��*���@�  tIDAT�ŋ&gt;fhVj^y������^�s���(��JV��kd!����8�T)%���	��`�s�9D�+J״��1�?���F��u&Uuml;����:,�St���e�h5�Z��(��QР���O ���V��ж�2�}�}���?�V*�9=q)U��a��w�����t����@�^��ױ~K��mT�(��3���\K�
+�n�XG�SZj����kQg��쌏Mr^�\Qz����lʣ�M��? &oslash;P�O������@[��3+�yAخ8v��w� URu`YS4=��C����N�^G������Y3�?�c�0�1Fj�����t��:�M&amp;��X�6�Yյ��=��tcK�����x�0�c��tĿ��+��_����Q�t���&gt;�;N�����/�a���Ώ�*QW�ؿ݄��t�{1��yg����|��a�(��+5�rȭ���&gt; �!��9	L��B�돜�n�����?�G���veb)a~&Omega;#�vl��L��u�&Xi;��궦&amp;��ćo�|t���w�3U��8�o��`�u�:�Ӟm�k��.�6-?�xy[�&lt;�Lt��u5v��2�w�B&gt;:bfMG{�D�5�������C��|A�^�����o�ŋ��u�����)��&middot;k�Zk+�a��=o�;�P�3�9�^)E*�EI���X��3����U-&lt;4-�k�Zx�Wݴ?p�C(ƹ��k��]�e[^�)C�j���I��U��廾�����9�gG���|�rDo`8&lt; �h�VkO���Џ����M5��\w���l���ˊ�vcd1�Z�c��s��;��9�+u��?�Inˁ�DK�ۈڐOF�Q&#039;�!��h��%�WZ�a&amp; C�6�k��Ho$kg&amp;1���rEA�Q9��vSi�������r�ť�l����C�=�2�yv8���ߥ��Q�V9P��l������.?�bnn��&gt;�_�N�Ve���
+�4����e7�\:�����KKpsl�|a����c�B���mu���@�c�1ބ2y� EE�򍤌9C�b���=��z���[h����u����c�p�sW@��J������:F�A���`P�R�v�g[h�)&amp;���UťGP�t��i�\.&gt;@;ňѯ����Ԛ۱��(ٸ���I��&sup1;r|K�e;��V,g+(�����؈�NYC�55��O ���؎�y�	��v��X{�f&#039;�:�������Ӹ�IU�T��R�K�0_h��D)�[J8٩���&gt;XN���	������j+��D��\�wC&Icirc;s�^39��c��8;&amp;��0�����J�Q�i+[�-��&amp;v2��a:Պ��Be^��q$�*�cQN�����u�^�L�����&#039;��nbm~5��XN����&#039;hm$Fw�?��њA�����Ԥd=^�(?^��1��*h�2Ć��e}�h�2������%c�н����n�d�H�����,���&amp;�%���`��J�f=������i�hn�_y��X�l�d����v�&#039;KI�݀oW��5��&Oacute;Ʉ��Qt\CҬ�:�-���X��m���OB�����U7�7V:�V:.�Ps�8���_׵K/��M�������L��h&gt;�D�,2��
+W���Ў֡N_&gt;�g�b��!�@��?-#}�,2O�{��f�Yݿp�n(gKX����թ���d�m؛0��K�@G�����̉8EL9[ʳ?D3/��`�Ǿ��� �cI�D��j��X�U���C�����a����p�Y�d�A0��J�p��&gt;�Sy��w4��4Z�t�5`�^J���LT*�����R�5a��J��m���%�7�i��y3�:��&lt;�G0�`��j&zeta;�q���=��~DE;gQ�F&amp;�1�wT�|��b6���q�]#aV�Sr��F�m[i&gt;UM��嬬A�*c����8��t�mc�t��h��ƪ]�?�Z�˾@�&gt;�}:�a�t���!.NU��mX��E�����d�&ograve;���ee(�`��-��J,�&sigma;O i[�a{	ًLt\ՠ�N��T�ņ*��M�d��b�&quot;�a2�yF��g�}x3VLF���w���:
+K �h�Q���&lt;�=T��c�c���sQ+�Ii\N�b&amp;�^J�ټK٥��۪�B��d$z����[�d����oYA7����,pn�w�}t6P���Z]Y�#&lt;�AG|�5ܑ@���xc�&lt;/*���tr�/e�
+�o��O �i�&#039;��&lt;���#�[�%iC.�􌀌ď��䞳��qS�s9�`#9����i1%&gt;~�O�M��(�����`�͝�]X���Q4���f�N�U&gt;�����l�7��ܔyTq�!+�������H�m�;���,�ٌ #-֋;�~$=5��6�9��ꋎ�����FE[���&amp;����F_{HO��w��H�l��]��[��	 �ׯ���������覓SL��I·�O���2;|2�5�|5���-/���U+�k���w\4i�ָ�&gt;���RݦxA�X*�-��a_3����D��hLǾ�����&#039;���a��}�%f*�G��IF�ƫi�=���p�P�k�Ҵl�6ݹ�@&scaron;2�g#Qc�l���{�Ƽ���}՗�h��a�b��wY������tl/p�����73�뵝��2L�U����2�-����
+��Ϥ�uٰ`2�{�}y;rKy��l�0L�9��=yP��R�Za�U�mwֽ�������.;�p������C�}X�u��҄�;��P�6�&beta;�_�BK&zeta;Kd���ӉVx ���\r����vj���?�Iy��aV*7�#��Q��&amp;k�B�]�sr���=�����k+c�+Bd*�n�x��������r�K�W��xq����x7R�850u��~�t֑&gt;-[z����$w��w��V��c.eƢOH����_+E�Q����M�������9��~f���=�/c
+�#�3�&ocirc;dn�H�����LE��&gt;� B�媎���&gt;i�p9�0�p��bJ�&#039;�#��������&lt;!�޺�A��D�_i`�5.䗡��.��p}/��u�bZ��%����9-J����`�snw&quot;����ӱ�B!�?�LǺ���%�B!��Q� D!�BqKI&quot;�B!���$B!�B�R�!�B!n�;#q��A1�K�&amp;��c��o��XL��kX�Vɒ*��8h&gt;�&igrave;���dҬd״����vjw�Č�H#&quot;�����Z��*������G�}2�変�ԧy|Z$����ٍ�s���#$�i���qo�B!��nt{_V��&fnof;V�SGǽԗ_�vt&#039;�ǭ� /&ordm;PA�����P9��%�_���a#�/ }�h|���n�����&ograve;�����`�. }�
+�Ars�][�^�62��W����(��P�̇2����SK�YL��K���d�)�i�x��`�_T��)��8�g�E_B!���6��(\V��w��К�ߘ~��L|&quot;�a�V�R�� sT�}�;��&lt;�-l!Y3�я	 ��5��?Oye��8(�:��E�X�\A*F���c-=�uX/�O	4�	�t���t�p��ܢ&amp;+_goZQ��޻����LgUZ,Ac�0D.%c�X�VUc���	!�Bq���A���9�#Ъ�Z�NmA�AKɘ��&#039;l#��h��G�uB:��ܦ��y ڞ�zX���� ��Y�f�y�����6��)��;�B��M�KV���$Ŗ���&beta;� ����V�G�K�e�m-����&amp;�B!�]��x&amp;����O�������2k5�o�!&lt;-����~��;���ϧ��j��`t	O&amp;��
+|��0%� �D9[M�y1��=�]�/;J[�&amp;N#$2���D�)k�R��m� �oZ�ԘiL�1��%&Pi;���p���K}�5vl��8HB!�B�%n�3!^��@~�1���#i��+5�wrz�o9&lt;E�Vઇ}h�1�v���@�JL.�zVq0�g��+�$=9�O;5o�$u��cc��jG9�GN/�-�_�s��[���q�!�4��B!�B� ��A���]yT����ֶ�Ivc{b���ϐx��VL�/Q&gt;�Ⱦ���\*&amp;,�ޞ�4N�%�%*��c�J&#039;h���pY��{�ְ�?�UYMs��!�4��4!�B!�rwvb}��Z�]-fftqׇ�&gt;����&gt;������dv��8��TB�K��[S���;��vE���b�&Omega;y�r�G��{)����&amp;� ?�/Y���`��O�26���� �F_+}F=���(hPk�o\!�B��;;9����^��)f��V��sIzxZ�Ļ&gt;��	ٳ�P��E�T?�&gt;j5��-t�5Z�N�9;�
+d��AcQ��de��u�դ�.E�aY�v=Y�h�|сf��01��34wF�u����P|}@;. &gt;j��db�ss��yX]!�B��;��t�z?�.��ja�����*���.��G��B=2 �h�&quot;��*%�P�����FI�X�~�܏�	SQ)�]/@���`|1���V:��vg@�	%*���(�����ʼ*�$OqN3&lt;9��oL��RA����l��b1 ��	Dq���4_h�|����g|�s9�i&lt;TL�	k��&quot;�B!�]��	�I�a��Vظgq��cB�_�
+˺_Tx���Ce&lt;��F�|[)?PG�(I�I�놆���[��uĿ�:JaE�����&amp;-wF}׺�X����J�7�t㈚���d���9�.��c&#039;O&#039;Z� �s{�w^�de9�q!�DF�s&quot;B!�������r�K73-B!�B����(��sugO�B!�B��H&quot;�B!���$B!�B�R�!�B!n)	B�B!���!B!�B�[J�!�B!�-%A�B!�▒ D!�BqKI&quot;�B!���$B!�B�R�!�B!n)	B�B!���!B!�B�[J�!�B!�-%A�B!�▒ D!�BqKI&quot;�B!���$B!�B�R�!�B!n)	B�B!���!B!�B�[J�!�B!�-uCA�=&AElig;ݬt!�B!�r��76���ׅB!�? ^�7�ܫ��F�.�B!���6&gt;���X?��$B!�����㞟�x��?�&gt;l��Q�nt3B!�B���=*�F��~��������~����ؔB!��.q�}�]S 71�����M����|���ڬB!��rϰa�p��)X}�3�!�B!��D^V(�B!���$B!�B�R�!�B!n)	B�B!���!B!�B�[J�!�B!�-���f�Nl�%    IEND�B`�</code>
+ </pre>
+            <blockquote>
+            <p>Example response (403):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Доступ запрещен.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;status&quot;: &quot;error&quot;,
+    &quot;message&quot;: &quot;Запрашиваемый ресурс не найден.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-users-cabinet-documents--id--files" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-users-cabinet-documents--id--files"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-users-cabinet-documents--id--files"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-users-cabinet-documents--id--files" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-users-cabinet-documents--id--files">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-users-cabinet-documents--id--files" data-method="GET"
+      data-path="api/users/cabinet/documents/{id}/files"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-users-cabinet-documents--id--files', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-users-cabinet-documents--id--files"
+                    onclick="tryItOut('GETapi-users-cabinet-documents--id--files');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-users-cabinet-documents--id--files"
+                    onclick="cancelTryOut('GETapi-users-cabinet-documents--id--files');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-users-cabinet-documents--id--files"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/users/cabinet/documents/{id}/files</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-users-cabinet-documents--id--files"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-users-cabinet-documents--id--files"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-users-cabinet-documents--id--files"
+               value="7"
+               data-component="url">
+    <br>
+<p>The ID of the document. Example: <code>7</code></p>
+            </div>
+                    </form>
+
                     <h2 id="document-GETapi-users-cabinet-documents--id-">GetForUserById</h2>
 
 <p>
@@ -5160,8 +6334,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "number=molestias"\
     --form "issuedWhom=nobis"\
-    --form "itWorksDate=a"\
-    --form "file=@C:\Users\develop\AppData\Local\Temp\phpD99B.tmp" </code></pre></div>
+    --form "itWorksDate=a"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -5178,7 +6351,6 @@ const body = new FormData();
 body.append('number', 'molestias');
 body.append('issuedWhom', 'nobis');
 body.append('itWorksDate', 'a');
-body.append('file', document.querySelector('input[name="file"]').files[0]);
 
 fetch(url, {
     method: "POST",
@@ -5248,7 +6420,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi-users-cabinet-documents--id--update" data-method="POST"
       data-path="api/users/cabinet/documents/{id}/update"
       data-authed="0"
-      data-hasfiles="1"
+      data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-users-cabinet-documents--id--update', this);">
@@ -5321,7 +6493,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Example: <code>C:\Users\develop\AppData\Local\Temp\phpD99B.tmp</code></p>
+<p>Must be a file.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>number</code></b>&nbsp;&nbsp;
@@ -8160,13 +9332,11 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "dateStart=2025-03-19T07:13:39"\
     --form "recordEnd=2025-03-19T07:13:39"\
     --form "trackId=16"\
+    --form "images[]="\
     --form "gradeIds[]=3"\
     --form "locationId=13"\
     --form "statusId=7"\
-    --form "cupIds[]=19"\
-    --form "images[]=@C:\Users\develop\AppData\Local\Temp\phpCED6.tmp" \
-    --form "positionFile=@C:\Users\develop\AppData\Local\Temp\phpCED7.tmp" \
-    --form "resultsFile=@C:\Users\develop\AppData\Local\Temp\phpCED8.tmp" </code></pre></div>
+    --form "cupIds[]=19"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -8185,13 +9355,11 @@ body.append('desc', 'provident');
 body.append('dateStart', '2025-03-19T07:13:39');
 body.append('recordEnd', '2025-03-19T07:13:39');
 body.append('trackId', '16');
+body.append('images[]', '');
 body.append('gradeIds[]', '3');
 body.append('locationId', '13');
 body.append('statusId', '7');
 body.append('cupIds[]', '19');
-body.append('images[]', document.querySelector('input[name="images[]"]').files[0]);
-body.append('positionFile', document.querySelector('input[name="positionFile"]').files[0]);
-body.append('resultsFile', document.querySelector('input[name="resultsFile"]').files[0]);
 
 fetch(url, {
     method: "POST",
@@ -8243,7 +9411,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi-races" data-method="POST"
       data-path="api/races"
       data-authed="1"
-      data-hasfiles="1"
+      data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-races', this);">
@@ -8372,7 +9540,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Example: <code>C:\Users\develop\AppData\Local\Temp\phpCED7.tmp</code></p>
+<p>Must be a file.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>resultsFile</code></b>&nbsp;&nbsp;
@@ -8383,7 +9551,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Example: <code>C:\Users\develop\AppData\Local\Temp\phpCED8.tmp</code></p>
+<p>Must be a file.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gradeIds</code></b>&nbsp;&nbsp;
@@ -8457,14 +9625,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "dateStart=2025-03-19T07:13:39"\
     --form "recordEnd=2025-03-19T07:13:39"\
     --form "trackId=14"\
+    --form "imagesAdd[]="\
     --form "imagesDel[]=voluptatibus"\
     --form "gradeIds[]=9"\
     --form "locationId=18"\
     --form "statusId=20"\
-    --form "cupIds[]=1"\
-    --form "imagesAdd[]=@C:\Users\develop\AppData\Local\Temp\phpCF94.tmp" \
-    --form "positionFile=@C:\Users\develop\AppData\Local\Temp\phpCF95.tmp" \
-    --form "resultsFile=@C:\Users\develop\AppData\Local\Temp\phpCF96.tmp" </code></pre></div>
+    --form "cupIds[]=1"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -8483,14 +9649,12 @@ body.append('desc', 'quas');
 body.append('dateStart', '2025-03-19T07:13:39');
 body.append('recordEnd', '2025-03-19T07:13:39');
 body.append('trackId', '14');
+body.append('imagesAdd[]', '');
 body.append('imagesDel[]', 'voluptatibus');
 body.append('gradeIds[]', '9');
 body.append('locationId', '18');
 body.append('statusId', '20');
 body.append('cupIds[]', '1');
-body.append('imagesAdd[]', document.querySelector('input[name="imagesAdd[]"]').files[0]);
-body.append('positionFile', document.querySelector('input[name="positionFile"]').files[0]);
-body.append('resultsFile', document.querySelector('input[name="resultsFile"]').files[0]);
 
 fetch(url, {
     method: "POST",
@@ -8562,7 +9726,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi-races--id--update" data-method="POST"
       data-path="api/races/{id}/update"
       data-authed="1"
-      data-hasfiles="1"
+      data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-races--id--update', this);">
@@ -8716,7 +9880,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Example: <code>C:\Users\develop\AppData\Local\Temp\phpCF95.tmp</code></p>
+<p>Must be a file.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>resultsFile</code></b>&nbsp;&nbsp;
@@ -8727,7 +9891,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be a file. Example: <code>C:\Users\develop\AppData\Local\Temp\phpCF96.tmp</code></p>
+<p>Must be a file.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gradeIds</code></b>&nbsp;&nbsp;
@@ -9803,16 +10967,18 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">[
     {
         &quot;status&quot;: &quot;success&quot;,
-        &quot;message&quot;: &quot;messages.status.get_all.success&quot;,
+        &quot;message&quot;: &quot;Статусы получены успешно.&quot;,
         &quot;statuses&quot;: {
-            &quot;name&quot;: &quot;Mr. Andre Douglas PhD&quot;
+            &quot;id&quot;: 4,
+            &quot;name&quot;: &quot;Анжелика Александровна Сазонова&quot;
         }
     },
     {
         &quot;status&quot;: &quot;success&quot;,
-        &quot;message&quot;: &quot;messages.status.get_all.success&quot;,
+        &quot;message&quot;: &quot;Статусы получены успешно.&quot;,
         &quot;statuses&quot;: {
-            &quot;name&quot;: &quot;Keven Mertz&quot;
+            &quot;id&quot;: 5,
+            &quot;name&quot;: &quot;Макаров Александр Александрович&quot;
         }
     }
 ]</code>
@@ -10539,6 +11705,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "address=enim"\
     --form "latitude=-87"\
     --form "longitude=-180"\
+    --form "images[]="\
     --form "levelId=5"\
     --form "desc=ut"\
     --form "length=2"\
@@ -10548,10 +11715,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "locationId=12"\
     --form "light=1"\
     --form "season="\
-    --form "storeId=16"\
-    --form "images[]=@C:\Users\develop\AppData\Local\Temp\phpC656.tmp" \
-    --form "logo=@C:\Users\develop\AppData\Local\Temp\phpC657.tmp" \
-    --form "schemaImg=@C:\Users\develop\AppData\Local\Temp\phpC658.tmp" </code></pre></div>
+    --form "storeId=16"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -10569,6 +11733,7 @@ body.append('name', 'lwajufzofvdwztgfzyoecuqqqqunhokxdbkkfoctwancuilyzogtbpepfzy
 body.append('address', 'enim');
 body.append('latitude', '-87');
 body.append('longitude', '-180');
+body.append('images[]', '');
 body.append('levelId', '5');
 body.append('desc', 'ut');
 body.append('length', '2');
@@ -10579,9 +11744,6 @@ body.append('locationId', '12');
 body.append('light', '1');
 body.append('season', '');
 body.append('storeId', '16');
-body.append('images[]', document.querySelector('input[name="images[]"]').files[0]);
-body.append('logo', document.querySelector('input[name="logo"]').files[0]);
-body.append('schemaImg', document.querySelector('input[name="schemaImg"]').files[0]);
 
 fetch(url, {
     method: "POST",
@@ -10660,7 +11822,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi-tracks" data-method="POST"
       data-path="api/tracks"
       data-authed="1"
-      data-hasfiles="1"
+      data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-tracks', this);">
@@ -10897,7 +12059,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Example: <code>C:\Users\develop\AppData\Local\Temp\phpC657.tmp</code></p>
+<p>Must be an image.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>light</code></b>&nbsp;&nbsp;
@@ -10950,7 +12112,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Example: <code>C:\Users\develop\AppData\Local\Temp\phpC658.tmp</code></p>
+<p>Must be an image.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>storeId</code></b>&nbsp;&nbsp;
@@ -10986,6 +12148,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "address=quibusdam"\
     --form "latitude=-86"\
     --form "longitude=-179"\
+    --form "imagesAdd[]="\
     --form "imagesDel[]=laborum"\
     --form "levelId=6"\
     --form "desc=animi"\
@@ -10995,8 +12158,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --form "is_work="\
     --form "locationId=17"\
     --form "userId=9"\
-    --form "storeId=16"\
-    --form "imagesAdd[]=@C:\Users\develop\AppData\Local\Temp\phpC743.tmp" </code></pre></div>
+    --form "storeId=16"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -11014,6 +12176,7 @@ body.append('name', 'xycliraerlpoarpobytypbpmscxzrxzfofrrqfduutouqcqhwtgexhvgiii
 body.append('address', 'quibusdam');
 body.append('latitude', '-86');
 body.append('longitude', '-179');
+body.append('imagesAdd[]', '');
 body.append('imagesDel[]', 'laborum');
 body.append('levelId', '6');
 body.append('desc', 'animi');
@@ -11024,7 +12187,6 @@ body.append('is_work', '');
 body.append('locationId', '17');
 body.append('userId', '9');
 body.append('storeId', '16');
-body.append('imagesAdd[]', document.querySelector('input[name="imagesAdd[]"]').files[0]);
 
 fetch(url, {
     method: "POST",
@@ -11113,7 +12275,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi-tracks--id-" data-method="POST"
       data-path="api/tracks/{id}"
       data-authed="1"
-      data-hasfiles="1"
+      data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-tracks--id-', this);">
@@ -11403,14 +12565,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost:8000/api/tracks/7" \
+    "http://localhost:8000/api/tracks/24" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost:8000/api/tracks/7"
+    "http://localhost:8000/api/tracks/24"
 );
 
 const headers = {
@@ -11433,29 +12595,29 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;success&quot;,
-    &quot;message&quot;: &quot;messages.track.delete.success&quot;,
+    &quot;message&quot;: &quot;Трек успешно удалён.&quot;,
     &quot;track&quot;: {
-        &quot;id&quot;: 60,
-        &quot;name&quot;: &quot;Boat Builder and Shipwright&quot;,
-        &quot;address&quot;: &quot;9703 Devante Street Apt. 671\nDaughertybury, WV 47714-3535&quot;,
+        &quot;id&quot;: 105,
+        &quot;name&quot;: &quot;Жокей&quot;,
+        &quot;address&quot;: &quot;307216, Кировская область, город Щёлково, ул. Ленина, 16&quot;,
         &quot;images&quot;: null,
         &quot;latitude&quot;: 0,
         &quot;longitude&quot;: 0,
         &quot;level&quot;: {
-            &quot;name&quot;: &quot;Низкая&quot;,
-            &quot;color&quot;: &quot;#22CA3D&quot;
+            &quot;name&quot;: &quot;Средняя&quot;,
+            &quot;color&quot;: &quot;#EF7C08&quot;
         },
-        &quot;desc&quot;: &quot;Quo recusandae consequatur magni blanditiis sed. Similique incidunt cupiditate ex. Cupiditate et debitis sed odit rem velit itaque. Perferendis veniam minus qui laborum quis. Quaerat voluptates et aut recusandae et eaque. Error necessitatibus praesentium est voluptatem possimus. Ut voluptates sit inventore delectus. Hic qui illo enim dolorem. Veniam doloremque ipsa qui molestias numquam eos ut.&quot;,
-        &quot;length&quot;: 73,
-        &quot;turns&quot;: 48,
-        &quot;free&quot;: false,
-        &quot;is_work&quot;: false,
+        &quot;desc&quot;: &quot;Velit quaerat iste qui enim ex voluptas laudantium. Ab et autem sunt doloremque debitis. Incidunt quibusdam quo qui consequatur ut. Saepe quaerat quos eveniet dolor nesciunt qui amet quam. Optio neque provident repellat omnis qui aut. Qui commodi qui omnis consequatur. Error nesciunt voluptas ducimus qui iusto ipsa dolorem. Voluptatem provident eos voluptatem.&quot;,
+        &quot;length&quot;: 100,
+        &quot;turns&quot;: 30,
+        &quot;free&quot;: true,
+        &quot;is_work&quot;: true,
         &quot;spec&quot;: null,
         &quot;contacts&quot;: null,
         &quot;location&quot;: {
-            &quot;id&quot;: 18,
-            &quot;name&quot;: &quot;Ивановская&quot;,
-            &quot;type&quot;: &quot;область&quot;
+            &quot;id&quot;: 25,
+            &quot;name&quot;: &quot;Камчатский&quot;,
+            &quot;type&quot;: &quot;край&quot;
         },
         &quot;light&quot;: null,
         &quot;season&quot;: null,
@@ -11472,7 +12634,7 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;error&quot;,
-    &quot;message&quot;: &quot;messages.error.not_allowed&quot;
+    &quot;message&quot;: &quot;Доступ запрещен.&quot;
 }</code>
  </pre>
             <blockquote>
@@ -11482,7 +12644,7 @@ fetch(url, {
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;status&quot;: &quot;error&quot;,
-    &quot;message&quot;: &quot;messages.error.not_found&quot;
+    &quot;message&quot;: &quot;Запрашиваемый ресурс не найден.&quot;
 }</code>
  </pre>
     </span>
@@ -11562,10 +12724,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-tracks--id-"
-               value="7"
+               value="24"
                data-component="url">
     <br>
-<p>The ID of the track. Example: <code>7</code></p>
+<p>The ID of the track. Example: <code>24</code></p>
             </div>
                     </form>
 
@@ -11864,8 +13026,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "name=mckxtjdchfywykhifsioxie"\
     --form "email=sschaden@example.com"\
-    --form "number=tansevovf"\
-    --form "avatar=@C:\Users\develop\AppData\Local\Temp\phpC105.tmp" </code></pre></div>
+    --form "number=tansevovf"</code></pre></div>
 
 
 <div class="javascript-example">
@@ -11882,7 +13043,6 @@ const body = new FormData();
 body.append('name', 'mckxtjdchfywykhifsioxie');
 body.append('email', 'sschaden@example.com');
 body.append('number', 'tansevovf');
-body.append('avatar', document.querySelector('input[name="avatar"]').files[0]);
 
 fetch(url, {
     method: "POST",
@@ -11939,7 +13099,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <form id="form-POSTapi-users-update" data-method="POST"
       data-path="api/users/update"
       data-authed="1"
-      data-hasfiles="1"
+      data-hasfiles="0"
       data-isarraybody="0"
       autocomplete="off"
       onsubmit="event.preventDefault(); executeTryOut('POSTapi-users-update', this);">
@@ -12022,7 +13182,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
                value=""
                data-component="body">
     <br>
-<p>Must be an image. Example: <code>C:\Users\develop\AppData\Local\Temp\phpC105.tmp</code></p>
+<p>Must be an image.</p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>number</code></b>&nbsp;&nbsp;

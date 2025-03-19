@@ -120,6 +120,9 @@ return [
         'add_couch' => [
             'success' => 'Тренер успешно :is_attach.'
         ],
+        'member_toggle' => [
+            'success' => 'Участник :is_attach.',
+        ],
     ],
     'track' => [
         'create' => [
