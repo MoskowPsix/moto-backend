@@ -24,10 +24,11 @@ class CommandDetailPage extends DetailPage
     {
         return [
             ID::make()->sortable(),
-            Text::make('Название команды', 'name')->sortable(),
+            Text::make('Название команды', 'name'),
+            Text::make('Полное название команды', 'fullName'),
             Image::make('Аватар', 'avatar')->multiple(),
             $this->user(),
-            Text::make('Город', 'city')->sortable(),
+            Text::make('Город', 'city'),
             $this->location(),
             Date::make('Создано', 'created_at'),
             Date::make('Обновлено', 'updated_at'),
