@@ -31,8 +31,11 @@ use Knuckles\Scribe\Attributes\ResponseFromFile;
 class DocumentController extends Controller
 {
     #[ResponseFromApiResource(SuccessGetDocumentForUserResource::class, Document::class, collection: true)]
+    #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
     #[Endpoint(title: 'GetForUser', description: 'Получение всех документов пользователя')]
-    public function getForUser(GetDocumentForUserRequest $request, GetDocumentForUserActionContract $action): SuccessGetDocumentForUserResource
+    public function getForUser(GetDocumentForUserRequest $request, GetDocumentForUserActionContract $action):
+    SuccessGetDocumentForUserResource|
+    NotUserPermissionResource
     {
         return $action($request);
     }
