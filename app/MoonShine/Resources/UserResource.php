@@ -179,6 +179,7 @@ class UserResource extends ModelResource
     {
         return [
             'id',
+            'personalInfo.surname',
             'email',
         ];
     }
