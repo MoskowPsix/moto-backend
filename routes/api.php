@@ -51,7 +51,7 @@ Route::controller(\App\Http\Controllers\Api\TrackController::class)-> group(func
     Route::post('tracks/{id}', 'update')
         ->middleware(['auth:sanctum', 'role:'.$role::ROOT.'|'.$role::ORGANIZATION, 'email_verification', 'phone_verification'])
         ->name('track.update');
-//    Route::delete('tracks/{track}', 'delete')->name('track.delete');
+    Route::delete('tracks/{id}', 'delete')->middleware(['auth:sanctum', 'role:'.$role::ROOT.'|'.$role::ORGANIZATION])->name('track.delete');
 });
 
 Route::controller(\App\Http\Controllers\Api\StoreController::class)->group(function () {
@@ -147,6 +147,7 @@ Route::controller(\App\Http\Controllers\Api\CommandController::class)->group(fun
     Route::get('commands/{id}', 'getForId')->name('command.get_for_id');
     Route::post('commands', 'create')->middleware(['auth:sanctum', 'email_verification', 'role:'. $role::COUCH .'|'. $role::ADMIN.'|'.$role::ROOT])->name('command.create');
     Route::post('commands/{id}', 'update')->middleware(['auth:sanctum', 'email_verification', 'role:'. $role::COUCH .'|'.$role::ROOT])->name('command.update');
+    Route::delete('commands/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::COUCH .'|'. $role::ADMIN.'|'.$role::ROOT])->name('command.delete');
 });
 
 Route::controller(\App\Http\Controllers\Api\AttendanceController::class)->group(function (){

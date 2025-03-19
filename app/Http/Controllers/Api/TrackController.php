@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Contracts\Actions\Controllers\Track\CreateTracksActionContract;
+use App\Contracts\Actions\Controllers\Track\DeleteTrackActionContract;
 use App\Contracts\Actions\Controllers\Track\GetTrackForIdActionContract;
 use App\Contracts\Actions\Controllers\Track\GetTracksActionContract;
 use App\Contracts\Actions\Controllers\Track\UpdateTrackActionContract;
@@ -14,6 +15,7 @@ use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Http\Resources\Track\Create\ErrorCreateResource;
 use App\Http\Resources\Track\Create\SuccessCreateResource;
+use App\Http\Resources\Track\Delete\SuccessDeleteTrackResource;
 use App\Http\Resources\Track\GetTrackForId\SuccessGetTrackForIdResource;
 use App\Http\Resources\Track\GetTracks\SuccessGetTracksResource;
 use App\Http\Resources\Track\Update\SuccessUpdateTrackResource;
@@ -56,6 +58,14 @@ class TrackController extends Controller
     public function update(int $id, UpdateTrackRequest $request, UpdateTrackActionContract $action): SuccessUpdateTrackResource|NotFoundResource|NotUserPermissionResource
     {
         return $action($id, $request);
+    }
+    #[ResponseFromApiResource(SuccessDeleteTrackResource::class, Track::class, collection: false)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
+    #[Endpoint(title: 'delete', description: 'Метод удаления трека')]
+    public function delete(int $id, DeleteTrackActionContract $action): SuccessDeleteTrackResource|NotFoundResource|NotUserPermissionResource
+    {
+        return $action($id);
     }
 //    public function delete()
 //    {}

@@ -24,9 +24,9 @@ endpoints:
     bodyParameters:
       number:
         name: number
-        description: 'The <code>number</code> of an existing record in the phones table. Количество символов в поле value должно быть не меньше 10. Количество символов в значении поля value не может превышать 12.'
+        description: 'The <code>number</code> of an existing record in the phones table. Must be at least 10 characters. Must not be greater than 12 characters.'
         required: true
-        example: tcktudjoztd
+        example: xjk
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -36,15 +36,15 @@ endpoints:
         name: callback
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      number: tcktudjoztd
-      callback: true
+      number: xjk
+      callback: false
     fileParameters: []
     responses:
       -
@@ -82,9 +82,9 @@ endpoints:
     bodyParameters:
       number:
         name: number
-        description: 'Количество символов в поле value должно быть не меньше 10. Количество символов в значении поля value не может превышать 12.'
+        description: 'Must be at least 10 characters. Must not be greater than 12 characters.'
         required: true
-        example: qginfwpyuoh
+        example: xpq
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -101,7 +101,7 @@ endpoints:
         nullable: true
         custom: []
     cleanBodyParameters:
-      number: qginfwpyuoh
+      number: xpq
       callback: false
     fileParameters: []
     responses:
@@ -140,9 +140,9 @@ endpoints:
     bodyParameters:
       pin:
         name: pin
-        description: 'Количество символов в поле value должно быть не меньше 3. Количество символов в значении поля value не может превышать 4.'
+        description: 'Must be at least 3 characters. Must not be greater than 4 characters.'
         required: true
-        example: hxv
+        example: ai
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -150,34 +150,34 @@ endpoints:
         custom: []
       number:
         name: number
-        description: 'The <code>number</code> of an existing record in the phones table. Количество символов в поле value должно быть не меньше 10. Количество символов в значении поля value не может превышать 12.'
+        description: 'The <code>number</code> of an existing record in the phones table. Must be at least 10 characters. Must not be greater than 12 characters.'
         required: true
-        example: cgvki
+        example: knwy
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      pin: hxv
-      number: cgvki
+      pin: ai
+      number: knwy
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0412\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u043e\u0432\u0430\u043b\u0438\u0441\u044c.","access_token":"889|82o93go5tI910rmkYjgkjLoULZ4MDgtPjUZEX3EJ7aa00ef8","token_type":"Bearer","user":{"id":630,"name":null,"email":"koklova.klementina@example.org","email_verified_at":"2025-03-17T11:06:38.000000Z","avatar":null,"personal":null}}'
+        content: '{"status":"success","message":"messages.auth.login.success","access_token":"23|JeWgqZwrmV7Ldv84IO3VyOimwyaSf1ExOGsM6bW4d190dbec","token_type":"Bearer","user":{"id":183,"name":"Ellis Little IV","email":"marquardt.elmo@example.com","email_verified_at":"2025-03-19T07:13:35.000000Z","avatar":null}}'
         headers: []
         description: ''
         custom: []
       -
         status: 403
-        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
@@ -212,7 +212,7 @@ endpoints:
         name: key
         description: ''
         required: true
-        example: veritatis
+        example: est
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -222,15 +222,15 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: iure
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      key: veritatis
-      phone: iure
+      key: est
+      phone: voluptatem
     fileParameters: []
     responses: []
     responseFields: []

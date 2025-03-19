@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Contracts\Actions\Controllers\Command\CreateCommandActionContract;
+use App\Contracts\Actions\Controllers\Command\DeleteCommandActionContract;
 use App\Contracts\Actions\Controllers\Command\GetCommandActionContract;
 use App\Contracts\Actions\Controllers\Command\GetForIdCommandActionContract;
 use App\Contracts\Actions\Controllers\Command\UpdateCommandActionContract;
@@ -12,6 +13,7 @@ use App\Http\Requests\Command\GetCommandRequest;
 use App\Http\Requests\Command\GetForIdCommandRequest;
 use App\Http\Requests\Command\UpdateCommandRequest;
 use App\Http\Resources\Command\Create\SuccessCreateCommandResource;
+use App\Http\Resources\Command\Delete\SuccessDeleteCommandResource;
 use App\Http\Resources\Command\GetCommand\SuccessGetCommandResource;
 use App\Http\Resources\Command\GetCommandForId\SuccessGetCommandForIdResource;
 use App\Http\Resources\Command\Update\SuccessUpdateCommandResource;
@@ -52,11 +54,21 @@ class CommandController extends Controller
     #[ResponseFromApiResource(SuccessUpdateCommandResource::class, Command::class, collection: false)]
     #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
     #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
-    #[Endpoint(title: 'update', description: 'Редактирование класса')]
-    public function update(int $id, UpdateCommandRequest $request, UpdateCommandActionContract $action): SuccessUpdateCommandResource
+    #[Endpoint(title: 'update', description: 'Редактирование команды')]
+    public function update(int $id, UpdateCommandRequest $request, UpdateCommandActionContract $action): SuccessUpdateCommandResource|NotFoundResource|NotUserPermissionResource
     {
         return $action($id, $request);
     }
+
+    #[ResponseFromApiResource(SuccessDeleteCommandResource::class, Command::class, collection: false)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
+    #[Endpoint(title: 'delete', description: 'Удаление команды')]
+    public function delete(int $id, DeleteCommandActionContract $action): SuccessDeleteCommandResource|NotFoundResource|NotUserPermissionResource
+    {
+        return $action($id);
+    }
+
     #[Authenticated]
     #[Endpoint(title: 'getCoaches', description: 'Получение всех тренеров команды.')]
     public function getCoaches(int $id)
