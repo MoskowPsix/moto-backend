@@ -14,6 +14,7 @@ use App\Models\Race;
 use App\Notifications\CreateTableAppointmentRaceUserNotify;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Config;
 
 class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRaceUserActionContract
 {

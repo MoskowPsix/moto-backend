@@ -22,7 +22,8 @@ class GetDocumentForUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'userId'    => 'nullable|integer|exists:users,id',
+            'commandId' => 'nullable|integer|exists:commands,id'
         ];
     }
 }

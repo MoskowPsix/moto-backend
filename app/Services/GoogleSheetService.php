@@ -49,7 +49,7 @@ class GoogleSheetService implements GoogleSheetServiceContract
             ],
             [
                 'дата',
-                $race->date_start->format('d.m.Y H:i:s')
+                $race->date_start->format('d.m.Y')
             ],
             [
                 'наименование',
@@ -97,7 +97,7 @@ class GoogleSheetService implements GoogleSheetServiceContract
             ],
             [
                 'дата',
-                $race->date_start->format('d.m.Y H:i:s')
+                $race->date_start->format('d.m.Y')
             ],
             [
                 'наименование',

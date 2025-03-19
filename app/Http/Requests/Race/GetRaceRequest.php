@@ -42,7 +42,8 @@ class GetRaceRequest extends FormRequest
             'locationId'        => 'nullable|integer|exists:locations,id',
             'statusIds'         => 'nullable|array',
             'statusIds.*'       => 'nullable|integer|exists:statuses,id',
-
+            'sortField'         => 'nullable|string',
+            'sort'              => 'nullable|string',
         ];
     }
 }

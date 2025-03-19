@@ -2,6 +2,7 @@
 
 namespace App\Actions\Controllers\AppointmentRace;
 
+use App\Constants\RoleConstant;
 use App\Contracts\Actions\Controllers\AppointmentRace\ToggleAppointmentRaceActionContract;
 use App\Enums\DocumentType;
 use App\Http\Requests\AppointmentRace\ToogleAppointmentRaceRequest;
@@ -13,6 +14,7 @@ use App\Http\Resources\AppointmentRace\Delete\SuccessDeleteAppointmentRaceResour
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\AppointmentRace;
+use App\Models\Command;
 use App\Models\Document;
 use App\Models\Race;
 
@@ -33,14 +35,23 @@ class ToggleAppointmentRaceAction implements ToggleAppointmentRaceActionContract
         if (!$race) {
             return new NotFoundResource([]);
         }
-        if ($race->appointments()->where('user_id', $user->id)->exists()) {
+        if ($request->has('userId') && Command::find($request->commandId)->members()->where('userId')->exists()) {
+            return NotUserPermissionResource::make([]);
+        }
+        if ($request->has('userId') && $race->appointments()->where('user_id', $request->userId)->exists()) {
+            return ExistsAppointmentRaceResource::make([]);
+        }
+        if ($request->has('userId') && !auth()->user()->hasRole(RoleConstant::COUCH)) {
+            return NotUserPermissionResource::make([]);
+        }
+        if ($race->appointments()->where('user_id', $user->id)->exists() && !$request->has('userId')) {
             return ExistsAppointmentRaceResource::make([]);
         }
         if (!$race->grades()->where('grade_id', $request->gradeId)->exists()) {
             return GradeNotExistsAppointmentRaceResource::make([]);
         }
 
-        return $this->createAppointment($user->id, $race->id, $request);
+        return $this->createAppointment($request->has('userId') ? $request->userId : $user->id, $race->id, $request);
     }
 
     private function deleteAppointment(int $user_id, int $race_id): SuccessDeleteAppointmentRaceResource
