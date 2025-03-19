@@ -149,7 +149,14 @@ Route::controller(\App\Http\Controllers\Api\CommandController::class)->group(fun
     Route::post('commands/{id}', 'update')->middleware(['auth:sanctum', 'email_verification', 'role:'. $role::COUCH .'|'.$role::ROOT])->name('command.update');
 
     Route::get('commands/{command_id}/couches', 'getCoaches')->name('command.get.couch');
-    Route::post('commands/{command_id}/couches/{user_id}', 'toggleCouch')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])->name('command.add.couch');
+    Route::post('commands/{command_id}/couches/{user_id}', 'toggleCouch')
+        ->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])
+        ->name('command.add.couch');
+    Route::post('commands/{command_id}/members', 'toggleMember')
+        ->middleware(['auth:sanctum', 'role:'. $role::RIDER.'|'.$role::ORGANIZATION.'|'.$role::COUCH.'|'.$role::COMMISSION.'|'.$role::ADMIN.'|'.$role::ROOT])
+        ->name('command.add.member');
+    Route::get('commands/{command_id}/members', 'getMembers')
+        ->name('command.get.member');
 });
 
 Route::controller(\App\Http\Controllers\Api\AttendanceController::class)->group(function (){
