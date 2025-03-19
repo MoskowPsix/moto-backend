@@ -80,6 +80,10 @@ class UserResource extends ModelResource
             ),
             Text::make(__('moonshine::ui.resource.name'), 'name'),
 
+            Text::make('Имя', 'personalInfo.name'),
+            Text::make('Фамилия', 'personalInfo.surname'),
+            Text::make('Город', 'personalInfo.city'),
+
             Image::make(__('moonshine::ui.resource.avatar'), 'avatar')->modifyRawValue(fn (
                 ?string $raw
             ): string => $raw ?? ''),
