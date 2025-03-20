@@ -38,7 +38,7 @@ class RaceFormPage extends FormPage
             Image::make('Фото', 'images')->multiple()->dir(isset($item->id) ? "/race/$item->id" : "/race"),
             $this->status(),
             $this->user()->required(),
-            $this->track()->required(),
+            $this->track()->nullable(),
             $this->commission(),
             $this->appointments(),
             $this->grades(),
