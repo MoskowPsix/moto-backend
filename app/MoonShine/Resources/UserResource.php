@@ -20,6 +20,7 @@ use MoonShine\Support\Enums\ClickAction;
 use MoonShine\Support\Enums\Color;
 use MoonShine\Support\ListOf;
 use MoonShine\UI\Components\Badge;
+use MoonShine\UI\Components\Boolean;
 use MoonShine\UI\Components\Collapse;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Components\Layout\Flex;
@@ -78,11 +79,12 @@ class UserResource extends ModelResource
                     $value
                 )
             ),
-            Text::make(__('moonshine::ui.resource.name'), 'name'),
+            Text::make(__('moonshine::ui.resource.username'), 'name'),
 
             Text::make('Имя', 'personalInfo.name'),
             Text::make('Фамилия', 'personalInfo.surname'),
             Text::make('Город', 'personalInfo.city'),
+            Text::make('Область', 'personalInfo.location.name'),
 
             Image::make(__('moonshine::ui.resource.avatar'), 'avatar')->modifyRawValue(fn (
                 ?string $raw
@@ -100,7 +102,43 @@ class UserResource extends ModelResource
 
     protected function detailFields(): iterable
     {
-        return $this->indexFields();
+        return [
+            ID::make()->sortable(),
+
+            MorphToMany::make(
+                __('moonshine::ui.resource.role'),
+                'roles',
+                formatted: static fn (Role $model) => $model->name,
+                resource: RoleResource::class,
+            )->badge(Color::PURPLE)->inLine(
+                separator: ' ',
+                badge: fn($model, $value) => Badge::make((string) $value, 'primary'),
+                link: fn(Role $property, $value, $field) => (string) Link::make(
+                    app(RoleResource::class)->getDetailPageUrl($property->id),
+                    $value
+                )
+            ),
+            Text::make(__('moonshine::ui.resource.username'), 'name'),
+
+            Text::make('Имя', 'personalInfo.name'),
+            Text::make('Фамилия', 'personalInfo.surname'),
+            Text::make('Город', 'personalInfo.city'),
+            Text::make('Область', 'personalInfo.location.name'),
+            Text::make('Телефон', 'personalInfo.phone_number'),
+            Checkbox::make('Подтверждён ли телефон', 'phone.number_verified_at'),
+
+            Image::make(__('moonshine::ui.resource.avatar'), 'avatar')->modifyRawValue(fn (
+                ?string $raw
+            ): string => $raw ?? ''),
+
+            Date::make(__('moonshine::ui.resource.created_at'), 'created_at')
+                ->format("d.m.Y")
+                ->sortable(),
+
+            Email::make(__('moonshine::ui.resource.email'), 'email')
+                ->sortable(),
+            Checkbox::make('Подверждена ли почта', 'email_verified_at')
+        ];
     }
 
     protected function formFields(): iterable

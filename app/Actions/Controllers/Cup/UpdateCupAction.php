@@ -8,6 +8,7 @@ use App\Http\Resources\Cup\Update\SuccessUpdateCupResource;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\Cup;
+use Illuminate\Support\Facades\Storage;
 
 class UpdateCupAction implements UpdateCupActionContract
 {
@@ -26,9 +27,25 @@ class UpdateCupAction implements UpdateCupActionContract
             'name'          => $request->name ?? $cup->name,
             'year'          => $request->year ?? $cup->year,
             'stages'        => $request->stages ?? $cup->stages,
+            'color'         => $request->color ?? $cup->color,
             'location_id'   => $request->locationId ?? $cup->location_id,
-            'update_id'     => $request->updateId ?? $cup->update_id,
+            'user_id'       => $request->userId ?? $cup->user_id,
         ]);
+        $this->saveImage($request->image, $cup);
         return SuccessUpdateCupResource::make($cup);
+    }
+    private function saveImage($image, Cup $cup): void
+    {
+        if($image){
+            $this->deleteImage($cup);
+        }
+        $path = $image->store('cup/' . $cup->id, 'public');
+        $cup->update(['image' => $path]);
+    }
+    private function deleteImage(Cup $cup): void
+    {
+        if ($cup->image) {
+            Storage::delete($cup->image);
+        }
     }
 }

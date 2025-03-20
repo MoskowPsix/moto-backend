@@ -19,6 +19,8 @@ class Cup extends Model
         'name',
         'year',
         'stages',
+        'image',
+        'color',
         'location_id',
         'user_id',
     ];

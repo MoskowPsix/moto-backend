@@ -53,6 +53,7 @@ return [
         'system' => 'System',
         'role' => 'Roles',
         'name' => 'Name',
+        'username'  => 'Username',
         'email' => 'E-mail',
         'password' => 'Password',
         'repeat_password' => 'Repeat password',

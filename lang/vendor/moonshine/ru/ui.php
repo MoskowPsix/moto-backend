@@ -53,6 +53,7 @@ return [
         'system' => 'Система',
         'role' => 'Роли',
         'name' => 'Имя',
+        'username'  => 'Никнейм',
         'email' => 'E-mail',
         'password' => 'Пароль',
         'repeat_password' => 'Повторите пароль',

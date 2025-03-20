@@ -13,6 +13,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property string     $region
  * @property string     $stages
  * @property integer    $year
+ * @property array      $image
+ * @property array      $color
  */
 class CupResource extends JsonResource
 {
@@ -28,6 +30,8 @@ class CupResource extends JsonResource
             'name'      => $this->name,
             'year'      => $this->year,
             'stages'    => $this->stages,
+            'image'    => $this->image,
+            'color'    => $this->color,
             'user'      => UserResource::make($this->whenLoaded('user')),
             'location'  => LocationResource::make($this->whenLoaded('location')),
         ];

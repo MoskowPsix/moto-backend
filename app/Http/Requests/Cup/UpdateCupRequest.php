@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Cup;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateCupRequest extends FormRequest
 {
@@ -25,6 +26,8 @@ class UpdateCupRequest extends FormRequest
             'name'          => 'nullable|string|max:255',
             'year'          => 'nullable|integer',
             'stages'        => 'nullable|string|max:255',
+            'image'         => 'nullable|mimes:jpeg,png,jpg,svg,webp',
+            'color'         => 'nullable|string',
             'locationId'    => 'nullable|integer|exists:locations,id',
             'userId'        => 'nullable|integer|exists:users,id',
         ];

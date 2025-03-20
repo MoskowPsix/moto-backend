@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Cup;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 /**
  * @property mixed $name
@@ -10,6 +11,8 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property mixed $locationId
  * @property mixed $userId
  * @property mixed $stages
+ * @property array $image
+ * @property array $color
  */
 class CreateCupRequest extends FormRequest
 {
@@ -31,6 +34,8 @@ class CreateCupRequest extends FormRequest
         return [
             'name'          => 'required|string|max:255',
             'year'          => 'required|integer',
+            'image'         => 'nullable|mimes:jpeg,png,jpg,svg,webp',
+            'color'         => 'nullable|string',
             'stages'        => 'nullable|string|max:255',
             'locationId'    => 'nullable|integer|exists:locations,id',
         ];
