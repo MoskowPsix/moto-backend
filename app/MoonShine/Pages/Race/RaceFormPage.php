@@ -20,7 +20,7 @@ use Throwable;
 
 class RaceFormPage extends FormPage
 {
-    use TrackResourceTrait, RaceResourceTrait;
+    use RaceResourceTrait, TrackResourceTrait;
 
     /**
      * @return list<ComponentContract|FieldContract>
@@ -36,6 +36,7 @@ class RaceFormPage extends FormPage
             Date::make('Конец регистрации', 'record_end')->withTime(),
             Checkbox::make('Работает', 'is_work')->required(),
             Image::make('Фото', 'images')->multiple()->dir(isset($item->id) ? "/race/$item->id" : "/race"),
+            $this->location(),
             $this->status(),
             $this->user()->required(),
             $this->track()->nullable(),

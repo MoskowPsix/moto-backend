@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Pages\Track;
 
+use App\Traits\MoonShine\Resources\RaceResourceTrait;
+use App\Traits\MoonShine\Resources\TrackResourceTrait;
 use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
@@ -18,6 +20,7 @@ use Throwable;
 
 class TrackIndexPage extends IndexPage
 {
+    use TrackResourceTrait, RaceResourceTrait;
     /**
      * @return list<ComponentContract|FieldContract>
      */
@@ -25,12 +28,13 @@ class TrackIndexPage extends IndexPage
     {
         return [
             ID::make()->sortable(),
-            Checkbox::make('Работает', 'is_work')->sortable(),
+//            Checkbox::make('Работает', 'is_work')->sortable(),
             Text::make('Название', 'name')->sortable(),
             Text::make('Адрес', 'address')->sortable(),
             Image::make('Фото','images')->multiple(),
             Date::make('Создано', 'created_at')->sortable(),
             Date::make('Обновлено', 'updated_at')->sortable(),
+            $this->location(),
         ];
     }
 

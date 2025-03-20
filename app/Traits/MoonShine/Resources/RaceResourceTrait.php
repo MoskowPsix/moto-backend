@@ -33,4 +33,8 @@ trait RaceResourceTrait
     {
         return BelongsTo::make('Статус', 'status', resource: StatusResource::class)->searchable();
     }
+    public function location(): BelongsTo
+    {
+        return BelongsTo::make('Местоположение', 'location', resource: \App\MoonShine\Resources\LocationResource::class)->searchable();
+    }
 }
