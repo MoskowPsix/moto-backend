@@ -98,7 +98,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
             foreach ($value['documents'] as $document) {
                 switch ($document['type']) {
                     case DocumentType::Polis->value:
-                        $row['Скан или фотография Страховки'] = $document['url_view'] . ' , ' . $row['Скан или фотография Страховки'];
+                        $row['Скан или фотография Страховки'] = !empty($row['Скан или фотография Страховки']) ? $document['url_view'] . ' , ' . $row['Скан или фотография Страховки'] : $document['url_view'];
                         $row['Страховой полис: Серия и номер'] = $document['number'];
                         $row['Страховой полис: Кем выдан'] = $document['issued_whom'];
                         $row['Страховой полис: Срок действия'] = $document['it_works_date'];
@@ -108,7 +108,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
                         $row['Номер Лицензии'] = $document['number'];
                         break;
                     case DocumentType::Notarius->value:
-                        $row['Скан или фотография нотариального согласия от обоих родителей'] = $document['url_view'] . ' , ' . $row['Скан или фотография нотариального согласия от обоих родителей'];
+                        $row['Скан или фотография нотариального согласия от обоих родителей'] = !empty($row['Скан или фотография нотариального согласия от обоих родителей']) ? $document['url_view'] . ' , ' . $row['Скан или фотография нотариального согласия от обоих родителей'] : $document['url_view'];
                         break;
                 }
             }
