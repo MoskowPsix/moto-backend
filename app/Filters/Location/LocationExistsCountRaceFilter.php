@@ -8,7 +8,7 @@ class LocationExistsCountRaceFilter implements Pipe
 {
     public function apply($content, Closure $next)
     {
-        if(request()->has('raceCountExists')){
+        if(request()->get('raceCountExists')){
             $content->join('races', 'locations.id', '=', 'races.location_id')
                 ->select('locations.id', 'locations.name', 'locations.type', )
                 ->distinct();
