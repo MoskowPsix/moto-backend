@@ -84,4 +84,12 @@ class Race extends Model
     {
         return $this->belongsToMany(Cup::class, 'race_cup', 'race_id', 'cup_id');
     }
+    public function favouritesUser(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'favorite_users', 'race_id', 'user_id');
+    }
+    public function favoritesCount(): HasOne
+    {
+        return $this->hasOne(FavoriteCount::class);
+    }
 }

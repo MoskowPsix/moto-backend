@@ -3,6 +3,7 @@
 namespace App\Actions\Controllers\Race;
 
 use App\Contracts\Actions\Controllers\Race\GetRaceActionContract;
+use App\Filters\Race\FavoriteExistsFilter;
 use App\Filters\Race\RaceAppointmentExists;
 use App\Filters\Race\RaceDateFilter;
 use App\Filters\Race\RaceForLocationIdsFilter;
@@ -22,7 +23,7 @@ class GetRaceAction implements GetRaceActionContract
         $page = $request->page;
         $limit = $request->limit && ($request->limit < 50) ? $request->limit : 6;
 
-        $races_q = Race::with('track', 'user', 'appointmentCount', 'grades', 'status');
+        $races_q = Race::with('track', 'user', 'appointmentCount', 'grades', 'status', 'favoritesCount');
         $races = app(Pipeline::class)
             ->send($races_q)
             ->through([
@@ -32,7 +33,8 @@ class GetRaceAction implements GetRaceActionContract
                 RaceForTrackFilter::class,
                 RaceForLocationIdsFilter::class,
                 RaceForStatusFilter::class,
-                RaceSortFilter::class
+                RaceSortFilter::class,
+                FavoriteExistsFilter::class
             ])
             ->via('apply')
             ->then(function ($races) use ($page, $limit, $request) {

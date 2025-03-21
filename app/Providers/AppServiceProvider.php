@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Contracts\Services\PaymentServiceContract;
 use App\Contracts\Services\PDFServiceContract;
+use App\Models\FavoriteUser;
+use App\Observers\FavoriteUserObserver;
 use App\Repositories\Search\Track\TrackElasticRepository;
 use App\Repositories\Search\Track\TrackElasticRepositoryInterface;
 use App\Repositories\Search\Track\TrackEloquentRepository;
@@ -47,6 +49,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        FavoriteUser::observe(FavoriteUserObserver::class);
         JsonResource::withoutWrapping();
     }
 

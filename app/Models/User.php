@@ -91,4 +91,8 @@ class User extends Authenticatable
     {
         return $this->hasOne(Phone::class);
     }
+    public function favoritesUser(): BelongsToMany
+    {
+        return $this->belongsToMany(Race::class, 'favorite_races', 'user_id', 'race_id');
+    }
 }

@@ -15,6 +15,7 @@ use App\Http\Resources\Auth\Logout\FailedLogoutResource;
 use App\Http\Resources\Auth\Logout\SuccessLogoutResource;
 use App\Http\Resources\Auth\Register\ErrorRegisterResource;
 use App\Http\Resources\Auth\Register\SuccessRegisterResource;
+use App\Http\Resources\Error\Login\ErrorEmailExistsResource;
 use App\Models\User;
 use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
@@ -26,8 +27,9 @@ class AuthController extends Controller
 {
     #[ResponseFromApiResource(SuccessRegisterResource::class, User::class, collection: false)]
     #[ResponseFromApiResource(ErrorRegisterResource::class, null, 403)]
+    #[ResponseFromApiResource(ErrorEmailExistsResource::class, status: 422)]
     #[Endpoint(title: 'Register', description: 'Регистрация нового пользователя')]
-    public function register(RegisterRequest $request, RegisterActionContract $registerAction): SuccessRegisterResource | ErrorRegisterResource
+    public function register(RegisterRequest $request, RegisterActionContract $registerAction): SuccessRegisterResource|ErrorRegisterResource|ErrorEmailExistsResource
     {
         return $registerAction($request);
     }

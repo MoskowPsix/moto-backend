@@ -1,17 +1,108 @@
-name: PersonalInfo
-description: 'Всё что связанно с персональной информацией пользователя'
+name: Cup
+description: 'Методы связанные с кубками'
 endpoints:
   -
     httpMethods:
-      - POST
-    uri: api/users/cabinet/personal-info
+      - GET
+    uri: 'api/cups/{id}'
     metadata:
-      groupName: PersonalInfo
-      groupDescription: 'Всё что связанно с персональной информацией пользователя'
+      groupName: Cup
+      groupDescription: 'Методы связанные с кубками'
       subgroup: ''
       subgroupDescription: ''
-      title: Create
-      description: 'Создать запись персональных данных'
+      title: getForId
+      description: 'Получение кубков по id'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the cup.'
+        required: true
+        example: ipsam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: ipsam
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      paginate:
+        name: paginate
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      limit:
+        name: limit
+        description: 'Значение поля value не может быть больше 100.'
+        required: false
+        example: 24
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: unde
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: false
+        example: eos
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      paginate: true
+      limit: 24
+      page: unde
+      name: eos
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u041a\u0443\u0431\u043e\u043a \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","cup":{"id":17,"name":"\u0420\u0435\u043d\u0430\u0442\u0430 \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u043d\u0430 \u0428\u0430\u0448\u043a\u043e\u0432\u0430","year":1988,"stages":"2","image":null,"color":null}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/cups
+    metadata:
+      groupName: Cup
+      groupDescription: 'Методы связанные с кубками'
+      subgroup: ''
+      subgroupDescription: ''
+      title: create
+      description: 'Создание кубка'
       authenticated: true
       custom: []
     headers:
@@ -24,179 +115,161 @@ endpoints:
     bodyParameters:
       name:
         name: name
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: true
+        example: aquhthejfyvhifrmk
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      year:
+        name: year
+        description: ''
+        required: true
+        example: 7
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      image:
+        name: image
         description: ''
         required: false
-        example: placeat
+        example: null
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      surname:
-        name: surname
+      color:
+        name: color
         description: ''
         required: false
-        example: incidunt
+        example: totam
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      patronymic:
-        name: patronymic
-        description: ''
+      stages:
+        name: stages
+        description: 'Количество символов в значении поля value не может превышать 255.'
         required: false
-        example: voluptatem
+        example: jaywwjwiuhsoseh
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      dateOfBirth:
-        name: dateOfBirth
-        description: 'Значение поля value не является датой.'
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: '2025-03-19T13:11:34'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      city:
-        name: city
-        description: ''
-        required: false
-        example: a
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      inn:
-        name: inn
-        description: ''
-        required: false
-        example: recusandae
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      snils:
-        name: snils
-        description: ''
-        required: false
-        example: dolorem
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      phoneNumber:
-        name: phoneNumber
-        description: ''
-        required: false
-        example: accusamus
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      startNumber:
-        name: startNumber
-        description: 'Значение поля value должно быть не меньше 1. Значение поля value не может быть больше 999.'
-        required: false
-        example: 21
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      group:
-        name: group
+    cleanBodyParameters:
+      name: aquhthejfyvhifrmk
+      year: 7
+      color: totam
+      stages: jaywwjwiuhsoseh
+      locationId: 1
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u041a\u0443\u0431\u043e\u043a \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d","cup":{"id":19,"name":"\u041d\u0430\u0437\u0430\u0440\u043e\u0432\u0430 \u0415\u043b\u0435\u043d\u0430 \u0418\u0432\u0430\u043d\u043e\u0432\u043d\u0430","year":2013,"stages":"4","image":null,"color":null}}'
+        headers: []
         description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/cups/{id}'
+    metadata:
+      groupName: Cup
+      groupDescription: 'Методы связанные с кубками'
+      subgroup: ''
+      subgroupDescription: ''
+      title: update
+      description: 'Обновление кубка'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the cup.'
+        required: true
+        example: 18
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 18
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Количество символов в значении поля value не может превышать 255.'
         required: false
-        example: iste
+        example: luyvkntv
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      rank:
-        name: rank
+      year:
+        name: year
         description: ''
         required: false
-        example: ea
+        example: 14
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      stages:
+        name: stages
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: false
+        example: vmhuv
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      rankNumber:
-        name: rankNumber
+      image:
+        name: image
         description: ''
         required: false
-        example: asperiores
+        example: null
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      community:
-        name: community
+      color:
+        name: color
         description: ''
         required: false
-        example: modi
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      coach:
-        name: coach
-        description: ''
-        required: false
-        example: distinctio
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      motoStamp:
-        name: motoStamp
-        description: ''
-        required: false
-        example: perspiciatis
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      engine:
-        name: engine
-        description: ''
-        required: false
-        example: eum
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      numberAndSeria:
-        name: numberAndSeria
-        description: ''
-        required: false
-        example: eligendi
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      region:
-        name: region
-        description: ''
-        required: false
-        example: natus
+        example: necessitatibus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -212,310 +285,28 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      commandId:
-        name: commandId
-        description: 'The <code>id</code> of an existing record in the commands table.'
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 12
+        example: 14
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: placeat
-      surname: incidunt
-      patronymic: voluptatem
-      dateOfBirth: '2025-03-19T13:11:34'
-      city: a
-      inn: recusandae
-      snils: dolorem
-      phoneNumber: accusamus
-      startNumber: 21
-      group: iste
-      rank: ea
-      rankNumber: asperiores
-      community: modi
-      coach: distinctio
-      motoStamp: perspiciatis
-      engine: eum
-      numberAndSeria: eligendi
-      region: natus
+      name: luyvkntv
+      year: 14
+      stages: vmhuv
+      color: necessitatibus
       locationId: 4
-      commandId: 12
+      userId: 14
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435 \u0441\u043e\u0437\u0434\u0430\u043d\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","personal_info":{"name":"Mrs.","surname":"Mr.","patronymic":"Ms.","date_of_birth":"1979-02-10","city":"\u0412\u0438\u0434\u043d\u043e\u0435","inn":"99999999999","snils":"9999999999","phone_number":"8-800-674-2490","start_number":"767","group":"\u041a\u0440\u0443\u043f\u044c\u0435","rank_number":"99999","rank":"\u0427\u0430\u0431\u0430\u043d","community":"\u041e\u0410\u041e \u0411\u0443\u0445","coach":"\u041a\u0441\u0435\u043d\u0438\u044f \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u043d\u0430 \u041d\u0435\u0441\u0442\u0435\u0440\u043e\u0432\u0430","moto_stamp":"Dr.","engine":"Miss","number_and_seria":"10000000000","region":null}}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PATCH
-    uri: api/users/cabinet/personal-info
-    metadata:
-      groupName: PersonalInfo
-      groupDescription: 'Всё что связанно с персональной информацией пользователя'
-      subgroup: ''
-      subgroupDescription: ''
-      title: Update
-      description: 'Обновить запись персональных данных'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: ''
-        required: false
-        example: nemo
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      surname:
-        name: surname
-        description: ''
-        required: false
-        example: exercitationem
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      patronymic:
-        name: patronymic
-        description: ''
-        required: false
-        example: totam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      dateOfBirth:
-        name: dateOfBirth
-        description: 'Значение поля value не является датой.'
-        required: false
-        example: '2025-03-19T13:11:34'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      city:
-        name: city
-        description: ''
-        required: false
-        example: quis
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      inn:
-        name: inn
-        description: ''
-        required: false
-        example: fugit
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      snils:
-        name: snils
-        description: ''
-        required: false
-        example: et
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      phoneNumber:
-        name: phoneNumber
-        description: ''
-        required: false
-        example: soluta
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      startNumber:
-        name: startNumber
-        description: ''
-        required: false
-        example: pariatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      group:
-        name: group
-        description: ''
-        required: false
-        example: non
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      rank:
-        name: rank
-        description: ''
-        required: false
-        example: non
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      rankNumber:
-        name: rankNumber
-        description: ''
-        required: false
-        example: fugiat
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      community:
-        name: community
-        description: ''
-        required: false
-        example: inventore
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      coach:
-        name: coach
-        description: ''
-        required: false
-        example: placeat
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      motoStamp:
-        name: motoStamp
-        description: ''
-        required: false
-        example: asperiores
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      engine:
-        name: engine
-        description: ''
-        required: false
-        example: nam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      numberAndSeria:
-        name: numberAndSeria
-        description: ''
-        required: false
-        example: reiciendis
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      region:
-        name: region
-        description: ''
-        required: false
-        example: rerum
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      locationId:
-        name: locationId
-        description: 'The <code>id</code> of an existing record in the locations table.'
-        required: false
-        example: 3
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      commandId:
-        name: commandId
-        description: 'The <code>id</code> of an existing record in the commands table.'
-        required: false
-        example: 18
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      name: nemo
-      surname: exercitationem
-      patronymic: totam
-      dateOfBirth: '2025-03-19T13:11:34'
-      city: quis
-      inn: fugit
-      snils: et
-      phoneNumber: soluta
-      startNumber: pariatur
-      group: non
-      rank: non
-      rankNumber: fugiat
-      community: inventore
-      coach: placeat
-      motoStamp: asperiores
-      engine: nam
-      numberAndSeria: reiciendis
-      region: rerum
-      locationId: 3
-      commandId: 18
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"\u0418\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u044f \u043e \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u0435 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0430.","personal_info":{"name":"Dr.","surname":"Dr.","patronymic":"Dr.","date_of_birth":"2001-06-12","city":"\u041f\u0443\u0448\u043a\u0438\u043d\u043e","inn":"99999999999","snils":"9999999999","phone_number":"(812) 037-89-32","start_number":"985","group":"\u0411\u0438\u0437\u043d\u0435\u0441-\u0430\u043d\u0430\u043b\u0438\u0442\u0438\u043a","rank_number":"99999","rank":"\u0414\u0438\u043f\u043b\u043e\u043c\u0430\u0442","community":"\u041e\u0410\u041e \u0413\u043b\u0430\u0432\u0422\u0435\u0445IT\u041c\u0430\u0448","coach":"\u041a\u0430\u043b\u0438\u043d\u0438\u043d\u0430 \u0418\u043d\u0433\u0430 \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u043d\u0430","moto_stamp":"Dr.","engine":"Miss","number_and_seria":"9999999999","region":null}}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 403
-        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"success","message":"\u041a\u0443\u0431\u043e\u043a \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u043e\u0431\u043d\u043e\u0432\u043b\u0451\u043d","cup":{"id":20,"name":"\u0421\u0438\u0442\u043d\u0438\u043a\u043e\u0432\u0430 \u0414\u0438\u043d\u0430 \u0424\u0451\u0434\u043e\u0440\u043e\u0432\u043d\u0430","year":1993,"stages":"9","image":null,"color":null}}'
         headers: []
         description: ''
         custom: []
