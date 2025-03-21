@@ -25,7 +25,7 @@ class GetLocationAction implements  GetLocationActionContract
             ->send($locations_q)
             ->through([
                 LocationExistsCountTrackFilter::class,
-//                LocationExistsCountRaceFilter::class,
+                LocationExistsCountRaceFilter::class,
                 LocationForNameFilter::class
             ])
             ->via('apply')

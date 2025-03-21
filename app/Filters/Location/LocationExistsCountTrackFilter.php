@@ -10,6 +10,7 @@ class LocationExistsCountTrackFilter implements Pipe
     public function apply($content, Closure $next)
     {
         if(request()->get('trackCountExists')){
+            dump('track');
             $content->join('tracks', 'locations.id', '=', 'tracks.location_id')
                 ->select('locations.id', 'locations.name', 'locations.type', )
                 ->distinct();
