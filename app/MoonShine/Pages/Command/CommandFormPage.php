@@ -28,6 +28,7 @@ class CommandFormPage extends FormPage
             $this->user(),
             Text::make('Город', 'city')->sortable(),
             $this->location(),
+            $this->racers()->selectMode(),
         ];
     }
 
