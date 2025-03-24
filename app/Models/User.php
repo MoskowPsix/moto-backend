@@ -91,4 +91,8 @@ class User extends Authenticatable
     {
         return $this->hasOne(Phone::class);
     }
+    public function members(): BelongsToMany
+    {
+        return $this->belongsToMany(Command::class, 'user_command_member', 'user_id', 'command_id');
+    }
 }
