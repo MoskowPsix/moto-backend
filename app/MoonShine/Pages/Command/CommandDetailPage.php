@@ -30,6 +30,7 @@ class CommandDetailPage extends DetailPage
             $this->user(),
             Text::make('Город', 'city'),
             $this->location(),
+            $this->racers(),
             Date::make('Создано', 'created_at'),
             Date::make('Обновлено', 'updated_at'),
         ];
