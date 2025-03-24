@@ -96,6 +96,7 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\Cup\GetForIdCupActionContract::class                                     => \App\Actions\Controllers\Cup\GetForIdCupAction::class,
         \App\Contracts\Actions\Controllers\Cup\GetForRaceIdCupActionContract::class                                 => \App\Actions\Controllers\Cup\GetForRaceIdCupAction::class,
         \App\Contracts\Actions\Controllers\Cup\UpdateCupActionContract::class                                       => \App\Actions\Controllers\Cup\UpdateCupAction::class,
+        \App\Contracts\Actions\Controllers\FavoriteUser\ToggleFavoriteRaceActionContract::class                     => \App\Actions\Controllers\FavoriteUser\ToggleFavoriteRaceAction::class,
     ];
     /**
      * Register services.

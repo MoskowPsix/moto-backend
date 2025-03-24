@@ -21,7 +21,7 @@ class CreateTracksAction implements CreateTracksActionContract
                 'address'       => $request->address,
                 'point'         => 'POINT(' . $request->latitude . ' ' . $request->longitude . ')',
                 'level_id'      => $request->levelId,
-                'desc'          => $request->desc,
+                'desc'          => $request->desc ?? '',
                 'length'        => $request->length,
                 'turns'         => $request->turns,
                 'free'          => isset($request->free),

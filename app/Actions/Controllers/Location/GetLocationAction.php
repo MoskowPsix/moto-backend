@@ -3,6 +3,8 @@
 namespace App\Actions\Controllers\Location;
 
 use App\Contracts\Actions\Controllers\Location\GetLocationActionContract;
+use App\Filters\Location\LocationExistsCountRaceFilter;
+use App\Filters\Location\LocationExistsCountTrackFilter;
 use App\Filters\Location\LocationForNameFilter;
 use App\Http\Requests\Location\GetLocationRequest;
 use App\Http\Resources\Location\LocationResource\SuccessGetLocationResource;
@@ -22,6 +24,8 @@ class GetLocationAction implements  GetLocationActionContract
         $locations = app(Pipeline::class)
             ->send($locations_q)
             ->through([
+                LocationExistsCountTrackFilter::class,
+                LocationExistsCountRaceFilter::class,
                 LocationForNameFilter::class
             ])
             ->via('apply')

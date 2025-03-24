@@ -29,10 +29,12 @@ class GetRaceRequest extends FormRequest
     {
         return [
             'userId'            => 'nullable|integer|exists:users,id',
+            'userIdExists'      => 'nullable|integer|exists:users,id',
             'paginate'          => 'nullable|boolean',
             'page'              => 'nullable|string',
             'limit'             => 'nullable|integer|max:50',
             'appointmentUser'   => 'nullable|boolean',
+            'favouritesUser'    => 'nullable|boolean',
             'trackId'           => 'nullable|integer|exists:tracks,id',
             'pastRace'          => 'nullable|boolean',
             'gradeIds'          => 'nullable|array',

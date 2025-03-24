@@ -33,7 +33,7 @@ class RegisterAction implements RegisterActionContract
                 $this->saveImages($request->avatar, $user);
             }
             DB::commit();
-            return SuccessRegisterResource::make($user);
+            return SuccessRegisterResource::make(User::find($user->id)->with('personalInfo', 'roles', 'phone')->first());
         } catch (Exception $e) {
             DB::rollBack();
             Log::error($e);

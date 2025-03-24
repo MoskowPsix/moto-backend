@@ -11,10 +11,16 @@ class GetForIdRaceAction implements GetForIdRaceActionContract
 {
     public function __invoke(int $id, GetForIdRaceRequest $request): SuccessGetRaceForIdResource
     {
-        $race = Race::with('track', 'user', 'location', 'grades', 'status')->where('id', $id);
+        $race = Race::with('track', 'user', 'location', 'grades', 'status', 'favoritesCount')->where('id', $id);
         if(request()->has('userId') && request()->has('appointmentUser')){
             $userId = request()->get('userId');
             $race->withExists(['appointments' => function($q) use ($userId){
+                $q->where('user_id', $userId);
+            }]);
+        }
+        if(request()->has('userId') && request()->has('favouritesUser')){
+            $userId = request()->get('userId');
+            $race->withExists(['favouritesUser' => function($q) use ($userId){
                 $q->where('user_id', $userId);
             }]);
         }

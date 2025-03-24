@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Pages\Track;
 
+use App\Traits\MoonShine\Resources\RaceResourceTrait;
 use App\Traits\MoonShine\Resources\TrackResourceTrait;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
 use MoonShine\Laravel\Fields\Relationships\HasMany;
@@ -22,7 +23,7 @@ use Throwable;
 
 class TrackFormPage extends FormPage
 {
-    use TrackResourceTrait;
+    use TrackResourceTrait, RaceResourceTrait;
     /**
      * @return list<ComponentContract|FieldContract>
      */
@@ -41,6 +42,7 @@ class TrackFormPage extends FormPage
             Checkbox::make('Работает', 'is_work'),
             Checkbox::make('Всесезонный', 'season'),
             Checkbox::make('Освещение', 'light'),
+            $this->location(),
             Text::make('Координаты', 'point',)
                 ->placeholder('POINT(<latitude> <longitude>)')
                 ->onBeforeRender(function (Field $item) {

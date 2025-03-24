@@ -16,7 +16,7 @@ class CreateRaceAction implements CreateRaceActionContract
         $user = auth()->user();
         $race = Race::create([
             'name'          => $request->name,
-            'desc'          => $request->desc,
+            'desc'          => $request->desc ?? '',
             'date_start'    => $request->dateStart,
             'track_id'      => $request->trackId,
             'record_end'    => isset($request->recordEnd) ? Carbon::parse($request->recordEnd) : null,

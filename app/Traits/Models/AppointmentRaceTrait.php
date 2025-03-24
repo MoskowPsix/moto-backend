@@ -26,7 +26,7 @@ trait AppointmentRaceTrait
             }
             return true;
         });
-        self::deleting(function($model) {
+        self::deleted(function($model) {
             $race = $model->race()->first();
             $appointmentCount = $race->appointmentCount();
             if ($appointmentCount->exists()) {

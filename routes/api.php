@@ -93,6 +93,11 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
     Route::post('races/{id}/commission/add', 'addCommission')->middleware('auth:sanctum')->name('race.commission.add');
     Route::delete('races/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])->name('race.delete');
 });
+
+Route::controller(\App\Http\Controllers\Api\FavoriteUserController::class)->group(function () {
+    Route::post('race/{id}/favorite', 'toggleFavoriteRace')->middleware(['auth:sanctum'])->name('race.favorite.create');
+});
+
 Route::controller(\App\Http\Controllers\Api\StatusController::class)->group(function() {
     Route::get('statuses', 'get')->name('status.get');
 });
@@ -146,8 +151,8 @@ Route::controller(\App\Http\Controllers\Api\CommandController::class)->group(fun
     $role = new \App\Constants\RoleConstant();
     Route::get('commands', 'get')->name('command.get');
     Route::get('commands/{id}', 'getForId')->name('command.get_for_id');
-    Route::post('commands', 'create')->middleware(['auth:sanctum', 'email_verification', 'role:'. $role::COUCH .'|'. $role::ADMIN.'|'.$role::ROOT])->name('command.create');
-    Route::post('commands/{id}', 'update')->middleware(['auth:sanctum', 'email_verification', 'role:'. $role::COUCH .'|'.$role::ROOT])->name('command.update');
+    Route::post('commands', 'create')->middleware(['auth:sanctum', 'email_verification', 'role:'. $role::ORGANIZATION .'|'. $role::RIDER .'|'. $role::COUCH .'|'. $role::ADMIN.'|'.$role::ROOT])->name('command.create');
+    Route::post('commands/{id}', 'update')->middleware(['auth:sanctum', 'email_verification', 'role:'. $role::ORGANIZATION .'|'. $role::RIDER .'|' .$role::COUCH .'|'.$role::ROOT])->name('command.update');
     Route::delete('commands/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::COUCH .'|'. $role::ADMIN.'|'.$role::ROOT])->name('command.delete');
 
     Route::get('commands/{command_id}/couches', 'getCoaches')->name('command.get.couch');

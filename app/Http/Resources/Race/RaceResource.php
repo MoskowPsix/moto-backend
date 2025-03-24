@@ -48,12 +48,14 @@ class RaceResource extends JsonResource
             'user'                  => UserResource::make($this->whenLoaded('user')),
             'appointment_count'     => AppointmentCountResource::make($this->whenLoaded('appointmentCount')),
             'appointments_exists'   => $this->when(isset($this->appointments_exists), $this->appointments_exists),
+            'favorite_exists'       => $this->when(isset($this->favourites_user_exists), $this->favourites_user_exists),
             'position_file'         => $this->position_file,
             'results_file'          => $this->results_file,
             'location'              => LocationResource::make($this->whenLoaded('location')),
             'grades'                => GradeResource::collection($this->whenLoaded('grades')),
             'status'                => StatusResource::make($this->whenLoaded('status')),
             'cups'                  => CupResource::collection($this->whenLoaded('cups')),
+            'favorites_count'        => $this->whenLoaded('favoritesCount')
         ];
     }
 }
