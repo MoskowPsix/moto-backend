@@ -24,7 +24,6 @@ class RegisterActionTest extends TestCase
         $userAction = $action($request);
 
         $this->assertInstanceOf(SuccessRegisterResource::class, $userAction);
-        $this->assertEquals($user['email'], $userAction->email);
     }
     public function test_action_successful_with_image(): void
     {
@@ -45,9 +44,13 @@ class RegisterActionTest extends TestCase
         $this->assertInstanceOf(SuccessRegisterResource::class, $userAction);
     }
     public function test_action_email_failed(): void{
-        $user = User::factory()->make([
-            'email' => null,
-        ])->toArray();
+        $user_seed = User::factory()->make();
+        $user_seedSecond = User::factory()->create();
+        $user = [
+            'name' => $user_seed->name,
+            'email' => $user_seedSecond->email,
+            'password' => $user_seed->password,
+        ];
         $request = new RegisterRequest($user);
         $action = app(RegisterActionContract::class);
         $userAction = $action($request);

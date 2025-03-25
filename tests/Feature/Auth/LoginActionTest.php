@@ -6,6 +6,7 @@ use App\Contracts\Actions\Controllers\Auth\LoginActionContract;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Resources\Auth\Login\ErrorLoginResource;
 use App\Http\Resources\Auth\Login\SuccessLoginResource;
+use App\Http\Resources\Error\Login\ErrorEmailExistsResource;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
@@ -42,10 +43,15 @@ class LoginActionTest extends TestCase
 
     public function test_action_password_failed(): void
     {
-        $request = new LoginRequest([
-            'password' => fake()->password(),
-            'email' => fake()->email()
+        $pass = fake()->password();
+        $user = User::factory()->create([
+            'password' => Hash::make($pass),
         ]);
+        $user_login =   [
+            'email'       => $user->email,
+            'password'    => null,
+        ];
+        $request = new LoginRequest($user_login);
         $action = app(LoginActionContract::class);
         $userAction = $action($request);
 
@@ -60,7 +66,7 @@ class LoginActionTest extends TestCase
         $action = app(LoginActionContract::class);
         $userAction = $action($request);
 
-        $this->assertInstanceOf(ErrorLoginResource::class, $userAction);
+        $this->assertInstanceOf(ErrorEmailExistsResource::class, $userAction);
     }
 
 //    public function test_action_throw_exception(): void

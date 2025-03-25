@@ -20,9 +20,7 @@ class UpdateAttendanceActionTest extends TestCase
 {
     use RefreshDatabase;
     protected bool $seed = true;
-    /**
-     * A basic feature test example.
-     */
+
     public function test_action_not_user_permission(): void
     {
         $track = Track::factory()->create();
@@ -70,5 +68,32 @@ class UpdateAttendanceActionTest extends TestCase
 
         $this->assertInstanceOf(NotFoundResource::class, $response);
     }
+
+//    public function test_action_success(): void
+//    {
+//        $user = User::factory()->create();
+//        $track = Track::factory()->create([
+//            'user_id' => $user->id,
+//        ]);
+//
+//        $attendance_seed = Attendance::factory()->create([
+//            'track_id' => $track->id,
+//        ]);
+//
+//        $attendance = [
+//            'name'          => $attendance_seed->name,
+//            'desc'          => $attendance_seed->desc,
+//            'price'         => $attendance_seed->price,
+//            'trackId'       => $track->id,
+//            'user_id'       => $track->user_id,
+//        ];
+//        Sanctum::actingAs($user);
+//        $request = new UpdateAttendanceRequest($attendance);
+//
+//        $action = app(UpdateAttendanceActionContract::class);
+//        $response = $action($attendance_seed->id, $request);
+//
+//        $this->assertInstanceOf(SuccessUpdateAttendanceResource::class, $response);
+//    }
 
 }

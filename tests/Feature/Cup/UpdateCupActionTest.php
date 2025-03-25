@@ -11,6 +11,7 @@ use App\Models\Cup;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Http\UploadedFile;
 use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 
@@ -73,12 +74,16 @@ class UpdateCupActionTest extends TestCase
         $cupResource = Cup::factory()->create([
             'user_id' => $user->id,
         ]);
+
+        $file = UploadedFile::fake()->create('file.png');
+
         $cup = [
             'userId'        => $cupResource->user_id,
             'locationId'    => $cupResource->location_id,
             'name'          => $cupResource->name,
             'year'          => $cupResource->year,
             'stages'        => $cupResource->stages,
+            'image'         => $file,
         ];
         Sanctum::actingAs($user);
 

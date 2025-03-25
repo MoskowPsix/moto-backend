@@ -8,6 +8,7 @@ use App\Http\Resources\Attendance\Delete\SuccessDeleteAttendanceResource;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\Attendance;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -44,4 +45,21 @@ class DeleteAttendanceActionTest extends TestCase
 
         $this->assertInstanceOf(NotUserPermissionResource::class, $response);
     }
+//    public function test_action_success(): void
+//    {
+//        $user = User::factory()->create();
+//        Sanctum::actingAs($user);
+//
+//        $attendance = Attendance::factory()->create();
+//
+//        $transaction = Transaction::factory()->create([
+//            'user_id' => $user->id,
+//            'attendance_id' => $attendance->id,
+//        ]);
+//
+//        $action = app(DeleteAttendanceActionContract::class);
+//        $response = $action($attendance->id, new DeleteAttendanceRequest());
+//
+//        $this->assertInstanceOf(SuccessDeleteAttendanceResource::class, $response);
+//    }
 }
