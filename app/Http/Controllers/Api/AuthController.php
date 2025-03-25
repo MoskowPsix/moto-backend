@@ -34,9 +34,10 @@ class AuthController extends Controller
         return $registerAction($request);
     }
     #[ResponseFromApiResource(ErrorLoginResource::class, null, 403)]
+    #[ResponseFromApiResource(ErrorEmailExistsResource::class, null, 422)]
     #[ResponseFromApiResource(SuccessLoginResource::class, User::class, collection: false)]
     #[Endpoint(title: 'Login', description: 'Авторизация пользователя')]
-    public function login(LoginRequest $request, LoginActionContract $loginAction): SuccessLoginResource | ErrorLoginResource
+    public function login(LoginRequest $request, LoginActionContract $loginAction): SuccessLoginResource|ErrorLoginResource|ErrorEmailExistsResource
     {
         return $loginAction($request);
     }
