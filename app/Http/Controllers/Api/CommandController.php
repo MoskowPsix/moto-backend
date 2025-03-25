@@ -6,6 +6,7 @@ use App\Contracts\Actions\Controllers\Command\AddCouchActionContract;
 use App\Contracts\Actions\Controllers\Command\CreateCommandActionContract;
 use App\Contracts\Actions\Controllers\Command\DeleteCommandActionContract;
 use App\Contracts\Actions\Controllers\Command\GetCommandActionContract;
+use App\Contracts\Actions\Controllers\Command\GetCommandForCoachIdActionContract;
 use App\Contracts\Actions\Controllers\Command\GetCouchesActionContract;
 use App\Contracts\Actions\Controllers\Command\GetForIdCommandActionContract;
 use App\Contracts\Actions\Controllers\Command\GetMembersActionContract;
@@ -16,12 +17,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Command\CreateCommandRequest;
 use App\Http\Requests\Command\GetCommandRequest;
 use App\Http\Requests\Command\GetCouchesCommandRequest;
+use App\Http\Requests\Command\GetForCoachIdCommandRequest;
 use App\Http\Requests\Command\GetForIdCommandRequest;
 use App\Http\Requests\Command\UpdateCommandRequest;
 use App\Http\Resources\Command\AddCouch\SuccessAddCouchCommandResource;
 use App\Http\Resources\Command\Create\SuccessCreateCommandResource;
 use App\Http\Resources\Command\Delete\SuccessDeleteCommandResource;
 use App\Http\Resources\Command\GetCommand\SuccessGetCommandResource;
+use App\Http\Resources\Command\GetCommandForCoach\SuccessGetCommandForCoachIdResource;
 use App\Http\Resources\Command\GetCommandForId\SuccessGetCommandForIdResource;
 use App\Http\Resources\Command\GetCouches\SuccessGetCouchesCommandResource;
 use App\Http\Resources\Command\GetMember\SuccessGetMemberCommandResource;
@@ -120,6 +123,15 @@ class CommandController extends Controller
     public function toggleMember(int $command_id, ToggleMemberActionContract $action):NotFoundResource|SuccessToggleMemberCommandResource
     {
         return $action($command_id);
+    }
+    #[Authenticated]
+    #[ResponseFromApiResource(SuccessGetCommandForCoachIdResource::class, User::class)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
+    #[Endpoint(title: 'getCommandsForCoachId', description: 'Получение всех команд по тренеру.')]
+    public function getCommandsForCoachId(GetForCoachIdCommandRequest $request, GetCommandForCoachIdActionContract $action): SuccessGetCommandForCoachIdResource|NotFoundResource|NotUserPermissionResource
+    {
+        return $action($request);
     }
     public function getMembersForCoach(int $id, GetMembersForCoachActionContract $action, GetCouchesCommandRequest $request):
     NotUserPermissionResource|

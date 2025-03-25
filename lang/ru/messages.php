@@ -124,6 +124,9 @@ return [
         'member_toggle' => [
             'success' => 'Участник :is_attach.',
         ],
+        'get_for_coach_id'  => [
+            'success' => 'Команды по идентификатору тренера получены.',
+        ],
     ],
     'track' => [
         'create' => [

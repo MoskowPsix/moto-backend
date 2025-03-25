@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @method static create(array $array)
  * @method static find(int $id)
+ * @method static where(string $string, $id)
+ * @method static whereHas(string $string, \Closure $param)
  */
 
 class Command extends Model

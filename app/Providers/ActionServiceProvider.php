@@ -74,6 +74,7 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\Command\DeleteCommandActionContract::class                               => \App\Actions\Controllers\Command\DeleteCommandAction::class,
         \App\Contracts\Actions\Controllers\Command\AddCouchActionContract::class                                    => \App\Actions\Controllers\Command\AddCouchAction::class,
         \App\Contracts\Actions\Controllers\Command\GetCouchesActionContract::class                                  => \App\Actions\Controllers\Command\GetCouchesAction::class,
+        \App\Contracts\Actions\Controllers\Command\GetCommandForCoachIdActionContract::class                        => \App\Actions\Controllers\Command\GetCommandForCoachIdAction::class,
         \App\Contracts\Actions\Controllers\Command\ToggleMemberActionContract::class                                => \App\Actions\Controllers\Command\ToggleMemberAction::class,
         \App\Contracts\Actions\Controllers\Command\GetMembersActionContract::class                                  => \App\Actions\Controllers\Command\GetMembersAction::class,
         \App\Contracts\Actions\Controllers\Command\GetMemberForCoachForIdActionContract::class                      => \App\Actions\Controllers\Command\GetMemberForCoachForIdAction::class,

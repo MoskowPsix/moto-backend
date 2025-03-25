@@ -18,6 +18,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static create(array $array)
  * @method static where(string $string, mixed $name)
  * @method static whereIn(string $string, array $usersIds)
+ * @method static find(int $id)
  */
 class User extends Authenticatable
 {
