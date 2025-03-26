@@ -3,6 +3,8 @@
 namespace App\Actions\Controllers\Command;
 
 use App\Contracts\Actions\Controllers\Command\GetCommandActionContract;
+use App\Filters\Command\CommandCoachExist;
+use App\Filters\Command\CommandUserExist;
 use App\Filters\Command\CommandUserIdFilter;
 use App\Filters\Command\NameCommandFilter;
 use App\Http\Requests\Command\GetCommandRequest;
@@ -24,6 +26,8 @@ class GetCommandAction implements GetCommandActionContract
             ->through([
                 CommandUserIdFilter::class,
                 NameCommandFilter::class,
+                CommandUserExist::class,
+//                CommandCoachExist::class,
             ])
             ->via('apply')
             ->then(function ($commands) use ($page, $limit, $request) {

@@ -23,6 +23,8 @@ class GetForIdCommandRequest extends FormRequest
     {
         return [
             'userId'        => 'nullable|integer',
+            'userIdExists'  => 'nullable|integer|exists:users,id',
+            'checkMember'   => 'nullable|boolean',
             'locationId'    => 'nullable|integer',
             'city'          => 'nullable|string',
             'fullName'      => 'nullable|string',

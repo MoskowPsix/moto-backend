@@ -23,6 +23,8 @@ class GetCommandRequest extends FormRequest
     {
         return [
             'userId'            => 'nullable|integer|exists:users,id',
+            'userIdExists'      => 'nullable|integer|exists:users,id',
+            'checkMember'       => 'nullable|boolean',
             'paginate'          => 'nullable|boolean',
             'page'              => 'nullable|string',
             'limit'             => 'nullable|integer|max:50',

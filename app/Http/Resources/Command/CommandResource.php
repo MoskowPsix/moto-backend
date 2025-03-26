@@ -18,6 +18,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property int $user
  * @property int $location
  * @property string $full_name
+ * @property bool member_exists
  */
 
 class CommandResource extends JsonResource
@@ -30,14 +31,15 @@ class CommandResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'id'        => $this->id,
-            'name'      => $this->name,
-            'full_name'  => $this->full_name,
-            'coach'     => $this->coach,
-            'city'      => $this->city,
-            'avatar'    => $this->avatar,
-            'user'      => UserResource::make($this->whenLoaded('user')),
-            'location'  => LocationResource::make($this->whenLoaded('location')),
+            'id'            => $this->id,
+            'name'          => $this->name,
+            'full_name'     => $this->full_name,
+            'coach'         => $this->coach,
+            'city'          => $this->city,
+            'avatar'        => $this->avatar,
+            'user'          => UserResource::make($this->whenLoaded('user')),
+            'members_exists' => $this->when(isset($this->members_exists), $this->members_exists),
+            'location'      => LocationResource::make($this->whenLoaded('location')),
         ];
     }
 }
