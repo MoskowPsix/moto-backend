@@ -27,7 +27,7 @@ class CommandDetailPage extends DetailPage
             Text::make('Название команды', 'name'),
             Text::make('Полное название команды', 'fullName'),
             Image::make('Аватар', 'avatar')->multiple(),
-            $this->user(),
+            $this->owner(),
             Text::make('Город', 'city'),
             $this->location(),
             $this->racers(),

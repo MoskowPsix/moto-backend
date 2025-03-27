@@ -10,9 +10,13 @@ use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 
 trait CommandResourceTrait
 {
-    public function user(): BelongsTo
+    public function coach(): BelongsToMany
     {
-        return BelongsTo::make('Тренер', 'user', resource: UserResource::class)->searchable();
+        return BelongsToMany::make('Тренера', 'coaches', resource: UserResource::class)->searchable();
+    }
+    public function owner(): BelongsTo
+    {
+        return BelongsTo::make('Владелец', 'user', resource: UserResource::class)->searchable();
     }
     public function racers(): BelongsToMany
     {
