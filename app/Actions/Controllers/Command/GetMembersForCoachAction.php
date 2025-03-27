@@ -4,6 +4,7 @@ namespace App\Actions\Controllers\Command;
 
 use App\Constants\RoleConstant;
 use App\Contracts\Actions\Controllers\Command\GetMembersForCoachActionContract;
+use App\Filters\Command\CommandMembersInRaceExist;
 use App\Http\Requests\Command\GetCouchesCommandRequest;
 use App\Http\Resources\Command\GetMember\SuccessGetMemberCommandResource;
 use App\Http\Resources\Command\GetMembersForCoach\GetMembersForCoachCommandResource;
@@ -35,7 +36,7 @@ class GetMembersForCoachAction implements GetMembersForCoachActionContract
         $members = app(Pipeline::class)
             ->send($members_q)
             ->through([
-
+                CommandMembersInRaceExist::class,
             ])
             ->via('apply')
             ->then(function ($commands) use ($page, $limit, $request) {
