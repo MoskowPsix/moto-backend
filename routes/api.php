@@ -129,7 +129,7 @@ Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->gr
     $role = new \App\Constants\RoleConstant();
     Route::post('races/{id}/toggle-appointment-race', 'toggle')->middleware(['auth:sanctum', 'email_verification', 'role:' . $role::RIDER . '|' . $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT])->name('appointment_race.create');
     Route::get('races/{id}/appointment-race/users', 'getUsersAppointmentRace')->name('appointment_race.get_users_appointment_race');
-    Route::get('races/{id}/appointment-race/users-table', 'getUsersAppointmentRaceInTable')->middleware(['auth:sanctum', 'role:' . $role::ADMIN.'|'.$role::ROOT])->name('appointment_race.get_users_table_appointment_race');
+    Route::get('races/{id}/appointment-race/users-table', 'getUsersAppointmentRaceInTable')->middleware(['auth:sanctum', 'role:' . '|' . $role::ORGANIZATION .'|' .$role::ADMIN.'|'.$role::ROOT])->name('appointment_race.get_users_table_appointment_race');
     Route::get('races/appointment-race/{id}/pdf', 'getAppointmentPDF')->middleware(['auth:sanctum', 'role:' . $role::ADMIN.'|'.$role::ROOT])->name('appointment_race.get_pdf_appointment_race');
 
 });
