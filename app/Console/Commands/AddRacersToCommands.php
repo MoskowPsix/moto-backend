@@ -35,7 +35,14 @@ class AddRacersToCommands extends Command
                 $command = \App\Models\Command::find($commandId);
                 if($command) {
                     $command->members()->syncWithoutDetaching($user->id);
+                    $this->info("Гонщик {$user->id} добавлен в команду {$commandId}");
                 }
+                else {
+                    $this->warn("Команда с ID {$commandId} не найдена для гонщика {$user->id}");
+                }
+            }
+            else {
+                $this->warn("У гонщика {$user->id} нет данных personalInfo или command_id");
             }
         });
         return 0;
