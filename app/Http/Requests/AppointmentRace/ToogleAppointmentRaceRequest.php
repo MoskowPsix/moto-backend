@@ -33,7 +33,7 @@ class ToogleAppointmentRaceRequest extends FormRequest
             'region'                   => 'nullable|string',
             'inn'                      => 'required|integer',
             'snils'                    => 'required|string',
-            'phoneNumber'              => 'required|integer',
+            'phoneNumber'              => 'required|string',
             'startNumber'              => 'required|integer|min:1|max:999',
             'group'                    => 'required|string',
             'rank'                     => 'required|string',
