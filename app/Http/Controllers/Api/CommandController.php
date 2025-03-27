@@ -133,6 +133,11 @@ class CommandController extends Controller
     {
         return $action($request);
     }
+    #[Authenticated]
+    #[ResponseFromApiResource(GetMembersForCoachCommandResource::class, User::class)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
+    #[Endpoint(title: 'getMembersForCoach', description: 'Получение всех участников по тренеру.')]
     public function getMembersForCoach(int $id, GetMembersForCoachActionContract $action, GetCouchesCommandRequest $request):
     NotUserPermissionResource|
     NotFoundResource|

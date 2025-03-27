@@ -25,15 +25,16 @@ class GetCouchesActionTest extends TestCase
         $this->assertInstanceOf(NotFoundResource::class, $response);
     }
 
-//    public function test_action_success(): void
-//    {
-//        $commandSeed = Command::factory()->make();
-//        $command = Command::factory()->create([
-//            'coach' => $commandSeed->coach,
-//        ]);
-//        $request = new GetCouchesCommandRequest($command);
-//        $action = app(GetCouchesActionContract::class);
-//        $response = $action($command->id, $request);
-//        $this->assertInstanceOf(SuccessGetCouchesCommandResource::class, $response);
-//    }
+    public function test_action_success(): void
+    {
+        $command = Command::factory()->create();
+        $request = new GetCouchesCommandRequest([
+            'paginate'  => 1,
+            'page'      => 1,
+            'limit'     => 10,
+        ]);
+        $action = app(GetCouchesActionContract::class);
+        $response = $action($command->id, $request);
+        $this->assertInstanceOf(SuccessGetCouchesCommandResource::class, $response);
+    }
 }
