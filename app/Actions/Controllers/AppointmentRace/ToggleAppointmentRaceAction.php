@@ -35,7 +35,7 @@ class ToggleAppointmentRaceAction implements ToggleAppointmentRaceActionContract
         if (!$race) {
             return new NotFoundResource([]);
         }
-        if ($request->has('userId') && Command::find($request->commandId)->members()->where('userId')->exists()) {
+        if ($request->has('userId') && Command::find($request->commandId)->members()->where('user_id')->exists()) {
             return NotUserPermissionResource::make([]);
         }
         if ($request->has('userId') && $race->appointments()->where('user_id', $request->userId)->exists()) {
