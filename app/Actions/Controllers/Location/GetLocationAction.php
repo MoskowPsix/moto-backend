@@ -3,6 +3,7 @@
 namespace App\Actions\Controllers\Location;
 
 use App\Contracts\Actions\Controllers\Location\GetLocationActionContract;
+use App\Filters\Location\LocationCommandExists;
 use App\Filters\Location\LocationExistsCountRaceFilter;
 use App\Filters\Location\LocationExistsCountTrackFilter;
 use App\Filters\Location\LocationForNameFilter;
@@ -26,7 +27,8 @@ class GetLocationAction implements  GetLocationActionContract
             ->through([
                 LocationExistsCountTrackFilter::class,
                 LocationExistsCountRaceFilter::class,
-                LocationForNameFilter::class
+                LocationForNameFilter::class,
+                LocationCommandExists::class,
             ])
             ->via('apply')
             ->then(function ($races) use ($page, $limit, $request) {
