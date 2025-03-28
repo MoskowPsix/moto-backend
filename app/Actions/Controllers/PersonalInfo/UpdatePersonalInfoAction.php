@@ -8,6 +8,7 @@ use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Http\Resources\PersonalInfo\Update\SuccessUpdatePersonalInfoRequest;
 use App\Http\Resources\PersonalInfo\Update\SuccessUpdatePersonalInfoResource;
+use App\Models\Command;
 
 class UpdatePersonalInfoAction implements UpdatePersonalInfoActionContract
 {
@@ -42,8 +43,10 @@ class UpdatePersonalInfoAction implements UpdatePersonalInfoActionContract
             'region'            => $request->region?? $old_personal->region,
             'location_id'       => $request->locationId ?? $old_personal->location_id,
             'command_id'       => $request->commandId ?? $old_personal->command_id,
-
         ]);
+        if (isset($request->commandId)) {
+            Command::find($request->commandId)->members()->sync([auth()->user()->id]);
+        }
 
         return SuccessUpdatePersonalInfoResource::make(auth()->user()->personalInfo()->with('location')->first());
     }
