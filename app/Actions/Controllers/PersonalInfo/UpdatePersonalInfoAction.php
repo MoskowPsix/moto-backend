@@ -44,9 +44,8 @@ class UpdatePersonalInfoAction implements UpdatePersonalInfoActionContract
             'location_id'       => $request->locationId ?? $old_personal->location_id,
             'command_id'       => $request->commandId ?? $old_personal->command_id,
         ]);
-        if (isset($request->commandId)) {
-            Command::find($request->commandId)->members()->sync([auth()->user()->id]);
-        }
+        auth()->user()->members()->sync([$request->commandId]);
+
 
         return SuccessUpdatePersonalInfoResource::make(auth()->user()->personalInfo()->with('location')->first());
     }
