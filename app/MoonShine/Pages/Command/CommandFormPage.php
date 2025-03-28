@@ -24,7 +24,7 @@ class CommandFormPage extends FormPage
         return [
             ID::make()->sortable(),
             Text::make('Название команды', 'name')->sortable(),
-            Image::make('Аватар', 'avatar')->multiple(),
+            Image::make('Аватар', 'avatar'),
             $this->owner(),
             $this->coach()->selectMode(),
             Text::make('Город', 'city')->sortable(),
