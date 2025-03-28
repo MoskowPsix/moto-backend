@@ -35,9 +35,8 @@ class CreatePersonalInfoAction implements CreatePersonalInfoActionContract
             'location_id'       => $request->locationId,
             'command_id'        => $request->commandId,
         ]);
-        if (isset($request->commandId)) {
-            Command::find($request->commandId)->members()->sync([auth()->user()->id]);
-        }
+        auth()->user()->members()->sync([$request->commandId]);
+
         return SuccessCreatePersonalInfoResource::make($info);
     }
 }
