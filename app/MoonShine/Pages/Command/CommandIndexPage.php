@@ -27,7 +27,7 @@ class CommandIndexPage extends IndexPage
         return [
             ID::make()->sortable(),
             Text::make('Название команды', 'name')->sortable(),
-            Image::make('Аватар', 'avatar')->multiple(),
+            Image::make('Аватар', 'avatar'),
             $this->owner()->sortable(),
             Text::make('Город', 'city')->sortable(),
             $this->location()->sortable(),
