@@ -9,6 +9,7 @@ use App\Traits\MoonShine\Resources\TrackResourceTrait;
 use MoonShine\Laravel\Pages\Crud\DetailPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
+use MoonShine\UI\Components\Files;
 use MoonShine\UI\Fields\Checkbox;
 use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\File;
@@ -36,6 +37,7 @@ class RaceDetailPage extends DetailPage
             Image::make('Фото', 'images')->multiple(),
             File::make('Файл положения', 'position_file'),
             File::make('Файл регламента', 'results_file'),
+            File::make('PDF-файл', 'pdf_files')->multiple(),
             $this->status(),
             $this->user(),
             $this->track(),
