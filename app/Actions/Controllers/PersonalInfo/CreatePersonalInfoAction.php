@@ -5,6 +5,7 @@ namespace App\Actions\Controllers\PersonalInfo;
 use App\Contracts\Actions\Controllers\PersonalInfo\CreatePersonalInfoActionContract;
 use App\Http\Requests\PersonalInfo\CreatePersonalInfoRequest;
 use App\Http\Resources\PersonalInfo\Create\SuccessCreatePersonalInfoResource;
+use App\Models\Command;
 use App\Models\PersonalInfo;
 
 class CreatePersonalInfoAction implements CreatePersonalInfoActionContract
@@ -34,6 +35,9 @@ class CreatePersonalInfoAction implements CreatePersonalInfoActionContract
             'location_id'       => $request->locationId,
             'command_id'        => $request->commandId,
         ]);
+        if (isset($request->commandId)) {
+            Command::find($request->commandId)->members()->sync([auth()->user()->id]);
+        }
         return SuccessCreatePersonalInfoResource::make($info);
     }
 }
