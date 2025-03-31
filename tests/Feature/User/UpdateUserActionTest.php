@@ -10,17 +10,14 @@ use App\Http\Resources\User\Update\SuccessUpdateUserResource;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\DB;
 use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 
 class UpdateUserActionTest extends TestCase
 {
     use RefreshDatabase;
-
     protected bool $seed = true;
-    /**
-     * A basic feature test example.
-     */
     public function test_update_user_success(): void
     {
         $user = User::factory()->create(['avatar' => 'sssssss']);
