@@ -151,7 +151,7 @@ Route::controller(\App\Http\Controllers\Api\CommandController::class)->group(fun
     $role = new \App\Constants\RoleConstant();
     Route::get('commands', 'get')->name('command.get');
     Route::get('commands/{id}', 'getForId')->name('command.get_for_id');
-    Route::post('commands', 'create')->middleware(['auth:sanctum', 'email_verification', 'role:'. $role::ORGANIZATION .'|'. $role::RIDER .'|'. $role::COUCH .'|'. $role::ADMIN.'|'.$role::ROOT])->name('command.create');
+    Route::post('commands', 'create')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::RIDER .'|'. $role::COUCH .'|'. $role::ADMIN.'|'.$role::ROOT])->name('command.create');
     Route::post('commands/{id}', 'update')->middleware(['auth:sanctum', 'email_verification', 'role:'. $role::ORGANIZATION .'|'. $role::RIDER .'|' .$role::COUCH .'|'.$role::ROOT])->name('command.update');
     Route::delete('commands/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::COUCH .'|'. $role::ADMIN.'|'.$role::ROOT])->name('command.delete');
 
@@ -165,7 +165,7 @@ Route::controller(\App\Http\Controllers\Api\CommandController::class)->group(fun
     Route::get('commands/{command_id}/members', 'getMembers')
         ->name('command.get.member');
     Route::get('commands/{command_id}/members-for-coach', 'getMembersForCoach')
-        ->middleware(['auth:sanctum', 'role:'. $role::COUCH.'|'.$role::ROOT])
+        ->middleware(['auth:sanctum', 'role:'. $role::RIDER.'|'.$role::ORGANIZATION.'|'.$role::COUCH.'|'.$role::COMMISSION.'|'.$role::ADMIN.'|'.$role::ROOT])
         ->name('command.get_for_coach.member');
     Route::get('commands/{coach_id}/coach', 'getCommandsForCoachId')->middleware(['auth:sanctum', 'role:'. $role::COUCH.'|'.$role::ROOT])->name('command.get_for_coach_id');
 });
