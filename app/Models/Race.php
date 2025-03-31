@@ -30,6 +30,7 @@ class Race extends Model
         'images',
         'position_file',
         'results_file',
+        'pdf_files',
         'record_end',
         'track_id',
         'user_id',
@@ -40,6 +41,7 @@ class Race extends Model
         'name' => 'string',
         'desc' => 'string',
         'images' => 'json',
+        'pdf_files' => 'json',
         'is_work' => 'boolean',
         'date_start' => 'datetime',
     ];
