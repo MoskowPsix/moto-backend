@@ -33,6 +33,7 @@ class UserWithFIOResource extends JsonResource
                 'city'          => $this->personalInfo->city,
                 'rank'          => $this->personalInfo->rank,
                 'start_number'  => $this->personalInfo->start_number,
+                'command'       => $this->personalInfo->command,
             ];
         }
         return [
