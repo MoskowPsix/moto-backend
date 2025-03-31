@@ -35,6 +35,7 @@ class GetRaceRequest extends FormRequest
             'limit'             => 'nullable|integer|max:50',
             'appointmentUser'   => 'nullable|boolean',
             'favouritesUser'    => 'nullable|boolean',
+            'commissionUser'    => 'nullable|boolean',
             'trackId'           => 'nullable|integer|exists:tracks,id',
             'pastRace'          => 'nullable|boolean',
             'gradeIds'          => 'nullable|array',

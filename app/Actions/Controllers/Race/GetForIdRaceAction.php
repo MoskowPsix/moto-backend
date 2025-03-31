@@ -24,6 +24,12 @@ class GetForIdRaceAction implements GetForIdRaceActionContract
                 $q->where('user_id', $userId);
             }]);
         }
+        if(request()->has('userIdExists') && request()->has('commissionUser')){
+            $userId = request()->get('userIdExists');
+            $race->withExists(['commissions' => function($q) use ($userId){
+                $q->where('user_id', $userId);
+            }]);
+        }
         return SuccessGetRaceForIdResource::make($race->first());
     }
 }

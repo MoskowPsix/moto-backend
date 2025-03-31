@@ -25,6 +25,7 @@ class GetForIdRaceRequest extends FormRequest
             'userId'            => 'nullable|integer',
             'appointmentUser'   => 'nullable|boolean',
             'favouritesUser'    => 'nullable|boolean',
+            'commissionUser'    => 'nullable|boolean',
             'gradeIds'          => 'nullable|array',
             'gradeIds.*'        => 'nullable|integer|exists:grades,id',
         ];
