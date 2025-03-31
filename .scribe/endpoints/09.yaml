@@ -26,7 +26,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 10
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -36,7 +36,7 @@ endpoints:
         name: userIdExists
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 20
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -56,7 +56,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: dicta
+        example: omnis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -66,7 +66,7 @@ endpoints:
         name: limit
         description: 'Must not be greater than 50.'
         required: false
-        example: 8
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -106,7 +106,7 @@ endpoints:
         name: pastRace
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -117,7 +117,7 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the grades table.'
         required: false
         example:
-          - 15
+          - 17
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
@@ -127,7 +127,7 @@ endpoints:
         name: dateStart
         description: 'Must be a valid date.'
         required: false
-        example: '2025-03-31T09:39:18'
+        example: '2025-03-31T12:01:00'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -137,7 +137,7 @@ endpoints:
         name: dateEnd
         description: 'Must be a valid date.'
         required: false
-        example: '2025-03-31T09:39:18'
+        example: '2025-03-31T12:01:00'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -158,7 +158,7 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the statuses table.'
         required: false
         example:
-          - 12
+          - 18
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
@@ -168,7 +168,7 @@ endpoints:
         name: sortField
         description: ''
         required: false
-        example: enim
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -178,36 +178,36 @@ endpoints:
         name: sort
         description: ''
         required: false
-        example: est
+        example: assumenda
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      userId: 10
-      userIdExists: 20
+      userId: 3
+      userIdExists: 8
       paginate: false
-      page: dicta
-      limit: 8
+      page: omnis
+      limit: 16
       appointmentUser: true
       favouritesUser: false
       trackId: 20
-      pastRace: false
+      pastRace: true
       gradeIds:
-        - 15
-      dateStart: '2025-03-31T09:39:18'
-      dateEnd: '2025-03-31T09:39:18'
+        - 17
+      dateStart: '2025-03-31T12:01:00'
+      dateEnd: '2025-03-31T12:01:00'
       locationId: 10
       statusIds:
-        - 12
-      sortField: enim
-      sort: est
+        - 18
+      sortField: et
+      sort: assumenda
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.race.get.success","races":{"id":102,"name":"Litzy Carroll","desc":"Magni aliquid consequatur vitae porro. Cumque quia tempora eius. Vero porro sed sint. Ut ut necessitatibus deserunt error voluptas non illum placeat.","is_work":true,"date_start":"2025-03-31T15:05:05.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}},{"status":"success","message":"messages.race.get.success","races":{"id":103,"name":"Tiara Monahan","desc":"Ut harum non id sit a sapiente mollitia laudantium. Tenetur et consequatur assumenda sapiente saepe dolorem sed.","is_work":true,"date_start":"2025-03-31T01:21:05.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}}]'
+        content: '[{"status":"success","message":"messages.race.get.success","races":{"id":110,"name":"Gardner Skiles","desc":"Cupiditate ut dolore vel rerum. Sed et beatae illum odit odio nam rem qui. Consequuntur consectetur non ipsa necessitatibus.","is_work":true,"date_start":"2025-03-31T01:06:06.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}},{"status":"success","message":"messages.race.get.success","races":{"id":111,"name":"Dr. Tobin Marks","desc":"Non quia minima dolorem. Maxime qui ducimus quae quidem velit. Quibusdam nihil omnis et asperiores est sapiente ut et. Ut quo quaerat magnam.","is_work":false,"date_start":"2025-03-31T13:37:54.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}}]'
         headers: []
         description: ''
         custom: []
@@ -253,7 +253,7 @@ endpoints:
         name: userId
         description: ''
         required: false
-        example: 8
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -273,7 +273,7 @@ endpoints:
         name: favouritesUser
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -284,23 +284,23 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the grades table.'
         required: false
         example:
-          - 13
+          - 4
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      userId: 8
+      userId: 3
       appointmentUser: false
-      favouritesUser: false
+      favouritesUser: true
       gradeIds:
-        - 13
+        - 4
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.race.get_for_id.success","race":{"id":104,"name":"Ms. Dortha Bruen PhD","desc":"Placeat qui in odit. Ut est sequi praesentium architecto. Ut quia facilis ut est sint veritatis odio tempora.","is_work":true,"date_start":"2025-03-31T11:17:12.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}}'
+        content: '{"status":"success","message":"messages.race.get_for_id.success","race":{"id":112,"name":"Prof. Amos Keeling","desc":"Voluptatum nihil voluptatem quo quos veniam impedit. Dolor laboriosam earum ad ipsa eaque. Laudantium laudantium aut iure aliquid impedit vel quis.","is_work":true,"date_start":"2025-03-31T16:06:15.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}}'
         headers: []
         description: ''
         custom: []
@@ -335,7 +335,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters. Must be at least 3 characters.'
         required: true
-        example: utpsogwdyrpn
+        example: xnlewzcpcgrgfnyundgkhgiupnaxnhp
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -345,7 +345,7 @@ endpoints:
         name: desc
         description: ''
         required: false
-        example: est
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -355,7 +355,7 @@ endpoints:
         name: dateStart
         description: 'Must be a valid date.'
         required: true
-        example: '2025-03-31T09:39:19'
+        example: '2025-03-31T12:01:00'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -365,7 +365,7 @@ endpoints:
         name: recordEnd
         description: 'Must be a valid date.'
         required: false
-        example: '2025-03-31T09:39:19'
+        example: '2025-03-31T12:01:00'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -375,7 +375,7 @@ endpoints:
         name: trackId
         description: 'The <code>id</code> of an existing record in the tracks table.'
         required: false
-        example: 6
+        example: 10
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -417,7 +417,7 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the grades table.'
         required: false
         example:
-          - 12
+          - 10
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
@@ -427,7 +427,7 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: true
-        example: repudiandae
+        example: laboriosam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -437,7 +437,7 @@ endpoints:
         name: statusId
         description: 'The <code>id</code> of an existing record in the statuses table.'
         required: false
-        example: 15
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -455,15 +455,15 @@ endpoints:
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: utpsogwdyrpn
-      desc: est
-      dateStart: '2025-03-31T09:39:19'
-      recordEnd: '2025-03-31T09:39:19'
-      trackId: 6
+      name: xnlewzcpcgrgfnyundgkhgiupnaxnhp
+      desc: qui
+      dateStart: '2025-03-31T12:01:00'
+      recordEnd: '2025-03-31T12:01:00'
+      trackId: 10
       gradeIds:
-        - 12
-      locationId: repudiandae
-      statusId: 15
+        - 10
+      locationId: laboriosam
+      statusId: 1
       cupIds:
         - 15
     fileParameters:
@@ -474,7 +474,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.race.create.success","race":{"id":105,"name":"Justen Considine","desc":"Enim pariatur minima praesentium sunt at. Dolores aliquam debitis soluta. Et et vel reiciendis facilis.","is_work":false,"date_start":"2025-03-31T00:30:04.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}}'
+        content: '{"status":"success","message":"messages.race.create.success","race":{"id":113,"name":"Kraig Windler III","desc":"Voluptatem esse consectetur dolorem dolore. Expedita dicta occaecati quis nisi quos nobis sit veritatis. Eaque aut asperiores vel error veniam.","is_work":false,"date_start":"2025-03-31T14:19:07.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}}'
         headers: []
         description: ''
         custom: []
@@ -520,7 +520,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters. Must be at least 3 characters.'
         required: false
-        example: vrlsneefybitfdxgpvoxvmgddcjnivjoxgczojffibtxezgsybdf
+        example: kvgxuaadcnkddxampvcleilerhaijlperonpmkyhnomtfwkyvkgebsadwoysciqu
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -530,7 +530,7 @@ endpoints:
         name: desc
         description: ''
         required: false
-        example: aperiam
+        example: sequi
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -540,7 +540,7 @@ endpoints:
         name: dateStart
         description: 'Must be a valid date.'
         required: false
-        example: '2025-03-31T09:39:19'
+        example: '2025-03-31T12:01:00'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -550,7 +550,7 @@ endpoints:
         name: recordEnd
         description: 'Must be a valid date.'
         required: false
-        example: '2025-03-31T09:39:19'
+        example: '2025-03-31T12:01:00'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -560,7 +560,7 @@ endpoints:
         name: trackId
         description: 'The <code>id</code> of an existing record in the tracks table.'
         required: false
-        example: 7
+        example: 17
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -582,7 +582,7 @@ endpoints:
         description: ''
         required: false
         example:
-          - deleniti
+          - quas
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -613,7 +613,7 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the grades table.'
         required: false
         example:
-          - 2
+          - 10
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
@@ -623,7 +623,7 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 16
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -633,7 +633,7 @@ endpoints:
         name: statusId
         description: 'The <code>id</code> of an existing record in the statuses table.'
         required: false
-        example: 16
+        example: 9
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -644,26 +644,26 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the cups table.'
         required: false
         example:
-          - 14
+          - 5
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: vrlsneefybitfdxgpvoxvmgddcjnivjoxgczojffibtxezgsybdf
-      desc: aperiam
-      dateStart: '2025-03-31T09:39:19'
-      recordEnd: '2025-03-31T09:39:19'
-      trackId: 7
+      name: kvgxuaadcnkddxampvcleilerhaijlperonpmkyhnomtfwkyvkgebsadwoysciqu
+      desc: sequi
+      dateStart: '2025-03-31T12:01:00'
+      recordEnd: '2025-03-31T12:01:00'
+      trackId: 17
       imagesDel:
-        - deleniti
+        - quas
       gradeIds:
-        - 2
-      locationId: 16
-      statusId: 16
+        - 10
+      locationId: 18
+      statusId: 9
       cupIds:
-        - 14
+        - 5
     fileParameters:
       imagesAdd:
         - null
@@ -672,7 +672,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.race.update.success","race":{"id":106,"name":"Ms. Noemy Upton Jr.","desc":"Consequuntur sit qui eligendi voluptas odit. Expedita suscipit perspiciatis recusandae et id vel. Nisi quidem et sed quam quia voluptatum animi earum.","is_work":false,"date_start":"2025-03-31T21:17:40.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}}'
+        content: '{"status":"success","message":"messages.race.update.success","race":{"id":114,"name":"Mrs. Vita Wyman","desc":"Ut accusamus officia non quidem. Et fugiat sint qui quo qui velit. Asperiores id sed molestias necessitatibus ut. Delectus fugit necessitatibus omnis quas sed.","is_work":false,"date_start":"2025-03-31T05:18:51.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}}'
         headers: []
         description: ''
         custom: []
@@ -731,7 +731,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.race.toggle_is_work.success","race":{"id":107,"name":"Prof. Reymundo Collier DDS","desc":"Aut ipsam repellendus libero. Atque exercitationem impedit et repellat rerum qui. Eos laboriosam eos ea fuga beatae. Enim quisquam beatae eos rerum ad. Expedita aut quia eligendi incidunt.","is_work":false,"date_start":"2025-03-31T09:46:34.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}}'
+        content: '{"status":"success","message":"messages.race.toggle_is_work.success","race":{"id":115,"name":"Yvonne Satterfield","desc":"Ratione modi rerum dolorem assumenda. Deserunt voluptatem esse rem illo eum voluptas. Quis est et dicta ad.","is_work":false,"date_start":"2025-03-31T05:55:08.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}}'
         headers: []
         description: ''
         custom: []
@@ -790,7 +790,7 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
         example:
-          - 5
+          - 7
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
@@ -798,7 +798,7 @@ endpoints:
         custom: []
     cleanBodyParameters:
       usersIds:
-        - 5
+        - 7
     fileParameters: []
     responses:
       -
@@ -868,7 +868,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.race.delete.success","race":{"id":109,"name":"Jerad Towne","desc":"Aut quidem accusantium mollitia alias voluptatem. Dolores sunt vitae est impedit est dolores animi. Veritatis sequi cumque et voluptatum rerum enim aut quia.","is_work":false,"date_start":"2025-03-31T06:20:09.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}}'
+        content: '{"status":"success","message":"messages.race.delete.success","race":{"id":117,"name":"Dr. Roxane Kshlerin","desc":"Aut numquam eius voluptatem ea quia. Vel pariatur voluptatem totam aut perspiciatis quam. Necessitatibus dolorem doloribus reiciendis et id quasi.","is_work":true,"date_start":"2025-03-31T07:06:59.000000Z","images":null,"contacts":null,"record_end":null,"position_file":null,"results_file":null}}'
         headers: []
         description: ''
         custom: []
