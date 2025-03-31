@@ -28,6 +28,7 @@ class GetLocationRequest extends FormRequest
             'name'      => 'nullable|string',
             'raceCountExists' => 'nullable|boolean',
             'trackCountExists' => 'nullable|boolean',
+            'commandCountExists' => 'nullable|boolean',
         ];
     }
 }
