@@ -37,7 +37,7 @@ class RaceDetailPage extends DetailPage
             Image::make('Фото', 'images')->multiple(),
             File::make('Файл положения', 'position_file'),
             File::make('Файл регламента', 'results_file'),
-            File::make('PDF-файл', 'pdf_files')->multiple(),
+            File::make('Файл с итогами', 'pdf_files')->multiple(),
             $this->status(),
             $this->user(),
             $this->track(),

@@ -49,7 +49,7 @@ class CreateRaceRequest extends FormRequest
             'resultsFile'   => 'nullable|file|mimes:pdf',
             'gradeIds'      => 'nullable|array',
             'gradeIds.*'    => 'nullable|integer|exists:grades,id',
-            'locationId'    => 'integer|nullable|exists:locations,id',
+            'locationId'    => 'required|nullable|exists:locations,id',
             'statusId'      => 'integer|nullable|exists:statuses,id',
             'cupIds'        => 'nullable|array',
             'cupIds.*'      => 'nullable|integer|exists:cups,id',
