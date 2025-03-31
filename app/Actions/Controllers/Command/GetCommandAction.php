@@ -4,6 +4,7 @@ namespace App\Actions\Controllers\Command;
 
 use App\Contracts\Actions\Controllers\Command\GetCommandActionContract;
 use App\Filters\Command\CommandCoachExist;
+use App\Filters\Command\CommandForLocationIdFilter;
 use App\Filters\Command\CommandUserExist;
 use App\Filters\Command\CommandUserIdFilter;
 use App\Filters\Command\NameCommandFilter;
@@ -27,6 +28,7 @@ class GetCommandAction implements GetCommandActionContract
                 CommandUserIdFilter::class,
                 NameCommandFilter::class,
                 CommandUserExist::class,
+                CommandForLocationIdFilter::class,
 //                CommandCoachExist::class,
             ])
             ->via('apply')
