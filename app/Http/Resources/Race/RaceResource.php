@@ -9,6 +9,7 @@ use App\Http\Resources\Location\LocationResource;
 use App\Http\Resources\Status\StatusResource;
 use App\Http\Resources\Track\TrackResource;
 use App\Http\Resources\User\UserResource;
+use App\Http\Resources\User\UserWithFIOResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -58,7 +59,8 @@ class RaceResource extends JsonResource
             'grades'                => GradeResource::collection($this->whenLoaded('grades')),
             'status'                => StatusResource::make($this->whenLoaded('status')),
             'cups'                  => CupResource::collection($this->whenLoaded('cups')),
-            'favorites_count'        => $this->whenLoaded('favoritesCount')
+            'favorites_count'       => $this->whenLoaded('favoritesCount'),
+            'commissions'            => UserWithFIOResource::collection($this->whenLoaded('commissions'))
         ];
     }
 }
