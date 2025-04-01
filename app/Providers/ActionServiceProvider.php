@@ -6,6 +6,7 @@ use App\Contracts\Actions\Commands\GenerateLocationCsvActionContract;
 use App\Contracts\Actions\Controllers\AuthPhoneController\LoginPhoneActionContract;
 use App\Contracts\Actions\Controllers\AuthPhoneController\RegisterPhoneActionContract;
 use App\Contracts\Actions\Controllers\AuthPhoneController\VerifyPhoneActionContract;
+use App\Contracts\Actions\Controllers\Command\GetCoachesForAllUsersActionContract;
 use App\Contracts\Actions\Controllers\Command\GetMemberForCoachForIdActionContract;
 use App\Contracts\Actions\Controllers\Grade\GetForIdGradeActionContract;
 use App\Contracts\Actions\Controllers\Grade\GetGradeActionContract;
@@ -79,6 +80,7 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\Command\GetMembersActionContract::class                                  => \App\Actions\Controllers\Command\GetMembersAction::class,
         \App\Contracts\Actions\Controllers\Command\GetMemberForCoachForIdActionContract::class                      => \App\Actions\Controllers\Command\GetMemberForCoachForIdAction::class,
         \App\Contracts\Actions\Controllers\Command\GetMembersForCoachActionContract::class                      => \App\Actions\Controllers\Command\GetMembersForCoachAction::class,
+        \App\Contracts\Actions\Controllers\Command\GetCoachesForAllUsersActionContract::class                      => \App\Actions\Controllers\Command\GetCoachesForAllUsersAction::class,
         \App\Contracts\Actions\Controllers\RecoveryPassword\SendRecoveryPasswordActionContract::class               => \App\Actions\Controllers\RecoveryPassword\SendRecoveryPasswordAction::class,
         \App\Contracts\Actions\Controllers\RecoveryPassword\RecoveryRecoveryPasswordActionContract::class           => \App\Actions\Controllers\RecoveryPassword\RecoveryRecoveryPasswordAction::class,
         \App\Contracts\Actions\Controllers\Store\CreateStoreActionContract::class                                   => \App\Actions\Controllers\Store\CreateStoreAction::class,
