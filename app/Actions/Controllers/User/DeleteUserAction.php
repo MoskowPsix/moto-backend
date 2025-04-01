@@ -9,7 +9,7 @@ class DeleteUserAction implements DeleteUserActionContract
 {
     public function __invoke(): SuccessUserDeleteResource
     {
-        auth()->user()->delete();
+        auth()->user()->forceDelete();
         return SuccessUserDeleteResource::make([]);
     }
 }

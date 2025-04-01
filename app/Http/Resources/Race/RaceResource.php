@@ -50,7 +50,7 @@ class RaceResource extends JsonResource
             'user'                  => UserResource::make($this->whenLoaded('user')),
             'appointment_count'     => AppointmentCountResource::make($this->whenLoaded('appointmentCount')),
             'appointments_exists'   => $this->when(isset($this->appointments_exists), $this->appointments_exists),
-            'commissions_exists'   => $this->when(isset($this->commissions_exists), $this->commissions_exists),
+            'commissions_exists'    => $this->when(isset($this->commissions_exists), $this->commissions_exists),
             'favorite_exists'       => $this->when(isset($this->favourites_user_exists), $this->favourites_user_exists),
             'position_file'         => $this->position_file,
             'results_file'          => $this->results_file,
