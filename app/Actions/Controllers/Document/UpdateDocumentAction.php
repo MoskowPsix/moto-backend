@@ -17,11 +17,9 @@ class UpdateDocumentAction implements UpdateDocumentActionContract
     {
         $user = auth()->user();
         $document = $user->documents()->where('id', $id);
+
         if (!$document->exists()) {
             return NotFoundResource::make([]);
-        }
-        if ($document->first()->user_id !== $user->id) {
-            return NotUserPermissionResource::make([]);
         }
 
         if (isset($request->file)) {
@@ -55,11 +53,10 @@ class UpdateDocumentAction implements UpdateDocumentActionContract
     {
         return $file->store('user/documents', 'local');
     }
-    private function delete($path): string | null
+    private function delete($path): void
     {
-        if (isset($path) || $path !== 'no-file') {
-            return Storage::delete($path);
+        if (isset($path)) {
+            Storage::delete($path);
         }
-        return null;
     }
 }

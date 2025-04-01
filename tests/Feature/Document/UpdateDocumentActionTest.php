@@ -15,6 +15,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 
@@ -25,6 +26,8 @@ class UpdateDocumentActionTest extends TestCase
 
     public function test_action_success(): void
     {
+        Storage::fake('local');
+
         $user = User::factory()->create();
         Sanctum::actingAs($user);
 
@@ -48,8 +51,58 @@ class UpdateDocumentActionTest extends TestCase
 
         $this->assertInstanceOf(SuccessUpdateDocumentResource::class, $response);
     }
+    public function test_action_success_file(): void
+    {
+        Storage::fake('local');
 
-    public function test_action_not_user_permission(): void
+        $user = User::factory()->create();
+        Sanctum::actingAs($user);
+
+        $oldFile = 'user/documents/old_file.txt';
+        Storage::put($oldFile, 'old content');
+
+        $document_seed = Document::factory()->create([
+            'user_id' => $user->id,
+            'path' => $oldFile,
+        ]);
+
+        $newFile = UploadedFile::fake()->create('new_file.png');
+
+        $request = new UpdateDocumentRequest([
+            'file' => $newFile,
+        ]);
+        $action = app(UpdateDocumentActionContract::class);
+        $response = $action($document_seed->id, $request);
+
+        $this->assertInstanceOf(SuccessUpdateDocumentResource::class, $response);
+    }
+    public function test_action_success_file_null(): void
+    {
+        Storage::fake('local');
+
+        $user = User::factory()->create();
+        Sanctum::actingAs($user);
+
+        $document_seed = Document::factory()->create([
+            'user_id' => $user->id,
+            'path' => 'no-file',
+        ]);
+
+        $file = UploadedFile::fake()->create('test.pdf');
+        $request = new UpdateDocumentRequest([
+                'file' => $file
+            ]);
+
+        $action = app(UpdateDocumentActionContract::class);
+        $response = $action($document_seed->id, $request);
+
+        $this->assertInstanceOf(SuccessUpdateDocumentResource::class, $response);
+
+        $updatedDoc = Document::find($document_seed->id);
+        $this->assertNotEquals('no-file', $updatedDoc->path);
+    }
+
+    public function test_action_not_found_resource(): void
     {
         $user = User::factory()->create();
         $document_seed = Document::factory()->create([
@@ -72,5 +125,4 @@ class UpdateDocumentActionTest extends TestCase
 
         $this->assertInstanceOf(NotFoundResource::class, $response);
     }
-
 }
