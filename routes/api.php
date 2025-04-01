@@ -155,7 +155,7 @@ Route::controller(\App\Http\Controllers\Api\CommandController::class)->group(fun
     Route::post('commands/{id}', 'update')->middleware(['auth:sanctum', 'email_verification', 'role:'. $role::ORGANIZATION .'|'. $role::RIDER .'|' .$role::COUCH .'|'.$role::ROOT])->name('command.update');
     Route::delete('commands/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::COUCH .'|'. $role::ADMIN.'|'.$role::ROOT])->name('command.delete');
 
-    Route::get('commands/{command_id}/couches', 'getCoaches')->name('command.get.couch');
+//    Route::get('commands/{command_id}/couches', 'getCoaches')->name('command.get.couch'); // Сомнительный метод, не факт что он используется.
     Route::post('commands/{command_id}/couches/{user_id}', 'toggleCouch')
         ->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])
         ->name('command.add.couch');
@@ -164,6 +164,8 @@ Route::controller(\App\Http\Controllers\Api\CommandController::class)->group(fun
         ->name('command.add.member');
     Route::get('commands/{command_id}/members', 'getMembers')
         ->name('command.get.member');
+    Route::get('commands/{command_id}/coaches', 'getCoachesForAll')
+        ->name('command.get.coaches');
     Route::get('commands/{command_id}/members-for-coach', 'getMembersForCoach')
         ->middleware(['auth:sanctum', 'role:'. $role::RIDER.'|'.$role::ORGANIZATION.'|'.$role::COUCH.'|'.$role::COMMISSION.'|'.$role::ADMIN.'|'.$role::ROOT])
         ->name('command.get_for_coach.member');

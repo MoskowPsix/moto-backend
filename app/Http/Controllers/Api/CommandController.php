@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Contracts\Actions\Controllers\Command\AddCouchActionContract;
 use App\Contracts\Actions\Controllers\Command\CreateCommandActionContract;
 use App\Contracts\Actions\Controllers\Command\DeleteCommandActionContract;
+use App\Contracts\Actions\Controllers\Command\GetCoachesForAllUsersActionContract;
 use App\Contracts\Actions\Controllers\Command\GetCommandActionContract;
 use App\Contracts\Actions\Controllers\Command\GetCommandForCoachIdActionContract;
 use App\Contracts\Actions\Controllers\Command\GetCouchesActionContract;
@@ -15,6 +16,7 @@ use App\Contracts\Actions\Controllers\Command\ToggleMemberActionContract;
 use App\Contracts\Actions\Controllers\Command\UpdateCommandActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Command\CreateCommandRequest;
+use App\Http\Requests\Command\GetCoachesForAllUsersRequest;
 use App\Http\Requests\Command\GetCommandRequest;
 use App\Http\Requests\Command\GetCouchesCommandRequest;
 use App\Http\Requests\Command\GetForCoachIdCommandRequest;
@@ -23,6 +25,7 @@ use App\Http\Requests\Command\UpdateCommandRequest;
 use App\Http\Resources\Command\AddCouch\SuccessAddCouchCommandResource;
 use App\Http\Resources\Command\Create\SuccessCreateCommandResource;
 use App\Http\Resources\Command\Delete\SuccessDeleteCommandResource;
+use App\Http\Resources\Command\GetCoachesForAll\SuccessGetCoachesForAllCommandResource;
 use App\Http\Resources\Command\GetCommand\SuccessGetCommandResource;
 use App\Http\Resources\Command\GetCommandForCoach\SuccessGetCommandForCoachIdResource;
 use App\Http\Resources\Command\GetCommandForId\SuccessGetCommandForIdResource;
@@ -142,6 +145,15 @@ class CommandController extends Controller
     NotUserPermissionResource|
     NotFoundResource|
     GetMembersForCoachCommandResource
+    {
+        return $action($id, $request);
+    }
+    #[ResponseFromApiResource(SuccessGetCoachesForAllCommandResource::class, User::class)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[Endpoint(title: 'getCoachesForAll', description: 'Получение всех тренеров по команде для всех.')]
+    public function getCoachesForAll(int $id, GetCoachesForAllUsersRequest $request, GetCoachesForAllUsersActionContract $action):
+    SuccessGetCoachesForAllCommandResource|
+    NotFoundResource
     {
         return $action($id, $request);
     }
