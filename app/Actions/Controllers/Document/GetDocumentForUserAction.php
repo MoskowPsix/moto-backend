@@ -13,10 +13,17 @@ class GetDocumentForUserAction implements  GetDocumentForUserActionContract
     public function __invoke(GetDocumentForUserRequest $request): SuccessGetDocumentForUserResource|NotUserPermissionResource
     {
         if ($request->has('userId') && $request->has('commandId')) {
-            if (Command::find($request->commandId)->members()->where('userId')->exists()) {
+            $command = Command::find($request->commandId);
+
+            if (!$command) {
                 return NotUserPermissionResource::make([]);
             }
-            $docs = Command::find($request->commandId)->members()->where('user_id', $request->userId)->first()->documents()->get();
+
+            $member = $command->members()->where('user_id', $request->userId)->first();
+            if (!$member) {
+                return NotUserPermissionResource::make([]);
+            }
+            $docs = $member->documents()->get();
         } else {
             $docs = auth()->user()->documents()->get();
         }
