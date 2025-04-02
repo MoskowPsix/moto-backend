@@ -71,11 +71,14 @@ class UpdateCupActionTest extends TestCase
     public function test_action_success(): void
     {
         $user = User::factory()->create();
+        $old_file = UploadedFile::fake()->create('file.png');
+
         $cupResource = Cup::factory()->create([
             'user_id' => $user->id,
+            'image'   => $old_file,
         ]);
 
-        $file = UploadedFile::fake()->create('file.png');
+        $new_file = UploadedFile::fake()->create('file.png');
 
         $cup = [
             'userId'        => $cupResource->user_id,
@@ -83,7 +86,7 @@ class UpdateCupActionTest extends TestCase
             'name'          => $cupResource->name,
             'year'          => $cupResource->year,
             'stages'        => $cupResource->stages,
-            'image'         => $file,
+            'image'         => $new_file,
         ];
         Sanctum::actingAs($user);
 

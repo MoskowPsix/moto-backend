@@ -15,6 +15,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 
@@ -68,7 +69,7 @@ class UpdateTrackActionTest extends TestCase
         $this->assertInstanceOf(NotUserPermissionResource::class, $response);
     }
 
-    public function test_action_success_with_add_image(): void
+    public function test_action_success_with_add_images(): void
     {
         $user = User::factory()->create();
         $trackSeed = Track::factory()->create([
@@ -86,6 +87,31 @@ class UpdateTrackActionTest extends TestCase
             'is_work'       => $trackSeed->is_work ? 1 : 0,
             'userId'        => $user->id,
             'imagesAdd'     => [$image],
+        ];
+        Sanctum::actingAs($user);
+        $request = new UpdateTrackRequest($track);
+        $action = app(UpdateTrackActionContract::class);
+        $response = $action($trackSeed->id, $request);
+        $this->assertInstanceOf(SuccessUpdateTrackResource::class, $response);
+    }
+    public function test_action_success_with_add_image(): void
+    {
+        $user = User::factory()->create();
+        $trackSeed = Track::factory()->create([
+            'user_id' => $user->id,
+        ]);
+
+        $image = UploadedFile::fake()->create('file.png');
+
+        $track = [
+            'name'          => $trackSeed->name,
+            'address'       => $trackSeed->address,
+            'latitude'      => fake()->latitude,
+            'longitude'     => fake()->longitude,
+            'levelId'       => $trackSeed->level_id,
+            'is_work'       => $trackSeed->is_work ? 1 : 0,
+            'userId'        => $user->id,
+            'logo'          => $image,
         ];
         Sanctum::actingAs($user);
         $request = new UpdateTrackRequest($track);
@@ -111,6 +137,7 @@ class UpdateTrackActionTest extends TestCase
             'is_work'       => $trackSeed->is_work ? 1 : 0,
             'userId'        => $user->id,
             'imagesDel'     => [$image],
+            'imagesDel.*'   => $image,
         ];
         Sanctum::actingAs($user);
         $request = new UpdateTrackRequest($track);

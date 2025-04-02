@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Location;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,15 @@ class LocationFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+//            'name' => fake()->text(),
+//            'address' => fake()->text(),
+//            'point' => fake()->randomNumber(),
+//            'population' => fake()->randomNumber(),
+//            'type' => fake()->text(),
+//            'postal_code' => fake()->randomNumber(),
+//            'time_zone' => fake()->time(),
+//            'integration_data' => fake()->text(),
+//            'location_id' => Location::inRandomOrder()->first()->id,
         ];
     }
 }

@@ -19,9 +19,6 @@ class UpdatePersonalInfoAction implements UpdatePersonalInfoActionContract
         if (!$old_personal->exists()) {
             return NotFoundResource::make([]);
         }
-        if ($old_personal->user_id !== auth()->user()->id) {
-            return NotUserPermissionResource::make([]);
-        }
         $old_personal->update([
             'name'              => $request->name ?? $old_personal->name,
             'surname'           => $request->surname ?? $old_personal->surname,

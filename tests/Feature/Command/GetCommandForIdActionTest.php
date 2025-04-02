@@ -7,6 +7,7 @@ use App\Http\Requests\Command\GetForIdCommandRequest;
 use App\Http\Resources\Command\GetCommandForId\SuccessGetCommandForIdResource;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Models\Command;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -19,9 +20,16 @@ class GetCommandForIdActionTest extends TestCase
     public function test_action_success(): void
     {
         $command = Command::factory()->create();
+        $user = User::factory()->create();
+
+        $command->members()->attach($user->id);
+
         $commandRequest = new GetForIdCommandRequest([
             'locationId' => $command->location_id,
+            'userIdExists' => $user->id,
+            'checkMember' => true,
         ]);
+
         $action = app(GetForIdCommandActionContract::class);
         $response = $action($command->id, $commandRequest);
         $this->assertInstanceOf(SuccessGetCommandForIdResource::class, $response);

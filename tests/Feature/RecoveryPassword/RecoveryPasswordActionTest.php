@@ -33,20 +33,19 @@ class RecoveryPasswordActionTest extends TestCase
 
         $this->assertInstanceOf(SuccessRecoveryRecoveryPasswordResource::class, $response);
     }
+    public function test_action_not_permission(): void
+    {
+        $user = User::factory()->create();
+        $tokenData = [$user->id, 'some_data', Carbon::now()->subHour(2)->toDateTimeString()];
+        $encryptedToken = Crypt::encrypt(implode(',', $tokenData));
 
-//    public function test_action_not_user_permission(): void
-//    {
-//        $user = -1;
-//        $tokenData = [$user, 'some_data', Carbon::now()->toDateTimeString()];
-//        $encryptedToken = Crypt::encrypt(implode(',', $tokenData));
-//
-//        $request = new RecoveryRequest([
-//            'token' => $encryptedToken,
-//            'password' => 'newPassword'
-//        ]);
-//        $action = app(RecoveryRecoveryPasswordActionContract::class);
-//        $response = $action($request);
-//
-//        $this->assertInstanceOf(NotUserPermissionResource::class, $response);
-//    }
+        $request = new RecoveryRequest([
+            'token' => $encryptedToken,
+            'password' => 'newPassword123'
+        ]);
+        $action = app(RecoveryRecoveryPasswordActionContract::class);
+        $response = $action($request);
+
+        $this->assertInstanceOf(NotUserPermissionResource::class, $response);
+    }
 }

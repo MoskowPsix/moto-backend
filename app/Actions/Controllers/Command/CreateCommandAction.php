@@ -22,18 +22,15 @@ class CreateCommandAction implements CreateCommandActionContract
             'city'          => $request->city
         ]);
         $command->coaches()->attach($user->id);
-        $this->saveImages($request->file('avatar'), $command);
+        if(isset($request->avatar)) {
+            $this->saveImages($request->avatar, $command);
+        }
         return SuccessCreateCommandResource::make($command);
     }
 
     private function saveImages($avatar, Command $command): void
     {
-        if($avatar) {
-            $path = $avatar->store('command/' . $command->id, 'public');
-            $command->update([
-                'avatar' => $path
-            ]);
-        }
+        $path = $avatar->store('command/' . $command->id, 'public');
+        $command->update(['avatar' => $path]);
     }
-
 }

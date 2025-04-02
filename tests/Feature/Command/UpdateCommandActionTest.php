@@ -12,6 +12,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 
@@ -43,20 +44,22 @@ class UpdateCommandActionTest extends TestCase
 
         $this->assertInstanceOf(SuccessUpdateCommandResource::class, $response);
     }
-    public function test_action_success_avatar(): void
+    public function test_action_success_avatar_delete(): void
     {
+        Storage::fake('public');
         $user = User::factory()->create();
 
+        $avatar = UploadedFile::fake()->create('file.png');
         $commandSeed = Command::factory()->create([
             'user_id' => $user->id,
+            'avatar' => $avatar,
         ]);
-        $avatar = UploadedFile::fake()->create('file.png');
+
         $secondAvatar = UploadedFile::fake()->create('secondFile.jpg');
         $command = [
             'name' => $commandSeed->name,
             'city' => $commandSeed->city,
-            'avatar' => $avatar,
-            'avatar' => $commandSeed->$secondAvatar,
+            'avatar' => $secondAvatar,
             'user_id' => $user->id,
             'location_id' => $commandSeed->location_id,
         ];

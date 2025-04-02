@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 
@@ -40,16 +41,17 @@ class CreateCommandActionTest extends TestCase
 
     public function test_action_success_with_avatar(): void
     {
+        Storage::fake('public');
         $user = User::factory()->create();
 
         $commandSeed = Command::factory()->make();
-        $file = UploadedFile::fake()->create('document.png');
+        $image = UploadedFile::fake()->create('avatar.png');
         $command = [
             'name' => $commandSeed->name,
             'city' => $commandSeed->city,
+            'avatar'  => $image,
             'user_id' => $user->id,
             'location_id' => $commandSeed->location_id,
-            'avatar' => $commandSeed->$file,
         ];
 
         Sanctum::actingAs($user);

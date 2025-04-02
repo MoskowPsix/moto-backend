@@ -9,6 +9,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property mixed $fullname
  * @property mixed $city
  * @property mixed $coach
+ * @property mixed $avatar
  */
 class CreateCommandRequest extends FormRequest
 {

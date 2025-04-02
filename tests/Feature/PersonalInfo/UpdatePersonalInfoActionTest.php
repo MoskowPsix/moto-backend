@@ -10,6 +10,7 @@ use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Http\Resources\PersonalInfo\Create\SuccessCreatePersonalInfoResource;
 use App\Http\Resources\PersonalInfo\Update\SuccessUpdatePersonalInfoResource;
+use App\Models\Command;
 use App\Models\PersonalInfo;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -25,9 +26,11 @@ class UpdatePersonalInfoActionTest extends TestCase
     public function test_action_success(): void
     {
         $firstUser = User::factory()->create();
+        $command = Command::factory()->create();
 
         $personalInfoSeed = PersonalInfo::factory()->create([
             'user_id' => $firstUser->id,
+            'command_id' => $command->id,
         ]);
 
         $personalInfo = [
@@ -51,7 +54,7 @@ class UpdatePersonalInfoActionTest extends TestCase
             'region'            => $personalInfoSeed->region,
             'number_and_seria'  => $personalInfoSeed->numberAndSeria,
             'locationId'        => $personalInfoSeed->locationId,
-            'commandId'         => $personalInfoSeed->commandId,
+            'commandId'         => $command->id,
         ];
         Sanctum::actingAs($firstUser);
         $request = new UpdatePersonalInfoRequest($personalInfo);

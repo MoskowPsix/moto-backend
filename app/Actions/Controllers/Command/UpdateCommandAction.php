@@ -38,7 +38,7 @@ class UpdateCommandAction implements UpdateCommandActionContract
     private function addNewAvatar(UpdateCommandRequest $request, Command $command): void
     {
         if(!empty($request->avatar)){
-            $this->saveAvatar($request->file('avatar'), $command);
+            $this->saveAvatar($request->avatar, $command);
         }
     }
 

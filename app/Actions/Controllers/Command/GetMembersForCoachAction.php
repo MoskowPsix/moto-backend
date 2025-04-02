@@ -27,9 +27,6 @@ class GetMembersForCoachAction implements GetMembersForCoachActionContract
         $limit = $request->limit && ($request->limit < 50) ? $request->limit : 6;
 
         $command = Command::where('id', $id);
-        if (!$command->exists()) {
-            return NotFoundResource::make([]);
-        }
         $members_q = $command->first()->members()->with(['documents', 'personalInfo' => function ($query) {
             $query->with('location');
         }, 'phone']);

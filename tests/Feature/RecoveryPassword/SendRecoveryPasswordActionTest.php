@@ -4,6 +4,7 @@ namespace Tests\Feature\RecoveryPassword;
 
 use App\Contracts\Actions\Controllers\RecoveryPassword\SendRecoveryPasswordActionContract;
 use App\Http\Requests\RecoveryPassword\SendRequest;
+use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\RecoveryPassword\Send\SuccessSendRecoveryPasswordResource;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -33,5 +34,17 @@ class SendRecoveryPasswordActionTest extends TestCase
         $response = $action($request);
 
         $this->assertInstanceOf(SuccessSendRecoveryPasswordResource::class, $response);
+    }
+    public function test_action_not_found(): void
+    {
+        $request = new SendRequest([
+            'email' => null,
+            'url' => 'http://example.com/reset-password',
+        ]);
+
+        $action = app(SendRecoveryPasswordActionContract::class);
+        $response = $action($request);
+
+        $this->assertInstanceOf(NotFoundResource ::class, $response);
     }
 }

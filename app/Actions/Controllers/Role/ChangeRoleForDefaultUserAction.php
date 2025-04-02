@@ -37,9 +37,4 @@ class ChangeRoleForDefaultUserAction implements ChangeRoleForDefaultUserActionCo
         $user = User::where('id', auth()->id())->with('roles')->firstOrFail();
         return SuccessChangeRoleForDefaultUserResource::make($user);
     }
-
-    public function changeRole(Role $role)
-    {
-
-    }
 }
