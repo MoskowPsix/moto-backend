@@ -9,7 +9,9 @@ use App\Http\Resources\Auth\Login\SuccessLoginResource;
 use App\Http\Resources\Error\Login\ErrorEmailExistsResource;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
 use Exception;
 
@@ -27,6 +29,7 @@ class LoginActionTest extends TestCase
         $pass = fake()->password();
         $user = User::factory()->create([
             'password' => Hash::make($pass),
+            'deleted_at' => now(),
         ]);
         $user_login =   [
             'email'       => $user->email,
@@ -68,25 +71,4 @@ class LoginActionTest extends TestCase
 
         $this->assertInstanceOf(ErrorEmailExistsResource::class, $userAction);
     }
-
-//    public function test_action_throw_exception(): void
-//    {
-//        $pass = fake()->password();
-//        $user = User::factory()->create([
-//            'password' => Hash::make($pass),
-//        ]);
-//
-//        $request = new LoginRequest([
-//            'password' => '',
-//            'email' => $user->email,
-//        ]);
-//        $action = app(LoginActionContract::class);
-//        $response = $action($request);
-//
-//        $this->assertInstanceOf(ErrorLoginResource::class, $response);
-//
-//        $this->assertEquals('Неверные учетные данные.', $response->resource['Login failed']);
-//
-//    }
-
 }
