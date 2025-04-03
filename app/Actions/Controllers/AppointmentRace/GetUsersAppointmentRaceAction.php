@@ -23,12 +23,12 @@ class GetUsersAppointmentRaceAction implements GetUsersAppointmentRaceActionCont
             return new NotFoundResource([]);
         }
         $app = AppointmentRace::where('race_id', $id)->with('user')->orderBy('created_at', 'asc')->get()->groupBy('grade.name');
-        foreach ($app as $class => $userRacesGroup) {
-            $formattedData[$class] = AppointmentRaceResource::collection($userRacesGroup);
-        }
-        if (!isset($formattedData)) {
+//        foreach ($app as $class => $userRacesGroup) {
+//            $formattedData[$class] = AppointmentRaceResource::collection($userRacesGroup);
+//        }
+        if (!isset($app)) {
             return new NotFoundResource([]);
         }
-        return SuccessGetUsersAppointmentResource::make($formattedData);
+        return SuccessGetUsersAppointmentResource::make($app);
     }
 }
