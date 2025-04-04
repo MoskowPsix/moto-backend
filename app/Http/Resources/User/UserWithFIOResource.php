@@ -9,6 +9,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 /**
  * @property object $personalInfo
+ * @property object $role
  * @property string $avatar
  * @property string $name
  * @property int $id
@@ -41,6 +42,7 @@ class UserWithFIOResource extends JsonResource
             'name'                  => $this->name,
             'avatar'                => $this->avatar,
             'personal'              => $personal,
+            'roles'                 => RoleResource::collection($this->whenLoaded('roles')),
         ];
     }
 }
