@@ -7,7 +7,39 @@ on:
     branches: [ "develop" ]
 
 jobs:
+  run-tests:
+    name: Run PHPUnit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, ctype, fileinfo, openssl, pdo, mysql, pdo_mysql, tokenizer, xml, gd
+          coverage: none
+
+      - name: Copy .env
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Generate key
+        run: php artisan key:generate
+
+      - name: Prepare database
+        run: |
+          touch database/database.sqlite
+          php artisan migrate:fresh --env=testing
+          php artisan db:seed --env=testing
+
+      - name: Execute tests
+        run: php artisan test
+
   build-docker-backend-image:
+    needs: run-tests
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v4
@@ -29,6 +61,7 @@ jobs:
               GIT_TOKEN=${{ secrets.GIT_AUTH_TOKEN}}
 
   build-docker-nginx-image:
+    needs: run-tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -50,6 +83,9 @@ jobs:
             GIT_TOKEN=${{ secrets.GIT_AUTH_TOKEN}}
 
   deploy-code-to-server:
+    needs:
+      - build-docker-backend-image
+      - build-docker-nginx-image
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
