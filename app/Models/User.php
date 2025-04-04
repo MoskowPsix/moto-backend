@@ -24,9 +24,9 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
-    use HasApiTokens, HasFactory, Notifiable, HasRoles, SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    //use SoftDeletes;
 
-    protected $dates = ['deleted_at'];
     /**
      * The attributes that are mass assignable.
      *
