@@ -23,18 +23,15 @@ class VerificationActionTest extends TestCase
     public function test_action_already_send(): void
     {
         $user = User::factory()->create([
-            'email_verified_at' => now(),
+            'email_verified_at' => !null,
         ]);
-
-        $ecode = Ecode::factory()->create([
-            'user_id' => $user->id,
-            'created_at' => now(),
-        ]);
-
         Sanctum::actingAs($user);
 
-        $action = app(SendActionContract::class);
-        $response = $action();
+        $request = new EmailVerificationRequest();
+
+        $action = app(VerificationActionContract::class);
+        $response = $action($request);
+
         $this->assertInstanceOf(AlreadySendVerificationEmailResource::class, $response);
     }
     public function test_action_no_correct(): void

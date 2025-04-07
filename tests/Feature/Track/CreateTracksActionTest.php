@@ -61,6 +61,8 @@ class CreateTracksActionTest extends TestCase
         $track_seed = Track::factory()->make();
 
         $file = UploadedFile::fake()->create('document.png');
+        $logo = UploadedFile::fake()->create('logo.png');
+        $schema = UploadedFile::fake()->create('schema.png');
 
         $tracks = [
             'name'          => $track_seed->name,
@@ -70,6 +72,8 @@ class CreateTracksActionTest extends TestCase
             'levelId'       => $track_seed->level_id,
             'is_work'       => $track_seed->is_work ? 1 : 0,
             'images'        => [$file],
+            'logo'          => $logo,
+            'schemaImg'     => $schema,
         ];
         $request = new CreateTrackRequest($tracks);
         Sanctum::actingAs($user);
