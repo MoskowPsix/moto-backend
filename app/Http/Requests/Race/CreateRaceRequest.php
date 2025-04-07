@@ -18,6 +18,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property array $cupIds
  * @property string $dateStart
  * @property string $recordEnd
+ * @property string $recordStart
  * @property int $statusId
  */
 class CreateRaceRequest extends FormRequest
@@ -41,6 +42,7 @@ class CreateRaceRequest extends FormRequest
             'name'          => 'required|string|max:255|min:3',
             'desc'          => 'nullable|string',
             'dateStart'     => 'required|date',
+            'recordStart'   => 'nullable|date',
             'recordEnd'     => 'nullable|date',
             'trackId'       => 'nullable|integer|exists:tracks,id',
             'images'        => 'array|nullable',
