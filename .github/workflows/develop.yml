@@ -29,9 +29,15 @@ jobs:
       - name: Generate key
         run: php artisan key:generate
 
+      - name: Clear cache
+        run: |
+          php artisan config:clear
+          php artisan cache:clear
+
       - name: Prepare database
         run: |
-          touch database/database.sqlite
+          echo "SQLite version: $(sqlite3 --version)"
+          touch database/:memory:
           php artisan tinker --execute="echo 'Foreign keys: ' . json_encode(DB::select('PRAGMA foreign_keys')[0]) . PHP_EOL;"
           php artisan migrate:fresh --env=testing
           php artisan db:seed --env=testing
