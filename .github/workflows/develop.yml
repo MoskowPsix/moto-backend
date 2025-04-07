@@ -31,7 +31,6 @@ jobs:
 
       - name: Prepare database
         run: |
-          echo "SQLite version: $(sqlite3 --version)"
           touch database/database.sqlite:
           php artisan tinker --execute="DB::statement('PRAGMA foreign_keys = ON;');"
           php artisan tinker --execute="echo 'Foreign keys: ' . json_encode(DB::select('PRAGMA foreign_keys')[0]) . PHP_EOL;"
