@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::table('races', function (Blueprint $table) {
             $table->integer('user_id')->nullable(true)->change();
-            $table->dropForeign('races_user_id_foreign');
+
+            if (DB::getDriverName() !== 'sqlite') {
+                $table->dropForeign('races_user_id_foreign');
+            }
+
             $table->foreign('user_id')->references('id')->on('users')->nullOnDelete();
         });
     }

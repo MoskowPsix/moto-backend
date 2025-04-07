@@ -24,7 +24,6 @@ class LoginActionTest extends TestCase
 
     public function test_action_successful(): void
     {
-        \Log::info("SQLite version: " . \DB::select('SELECT sqlite_version()')[0]->sqlite_version);
         $pass = fake()->password();
         $user = User::factory()->create([
             'password' => Hash::make($pass),
