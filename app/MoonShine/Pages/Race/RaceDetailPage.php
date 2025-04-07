@@ -32,6 +32,7 @@ class RaceDetailPage extends DetailPage
             Text::make('Название гонки', 'name'),
             Textarea::make('Описание', 'desc'),
             Date::make('Дата и время', 'date_start'),
+            Date::make('Старт регистрации', 'record_start'),
             Date::make('Конец регистрации', 'record_end'),
             Checkbox::make('Работает', 'is_work'),
             Image::make('Фото', 'images')->multiple(),
