@@ -18,7 +18,7 @@ jobs:
         with:
           php-version: '8.2.25'
           extensions: mbstring, ctype, fileinfo, openssl, pdo, sqlite3, pdo_sqlite, tokenizer, xml, gd
-          coverage: none
+          coverage: pcov
 
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.testing', '.env');"
