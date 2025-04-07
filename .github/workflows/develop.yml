@@ -29,11 +29,6 @@ jobs:
       - name: Generate key
         run: php artisan key:generate
 
-      - name: Clear cache
-        run: |
-          php artisan config:clear
-          php artisan cache:clear
-
       - name: Prepare database
         run: |
           echo "SQLite version: $(sqlite3 --version)"
