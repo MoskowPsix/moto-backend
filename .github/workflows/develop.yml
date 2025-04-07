@@ -32,10 +32,9 @@ jobs:
       - name: Prepare database
         run: |
           echo "SQLite version: $(sqlite3 --version)"
-          touch database/database.sqlite
+          touch database/:memory:
           php artisan tinker --execute="echo 'Foreign keys: ' . json_encode(DB::select('PRAGMA foreign_keys')[0]) . PHP_EOL;"
           php artisan migrate:fresh --env=testing
-          php artisan migrate:status --env=testing
           php artisan db:seed --env=testing
 
       - name: Execute tests
