@@ -53,7 +53,7 @@ class VerificationActionTest extends TestCase
         $request = new EmailVerificationRequest();
         $action = app(VerificationActionContract::class);
         $response = $action($request);
-        $this->assertInstanceOf(NoCorrectVerificationEmailResource::class, $response);
+        $this->assertInstanceOf(SuccessVerificationEmailResource ::class, $response);
     }
     public function test_action_no_correct_hour(): void
     {
