@@ -16,7 +16,7 @@ use Tests\TestCase;
 class GetForIdRaceActionTest extends TestCase
 {
     use RefreshDatabase;
-    protected $seed = true;
+    protected bool $seed = true;
 
     public function test_action_success_request_null(): void
     {
@@ -25,13 +25,80 @@ class GetForIdRaceActionTest extends TestCase
 
         $raceSeed = Race::factory()->create();
         $race = [
-            'user_id' => $user->id,
+            'userId' => $user->id,
         ];
 
         $raceRequest = new GetForIdRaceRequest($race);
 
         $action = app(GetForIdRaceActionContract::class);
         $response = $action($raceSeed->id, $raceRequest);
+        $this->assertInstanceOf(SuccessGetRaceForIdResource::class, $response);
+    }
+    public function test_get_race_with_appointment_check(): void
+    {
+        $user = User::factory()->create();
+        $race = Race::factory()->create();
+
+        $request = new GetForIdRaceRequest([
+            'userId' => $user->id,
+            'appointmentUser' => true,
+        ]);
+
+        $action = app(GetForIdRaceActionContract::class);
+        $response = $action($race->id, $request);
+
+        $responseData = $response->toArray(request());
+        $this->assertInstanceOf(SuccessGetRaceForIdResource::class, $response);
+    }
+    public function test_get_race_with_favourites_check(): void
+    {
+        $user = User::factory()->create();
+        $race = Race::factory()->create();
+
+        $request = new GetForIdRaceRequest([
+            'userId' => $user->id,
+            'favouritesUser' => true,
+        ]);
+
+        $action = app(GetForIdRaceActionContract::class);
+        $response = $action($race->id, $request);
+
+        $responseData = $response->toArray(request());
+        $this->assertInstanceOf(SuccessGetRaceForIdResource::class, $response);
+    }
+    public function test_get_race_with_commission_check(): void
+    {
+        $user = User::factory()->create();
+        $race = Race::factory()->create();
+
+        $request = new GetForIdRaceRequest([
+            'userIdExists' => $user->id,
+            'commissionUser' => true,
+        ]);
+
+        $action = app(GetForIdRaceActionContract::class);
+        $response = $action($race->id, $request);
+
+        $responseData = $response->toArray(request());
+        $this->assertInstanceOf(SuccessGetRaceForIdResource::class, $response);
+    }
+    public function test_get_race_with_all_checks(): void
+    {
+        $user = User::factory()->create();
+        $race = Race::factory()->create();
+
+        $request = new GetForIdRaceRequest([
+            'userId' => $user->id,
+            'appointmentUser' => true,
+            'favouritesUser' => true,
+            'userIdExists' => $user->id,
+            'commissionUser' => true,
+        ]);
+
+        $action = app(GetForIdRaceActionContract::class);
+        $response = $action($race->id, $request);
+
+        $responseData = $response->toArray(request());
         $this->assertInstanceOf(SuccessGetRaceForIdResource::class, $response);
     }
 }
