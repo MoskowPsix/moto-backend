@@ -6,6 +6,7 @@ namespace App\MoonShine\Resources;
 
 use App\Models\Track;
 use App\Models\User;
+use App\Traits\MoonShine\Resources\UserResourceTrait;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
@@ -51,6 +52,7 @@ use App\MoonShine\Resources\PhoneResource;
  */
 class UserResource extends ModelResource
 {
+    use UserResourceTrait;
     protected string $model = User::class;
 
     protected string $column = 'name';
@@ -132,6 +134,9 @@ class UserResource extends ModelResource
             Text::make('Область', 'personalInfo.location.name'),
             Text::make('Телефон', 'personalInfo.phone_number'),
             Checkbox::make('Подтверждён ли телефон', 'phone.number_verified_at'),
+
+            $this->tracks(),
+            $this->races(),
 
             Image::make(__('moonshine::ui.resource.avatar'), 'avatar')->modifyRawValue(fn (
                 ?string $raw
