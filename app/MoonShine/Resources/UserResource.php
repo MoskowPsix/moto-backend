@@ -4,20 +4,27 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources;
 
+use App\Models\Track;
 use App\Models\User;
+use App\Traits\MoonShine\Resources\UserResourceTrait;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
+use MoonShine\Contracts\Core\DependencyInjection\FieldsContract;
+use MoonShine\Laravel\DependencyInjection\MoonShine;
 use MoonShine\Laravel\Enums\Action;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\Laravel\Fields\Relationships\HasOne;
 use MoonShine\Laravel\Fields\Relationships\MorphToMany;
 use MoonShine\Laravel\Models\MoonshineUser;
+use MoonShine\Laravel\MoonShineUI;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Laravel\Models\MoonshineUserRole;
 use MoonShine\Support\Attributes\Icon;
 use MoonShine\Support\Enums\ClickAction;
 use MoonShine\Support\Enums\Color;
+use MoonShine\Support\Enums\ToastType;
 use MoonShine\Support\ListOf;
 use MoonShine\UI\Components\Badge;
 use MoonShine\UI\Components\Boolean;
@@ -45,6 +52,7 @@ use App\MoonShine\Resources\PhoneResource;
  */
 class UserResource extends ModelResource
 {
+    use UserResourceTrait;
     protected string $model = User::class;
 
     protected string $column = 'name';
@@ -127,6 +135,9 @@ class UserResource extends ModelResource
             Text::make('Телефон', 'personalInfo.phone_number'),
             Checkbox::make('Подтверждён ли телефон', 'phone.number_verified_at'),
 
+            $this->tracks(),
+            $this->races(),
+
             Image::make(__('moonshine::ui.resource.avatar'), 'avatar')->modifyRawValue(fn (
                 ?string $raw
             ): string => $raw ?? ''),
@@ -191,6 +202,20 @@ class UserResource extends ModelResource
                 ]),
             ]),
         ];
+    }
+
+    public function delete(mixed $item, ?FieldsContract $fields = null): bool
+    {
+        $trackIds = Track::where('user_id', $item->id)->pluck('id');
+        if($trackIds->isNotEmpty()) {
+            throw ValidationException::withMessages([
+                'error' => __('Невозможно удалить пользователя, так как к нему привязаны трассы с ID: :ids.', [
+                    'ids' => $trackIds->implode(', '),
+                ]),
+            ]);
+        }
+
+        return parent::delete($item, $fields);
     }
 
     /**

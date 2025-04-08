@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Http\Resources\Auth\Logout\SuccessLogoutResource;
 use App\Http\Resources\User\Update\ErrorUpdateUserResource;
 use App\Http\Resources\User\Update\SuccessUpdateUserResource;
+use App\Models\Phone;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
@@ -20,7 +21,10 @@ class UpdateUserActionTest extends TestCase
     protected bool $seed = true;
     public function test_update_user_success(): void
     {
-        $user = User::factory()->create(['avatar' => 'sssssss']);
+        $user = User::factory()->create([
+            'avatar' => 'sssssss',
+
+        ]);
         $image = UploadedFile::fake()->create('file.png');
 
         Sanctum::actingAs($user);
@@ -28,6 +32,30 @@ class UpdateUserActionTest extends TestCase
             'name'      => 'test',
             'email'     => 'test@test',
             'avatar'    => $image,
+            'number'    => fake()->phoneNumber,
+        ];
+        $userRequest = new UpdateUserRequest($req);
+
+        $action = app(UpdateUserActionContract::class);
+        $response = $action($userRequest);
+        $this->assertInstanceOf(SuccessUpdateUserResource::class, $response);
+    }
+    public function test_update_user_success_with_phone(): void
+    {
+        $user = User::factory()->create([
+            'avatar' => 'sssssss',
+        ]);
+        $phone = Phone::factory()->create([
+            'user_id' => $user->id,
+        ]);
+        $image = UploadedFile::fake()->create('file.png');
+
+        Sanctum::actingAs($user);
+        $req = [
+            'name'      => 'test',
+            'email'     => 'test@test',
+            'avatar'    => $image,
+            'number'    => fake()->phoneNumber,
         ];
         $userRequest = new UpdateUserRequest($req);
 

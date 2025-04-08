@@ -10,6 +10,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property array $gradeIds
  * @property array $cupIds
  * @property string $recordEnd
+ * @property string $recordStart
  */
 class UpdateRaceRequest extends FormRequest
 {
@@ -33,6 +34,7 @@ class UpdateRaceRequest extends FormRequest
             'desc'              => 'nullable|string',
             'dateStart'         => 'nullable|date',
             'recordEnd'         => 'nullable|date',
+            'recordStart'       => 'nullable|date',
             'trackId'           => 'nullable|integer|exists:tracks,id',
             'imagesAdd'         => 'array|nullable',
             'imagesAdd.*'       => 'image|mimes:jpeg,png,jpg,svg,webp',

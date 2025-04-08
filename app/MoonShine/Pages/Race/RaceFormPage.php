@@ -33,6 +33,7 @@ class RaceFormPage extends FormPage
             Text::make('Название гонки', 'name')->required(),
             Textarea::make('Описание', 'desc'),
             Date::make('Дата и время', 'date_start')->withTime()->required(),
+            Date::make('Старт регистрации', 'record_start')->withTime(),
             Date::make('Конец регистрации', 'record_end')->withTime(),
             Checkbox::make('Работает', 'is_work')->required(),
             Image::make('Фото', 'images')->multiple()->dir(isset($item->id) ? "/race/$item->id" : "/race")->removable(),

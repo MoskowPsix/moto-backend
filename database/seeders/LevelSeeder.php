@@ -6,6 +6,7 @@ use App\Constants\levelConstant;
 use App\Models\Level;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 
 class LevelSeeder extends Seeder
 {
@@ -14,6 +15,10 @@ class LevelSeeder extends Seeder
      */
     public function run(levelConstant $const): void
     {
+        if (!Schema::hasTable('levels')) {
+            throw new \Exception('Table levels does not exist');
+        }
+
         $levels = $const->getConstants();
         foreach ($levels as $level) {
             Level::create($level);

@@ -19,6 +19,7 @@ class CreateRaceAction implements CreateRaceActionContract
             'desc'          => $request->desc ?? '',
             'date_start'    => $request->dateStart,
             'track_id'      => $request->trackId,
+            'record_start'  => isset($request->recordStart) ? Carbon::parse($request->recordStart) : null,
             'record_end'    => isset($request->recordEnd) ? Carbon::parse($request->recordEnd) : null,
             'user_id'       => $user->id,
             'location_id'   => $request->locationId ?? Track::find($request->locationId)->location_id,

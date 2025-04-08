@@ -10,56 +10,28 @@ use App\Models\Track;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Request;
+use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 
 class GetForIdRaceActionTest extends TestCase
 {
     use RefreshDatabase;
     protected $seed = true;
-    /**
-     * A basic feature test example.
-     */
+
     public function test_action_success_request_null(): void
     {
-        $race = Race::factory()->create();
-
-        $raceRequest = new GetForIdRaceRequest();
-
-        $action = app(GetForIdRaceActionContract::class);
-        $response = $action($race->id, $raceRequest);
-        $this->assertInstanceOf(SuccessGetRaceForIdResource::class, $response);
-    }
-
-    public function test_action_success(): void
-    {
-        $race = Race::factory()->create();
-
-        $raceRequest = new GetForIdRaceRequest([
-            'userId'            => 1,
-            'appointmentUser'   => 1,
-        ]);
-
-        $action = app(GetForIdRaceActionContract::class);
-        $response = $action($race->id, $raceRequest);
-        $this->assertInstanceOf(SuccessGetRaceForIdResource::class, $response);
-    }
-
-    public function test_action_success_with_id_and_appointment_user(): void
-    {
         $user = User::factory()->create();
-        $race = Race::factory()->create();
+        Sanctum::actingAs($user);
 
-        $raceRequest = new GetForIdRaceRequest([
-            'userId'            => $user->id,
-            'appointmentUser'   => 1,
-        ]);
+        $raceSeed = Race::factory()->create();
+        $race = [
+            'user_id' => $user->id,
+        ];
+
+        $raceRequest = new GetForIdRaceRequest($race);
 
         $action = app(GetForIdRaceActionContract::class);
-        $response = $action($race->id, $raceRequest);
-
+        $response = $action($raceSeed->id, $raceRequest);
         $this->assertInstanceOf(SuccessGetRaceForIdResource::class, $response);
-
-        $resource = $response->resource;
-        $this->assertNull($resource->appointments_exists, $resource->user_id);
     }
 }

@@ -31,6 +31,7 @@ class Race extends Model
         'position_file',
         'results_file',
         'pdf_files',
+        'record_start',
         'record_end',
         'track_id',
         'user_id',

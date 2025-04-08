@@ -12,13 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('races', function (Blueprint $table) {
-            $table->integer('user_id')->nullable(true)->change();
-
-            if (DB::getDriverName() !== 'sqlite') {
-                $table->dropForeign('races_user_id_foreign');
-            }
-
-            $table->foreign('user_id')->references('id')->on('users')->nullOnDelete();
+            $table->timestamp('record_start')->nullable();
         });
     }
 
@@ -28,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('races', function (Blueprint $table) {
-            //
+            $table->dropColumn('record_start');
         });
     }
 };

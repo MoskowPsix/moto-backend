@@ -15,11 +15,7 @@ use Exception;
 
 class LoginActionTest extends TestCase
 {
-    /**
-     * @throws Exception
-     */
     use RefreshDatabase;
-
     protected bool $seed = true;
 
     public function test_action_successful(): void
@@ -68,25 +64,4 @@ class LoginActionTest extends TestCase
 
         $this->assertInstanceOf(ErrorEmailExistsResource::class, $userAction);
     }
-
-//    public function test_action_throw_exception(): void
-//    {
-//        $pass = fake()->password();
-//        $user = User::factory()->create([
-//            'password' => Hash::make($pass),
-//        ]);
-//
-//        $request = new LoginRequest([
-//            'password' => '',
-//            'email' => $user->email,
-//        ]);
-//        $action = app(LoginActionContract::class);
-//        $response = $action($request);
-//
-//        $this->assertInstanceOf(ErrorLoginResource::class, $response);
-//
-//        $this->assertEquals('Неверные учетные данные.', $response->resource['Login failed']);
-//
-//    }
-
 }

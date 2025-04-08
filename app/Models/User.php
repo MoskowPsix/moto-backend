@@ -82,6 +82,14 @@ class User extends Authenticatable
 //    {
 //        return $this->belongsToMany(User::class, 'race_commission', 'race_id', 'user_id');
 //    }
+    public function tracks(): HasMany
+    {
+        return $this->hasMany(Track::class);
+    }
+    public function races(): HasMany
+    {
+        return $this->hasMany(Race::class);
+    }
     public function transactions(): HasMany
     {
         return $this->hasMany(Transaction::class);
@@ -96,7 +104,7 @@ class User extends Authenticatable
     }
     public function favoritesUser(): BelongsToMany
     {
-        return $this->belongsToMany(Race::class, 'favorite_races', 'user_id', 'race_id');
+        return $this->belongsToMany(Race::class, 'favorite_users', 'user_id', 'race_id');
     }
     public function members(): BelongsToMany
     {
