@@ -52,6 +52,7 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\Document\GetFileDocumentActionContract::class                            => \App\Actions\Controllers\Document\GetFileDocumentAction::class,
         \App\Contracts\Actions\Controllers\Document\UpdateDocumentActionContract::class                             => \App\Actions\Controllers\Document\UpdateDocumentAction::class,
         \App\Contracts\Actions\Controllers\Document\DeleteDocumentActionContract::class                             => \App\Actions\Controllers\Document\DeleteDocumentAction::class,
+        \App\Contracts\Actions\Controllers\Document\VerifyDocsForCommissionActionContract::class                    => \App\Actions\Controllers\Document\VerifyDocsForCommissionAction::class,
         \App\Contracts\Actions\Controllers\AppointmentRace\ToggleAppointmentRaceActionContract::class               => \App\Actions\Controllers\AppointmentRace\ToggleAppointmentRaceAction::class,
         \App\Contracts\Actions\Controllers\AppointmentRace\DeleteAppointmentRaceActionContract::class               => \App\Actions\Controllers\AppointmentRace\DeleteAppointmentRaceAction::class,
         \App\Contracts\Actions\Controllers\AppointmentRace\GetUsersAppointmentRaceActionContract::class             => \App\Actions\Controllers\AppointmentRace\GetUsersAppointmentRaceAction::class,

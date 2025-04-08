@@ -8,6 +8,7 @@ use App\Contracts\Actions\Controllers\Document\GetDocumentForUserActionContract;
 use App\Contracts\Actions\Controllers\Document\GetDocumentForUserByIdActionContract;
 use App\Contracts\Actions\Controllers\Document\GetFileDocumentActionContract;
 use App\Contracts\Actions\Controllers\Document\UpdateDocumentActionContract;
+use App\Contracts\Actions\Controllers\Document\VerifyDocsForCommissionActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Document\CreateDocumentRequest;
 use App\Http\Requests\Document\GetDocumentForUserRequest;
@@ -18,6 +19,7 @@ use App\Http\Resources\Document\GetForUser\SuccessGetDocumentForUserResource;
 use App\Http\Resources\Document\GetForUserById\NotFoundGetDocumentForUserByIdResource;
 use App\Http\Resources\Document\GetForUserById\SuccessGetDocumentForUserByIdResource;
 use App\Http\Resources\Document\Update\SuccessUpdateDocumentResource;
+use App\Http\Resources\Document\VerifyDocsForCommission\SuccessVerifyDocsForCommissionResource;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\Document;
@@ -66,6 +68,13 @@ class DocumentController extends Controller
     public function update(int $id, UpdateDocumentRequest $request, UpdateDocumentActionContract $action): SuccessUpdateDocumentResource | NotFoundResource | NotUserPermissionResource
     {
         return $action($id, $request);
+    }
+    #[ResponseFromApiResource(SuccessVerifyDocsForCommissionResource::class)]
+    #[ResponseFromApiResource(NotFoundResource::class, PersonalInfo::class, status: 404)]
+    #[Endpoint(title: 'VerifyDocsForCommission', description: 'Сделать документ проверенным. Метод для комиссии.')]
+    public function verifyDocsForCommission(int $id, VerifyDocsForCommissionActionContract $action): SuccessVerifyDocsForCommissionResource|NotFoundResource
+    {
+        return $action($id);
     }
     #[ResponseFromApiResource(SuccessDeleteDocumentResource::class)]
     #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
