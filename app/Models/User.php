@@ -96,7 +96,7 @@ class User extends Authenticatable
     }
     public function favoritesUser(): BelongsToMany
     {
-        return $this->belongsToMany(Race::class, 'favorite_races', 'user_id', 'race_id');
+        return $this->belongsToMany(Race::class, 'favorite_users', 'user_id', 'race_id');
     }
     public function members(): BelongsToMany
     {
