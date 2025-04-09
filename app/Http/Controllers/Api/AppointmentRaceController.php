@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Contracts\Actions\Controllers\AppointmentRace\CreateTableAppointmentRaceUserActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentPDFActionContract;
+use App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentRaceUsersForCommissionActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\GetUsersAppointmentRaceActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\ToggleAppointmentRaceActionContract;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AppointmentRace\GetAppointmentRaceUsersForCommissionRequest;
 use App\Http\Requests\AppointmentRace\GetUsersAppointmentRaceRequest;
 use App\Http\Requests\AppointmentRace\ToogleAppointmentRaceRequest;
 use App\Http\Resources\AppointmentRace\Create\ExistsAppointmentRaceResource;
@@ -16,6 +18,7 @@ use App\Http\Resources\AppointmentRace\Create\SuccessCreateAppointmentRaceResour
 use App\Http\Resources\AppointmentRace\Delete\SuccessDeleteAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\GetUsers\SuccessGetUsersAppointmentResource;
 use App\Http\Resources\AppointmentRace\SuccessCreateTableAppointmentRaceResource;
+use App\Http\Resources\AppointmentRace\SuccessGetAppointmentRaceUsersForCommissionResource;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\User;
@@ -35,7 +38,7 @@ class AppointmentRaceController extends Controller
     #[ResponseFromApiResource(ManyDocumentAppointmentRaceResource::class, status: 422)]
     #[ResponseFromApiResource(ExistsAppointmentRaceResource::class, status: 409)]
     #[ResponseFromApiResource(GradeNotExistsAppointmentRaceResource::class, status: 404)]
-    #[Endpoint(title: 'toggle', description: 'Записаться и отменить запись на гонку')]
+    #[Endpoint(title: 'Toggle', description: 'Записаться и отменить запись на гонку')]
     public function toggle(int $id, ToogleAppointmentRaceRequest $request, ToggleAppointmentRaceActionContract $action):
     SuccessCreateAppointmentRaceResource|
     NotFoundResource|
@@ -57,7 +60,7 @@ class AppointmentRaceController extends Controller
     #[ResponseFromApiResource(SuccessCreateTableAppointmentRaceResource::class)]
     #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
     #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
-    #[Endpoint(title: 'getTable', description: 'Получить ссылку на таблицу участников')]
+    #[Endpoint(title: 'GetTable', description: 'Получить ссылку на таблицу участников')]
     public function getUsersAppointmentRaceInTable(int $id, CreateTableAppointmentRaceUserActionContract $action): SuccessCreateTableAppointmentRaceResource | NotUserPermissionResource | NotFoundResource
     {
         return $action($id);
@@ -65,10 +68,22 @@ class AppointmentRaceController extends Controller
     #[Authenticated]
     #[ResponseFromFile(file: "storage/app/private/user/documents/URsB0gs6G0ATlQnF2TdirtS1hCOJfMOFoxmkBWgo.png")]
     #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
-    #[Endpoint(title: 'getAppointmentPDF', description: 'Возвращает документ заявки гонщика для комиссии')]
+    #[Endpoint(title: 'GetAppointmentPDF', description: 'Возвращает документ заявки гонщика для комиссии')]
     public function getAppointmentPDF(int $id, GetAppointmentPDFActionContract $action): BinaryFileResponse|NotFoundResource
     {
         return $action($id);
+    }
+    #[Authenticated]
+    #[ResponseFromApiResource(SuccessGetAppointmentRaceUsersForCommissionResource::class, User::class)]
+    #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[Endpoint(title: 'GetAppointmentsUsers', description: 'Возвращает пользователей для комиссии.')]
+    public function getAppointmentsUsers(int $id, GetAppointmentRaceUsersForCommissionRequest $request, GetAppointmentRaceUsersForCommissionActionContract $action):
+    NotFoundResource|
+    NotUserPermissionResource|
+    SuccessGetAppointmentRaceUsersForCommissionResource
+    {
+        return $action($id, $request);
     }
 //    public function delete(int $id, DeleteAppointmentRaceActionContract $action): SuccessDeleteAppointmentRaceResource | NotFoundResource
 //    {
