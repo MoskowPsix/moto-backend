@@ -18,7 +18,7 @@ class UpdateAttendanceAction implements UpdateAttendanceActionContract
         if(!isset($attendance)) {
             return NotFoundResource::make([]);
         }
-        if ($attendance->user_id !== auth()->user()->id) {
+        if ($attendance->track->user_id !== auth()->id()) {
             return NotUserPermissionResource::make([]);
         }
         $attendance->update([

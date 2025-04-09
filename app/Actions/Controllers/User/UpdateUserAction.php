@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Storage;
 
 class UpdateUserAction implements UpdateUserActionContract
 {
-
     public function __invoke(UpdateUserRequest $request): SuccessUpdateUserResource | ErrorUpdateUserResource
     {
         $user = auth()->user();
