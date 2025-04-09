@@ -20,10 +20,14 @@ class UpdateUserAction implements UpdateUserActionContract
             return new ErrorUpdateUserResource([]);
         }
         $emailChanged = isset($request->email) && $request->email !== $user->email;
+
+        if ($emailChanged) {
+            $user->email_verified_at = null;
+        }
+
         $user->update([
             'name' => $request->name ?? $user->name,
             'email' => $request->email ?? $user->email,
-            'email_verified_at' => $emailChanged ? null : $user->email_verified_at
         ]);
 
         if ($request->avatar) {
