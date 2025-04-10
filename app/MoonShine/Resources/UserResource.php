@@ -39,6 +39,7 @@ use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\Email;
 use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Image;
+use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Password;
 use MoonShine\UI\Fields\PasswordRepeat;
 use MoonShine\UI\Fields\Phone;
@@ -132,7 +133,8 @@ class UserResource extends ModelResource
             Text::make('Фамилия', 'personalInfo.surname'),
             Text::make('Город', 'personalInfo.city'),
             Text::make('Область', 'personalInfo.location.name'),
-            Text::make('Телефон', 'personalInfo.phone_number'),
+
+            Phone::make('Телефон', 'phone.number'),
             Checkbox::make('Подтверждён ли телефон', 'phone.number_verified_at'),
 
             $this->tracks(),
@@ -257,7 +259,9 @@ class UserResource extends ModelResource
 //                resource: MoonShineUserRoleResource::class,
 //            )->valuesQuery(static fn (Builder $q) => $q->select(['id', 'name'])),
 
+            Number::make('ID', 'id'),
             Email::make('E-mail', 'email'),
+            Text::make('Username', 'name'),
         ];
     }
 }
