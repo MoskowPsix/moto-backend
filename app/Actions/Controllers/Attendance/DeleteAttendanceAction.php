@@ -17,7 +17,7 @@ class DeleteAttendanceAction implements DeleteAttendanceActionContract
         if (!isset($attendance)) {
             return NotFoundResource::make([]);
         }
-        if ($attendance->user_id !== auth()->user()->id) {
+        if ($attendance->track->user_id !== auth()->id()) {
             return NotUserPermissionResource::make([]);
         }
         $attendance->delete();

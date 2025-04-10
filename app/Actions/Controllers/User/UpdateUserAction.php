@@ -13,22 +13,23 @@ use Illuminate\Support\Facades\Storage;
 
 class UpdateUserAction implements UpdateUserActionContract
 {
-
     public function __invoke(UpdateUserRequest $request): SuccessUpdateUserResource | ErrorUpdateUserResource
     {
         $user = auth()->user();
         if(empty($user)) {
             return new ErrorUpdateUserResource([]);
         }
+        $emailChanged = isset($request->email) && $request->email !== $user->email;
+
+        if ($emailChanged) {
+            $user->email_verified_at = null;
+        }
+
         $user->update([
             'name' => $request->name ?? $user->name,
             'email' => $request->email ?? $user->email,
         ]);
-        if (isset($request->email)) {
-            $user->update([
-                'email_verified_at' => null,
-            ]);
-        }
+
         if ($request->avatar) {
             $this->delete($user->avatar);
             $this->saveImages($request->avatar, $user);

@@ -8,6 +8,7 @@ use App\Http\Resources\Attendance\Delete\SuccessDeleteAttendanceResource;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\Attendance;
+use App\Models\Track;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -19,9 +20,7 @@ class DeleteAttendanceActionTest extends TestCase
 {
     use RefreshDatabase;
     protected bool $seed = true;
-    /**
-     * A basic feature test example.
-     */
+
     public function test_action_not_found(): void
     {
         $attendance = Attendance::factory()->create();
@@ -45,21 +44,23 @@ class DeleteAttendanceActionTest extends TestCase
 
         $this->assertInstanceOf(NotUserPermissionResource::class, $response);
     }
-//    public function test_action_success(): void
-//    {
-//        $user = User::factory()->create();
-//        Sanctum::actingAs($user);
-//
-//        $attendance = Attendance::factory()->create();
-//
-//        $transaction = Transaction::factory()->create([
-//            'user_id' => $user->id,
-//            'attendance_id' => $attendance->id,
-//        ]);
-//
-//        $action = app(DeleteAttendanceActionContract::class);
-//        $response = $action($attendance->id, new DeleteAttendanceRequest());
-//
-//        $this->assertInstanceOf(SuccessDeleteAttendanceResource::class, $response);
-//    }
+    public function test_action_success(): void
+    {
+        $user = User::factory()->create();
+        Sanctum::actingAs($user);
+
+        $track = Track::factory()->create([
+            'user_id' => $user->id,
+        ]);
+
+        $attendance = Attendance::factory()->create([
+            'track_id' => $track->id,
+        ]);
+
+        $request = new DeleteAttendanceRequest();
+        $action = app(DeleteAttendanceActionContract::class);
+        $response = $action($attendance->id, $request);
+
+        $this->assertInstanceOf(SuccessDeleteAttendanceResource::class, $response);
+    }
 }
