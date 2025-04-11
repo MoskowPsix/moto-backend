@@ -136,7 +136,6 @@ class UserResource extends ModelResource
 
             Phone::make('Телефон', 'phone.number'),
             Checkbox::make('Подтверждён ли телефон', 'phone.number_verified_at'),
-
             $this->tracks(),
             $this->races(),
 
@@ -178,6 +177,9 @@ class UserResource extends ModelResource
                             Email::make(__('moonshine::ui.resource.email'), 'email')
                                 ->required(),
                             Date::make('Подтверждение почты', 'email_verified_at')->withTime(),
+
+                            $this->phone(),
+
 //                            Phone::make('Телефон(Не изменяемое поле)', 'phone.number'),
 //                            Date::make('Подтверждение телефона(Не изменяемое поле)', 'phone.number_verified_at')->withTime(),
                         ]),
@@ -245,6 +247,7 @@ class UserResource extends ModelResource
         return [
             'id',
             'personalInfo.surname',
+            'phone.number',
             'email',
         ];
     }
@@ -260,8 +263,9 @@ class UserResource extends ModelResource
 //            )->valuesQuery(static fn (Builder $q) => $q->select(['id', 'name'])),
 
             Number::make('ID', 'id'),
-            Email::make('E-mail', 'email'),
             Text::make('Username', 'name'),
+            Phone::make('Phone', 'phone.number'),
+            Email::make('E-mail', 'email'),
         ];
     }
 }

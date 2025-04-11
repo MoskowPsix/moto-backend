@@ -6,14 +6,13 @@ namespace App\MoonShine\Resources;
 
 use App\Models\Phone;
 use Illuminate\Database\Eloquent\Model;
-
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\ID;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
-//use MoonShine\UI\Fields\Phone;
+
 
 /**
  * @extends ModelResource<Phone>
@@ -33,7 +32,7 @@ class PhoneResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Phone::make('Номер', 'number')->sortable(),
+            \MoonShine\UI\Fields\Phone::make('Номер', 'number')->sortable(),
             Date::make('Подтверждение телефона', 'number_verified_at')->sortable(),
         ];
     }
@@ -45,7 +44,7 @@ class PhoneResource extends ModelResource
     {
         return [
             Box::make([
-                Phone::make('Номер', 'number'),
+                \MoonShine\UI\Fields\Phone::make('Номер', 'number'),
                 Date::make('Подтверждение телефона', 'number_verified_at'),
             ])
         ];
@@ -59,6 +58,14 @@ class PhoneResource extends ModelResource
         return [
             ID::make(),
         ];
+    }
+
+    protected function beforeCreating(mixed $item): mixed
+    {
+        if(request()->has('user_id')) {
+            $item->user_id = request('user_id');
+        }
+        return $item;
     }
 
     /**
