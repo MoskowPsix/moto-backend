@@ -39,6 +39,7 @@ use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\Email;
 use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Image;
+use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Password;
 use MoonShine\UI\Fields\PasswordRepeat;
 use MoonShine\UI\Fields\Phone;
@@ -132,9 +133,9 @@ class UserResource extends ModelResource
             Text::make('Фамилия', 'personalInfo.surname'),
             Text::make('Город', 'personalInfo.city'),
             Text::make('Область', 'personalInfo.location.name'),
-            Text::make('Телефон', 'personalInfo.phone_number'),
-            Checkbox::make('Подтверждён ли телефон', 'phone.number_verified_at'),
 
+            Phone::make('Телефон', 'phone.number'),
+            Checkbox::make('Подтверждён ли телефон', 'phone.number_verified_at'),
             $this->tracks(),
             $this->races(),
 
@@ -176,8 +177,8 @@ class UserResource extends ModelResource
                             Email::make(__('moonshine::ui.resource.email'), 'email')
                                 ->required(),
                             Date::make('Подтверждение почты', 'email_verified_at')->withTime(),
-//                            Phone::make('Телефон(Не изменяемое поле)', 'phone.number'),
-//                            Date::make('Подтверждение телефона(Не изменяемое поле)', 'phone.number_verified_at')->withTime(),
+
+                            $this->phone(),
                         ]),
 
                         Image::make(__('moonshine::ui.resource.avatar'), 'avatar')
@@ -243,6 +244,7 @@ class UserResource extends ModelResource
         return [
             'id',
             'personalInfo.surname',
+            'phone.number',
             'email',
         ];
     }
@@ -257,6 +259,9 @@ class UserResource extends ModelResource
 //                resource: MoonShineUserRoleResource::class,
 //            )->valuesQuery(static fn (Builder $q) => $q->select(['id', 'name'])),
 
+            Number::make('ID', 'id'),
+            Text::make('Username', 'name'),
+            Phone::make('Phone', 'phone.number'),
             Email::make('E-mail', 'email'),
         ];
     }
