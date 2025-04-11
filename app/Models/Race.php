@@ -73,7 +73,7 @@ class Race extends Model
     }
     public function grades():BelongsToMany
     {
-        return $this->belongsToMany(Grade::class);
+        return $this->belongsToMany(Grade::class)->orderBy('name', 'asc');
     }
     public function commissions(): BelongsToMany
     {

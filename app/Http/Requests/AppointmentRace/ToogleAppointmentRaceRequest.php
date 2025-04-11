@@ -31,7 +31,7 @@ class ToogleAppointmentRaceRequest extends FormRequest
             'dateOfBirth'              => 'required|date',
             'city'                     => 'required|string',
             'region'                   => 'nullable|string',
-            'inn'                      => 'required|integer',
+            'inn'                      => 'required|string',
             'snils'                    => 'required|string',
             'phoneNumber'              => 'required|string',
             'startNumber'              => 'required|integer|min:1|max:999',
