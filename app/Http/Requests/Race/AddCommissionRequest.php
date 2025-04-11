@@ -25,8 +25,8 @@ class AddCommissionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'usersIds' => 'array|nullable',
-            'usersIds.*' => 'integer|exists:users,id',
+            'usersIds'      =>  'array|nullable',
+            'usersIds.*'    =>  'integer|exists:users,id',
         ];
     }
 }

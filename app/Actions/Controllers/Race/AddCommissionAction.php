@@ -27,9 +27,7 @@ class AddCommissionAction implements AddCommissionActionContract
 
         if(empty($request->usersIds)){
             $race->commissions()->sync([]);
-            return SuccessAddCommissionResource::make([
-                'message'  => 'Комиссии удалены',
-            ]);
+            return SuccessAddCommissionResource::make([]);
         }
 
         User::whereIn('id', $request->usersIds)->each(function (User $user) {
