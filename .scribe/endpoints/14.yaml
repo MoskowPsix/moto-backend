@@ -26,7 +26,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: polis
+        example: notarius
         type: string
         enumValues:
           - licenses
@@ -49,7 +49,7 @@ endpoints:
         name: url
         description: ''
         required: false
-        example: 'http://crona.net/'
+        example: 'http://www.eichmann.com/'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -59,7 +59,7 @@ endpoints:
         name: number
         description: ''
         required: false
-        example: quod
+        example: minima
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -69,7 +69,7 @@ endpoints:
         name: issuedWhom
         description: ''
         required: false
-        example: voluptatem
+        example: dolor
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -79,24 +79,24 @@ endpoints:
         name: itWorksDate
         description: ''
         required: false
-        example: exercitationem
+        example: a
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      type: polis
-      url: 'http://crona.net/'
-      number: quod
-      issuedWhom: voluptatem
-      itWorksDate: exercitationem
+      type: notarius
+      url: 'http://www.eichmann.com/'
+      number: minima
+      issuedWhom: dolor
+      itWorksDate: a
     fileParameters:
       file: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d.","document":{"id":958,"name":"file_67f50bed28dd0","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
+        content: '{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d.","document":{"id":963,"name":"file_67f91b3359604","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
         headers: []
         description: ''
         custom: []
@@ -131,7 +131,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 5
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -141,20 +141,20 @@ endpoints:
         name: commandId
         description: 'The <code>id</code> of an existing record in the commands table.'
         required: false
-        example: 3
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      userId: 5
-      commandId: 3
+      userId: 15
+      commandId: 16
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","documents":{"id":959,"name":"file_67f50bed30946","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}},{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","documents":{"id":960,"name":"file_67f50bed33ef1","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}]'
+        content: '[{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","documents":{"id":964,"name":"file_67f91b3361112","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}},{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u044b \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","documents":{"id":965,"name":"file_67f91b33644f6","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}]'
         headers: []
         description: ''
         custom: []
@@ -266,7 +266,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","document":{"id":961,"name":"file_67f50bed404c1","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
+        content: '{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","document":{"id":966,"name":"file_67f91b3370ad4","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
         headers: []
         description: ''
         custom: []
@@ -328,7 +328,7 @@ endpoints:
         name: number
         description: ''
         required: false
-        example: porro
+        example: rerum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -338,7 +338,7 @@ endpoints:
         name: issuedWhom
         description: ''
         required: false
-        example: et
+        example: dolor
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -348,22 +348,22 @@ endpoints:
         name: itWorksDate
         description: ''
         required: false
-        example: nesciunt
+        example: dolores
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      number: porro
-      issuedWhom: et
-      itWorksDate: nesciunt
+      number: rerum
+      issuedWhom: dolor
+      itWorksDate: dolores
     fileParameters:
       file: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0451\u043d.","document":{"id":962,"name":"file_67f50bed49fc6","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
+        content: '{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0451\u043d.","document":{"id":967,"name":"file_67f91b337a22c","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
         headers: []
         description: ''
         custom: []
