@@ -138,6 +138,7 @@ class UserResource extends ModelResource
             Checkbox::make('Подтверждён ли телефон', 'phone.number_verified_at'),
             $this->tracks(),
             $this->races(),
+            $this->commands(),
 
             Image::make(__('moonshine::ui.resource.avatar'), 'avatar')->modifyRawValue(fn (
                 ?string $raw

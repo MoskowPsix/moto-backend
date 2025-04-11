@@ -90,6 +90,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Race::class);
     }
+    public function commands(): HasMany
+    {
+        return $this->hasMany(Command::class);
+    }
     public function transactions(): HasMany
     {
         return $this->hasMany(Transaction::class);

@@ -2,6 +2,7 @@
 
 namespace App\Traits\MoonShine\Resources;
 
+use App\MoonShine\Resources\CommandResource;
 use App\MoonShine\Resources\PhoneResource;
 use App\MoonShine\Resources\RaceResource;
 use App\MoonShine\Resources\TrackResource;
@@ -17,6 +18,10 @@ trait UserResourceTrait
     public function races(): HasMany
     {
         return HasMany::make('Гонки', 'races', resource: RaceResource::class);
+    }
+    public function commands(): HasMany
+    {
+        return HasMany::make('Команды', 'commands', resource: CommandResource::class);
     }
     public function phone(): HasOne
     {
