@@ -24,6 +24,12 @@ class AddCommissionAction implements AddCommissionActionContract
         if($race->user_id !== auth()->user()->id) {
             return NotUserPermissionResource::make([]);
         }
+
+        if(empty($request->usersIds)){
+            $race->commissions()->sync([]);
+            return SuccessAddCommissionResource::make([]);
+        }
+
         User::whereIn('id', $request->usersIds)->each(function (User $user) {
             if(!$user->hasRole(RoleConstant::COMMISSION)){
                 $this->check_role = false;
