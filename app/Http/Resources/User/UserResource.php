@@ -18,6 +18,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property array $roles
  * @property string $email_verified_at
  * @property string $avatar
+ * @property boolean $appointments_exists
  */
 class UserResource extends JsonResource
 {
@@ -34,6 +35,7 @@ class UserResource extends JsonResource
             'email'                 => $this->email,
             'email_verified_at'     => $this->email_verified_at,
             'avatar'                => $this->avatar,
+            'appointments_exists'   => $this->when(isset($this->appointments_exists), $this->appointments_exists),
             'roles'                 => RoleResource::collection($this->whenLoaded('roles')),
             'personal'              => PersonalInfoResource::make($this->whenLoaded('personalInfo')),
             'phone'                 => PhoneResource::make($this->whenLoaded('phone')),

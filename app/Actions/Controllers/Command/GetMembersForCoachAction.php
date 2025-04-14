@@ -20,6 +20,9 @@ class GetMembersForCoachAction implements GetMembersForCoachActionContract
     NotFoundResource|
     GetMembersForCoachCommandResource
     {
+        if (!Command::where('id', $id)->exists()) {
+            return NotFoundResource::make([]);
+        }
         if (!Command::find($id)->coaches()->where('user_id', auth()->user()->id)->exists() && !auth()->user()->hasRole(RoleConstant::ROOT)) {
             return NotUserPermissionResource::make([]);
         }

@@ -72,7 +72,7 @@ class User extends Authenticatable
     }
     public function appointments(): BelongsToMany
     {
-        return $this->belongsToMany(Race::class, 'appointment_races', 'race_id', 'user_id');
+        return $this->belongsToMany(Race::class, 'appointment_races', 'user_id', 'race_id');
     }
     public function ecode(): HasOne
     {
