@@ -25,6 +25,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property object $contacts
  * @property string $position_file
  * @property string $results_file
+ * @property string $pdf_files
  * @property string $record_end
  * @property string $record_start
  * @property bool $favourites_user_exists
@@ -57,6 +58,7 @@ class RaceResource extends JsonResource
             'favorite_exists'       => $this->when(isset($this->favourites_user_exists), $this->favourites_user_exists),
             'position_file'         => $this->position_file,
             'results_file'          => $this->results_file,
+            'pdf_files'             => $this->pdf_files,
             'location'              => LocationResource::make($this->whenLoaded('location')),
             'grades'                => GradeResource::collection($this->whenLoaded('grades')),
             'status'                => StatusResource::make($this->whenLoaded('status')),
