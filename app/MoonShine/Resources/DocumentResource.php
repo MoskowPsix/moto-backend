@@ -45,7 +45,9 @@ class DocumentResource extends ModelResource
             ID::make()->sortable(),
             Text::make('Имя', 'name'),
             Text::make('Имя', 'type.value'),
-            File::make('Файл', 'path'),
+            File::make('Файл', 'path')->itemAttributes(fn(string $filename, int $index = 0) => [
+                'style' => 'width: 1000px;'
+            ])->keepOriginalFileName(),
         ];
     }
 

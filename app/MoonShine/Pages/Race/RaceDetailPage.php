@@ -36,9 +36,15 @@ class RaceDetailPage extends DetailPage
             Date::make('Конец регистрации', 'record_end'),
             Checkbox::make('Работает', 'is_work'),
             Image::make('Фото', 'images')->multiple(),
-            File::make('Файл положения', 'position_file'),
-            File::make('Файл регламента', 'results_file'),
-            File::make('Файл с итогами', 'pdf_files')->multiple(),
+            File::make('Файл положения', 'position_file')->itemAttributes(fn(string $filename, int $index = 0) => [
+                'style' => 'width: 1000px;'
+            ]),
+            File::make('Файл регламента', 'results_file')->itemAttributes(fn(string $filename, int $index = 0) => [
+                'style' => 'width: 1000px;'
+            ]),
+            File::make('Файл с итогами', 'pdf_files')->itemAttributes(fn(string $filename, int $index = 0) => [
+                'style' => 'width: 1000px;'
+            ])->multiple(),
             $this->status(),
             $this->user(),
             $this->track(),
