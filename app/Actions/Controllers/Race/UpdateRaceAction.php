@@ -59,6 +59,13 @@ class UpdateRaceAction implements UpdateRaceActionContract
                 'results_file' => $request->resultsFile->store('race/'.$race->id, 'public')
             ]);
         }
+
+        if (!empty($request->pdfFiles)) {
+            isset($race->pdf_files) ? $this->deleteFile($race->pdf_files) : null;
+            $race->update([
+                'pdf_files' => $request->pdfFiles->store('race/'.$race->id, 'public')
+            ]);
+        }
     }
 
     private function saveImages(array $images, Race $race): void
