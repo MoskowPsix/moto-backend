@@ -18,6 +18,7 @@ $app =  Application::configure(basePath: dirname(__DIR__))
             'role_or_permission' => \Spatie\Permission\Middleware\RoleOrPermissionMiddleware::class,
             'email_verification' => \App\Http\Middleware\VerificationEmailMiddlaware::class,
             'phone_verification' => \App\Http\Middleware\PhoneVerificationMiddleware::class,
+            'email_or_phone_phone_verification' => \App\Http\Middleware\EnsureEmailOrPhoneVerified::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

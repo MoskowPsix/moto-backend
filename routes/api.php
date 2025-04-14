@@ -131,7 +131,7 @@ Route::controller(\App\Http\Controllers\Api\DocumentController::class)->group(fu
 Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->group(function () {
     $role = new \App\Constants\RoleConstant();
     Route::post('races/{id}/toggle-appointment-race', 'toggle')
-        ->middleware(['auth:sanctum', 'email_verification', 'role:' .$role::COUCH . '|' . $role::RIDER . '|' . $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT])
+        ->middleware(['auth:sanctum', 'email_or_phone_phone_verification', 'role:' .$role::COUCH . '|' . $role::RIDER . '|' . $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT])
         ->name('appointment_race.create');
     Route::get('races/{id}/appointment-race/users', 'getUsersAppointmentRace')
         ->name('appointment_race.get_users_appointment_race');
