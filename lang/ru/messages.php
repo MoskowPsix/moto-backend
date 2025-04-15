@@ -228,6 +228,11 @@ return [
         'not_verification_phone' => 'Телефон пользователя не подтверждён.',
         'timeout_warning' => 'До следующе попытки осталось :time.',
     ],
+    'phone' => [
+        'delete' => [
+            'success' => 'Телефон успешно удалён',
+        ]
+    ],
     'status' => [
         'get_all' => [
             'success' => 'Статусы получены успешно.',

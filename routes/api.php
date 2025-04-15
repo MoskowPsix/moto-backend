@@ -21,6 +21,7 @@ Route::controller(AuthPhoneController::class)->group(function () {
     Route::post('phone/register', 'register')->name('user.phone.register');
     Route::post('phone/verify', 'verify')->name('user.phone.verify');
     Route::post('phone/verify/hook', 'hook')->name('user.phone.hook');
+    Route::delete('phone/{id}', 'delete')->middleware('auth:sanctum')->name('user.phone.delete');
 });
 
 Route::controller(UserController::class)->group(function () {

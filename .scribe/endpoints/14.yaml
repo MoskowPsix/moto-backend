@@ -1,17 +1,122 @@
-name: Command
-description: 'Методы связанные с командами'
+name: Document
+description: 'Методы взаимодействия с документами пользователя'
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/commands
+      - POST
+    uri: api/users/cabinet/documents
     metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
+      groupName: Document
+      groupDescription: 'Методы взаимодействия с документами пользователя'
       subgroup: ''
       subgroupDescription: ''
-      title: get
-      description: 'Получение всех команд по фильтрам'
+      title: Create
+      description: 'Создание документа пользователя'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      type:
+        name: type
+        description: ''
+        required: true
+        example: notarius
+        type: string
+        enumValues:
+          - licenses
+          - polis
+          - notarius
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      file:
+        name: file
+        description: 'Must be a file.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      url:
+        name: url
+        description: ''
+        required: false
+        example: 'http://koss.com/adipisci-velit-et-laboriosam'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      number:
+        name: number
+        description: ''
+        required: false
+        example: quam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      issuedWhom:
+        name: issuedWhom
+        description: ''
+        required: false
+        example: rem
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      itWorksDate:
+        name: itWorksDate
+        description: ''
+        required: false
+        example: autem
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      type: notarius
+      url: 'http://koss.com/adipisci-velit-et-laboriosam'
+      number: quam
+      issuedWhom: rem
+      itWorksDate: autem
+    fileParameters:
+      file: null
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.document.create.success","document":{"id":276,"name":"file_67fe41a5bd077","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/users/cabinet/documents
+    metadata:
+      groupName: Document
+      groupDescription: 'Методы взаимодействия с документами пользователя'
+      subgroup: ''
+      subgroupDescription: ''
+      title: GetForUser
+      description: 'Получение всех документов пользователя'
       authenticated: false
       custom: []
     headers:
@@ -25,6 +130,16 @@ endpoints:
       userId:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 20
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      commandId:
+        name: commandId
+        description: 'The <code>id</code> of an existing record in the commands table.'
         required: false
         example: 4
         type: integer
@@ -32,123 +147,20 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      userIdExists:
-        name: userIdExists
-        description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
-        example: 3
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      checkMember:
-        name: checkMember
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      paginate:
-        name: paginate
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      page:
-        name: page
-        description: ''
-        required: false
-        example: consequatur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      limit:
-        name: limit
-        description: 'Must not be greater than 50.'
-        required: false
-        example: 6
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      locationId:
-        name: locationId
-        description: 'The <code>id</code> of an existing record in the locations table.'
-        required: false
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      city:
-        name: city
-        description: ''
-        required: false
-        example: qui
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      fullName:
-        name: fullName
-        description: ''
-        required: false
-        example: nesciunt
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      coach:
-        name: coach
-        description: ''
-        required: false
-        example: mollitia
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      name:
-        name: name
-        description: ''
-        required: false
-        example: vitae
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
     cleanBodyParameters:
-      userId: 4
-      userIdExists: 3
-      checkMember: false
-      paginate: false
-      page: consequatur
-      limit: 6
-      locationId: 15
-      city: qui
-      fullName: nesciunt
-      coach: mollitia
-      name: vitae
+      userId: 20
+      commandId: 4
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.command.get.success","commands":{"id":141,"name":"Shania Corkery","full_name":null,"coach":null,"city":"East Monserratview","avatar":null}},{"status":"success","message":"messages.command.get.success","commands":{"id":142,"name":"Dr. Elmore Haley","full_name":null,"coach":null,"city":"West Damien","avatar":null}}]'
+        content: '[{"status":"success","message":"messages.document.get_for_user.success","documents":{"id":277,"name":"file_67fe41a5c9c3a","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}},{"status":"success","message":"messages.document.get_for_user.success","documents":{"id":278,"name":"file_67fe41a5cf551","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}]'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
         headers: []
         description: ''
         custom: []
@@ -161,14 +173,14 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/commands/{id}'
+    uri: 'api/users/cabinet/documents/{id}'
     metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
+      groupName: Document
+      groupDescription: 'Методы взаимодействия с документами пользователя'
       subgroup: ''
       subgroupDescription: ''
-      title: getForId
-      description: 'Получение команд по id'
+      title: GetForUserById
+      description: 'Получение документа пользователя по id'
       authenticated: false
       custom: []
     headers:
@@ -177,204 +189,31 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the command.'
+        description: 'The ID of the document.'
         required: true
-        example: 15
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 15
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      userId:
-        name: userId
-        description: ''
-        required: false
-        example: 2
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      userIdExists:
-        name: userIdExists
-        description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      checkMember:
-        name: checkMember
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      locationId:
-        name: locationId
-        description: ''
-        required: false
-        example: 13
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      city:
-        name: city
-        description: ''
-        required: false
-        example: ratione
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      fullName:
-        name: fullName
-        description: ''
-        required: false
-        example: accusamus
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      coach:
-        name: coach
-        description: ''
-        required: false
-        example: quibusdam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      userId: 2
-      userIdExists: 1
-      checkMember: false
-      locationId: 13
-      city: ratione
-      fullName: accusamus
-      coach: quibusdam
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.command.get_for_id.success","command":{"id":143,"name":"Briana Stokes","full_name":null,"coach":null,"city":"West Lance","avatar":null}}'
+        content: '{"status":"success","message":"messages.document.get_for_user_by_id.success","document":{"id":279,"name":"file_67fe41a5e07d1","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
         headers: []
         description: ''
         custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/commands
-    metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: create
-      description: 'Создание команды'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: multipart/form-data
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: qorbcitqzmqfm
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      fullName:
-        name: fullName
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: xdplkj
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      coach:
-        name: coach
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: jibaklysfmjnjusykmcct
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      avatar:
-        name: avatar
-        description: 'Must be an image.'
-        required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      locationId:
-        name: locationId
-        description: 'The <code>id</code> of an existing record in the locations table.'
-        required: false
-        example: 16
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      city:
-        name: city
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: aruise
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanBodyParameters:
-      name: qorbcitqzmqfm
-      fullName: xdplkj
-      coach: jibaklysfmjnjusykmcct
-      locationId: 16
-      city: aruise
-    fileParameters:
-      avatar: null
-    responses:
       -
-        status: 200
-        content: '{"status":"success","message":"messages.command.create.success","command":{"id":144,"name":"Brant Legros","full_name":null,"coach":null,"city":"Marcelinatown","avatar":null}}'
+        status: 404
+        content: '{"status":"error","message":"messages.document.get_for_user_by_id.not_found"}'
         headers: []
         description: ''
         custom: []
@@ -387,15 +226,15 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: 'api/commands/{id}'
+    uri: 'api/users/cabinet/documents/{id}/update'
     metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
+      groupName: Document
+      groupDescription: 'Методы взаимодействия с документами пользователя'
       subgroup: ''
       subgroupDescription: ''
-      title: update
-      description: 'Редактирование команды'
-      authenticated: true
+      title: Update
+      description: 'Изменение документа пользователя'
+      authenticated: false
       custom: []
     headers:
       Content-Type: multipart/form-data
@@ -403,52 +242,22 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the command.'
+        description: 'The ID of the document.'
         required: true
-        example: 15
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 15
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: xd
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      fullName:
-        name: fullName
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: fjarfigcomrjlsqubuz
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      coach:
-        name: coach
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: ogdz
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      avatar:
-        name: avatar
-        description: 'Must be an image.'
+      file:
+        name: file
+        description: 'Must be a file.'
         required: false
         example: null
         type: file
@@ -456,38 +265,46 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      city:
-        name: city
-        description: 'Must not be greater than 255 characters.'
+      number:
+        name: number
+        description: ''
         required: false
-        example: xazrbbbneg
+        example: culpa
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      locationId:
-        name: locationId
-        description: 'The <code>id</code> of an existing record in the locations table.'
+      issuedWhom:
+        name: issuedWhom
+        description: ''
         required: false
-        example: 18
-        type: integer
+        example: nemo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      itWorksDate:
+        name: itWorksDate
+        description: ''
+        required: false
+        example: dolore
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: xd
-      fullName: fjarfigcomrjlsqubuz
-      coach: ogdz
-      city: xazrbbbneg
-      locationId: 18
+      number: culpa
+      issuedWhom: nemo
+      itWorksDate: dolore
     fileParameters:
-      avatar: null
+      file: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.command.update.success","command":{"id":145,"name":"Prof. Sheldon Bartell Sr.","full_name":null,"coach":null,"city":"Adonisland","avatar":null}}'
+        content: '{"status":"success","message":"messages.document.update.success","document":{"id":280,"name":"file_67fe41a5f37a3","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
         headers: []
         description: ''
         custom: []
@@ -512,14 +329,14 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: 'api/commands/{id}'
+    uri: 'api/users/cabinet/documents/{id}'
     metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
+      groupName: Document
+      groupDescription: 'Методы взаимодействия с документами пользователя'
       subgroup: ''
       subgroupDescription: ''
-      title: delete
-      description: 'Удаление команды'
+      title: Delete
+      description: 'Удаление документа пользователя'
       authenticated: false
       custom: []
     headers:
@@ -528,16 +345,16 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the command.'
+        description: 'The ID of the document.'
         required: true
-        example: 15
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 15
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -546,7 +363,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.command.delete.success","command":{"id":146,"name":"Wilhelmine Block","full_name":null,"coach":null,"city":"Jacobiland","avatar":null}}'
+        content: '{"status":"success","message":"messages.document.delete.success"}'
         headers: []
         description: ''
         custom: []
@@ -570,420 +387,42 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - POST
-    uri: 'api/commands/{command_id}/couches/{user_id}'
-    metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: toggleCouch
-      description: 'Добавление и удаление тренера из команды, может пользоваться только владелец команды.'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      command_id:
-        name: command_id
-        description: 'The ID of the command.'
-        required: true
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      user_id:
-        name: user_id
-        description: 'The ID of the user.'
-        required: true
-        example: sed
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      command_id: 15
-      user_id: sed
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.command.add_couch.success"}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 403
-        content: '{"status":"error","message":"messages.error.not_allowed"}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/commands/{command_id}/members'
-    metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: toggleMember
-      description: 'Привязка пользователя к команде от имени самого пользователя.'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      command_id:
-        name: command_id
-        description: 'The ID of the command.'
-        required: true
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      command_id: 15
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.command.member_toggle.success"}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
       - GET
-    uri: 'api/commands/{command_id}/members'
+    uri: 'api/documents/{id}/commission-checked'
     metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
+      groupName: Document
+      groupDescription: 'Методы взаимодействия с документами пользователя'
       subgroup: ''
       subgroupDescription: ''
-      title: getMembers
-      description: 'Получить всех участников команды.'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      command_id:
-        name: command_id
-        description: 'The ID of the command.'
-        required: true
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      command_id: 15
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      paginate:
-        name: paginate
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      page:
-        name: page
-        description: ''
-        required: false
-        example: tenetur
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      limit:
-        name: limit
-        description: 'Must not be greater than 50.'
-        required: false
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      raceIdExists:
-        name: raceIdExists
-        description: 'The <code>id</code> of an existing record in the races table.'
-        required: false
-        example: 7
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      checkMember:
-        name: checkMember
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      paginate: false
-      page: tenetur
-      limit: 15
-      raceIdExists: 7
-      checkMember: false
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.couches.get.success","members":{"id":389,"name":"Yesenia Morissette","avatar":null,"personal":[]}}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/commands/{command_id}/coaches'
-    metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: getCoachesForAll
-      description: 'Получение всех тренеров по команде для всех.'
+      title: VerifyDocsForCommission
+      description: 'Сделать документ проверенным. Метод для комиссии.'
       authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      command_id:
-        name: command_id
-        description: 'The ID of the command.'
+      id:
+        name: id
+        description: 'The ID of the document.'
         required: true
-        example: 15
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      command_id: 15
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters:
-      paginate:
-        name: paginate
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      page:
-        name: page
-        description: ''
-        required: false
-        example: rerum
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      limit:
-        name: limit
-        description: 'Must not be greater than 50.'
-        required: false
-        example: 8
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      paginate: true
-      page: rerum
-      limit: 8
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.command.get_coaches_for_all.success","coaches":{"id":390,"name":"Miss Mellie Hodkiewicz DDS","avatar":null,"personal":[]}}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/commands/{command_id}/members-for-coach'
-    metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: getMembersForCoach
-      description: 'Получение всех участников по тренеру.'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      command_id:
-        name: command_id
-        description: 'The ID of the command.'
-        required: true
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      command_id: 15
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      paginate:
-        name: paginate
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      page:
-        name: page
-        description: ''
-        required: false
-        example: est
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      limit:
-        name: limit
-        description: 'Must not be greater than 50.'
-        required: false
-        example: 19
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      raceIdExists:
-        name: raceIdExists
-        description: 'The <code>id</code> of an existing record in the races table.'
-        required: false
-        example: 7
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      checkMember:
-        name: checkMember
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      paginate: true
-      page: est
-      limit: 19
-      raceIdExists: 7
-      checkMember: false
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.command.get_members_for_coach.success","members":{"id":391,"name":"Dr. Jed Tremblay Sr.","email":"sabina46@example.org","email_verified_at":"2025-04-15T06:41:43.000000Z","avatar":null}}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 403
-        content: '{"status":"error","message":"messages.error.not_allowed"}'
+        content: '{"status":"success","message":"messages.document.verify_docs_for_commission.success"}'
         headers: []
         description: ''
         custom: []

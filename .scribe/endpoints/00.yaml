@@ -1,17 +1,17 @@
-name: AuthPhone
-description: 'Авторизация пользователей через телефон.'
+name: Auth
+description: 'Авторизация пользователей и всё что с ней связано.'
 endpoints:
   -
     httpMethods:
       - POST
-    uri: api/phone/verify/hook
+    uri: api/login
     metadata:
-      groupName: AuthPhone
-      groupDescription: 'Авторизация пользователей через телефон.'
+      groupName: Auth
+      groupDescription: 'Авторизация пользователей и всё что с ней связано.'
       subgroup: ''
       subgroupDescription: ''
-      title: ''
-      description: ''
+      title: Login
+      description: 'Авторизация пользователя'
       authenticated: false
       custom: []
     headers:
@@ -22,31 +22,194 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      key:
-        name: key
-        description: ''
+      email:
+        name: email
+        description: 'Must be a valid email address. Must be at least 3 characters.'
         required: true
-        example: facere
+        example: vlind@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
-      phone:
-        name: phone
-        description: ''
+      password:
+        name: password
+        description: 'Must be at least 3 characters.'
         required: true
-        example: modi
+        example: '(Uz*,x:XQ0D5'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      key: facere
-      phone: modi
+      email: vlind@example.com
+      password: '(Uz*,x:XQ0D5'
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.auth.login.success","access_token":"68|mUHf5WTSXIrttHyQqOG0Te8OQHk13ZWm7wjDr3Wn7fd52a6d","token_type":"Bearer","user":{"id":427,"name":"Hazle Hilpert","email":"cesar.murazik@example.org","email_verified_at":"2025-04-15T11:23:14.000000Z","avatar":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"success","message":"messages.auth.login.error"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"status":"error","message":"messages.auth.login.email_exists"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/register
+    metadata:
+      groupName: Auth
+      groupDescription: 'Авторизация пользователей и всё что с ней связано.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: Register
+      description: 'Регистрация нового пользователя'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
+        required: true
+        example: toexgayukwbibmltjr
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: zzulauf@example.org
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password:
+        name: password
+        description: 'Must be at least 8 characters.'
+        required: true
+        example: hfU<L;OqBx
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'The value and <code>password</code> must match.'
+        required: true
+        example: aut
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      avatar:
+        name: avatar
+        description: 'Must be an image.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      name: toexgayukwbibmltjr
+      email: zzulauf@example.org
+      password: hfU<L;OqBx
+      password_confirmation: aut
+    fileParameters:
+      avatar: null
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.auth.register.success","access_token":"69|N2NeK0iRTwfGaFAIztZKCSG7heTRZ87o9MmRTWJR7d00fb4d","token_type":"Bearer","user":{"id":428,"name":"Bobby Tremblay","email":"destini99@example.com","email_verified_at":"2025-04-15T11:23:15.000000Z","avatar":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.auth.register.error"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 422
+        content: '{"status":"error","message":"messages.auth.login.email_exists"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/logout
+    metadata:
+      groupName: Auth
+      groupDescription: 'Авторизация пользователей и всё что с ней связано.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: logout
+      description: 'Выход пользователя'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.auth.logout.success"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 500
+        content: '{"status":"success","message":"messages.auth.logout.error"}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth: []
     controller: null

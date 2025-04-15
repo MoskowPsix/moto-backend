@@ -1,50 +1,77 @@
-name: FavoriteUser
-description: 'Методы связанные с избранными гонками.'
+name: Store
+description: 'Методы связанные с магазинами'
 endpoints:
   -
     httpMethods:
       - POST
-    uri: 'api/race/{id}/favorite'
+    uri: api/stores
     metadata:
-      groupName: FavoriteUser
-      groupDescription: 'Методы связанные с избранными гонками.'
+      groupName: Store
+      groupDescription: 'Методы связанные с магазинами'
       subgroup: ''
       subgroupDescription: ''
-      title: toggleFavoriteRace
-      description: 'Добавить или убрать гонку из избранного.'
+      title: create
+      description: 'Создание магазина'
       authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the race.'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      login:
+        name: login
+        description: 'Must not be greater than 255 characters.'
         required: true
-        example: 7
-        type: integer
+        example: cudchgolpasngxcoxqvitgilj
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
-    cleanUrlParameters:
-      id: 7
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+      password_1:
+        name: password_1
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: yc
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password_2:
+        name: password_2
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: qlqobigztueppizxhfdmn
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      token:
+        name: token
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: wveetivmaiqo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      login: cudchgolpasngxcoxqvitgilj
+      password_1: yc
+      password_2: qlqobigztueppizxhfdmn
+      token: wveetivmaiqo
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.favorite_user.toggle.success_remove"}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
+        content: '{"status":"success","message":"messages.store.create.success","store":{"id":34,"login":"Possimus et et iure perspiciatis eius. Ad similique occaecati fuga ducimus rerum et. Enim aliquid quo sint ea aut. Nisi quidem corporis mollitia.","password_1":"vFv.-]o,","password_2":"V3ZWEhK(0=wzj|","token":"Molestiae corporis eum quia est qui. Itaque neque rerum nulla minus. Fugiat quas harum voluptas cum molestiae reiciendis porro.","user":null}}'
         headers: []
         description: ''
         custom: []

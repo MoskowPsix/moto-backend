@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Actions\Controllers\AuthPhone\RegisterPhoneAction;
+use App\Contracts\Actions\Controllers\AuthPhoneController\DeletePhoneActionContract;
 use App\Contracts\Actions\Controllers\AuthPhoneController\HookPhoneVerifyActionContract;
 use App\Contracts\Actions\Controllers\AuthPhoneController\LoginPhoneActionContract;
 use App\Contracts\Actions\Controllers\AuthPhoneController\RegisterPhoneActionContract;
@@ -17,6 +18,8 @@ use App\Http\Resources\Auth\Login\SuccessLoginResource;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Http\Resources\Errors\TimeOutWarningResource;
+use App\Http\Resources\Phone\Delete\SuccessDeletePhoneResource;
+use App\Models\Phone;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Knuckles\Scribe\Attributes\Endpoint;
@@ -52,5 +55,13 @@ class AuthPhoneController extends Controller
     public function hook(HookPhoneVerifyRequest $request, HookPhoneVerifyActionContract $action): void
     {
         $action($request);
+    }
+    #[ResponseFromApiResource(SuccessDeletePhoneResource::class, Phone::class, collection: false)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
+    #[Endpoint(title: 'delete', description: 'Удаление телефона')]
+    public function delete(int $id, DeletePhoneActionContract $action): SuccessDeletePhoneResource|NotFoundResource|NotUserPermissionResource
+    {
+        return $action($id);
     }
 }

@@ -1,166 +1,17 @@
-name: Grade
-description: 'Методы связанные с классами'
+name: PersonalInfo
+description: 'Всё что связанно с персональной информацией пользователя'
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/grades
-    metadata:
-      groupName: Grade
-      groupDescription: 'Методы связанные с классами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: get
-      description: 'Получение всех классов по фильтрам'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      userId:
-        name: userId
-        description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
-        example: 17
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      paginate:
-        name: paginate
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      page:
-        name: page
-        description: ''
-        required: false
-        example: est
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      limit:
-        name: limit
-        description: 'Must not be greater than 50.'
-        required: false
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      userId: 17
-      paginate: false
-      page: est
-      limit: 15
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '[{"status":"success","message":"messages.grade.get.success","grades":{"id":107,"name":"Brayan Jones","description":"Quis mollitia rerum voluptate fugiat quia. Omnis praesentium hic est dolorum. Aut eum porro quis dolorum id."}},{"status":"success","message":"messages.grade.get.success","grades":{"id":108,"name":"Bettie Zemlak DDS","description":"Aut ex blanditiis debitis sequi. Reiciendis quia tenetur qui hic qui quia iusto. Ut exercitationem beatae accusantium et omnis. Incidunt aliquam consectetur vero eaque ipsum asperiores."}}]'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/grades/{id}'
-    metadata:
-      groupName: Grade
-      groupDescription: 'Методы связанные с классами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: getForId
-      description: 'Получение класса по id'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the grade.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      id:
-        name: id
-        description: 'The <code>id</code> of an existing record in the grades table.'
-        required: true
-        example: 8
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      userId:
-        name: userId
-        description: ''
-        required: false
-        example: 19
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      id: 8
-      userId: 19
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.grade.get_for_id.success","grade":{"id":109,"name":"Dr. Royal Orn","description":"Cum sequi modi eum facere ratione aut. Aliquam sequi dolor neque quaerat. Magni qui laboriosam totam soluta voluptas est nam. Consequuntur illum eius consequuntur eveniet molestiae et aut at."}}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
       - POST
-    uri: api/grades
+    uri: api/users/cabinet/personal-info
     metadata:
-      groupName: Grade
-      groupDescription: 'Методы связанные с классами'
+      groupName: PersonalInfo
+      groupDescription: 'Всё что связанно с персональной информацией пользователя'
       subgroup: ''
       subgroupDescription: ''
-      title: create
-      description: 'Создание класса'
+      title: Create
+      description: 'Создать запись персональных данных'
       authenticated: true
       custom: []
     headers:
@@ -173,32 +24,230 @@ endpoints:
     bodyParameters:
       name:
         name: name
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: wtnkvwrewpprbzuvdfkaptsc
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      description:
-        name: description
         description: ''
         required: false
-        example: 'Molestiae voluptate quasi sed ipsa omnis quae.'
+        example: provident
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
+      surname:
+        name: surname
+        description: ''
+        required: false
+        example: maxime
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      patronymic:
+        name: patronymic
+        description: ''
+        required: false
+        example: natus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      dateOfBirth:
+        name: dateOfBirth
+        description: 'Must be a valid date.'
+        required: false
+        example: '2025-04-15T11:23:17'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: false
+        example: est
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      inn:
+        name: inn
+        description: ''
+        required: false
+        example: illum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      snils:
+        name: snils
+        description: ''
+        required: false
+        example: sed
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      phoneNumber:
+        name: phoneNumber
+        description: ''
+        required: false
+        example: voluptates
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      startNumber:
+        name: startNumber
+        description: 'Must be at least 1. Must not be greater than 999.'
+        required: false
+        example: 7
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      group:
+        name: group
+        description: ''
+        required: false
+        example: beatae
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      rank:
+        name: rank
+        description: ''
+        required: false
+        example: illum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      rankNumber:
+        name: rankNumber
+        description: ''
+        required: false
+        example: nemo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      community:
+        name: community
+        description: ''
+        required: false
+        example: est
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: ''
+        required: false
+        example: cum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      motoStamp:
+        name: motoStamp
+        description: ''
+        required: false
+        example: impedit
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      engine:
+        name: engine
+        description: ''
+        required: false
+        example: ea
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      numberAndSeria:
+        name: numberAndSeria
+        description: ''
+        required: false
+        example: eum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      region:
+        name: region
+        description: ''
+        required: false
+        example: nostrum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      commandId:
+        name: commandId
+        description: 'The <code>id</code> of an existing record in the commands table.'
+        required: false
+        example: 14
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
     cleanBodyParameters:
-      name: wtnkvwrewpprbzuvdfkaptsc
-      description: 'Molestiae voluptate quasi sed ipsa omnis quae.'
+      name: provident
+      surname: maxime
+      patronymic: natus
+      dateOfBirth: '2025-04-15T11:23:17'
+      city: est
+      inn: illum
+      snils: sed
+      phoneNumber: voluptates
+      startNumber: 7
+      group: beatae
+      rank: illum
+      rankNumber: nemo
+      community: est
+      coach: cum
+      motoStamp: impedit
+      engine: ea
+      numberAndSeria: eum
+      region: nostrum
+      locationId: 17
+      commandId: 14
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.grade.create.success","grade":{"id":110,"name":"Miss Euna Wuckert Sr.","description":"Ducimus odio maiores officiis quis iure fuga. Necessitatibus quisquam officia sed possimus ipsum repudiandae. Odio dolores ab nam a est."}}'
+        content: '{"status":"success","message":"messages.personal_info.create.success","personal_info":{"name":"Mr.","surname":"Dr.","patronymic":"Prof.","date_of_birth":"2015-12-11","city":"Maribelchester","inn":"100000000000","snils":"10000000000","phone_number":"+14247761631","start_number":"745","group":"Chemical Equipment Tender","rank_number":"99999","rank":"Administrative Services Manager","community":"West-Hills","coach":"Thaddeus Harber","moto_stamp":"Prof.","engine":"Dr.","number_and_seria":"9999999999","region":null}}'
         headers: []
         description: ''
         custom: []
@@ -211,74 +260,256 @@ endpoints:
   -
     httpMethods:
       - PATCH
-    uri: 'api/grades/{id}'
+    uri: api/users/cabinet/personal-info
     metadata:
-      groupName: Grade
-      groupDescription: 'Методы связанные с классами'
+      groupName: PersonalInfo
+      groupDescription: 'Всё что связанно с персональной информацией пользователя'
       subgroup: ''
       subgroupDescription: ''
-      title: update
-      description: 'Редактирование класса'
+      title: Update
+      description: 'Обновить запись персональных данных'
       authenticated: true
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the grade.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 1
+    urlParameters: []
+    cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       name:
         name: name
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: sceyqm
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      description:
-        name: description
         description: ''
         required: false
-        example: 'Facere est deserunt doloremque eligendi non esse.'
+        example: amet
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      userId:
-        name: userId
-        description: 'The <code>id</code> of an existing record in the users table.'
+      surname:
+        name: surname
+        description: ''
         required: false
-        example: 13
+        example: pariatur
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      patronymic:
+        name: patronymic
+        description: ''
+        required: false
+        example: ab
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      dateOfBirth:
+        name: dateOfBirth
+        description: 'Must be a valid date.'
+        required: false
+        example: '2025-04-15T11:23:17'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: false
+        example: omnis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      inn:
+        name: inn
+        description: ''
+        required: false
+        example: ut
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      snils:
+        name: snils
+        description: ''
+        required: false
+        example: odio
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      phoneNumber:
+        name: phoneNumber
+        description: ''
+        required: false
+        example: explicabo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      startNumber:
+        name: startNumber
+        description: ''
+        required: false
+        example: corrupti
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      group:
+        name: group
+        description: ''
+        required: false
+        example: qui
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      rank:
+        name: rank
+        description: ''
+        required: false
+        example: commodi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      rankNumber:
+        name: rankNumber
+        description: ''
+        required: false
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      community:
+        name: community
+        description: ''
+        required: false
+        example: officia
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: ''
+        required: false
+        example: repudiandae
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      motoStamp:
+        name: motoStamp
+        description: ''
+        required: false
+        example: esse
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      engine:
+        name: engine
+        description: ''
+        required: false
+        example: inventore
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      numberAndSeria:
+        name: numberAndSeria
+        description: ''
+        required: false
+        example: asperiores
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      region:
+        name: region
+        description: ''
+        required: false
+        example: deserunt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 19
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      commandId:
+        name: commandId
+        description: 'The <code>id</code> of an existing record in the commands table.'
+        required: false
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: sceyqm
-      description: 'Facere est deserunt doloremque eligendi non esse.'
-      userId: 13
+      name: amet
+      surname: pariatur
+      patronymic: ab
+      dateOfBirth: '2025-04-15T11:23:17'
+      city: omnis
+      inn: ut
+      snils: odio
+      phoneNumber: explicabo
+      startNumber: corrupti
+      group: qui
+      rank: commodi
+      rankNumber: et
+      community: officia
+      coach: repudiandae
+      motoStamp: esse
+      engine: inventore
+      numberAndSeria: asperiores
+      region: deserunt
+      locationId: 19
+      commandId: 2
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.grade.update.success","grade":{"id":111,"name":"Esperanza Turner","description":"Sed et est qui modi facilis eos porro corrupti. Sunt laborum harum esse quisquam aut blanditiis esse. Quidem molestias ut aut nesciunt maiores. Quidem sed saepe rerum rem autem."}}'
+        content: '{"status":"success","message":"messages.personal_info.update.success","personal_info":{"name":"Prof.","surname":"Prof.","patronymic":"Miss","date_of_birth":"2017-08-08","city":"Hackettview","inn":"100000000000","snils":"10000000000","phone_number":"+1.270.299.7690","start_number":"389","group":"Home Economics Teacher","rank_number":"99999","rank":"Geological Data Technician","community":"Mosciski and Sons","coach":"Mrs. Kathleen Graham PhD","moto_stamp":"Prof.","engine":"Mr.","number_and_seria":"9999999999","region":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
         headers: []
         description: ''
         custom: []
