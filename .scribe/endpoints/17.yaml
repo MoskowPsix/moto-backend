@@ -1,0 +1,296 @@
+name: Grade
+description: 'Методы связанные с классами'
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/grades
+    metadata:
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: get
+      description: 'Получение всех классов по фильтрам'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      paginate:
+        name: paginate
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: nihil
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      limit:
+        name: limit
+        description: 'Must not be greater than 50.'
+        required: false
+        example: 20
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      userId: 1
+      paginate: true
+      page: nihil
+      limit: 20
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"status":"success","message":"messages.grade.get.success","grades":{"id":112,"name":"Roxane Paucek","description":"Voluptate quia aperiam debitis voluptates et aut repellat. Quaerat et autem occaecati ullam. Nisi officiis repellat expedita tempora quam et."}},{"status":"success","message":"messages.grade.get.success","grades":{"id":113,"name":"Harrison Grimes","description":"Sunt est omnis nobis doloribus ut inventore facere. Ut reprehenderit aut soluta rem voluptatem accusamus consectetur quod. In enim praesentium rerum aliquid sed et ea dolor."}}]'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/grades/{id}'
+    metadata:
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: getForId
+      description: 'Получение класса по id'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the grade.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The <code>id</code> of an existing record in the grades table.'
+        required: true
+        example: 4
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      userId:
+        name: userId
+        description: ''
+        required: false
+        example: 9
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      id: 4
+      userId: 9
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.grade.get_for_id.success","grade":{"id":114,"name":"Prof. Jamey Kuhic","description":"Earum modi beatae accusantium provident. Perspiciatis quia ipsa earum. Minus iusto harum minus deserunt."}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/grades
+    metadata:
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: create
+      description: 'Создание класса'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: wdyoruqwcdsotmhdimn
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Magnam enim pariatur numquam est maiores eius ut.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      name: wdyoruqwcdsotmhdimn
+      description: 'Magnam enim pariatur numquam est maiores eius ut.'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.grade.create.success","grade":{"id":115,"name":"Einar Keebler","description":"Velit doloribus consequatur ut ullam et. Rerum est sit rerum ratione."}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/grades/{id}'
+    metadata:
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: update
+      description: 'Редактирование класса'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the grade.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: mpegijkp
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Voluptate quasi quod laboriosam eum est.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      name: mpegijkp
+      description: 'Voluptate quasi quod laboriosam eum est.'
+      userId: 17
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.grade.update.success","grade":{"id":116,"name":"Malinda Schowalter DDS","description":"Laborum sunt similique a adipisci. Accusamus reprehenderit vel voluptas saepe in aut molestias. Dolores qui voluptatem laudantium. Dicta omnis est non."}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
