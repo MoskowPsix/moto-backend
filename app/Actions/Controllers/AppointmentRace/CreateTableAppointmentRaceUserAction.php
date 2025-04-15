@@ -66,55 +66,62 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
     {
         $rows = [];
         foreach ($appr as $value) {
-            $location = isset($value['location']) ? ($value['location']['name'] . ' ' . $value['location']['type']) : '';
-            $row = [
-                'Отметка времени'                                                   => Carbon::parse($value['created_at'])->format('d.m.Y h:m:s'),
-                'Фамилия участника'                                                 => $value['surname'] ?? '',
-                'Имя участника'                                                     => $value['name'] ?? '',
-                'Отчество участника'                                                => $value['patronymic'] ?? '',
-                'Класс'                                                             => $value['grade']['name'] ?? '',
-                'Двигатель'                                                         => $value['engine'] ?? '',
-                'Стартовый Номер'                                                   => $value['start_number'] ?? '',
-                'Номер Лицензии'                                                    => '',
-                'Спортивное звание (разряд)'                                        => $value['rank'] ?? '',
-                'Дата Рождения'                                                     => isset($value['date_of_birth']) ? Carbon::parse($value['date_of_birth'])->format('d.m.Y') : '',
-                'Населенный пункт (город, область)'                                 => 'г. ' . ($value['city'] ?? '') . ', ' . $location,
-                'Команда (Клуб)'                                                    => !empty($value['command_id']) ? Command::find($value['command_id'])->name : 'Лично',
-                'Марка мотоцикла'                                                   => $value['moto_stamp'] ?? '',
-                'Страховой полис: Срок действия'                                    => '',
-                'Серия и номер паспорта/ свидетельства о рождении'                  => $value['number_and_seria'] ?? '',
-                'Пенсионное страховое свидетельство (СНИЛС)'                        => $value['snils'] ?? '',
-                'Номер телефона'                                                    => $value['phone_number'] ?? '',
-                'Страховой полис: Серия и номер'                                    => '',
-                'Страховой полис: Кем выдан'                                        => '',
-                'Тренер: ФИО'                                                       => $value['coach'] ?? '',
-                'ИНН (для спортсменов младше 18 лет указываем ИНН представителя)'   => $value['inn'] ?? '',
-                ''                                                                  => '',
-                'Скан или фотография Страховки'                                     => '',
-                'Скан или фотография Лицензии'                                      => '',
-                'Скан или фотография нотариального согласия от обоих родителей'     => '',
-            ];
+            // Создаём массив для текущей строки
+            $row = [];
 
+            // Заполняем массив с проверкой на null или пустоту
+            $row['Отметка времени'] = Carbon::parse($value['created_at'])->format('d.m.Y h:m:s');
+            $row['Фамилия участника'] = $value['surname'] ?? '';
+            $row['Имя участника'] = $value['name'] ?? '';
+            $row['Отчество участника'] = $value['patronymic'] ?? '';
+            $row['Класс'] = $value['grade']['name'] ?? '';
+            $row['Двигатель'] = $value['engine'] ?? '';
+            $row['Стартовый Номер'] = $value['start_number'] ?? '';
+            $row['Номер Лицензии'] = ''; // Будет заполнено ниже через документы
+            $row['Спортивное звание (разряд)'] = $value['rank'] ?? '';
+            $row['Дата Рождения'] = isset($value['date_of_birth']) ? Carbon::parse($value['date_of_birth'])->format('d.m.Y') : '';
+            $row['Населенный пункт (город, область)'] = isset($value['location'])
+                ? ('г. ' . ($value['city'] ?? '') . ', ' . ($value['location']['name'] ?? '') . ' ' . ($value['location']['type'] ?? ''))
+                : '';
+            $row['Команда (Клуб)'] = !empty($value['command_id']) ? Command::find($value['command_id'])?->name ?? 'Лично' : 'Лично';
+            $row['Марка мотоцикла'] = $value['moto_stamp'] ?? '';
+            $row['Страховой полис: Срок действия'] = ''; // Будет заполнено ниже через документы
+            $row['Серия и номер паспорта/ свидетельства о рождении'] = $value['number_and_seria'] ?? '';
+            $row['Пенсионное страховое свидетельство (СНИЛС)'] = $value['snils'] ?? '';
+            $row['Номер телефона'] = $value['phone_number'] ?? '';
+            $row['Страховой полис: Серия и номер'] = ''; // Будет заполнено ниже через документы
+            $row['Страховой полис: Кем выдан'] = ''; // Будет заполнено ниже через документы
+            $row['Тренер: ФИО'] = $value['coach'] ?? '';
+            $row['ИНН (для спортсменов младше 18 лет указываем ИНН представителя)'] = $value['inn'] ?? '';
+            $row['Скан или фотография Страховки'] = '';
+            $row['Скан или фотография Лицензии'] = '';
+            $row['Скан или фотография нотариального согласия от обоих родителей'] = '';
+
+            // Добавляем документы
             foreach ($value['documents'] as $document) {
                 switch ($document['type']) {
                     case DocumentType::Polis->value:
-                        $row['Скан или фотография Страховки'] = !empty($row['Скан или фотография Страховки']) ? $document['url_view'] . ' , ' . $row['Скан или фотография Страховки'] : $document['url_view'];
-                        $row['Страховой полис: Серия и номер'] = $document['number'];
-                        $row['Страховой полис: Кем выдан'] = $document['issued_whom'];
+                        $row['Скан или fotografия Страховки'] = $this->appendValueOrEmpty($row['Скан или fotografия Страховки'], $document['url_view']);
+                        $row['Страховой полис: Серия и номер'] = $document['number'] ?? '';
+                        $row['Страховой полис: Кем выдан'] = $document['issued_whom'] ?? '';
                         $row['Страховой полис: Срок действия'] = isset($document['it_works_date']) ? Carbon::parse($document['it_works_date'])->format('d.m.Y') : '';
                         break;
                     case DocumentType::Licenses->value:
-                        $row['Скан или фотография Лицензии'] = !empty($row['Скан или фотография Лицензии']) ? $document['url_view'] . ' , ' . $row['Скан или фотография Лицензии'] : $document['url_view'];
-                        $row['Номер Лицензии'] = $document['number'];
+                        $row['Скан или фотография Лицензии'] = $this->appendValueOrEmpty($row['Скан или фотография Лицензии'], $document['url_view']);
+                        $row['Номер Лицензии'] = $document['number'] ?? '';
                         break;
                     case DocumentType::Notarius->value:
-                        $row['Скан или фотография нотариального согласия от обоих родителей'] = !empty($row['Скан или фотография нотариального согласия от обоих родителей']) ? $document['url_view'] . ' , ' . $row['Скан или фотография нотариального согласия от обоих родителей'] : $document['url_view'];
+                        $row['Скан или фотография нотариального согласия от обоих родителей'] = $this->appendValueOrEmpty($row['Скан или фотография нотариального согласия от обоих родителей'], $document['url_view']);
                         break;
                 }
             }
             $rows[] = $row;
         }
         return $rows;
+    }
+    private function appendValueOrEmpty(string $currentValue, string $newValue)
+    {
+        return !empty($currentValue) ? $newValue . ', ' . $currentValue : $newValue;
     }
     private function getFields(): array
     {
