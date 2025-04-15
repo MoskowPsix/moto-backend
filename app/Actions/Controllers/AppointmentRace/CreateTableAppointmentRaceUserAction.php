@@ -111,6 +111,8 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
                         $row['Скан или фотография нотариального согласия от обоих родителей'] = !empty($row['Скан или фотография нотариального согласия от обоих родителей']) ? $document['url_view'] . ' , ' . $row['Скан или фотография нотариального согласия от обоих родителей'] : $document['url_view'];
                         break;
                 }
+                $filteredRow = array_filter($row, fn($val) => !is_null($val) && $val !== '');
+                $rows[] = $filteredRow;
             }
             $rows[] = $row;
         }
