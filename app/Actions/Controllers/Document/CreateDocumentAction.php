@@ -23,7 +23,7 @@ class CreateDocumentAction implements CreateDocumentActionContract
             'path'          => $path ?? '',
             'number'        => $request->number,
             'issued_whom'   => $request->issuedWhom,
-            'it_works_date' => isset($request->itWorksDate) ? Carbon::parse($request->itWorksDate)->toDateString() : null,
+            'it_works_date' => isset($request->itWorksDate) ? Carbon::parse($request->itWorksDate)->format('d.m.y') : null,
             'user_id'       => $user->id,
         ]);
         $document->update([
