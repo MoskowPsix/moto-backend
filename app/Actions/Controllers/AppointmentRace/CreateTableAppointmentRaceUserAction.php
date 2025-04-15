@@ -112,7 +112,6 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
                         break;
                 }
             }
-            $rows[] = $row;
         }
         return $rows;
     }
