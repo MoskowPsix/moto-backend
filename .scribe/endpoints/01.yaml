@@ -1,233 +1,171 @@
-name: Track
-description: 'Методы взаимодествия с трассами на которых проходят гонки'
+name: AuthPhone
+description: 'Авторизация пользователей через телефон.'
 endpoints:
   -
     httpMethods:
       - POST
-    uri: 'api/tracks/{id}'
+    uri: api/phone/login
     metadata:
-      groupName: Track
-      groupDescription: 'Методы взаимодествия с трассами на которых проходят гонки'
+      groupName: AuthPhone
+      groupDescription: 'Авторизация пользователей через телефон.'
       subgroup: ''
       subgroupDescription: ''
-      title: update
-      description: 'Метод редактирования трека'
-      authenticated: true
+      title: Login
+      description: 'Вход пользователя через телефон.'
+      authenticated: false
       custom: []
     headers:
-      Content-Type: multipart/form-data
+      Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the track.'
-        required: true
-        example: est
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: est
+    urlParameters: []
+    cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
-        description: 'Must be at least 3 characters.'
+      number:
+        name: number
+        description: 'The <code>number</code> of an existing record in the phones table. Must be at least 10 characters. Must not be greater than 12 characters.'
         required: true
-        example: djslipyjcbdqvcqekjklnhswqoaapvpwqggljccjfmmtwbuwpjdpxeviirsvctqqnnagyercmzmlht
+        example: xtsuswfsbm
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
-      address:
-        name: address
-        description: ''
-        required: true
-        example: ut
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      latitude:
-        name: latitude
-        description: 'Must be between -87 and 89.'
-        required: true
-        example: -86
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      longitude:
-        name: longitude
-        description: 'Must be between -180 and 180.'
-        required: true
-        example: -179
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      imagesAdd:
-        name: imagesAdd
-        description: 'Must be an image.'
-        required: false
-        example:
-          - null
-        type: 'file[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      imagesDel:
-        name: imagesDel
+      callback:
+        name: callback
         description: ''
         required: false
-        example:
-          - beatae
-        type: 'string[]'
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      levelId:
-        name: levelId
-        description: 'The <code>id</code> of an existing record in the levels table.'
-        required: false
-        example: 4
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      desc:
-        name: desc
-        description: ''
-        required: false
-        example: inventore
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      length:
-        name: length
-        description: ''
-        required: false
-        example: 13
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      turns:
-        name: turns
-        description: ''
-        required: false
-        example: 13
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      free:
-        name: free
-        description: ''
-        required: false
-        example: false
+        example: true
         type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      is_work:
-        name: is_work
-        description: ''
-        required: true
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      contacts:
-        name: contacts
-        description: ''
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      spec:
-        name: spec
-        description: ''
-        required: false
-        example: null
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      locationId:
-        name: locationId
-        description: 'The <code>id</code> of an existing record in the locations table.'
-        required: false
-        example: 9
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      userId:
-        name: userId
-        description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
-        example: 20
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      storeId:
-        name: storeId
-        description: 'The <code>id</code> of an existing record in the stores table.'
-        required: false
-        example: 7
-        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: djslipyjcbdqvcqekjklnhswqoaapvpwqggljccjfmmtwbuwpjdpxeviirsvctqqnnagyercmzmlht
-      address: ut
-      latitude: -86
-      longitude: -179
-      imagesDel:
-        - beatae
-      levelId: 4
-      desc: inventore
-      length: 13
-      turns: 13
-      free: false
-      is_work: false
-      locationId: 9
-      userId: 20
-      storeId: 7
-    fileParameters:
-      imagesAdd:
-        - null
+      number: xtsuswfsbm
+      callback: true
+    fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.track.update.success","track":{"id":133,"name":"Data Entry Operator","address":"7783 Iva Trail Suite 906\nVladimirshire, DC 55950","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Fugiat porro minus cum iste consequatur at similique. Natus ut delectus nobis unde nemo ipsam quasi. Et non laboriosam accusamus sit. Quae cumque placeat consectetur aliquid ut. Sed alias et deserunt et magnam. Sint aut minima aut repellendus. Architecto cum praesentium itaque quis quam. Dolorem modi recusandae ullam similique. Quis impedit quae ad quos.","length":825,"turns":36,"free":true,"is_work":false,"spec":null,"contacts":null,"location":{"id":20,"name":"\u0418\u0440\u043a\u0443\u0442\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
+        content: '{"status":"success","message":"messages.auth_phone.login.success"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/phone/register
+    metadata:
+      groupName: AuthPhone
+      groupDescription: 'Авторизация пользователей через телефон.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: Register
+      description: 'Регистрация нового пользователя через телефон.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      number:
+        name: number
+        description: 'Must be at least 10 characters. Must not be greater than 12 characters.'
+        required: true
+        example: utfzkioltlef
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      callback:
+        name: callback
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      number: utfzkioltlef
+      callback: true
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.auth_phone.login.success"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/phone/verify
+    metadata:
+      groupName: AuthPhone
+      groupDescription: 'Авторизация пользователей через телефон.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: Verify
+      description: 'Подтверждение телефона и вход пользователя.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      pin:
+        name: pin
+        description: 'Must be at least 3 characters. Must not be greater than 4 characters.'
+        required: true
+        example: nk
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      number:
+        name: number
+        description: 'The <code>number</code> of an existing record in the phones table. Must be at least 10 characters. Must not be greater than 12 characters.'
+        required: true
+        example: epfehwmvfvmx
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      pin: nk
+      number: epfehwmvfvmx
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.auth.login.success","access_token":"64|iFKh2Ab6BuoJt5LWZaF36wTNvGRIa8W0Mwypxn2K6e09386d","token_type":"Bearer","user":{"id":396,"name":"Annetta Rodriguez","email":"jazmin20@example.com","email_verified_at":"2025-04-15T08:02:48.000000Z","avatar":null}}'
         headers: []
         description: ''
         custom: []
@@ -251,15 +189,67 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - DELETE
-    uri: 'api/tracks/{id}'
+      - POST
+    uri: api/phone/verify/hook
     metadata:
-      groupName: Track
-      groupDescription: 'Методы взаимодествия с трассами на которых проходят гонки'
+      groupName: AuthPhone
+      groupDescription: 'Авторизация пользователей через телефон.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      key:
+        name: key
+        description: ''
+        required: true
+        example: veritatis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      phone:
+        name: phone
+        description: ''
+        required: true
+        example: voluptas
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      key: veritatis
+      phone: voluptas
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/phone/{id}'
+    metadata:
+      groupName: AuthPhone
+      groupDescription: 'Авторизация пользователей через телефон.'
       subgroup: ''
       subgroupDescription: ''
       title: delete
-      description: 'Метод удаления трека'
+      description: 'Удаление телефона'
       authenticated: false
       custom: []
     headers:
@@ -268,16 +258,16 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the track.'
+        description: 'The ID of the phone.'
         required: true
-        example: 7
-        type: integer
+        example: dicta
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 7
+      id: dicta
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -286,7 +276,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.track.delete.success","track":{"id":134,"name":"Geologist","address":"513 Schowalter Camp\nWest Corafurt, FL 80315","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Maiores culpa neque magni natus ab repudiandae. Voluptatem possimus et perferendis aliquam voluptatem aut. Est non cum velit placeat dignissimos. Dolorem maiores illo asperiores. Nihil exercitationem facere atque provident velit velit quo. Fugit suscipit quia quos quisquam culpa id. Voluptatem sed consequatur et fugit dolores sed quia. Aspernatur blanditiis aut cumque non. Veniam animi praesentium cum autem. Quis sint magnam et est omnis.","length":576,"turns":56,"free":true,"is_work":true,"spec":null,"contacts":null,"location":{"id":49,"name":"\u041e\u043c\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
+        content: '{"status":"success","message":"messages.phone.delete.success","phone":{"number":null,"last_num":null,"number_verified_at":null}}'
         headers: []
         description: ''
         custom: []
