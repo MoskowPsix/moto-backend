@@ -26,9 +26,11 @@ class CreateDocumentAction implements CreateDocumentActionContract
             'it_works_date' => isset($request->itWorksDate) ? Carbon::parse($request->itWorksDate) : null,
             'user_id'       => $user->id,
         ]);
-        $document->update([
-            'url_view' => !empty($request->url) ? $request->url . $document->id : null
-        ]);
+        if (isset($request->file)) {
+            $document->update([
+                'url_view' => !empty($request->url) ? $request->url . $document->id : null
+            ]);
+        }
         return SuccessCreateDocumentResource::make(Document::find($document->id));
     }
 
