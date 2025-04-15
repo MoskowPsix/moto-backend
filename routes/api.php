@@ -93,6 +93,7 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
         ->name('race.update');
     Route::post('races/{id}/commission/add', 'addCommission')->middleware('auth:sanctum')->name('race.commission.add');
     Route::delete('races/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])->name('race.delete');
+    Route::post('races/{id}/add-document', 'addDocument')->middleware(['auth:sanctum', 'role:'. $role::COMMISSION.'|'.$role::ROOT])->name('race.add.document');
 });
 
 Route::controller(\App\Http\Controllers\Api\FavoriteUserController::class)->group(function () {

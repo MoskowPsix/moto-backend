@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Contracts\Actions\Controllers\Race\AddCommissionActionContract;
+use App\Contracts\Actions\Controllers\Race\AddDocumentRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\CreateRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\DeleteRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\GetForIdRaceActionContract;
@@ -12,12 +13,14 @@ use App\Contracts\Actions\Controllers\Race\ToggleIsWorkRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\UpdateRaceActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Race\AddCommissionRequest;
+use App\Http\Requests\Race\AddDocumentsRaceRequest;
 use App\Http\Requests\Race\CreateRaceRequest;
 use App\Http\Requests\Race\GetForIdRaceRequest;
 use App\Http\Requests\Race\GetRaceRequest;
 use App\Http\Requests\Race\UpdateRaceRequest;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
+use App\Http\Resources\Race\AddDocument\SuccessAddDocumentRaceResource;
 use App\Http\Resources\Race\Create\SuccessCreateRaceResource;
 use App\Http\Resources\Race\Delete\SuccessDeleteRaceResource;
 use App\Http\Resources\Race\GetRaceForId\SuccessGetRaceForIdResource;
@@ -91,6 +94,15 @@ class RaceController extends Controller
     UserIncorectRoleAddCommissionResource|
     SuccessAddCommissionResource|
     NotFoundResource
+    {
+        return $action($id, $request);
+    }
+    #[Authenticated]
+    #[ResponseFromApiResource(SuccessAddDocumentRaceResource::class, Race::class, collection: false)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
+    #[Endpoint(title: 'addDocument', description: 'Добавление файла с результатами к гонке комиссии')]
+    public function addDocument($id, AddDocumentsRaceRequest $request, AddDocumentRaceActionContract $action): SuccessAddDocumentRaceResource|NotFoundResource|NotUserPermissionResource
     {
         return $action($id, $request);
     }

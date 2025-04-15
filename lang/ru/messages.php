@@ -73,6 +73,9 @@ return [
         'delete' => [
             'success' => 'Гонка успешно удалена.',
         ],
+        'document' => [
+            'success' => 'Документ успешно добавлен',
+        ],
     ],
     'cup' => [
         'get_for_race_id' => [
