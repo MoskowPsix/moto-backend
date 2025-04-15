@@ -31,7 +31,7 @@ class UserWithFIOResource extends JsonResource
                 'name'          => $this->personalInfo->name,
                 'surname'       => $this->personalInfo->surname,
                 'patronymic'    => $this->personalInfo->patronymic,
-                'dateOfBirth'   => $this->personalInfo->date_of_birth,
+                'date_of_birth'   => $this->personalInfo->date_of_birth,
                 'city'          => $this->personalInfo->city,
                 'region'        => $this->personalInfo->region,
                 'rank'          => $this->personalInfo->rank,
