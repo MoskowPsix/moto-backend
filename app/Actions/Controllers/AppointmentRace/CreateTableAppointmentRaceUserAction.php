@@ -101,7 +101,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
             foreach ($value['documents'] as $document) {
                 switch ($document['type']) {
                     case DocumentType::Polis->value:
-                        $row['Скан или fotografия Страховки'] = $this->appendValueOrEmpty($row['Скан или fotografия Страховки'], $document['url_view']);
+                        $row['Скан или фотография Страховки'] = $this->appendValueOrEmpty($row['Скан или фотография Страховки'], $document['url_view']);
                         $row['Страховой полис: Серия и номер'] = $document['number'] ?? '';
                         $row['Страховой полис: Кем выдан'] = $document['issued_whom'] ?? '';
                         $row['Страховой полис: Срок действия'] = isset($document['it_works_date']) ? Carbon::parse($document['it_works_date'])->format('d.m.Y') : '';
