@@ -97,6 +97,7 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\AuthPhoneController\HookPhoneVerifyActionContract::class                 => \App\Actions\Controllers\AuthPhone\HookPhoneVerifyAction::class,
         \App\Contracts\Actions\Controllers\AuthPhoneController\VerifyPhoneActionContract::class                     => \App\Actions\Controllers\AuthPhone\VerifyPhoneAction::class,
         \App\Contracts\Actions\Controllers\AuthPhoneController\RegisterPhoneActionContract::class                   => \App\Actions\Controllers\AuthPhone\RegisterPhoneAction::class,
+        \App\Contracts\Actions\Controllers\AuthPhoneController\DeletePhoneActionContract::class                    => \App\Actions\Controllers\AuthPhone\DeletePhoneAction::class,
         \App\Contracts\Actions\Controllers\Status\GetStatusesActionContract::class                                  => \App\Actions\Controllers\Status\GetStatusesAction::class,
         \App\Contracts\Actions\Controllers\Cup\CreateCupActionContract::class                                       => \App\Actions\Controllers\Cup\CreateCupAction::class,
         \App\Contracts\Actions\Controllers\Cup\GetForIdCupActionContract::class                                     => \App\Actions\Controllers\Cup\GetForIdCupAction::class,
