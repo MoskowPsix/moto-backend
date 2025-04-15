@@ -1,17 +1,17 @@
-name: User
-description: 'Методы манипуляции пользователем.'
+name: Store
+description: 'Методы связанные с магазинами'
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/users
+      - POST
+    uri: api/stores
     metadata:
-      groupName: User
-      groupDescription: 'Методы манипуляции пользователем.'
+      groupName: Store
+      groupDescription: 'Методы связанные с магазинами'
       subgroup: ''
       subgroupDescription: ''
-      title: GetUserForToken
-      description: 'Получить данные пользователя по токену'
+      title: create
+      description: 'Создание магазина'
       authenticated: true
       custom: []
     headers:
@@ -21,268 +21,57 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.user.get_user_for_token.success","user":{"id":372,"name":"Delia Goldner","email":"marcos.mitchell@example.com","email_verified_at":"2025-04-14T06:38:46.000000Z","avatar":null}}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/users/{id}'
-    metadata:
-      groupName: User
-      groupDescription: 'Методы манипуляции пользователем.'
-      subgroup: ''
-      subgroupDescription: ''
-      title: getForId
-      description: 'Получить пользователя по id'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the user.'
+    bodyParameters:
+      login:
+        name: login
+        description: 'Must not be greater than 255 characters.'
         required: true
-        example: 1
-        type: integer
+        example: hjqavhrwfvdmrsivvroopzb
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.user.get_for_id.success","user":{"id":373,"name":"Mr. Alfredo Blanda PhD","avatar":null,"personal":[]}}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/users/update
-    metadata:
-      groupName: User
-      groupDescription: 'Методы манипуляции пользователем.'
-      subgroup: ''
-      subgroupDescription: ''
-      title: update
-      description: 'Обновить профиль пользователя'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: multipart/form-data
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'Must be at least 3 characters. Must not be greater than 50 characters.'
-        required: false
-        example: j
+      password_1:
+        name: password_1
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: fgmgggebjdpzehczhaqoi
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         custom: []
-      email:
-        name: email
-        description: 'Must be a valid email address.'
-        required: false
-        example: lonzo.grant@example.org
+      password_2:
+        name: password_2
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: rfivvh
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         custom: []
-      avatar:
-        name: avatar
-        description: 'Must be an image.'
-        required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      number:
-        name: number
-        description: 'Must be at least 10 characters. Must not be greater than 12 characters.'
-        required: false
-        example: do
+      token:
+        name: token
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: owgngzqtvrvnq
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         custom: []
     cleanBodyParameters:
-      name: j
-      email: lonzo.grant@example.org
-      number: do
-    fileParameters:
-      avatar: null
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.user.update.success","user":{"id":374,"name":"Alexandra Abernathy","email":"ihuel@example.org","email_verified_at":"2025-04-14T06:38:46.000000Z","avatar":null}}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 500
-        content: '{"status":"success","message":"messages.user.update.error"}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: api/users-commissions
-    metadata:
-      groupName: User
-      groupDescription: 'Методы манипуляции пользователем.'
-      subgroup: ''
-      subgroupDescription: ''
-      title: getCommissions
-      description: 'Получить список судей'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: ''
-        required: false
-        example: non
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      paginate:
-        name: paginate
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      page:
-        name: page
-        description: ''
-        required: false
-        example: ipsam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      limit:
-        name: limit
-        description: 'Must not be greater than 50.'
-        required: false
-        example: 12
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      name: non
-      paginate: false
-      page: ipsam
-      limit: 12
+      login: hjqavhrwfvdmrsivvroopzb
+      password_1: fgmgggebjdpzehczhaqoi
+      password_2: rfivvh
+      token: owgngzqtvrvnq
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.user.commision_get.success","users":{"id":375,"name":"Jake Gutmann","avatar":null,"personal":[]}},{"status":"success","message":"messages.user.commision_get.success","users":{"id":376,"name":"Prof. Gwen Schuppe PhD","avatar":null,"personal":[]}}]'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: api/users
-    metadata:
-      groupName: User
-      groupDescription: 'Методы манипуляции пользователем.'
-      subgroup: ''
-      subgroupDescription: ''
-      title: Delete
-      description: 'Удаление аккаунта пользователя'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.user.delete.success"}'
+        content: '{"status":"success","message":"messages.store.create.success","store":{"id":31,"login":"Ad vel perferendis quidem voluptate neque expedita fugiat. Reiciendis doloremque non voluptatibus quisquam. Itaque deleniti ipsa hic sed in quis.","password_1":"=VfxU.WJ*\\","password_2":"a''heB2[!0jg28@oYS","token":"Magni voluptatem cupiditate illo aut illum corporis officiis. Nulla nostrum modi quidem aut voluptatem. Soluta similique sequi explicabo vel maxime.","user":null}}'
         headers: []
         description: ''
         custom: []

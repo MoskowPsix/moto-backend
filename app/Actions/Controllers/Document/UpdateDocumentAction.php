@@ -38,7 +38,7 @@ class UpdateDocumentAction implements UpdateDocumentActionContract
             'type'          => $request->type ?? $document->type,
             'number'        => $request->number ?? $document->number,
             'issued_whom'   => $request->issuedWhom ?? $document->issued_whom,
-            'it_works_date' => isset($request->itWorksDate) ? Carbon::parse($request->itWorksDate) : $document->it_works_date,
+            'it_works_date' => isset($request->itWorksDate) ? Carbon::parse($request->itWorksDate)->format('d.m.y') : $document->it_works_date,
         ]);
     }
     private function updateFile($request, $document): void
