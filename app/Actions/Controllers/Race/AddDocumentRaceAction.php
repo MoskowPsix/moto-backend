@@ -32,19 +32,15 @@ class AddDocumentRaceAction implements AddDocumentRaceActionContract
 
     private function savePdfFile(AddDocumentsRaceRequest $request, Race $race): void
     {
-        if ($race->pdf_files) {
-            $this->deleteFile($race->pdf_files);
+        if (!$request->hasFile('pdfFiles')) {
+            return;
         }
-
         // Сохраняем новый файл
-        if ($request->hasFile('pdfFiles')) {
-            $filePath = $request->file('pdfFiles')->store("race/{$race->id}", 'public');
-            $race->update(['pdf_files' => $filePath]);
+        foreach ($request->file('pdfFiles') as $file) {
+            $filePath = $file->store("race/{$race->id}", 'public');
+            $newFiles[] = $filePath;
         }
-    }
 
-    private function deleteFile(string $filePath): void
-    {
-        Storage::disk('public')->delete($filePath);
+        $race->update(['pdf_files' => $newFiles]);
     }
 }
