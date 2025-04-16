@@ -26,6 +26,9 @@ class AddDocumentRaceAction implements AddDocumentRaceActionContract
         if (!$user->hasRole(RoleConstant::COMMISSION)) {
             return NotUserPermissionResource::make([]);
         }
+        if(!isset($request->pdfFiles) && !isset($request->pdfFilesDel)){
+            return SuccessAddDocumentRaceResource::make($race);
+        }
         if(isset($request->pdfFiles)){
             $this->savePdfFile($request->pdfFiles, $race);
         }
