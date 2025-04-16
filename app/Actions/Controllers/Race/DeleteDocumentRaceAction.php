@@ -35,7 +35,6 @@ class DeleteDocumentRaceAction implements DeleteDocumentRaceActionContract
     private function deleteFiles(array $files, Race $race): void
     {
         foreach ($files as $filePath) {
-            // Удаляем файл из массива pdf_files
             $race->update([
                 'pdf_files' => collect($race->pdf_files)
                     ->filter(fn ($file) => $file !== $filePath)
@@ -43,7 +42,6 @@ class DeleteDocumentRaceAction implements DeleteDocumentRaceActionContract
                     ->toArray(),
             ]);
 
-            // Удаляем файл с диска
             $this->deleteFile($filePath);
         }
     }
