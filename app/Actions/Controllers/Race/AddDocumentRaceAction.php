@@ -29,7 +29,9 @@ class AddDocumentRaceAction implements AddDocumentRaceActionContract
         if(isset($request->pdfFiles)){
             $this->savePdfFile($request->pdfFiles, $race);
         }
-
+        if(isset($request->pdfFilesDel)){
+            $this->deletePdfFiles($request->pdfFilesDel, $race);
+        }
         return SuccessAddDocumentRaceResource::make($race);
     }
 
@@ -46,5 +48,31 @@ class AddDocumentRaceAction implements AddDocumentRaceActionContract
         $race->update([
             'pdf_files' => $currentFiles
         ]);
+    }
+    private function deletePdfFiles(array $filesToDelete, Race $race): void
+    {
+        $currentFiles = $race->pdf_files ?? [];
+
+        foreach ($filesToDelete as $filePath) {
+            $currentFiles = collect($currentFiles)
+                ->filter(fn ($file) => $file !== $filePath)
+                ->values()
+                ->toArray();
+
+            $this->deleteFile($filePath);
+        }
+
+        $race->update([
+            'pdf_files' => $currentFiles
+        ]);
+    }
+    private function deleteFile(string $filePath): void
+    {
+        if (Storage::disk('public')->exists($filePath)) {
+            Storage::disk('public')->delete($filePath);
+        }
+        else {
+            return;
+        }
     }
 }

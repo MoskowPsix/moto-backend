@@ -22,8 +22,10 @@ class AddDocumentsRaceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'pdfFiles'     => 'array|required',
-            'pdfFiles.*'   => 'required|file|mimes:pdf',
+            'pdfFiles'      => 'array|required',
+            'pdfFiles.*'    => 'required|file|mimes:pdf',
+            'pdfFilesDel'   => 'array|nullable',
+            'pdfFilesDel.*' => 'string',
         ];
     }
 }
