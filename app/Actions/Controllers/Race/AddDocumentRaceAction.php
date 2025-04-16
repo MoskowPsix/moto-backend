@@ -43,8 +43,10 @@ class AddDocumentRaceAction implements AddDocumentRaceActionContract
         $currentFiles = $race->pdf_files ?? [];
 
         foreach ($pdfFies as $file) {
-            $originalName = $file->getClientOriginalName();
-            $filePath = $file->storeAs('race/'.$race->id, $originalName, 'public');
+            $originalName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = $file->getClientOriginalExtension();
+            $uniqueName = $originalName . '_' . uniqid() . '.' . $extension;
+            $filePath = $file->storeAs('race/'.$race->id, $uniqueName, 'public');
             $currentFiles[] = $filePath;
         }
 
