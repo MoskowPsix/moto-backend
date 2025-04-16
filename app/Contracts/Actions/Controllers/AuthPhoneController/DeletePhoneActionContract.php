@@ -8,5 +8,5 @@ use App\Http\Resources\Phone\Delete\SuccessDeletePhoneResource;
 
 interface DeletePhoneActionContract
 {
-    public function __invoke(int $id): SuccessDeletePhoneResource|NotFoundResource|NotUserPermissionResource;
+    public function __invoke(int $userId): SuccessDeletePhoneResource|NotFoundResource|NotUserPermissionResource;
 }
