@@ -28,7 +28,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 8
+        example: 17
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -38,7 +38,7 @@ endpoints:
         name: paginate
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -48,7 +48,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: omnis
+        example: minus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -58,22 +58,22 @@ endpoints:
         name: limit
         description: 'Must not be greater than 50.'
         required: false
-        example: 16
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      userId: 8
-      paginate: true
-      page: omnis
-      limit: 16
+      userId: 17
+      paginate: false
+      page: minus
+      limit: 18
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.grade.get.success","grades":{"id":137,"name":"Karen Wehner","description":"Enim molestias optio omnis quibusdam tempore. Fugit est voluptate est nam qui nemo ducimus delectus. Non maiores sint excepturi qui."}},{"status":"success","message":"messages.grade.get.success","grades":{"id":138,"name":"Lucy Hermiston","description":"Ut minima ea incidunt. Ipsam a et consequuntur et quae ipsa sed. Sed ad quas ducimus. Porro nam illo quia inventore."}}]'
+        content: '[{"status":"success","message":"messages.grade.get.success","grades":{"id":142,"name":"Ms. Estrella Hayes","description":"Aut maxime odit aliquid sit et. Ad placeat vero quis fuga aut. Ut illo unde consectetur magnam commodi ut. Sed consequatur dolorum tempore."}},{"status":"success","message":"messages.grade.get.success","grades":{"id":143,"name":"Dr. Harmon Franecki","description":"Aut exercitationem sit blanditiis sint. Rerum amet et et omnis. Illo aut aut perferendis aut."}}]'
         headers: []
         description: ''
         custom: []
@@ -119,7 +119,7 @@ endpoints:
         name: id
         description: 'The <code>id</code> of an existing record in the grades table.'
         required: true
-        example: 1
+        example: 10
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -129,20 +129,20 @@ endpoints:
         name: userId
         description: ''
         required: false
-        example: 10
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      id: 1
-      userId: 10
+      id: 10
+      userId: 13
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.grade.get_for_id.success","grade":{"id":139,"name":"Mr. Dayton Johns II","description":"Explicabo facilis ut laborum rerum. Optio magnam sequi autem rem natus sapiente. Eveniet odit esse accusantium ut qui ut quasi."}}'
+        content: '{"status":"success","message":"messages.grade.get_for_id.success","grade":{"id":144,"name":"Manuela Bashirian Sr.","description":"Dolores reprehenderit autem excepturi eos sed consequuntur. At neque ipsam delectus. Incidunt et perferendis beatae soluta rerum."}}'
         headers: []
         description: ''
         custom: []
@@ -177,7 +177,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: etgdbmogcglvurlr
+        example: qi
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -187,20 +187,20 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Praesentium ipsa molestiae quia aperiam id eos ut et.'
+        example: 'Vero impedit facilis sit qui reprehenderit.'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: etgdbmogcglvurlr
-      description: 'Praesentium ipsa molestiae quia aperiam id eos ut et.'
+      name: qi
+      description: 'Vero impedit facilis sit qui reprehenderit.'
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.grade.create.success","grade":{"id":140,"name":"Keyshawn Armstrong","description":"Quae molestias provident qui. Quisquam est quidem cumque explicabo minima sit voluptatibus. Natus ipsum exercitationem exercitationem quis dolores est."}}'
+        content: '{"status":"success","message":"messages.grade.create.success","grade":{"id":145,"name":"Hester Parisian","description":"Labore assumenda ut eaque. Modi doloribus quo ut dignissimos aut. Hic voluptas voluptatem doloremque similique officiis. Asperiores officiis beatae placeat aliquid et libero."}}'
         headers: []
         description: ''
         custom: []
@@ -246,7 +246,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: psjqsgcttehimtpesecniijg
+        example: symrw
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -256,7 +256,7 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Exercitationem fugit libero repellat facere quisquam sunt.'
+        example: 'Eveniet sed consequatur incidunt amet sit.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -266,21 +266,21 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 11
+        example: 14
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: psjqsgcttehimtpesecniijg
-      description: 'Exercitationem fugit libero repellat facere quisquam sunt.'
-      userId: 11
+      name: symrw
+      description: 'Eveniet sed consequatur incidunt amet sit.'
+      userId: 14
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.grade.update.success","grade":{"id":141,"name":"Lilla Kirlin","description":"Molestiae harum iste est deleniti at. Nesciunt iusto facere et earum quisquam neque. Cupiditate eum sunt aliquid quia qui. Facere quas omnis doloribus quo soluta."}}'
+        content: '{"status":"success","message":"messages.grade.update.success","grade":{"id":146,"name":"Hadley Harvey PhD","description":"Velit commodi sint sint amet laborum repudiandae ullam. Magnam voluptate doloremque quia in et repellendus fuga quos. Eos autem doloremque ut enim assumenda."}}'
         headers: []
         description: ''
         custom: []

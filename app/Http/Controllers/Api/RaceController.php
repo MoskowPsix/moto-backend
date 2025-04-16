@@ -109,13 +109,4 @@ class RaceController extends Controller
     {
         return $action($id, $request);
     }
-    #[Authenticated]
-    #[ResponseFromApiResource(SuccessDeleteDocumentRaceResource::class, Race::class, collection: false)]
-    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
-    #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
-    #[Endpoint(title: 'deleteDocument', description: 'Удаление файла с результатами')]
-    public function deleteDocument($id, DeleteDocumentsRaceRequest $request, DeleteDocumentRaceActionContract $action): SuccessDeleteDocumentRaceResource|NotFoundResource|NotUserPermissionResource
-    {
-        return $action($id, $request);
-    }
 }
