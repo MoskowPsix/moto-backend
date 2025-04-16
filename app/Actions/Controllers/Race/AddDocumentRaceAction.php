@@ -22,10 +22,10 @@ class AddDocumentRaceAction implements AddDocumentRaceActionContract
         if (!$race) {
             return NotFoundResource::make([]);
         }
-        $user = Auth::user();
-        if (!$user->hasRole(RoleConstant::COMMISSION)) {
-            return NotUserPermissionResource::make([]);
-        }
+//        $user = Auth::user();
+//        if (!$user->hasRole(RoleConstant::COMMISSION)) {
+//            return NotUserPermissionResource::make([]);
+//        }
         $this->savePdfFile($request, $race);
         return SuccessAddDocumentRaceResource::make($race);
     }
@@ -35,12 +35,15 @@ class AddDocumentRaceAction implements AddDocumentRaceActionContract
         if (!$request->hasFile('pdfFiles')) {
             return;
         }
+
+        $currentFiles = $race->pdf_files ?? [];
+
         // Сохраняем новый файл
         foreach ($request->file('pdfFiles') as $file) {
             $filePath = $file->store("race/{$race->id}", 'public');
-            $newFiles[] = $filePath;
+            $currentFiles[] = $filePath; // Добавляем новый файл в массив
         }
 
-        $race->update(['pdf_files' => $newFiles]);
+        $race->update(['pdf_files' => $currentFiles]);
     }
 }

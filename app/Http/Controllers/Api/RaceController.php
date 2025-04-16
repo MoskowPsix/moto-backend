@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Contracts\Actions\Controllers\Race\AddCommissionActionContract;
 use App\Contracts\Actions\Controllers\Race\AddDocumentRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\CreateRaceActionContract;
+use App\Contracts\Actions\Controllers\Race\DeleteDocumentRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\DeleteRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\GetForIdRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\GetRaceActionContract;
@@ -15,6 +16,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Race\AddCommissionRequest;
 use App\Http\Requests\Race\AddDocumentsRaceRequest;
 use App\Http\Requests\Race\CreateRaceRequest;
+use App\Http\Requests\Race\DeleteDocumentsRaceRequest;
 use App\Http\Requests\Race\GetForIdRaceRequest;
 use App\Http\Requests\Race\GetRaceRequest;
 use App\Http\Requests\Race\UpdateRaceRequest;
@@ -23,6 +25,7 @@ use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Http\Resources\Race\AddDocument\SuccessAddDocumentRaceResource;
 use App\Http\Resources\Race\Create\SuccessCreateRaceResource;
 use App\Http\Resources\Race\Delete\SuccessDeleteRaceResource;
+use App\Http\Resources\Race\DeleteDocument\SuccessDeleteDocumentRaceResource;
 use App\Http\Resources\Race\GetRaceForId\SuccessGetRaceForIdResource;
 use App\Http\Resources\Race\GetRaces\SuccessGetRaceResource;
 use App\Http\Resources\Race\ToggleIsWork\SuccessToogleIsWorkRaceResource;
@@ -103,6 +106,15 @@ class RaceController extends Controller
     #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
     #[Endpoint(title: 'addDocument', description: 'Добавление файла с результатами к гонке комиссии')]
     public function addDocument($id, AddDocumentsRaceRequest $request, AddDocumentRaceActionContract $action): SuccessAddDocumentRaceResource|NotFoundResource|NotUserPermissionResource
+    {
+        return $action($id, $request);
+    }
+    #[Authenticated]
+    #[ResponseFromApiResource(SuccessDeleteDocumentRaceResource::class, Race::class, collection: false)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
+    #[Endpoint(title: 'deleteDocument', description: 'Удаление файла с результатами')]
+    public function deleteDocument($id, DeleteDocumentsRaceRequest $request, DeleteDocumentRaceActionContract $action): SuccessDeleteDocumentRaceResource|NotFoundResource|NotUserPermissionResource
     {
         return $action($id, $request);
     }

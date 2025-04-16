@@ -76,6 +76,9 @@ return [
         'document' => [
             'success' => 'Документ успешно добавлен',
         ],
+        'documentDelete' => [
+            'success' => 'Документ успешно удалён',
+        ],
     ],
     'cup' => [
         'get_for_race_id' => [

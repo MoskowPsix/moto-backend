@@ -44,6 +44,7 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\Race\UpdateRaceActionContract::class                                     => \App\Actions\Controllers\Race\UpdateRaceAction::class,
         \App\Contracts\Actions\Controllers\Race\DeleteRaceActionContract::class                                     => \App\Actions\Controllers\Race\DeleteRaceAction::class,
         \App\Contracts\Actions\Controllers\Race\AddDocumentRaceActionContract::class                                => \App\Actions\Controllers\Race\AddDocumentRaceAction::class,
+        \App\Contracts\Actions\Controllers\Race\DeleteDocumentRaceActionContract::class                             => \App\Actions\Controllers\Race\DeleteDocumentRaceAction::class,
         \App\Contracts\Actions\Controllers\Race\AddCommissionActionContract::class                                  => \App\Actions\Controllers\Race\AddCommissionAction::class,
         \App\Contracts\Actions\Controllers\Race\ToggleIsWorkRaceActionContract::class                               => \App\Actions\Controllers\Race\ToggleIsWorkRaceAction::class,
         \App\Contracts\Actions\Controllers\PersonalInfo\CreatePersonalInfoActionContract::class                     => \App\Actions\Controllers\PersonalInfo\CreatePersonalInfoAction::class,
