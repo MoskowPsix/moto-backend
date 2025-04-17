@@ -28,7 +28,7 @@ endpoints:
         name: number
         description: 'The <code>number</code> of an existing record in the phones table. Must be at least 10 characters. Must not be greater than 12 characters.'
         required: true
-        example: ohfeikeg
+        example: sqdzo
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -38,15 +38,15 @@ endpoints:
         name: callback
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      number: ohfeikeg
-      callback: false
+      number: sqdzo
+      callback: true
     fileParameters: []
     responses:
       -
@@ -86,7 +86,7 @@ endpoints:
         name: number
         description: 'Must be at least 10 characters. Must not be greater than 12 characters.'
         required: true
-        example: cvibmuhuoy
+        example: inzxxgcog
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -96,15 +96,15 @@ endpoints:
         name: callback
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      number: cvibmuhuoy
-      callback: true
+      number: inzxxgcog
+      callback: false
     fileParameters: []
     responses:
       -
@@ -144,7 +144,7 @@ endpoints:
         name: pin
         description: 'Must be at least 3 characters. Must not be greater than 4 characters.'
         required: true
-        example: tsj
+        example: yx
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -154,20 +154,20 @@ endpoints:
         name: number
         description: 'The <code>number</code> of an existing record in the phones table. Must be at least 10 characters. Must not be greater than 12 characters.'
         required: true
-        example: wrokfyfkum
+        example: sajdfd
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      pin: tsj
-      number: wrokfyfkum
+      pin: yx
+      number: sajdfd
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.auth.login.success","access_token":"60|qsgTvvw7t2BePDB4JSBXfrI3QtLA7yZHXWmBnMqu5489747c","token_type":"Bearer","user":{"id":371,"name":"Krystina Ward","email":"fredrick.daugherty@example.com","email_verified_at":"2025-04-14T06:38:46.000000Z","avatar":null}}'
+        content: '{"status":"success","message":"messages.auth.login.success","access_token":"82|qlFnh95IofU6nCy02vLOLDkct73SCdASeCsSzDAQ77ccea34","token_type":"Bearer","user":{"id":498,"name":"Chelsea Upton","email":"danika47@example.org","email_verified_at":"2025-04-16T10:37:21.000000Z","avatar":null}}'
         headers: []
         description: ''
         custom: []
@@ -214,7 +214,7 @@ endpoints:
         name: key
         description: ''
         required: true
-        example: in
+        example: molestiae
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -224,17 +224,76 @@ endpoints:
         name: phone
         description: ''
         required: true
-        example: dolor
+        example: ut
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      key: in
-      phone: dolor
+      key: molestiae
+      phone: ut
     fileParameters: []
     responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/phone/{userId}/delete'
+    metadata:
+      groupName: AuthPhone
+      groupDescription: 'Авторизация пользователей через телефон.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: delete
+      description: 'Удаление телефона'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      userId:
+        name: userId
+        description: ''
+        required: true
+        example: voluptates
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      userId: voluptates
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.phone.delete.success","phone":{"number":null,"last_num":null,"number_verified_at":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
+        headers: []
+        description: ''
+        custom: []
     responseFields: []
     auth: []
     controller: null

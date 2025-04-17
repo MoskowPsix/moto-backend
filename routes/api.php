@@ -21,6 +21,7 @@ Route::controller(AuthPhoneController::class)->group(function () {
     Route::post('phone/register', 'register')->name('user.phone.register');
     Route::post('phone/verify', 'verify')->name('user.phone.verify');
     Route::post('phone/verify/hook', 'hook')->name('user.phone.hook');
+    Route::delete('phone/{userId}/delete', 'delete')->middleware('auth:sanctum')->name('user.phone.delete');
 });
 
 Route::controller(UserController::class)->group(function () {
@@ -92,6 +93,7 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
         ->name('race.update');
     Route::post('races/{id}/commission/add', 'addCommission')->middleware('auth:sanctum')->name('race.commission.add');
     Route::delete('races/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])->name('race.delete');
+    Route::post('races/{id}/add-document', 'addDocument')->middleware(['auth:sanctum', 'role:'. $role::COMMISSION.'|'.$role::ROOT])->name('race.add.document');
 });
 
 Route::controller(\App\Http\Controllers\Api\FavoriteUserController::class)->group(function () {

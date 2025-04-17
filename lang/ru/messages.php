@@ -73,6 +73,12 @@ return [
         'delete' => [
             'success' => 'Гонка успешно удалена.',
         ],
+        'document' => [
+            'success' => 'Документ успешно добавлен',
+        ],
+        'documentDelete' => [
+            'success' => 'Документ успешно удалён',
+        ],
     ],
     'cup' => [
         'get_for_race_id' => [
@@ -227,6 +233,11 @@ return [
         'not_verification_email' => 'Почта пользователя не подтверждена.',
         'not_verification_phone' => 'Телефон пользователя не подтверждён.',
         'timeout_warning' => 'До следующе попытки осталось :time.',
+    ],
+    'phone' => [
+        'delete' => [
+            'success' => 'Телефон успешно удалён',
+        ]
     ],
     'status' => [
         'get_all' => [
