@@ -27,7 +27,7 @@ class MultiSheetAppointmentRaceExport implements WithMultipleSheets
         $sheets[] = new AppointmentRaceUserExport($this->raceId);
 
         $race = Race::with('grades')->find($this->raceId);
-        foreach ($race as $grade) {
+        foreach ($race->grades as $grade) {
             $sheets[] = new AppointmentRaceForGradeUserExport($this->raceId, $grade->id, $grade->name);
         }
         return $sheets;
