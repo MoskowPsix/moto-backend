@@ -51,7 +51,6 @@ return [
             'excel_compatibility'    => false,
             'output_encoding'        => '',
             'test_auto_detect'       => true,
-            'input_encoding'        => Csv::GUESS_ENCODING,
         ],
 
         /*
