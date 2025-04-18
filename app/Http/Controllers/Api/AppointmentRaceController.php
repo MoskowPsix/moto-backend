@@ -7,6 +7,7 @@ use App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentPDFActionCon
 use App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentRaceUsersForCommissionActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\GetUsersAppointmentRaceActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\ToggleAppointmentRaceActionContract;
+use App\Contracts\Actions\Controllers\Export\MultiSheetAppointmentRaceExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AppointmentRace\GetAppointmentRaceUsersForCommissionRequest;
 use App\Http\Requests\AppointmentRace\GetUsersAppointmentRaceRequest;
@@ -27,6 +28,8 @@ use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\ResponseFromApiResource;
 use Knuckles\Scribe\Attributes\ResponseFromFile;
+use Maatwebsite\Excel\Facades\Excel;
+use PhpOffice\PhpSpreadsheet\Exception;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 
 #[Group(name: 'AppointmentRace', description: 'Методы отвечающие за запись участников')]
@@ -90,4 +93,15 @@ class AppointmentRaceController extends Controller
 //        // Функции этого метода выполняет метод toggle, по этому он убран.
 //        return $action($id);
 //    }
+    /**
+     * @throws Exception
+     * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
+     */
+    #[Authenticated]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[Endpoint(title: 'Export', description: 'Экспорт из таблицы Users')]
+    public function export(int $id)
+    {
+        return Excel::download(new MultiSheetAppointmentRaceExport($id), 'race_data.xlsx');
+    }
 }

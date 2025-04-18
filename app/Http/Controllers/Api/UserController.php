@@ -68,16 +68,4 @@ class UserController extends Controller
     {
         return $action();
     }
-
-    /**
-     * @throws Exception
-     * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
-     */
-    #[Authenticated]
-    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
-    #[Endpoint(title: 'Export', description: 'Экспорт из таблицы Users')]
-    public function export(int $id)
-    {
-        return Excel::download(new MultiSheetAppointmentRaceExport($id), 'race_data.xlsx');
-    }
 }
