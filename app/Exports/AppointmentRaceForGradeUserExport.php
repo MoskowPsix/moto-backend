@@ -19,7 +19,7 @@ class AppointmentRaceForGradeUserExport implements FromCollection, WithHeadings,
     private int $gradeId;
     private string $gradeName;
 
-    public function __construct(int $gradeId, int $raceId, string $gradeName)
+    public function __construct(int $raceId, int $gradeId, string $gradeName)
     {
         $this->raceId = $raceId;
         $this->gradeId = $gradeId;
@@ -42,6 +42,9 @@ class AppointmentRaceForGradeUserExport implements FromCollection, WithHeadings,
             'Марка мотоцикла',
         ];
     }
+    /**
+     * @return \Illuminate\Support\Collection
+     */
     public function collection()
     {
         $appr = AppointmentRace::where('race_id', $this->raceId)
@@ -62,8 +65,8 @@ class AppointmentRaceForGradeUserExport implements FromCollection, WithHeadings,
             $row['Отчество участника'] = $value['patronymic'] ?? '';
             $row['Дата Рождения'] = isset($value['date_of_birth']) ? Carbon::parse($value['date_of_birth'])->format('d.m.Y') : '';
             $row['Номер Лицензии'] = '';
-            $row['Спортивное звание'] = $value['rank'] ?? '';
-            $row['Населённый пункт (город, область)'] = isset($value['location'])
+            $row['Спортивное звание (разряд)'] = $value['rank'] ?? '';
+            $row['Населенный пункт (город, область)'] = isset($value['location'])
                 ? ('г. ' . ($value['city'] ?? '') . ', ' . ($value['location']['name'] ?? '') . ' ' . ($value['location']['type'] ?? ''))
                 : '';
             $row['Команда (Клуб)'] = !empty($value['command_id']) ? $value['command']['name'] ?? 'Лично' : 'Лично';
