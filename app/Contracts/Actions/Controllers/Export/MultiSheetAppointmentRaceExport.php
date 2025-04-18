@@ -5,6 +5,7 @@ namespace App\Contracts\Actions\Controllers\Export;
 use App\Exports\AppointmentRaceForGradeUserExport;
 use App\Exports\AppointmentRaceUserExport;
 use App\Models\Grade;
+use App\Models\Race;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
 class MultiSheetAppointmentRaceExport implements WithMultipleSheets
@@ -25,8 +26,8 @@ class MultiSheetAppointmentRaceExport implements WithMultipleSheets
 
         $sheets[] = new AppointmentRaceUserExport($this->raceId);
 
-        $grades = Grade::all();
-        foreach ($grades as $grade) {
+        $race = Race::with('grades')->find($this->raceId);
+        foreach ($race as $grade) {
             $sheets[] = new AppointmentRaceForGradeUserExport($this->raceId, $grade->id, $grade->name);
         }
         return $sheets;
