@@ -17,6 +17,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\Sanctum;
+use Illuminate\Http\Request;
 use Tests\TestCase;
 
 class UpdateDocumentActionTest extends TestCase
@@ -68,9 +69,10 @@ class UpdateDocumentActionTest extends TestCase
 
         $newFile = UploadedFile::fake()->create('new_file.png');
 
-        $request = new UpdateDocumentRequest([
-            'file' => $newFile,
-        ]);
+        $requestData = [];
+        $request = UpdateDocumentRequest::createFrom(new Request($requestData));
+        $request->files->add(['file' => $newFile]);
+
         $action = app(UpdateDocumentActionContract::class);
         $response = $action($document_seed->id, $request);
 
@@ -89,9 +91,10 @@ class UpdateDocumentActionTest extends TestCase
         ]);
 
         $file = UploadedFile::fake()->create('test.pdf');
-        $request = new UpdateDocumentRequest([
-                'file' => $file
-            ]);
+
+        $requestData = [];
+        $request = UpdateDocumentRequest::createFrom(new Request($requestData));
+        $request->files->add(['file' => $file]);
 
         $action = app(UpdateDocumentActionContract::class);
         $response = $action($document_seed->id, $request);

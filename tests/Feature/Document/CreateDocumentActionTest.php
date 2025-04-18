@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
@@ -26,9 +27,8 @@ class CreateDocumentActionTest extends TestCase
         $user = User::factory()->create();
         Sanctum::actingAs($user);
 
-        $filePath = 'documents/test.pdf';
-        Storage::disk('local')->put($filePath, 'Test content');
-        $file = UploadedFile::fake()->create('document.pdf');
+
+        $file = UploadedFile::fake()->create('document.pdf', 100, 'application/pdf');
 
         $documentSeeder = Document::factory()->make();
         $document = [
@@ -36,11 +36,13 @@ class CreateDocumentActionTest extends TestCase
             'type'          => $documentSeeder->type,
             'path'          => $documentSeeder->path,
             'user_id'       => $user->id,
-            'file'          => $file,
         ];
-        $request = new CreateDocumentRequest($document);
+        $request = new Request(array_merge($document, ['file' => $file]));
+        $createDocumentRequest = CreateDocumentRequest::createFrom($request);
+        $createDocumentRequest->files->add(['file' => $file]);
+
         $action = app(CreateDocumentActionContract::class);
-        $response = $action($request);
+        $response = $action($createDocumentRequest);
 
         $this->assertInstanceOf(SuccessCreateDocumentResource::class, $response);
     }

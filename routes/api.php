@@ -33,7 +33,6 @@ Route::controller(UserController::class)->group(function () {
     Route::get('users-commissions', 'getCommissions')->name('user.get_user_commissions');
     Route::delete('users', 'delete')->middleware(['auth:sanctum'])->name('user.delete');
 
-    Route::get('user/{id}/export', 'export');
 });
 
 Route::controller(\App\Http\Controllers\Api\RecoveryPassword::class)->group(function () {
@@ -150,6 +149,8 @@ Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->gr
     Route::get('races/{id}/appointment-race/appointments', 'getAppointmentsUsers')
         ->middleware(['auth:sanctum', 'role:' . '|' . $role::COMMISSION .'|' .$role::ADMIN.'|'.$role::ROOT])
         ->name('appointment_race.get_users_table_appointment_race');
+
+    Route::get('races/{id}/export', 'export');
 });
 
 Route::controller(App\Http\Controllers\Api\LocationController::class)->group(function () {
