@@ -1,10 +1,12 @@
 <?php
 
+use App\Exports\TestExport;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\AuthPhoneController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Maatwebsite\Excel\Facades\Excel;
 
 //Route::get('/user', function (Request $request) {
 //    return $request->user();
@@ -30,6 +32,8 @@ Route::controller(UserController::class)->group(function () {
     Route::post('users/update', 'update')->middleware('auth:sanctum')->name('user.get_user.update');
     Route::get('users-commissions', 'getCommissions')->name('user.get_user_commissions');
     Route::delete('users', 'delete')->middleware(['auth:sanctum'])->name('user.delete');
+
+    Route::get('user/{id}/export', 'export');
 });
 
 Route::controller(\App\Http\Controllers\Api\RecoveryPassword::class)->group(function () {

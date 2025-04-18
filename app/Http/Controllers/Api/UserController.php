@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Actions\Controllers\User\GetUserForTokenAction;
+use App\Contracts\Actions\Controllers\Export\MultiSheetAppointmentRaceExport;
 use App\Contracts\Actions\Controllers\User\DeleteUserActionContract;
 use App\Contracts\Actions\Controllers\User\GetCommisionUserActionContract;
 use App\Contracts\Actions\Controllers\User\GetUserForIdActionContract;
 use App\Contracts\Actions\Controllers\User\UpdateUserActionContract;
+use App\Exports\AppointmentRaceUserExport;
+use App\Exports\TestExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\User\GetCommisionUserRequest;
@@ -18,10 +21,13 @@ use App\Http\Resources\User\GetUserForToken\SuccessGetUserForTokenResource;
 use App\Http\Resources\User\Update\ErrorUpdateUserResource;
 use App\Http\Resources\User\Update\SuccessUpdateUserResource;
 use App\Models\User;
+use Dompdf\Renderer\Text;
 use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\ResponseFromApiResource;
+use Maatwebsite\Excel\Facades\Excel;
+use PhpOffice\PhpSpreadsheet\Exception;
 
 #[Group(name: 'User', description: 'Методы манипуляции пользователем.')]
 class UserController extends Controller
@@ -61,5 +67,17 @@ class UserController extends Controller
     public function delete(DeleteUserActionContract $action): SuccessUserDeleteResource
     {
         return $action();
+    }
+
+    /**
+     * @throws Exception
+     * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
+     */
+    #[Authenticated]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[Endpoint(title: 'Export', description: 'Экспорт из таблицы Users')]
+    public function export(int $id)
+    {
+        return Excel::download(new MultiSheetAppointmentRaceExport($id), 'race_data.xlsx');
     }
 }
