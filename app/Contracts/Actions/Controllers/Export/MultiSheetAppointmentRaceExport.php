@@ -2,13 +2,15 @@
 
 namespace App\Contracts\Actions\Controllers\Export;
 
+use App\Exports\AppointmentRaceForGradeUserExport;
 use App\Exports\AppointmentRaceUserExport;
-use App\Exports\TestExport;
+use App\Models\Grade;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
 class MultiSheetAppointmentRaceExport implements WithMultipleSheets
 {
     private $raceId;
+//    private $userId;
     public function __construct(int $raceId)
     {
         $this->raceId = $raceId;
@@ -19,9 +21,14 @@ class MultiSheetAppointmentRaceExport implements WithMultipleSheets
      */
     public function sheets(): array
     {
-        return [
-            new AppointmentRaceUserExport($this->raceId),
-            new TestExport(),
-        ];
+        $sheets = [];
+
+        $sheets[] = new AppointmentRaceUserExport($this->raceId);
+
+        $grades = Grade::all();
+        foreach ($grades as $grade) {
+            $sheets[] = new AppointmentRaceForGradeUserExport($this->raceId, $grade->id, $grade->name);
+        }
+        return $sheets;
     }
 }

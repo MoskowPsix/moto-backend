@@ -8,6 +8,7 @@ use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\AppointmentRace;
 use App\Models\Race;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -18,9 +19,11 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 class AppointmentRaceUserExport implements FromCollection, WithHeadings, WithTitle, ShouldAutoSize, WithStyles
 {
     private int $raceId;
+//    private int $userId;
     public function __construct(int $raceId)
     {
         $this->raceId = $raceId;
+//        $this->userId = $userId;
 
         $this->checkPermission();
     }
@@ -28,18 +31,18 @@ class AppointmentRaceUserExport implements FromCollection, WithHeadings, WithTit
     {
         $race = Race::find($this->raceId);
         if(!$race){
-            return NotFoundResource::make([]);
+            throw new ModelNotFoundException('Гонка не найдена.');
         }
 
         $appr = AppointmentRace::where('race_id', $this->raceId);
 
         if (!$appr->exists()) {
-            return NotFoundResource::make([]);
+            throw new ModelNotFoundException('Нет данных для экспорта.');
         }
 
-//        if(!$race->commissions()->where('users.id', auth()->user()->id)->exists())
+//        if(!$race->commissions()->where('users.id', $this->userId)->exists())
 //        {
-//            return NotUserPermissionResource::make([]);
+//            throw new \Exception('Нет прав доступа.');
 //        }
         return $appr;
     }
@@ -139,7 +142,7 @@ class AppointmentRaceUserExport implements FromCollection, WithHeadings, WithTit
 
     public function title(): string
     {
-        return 'Участники гонки';
+        return 'Список';
     }
     public function styles(Worksheet $sheet)
     {

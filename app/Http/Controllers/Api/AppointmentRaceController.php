@@ -99,9 +99,10 @@ class AppointmentRaceController extends Controller
      */
     #[Authenticated]
     #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
-    #[Endpoint(title: 'Export', description: 'Экспорт из таблицы Users')]
+    #[Endpoint(title: 'Export', description: 'Экспорт заявок')]
     public function export(int $id)
     {
-        return Excel::download(new MultiSheetAppointmentRaceExport($id), 'race_data.xlsx');
+//        $userId = \Auth::id();
+        return Excel::download(new MultiSheetAppointmentRaceExport($id), 'регистрация мотокросс.xlsx');
     }
 }
