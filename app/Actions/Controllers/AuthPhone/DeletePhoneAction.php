@@ -7,18 +7,24 @@ use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Http\Resources\Phone\Delete\SuccessDeletePhoneResource;
 use App\Models\Phone;
+use App\Models\User;
 
 class DeletePhoneAction implements DeletePhoneActionContract
 {
 
-    public function __invoke(int $id): SuccessDeletePhoneResource|NotFoundResource|NotUserPermissionResource
+    public function __invoke(int $userId): SuccessDeletePhoneResource|NotFoundResource|NotUserPermissionResource
     {
-        $phone = Phone::find($id);
-        if(!isset($phone)){
+        $user = User::find($userId);
+
+        if(!isset($userId)){
             return NotFoundResource::make([]);
         }
-        if($phone->user_id !== auth()->user()->id){
+        if($user->id !== auth()->user()->id){
             return NotUserPermissionResource::make([]);
+        }
+        $phone = $user->phone;
+        if(!$phone){
+            return NotFoundResource::make([]);
         }
         $phone->delete();
         return SuccessDeletePhoneResource::make($phone);

@@ -15,10 +15,13 @@ class CreateDocumentAction implements CreateDocumentActionContract
         if (isset($request->file)) {
             $path = $this->save($request->file);
         }
+
+        $originalFileName = $request->file('file')->getClientOriginalName();
+
         $name = uniqid('file_');
         $user = auth()->user();
         $document = Document::create([
-            'name'          => $name,
+            'name'          => $originalFileName ?? uniqid('file_'),
             'type'          => $request->type,
             'path'          => $path ?? '',
             'number'        => $request->number,
@@ -36,6 +39,13 @@ class CreateDocumentAction implements CreateDocumentActionContract
 
     private function save($file): string
     {
-        return $file->store('user/documents', 'local');
+        return $file->storeAs('user/documents', $this->generateUniqueFileName($file), 'local');
+    }
+    private function generateUniqueFileName($file): string
+    {
+        $originalName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+        $extension = $file->getClientOriginalExtension();
+
+        return $originalName . '_' . uniqid() . '.' . $extension;
     }
 }

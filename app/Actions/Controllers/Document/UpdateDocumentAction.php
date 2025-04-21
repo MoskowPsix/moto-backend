@@ -45,18 +45,25 @@ class UpdateDocumentAction implements UpdateDocumentActionContract
     {
         $new_path = $this->save($request->file);
         $document->update([
-            'name' => uniqid('file_'),
+            'name' => $request->file('file')->getClientOriginalName(),
             'path' => $new_path,
         ]);
     }
     private function save($file): string
     {
-        return $file->store('user/documents', 'local');
+        return $file->storeAs('user/documents', $this->generateUniqueFileName($file), 'local');
     }
     private function delete($path): void
     {
         if (isset($path)) {
             Storage::delete($path);
         }
+    }
+    private function generateUniqueFileName($file): string
+    {
+        $originalName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+        $extension = $file->getClientOriginalExtension();
+
+        return $originalName . '_' . uniqid() . '.' . $extension;
     }
 }

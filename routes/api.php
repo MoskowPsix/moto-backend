@@ -1,10 +1,12 @@
 <?php
 
+use App\Exports\TestExport;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\AuthPhoneController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Maatwebsite\Excel\Facades\Excel;
 
 //Route::get('/user', function (Request $request) {
 //    return $request->user();
@@ -21,7 +23,7 @@ Route::controller(AuthPhoneController::class)->group(function () {
     Route::post('phone/register', 'register')->name('user.phone.register');
     Route::post('phone/verify', 'verify')->name('user.phone.verify');
     Route::post('phone/verify/hook', 'hook')->name('user.phone.hook');
-    Route::delete('phone/{id}', 'delete')->middleware('auth:sanctum')->name('user.phone.delete');
+    Route::delete('phone/{userId}/delete', 'delete')->middleware('auth:sanctum')->name('user.phone.delete');
 });
 
 Route::controller(UserController::class)->group(function () {
@@ -30,6 +32,7 @@ Route::controller(UserController::class)->group(function () {
     Route::post('users/update', 'update')->middleware('auth:sanctum')->name('user.get_user.update');
     Route::get('users-commissions', 'getCommissions')->name('user.get_user_commissions');
     Route::delete('users', 'delete')->middleware(['auth:sanctum'])->name('user.delete');
+
 });
 
 Route::controller(\App\Http\Controllers\Api\RecoveryPassword::class)->group(function () {
@@ -93,6 +96,7 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
         ->name('race.update');
     Route::post('races/{id}/commission/add', 'addCommission')->middleware('auth:sanctum')->name('race.commission.add');
     Route::delete('races/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])->name('race.delete');
+    Route::post('races/{id}/add-document', 'addDocument')->middleware(['auth:sanctum', 'role:'. $role::COMMISSION.'|'.$role::ROOT])->name('race.add.document');
 });
 
 Route::controller(\App\Http\Controllers\Api\FavoriteUserController::class)->group(function () {
@@ -145,6 +149,8 @@ Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->gr
     Route::get('races/{id}/appointment-race/appointments', 'getAppointmentsUsers')
         ->middleware(['auth:sanctum', 'role:' . '|' . $role::COMMISSION .'|' .$role::ADMIN.'|'.$role::ROOT])
         ->name('appointment_race.get_users_table_appointment_race');
+
+    Route::get('races/{id}/export', 'export');
 });
 
 Route::controller(App\Http\Controllers\Api\LocationController::class)->group(function () {
