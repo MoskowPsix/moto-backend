@@ -21,11 +21,11 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 class AppointmentRaceUserExport implements FromCollection, WithHeadings, WithTitle, ShouldAutoSize, WithStyles
 {
     private int $raceId;
-//    private int $userId;
-    public function __construct(int $raceId)
+    private int $userId;
+    public function __construct(int $raceId, int $userId)
     {
         $this->raceId = $raceId;
-//        $this->userId = $userId;
+        $this->userId = $userId;
 
         $this->checkPermission();
     }
@@ -42,10 +42,10 @@ class AppointmentRaceUserExport implements FromCollection, WithHeadings, WithTit
             throw new ModelNotFoundException('Нет данных для экспорта.');
         }
 
-//        if(!$race->commissions()->where('users.id', $this->userId)->exists())
-//        {
-//            throw new \Exception('Нет прав доступа.');
-//        }
+        if(!$race->commissions()->where('users.id', $this->userId)->exists())
+        {
+            throw new \Exception('Нет прав доступа.');
+        }
         return $appr;
     }
     public function headings(): array
