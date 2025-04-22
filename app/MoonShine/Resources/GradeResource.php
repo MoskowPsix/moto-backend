@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Grade;
 
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
+use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
@@ -36,6 +37,7 @@ class GradeResource extends ModelResource
             Text::make('name')->sortable(),
             Text::make('description')->sortable(),
             BelongsTo::make('Автор', 'user', resource: \App\MoonShine\Resources\UserResource::class)->searchable(),
+            BelongsTo::make('Родитель', 'gradeParent', resource: \App\MoonShine\Resources\GradeResource::class)->searchable()->nullable(),
         ];
     }
 
@@ -50,6 +52,7 @@ class GradeResource extends ModelResource
                 Text::make('name')->sortable(),
                 Text::make('description')->sortable(),
                 BelongsTo::make('Автор', 'user', resource: \App\MoonShine\Resources\UserResource::class)->searchable(),
+                BelongsTo::make('Родитель', 'gradeParent', resource: \App\MoonShine\Resources\GradeResource::class)->searchable()->nullable(),
             ])
         ];
     }
@@ -64,6 +67,7 @@ class GradeResource extends ModelResource
             Text::make('name')->sortable(),
             Text::make('description')->sortable(),
             BelongsTo::make('Автор', 'user', resource: \App\MoonShine\Resources\UserResource::class)->searchable(),
+            BelongsTo::make('Родитель', 'gradeParent', resource: \App\MoonShine\Resources\GradeResource::class)->searchable()->nullable(),
         ];
     }
 

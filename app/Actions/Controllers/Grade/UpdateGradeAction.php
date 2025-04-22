@@ -24,6 +24,7 @@ class UpdateGradeAction implements UpdateGradeActionContract
             'name' => $request->name ?? $grade->name,
             'description' => $request->description ?? $grade->description,
             'user_id' => $request->get('userId') ?? $grade->user_id,
+            'grade_id' => $request->gradeId ?? $grade->grade_id,
         ]);
         return SuccessUpdateGradeResource::make($grade);
     }
