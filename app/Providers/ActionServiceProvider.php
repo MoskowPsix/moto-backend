@@ -9,6 +9,8 @@ use App\Contracts\Actions\Controllers\AuthPhoneController\RegisterPhoneActionCon
 use App\Contracts\Actions\Controllers\AuthPhoneController\VerifyPhoneActionContract;
 use App\Contracts\Actions\Controllers\Command\GetCoachesForAllUsersActionContract;
 use App\Contracts\Actions\Controllers\Command\GetMemberForCoachForIdActionContract;
+use App\Contracts\Actions\Controllers\Degree\GetDegreeActionContract;
+use App\Contracts\Actions\Controllers\Degree\GetForIdsDegreeActionContract;
 use App\Contracts\Actions\Controllers\Grade\GetForIdGradeActionContract;
 use App\Contracts\Actions\Controllers\Grade\GetGradeActionContract;
 use App\Contracts\Actions\Controllers\Grade\UpdateGradeActionContract;
@@ -44,7 +46,6 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\Race\UpdateRaceActionContract::class                                     => \App\Actions\Controllers\Race\UpdateRaceAction::class,
         \App\Contracts\Actions\Controllers\Race\DeleteRaceActionContract::class                                     => \App\Actions\Controllers\Race\DeleteRaceAction::class,
         \App\Contracts\Actions\Controllers\Race\AddDocumentRaceActionContract::class                                => \App\Actions\Controllers\Race\AddDocumentRaceAction::class,
-        \App\Contracts\Actions\Controllers\Race\DeleteDocumentRaceActionContract::class                             => \App\Actions\Controllers\Race\DeleteDocumentRaceAction::class,
         \App\Contracts\Actions\Controllers\Race\AddCommissionActionContract::class                                  => \App\Actions\Controllers\Race\AddCommissionAction::class,
         \App\Contracts\Actions\Controllers\Race\ToggleIsWorkRaceActionContract::class                               => \App\Actions\Controllers\Race\ToggleIsWorkRaceAction::class,
         \App\Contracts\Actions\Controllers\PersonalInfo\CreatePersonalInfoActionContract::class                     => \App\Actions\Controllers\PersonalInfo\CreatePersonalInfoAction::class,
@@ -106,6 +107,8 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\Cup\GetForRaceIdCupActionContract::class                                 => \App\Actions\Controllers\Cup\GetForRaceIdCupAction::class,
         \App\Contracts\Actions\Controllers\Cup\UpdateCupActionContract::class                                       => \App\Actions\Controllers\Cup\UpdateCupAction::class,
         \App\Contracts\Actions\Controllers\FavoriteUser\ToggleFavoriteRaceActionContract::class                     => \App\Actions\Controllers\FavoriteUser\ToggleFavoriteRaceAction::class,
+        \App\Contracts\Actions\Controllers\Degree\GetDegreeActionContract::class                                    => \App\Actions\Controllers\Degree\GetDegreeAction::class,
+        \App\Contracts\Actions\Controllers\Degree\GetForIdsDegreeActionContract::class                              => \App\Actions\Controllers\Degree\GetDegreeForIdsAction::class,
     ];
     /**
      * Register services.

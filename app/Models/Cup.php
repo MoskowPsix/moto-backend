@@ -23,6 +23,7 @@ class Cup extends Model
         'color',
         'location_id',
         'user_id',
+        'degree_id'
     ];
 
     public function user(): BelongsTo
@@ -32,5 +33,13 @@ class Cup extends Model
     public function race(): BelongsToMany
     {
         return $this->belongsToMany(Race::class, 'race_cup', 'cup_id', 'race_id');
+    }
+    public function location(): BelongsTo
+    {
+        return $this->belongsTo(Location::class);
+    }
+    public function degree(): BelongsTo
+    {
+        return $this->belongsTo(Degree::class);
     }
 }

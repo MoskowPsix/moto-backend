@@ -148,7 +148,9 @@ Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->gr
         ->middleware(['auth:sanctum', 'role:' . '|' . $role::COMMISSION .'|' .$role::ADMIN.'|'.$role::ROOT])
         ->name('appointment_race.get_users_table_appointment_race');
 
-    Route::get('races/{id}/appointment-race/users-table/export', 'export')->middleware(['auth:sanctum'])->name('appointment_race.export');
+    Route::get('races/{id}/appointment-race/users-table/export', 'export')
+        ->middleware(['auth:sanctum'])
+        ->name('appointment_race.export');
 });
 
 Route::controller(App\Http\Controllers\Api\LocationController::class)->group(function () {
@@ -195,4 +197,9 @@ Route::controller(\App\Http\Controllers\Api\AttendanceController::class)->group(
     Route::post('attendances', 'create')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('attendance.create');
     Route::post('attendance/{id}', 'update')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('attendance.update');
     Route::delete('attendance/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('attendance.delete');
+});
+
+Route::controller(\App\Http\Controllers\Api\DegreeController::class)->group(function () {
+    Route::get('degree', 'get')->name('degree.get');
+    Route::get('degree/{id}', 'getForId')->name('degree.get');
 });

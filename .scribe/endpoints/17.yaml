@@ -26,7 +26,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 8
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -46,7 +46,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: culpa
+        example: quaerat
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -54,24 +54,24 @@ endpoints:
         custom: []
       limit:
         name: limit
-        description: 'Must not be greater than 50.'
+        description: 'Значение поля value не может быть больше 50.'
         required: false
-        example: 22
+        example: 9
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      userId: 8
+      userId: 13
       paginate: false
-      page: culpa
-      limit: 22
+      page: quaerat
+      limit: 9
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.grade.get.success","grades":{"id":147,"name":"Brandi Skiles","description":"Corrupti nobis facilis provident vel ratione quis. Ullam ut et ab. Error et quidem ut velit dolorum."}},{"status":"success","message":"messages.grade.get.success","grades":{"id":148,"name":"Rosendo Kemmer","description":"Officiis sunt neque ullam non temporibus sed sed. Quibusdam rerum architecto et sed eligendi. Quis numquam nihil omnis ut molestias quam blanditiis."}}]'
+        content: '[{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","grades":{"id":190,"name":"\u0415\u043b\u0438\u0437\u0430\u0432\u0435\u0442\u0430 \u0411\u043e\u0440\u0438\u0441\u043e\u0432\u043d\u0430 \u0424\u043e\u043c\u0438\u0447\u0451\u0432\u0430","description":"Nihil dolorem suscipit exercitationem. Quo sint nobis sed iure quas eum aliquid. Exercitationem eius et occaecati doloribus. Aliquid sint nostrum autem asperiores."}},{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","grades":{"id":191,"name":"\u0411\u043e\u0431\u044b\u043b\u0451\u0432\u0430 \u0418\u0437\u0430\u0431\u0435\u043b\u043b\u0430 \u0421\u0435\u0440\u0433\u0435\u0435\u0432\u043d\u0430","description":"Non autem vero ullam quas inventore est. Dolor at repellat aut nemo esse. Dolores debitis iusto qui soluta. Facere ad voluptatem aliquid et laborum."}}]'
         headers: []
         description: ''
         custom: []
@@ -102,14 +102,14 @@ endpoints:
         name: id
         description: 'The ID of the grade.'
         required: true
-        example: 1
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -117,7 +117,7 @@ endpoints:
         name: id
         description: 'The <code>id</code> of an existing record in the grades table.'
         required: true
-        example: 3
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -127,20 +127,20 @@ endpoints:
         name: userId
         description: ''
         required: false
-        example: 14
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      id: 3
-      userId: 14
+      id: 20
+      userId: 3
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.grade.get_for_id.success","grade":{"id":149,"name":"Claudine Turcotte","description":"Ipsam quis quos veritatis eum. Rerum consequatur voluptatum est praesentium. Fugit error sint laboriosam culpa reprehenderit aut. Et dolor eos recusandae."}}'
+        content: '{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","grade":{"id":192,"name":"\u041f\u043b\u0430\u0442\u043e\u043d \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447 \u0416\u0443\u0440\u0430\u0432\u043b\u0451\u0432","description":"Quo nostrum laboriosam in amet sed dicta. Ut fugiat aliquam deserunt pariatur quis neque. Iure consectetur pariatur blanditiis. Atque iste eum sed autem nostrum itaque quasi."}}'
         headers: []
         description: ''
         custom: []
@@ -173,9 +173,9 @@ endpoints:
     bodyParameters:
       name:
         name: name
-        description: 'Must not be greater than 255 characters.'
+        description: 'Количество символов в значении поля value не может превышать 255.'
         required: true
-        example: prqgxri
+        example: fmkghkmtn
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -185,7 +185,7 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Impedit vel sint facere aliquid consequuntur nesciunt.'
+        example: 'Nihil rerum neque et dolor aliquid quo.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -195,21 +195,21 @@ endpoints:
         name: gradeId
         description: 'The <code>id</code> of an existing record in the grades table.'
         required: true
-        example: 1
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: prqgxri
-      description: 'Impedit vel sint facere aliquid consequuntur nesciunt.'
-      gradeId: 1
+      name: fmkghkmtn
+      description: 'Nihil rerum neque et dolor aliquid quo.'
+      gradeId: 12
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.grade.create.success","grade":{"id":150,"name":"Mrs. Meagan Daniel Jr.","description":"Aut eos autem dolores quia rerum labore praesentium. Quia qui sit sed vel voluptatem iste. Reprehenderit delectus pariatur amet assumenda deleniti rem aspernatur."}}'
+        content: '{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d.","grade":{"id":193,"name":"\u0411\u043e\u0431\u0440\u043e\u0432 \u0412\u0438\u0442\u043e\u043b\u044c\u0434 \u041c\u0430\u043a\u0441\u0438\u043c\u043e\u0432\u0438\u0447","description":"Quae et tempore reiciendis. Consequatur occaecati aut porro laudantium ratione quibusdam a optio. Nihil aspernatur ipsum porro nesciunt quia."}}'
         headers: []
         description: ''
         custom: []
@@ -240,22 +240,22 @@ endpoints:
         name: id
         description: 'The ID of the grade.'
         required: true
-        example: 1
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       name:
         name: name
-        description: 'Must not be greater than 255 characters.'
+        description: 'Количество символов в значении поля value не может превышать 255.'
         required: false
-        example: axavbmtweoyafpaxxhr
+        example: mudemzldnqwrlygpa
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -265,7 +265,7 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Voluptas accusamus eos atque quaerat molestiae exercitationem.'
+        example: 'Ipsum culpa vitae sint ex.'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -275,7 +275,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 16
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -285,28 +285,28 @@ endpoints:
         name: gradeId
         description: 'The <code>id</code> of an existing record in the grades table.'
         required: false
-        example: 5
+        example: 14
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: axavbmtweoyafpaxxhr
-      description: 'Voluptas accusamus eos atque quaerat molestiae exercitationem.'
-      userId: 16
-      gradeId: 5
+      name: mudemzldnqwrlygpa
+      description: 'Ipsum culpa vitae sint ex.'
+      userId: 3
+      gradeId: 14
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.grade.update.success","grade":{"id":151,"name":"Addison Stark","description":"Aut quis est quaerat saepe eos. Ipsam est cum inventore officia. Voluptatem occaecati error sit et. Delectus distinctio fuga ratione eius omnis dicta."}}'
+        content: '{"status":"success","message":"\u041a\u043b\u0430\u0441\u0441 \u0433\u043e\u043d\u043a\u0438 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0451\u043d.","grade":{"id":194,"name":"\u041d\u0438\u043a\u0438\u0442\u0430 \u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432\u0438\u0447 \u0422\u0430\u0440\u0430\u0441\u043e\u0432","description":"Illum sequi rerum et architecto. Aut temporibus doloribus esse sit ut nisi quia. Et magnam quae tempore et velit est."}}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
+        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
         headers: []
         description: ''
         custom: []
