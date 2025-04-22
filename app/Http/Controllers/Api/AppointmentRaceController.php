@@ -98,11 +98,10 @@ class AppointmentRaceController extends Controller
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
      */
     #[Authenticated]
-    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
     #[Endpoint(title: 'Export', description: 'Экспорт заявок')]
     public function export(int $id)
     {
-//        $userId = \Auth::id();
-        return Excel::download(new MultiSheetAppointmentRaceExport($id), 'регистрация мотокросс.xlsx');
+        $userId = \Auth::id();
+        return Excel::download(new MultiSheetAppointmentRaceExport($id, $userId), 'регистрация мотокросс.xlsx');
     }
 }
