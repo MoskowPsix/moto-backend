@@ -262,7 +262,6 @@ class UserResource extends ModelResource
 
             Number::make('ID', 'id'),
             Text::make('Username', 'name'),
-            Phone::make('Phone', 'phone.number'),
             Email::make('E-mail', 'email'),
         ];
     }
