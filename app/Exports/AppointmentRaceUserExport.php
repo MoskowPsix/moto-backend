@@ -150,10 +150,10 @@ class AppointmentRaceUserExport implements FromCollection, WithHeadings, WithTit
     {
         $sheet->getStyle('A1:X1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getStyle('A1:X1')->getFont()->setBold(true);
-        $sheet->getStyle('A2:X1000')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getStyle('A1:X1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
 
         $sheet->getStyle('O2:O1000')->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_TEXT);
+        $sheet->getStyle('P2:P1000')->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_TEXT);
     }
     private function appendValueOrEmpty(string $currentValue, string $newValue): string
     {
