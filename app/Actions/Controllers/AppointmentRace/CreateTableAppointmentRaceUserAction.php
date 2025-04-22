@@ -101,17 +101,17 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
             foreach ($value['documents'] as $document) {
                 switch ($document['type']) {
                     case DocumentType::Polis->value:
-                        $row['Скан или фотография Страховки'] = $this->appendValueOrEmpty($row['Скан или фотография Страховки'], $document['url_view']);
+                        $row['Скан или фотография Страховки'] = isset($document['url_view']) && isset($row['Скан или фотография Страховки']) ? $this->appendValueOrEmpty($row['Скан или фотография Страховки'], $document['url_view']) : '';
                         $row['Страховой полис: Серия и номер'] = $document['number'] ?? '';
                         $row['Страховой полис: Кем выдан'] = $document['issued_whom'] ?? '';
                         $row['Страховой полис: Срок действия'] = isset($document['it_works_date']) ? Carbon::parse($document['it_works_date'])->format('d.m.Y') : '';
                         break;
                     case DocumentType::Licenses->value:
-                        $row['Скан или фотография Лицензии'] = $this->appendValueOrEmpty($row['Скан или фотография Лицензии'], $document['url_view']);
+                        $row['Скан или фотография Лицензии'] = isset($document['url_view']) && isset($row['Скан или фотография Лицензии']) ? $this->appendValueOrEmpty($row['Скан или фотография Лицензии'], $document['url_view']) : '';
                         $row['Номер Лицензии'] = $document['number'] ?? '';
                         break;
                     case DocumentType::Notarius->value:
-                        $row['Скан или фотография нотариального согласия от обоих родителей'] = $this->appendValueOrEmpty($row['Скан или фотография нотариального согласия от обоих родителей'], $document['url_view']);
+                        $row['Скан или фотография нотариального согласия от обоих родителей'] = isset($document['url_view']) && isset($row['Скан или фотография нотариального согласия от обоих родителей']) ? $this->appendValueOrEmpty($row['Скан или фотография нотариального согласия от обоих родителей'], $document['url_view']) : '';
                         break;
                 }
             }
