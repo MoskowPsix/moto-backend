@@ -14,6 +14,7 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithTitle;
+use PhpOffice\PhpSpreadsheet\Cell\DataType;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 class AppointmentRaceUserExport implements FromCollection, WithHeadings, WithTitle, ShouldAutoSize, WithStyles
@@ -107,7 +108,10 @@ class AppointmentRaceUserExport implements FromCollection, WithHeadings, WithTit
             $row['Команда (Клуб)'] = !empty($value['command_id']) ? $value['command']['name'] ?? 'Лично' : 'Лично';
             $row['Марка мотоцикла'] = $value['moto_stamp'] ?? '';
             $row['Страховой полис: Срок действия'] = '';
-            $row['Серия и номер паспорта/ свидетельства о рождении'] = $value['number_and_seria'] ?? '';
+            $row['Серия и номер паспорта/ свидетельства о рождении'] = [
+                    'value'     => $value['number_and_seria'] ?? '',
+                    'type'      => DataType::TYPE_STRING,
+            ];
             $row['Пенсионное страховое свидетельство (СНИЛС)'] = $value['snils'] ?? '';
             $row['Номер телефона'] = $value['phone_number'] ?? '';
             $row['Страховой полис: Серия и номер'] = '';
