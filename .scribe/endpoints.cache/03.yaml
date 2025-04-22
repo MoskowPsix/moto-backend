@@ -26,9 +26,9 @@ endpoints:
     bodyParameters:
       email:
         name: email
-        description: 'Значение поля value должно быть действительным электронным адресом. The <code>email</code> of an existing record in the users table.'
+        description: 'Must be a valid email address. The <code>email</code> of an existing record in the users table.'
         required: true
-        example: claudine.tremblay@example.com
+        example: jonathon24@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -38,26 +38,26 @@ endpoints:
         name: url
         description: 'Must be a valid URL.'
         required: true
-        example: 'http://www.wolff.net/et-animi-iure-accusantium-enim-ut-minus.html'
+        example: 'http://watsica.com/aut-occaecati-aut-modi-fugit'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      email: claudine.tremblay@example.com
-      url: 'http://www.wolff.net/et-animi-iure-accusantium-enim-ut-minus.html'
+      email: jonathon24@example.org
+      url: 'http://watsica.com/aut-occaecati-aut-modi-fugit'
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0421\u0441\u044b\u043b\u043a\u0430 \u043d\u0430 \u0432\u043e\u0441\u0441\u0442\u0430\u043d\u043e\u0432\u043b\u0435\u043d\u0438\u0435 \u043f\u0430\u0440\u043e\u043b\u044f \u043e\u0442\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0430 \u043d\u0430 \u0432\u0430\u0448\u0443 \u044d\u043b\u0435\u043a\u0442\u0440\u043e\u043d\u043d\u0443\u044e \u043f\u043e\u0447\u0442\u0443."}'
+        content: '{"status":"success","message":"messages.recovery_password.send.success"}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
@@ -92,7 +92,7 @@ endpoints:
         name: token
         description: ''
         required: true
-        example: et
+        example: repellat
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -100,9 +100,9 @@ endpoints:
         custom: []
       password:
         name: password
-        description: 'Количество символов в поле value должно быть не меньше 8.'
+        description: 'Must be at least 8 characters.'
         required: true
-        example: 'pYcVil"nfZ{='
+        example: "o%V^3@+,v='&"
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -112,27 +112,27 @@ endpoints:
         name: password_confirmation
         description: 'The value and <code>password</code> must match.'
         required: true
-        example: illum
+        example: similique
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      token: et
-      password: 'pYcVil"nfZ{='
-      password_confirmation: illum
+      token: repellat
+      password: "o%V^3@+,v='&"
+      password_confirmation: similique
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u041f\u0430\u0440\u043e\u043b\u044c \u0431\u044b\u043b \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0451\u043d."}'
+        content: '{"status":"success","message":"messages.recovery_password.recovery.success"}'
         headers: []
         description: ''
         custom: []
       -
         status: 403
-        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
         headers: []
         description: ''
         custom: []
