@@ -15,6 +15,7 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use PhpOffice\PhpSpreadsheet\Cell\DataType;
+use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 class AppointmentRaceUserExport implements FromCollection, WithHeadings, WithTitle, ShouldAutoSize, WithStyles
@@ -108,10 +109,7 @@ class AppointmentRaceUserExport implements FromCollection, WithHeadings, WithTit
             $row['Команда (Клуб)'] = !empty($value['command_id']) ? $value['command']['name'] ?? 'Лично' : 'Лично';
             $row['Марка мотоцикла'] = $value['moto_stamp'] ?? '';
             $row['Страховой полис: Срок действия'] = '';
-            $row['Серия и номер паспорта/ свидетельства о рождении'] = [
-                    'value'     => $value['number_and_seria'] ?? '',
-                    'type'      => DataType::TYPE_STRING,
-            ];
+            $row['Серия и номер паспорта/ свидетельства о рождении'] = $value['number_and_seria'] ?? '';
             $row['Пенсионное страховое свидетельство (СНИЛС)'] = $value['snils'] ?? '';
             $row['Номер телефона'] = $value['phone_number'] ?? '';
             $row['Страховой полис: Серия и номер'] = '';
@@ -152,9 +150,10 @@ class AppointmentRaceUserExport implements FromCollection, WithHeadings, WithTit
     {
         $sheet->getStyle('A1:X1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getStyle('A1:X1')->getFont()->setBold(true);
-        $sheet->getStyle('A2:A1000')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-
+        $sheet->getStyle('A2:X1000')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getStyle('A1:X1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
+
+        $sheet->getStyle('O2:O1000')->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_TEXT);
     }
     private function appendValueOrEmpty(string $currentValue, string $newValue): string
     {
