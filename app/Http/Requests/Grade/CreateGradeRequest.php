@@ -22,8 +22,9 @@ class CreateGradeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255|unique:grades,name',
-            'description' => 'nullable|string',
+            'name'          => 'required|string|max:255|unique:grades,name',
+            'description'   => 'nullable|string',
+            'gradeId'       => 'required|integer|exists:grades,id',
         ];
     }
 }

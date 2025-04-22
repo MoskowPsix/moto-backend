@@ -16,7 +16,9 @@ class CreateGradeAction implements CreateGradeActionContract
             'name' => $request->name,
             'description' => $request->description,
             'user_id' =>  $user->id,
+            'grade_id' => $request->gradeId
         ]);
+        $grade = Grade::with(['gradeParent'])->find($grade->id);
         return SuccessCreateGradeResource::make($grade);
     }
 }

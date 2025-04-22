@@ -26,6 +26,8 @@ class GradeResource extends JsonResource
             'name' => $this->name,
             'description' => $this->description,
             'user' => UserResource::make($this->whenLoaded('user')),
+            'grade_parent'  => GradeResource::make($this->whenLoaded('gradeParent')),
+            'grade_child'   => GradeResource::collection($this->whenLoaded('gradeChild')),
         ];
     }
 }
