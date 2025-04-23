@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Contracts\Actions\Controllers\AppointmentRace\CheckedAppointmentRaceForCommissionActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\CreateTableAppointmentRaceUserActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentPDFActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentRaceUsersForCommissionActionContract;
@@ -9,9 +10,11 @@ use App\Contracts\Actions\Controllers\AppointmentRace\GetUsersAppointmentRaceAct
 use App\Contracts\Actions\Controllers\AppointmentRace\ToggleAppointmentRaceActionContract;
 use App\Contracts\Actions\Controllers\Export\MultiSheetAppointmentRaceExport;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AppointmentRace\CheckedAppointmentRaceForCommissionRequest;
 use App\Http\Requests\AppointmentRace\GetAppointmentRaceUsersForCommissionRequest;
 use App\Http\Requests\AppointmentRace\GetUsersAppointmentRaceRequest;
 use App\Http\Requests\AppointmentRace\ToogleAppointmentRaceRequest;
+use App\Http\Resources\AppointmentRace\Checked\SuccessCheckedAppointmentRaceForCommissionResource;
 use App\Http\Resources\AppointmentRace\Create\ExistsAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Create\GradeNotExistsAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Create\ManyDocumentAppointmentRaceResource;
@@ -103,5 +106,17 @@ class AppointmentRaceController extends Controller
     {
         $userId = \Auth::id();
         return Excel::download(new MultiSheetAppointmentRaceExport($id, $userId), 'регистрация мотокросс.xlsx');
+    }
+    #[Authenticated]
+    #[ResponseFromApiResource(SuccessCheckedAppointmentRaceForCommissionResource::class)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
+    #[Endpoint(title: 'checkedForCommission', description: 'Подтверждение записи участника гонки.')]
+    public function checkedForCommission(int $id, CheckedAppointmentRaceForCommissionRequest $request, CheckedAppointmentRaceForCommissionActionContract $action):
+    SuccessCheckedAppointmentRaceForCommissionResource|
+    NotFoundResource|
+    NotUserPermissionResource
+    {
+        return $action($id, $request);
     }
 }

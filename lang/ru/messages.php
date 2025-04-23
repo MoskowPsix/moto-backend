@@ -216,7 +216,10 @@ return [
         ],
         'delete' => [
             'success' => 'Запись на гонку успешно удалена.',
-        ]
+        ],
+        'checked' => [
+            'success' => 'Заявка :checked.'
+        ],
     ],
     'verification_email' => [
         'send' => [

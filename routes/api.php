@@ -149,6 +149,10 @@ Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->gr
     Route::get('races/{id}/appointment-race/users-table/export', 'export')
         ->middleware(['auth:sanctum', 'role:' . $role::COMMISSION . '|' . $role::ORGANIZATION .'|' .$role::ADMIN.'|'.$role::ROOT])
         ->name('appointment_race.export');
+    Route::post('races/appointment-race/{id}/checked', 'checkedForCommission')
+        ->middleware(['auth:sanctum', 'role:' . '|' . $role::COMMISSION .'|' .$role::ADMIN.'|'.$role::ROOT])
+        ->name('appointment_race.checked');
+
 });
 
 Route::controller(App\Http\Controllers\Api\LocationController::class)->group(function () {

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Contracts\Actions\Commands\GenerateLocationCsvActionContract;
+use App\Contracts\Actions\Controllers\AppointmentRace\CheckedAppointmentRaceForCommissionActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentRaceUsersForCommissionActionContract;
 use App\Contracts\Actions\Controllers\AuthPhoneController\LoginPhoneActionContract;
 use App\Contracts\Actions\Controllers\AuthPhoneController\RegisterPhoneActionContract;
@@ -63,6 +64,7 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\AppointmentRace\CreateTableAppointmentRaceUserActionContract::class      => \App\Actions\Controllers\AppointmentRace\CreateTableAppointmentRaceUserAction::class,
         \App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentPDFActionContract::class                   => \App\Actions\Controllers\AppointmentRace\GetAppointmentPDFAction::class,
         \App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentRaceUsersForCommissionActionContract::class=> \App\Actions\Controllers\AppointmentRace\GetAppointmentRaceUsersForCommissionAction::class,
+        \App\Contracts\Actions\Controllers\AppointmentRace\CheckedAppointmentRaceForCommissionActionContract::class => \App\Actions\Controllers\AppointmentRace\CheckedAppointmentRaceForCommissionAction::class,
         \App\Contracts\Actions\Controllers\User\UpdateUserActionContract::class                                     => \App\Actions\Controllers\User\UpdateUserAction::class,
         \App\Contracts\Actions\Controllers\User\GetUserForIdActionContract::class                                   => \App\Actions\Controllers\User\GetUserForIdAction::class,
         \App\Contracts\Actions\Controllers\User\GetCommisionUserActionContract::class                               => \App\Actions\Controllers\User\GetCommisionUserAction::class,
