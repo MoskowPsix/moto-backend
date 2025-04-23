@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Exports;
+namespace App\Services\Exports;
 
 use App\Enums\DocumentType;
-use App\Http\Resources\Errors\NotFoundResource;
-use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\AppointmentRace;
 use App\Models\Race;
 use Carbon\Carbon;
@@ -14,7 +12,6 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithTitle;
-use PhpOffice\PhpSpreadsheet\Cell\DataType;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 

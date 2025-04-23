@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Exports;
+namespace App\Services\Exports;
 
 use App\Enums\DocumentType;
 use App\Models\AppointmentRace;
-use App\Models\User;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;

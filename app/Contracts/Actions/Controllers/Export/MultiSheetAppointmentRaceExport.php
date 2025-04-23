@@ -2,10 +2,9 @@
 
 namespace App\Contracts\Actions\Controllers\Export;
 
-use App\Exports\AppointmentRaceForGradeUserExport;
-use App\Exports\AppointmentRaceUserExport;
-use App\Models\Grade;
 use App\Models\Race;
+use App\Services\Exports\AppointmentRaceForGradeUserExport;
+use App\Services\Exports\AppointmentRaceUserExport;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
 class MultiSheetAppointmentRaceExport implements WithMultipleSheets
