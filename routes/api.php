@@ -149,6 +149,7 @@ Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->gr
     Route::get('races/{id}/appointment-race/users-table/export', 'exportApplications')
         ->middleware(['auth:sanctum', 'role:' . $role::COMMISSION . '|' . $role::ORGANIZATION .'|' .$role::ADMIN.'|'.$role::ROOT])
         ->name('appointment_race.export');
+
     Route::get('races/{raceId}/results/export', 'exportResults')->name('results.export');
 
     Route::post('races/appointment-race/{id}/checked', 'checkedForCommission')
