@@ -58,7 +58,7 @@ class TemplateRaceResultsTableImport implements ToCollection, WithHeadings
                 'rank'              => $row['Спортивное звание/разряд'] ?? $appointment->rank,
                 'city'              => $row['Населённый пункт (регион)'] ?? $appointment->city,
                 'command_id'        => $row['Команда (Клуб)'] ?? $appointment->command_id,
-                'moto_stamp'        => $row['moto_stamp'] ?? $appointment->moto_stamp,
+                'moto_stamp'        => $row['Марка мотоцикла'] ?? $appointment->moto_stamp,
             ]);
         }
     }
@@ -71,7 +71,7 @@ class TemplateRaceResultsTableImport implements ToCollection, WithHeadings
             'Спортивное звание/разряд',
             'Населённый пункт (регион)',
             'Команда (Клуб)',
-            'moto_stamp',
+            'Марка мотоцикла',
         ];
     }
 }

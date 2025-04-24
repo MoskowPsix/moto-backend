@@ -119,7 +119,8 @@ class AppointmentRaceController extends Controller
     #[Endpoint(title: 'Export', description: 'Экспорт результатов')]
     public function exportResults(int $id)
     {
-        return Excel::download(new TemplateRaceResultsTableExport($id), 'Результаты.xlsx');
+        $userId = \Auth::id();
+        return Excel::download(new TemplateRaceResultsTableExport($id, $userId), 'Результаты.xlsx');
     }
     #[Authenticated]
     #[Endpoint(title: 'Import', description: 'Импорт результатов')]
