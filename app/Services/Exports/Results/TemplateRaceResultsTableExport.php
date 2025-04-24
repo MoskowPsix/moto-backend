@@ -2,7 +2,10 @@
 
 namespace App\Services\Exports\Results;
 
+use App\Http\Resources\Errors\NotFoundResource;
+use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\AppointmentRace;
+use App\Models\Race;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -14,10 +17,30 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 class TemplateRaceResultsTableExport implements FromCollection, WithStyles, WithTitle, WithHeadings, ShouldAutoSize
 {
     private int $raceId;
+    private int $userId;
 
-    public function __construct(int $raceId)
+    public function __construct(int $raceId, int $userId)
     {
         $this->raceId = $raceId;
+        $this->userId = $userId;
+
+        $this->checkPermission();
+    }
+
+    private function checkPermission()
+    {
+        $race = Race::find($this->raceId);
+        if (!$race) {
+            return NotFoundResource::make([]);
+        }
+        $appointment = AppointmentRace::where('race_id', $this->raceId);
+        if (!$appointment->exists()) {
+            return NotFoundResource::make([]);
+        }
+        if(!$race->commissions()->where('user_id', $this->userId)->exists()) {
+            return NotUserPermissionResource::make([]);
+        }
+        return $appointment;
     }
 
     /**
@@ -86,12 +109,12 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
         $sheet->getStyle('I2:L2')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getStyle('I2:L2')->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
 
-        $sheet->setCellValue('I1', 'I заезд',);
+        $sheet->setCellValue('I1', 'I заезд');
         $sheet->mergeCells('I1:J1');
         $sheet->setCellValue('I2', 'место');
         $sheet->setCellValue('J2', 'личн.очки');
 
-        $sheet->setCellValue('K1', 'II заезд',);
+        $sheet->setCellValue('K1', 'II заезд');
         $sheet->mergeCells('K1:L1');
         $sheet->setCellValue('K2', 'место');
         $sheet->setCellValue('L2', 'личн.очки');

@@ -27,6 +27,7 @@ use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\User;
 use App\Services\Exports\Results\TemplateRaceResultsTableExport;
+use App\Services\Imports\Results\TemplateRaceResultsTableImport;
 use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
@@ -117,7 +118,15 @@ class AppointmentRaceController extends Controller
     #[Endpoint(title: 'Export', description: 'Экспорт результатов')]
     public function exportResults(int $id)
     {
-        return Excel::download(new TemplateRaceResultsTableExport($id), 'Результаты.xlsx');
+        $userId = \Auth::id();
+        return Excel::download(new TemplateRaceResultsTableExport($id, $userId), 'Результаты.xlsx');
+    }
+    #[Authenticated]
+    #[Endpoint(title: 'Import', description: 'Импорт результатов')]
+    public function importResults(int $id, \Request $request)
+    {
+        $userId = \Auth::id();
+        return Excel::import(new TemplateRaceResultsTableImport($id), $request->file('file'));
     }
     #[Authenticated]
     #[ResponseFromApiResource(SuccessCheckedAppointmentRaceForCommissionResource::class)]

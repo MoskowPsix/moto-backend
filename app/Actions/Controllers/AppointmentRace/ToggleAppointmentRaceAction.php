@@ -47,7 +47,7 @@ class ToggleAppointmentRaceAction implements ToggleAppointmentRaceActionContract
         if ($race->appointments()->where('user_id', $user->id)->exists() && !$request->has('userId')) {
             return ExistsAppointmentRaceResource::make([]);
         }
-        if (!$race->grades()->where('grade_id', $request->gradeId)->exists()) {
+        if (!$race->grades()->where('grade_race.grade_id', $request->gradeId)->exists()) {
             return GradeNotExistsAppointmentRaceResource::make([]);
         }
 
