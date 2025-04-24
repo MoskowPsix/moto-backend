@@ -202,7 +202,10 @@ return [
         ],
         'delete' => [
             'success' => 'Документ успешно удалён.',
-        ]
+        ],
+        'verify_docs_for_commission' => [
+            'success' => 'Документ проверен и изменён.'
+        ],
     ],
     'appointment_race' => [
         'get_users' => [
@@ -213,7 +216,10 @@ return [
         ],
         'delete' => [
             'success' => 'Запись на гонку успешно удалена.',
-        ]
+        ],
+        'checked' => [
+            'success' => 'Заявка :checked.'
+        ],
     ],
     'verification_email' => [
         'send' => [

@@ -27,7 +27,60 @@ endpoints:
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.degree.get.success","degree":{"id":null,"name":null,"desc":null}},{"status":"success","message":"messages.degree.get.success","degree":{"id":null,"name":null,"desc":null}}]'
+        content: '[{"status":"success","message":"\u0423\u0440\u043e\u0432\u043d\u0438 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b.","degree":{"id":null,"name":null,"desc":null}},{"status":"success","message":"\u0423\u0440\u043e\u0432\u043d\u0438 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b.","degree":{"id":null,"name":null,"desc":null}}]'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/degree/{id}'
+    metadata:
+      groupName: Degree
+      groupDescription: 'Методы связанные с уровнями кубков. Например всероссийский, областной и т.д.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: getForRaceId
+      description: 'Получение уровня по id.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the degree.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u0423\u0440\u043e\u0432\u0435\u043d\u044c \u043f\u043e id \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u043f\u043e\u043b\u0443\u0447\u0435\u043d.","degree":{"id":null,"name":null,"desc":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
         headers: []
         description: ''
         custom: []

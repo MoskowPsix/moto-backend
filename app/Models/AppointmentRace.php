@@ -39,6 +39,9 @@ class AppointmentRace extends Model
         'location_id',
         'grade_id',
         'command_id',
+        'comment',
+        'commission_id',
+        'is_checked'
     ];
 
     protected $casts = [
@@ -68,5 +71,13 @@ class AppointmentRace extends Model
     public function command(): BelongsTo
     {
         return $this->belongsTo(Command::class);
+    }
+    public function commission(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'commission_id', 'id', 'users');
+    }
+    public function race(): BelongsTo
+    {
+        return $this->belongsTo(Race::class);
     }
 }

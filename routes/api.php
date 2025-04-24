@@ -127,7 +127,7 @@ Route::controller(\App\Http\Controllers\Api\DocumentController::class)->group(fu
     Route::post('users/cabinet/documents/{id}/update', 'update')->middleware('auth:sanctum')->name('document.update');
     Route::delete('users/cabinet/documents/{id}', 'delete')->middleware('auth:sanctum')->name('document.delete');
 
-    Route::get('documents/{id}/commission-checked', 'verifyDocsForCommission')->middleware(['auth:sanctum', 'role:' . $role::ADMIN.'|'.$role::ROOT.'|'.$role::COMMISSION])->name('document.commission.checked');
+    Route::post('documents/{id}/commission-checked', 'verifyDocsForCommission')->middleware(['auth:sanctum', 'role:' . $role::ADMIN.'|'.$role::ROOT.'|'.$role::COMMISSION])->name('document.commission.checked');
 });
 
 Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->group(function () {
@@ -149,8 +149,12 @@ Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->gr
     Route::get('races/{id}/appointment-race/users-table/export', 'exportApplications')
         ->middleware(['auth:sanctum', 'role:' . $role::COMMISSION . '|' . $role::ORGANIZATION .'|' .$role::ADMIN.'|'.$role::ROOT])
         ->name('appointment_race.export');
-
     Route::get('races/{raceId}/results/export', 'exportResults')->name('results.export');
+
+    Route::post('races/appointment-race/{id}/checked', 'checkedForCommission')
+        ->middleware(['auth:sanctum', 'role:' . '|' . $role::COMMISSION .'|' .$role::ADMIN.'|'.$role::ROOT])
+        ->name('appointment_race.checked');
+
 });
 
 Route::controller(App\Http\Controllers\Api\LocationController::class)->group(function () {
