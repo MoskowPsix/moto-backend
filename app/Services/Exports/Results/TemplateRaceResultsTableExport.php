@@ -109,16 +109,16 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
         $sheet->getStyle('I2:L2')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getStyle('I2:L2')->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
 
-        $sheet->setCellValue('I1', 'I заезд');
-        $sheet->mergeCells('I1:J1');
-        $sheet->setCellValue('I2', 'место');
-        $sheet->setCellValue('J2', 'личн.очки');
+        $sheet->setCellValue('J1', 'I заезд');
+        $sheet->mergeCells('J1:K1');
+        $sheet->setCellValue('J2', 'место');
+        $sheet->setCellValue('K2', 'личн.очки');
 
-        $sheet->setCellValue('K1', 'II заезд');
-        $sheet->mergeCells('K1:L1');
-        $sheet->setCellValue('K2', 'место');
-        $sheet->setCellValue('L2', 'личн.очки');
-        $sheet->setCellValue('M1', 'Сумма лич.очки');
+        $sheet->setCellValue('L1', 'II заезд');
+        $sheet->mergeCells('L1:M1');
+        $sheet->setCellValue('L2', 'место');
+        $sheet->setCellValue('M2', 'личн.очки');
+        $sheet->setCellValue('N1', 'Сумма лич.очки');
 
         $sheet->mergeCells('A1:A2');
         $sheet->mergeCells('B1:B2');
@@ -128,7 +128,10 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
         $sheet->mergeCells('F1:F2');
         $sheet->mergeCells('G1:G2');
         $sheet->mergeCells('H1:H2');
-        $sheet->mergeCells('M1:M2');
+        $sheet->mergeCells('I1:I2');
+        $sheet->mergeCells('N1:N2');
+
+        $sheet->getStyle('B1:N1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_UNPROTECTED);
 
         $sheet->getColumnDimension('A')->setVisible(false);
         $sheet->getStyle('A1:A1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
