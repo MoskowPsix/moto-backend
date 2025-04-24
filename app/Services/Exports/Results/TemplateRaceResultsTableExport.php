@@ -35,6 +35,7 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
         foreach ($appr as $value){
             $row = [];
 
+            $row['ID'] = $value['user_id'] ?? '';
             $row['Место'] = '';
             $row['Ст. №'] = $value['start_number'] ?? '';
             $row['Фамилия'] = $value['surname'] ?? '';
@@ -60,6 +61,7 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
     public function headings(): array
     {
         return [
+            'ID',
             'Место',
             'Ст. №',
             'Фамилия',
@@ -76,10 +78,10 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
      */
     public function styles(Worksheet $sheet)
     {
-        $sheet->getStyle('A1:M1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        $sheet->getStyle('A1:M1')->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-        $sheet->getStyle('A1:M1')->getFont()->setBold(true);
-        $sheet->getStyle('A1:M1')->getFont()->setItalic(true);
+        $sheet->getStyle('A1:N1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle('A1:N1')->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        $sheet->getStyle('A1:N1')->getFont()->setBold(true);
+        $sheet->getStyle('A1:N1')->getFont()->setItalic(true);
 
         $sheet->getStyle('I2:L2')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getStyle('I2:L2')->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
@@ -104,5 +106,11 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
         $sheet->mergeCells('G1:G2');
         $sheet->mergeCells('H1:H2');
         $sheet->mergeCells('M1:M2');
+
+        $sheet->getColumnDimension('A')->setVisible(false);
+        $sheet->getStyle('A1:A1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
+        $sheet->getProtection()->setSheet(true);
+        $sheet->getProtection()->setSort(true);
+        $sheet->getProtection()->setFormatCells(true);
     }
 }
