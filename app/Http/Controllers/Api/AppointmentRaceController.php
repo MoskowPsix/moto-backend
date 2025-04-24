@@ -23,6 +23,7 @@ use App\Http\Resources\AppointmentRace\SuccessGetAppointmentRaceUsersForCommissi
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\User;
+use App\Services\Exports\Results\TemplateRaceResultsTableExport;
 use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
@@ -98,10 +99,21 @@ class AppointmentRaceController extends Controller
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
      */
     #[Authenticated]
-    #[Endpoint(title: 'Export', description: 'Экспорт заявок')]
-    public function export(int $id)
+    #[Endpoint(title: 'Export applications', description: 'Экспорт заявок')]
+    public function exportApplications(int $id)
     {
         $userId = \Auth::id();
         return Excel::download(new MultiSheetAppointmentRaceExport($id, $userId), 'регистрация мотокросс.xlsx');
+    }
+
+    /**
+     * @throws Exception
+     * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
+     */
+    #[Authenticated]
+    #[Endpoint(title: 'Export', description: 'Экспорт результатов')]
+    public function exportResults(int $id)
+    {
+        return Excel::download(new TemplateRaceResultsTableExport($id), 'Результаты.xlsx');
     }
 }
