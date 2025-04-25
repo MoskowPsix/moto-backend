@@ -25,7 +25,7 @@ class GetFileDocumentAction implements GetFileDocumentActionContract
         if (!$document->exists()) {
             return NotFoundResource::make([]);
         }
-        if (!($document->first()->user_id === $user->id || $user->hasRole($this->roleConstant::ADMIN) || $user->hasRole($this->roleConstant::ROOT))) {
+        if (!($document->first()->user_id === $user->id || $user->hasRole($this->roleConstant::ADMIN) || $user->hasRole($this->roleConstant::ROOT) || $user->hasRole($this->roleConstant::COMMISSION))) {
             return NotUserPermissionResource::make([]);
         }
         $file_path =Storage::drive('local')->path($document->first()->path);
