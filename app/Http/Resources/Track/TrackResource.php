@@ -63,7 +63,7 @@ class TrackResource extends JsonResource
             'schema_img' => $this->schema_img,
             'logo'      => $this->logo,
             'store'     => $this->whenLoaded('store', StoreResource::make($this->store)),
-            'attendance' => $this->whenLoaded('attendance', AttendanceResource::make($this->attendance)),
+//            'attendance' => $this->whenLoaded('attendance', AttendanceResource::make($this->attendance)),
         ];
     }
 }
