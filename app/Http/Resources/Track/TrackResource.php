@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Track;
 
+use App\Http\Resources\Attendance\AttendanceResource;
 use App\Http\Resources\Level\LevelResource;
 use App\Http\Resources\Location\LocationResource;
 use App\Http\Resources\Store\StoreResource;
@@ -29,6 +30,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property string $logo
  * @property array $contacts
  * @property mixed $store
+ * @property mixed $attendance
  */
 class TrackResource extends JsonResource
 {
@@ -61,6 +63,7 @@ class TrackResource extends JsonResource
             'schema_img' => $this->schema_img,
             'logo'      => $this->logo,
             'store'     => $this->whenLoaded('store', StoreResource::make($this->store)),
+            'attendance' => $this->whenLoaded('attendance', AttendanceResource::make($this->attendance)),
         ];
     }
 }
