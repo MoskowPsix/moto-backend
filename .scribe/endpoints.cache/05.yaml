@@ -28,8 +28,28 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 2
+        example: 4
         type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      storeIdExists:
+        name: storeIdExists
+        description: 'The <code>id</code> of an existing record in the stores table.'
+        required: false
+        example: 20
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      checkStore:
+        name: checkStore
+        description: ''
+        required: false
+        example: true
+        type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: true
@@ -38,7 +58,7 @@ endpoints:
         name: paginate
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -48,7 +68,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: atque
+        example: similique
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -58,7 +78,7 @@ endpoints:
         name: limit
         description: 'Must not be greater than 50.'
         required: false
-        example: 4
+        example: 23
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -68,23 +88,25 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 3
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      userId: 2
-      paginate: true
-      page: atque
-      limit: 4
-      locationId: 3
+      userId: 4
+      storeIdExists: 20
+      checkStore: true
+      paginate: false
+      page: similique
+      limit: 23
+      locationId: 12
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.track.get.success","tracks":{"id":196,"name":"Assessor","address":"23005 Rau Garden\nSageberg, NV 46065","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Dolore magni magni molestiae recusandae odit ut earum. Omnis vel quo molestias explicabo. Sit suscipit nemo tempora nesciunt eos vel. Dolorem labore deleniti ipsum veritatis. Eos iure dolorem autem enim doloribus rerum ut. Ipsa et maiores delectus ut dolores quis. Facere omnis nihil repellat et. Odio incidunt rerum ut necessitatibus. Quaerat illum quos itaque quia nulla nostrum ut. Unde asperiores illum laboriosam rerum magni rem ducimus. Quo sit voluptatibus earum velit ducimus.","length":798,"turns":77,"free":false,"is_work":false,"spec":null,"contacts":null,"location":{"id":44,"name":"\u041c\u0443\u0440\u043c\u0430\u043d\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}},{"status":"success","message":"messages.track.get.success","tracks":{"id":197,"name":"Word Processors and Typist","address":"4261 Jewell Pine\nNew Lilaborough, AK 20329-4898","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Sequi cumque dolor quasi exercitationem illo ducimus mollitia. Nemo dolorem est tenetur libero commodi ipsa corrupti. Animi quos est eveniet. Earum voluptatem nihil sapiente quaerat aut nisi. Accusantium iste hic eos et maiores. Ex eos ut exercitationem odit. Ab culpa dolor qui culpa et. Ipsum aliquam aliquid est est totam necessitatibus. Ipsa ut quis qui eum. Suscipit quia eius voluptatem mollitia quod.","length":231,"turns":21,"free":true,"is_work":false,"spec":null,"contacts":null,"location":{"id":16,"name":"\u0415\u0432\u0440\u0435\u0439\u0441\u043a\u0430\u044f","type":"\u0430\u0432\u0442\u043e\u043d\u043e\u043c\u043d\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}]'
+        content: '[{"status":"success","message":"messages.track.get.success","tracks":{"id":202,"name":"Production Manager","address":"23563 Tito Crescent Suite 211\nVonport, VA 11358","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Repellendus repudiandae et rerum cum autem asperiores ut. Quo minus quis possimus repellat molestias. Voluptatem tenetur sit saepe facilis quam aliquam dignissimos. Suscipit ut modi laboriosam recusandae porro. Et sed quo aspernatur sunt et. Debitis tempora dolores qui pariatur quia. Est et qui facilis aut inventore deleniti debitis. Ratione minima in ea sit minus qui incidunt non.","length":594,"turns":75,"free":false,"is_work":true,"spec":null,"contacts":null,"location":{"id":29,"name":"\u041a\u0438\u0440\u043e\u0432\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}},{"status":"success","message":"messages.track.get.success","tracks":{"id":203,"name":"Sawing Machine Tool Setter","address":"37500 Vicente Vista\nPort Crystal, MO 41626-0898","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Sunt est quos qui unde laborum vel. Distinctio ut fugit sint ut sed deleniti. Laudantium omnis repudiandae et quas sed libero quia. Tempora quos est est debitis. Et cum et enim. Ducimus dolor fugit quo id aperiam commodi quia. Beatae cupiditate autem quae odio. Beatae est quia rerum nemo consectetur nihil vel. Cumque porro nulla sed reprehenderit numquam. Accusantium labore dolorem laudantium dolores ut et nemo.","length":13,"turns":75,"free":true,"is_work":true,"spec":null,"contacts":null,"location":{"id":11,"name":"\u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}]'
         headers: []
         description: ''
         custom: []
@@ -131,7 +153,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.track.get_for_id.success","track":{"id":198,"name":"Forest Fire Fighting Supervisor","address":"29002 Mann Brook Suite 359\nEast Cathrynstad, GA 97086-7755","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Sunt eius qui placeat enim ducimus. Rerum fugit et maxime libero dolores. Aut rerum dolores consequatur assumenda sit aut. Natus aut consequatur architecto dignissimos impedit dolorem sit est. Et beatae eaque distinctio sit voluptatibus. Id consequatur non ducimus accusamus corporis consequatur earum quos. Et veritatis eum quod nobis maiores architecto blanditiis. Adipisci omnis explicabo esse eos nihil qui aut. Occaecati sit dolorum beatae quia quod qui atque.","length":866,"turns":15,"free":true,"is_work":false,"spec":null,"contacts":null,"location":{"id":26,"name":"\u041a\u0430\u0440\u0430\u0447\u0430\u0435\u0432\u043e-\u0427\u0435\u0440\u043a\u0435\u0441\u0441\u043a\u0430\u044f","type":"\u0440\u0435\u0441\u043f\u0443\u0431\u043b\u0438\u043a\u0430"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
+        content: '{"status":"success","message":"messages.track.get_for_id.success","track":{"id":204,"name":"Packer and Packager","address":"9782 Boyle Spur\nNew Bessietown, NE 44586-1701","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Consequatur et hic a. Ut neque sunt cupiditate neque voluptate aut deserunt. Velit distinctio est eius doloremque voluptatem. Non unde temporibus ea at tempora omnis culpa. Eveniet maiores vitae nostrum quidem consequatur necessitatibus. Consequatur sed repellendus et quia odio. Ad eaque similique delectus suscipit quibusdam corrupti illo voluptas. Corrupti vitae magnam ad. Veritatis sequi dolore sint est dicta qui. Aliquid quas omnis saepe non rem.","length":360,"turns":74,"free":true,"is_work":true,"spec":null,"contacts":null,"location":{"id":33,"name":"\u041a\u0440\u0430\u0441\u043d\u043e\u044f\u0440\u0441\u043a\u0438\u0439","type":"\u043a\u0440\u0430\u0439"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
         headers: []
         description: ''
         custom: []
@@ -172,7 +194,7 @@ endpoints:
         name: name
         description: 'Must be at least 3 characters.'
         required: true
-        example: pjsanykkpcgenqssdbyrqwhocreoawmy
+        example: nsfgyczdfespychrvpsfluckglyqvcgbceysrygbrltpjjjrkmayypiuopjzfcypdvemlhhri
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -182,7 +204,7 @@ endpoints:
         name: address
         description: ''
         required: true
-        example: ea
+        example: ipsam
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -223,7 +245,7 @@ endpoints:
         name: levelId
         description: 'The <code>id</code> of an existing record in the levels table.'
         required: false
-        example: 7
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -233,7 +255,7 @@ endpoints:
         name: desc
         description: ''
         required: false
-        example: aperiam
+        example: rerum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -243,7 +265,7 @@ endpoints:
         name: length
         description: ''
         required: false
-        example: 1
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -253,7 +275,7 @@ endpoints:
         name: turns
         description: ''
         required: false
-        example: 7
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -303,7 +325,7 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 20
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -333,7 +355,7 @@ endpoints:
         name: season
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -353,27 +375,27 @@ endpoints:
         name: storeId
         description: 'The <code>id</code> of an existing record in the stores table.'
         required: false
-        example: 17
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: pjsanykkpcgenqssdbyrqwhocreoawmy
-      address: ea
+      name: nsfgyczdfespychrvpsfluckglyqvcgbceysrygbrltpjjjrkmayypiuopjzfcypdvemlhhri
+      address: ipsam
       latitude: -86
       longitude: -180
-      levelId: 7
-      desc: aperiam
-      length: 1
-      turns: 7
+      levelId: 2
+      desc: rerum
+      length: 3
+      turns: 20
       free: true
       is_work: true
-      locationId: 20
+      locationId: 11
       light: true
-      season: true
-      storeId: 17
+      season: false
+      storeId: 16
     fileParameters:
       images:
         - null
@@ -382,7 +404,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.track.create.success","track":{"id":199,"name":"Merchandise Displayer OR Window Trimmer","address":"777 Dolores Crossing\nPort Helena, OH 44701-9745","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Inventore pariatur qui occaecati commodi suscipit aut et quibusdam. Vitae minima adipisci aut tenetur magni iure nemo. Unde in itaque temporibus a incidunt assumenda eum. Beatae dolorum minima expedita quam. Ex corporis ut ipsa error sit quod eius. Dolorem qui sit numquam alias ex omnis id. Perspiciatis illum omnis voluptatem accusamus rem. Culpa et ut voluptas magni. Sunt voluptatem praesentium molestiae laudantium sit eligendi. Et aliquam sed rerum. Temporibus quos vel eum ut et deleniti ea.","length":326,"turns":75,"free":false,"is_work":true,"spec":null,"contacts":null,"location":{"id":7,"name":"\u0411\u0430\u0448\u043a\u043e\u0440\u0442\u043e\u0441\u0442\u0430\u043d","type":"\u0440\u0435\u0441\u043f\u0443\u0431\u043b\u0438\u043a\u0430"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
+        content: '{"status":"success","message":"messages.track.create.success","track":{"id":205,"name":"Automotive Glass Installers","address":"6520 Liam Coves Suite 976\nNew Kaelynland, MN 59637-0602","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Voluptatem assumenda culpa molestias perspiciatis reiciendis recusandae. Distinctio ad dolor rem facere est. Sed est necessitatibus maxime tenetur provident et aut. Fugiat perspiciatis dolores dolores fugiat et libero. Vel labore aliquam aut aut. Voluptate labore repudiandae et iusto reiciendis provident. Vitae dolores ea sunt eius nobis voluptatem.","length":345,"turns":22,"free":true,"is_work":false,"spec":null,"contacts":null,"location":{"id":76,"name":"\u0425\u0430\u0431\u0430\u0440\u043e\u0432\u0441\u043a\u0438\u0439","type":"\u043a\u0440\u0430\u0439"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
         headers: []
         description: ''
         custom: []
@@ -434,7 +456,7 @@ endpoints:
         name: name
         description: 'Must be at least 3 characters.'
         required: true
-        example: omfdayibtvnftkbqovubfjrpjrhu
+        example: yfltgygwvivryfnjjfrukanqipocgjuyewcegwactiawqrbpkviaexrmjdgpbkjzevtxwbl
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -444,7 +466,7 @@ endpoints:
         name: address
         description: ''
         required: true
-        example: sapiente
+        example: quia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -454,7 +476,7 @@ endpoints:
         name: latitude
         description: 'Must be between -87 and 89.'
         required: true
-        example: -86
+        example: -87
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -486,7 +508,7 @@ endpoints:
         description: ''
         required: false
         example:
-          - asperiores
+          - magnam
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -496,7 +518,7 @@ endpoints:
         name: levelId
         description: 'The <code>id</code> of an existing record in the levels table.'
         required: false
-        example: 14
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -506,7 +528,7 @@ endpoints:
         name: desc
         description: ''
         required: false
-        example: dignissimos
+        example: ut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -516,7 +538,7 @@ endpoints:
         name: length
         description: ''
         required: false
-        example: 9
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -526,7 +548,7 @@ endpoints:
         name: turns
         description: ''
         required: false
-        example: 19
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -576,7 +598,7 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 16
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -586,7 +608,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 2
+        example: 5
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -596,35 +618,35 @@ endpoints:
         name: storeId
         description: 'The <code>id</code> of an existing record in the stores table.'
         required: false
-        example: 18
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: omfdayibtvnftkbqovubfjrpjrhu
-      address: sapiente
-      latitude: -86
+      name: yfltgygwvivryfnjjfrukanqipocgjuyewcegwactiawqrbpkviaexrmjdgpbkjzevtxwbl
+      address: quia
+      latitude: -87
       longitude: -180
       imagesDel:
-        - asperiores
-      levelId: 14
-      desc: dignissimos
-      length: 9
-      turns: 19
+        - magnam
+      levelId: 2
+      desc: ut
+      length: 18
+      turns: 18
       free: false
       is_work: false
-      locationId: 16
-      userId: 2
-      storeId: 18
+      locationId: 18
+      userId: 5
+      storeId: 15
     fileParameters:
       imagesAdd:
         - null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.track.update.success","track":{"id":200,"name":"Fraud Investigator","address":"581 Stehr Tunnel Suite 492\nNew Donnymouth, HI 72252-1554","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Id quis quisquam nihil at. Autem impedit et dolor qui. Consectetur voluptates in id ad qui ut et. Aut porro qui debitis nobis doloribus dolorem. Doloremque dolor unde consectetur dolores aspernatur beatae iste maiores. Accusamus et voluptas voluptates dolores quidem numquam. Debitis sint veniam molestiae perspiciatis. Eum asperiores nam dolorem consequatur. Tenetur maiores nam suscipit natus modi rerum quaerat. Praesentium quisquam commodi quibusdam voluptates aut et corrupti.","length":908,"turns":10,"free":true,"is_work":false,"spec":null,"contacts":null,"location":{"id":9,"name":"\u0411\u0440\u044f\u043d\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
+        content: '{"status":"success","message":"messages.track.update.success","track":{"id":206,"name":"Bookkeeper","address":"1856 Elody Fields\nStantonview, MA 24512-7421","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Id facere omnis atque est. Qui vero similique possimus rerum sed dolores nam. Sit ea at rerum hic hic molestiae eius consectetur. Laboriosam sunt in amet harum. Qui inventore praesentium fuga tenetur sunt. Natus aut qui at voluptas sunt. Minus minus odio nihil tenetur. Optio qui sit amet a repudiandae ipsam. Amet illum commodi iusto repellendus. Nisi temporibus sed est enim eius. Culpa fugit quaerat et vitae maxime cum et. Quos optio officia nulla est maxime culpa quaerat aut.","length":671,"turns":59,"free":false,"is_work":true,"spec":null,"contacts":null,"location":{"id":11,"name":"\u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
         headers: []
         description: ''
         custom: []
@@ -683,7 +705,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.track.delete.success","track":{"id":201,"name":"Painting Machine Operator","address":"19545 Tamara Court Apt. 170\nNorth Ciceroview, ID 63163-4054","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Rem quo tempore ullam accusantium. Sint est quia in id rerum ex aliquam dolorum. Rerum iusto dolores molestiae nihil asperiores in tenetur. At porro sunt dolorum nihil. Natus esse libero ipsa voluptatem quae aut modi. Ex molestias libero possimus repudiandae sequi et. Est dolorem molestiae enim expedita non eveniet. Et facere et est est sint. Sed vitae et aspernatur voluptas perferendis. Nemo ut quisquam assumenda sunt voluptas minus repellat. Natus quod minima recusandae et inventore.","length":162,"turns":10,"free":false,"is_work":true,"spec":null,"contacts":null,"location":{"id":14,"name":"\u0412\u043e\u0440\u043e\u043d\u0435\u0436\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
+        content: '{"status":"success","message":"messages.track.delete.success","track":{"id":207,"name":"Financial Specialist","address":"63563 Moore Cove\nWest Deontae, NM 28421","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Mollitia optio et omnis. Et fuga veniam eaque aut ex repellendus ea. Repellat sunt amet praesentium qui in iusto atque. Quo incidunt enim qui architecto optio perspiciatis et. Non voluptas hic possimus. Sunt distinctio est et hic. Veniam et molestiae magnam quas quis quo laborum. Quasi voluptatem voluptatem quia occaecati. Architecto inventore repudiandae tempora voluptas hic aliquid laborum. Sunt aliquam id nihil consequatur quaerat.","length":686,"turns":20,"free":false,"is_work":true,"spec":null,"contacts":null,"location":{"id":78,"name":"\u0425\u0430\u043d\u0442\u044b-\u041c\u0430\u043d\u0441\u0438\u0439\u0441\u043a\u0438\u0439 \u0410\u0432\u0442\u043e\u043d\u043e\u043c\u043d\u044b\u0439 \u043e\u043a\u0440\u0443\u0433 - \u042e\u0433\u0440\u0430","type":"\u0430\u0432\u0442\u043e\u043d\u043e\u043c\u043d\u044b\u0439 \u043e\u043a\u0440\u0443\u0433"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null}}'
         headers: []
         description: ''
         custom: []
