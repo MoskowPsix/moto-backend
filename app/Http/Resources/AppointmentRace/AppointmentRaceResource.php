@@ -34,7 +34,8 @@ class AppointmentRaceResource extends JsonResource
             'city'          => $this->city,
             'coach'         => $this->coach,
             'start_number'  => $this->start_number,
-            'location'  => $this->whenLoaded('location', LocationResource::make($this->location)),
+//            'location'  => $this->whenLoaded('location', LocationResource::make($this->location)),
+            'location'  => LocationResource::make($this->whenLoaded('location')),
             'user'      => UserResource::make($this->whenLoaded('user')),
         ];
     }
