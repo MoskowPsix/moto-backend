@@ -49,6 +49,7 @@ use App\MoonShine\Resources\PhoneResource;
 use App\MoonShine\Resources\StatusResource;
 use App\MoonShine\Resources\DegreeResource;
 use App\MoonShine\Resources\CupResource;
+use App\MoonShine\Resources\DistrictResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -83,6 +84,8 @@ final class MoonShineLayout extends AppLayout
                 MenuItem::make('Транзакции', TransactionResource::class, 'credit-card'),
                 MenuItem::make('Уровни', DegreeResource::class, 'chevron-double-up'),
                 MenuItem::make('Кубки', CupResource::class, 'trophy'),
+                MenuItem::make('Округа', DistrictResource::class),
+                MenuItem::make('Локации', LocationResource::class),
             ], 'cube'),
 
         ];

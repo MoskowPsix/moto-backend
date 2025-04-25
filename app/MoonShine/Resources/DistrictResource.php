@@ -5,26 +5,24 @@ declare(strict_types=1);
 namespace App\MoonShine\Resources;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Location;
+use App\Models\District;
 
-use MoonShine\Laravel\Fields\Relationships\BelongsTo;
+use MoonShine\Laravel\Fields\Relationships\HasMany;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\UI\Fields\Text;
-/**
- * @extends ModelResource<Location>
- */
-class LocationResource extends ModelResource
-{
-    protected string $model = Location::class;
 
-    protected string $title = 'Локации';
-    protected string $column = 'name';
-    protected bool $simplePaginate = true;
-    protected bool $columnSelection = true;
+/**
+ * @extends ModelResource<District>
+ */
+class DistrictResource extends ModelResource
+{
+    protected string $model = District::class;
+
+    protected string $title = 'Districts';
 
     /**
      * @return list<FieldContract>
@@ -33,8 +31,7 @@ class LocationResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Text::make('name')->sortable(),
-            BelongsTo::make('Округ', 'district', resource: DistrictResource::class)
+            Text::make('Название', 'name')->sortable(),
         ];
     }
 
@@ -46,8 +43,8 @@ class LocationResource extends ModelResource
         return [
             Box::make([
                 ID::make(),
-                Text::make('name')->sortable(),
-                BelongsTo::make('Округ', 'district', resource: DistrictResource::class)->searchable()->nullable()->columnSelection(),
+                Text::make('Название', 'name'),
+                HasMany::make('Локации', 'locations', resource: LocationResource::class)->nullable()->searchable()
             ])
         ];
     }
@@ -59,13 +56,13 @@ class LocationResource extends ModelResource
     {
         return [
             ID::make(),
-            Text::make('name')->sortable(),
-            BelongsTo::make('Округ', 'district', resource: DistrictResource::class)->searchable()->nullable()->columnSelection()
+            Text::make('Название', 'name'),
+            HasMany::make('Локации', 'locations', resource: LocationResource::class)->nullable()->rawMode()->searchable()
         ];
     }
 
     /**
-     * @param Location $item
+     * @param District $item
      *
      * @return array<string, string[]|string>
      * @see https://laravel.com/docs/validation#available-validation-rules

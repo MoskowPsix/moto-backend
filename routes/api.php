@@ -164,6 +164,10 @@ Route::controller(App\Http\Controllers\Api\LocationController::class)->group(fun
     Route::get('locations/{id}', 'getForId')->name('location.get_for_id');
 });
 
+Route::controller(App\Http\Controllers\Api\DistrictController::class)->group(function () {
+    Route::get('districts', 'get')->name('district.get');
+});
+
 Route::controller(\App\Http\Controllers\Api\GradeController::class)->group(function () {
     $role = new \App\Constants\RoleConstant();
     Route::get('grades', 'get')->name('grade.get');

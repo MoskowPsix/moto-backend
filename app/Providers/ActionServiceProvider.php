@@ -12,6 +12,7 @@ use App\Contracts\Actions\Controllers\Command\GetCoachesForAllUsersActionContrac
 use App\Contracts\Actions\Controllers\Command\GetMemberForCoachForIdActionContract;
 use App\Contracts\Actions\Controllers\Degree\GetDegreeActionContract;
 use App\Contracts\Actions\Controllers\Degree\GetForIdsDegreeActionContract;
+use App\Contracts\Actions\Controllers\District\GetDistrictsActionContract;
 use App\Contracts\Actions\Controllers\Grade\GetForIdGradeActionContract;
 use App\Contracts\Actions\Controllers\Grade\GetGradeActionContract;
 use App\Contracts\Actions\Controllers\Grade\UpdateGradeActionContract;
@@ -111,6 +112,8 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\FavoriteUser\ToggleFavoriteRaceActionContract::class                     => \App\Actions\Controllers\FavoriteUser\ToggleFavoriteRaceAction::class,
         \App\Contracts\Actions\Controllers\Degree\GetDegreeActionContract::class                                    => \App\Actions\Controllers\Degree\GetDegreeAction::class,
         \App\Contracts\Actions\Controllers\Degree\GetForIdsDegreeActionContract::class                              => \App\Actions\Controllers\Degree\GetDegreeForIdsAction::class,
+        \App\Contracts\Actions\Controllers\District\GetDistrictsActionContract::class                               => \App\Actions\Controllers\District\GetDistrictsAction::class,
+
     ];
     /**
      * Register services.
