@@ -25,10 +25,10 @@ class StoreResource extends JsonResource
     {
         return [
             'id'            => $this->id,
-            'login'         => $this->login,
-            'password_1'    => $this->password_1,
-            'password_2'    => $this->password_2,
-            'token'         => $this->token,
+//            'login'         => $this->login,
+//            'password_1'    => $this->password_1,
+//            'password_2'    => $this->password_2,
+//            'token'         => $this->token,
             'user'          => $this->whenLoaded('user', UserResource::make($this->user)),
         ];
     }
