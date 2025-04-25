@@ -24,6 +24,8 @@ class GetTracksRequest extends FormRequest
         return [
             'userId'        => 'nullable|integer|exists:users,id',
             'paginate'      => 'nullable|boolean',
+            'storeIdExists' => 'nullable|integer|exists:stores,id',
+            'checkStore'    => 'nullable|boolean',
             'page'          => 'nullable|string',
             'limit'         => 'nullable|integer|max:50',
             'locationId'    => 'nullable|integer|exists:locations,id',
