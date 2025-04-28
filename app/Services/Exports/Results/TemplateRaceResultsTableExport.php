@@ -19,14 +19,14 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
     private int $raceId;
     private int $gradeId;
     private string $gradeName;
-//    private int $userId;
+    private int $userId;
 
-    public function __construct(int $raceId, int $gradeId, string $gradeName)
+    public function __construct(int $raceId, int $gradeId, string $gradeName, int $userId)
     {
         $this->raceId = $raceId;
         $this->gradeId = $gradeId;
         $this->gradeName = $gradeName;
-//        $this->userId = $userId;
+        $this->userId = $userId;
 
         $this->checkPermission();
     }
@@ -41,9 +41,9 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
         if (!$appointment->exists()) {
             return NotFoundResource::make([]);
         }
-//        if(!$race->commissions()->where('user_id', $this->userId)->exists()) {
-//            return NotUserPermissionResource::make([]);
-//        }
+        if(!$race->commissions()->where('user_id', $this->userId)->exists()) {
+            return NotUserPermissionResource::make([]);
+        }
         return $appointment;
     }
 

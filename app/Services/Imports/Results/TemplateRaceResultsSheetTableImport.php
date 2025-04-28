@@ -22,13 +22,11 @@ class TemplateRaceResultsSheetTableImport implements ToCollection
         $sheet = $collection->toArray();
         $data = [];
         foreach ($sheet as $row) {
-
             if (empty(array_filter($row))) {
                 continue;
             }
-
             $data[] = [
-                'Место'             => $row[1],
+                'Место'             => $row[0],
                 'Ст. №'             => $row[2],
                 'Сумма лич.очки'    => $row[13],
             ];
