@@ -28,6 +28,7 @@ use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\User;
 use App\Services\Exports\Results\MultiSheetTemplateRaceResultTableExport;
 use App\Services\Exports\Results\TemplateRaceResultsTableExport;
+use App\Services\Imports\Results\MultiSheetTemplateRaceResultsTableImport;
 use App\Services\Imports\Results\TemplateRaceResultsTableImport;
 use Illuminate\Http\Request;
 use Knuckles\Scribe\Attributes\Authenticated;
@@ -120,14 +121,14 @@ class AppointmentRaceController extends Controller
     #[Endpoint(title: 'Export', description: 'Экспорт результатов')]
     public function exportResults(int $id)
     {
-        $userId = \Auth::id();
-        return Excel::download(new MultiSheetTemplateRaceResultTableExport($id, $userId), 'Результаты.xlsx');
+//        $userId = \Auth::id();
+        return Excel::download(new MultiSheetTemplateRaceResultTableExport($id), 'Результаты.xlsx');
     }
     #[Authenticated]
     #[Endpoint(title: 'Import', description: 'Импорт результатов')]
     public function importResults(int $id, Request $request)
     {
-        Excel::import(new TemplateRaceResultsTableImport($id), $request->file('file'));
+        Excel::import(new MultiSheetTemplateRaceResultsTableImport($id), $request->file('file'));
         return response()->json(['message' => 'Данные успешно импортированы.']);
     }
     #[Authenticated]

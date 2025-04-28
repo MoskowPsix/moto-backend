@@ -19,14 +19,14 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
     private int $raceId;
     private int $gradeId;
     private string $gradeName;
-    private int $userId;
+//    private int $userId;
 
-    public function __construct(int $raceId, int $gradeId, string $gradeName, int $userId)
+    public function __construct(int $raceId, int $gradeId, string $gradeName)
     {
         $this->raceId = $raceId;
         $this->gradeId = $gradeId;
         $this->gradeName = $gradeName;
-        $this->userId = $userId;
+//        $this->userId = $userId;
 
         $this->checkPermission();
     }
@@ -41,9 +41,9 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
         if (!$appointment->exists()) {
             return NotFoundResource::make([]);
         }
-        if(!$race->commissions()->where('user_id', $this->userId)->exists()) {
-            return NotUserPermissionResource::make([]);
-        }
+//        if(!$race->commissions()->where('user_id', $this->userId)->exists()) {
+//            return NotUserPermissionResource::make([]);
+//        }
         return $appointment;
     }
 
@@ -138,10 +138,10 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
 
         $sheet->getStyle('B1:N1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_UNPROTECTED);
 
-        $sheet->getColumnDimension('A')->setVisible(false);
+        $sheet->getColumnDimension('A')->setVisible(true);
         $sheet->getStyle('A1:A1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
         $sheet->getProtection()->setSheet(true);
-        $sheet->getProtection()->setSort(true);
-        $sheet->getProtection()->setFormatCells(true);
+        $sheet->getProtection()->setSort(false);
+        $sheet->getProtection()->setFormatCells(false);
     }
 }

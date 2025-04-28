@@ -9,11 +9,11 @@ use App\Services\Exports\Results\TemplateRaceResultsTableExport;
 class MultiSheetTemplateRaceResultTableExport implements WithMultipleSheets
 {
     private int $raceId;
-    private int $userId;
-    public function __construct(int $raceId, $userId)
+//    private int $userId;
+    public function __construct(int $raceId)
     {
         $this->raceId = $raceId;
-        $this->userId = $userId;
+//        $this->userId = $userId;
     }
 
     /**
@@ -25,7 +25,7 @@ class MultiSheetTemplateRaceResultTableExport implements WithMultipleSheets
         $race = Race::with('grades')->find($this->raceId);
 
         foreach ($race->grades as $grade) {
-            $sheets[] = new TemplateRaceResultsTableExport($this->raceId, $grade->id, $grade->name, $this->userId);
+            $sheets[] = new TemplateRaceResultsTableExport($this->raceId, $grade->id, $grade->name);
         }
         return $sheets;
     }
