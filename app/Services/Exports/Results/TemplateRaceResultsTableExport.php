@@ -63,8 +63,8 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
         foreach ($appr as $value){
             $row = [];
 
-            $row['ID'] = $value['user_id'] ?? '';
             $row['Место'] = '';
+            $row['UID'] = $value['user_id'] ?? '';
             $row['Ст. №'] = $value['start_number'] ?? '';
             $row['Фамилия'] = $value['surname'] ?? '';
             $row['Имя'] = $value['name'] ?? '';
@@ -141,6 +141,6 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
 
         $sheet->getColumnDimension('B')->setVisible(true);
         $sheet->getStyle('B1:B1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
-        $sheet->getProtection()->setSheet(false);
+        $sheet->getProtection()->setSheet(true);
     }
 }
