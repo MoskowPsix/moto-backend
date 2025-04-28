@@ -17,11 +17,15 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 class TemplateRaceResultsTableExport implements FromCollection, WithStyles, WithTitle, WithHeadings, ShouldAutoSize
 {
     private int $raceId;
+    private int $gradeId;
+    private string $gradeName;
     private int $userId;
 
-    public function __construct(int $raceId, int $userId)
+    public function __construct(int $raceId, int $gradeId, string $gradeName, int $userId)
     {
         $this->raceId = $raceId;
+        $this->gradeId = $gradeId;
+        $this->gradeName = $gradeName;
         $this->userId = $userId;
 
         $this->checkPermission();
@@ -49,6 +53,7 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
     public function collection()
     {
         $appr = AppointmentRace::where('race_id', $this->raceId)
+            ->where('grade_id', $this->gradeId)
             ->with('location', 'documents', 'grade')
             ->orderBy('created_at', 'asc')
             ->get()
@@ -78,7 +83,7 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
     }
     public function title(): string
     {
-        return 'Результаты';
+        return $this->gradeName;
     }
 
     public function headings(): array
