@@ -89,15 +89,15 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
     public function headings(): array
     {
         return [
-            'ID',
             'Место',
+            'UID',
             'Ст. №',
             'Фамилия',
             'Имя',
             'Спортивное звание/разряд',
             'Населённый пункт (регион)',
             'Команда (Клуб)',
-            'Марка мотоцикла',
+            'Марка мото',
         ];
     }
 
@@ -117,13 +117,13 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
         $sheet->setCellValue('J1', 'I заезд');
         $sheet->mergeCells('J1:K1');
         $sheet->setCellValue('J2', 'место');
-        $sheet->setCellValue('K2', 'личн.очки');
+        $sheet->setCellValue('K2', 'личн. очки');
 
         $sheet->setCellValue('L1', 'II заезд');
         $sheet->mergeCells('L1:M1');
         $sheet->setCellValue('L2', 'место');
-        $sheet->setCellValue('M2', 'личн.очки');
-        $sheet->setCellValue('N1', 'Сумма лич.очки');
+        $sheet->setCellValue('M2', 'личн. очки');
+        $sheet->setCellValue('N1', 'Сумма лич. очки');
 
         $sheet->mergeCells('A1:A2');
         $sheet->mergeCells('B1:B2');
@@ -136,12 +136,11 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
         $sheet->mergeCells('I1:I2');
         $sheet->mergeCells('N1:N2');
 
-        $sheet->getStyle('B1:N1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_UNPROTECTED);
+        $sheet->getStyle('A1:A1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_UNPROTECTED);
+        $sheet->getStyle('C1:N1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_UNPROTECTED);
 
-        $sheet->getColumnDimension('A')->setVisible(true);
-        $sheet->getStyle('A1:A1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
+        $sheet->getColumnDimension('B')->setVisible(true);
+        $sheet->getStyle('B1:B1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
         $sheet->getProtection()->setSheet(false);
-        $sheet->getProtection()->setSort(false);
-        $sheet->getProtection()->setFormatCells(false);
     }
 }
