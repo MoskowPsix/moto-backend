@@ -151,8 +151,8 @@ Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->gr
         ->middleware(['auth:sanctum', 'role:' . $role::COMMISSION . '|' . $role::ORGANIZATION .'|' .$role::ADMIN.'|'.$role::ROOT])
         ->name('appointment_race.export');
 
-    Route::get('races/{raceId}/results/export', 'exportResults')->middleware(['auth:sanctum', 'role:' . $role::COMMISSION])->name('results.export');
-    Route::post('races/{raceId}/results/import', 'importResults')->name('results.import');
+    Route::get('races/{raceId}/results/export', 'exportResults')->middleware(['auth:sanctum', 'role:' . $role::COMMISSION . '|' .$role::ADMIN.'|'.$role::ROOT])->name('results.export');
+//    Route::post('races/{raceId}/results/import', 'importResults')->name('results.import');
 
     Route::post('races/appointment-race/{id}/checked', 'checkedForCommission')
         ->middleware(['auth:sanctum', 'role:' . '|' . $role::COMMISSION .'|' .$role::ADMIN.'|'.$role::ROOT])

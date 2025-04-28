@@ -26,6 +26,7 @@ use App\Http\Resources\AppointmentRace\SuccessGetAppointmentRaceUsersForCommissi
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\User;
+use App\Services\Exports\Results\MultiSheetTemplateRaceResultTableExport;
 use App\Services\Exports\Results\TemplateRaceResultsTableExport;
 use App\Services\Imports\Results\TemplateRaceResultsTableImport;
 use Illuminate\Http\Request;
@@ -120,7 +121,7 @@ class AppointmentRaceController extends Controller
     public function exportResults(int $id)
     {
         $userId = \Auth::id();
-        return Excel::download(new TemplateRaceResultsTableExport($id, $userId), 'Результаты.xlsx');
+        return Excel::download(new MultiSheetTemplateRaceResultTableExport($id, $userId), 'Результаты.xlsx');
     }
     #[Authenticated]
     #[Endpoint(title: 'Import', description: 'Импорт результатов')]
