@@ -5,10 +5,6 @@ use App\Http\Controllers\Api\AuthPhoneController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 
-//Route::get('/user', function (Request $request) {
-//    return $request->user();
-//})->middleware('auth:sanctum');
-
 Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login')->name('user.login');
     Route::post('register', 'register')->name('user.register');
@@ -95,6 +91,11 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
     Route::delete('races/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])->name('race.delete');
     Route::post('races/{id}/add-document', 'addDocument')->middleware(['auth:sanctum', 'role:'. $role::COMMISSION.'|'.$role::ROOT])->name('race.add.document');
 });
+
+Route::controller(\App\Http\Controllers\Api\RaceResultController::class)->group(function () {
+    Route::get('races-results', 'get')->name('race_result.get');
+});
+
 
 Route::controller(\App\Http\Controllers\Api\FavoriteUserController::class)->group(function () {
     Route::post('race/{id}/favorite', 'toggleFavoriteRace')->middleware(['auth:sanctum'])->name('race.favorite.create');
