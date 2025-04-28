@@ -142,5 +142,7 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
         $sheet->getColumnDimension('B')->setVisible(true);
         $sheet->getStyle('B1:B1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
         $sheet->getProtection()->setSheet(true);
+        $sheet->getProtection()->setSort(true);
+        $sheet->getProtection()->setFormatCells(true);
     }
 }
