@@ -1,300 +1,102 @@
-name: AppointmentRace
-description: 'Методы отвечающие за запись участников'
+name: Document
+description: 'Методы взаимодействия с документами пользователя'
 endpoints:
   -
     httpMethods:
       - POST
-    uri: 'api/races/{id}/toggle-appointment-race'
+    uri: api/users/cabinet/documents
     metadata:
-      groupName: AppointmentRace
-      groupDescription: 'Методы отвечающие за запись участников'
+      groupName: Document
+      groupDescription: 'Методы взаимодействия с документами пользователя'
       subgroup: ''
       subgroupDescription: ''
-      title: Toggle
-      description: 'Записаться и отменить запись на гонку'
-      authenticated: true
+      title: Create
+      description: 'Создание документа пользователя'
+      authenticated: false
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the race.'
-        required: true
-        example: 7
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 7
+    urlParameters: []
+    cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      surname:
-        name: surname
+      type:
+        name: type
         description: ''
         required: true
-        example: earum
+        example: polis
         type: string
-        enumValues: []
+        enumValues:
+          - licenses
+          - polis
+          - notarius
         exampleWasSpecified: false
         nullable: false
         custom: []
-      patronymic:
-        name: patronymic
-        description: ''
-        required: true
-        example: alias
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      dateOfBirth:
-        name: dateOfBirth
-        description: 'Must be a valid date.'
-        required: true
-        example: '2025-04-25T10:58:14'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      city:
-        name: city
-        description: ''
-        required: true
-        example: quos
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      region:
-        name: region
-        description: ''
-        required: false
-        example: sunt
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      inn:
-        name: inn
-        description: ''
-        required: true
-        example: id
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      snils:
-        name: snils
-        description: ''
-        required: true
-        example: numquam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      phoneNumber:
-        name: phoneNumber
-        description: ''
-        required: true
-        example: aut
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      startNumber:
-        name: startNumber
-        description: 'Must be at least 1. Must not be greater than 999.'
-        required: true
-        example: 3
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      group:
-        name: group
-        description: ''
-        required: true
-        example: quidem
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      rank:
-        name: rank
-        description: ''
-        required: true
-        example: molestias
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      rankNumber:
-        name: rankNumber
-        description: ''
-        required: false
-        example: numquam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      community:
-        name: community
-        description: ''
-        required: false
-        example: ipsam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      coach:
-        name: coach
-        description: ''
-        required: false
-        example: eum
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      motoStamp:
-        name: motoStamp
-        description: ''
-        required: true
-        example: quisquam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      locationId:
-        name: locationId
-        description: 'The <code>id</code> of an existing record in the locations table.'
-        required: true
-        example: quis
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      gradeId:
-        name: gradeId
-        description: 'The <code>id</code> of an existing record in the grades table.'
-        required: true
-        example: adipisci
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      commandId:
-        name: commandId
-        description: 'The <code>id</code> of an existing record in the commands table.'
+      file:
+        name: file
+        description: 'Must be a file.'
         required: false
         example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      url:
+        name: url
+        description: ''
+        required: false
+        example: 'http://www.bosco.com/'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      numberAndSeria:
-        name: numberAndSeria
-        description: ''
-        required: true
-        example: nostrum
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      documentIds:
-        name: documentIds
+      number:
+        name: number
         description: ''
         required: false
-        example:
-          - 4
-        type: 'integer[]'
+        example: dolorum
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      userId:
-        name: userId
-        description: 'The <code>id</code> of an existing record in the users table.'
+      issuedWhom:
+        name: issuedWhom
+        description: ''
         required: false
-        example: 9
-        type: integer
+        example: iure
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      itWorksDate:
+        name: itWorksDate
+        description: ''
+        required: false
+        example: voluptatibus
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      surname: earum
-      patronymic: alias
-      dateOfBirth: '2025-04-25T10:58:14'
-      city: quos
-      region: sunt
-      inn: id
-      snils: numquam
-      phoneNumber: aut
-      startNumber: 3
-      group: quidem
-      rank: molestias
-      rankNumber: numquam
-      community: ipsam
-      coach: eum
-      motoStamp: quisquam
-      locationId: quis
-      gradeId: adipisci
-      numberAndSeria: nostrum
-      documentIds:
-        - 4
-      userId: 9
-    fileParameters: []
+      type: polis
+      url: 'http://www.bosco.com/'
+      number: dolorum
+      issuedWhom: iure
+      itWorksDate: voluptatibus
+    fileParameters:
+      file: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.appointment_race.create.success"}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.appointment.create.grade_not_exists"}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 409
-        content: '{"status":"error","message":"messages.error.exists_appointment_race"}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 422
-        content: '{"status":"success","message":"messages.appointment.create_table.many_documents","documents":[]}'
+        content: '{"status":"success","message":"messages.document.create.success","document":{"id":326,"name":"file_6810b43c42540","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
         headers: []
         description: ''
         custom: []
@@ -307,203 +109,37 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/races/{id}/appointment-race/users'
+    uri: api/users/cabinet/documents
     metadata:
-      groupName: AppointmentRace
-      groupDescription: 'Методы отвечающие за запись участников'
+      groupName: Document
+      groupDescription: 'Методы взаимодействия с документами пользователя'
       subgroup: ''
       subgroupDescription: ''
-      title: GetUsersAppointmentRace
-      description: 'Записаться и отменить запись на гонку'
+      title: GetForUser
+      description: 'Получение всех документов пользователя'
       authenticated: false
       custom: []
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the race.'
-        required: true
-        example: 7
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 7
+    urlParameters: []
+    cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      paginate:
-        name: paginate
-        description: ''
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      page:
-        name: page
-        description: ''
-        required: false
-        example: vero
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      limit:
-        name: limit
-        description: 'Must not be greater than 50.'
-        required: false
-        example: 6
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-    cleanBodyParameters:
-      paginate: false
-      page: vero
-      limit: 6
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '[{"status":"success","message":"messages.appointment_race.get_users.success","users":{"id":590,"name":"Thelma Lockman","email":"szulauf@example.org","email_verified_at":"2025-04-25T10:58:15.000000Z","created_at":"2025-04-25T10:58:15.000000Z","updated_at":"2025-04-25T10:58:15.000000Z","avatar":null,"deleted_at":null}},{"status":"success","message":"messages.appointment_race.get_users.success","users":{"id":591,"name":"Dr. Kylie Schamberger","email":"ivory07@example.net","email_verified_at":"2025-04-25T10:58:15.000000Z","created_at":"2025-04-25T10:58:15.000000Z","updated_at":"2025-04-25T10:58:15.000000Z","avatar":null,"deleted_at":null}}]'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/races/{id}/appointment-race/users-table'
-    metadata:
-      groupName: AppointmentRace
-      groupDescription: 'Методы отвечающие за запись участников'
-      subgroup: ''
-      subgroupDescription: ''
-      title: GetTable
-      description: 'Получить ссылку на таблицу участников'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the race.'
-        required: true
-        example: 7
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 7
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.appointment.create_table.success","table_url":[]}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 403
-        content: '{"status":"error","message":"messages.error.not_allowed"}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/races/{id}/appointment-race/appointments'
-    metadata:
-      groupName: AppointmentRace
-      groupDescription: 'Методы отвечающие за запись участников'
-      subgroup: ''
-      subgroupDescription: ''
-      title: GetAppointmentsUsers
-      description: 'Возвращает пользователей для комиссии.'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the race.'
-        required: true
-        example: 7
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 7
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      paginate:
-        name: paginate
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      page:
-        name: page
-        description: ''
-        required: false
-        example: et
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      limit:
-        name: limit
-        description: 'Must not be greater than 50.'
+      commandId:
+        name: commandId
+        description: 'The <code>id</code> of an existing record in the commands table.'
         required: false
         example: 20
         type: integer
@@ -512,14 +148,163 @@ endpoints:
         nullable: true
         custom: []
     cleanBodyParameters:
-      paginate: false
-      page: et
-      limit: 20
+      userId: 16
+      commandId: 20
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.appointment_race.get_users_for_commission.success","users":{"id":592,"name":"Claudine Gutmann","email":"pbayer@example.net","email_verified_at":"2025-04-25T10:58:15.000000Z","created_at":"2025-04-25T10:58:15.000000Z","updated_at":"2025-04-25T10:58:15.000000Z","avatar":null,"deleted_at":null}}'
+        content: '[{"status":"success","message":"messages.document.get_for_user.success","documents":{"id":327,"name":"file_6810b43c655d0","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}},{"status":"success","message":"messages.document.get_for_user.success","documents":{"id":328,"name":"file_6810b43c742e8","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}]'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/users/cabinet/documents/{id}'
+    metadata:
+      groupName: Document
+      groupDescription: 'Методы взаимодействия с документами пользователя'
+      subgroup: ''
+      subgroupDescription: ''
+      title: GetForUserById
+      description: 'Получение документа пользователя по id'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the document.'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 2
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.document.get_for_user_by_id.success","document":{"id":329,"name":"file_6810b43ca184a","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.document.get_for_user_by_id.not_found"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/users/cabinet/documents/{id}/update'
+    metadata:
+      groupName: Document
+      groupDescription: 'Методы взаимодействия с документами пользователя'
+      subgroup: ''
+      subgroupDescription: ''
+      title: Update
+      description: 'Изменение документа пользователя'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the document.'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 2
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      file:
+        name: file
+        description: 'Must be a file.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      number:
+        name: number
+        description: ''
+        required: false
+        example: in
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      issuedWhom:
+        name: issuedWhom
+        description: ''
+        required: false
+        example: quia
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      itWorksDate:
+        name: itWorksDate
+        description: ''
+        required: false
+        example: enim
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      number: in
+      issuedWhom: quia
+      itWorksDate: enim
+    fileParameters:
+      file: null
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.document.update.success","document":{"id":330,"name":"file_6810b43cce1a7","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
         headers: []
         description: ''
         custom: []
@@ -543,16 +328,16 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - GET
-    uri: 'api/races/{id}/appointment-race/users-table/export'
+      - DELETE
+    uri: 'api/users/cabinet/documents/{id}'
     metadata:
-      groupName: AppointmentRace
-      groupDescription: 'Методы отвечающие за запись участников'
+      groupName: Document
+      groupDescription: 'Методы взаимодействия с документами пользователя'
       subgroup: ''
       subgroupDescription: ''
-      title: 'Export applications'
-      description: 'Экспорт заявок'
-      authenticated: true
+      title: Delete
+      description: 'Удаление документа пользователя'
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
@@ -560,16 +345,16 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the race.'
+        description: 'The ID of the document.'
         required: true
-        example: 7
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 7
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -577,63 +362,22 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          vary: Origin
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/races/{raceId}/results/export'
-    metadata:
-      groupName: AppointmentRace
-      groupDescription: 'Методы отвечающие за запись участников'
-      subgroup: ''
-      subgroupDescription: ''
-      title: Export
-      description: 'Экспорт результатов'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      raceId:
-        name: raceId
+        status: 200
+        content: '{"status":"success","message":"messages.document.delete.success"}'
+        headers: []
         description: ''
-        required: true
-        example: 7
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
         custom: []
-    cleanUrlParameters:
-      raceId: 7
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
       -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          vary: Origin
-        description: null
+        status: 403
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
+        headers: []
+        description: ''
         custom: []
     responseFields: []
     auth: []
@@ -644,15 +388,15 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: 'api/races/appointment-race/{id}/checked'
+    uri: 'api/documents/{id}/commission-checked'
     metadata:
-      groupName: AppointmentRace
-      groupDescription: 'Методы отвечающие за запись участников'
+      groupName: Document
+      groupDescription: 'Методы взаимодействия с документами пользователя'
       subgroup: ''
       subgroupDescription: ''
-      title: checkedForCommission
-      description: 'Подтверждение записи участника гонки.'
-      authenticated: true
+      title: VerifyDocsForCommission
+      description: 'Сделать документ проверенным. Метод для комиссии.'
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
@@ -660,29 +404,19 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the appointment race.'
+        description: 'The ID of the document.'
         required: true
-        example: rem
-        type: string
+        example: 2
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: rem
+      id: 2
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      comment:
-        name: comment
-        description: ''
-        required: false
-        example: placeat
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
       checked:
         name: checked
         description: ''
@@ -693,20 +427,24 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         custom: []
+      comment:
+        name: comment
+        description: ''
+        required: false
+        example: ab
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
     cleanBodyParameters:
-      comment: placeat
       checked: false
+      comment: ab
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.appointment_race.checked.success"}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 403
-        content: '{"status":"error","message":"messages.error.not_allowed"}'
+        content: '{"status":"success","message":"messages.document.verify_docs_for_commission.success"}'
         headers: []
         description: ''
         custom: []

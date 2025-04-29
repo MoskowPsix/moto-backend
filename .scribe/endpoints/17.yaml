@@ -1,17 +1,17 @@
-name: Grade
-description: 'Методы связанные с классами'
+name: Location
+description: 'Методы для взаимодействия с городами'
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/grades
+    uri: api/locations
     metadata:
-      groupName: Grade
-      groupDescription: 'Методы связанные с классами'
+      groupName: Location
+      groupDescription: 'Методы для взаимодействия с городами'
       subgroup: ''
       subgroupDescription: ''
       title: get
-      description: 'Получение всех классов по фильтрам'
+      description: 'Получение всех городов с фильтрацией'
       authenticated: false
       custom: []
     headers:
@@ -22,16 +22,6 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      userId:
-        name: userId
-        description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
-        example: 3
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
       paginate:
         name: paginate
         description: ''
@@ -42,271 +32,79 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
+      limit:
+        name: limit
+        description: 'Must not be greater than 100.'
+        required: false
+        example: 25
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
       page:
         name: page
         description: ''
         required: false
-        example: iure
+        example: eaque
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      limit:
-        name: limit
-        description: 'Must not be greater than 50.'
+      name:
+        name: name
+        description: ''
         required: false
-        example: 3
-        type: integer
+        example: voluptatibus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      raceCountExists:
+        name: raceCountExists
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      trackCountExists:
+        name: trackCountExists
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      commandCountExists:
+        name: commandCountExists
+        description: ''
+        required: false
+        example: false
+        type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      userId: 3
       paginate: false
-      page: iure
-      limit: 3
+      limit: 25
+      page: eaque
+      name: voluptatibus
+      raceCountExists: true
+      trackCountExists: true
+      commandCountExists: false
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.grade.get.success","grades":{"id":167,"name":"Dr. Lorenzo Becker","description":"Quis aspernatur ipsa consequatur minima velit accusamus. Perferendis sint perferendis non aut. Illo et quas sapiente id magnam possimus. Repudiandae dolorem esse enim eaque aut eum."}},{"status":"success","message":"messages.grade.get.success","grades":{"id":168,"name":"Stone Nicolas","description":"Officiis sunt magni ut sed aut. Omnis id ut est ut. Veniam velit aut placeat consequatur totam aperiam."}}]'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/grades/{id}'
-    metadata:
-      groupName: Grade
-      groupDescription: 'Методы связанные с классами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: getForId
-      description: 'Получение класса по id'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the grade.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      id:
-        name: id
-        description: 'The <code>id</code> of an existing record in the grades table.'
-        required: true
-        example: 13
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      userId:
-        name: userId
-        description: ''
-        required: false
-        example: 4
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      id: 13
-      userId: 4
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.grade.get_for_id.success","grade":{"id":169,"name":"Jaiden Marvin","description":"Excepturi maiores est fugit. Ut assumenda numquam optio ad nesciunt ut. Ea eos ab corporis perspiciatis. Quaerat vel magnam qui eaque eaque sed. Deserunt quis soluta dolorem molestias numquam."}}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/grades
-    metadata:
-      groupName: Grade
-      groupDescription: 'Методы связанные с классами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: create
-      description: 'Создание класса'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: uxotqrxqeta
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      description:
-        name: description
-        description: ''
-        required: false
-        example: 'Quod est enim dignissimos.'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      gradeId:
-        name: gradeId
-        description: 'The <code>id</code> of an existing record in the grades table.'
-        required: true
-        example: 12
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanBodyParameters:
-      name: uxotqrxqeta
-      description: 'Quod est enim dignissimos.'
-      gradeId: 12
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.grade.create.success","grade":{"id":170,"name":"Miss Lessie Parisian Jr.","description":"Exercitationem commodi sint sit voluptas ad aut at. Quia corporis maxime assumenda enim qui beatae ipsa."}}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PATCH
-    uri: 'api/grades/{id}'
-    metadata:
-      groupName: Grade
-      groupDescription: 'Методы связанные с классами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: update
-      description: 'Редактирование класса'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the grade.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: rvmlfijdpxgogtqg
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      description:
-        name: description
-        description: ''
-        required: false
-        example: 'Exercitationem assumenda ut sed asperiores possimus officia sunt.'
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      userId:
-        name: userId
-        description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
-        example: 2
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      gradeId:
-        name: gradeId
-        description: 'The <code>id</code> of an existing record in the grades table.'
-        required: false
-        example: 5
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      name: rvmlfijdpxgogtqg
-      description: 'Exercitationem assumenda ut sed asperiores possimus officia sunt.'
-      userId: 2
-      gradeId: 5
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.grade.update.success","grade":{"id":171,"name":"Mr. Ephraim Morar PhD","description":"Deserunt dolor laborum aut ratione rerum molestias. Laborum aut aliquid quae expedita. Dolore qui velit ad non nihil ipsam."}}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
+        content: '[{"status":"success","message":"messages.location.get_all.success","data":{"id":null,"name":null,"type":null}},{"status":"success","message":"messages.location.get_all.success","data":{"id":null,"name":null,"type":null}}]'
         headers: []
         description: ''
         custom: []

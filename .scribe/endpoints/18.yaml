@@ -1,17 +1,17 @@
-name: Command
-description: 'Методы связанные с командами'
+name: Grade
+description: 'Методы связанные с классами'
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/commands
+    uri: api/grades
     metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
       subgroup: ''
       subgroupDescription: ''
       title: get
-      description: 'Получение всех команд по фильтрам'
+      description: 'Получение всех классов по фильтрам'
       authenticated: false
       custom: []
     headers:
@@ -26,920 +26,106 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      paginate:
+        name: paginate
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: est
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      limit:
+        name: limit
+        description: 'Must not be greater than 50.'
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      userId: 3
+      paginate: true
+      page: est
+      limit: 15
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"status":"success","message":"messages.grade.get.success","grades":{"id":173,"name":"Adrian Botsford","description":"Quidem nobis recusandae sit voluptatem perferendis. Sint aliquam in dicta fuga illum nemo molestiae."}},{"status":"success","message":"messages.grade.get.success","grades":{"id":174,"name":"Mossie Bernhard","description":"Id fugit iusto eveniet et voluptas velit sed molestiae. Velit aliquam in eligendi similique consequatur non. Dolores eum ea tenetur est labore voluptas. Dolores quia est qui enim ea quia aut."}}]'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/grades/{id}'
+    metadata:
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: getForId
+      description: 'Получение класса по id'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the grade.'
+        required: true
         example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
-        nullable: true
+        nullable: false
         custom: []
-      userIdExists:
-        name: userIdExists
-        description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
-        example: 13
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      checkMember:
-        name: checkMember
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      paginate:
-        name: paginate
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      page:
-        name: page
-        description: ''
-        required: false
-        example: perferendis
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      limit:
-        name: limit
-        description: 'Must not be greater than 50.'
-        required: false
-        example: 24
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      locationId:
-        name: locationId
-        description: 'The <code>id</code> of an existing record in the locations table.'
-        required: false
-        example: 9
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      city:
-        name: city
-        description: ''
-        required: false
-        example: eos
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      fullName:
-        name: fullName
-        description: ''
-        required: false
-        example: qui
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      coach:
-        name: coach
-        description: ''
-        required: false
-        example: dolor
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      name:
-        name: name
-        description: ''
-        required: false
-        example: sit
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      userId: 1
-      userIdExists: 13
-      checkMember: false
-      paginate: true
-      page: perferendis
-      limit: 24
-      locationId: 9
-      city: eos
-      fullName: qui
-      coach: dolor
-      name: sit
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '[{"status":"success","message":"messages.command.get.success","commands":{"id":213,"name":"Shaylee Hermann Sr.","full_name":null,"coach":null,"city":"Port Maurineland","avatar":null}},{"status":"success","message":"messages.command.get.success","commands":{"id":214,"name":"Dahlia VonRueden","full_name":null,"coach":null,"city":"East Sandy","avatar":null}}]'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/commands/{id}'
-    metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: getForId
-      description: 'Получение команд по id'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
       id:
         name: id
-        description: 'The ID of the command.'
+        description: 'The <code>id</code> of an existing record in the grades table.'
         required: true
-        example: 15
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
-    cleanUrlParameters:
-      id: 15
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
       userId:
         name: userId
         description: ''
-        required: false
-        example: 9
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      userIdExists:
-        name: userIdExists
-        description: 'The <code>id</code> of an existing record in the users table.'
-        required: false
-        example: 10
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      checkMember:
-        name: checkMember
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      locationId:
-        name: locationId
-        description: ''
-        required: false
-        example: 20
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      city:
-        name: city
-        description: ''
-        required: false
-        example: et
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      fullName:
-        name: fullName
-        description: ''
-        required: false
-        example: earum
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      coach:
-        name: coach
-        description: ''
-        required: false
-        example: tempora
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      userId: 9
-      userIdExists: 10
-      checkMember: false
-      locationId: 20
-      city: et
-      fullName: earum
-      coach: tempora
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.command.get_for_id.success","command":{"id":215,"name":"Prof. Hilario Bradtke PhD","full_name":null,"coach":null,"city":"Port Annetteside","avatar":null}}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/commands
-    metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: create
-      description: 'Создание команды'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: multipart/form-data
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: gudbozj
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      fullName:
-        name: fullName
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: shkaarnxzvtakmouvffyfp
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      coach:
-        name: coach
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: mhu
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      avatar:
-        name: avatar
-        description: 'Must be an image.'
-        required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      locationId:
-        name: locationId
-        description: 'The <code>id</code> of an existing record in the locations table.'
-        required: false
-        example: 13
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      city:
-        name: city
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: ynkkmiyghhykkamvnl
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanBodyParameters:
-      name: gudbozj
-      fullName: shkaarnxzvtakmouvffyfp
-      coach: mhu
-      locationId: 13
-      city: ynkkmiyghhykkamvnl
-    fileParameters:
-      avatar: null
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.command.create.success","command":{"id":216,"name":"Loyal Johns","full_name":null,"coach":null,"city":"Beahanborough","avatar":null}}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/commands/{id}'
-    metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: update
-      description: 'Редактирование команды'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: multipart/form-data
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the command.'
-        required: true
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 15
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: rjgocqhhjuqfsczoe
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      fullName:
-        name: fullName
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: kpznuukhdybbyod
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      coach:
-        name: coach
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: tz
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      avatar:
-        name: avatar
-        description: 'Must be an image.'
-        required: false
-        example: null
-        type: file
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      city:
-        name: city
-        description: 'Must not be greater than 255 characters.'
-        required: false
-        example: cbslgxdgxczdlnokapzgdm
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      locationId:
-        name: locationId
-        description: 'The <code>id</code> of an existing record in the locations table.'
-        required: false
-        example: 6
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      name: rjgocqhhjuqfsczoe
-      fullName: kpznuukhdybbyod
-      coach: tz
-      city: cbslgxdgxczdlnokapzgdm
-      locationId: 6
-    fileParameters:
-      avatar: null
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.command.update.success","command":{"id":217,"name":"Moshe Dach","full_name":null,"coach":null,"city":"South Raven","avatar":null}}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 403
-        content: '{"status":"error","message":"messages.error.not_allowed"}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/commands/{id}'
-    metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: delete
-      description: 'Удаление команды'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the command.'
-        required: true
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 15
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.command.delete.success","command":{"id":218,"name":"Sophia Dietrich","full_name":null,"coach":null,"city":"Giovannimouth","avatar":null}}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 403
-        content: '{"status":"error","message":"messages.error.not_allowed"}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/commands/{command_id}/couches/{user_id}'
-    metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: toggleCouch
-      description: 'Добавление и удаление тренера из команды, может пользоваться только владелец команды.'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      command_id:
-        name: command_id
-        description: 'The ID of the command.'
-        required: true
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      user_id:
-        name: user_id
-        description: 'The ID of the user.'
-        required: true
-        example: laboriosam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      command_id: 15
-      user_id: laboriosam
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.command.add_couch.success"}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 403
-        content: '{"status":"error","message":"messages.error.not_allowed"}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/commands/{command_id}/members'
-    metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: toggleMember
-      description: 'Привязка пользователя к команде от имени самого пользователя.'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      command_id:
-        name: command_id
-        description: 'The ID of the command.'
-        required: true
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      command_id: 15
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.command.member_toggle.success"}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/commands/{command_id}/members'
-    metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: getMembers
-      description: 'Получить всех участников команды.'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      command_id:
-        name: command_id
-        description: 'The ID of the command.'
-        required: true
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      command_id: 15
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      paginate:
-        name: paginate
-        description: ''
-        required: false
-        example: true
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      page:
-        name: page
-        description: ''
-        required: false
-        example: magnam
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      limit:
-        name: limit
-        description: 'Must not be greater than 50.'
-        required: false
-        example: 10
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      raceIdExists:
-        name: raceIdExists
-        description: 'The <code>id</code> of an existing record in the races table.'
-        required: false
-        example: 20
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      checkMember:
-        name: checkMember
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      paginate: true
-      page: magnam
-      limit: 10
-      raceIdExists: 20
-      checkMember: false
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.couches.get.success","members":{"id":593,"name":"Marge Thiel IV","avatar":null,"personal":[]}}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/commands/{command_id}/coaches'
-    metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: getCoachesForAll
-      description: 'Получение всех тренеров по команде для всех.'
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      command_id:
-        name: command_id
-        description: 'The ID of the command.'
-        required: true
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      command_id: 15
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      paginate:
-        name: paginate
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      page:
-        name: page
-        description: ''
-        required: false
-        example: voluptatem
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      limit:
-        name: limit
-        description: 'Must not be greater than 50.'
-        required: false
-        example: 24
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-    cleanBodyParameters:
-      paginate: false
-      page: voluptatem
-      limit: 24
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"status":"success","message":"messages.command.get_coaches_for_all.success","coaches":{"id":594,"name":"Charity Nitzsche","avatar":null,"personal":[]}}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
-        headers: []
-        description: ''
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/commands/{command_id}/members-for-coach'
-    metadata:
-      groupName: Command
-      groupDescription: 'Методы связанные с командами'
-      subgroup: ''
-      subgroupDescription: ''
-      title: getMembersForCoach
-      description: 'Получение всех участников по тренеру.'
-      authenticated: true
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      command_id:
-        name: command_id
-        description: 'The ID of the command.'
-        required: true
-        example: 15
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      command_id: 15
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      paginate:
-        name: paginate
-        description: ''
-        required: false
-        example: false
-        type: boolean
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      page:
-        name: page
-        description: ''
-        required: false
-        example: beatae
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: true
-        custom: []
-      limit:
-        name: limit
-        description: 'Must not be greater than 50.'
         required: false
         example: 16
         type: integer
@@ -947,43 +133,174 @@ endpoints:
         exampleWasSpecified: false
         nullable: true
         custom: []
-      raceIdExists:
-        name: raceIdExists
-        description: 'The <code>id</code> of an existing record in the races table.'
+    cleanBodyParameters:
+      id: 16
+      userId: 16
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.grade.get_for_id.success","grade":{"id":175,"name":"Prof. Petra Maggio Jr.","description":"Perspiciatis debitis et illum accusantium non. Ex explicabo aliquam ex. Assumenda sint dicta ipsum animi soluta. Architecto nihil eum explicabo molestiae ut quis."}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/grades
+    metadata:
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: create
+      description: 'Создание класса'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: uiqglvpjlxeelmldqtfnfg
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      description:
+        name: description
+        description: ''
         required: false
-        example: 19
+        example: 'Necessitatibus rerum corrupti rerum quisquam corporis blanditiis sed.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      gradeId:
+        name: gradeId
+        description: 'The <code>id</code> of an existing record in the grades table.'
+        required: true
+        example: 3
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: uiqglvpjlxeelmldqtfnfg
+      description: 'Necessitatibus rerum corrupti rerum quisquam corporis blanditiis sed.'
+      gradeId: 3
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.grade.create.success","grade":{"id":176,"name":"Jada Maggio","description":"Doloribus tenetur debitis aut necessitatibus maiores architecto nobis. Quis dolores rem officia repellendus ut. Veniam illum adipisci deleniti. Reiciendis quisquam non et enim suscipit ratione."}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/grades/{id}'
+    metadata:
+      groupName: Grade
+      groupDescription: 'Методы связанные с классами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: update
+      description: 'Редактирование класса'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the grade.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: zdgwujazhotij
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Adipisci reprehenderit consequuntur veniam sint iste.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 17
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      checkMember:
-        name: checkMember
-        description: ''
+      gradeId:
+        name: gradeId
+        description: 'The <code>id</code> of an existing record in the grades table.'
         required: false
-        example: true
-        type: boolean
+        example: 18
+        type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      paginate: false
-      page: beatae
-      limit: 16
-      raceIdExists: 19
-      checkMember: true
+      name: zdgwujazhotij
+      description: 'Adipisci reprehenderit consequuntur veniam sint iste.'
+      userId: 17
+      gradeId: 18
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.command.get_members_for_coach.success","members":{"id":595,"name":"Mr. Brad Schuster","email":"oking@example.org","email_verified_at":"2025-04-25T10:58:18.000000Z","avatar":null}}'
-        headers: []
-        description: ''
-        custom: []
-      -
-        status: 403
-        content: '{"status":"error","message":"messages.error.not_allowed"}'
+        content: '{"status":"success","message":"messages.grade.update.success","grade":{"id":177,"name":"Prof. Tyrell Cormier","description":"Dolore consequatur voluptatem labore. Modi voluptatum esse quos quas ut enim. Rerum doloremque delectus officiis consectetur."}}'
         headers: []
         description: ''
         custom: []

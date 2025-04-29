@@ -1,18 +1,18 @@
-name: Degree
-description: 'Методы связанные с уровнями кубков. Например всероссийский, областной и т.д.'
+name: Attendance
+description: 'Методы связанные с платными услугами.'
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/degree
+      - POST
+    uri: api/attendances
     metadata:
-      groupName: Degree
-      groupDescription: 'Методы связанные с уровнями кубков. Например всероссийский, областной и т.д.'
+      groupName: Attendance
+      groupDescription: 'Методы связанные с платными услугами.'
       subgroup: ''
       subgroupDescription: ''
-      title: get
-      description: 'Получить все уровни.'
-      authenticated: false
+      title: create
+      description: 'Создание платной услуги.'
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -21,13 +21,57 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: wefbkm
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      desc:
+        name: desc
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: w
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      price:
+        name: price
+        description: ''
+        required: true
+        example: 4.6329899
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      trackId:
+        name: trackId
+        description: 'The <code>id</code> of an existing record in the tracks table.'
+        required: true
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: wefbkm
+      desc: w
+      price: 4.6329899
+      trackId: 16
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.degree.get.success","degree":{"id":null,"name":null,"desc":null}},{"status":"success","message":"messages.degree.get.success","degree":{"id":null,"name":null,"desc":null}}]'
+        content: '{"status":"success","message":"messages.attendance.create.success","attendance":{"id":172,"name":"Jayme Collins","desc":"Placeat eveniet deserunt quas aut placeat ad praesentium labore. Ut quam nam quia doloremque. Aliquam ipsum corrupti error ad deserunt.","price":"3.200532e+06"}}'
         headers: []
         description: ''
         custom: []
@@ -39,16 +83,16 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - GET
-    uri: 'api/degree/{id}'
+      - POST
+    uri: 'api/attendance/{id}'
     metadata:
-      groupName: Degree
-      groupDescription: 'Методы связанные с уровнями кубков. Например всероссийский, областной и т.д.'
+      groupName: Attendance
+      groupDescription: 'Методы связанные с платными услугами.'
       subgroup: ''
       subgroupDescription: ''
-      title: getForRaceId
-      description: 'Получение уровня по id.'
-      authenticated: false
+      title: update
+      description: 'Редактирование платной услуги.'
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -56,31 +100,127 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the degree.'
+        description: 'The ID of the attendance.'
         required: true
-        example: 7
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 7
+      id: 1
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: ifhlfyfrfzuntiwduwz
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      desc:
+        name: desc
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: bxlxinq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      price:
+        name: price
+        description: ''
+        required: true
+        example: 6.161927
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      trackId:
+        name: trackId
+        description: 'The <code>id</code> of an existing record in the tracks table.'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: ifhlfyfrfzuntiwduwz
+      desc: bxlxinq
+      price: 6.161927
+      trackId: 2
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.degree.get_for_ids.success","degree":{"id":null,"name":null,"desc":null}}'
+        content: '{"status":"success","message":"messages.attendance.update.success","attendance":{"id":173,"name":"Annie Wuckert","desc":"Aliquid perferendis eos saepe deserunt at perferendis. Placeat perferendis ut ut aliquid a. A ut ipsum qui soluta qui. Minima pariatur laboriosam aut quibusdam est.","price":"8.362803e+08"}}'
         headers: []
         description: ''
         custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/attendance/{id}'
+    metadata:
+      groupName: Attendance
+      groupDescription: 'Методы связанные с платными услугами.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: delete
+      description: 'Удаление платной услуги.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the attendance.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The <code>id</code> of an existing record in the attendances table.'
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      id: 15
+    fileParameters: []
+    responses:
       -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
+        status: 200
+        content: '{"status":"success","message":"messages.attendance.delete.success","attendance":{"id":174,"name":"Tracey Murphy","desc":"At cupiditate voluptas eum tempore. Accusamus nobis laudantium sequi. Pariatur esse rerum et cupiditate. Vel id dolorum aut qui cupiditate.","price":"32"}}'
         headers: []
         description: ''
         custom: []
