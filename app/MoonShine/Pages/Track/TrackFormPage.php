@@ -44,10 +44,10 @@ class TrackFormPage extends FormPage
             Checkbox::make('Освещение', 'light'),
             $this->location(),
             Text::make('Координаты', 'point',)
-                ->placeholder('POINT(<latitude> <longitude>)')
+                ->placeholder('POINT(<longitude> <latitude>)')
                 ->onBeforeRender(function (Field $item) {
                     if (empty($item->toArray()['value'])) {
-                        $item->setValue("POINT(<latitude> <longitude>)");
+                        $item->setValue("POINT(<longitude> <latitude>)");
                         return $item;
                     }
                     $value = json_decode($item->toArray()['value']);
