@@ -87,13 +87,24 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
     Route::get('races/{id}/toggle-is-work', 'toggleIsWork')
         ->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])
         ->name('race.update');
-    Route::post('races/{id}/commission/add', 'addCommission')->middleware('auth:sanctum')->name('race.commission.add');
-    Route::delete('races/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])->name('race.delete');
-    Route::post('races/{id}/add-document', 'addDocument')->middleware(['auth:sanctum', 'role:'. $role::COMMISSION.'|'.$role::ROOT])->name('race.add.document');
+    Route::post('races/{id}/commission/add', 'addCommission')
+        ->middleware('auth:sanctum')
+        ->name('race.commission.add');
+    Route::delete('races/{id}', 'delete')
+        ->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])
+        ->name('race.delete');
+    Route::post('races/{id}/add-document', 'addDocument')
+        ->middleware(['auth:sanctum', 'role:'. $role::COMMISSION.'|'.$role::ROOT])
+        ->name('race.add.document');
 });
 
 Route::controller(\App\Http\Controllers\Api\RaceResultController::class)->group(function () {
-    Route::get('races-results', 'get')->name('race_result.get');
+    $role = new \App\Constants\RoleConstant();
+    Route::get('race/{id}/results', 'get')
+        ->name('race_result.get');
+    Route::post('race/{id}/results', 'create')
+        ->middleware(['auth:sanctum', 'role:'. $role::COMMISSION.'|'.$role::ROOT.'|'.$role::ADMIN])
+        ->name('race_result.create');
 });
 
 

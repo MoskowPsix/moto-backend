@@ -95,4 +95,10 @@ class Race extends Model
     {
         return $this->hasOne(FavoriteCount::class);
     }
+
+    public function raceResult(): HasOne
+    {
+        return $this->hasOne(RaceResult::class);
+    }
+
 }

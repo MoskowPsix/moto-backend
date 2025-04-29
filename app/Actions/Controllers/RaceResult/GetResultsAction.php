@@ -23,7 +23,7 @@ class GetResultsAction implements GetResultsActionContract
             return NotFoundResource::make([]);
         }
 
-        $result_q = RaceResult::where('race', $id)->with('user', 'race', 'command', 'cup');
+        $result_q = RaceResult::where('race_id', $id)->with('user', 'race', 'command', 'cup');
         $result = app(Pipeline::class)
             ->send($result_q)
             ->through([])

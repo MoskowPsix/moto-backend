@@ -1,18 +1,18 @@
-name: Degree
-description: 'Методы связанные с уровнями кубков. Например всероссийский, областной и т.д.'
+name: Attendance
+description: 'Методы связанные с платными услугами.'
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/degree
+      - POST
+    uri: api/attendances
     metadata:
-      groupName: Degree
-      groupDescription: 'Методы связанные с уровнями кубков. Например всероссийский, областной и т.д.'
+      groupName: Attendance
+      groupDescription: 'Методы связанные с платными услугами.'
       subgroup: ''
       subgroupDescription: ''
-      title: get
-      description: 'Получить все уровни.'
-      authenticated: false
+      title: create
+      description: 'Создание платной услуги.'
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -21,13 +21,57 @@ endpoints:
     cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: true
+        example: yapqwiqljklcqantzjmrkz
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      desc:
+        name: desc
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: true
+        example: pdbwzyxhehanwjp
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      price:
+        name: price
+        description: ''
+        required: true
+        example: 3.81
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      trackId:
+        name: trackId
+        description: 'The <code>id</code> of an existing record in the tracks table.'
+        required: true
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: yapqwiqljklcqantzjmrkz
+      desc: pdbwzyxhehanwjp
+      price: 3.81
+      trackId: 17
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.degree.get.success","degree":{"id":null,"name":null,"desc":null}},{"status":"success","message":"messages.degree.get.success","degree":{"id":null,"name":null,"desc":null}}]'
+        content: '{"status":"success","message":"\u041f\u043b\u0430\u0442\u043d\u0430\u044f \u0443\u0441\u043b\u0443\u0433\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430.","attendance":{"id":135,"name":"\u0422\u0430\u0442\u044c\u044f\u043d\u0430 \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u043d\u0430 \u0418\u0441\u0430\u043a\u043e\u0432\u0430","desc":"Quaerat laudantium perferendis dolores sit sunt quia rem. Asperiores repellat fuga quaerat doloribus. Et provident omnis voluptas quaerat ipsum tempore aut et.","price":"212865"}}'
         headers: []
         description: ''
         custom: []
@@ -39,16 +83,16 @@ endpoints:
     custom: []
   -
     httpMethods:
-      - GET
-    uri: 'api/degree/{id}'
+      - POST
+    uri: 'api/attendance/{id}'
     metadata:
-      groupName: Degree
-      groupDescription: 'Методы связанные с уровнями кубков. Например всероссийский, областной и т.д.'
+      groupName: Attendance
+      groupDescription: 'Методы связанные с платными услугами.'
       subgroup: ''
       subgroupDescription: ''
-      title: getForRaceId
-      description: 'Получение уровня по id.'
-      authenticated: false
+      title: update
+      description: 'Редактирование платной услуги.'
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -56,31 +100,127 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the degree.'
+        description: 'The ID of the attendance.'
         required: true
-        example: 7
+        example: 134
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 7
+      id: 134
     queryParameters: []
     cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: true
+        example: fldktmfajtykhphlrzwq
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      desc:
+        name: desc
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: false
+        example: b
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      price:
+        name: price
+        description: ''
+        required: true
+        example: 48.8715
+        type: number
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      trackId:
+        name: trackId
+        description: 'The <code>id</code> of an existing record in the tracks table.'
+        required: true
+        example: 6
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      name: fldktmfajtykhphlrzwq
+      desc: b
+      price: 48.8715
+      trackId: 6
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.degree.get_for_ids.success","degree":{"id":null,"name":null,"desc":null}}'
+        content: '{"status":"success","message":"\u041f\u043b\u0430\u0442\u043d\u0430\u044f \u0443\u0441\u043b\u0443\u0433\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0430.","attendance":{"id":136,"name":"\u0421\u0442\u0435\u043f\u0430\u043d\u043e\u0432 \u0413\u043e\u0440\u0434\u0435\u0439 \u041b\u044c\u0432\u043e\u0432\u0438\u0447","desc":"Ut et velit quae sit ut sint fugiat. Cupiditate similique ea sit sapiente saepe non pariatur. Et impedit quia qui officiis.","price":"24151"}}'
         headers: []
         description: ''
         custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/attendance/{id}'
+    metadata:
+      groupName: Attendance
+      groupDescription: 'Методы связанные с платными услугами.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: delete
+      description: 'Удаление платной услуги.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the attendance.'
+        required: true
+        example: 134
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 134
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The <code>id</code> of an existing record in the attendances table.'
+        required: false
+        example: 17
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      id: 17
+    fileParameters: []
+    responses:
       -
-        status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
+        status: 200
+        content: '{"status":"success","message":"\u041f\u043b\u0430\u0442\u043d\u0430\u044f \u0443\u0441\u043b\u0443\u0433\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0443\u0434\u0430\u043b\u0435\u043d\u0430.","attendance":{"id":137,"name":"\u0413\u0435\u0440\u0430\u0441\u0438\u043c \u041b\u044c\u0432\u043e\u0432\u0438\u0447 \u0411\u0430\u0440\u0430\u043d\u043e\u0432","desc":"Necessitatibus saepe iste suscipit eos. Repellendus at nemo ipsam. Voluptatem reiciendis commodi nesciunt eos. Pariatur nobis et praesentium aut consequuntur odit beatae totam.","price":"334966"}}'
         headers: []
         description: ''
         custom: []

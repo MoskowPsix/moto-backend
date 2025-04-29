@@ -2,36 +2,14 @@
 
 namespace App\Providers;
 
-use App\Contracts\Actions\Commands\GenerateLocationCsvActionContract;
-use App\Contracts\Actions\Controllers\AppointmentRace\CheckedAppointmentRaceForCommissionActionContract;
-use App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentRaceUsersForCommissionActionContract;
-use App\Contracts\Actions\Controllers\AuthPhoneController\LoginPhoneActionContract;
-use App\Contracts\Actions\Controllers\AuthPhoneController\RegisterPhoneActionContract;
-use App\Contracts\Actions\Controllers\AuthPhoneController\VerifyPhoneActionContract;
-use App\Contracts\Actions\Controllers\Command\GetCoachesForAllUsersActionContract;
-use App\Contracts\Actions\Controllers\Command\GetMemberForCoachForIdActionContract;
-use App\Contracts\Actions\Controllers\Degree\GetDegreeActionContract;
-use App\Contracts\Actions\Controllers\Degree\GetForIdsDegreeActionContract;
-use App\Contracts\Actions\Controllers\District\GetDistrictsActionContract;
-use App\Contracts\Actions\Controllers\Grade\GetForIdGradeActionContract;
-use App\Contracts\Actions\Controllers\Grade\GetGradeActionContract;
-use App\Contracts\Actions\Controllers\Grade\UpdateGradeActionContract;
-use App\Contracts\Actions\Controllers\Race\AddCommissionActionContract;
-use App\Contracts\Actions\Controllers\Race\RemoveCommissionActionContract;
-use App\Contracts\Actions\Controllers\RaceResult\GetResultsActionContract;
-use App\Contracts\Actions\Controllers\Status\GetStatusesActionContract;
-use App\Contracts\Actions\Controllers\User\DeleteUserActionContract;
-use App\Contracts\Actions\Controllers\User\GetCommisionUserActionContract;
 use Illuminate\Support\ServiceProvider;
 
 class ActionServiceProvider extends ServiceProvider
 {
     public array $bindings = [
-        // Command
+		\App\Contracts\Actions\Controllers\RaceResult\CreateRaceResultActionContract::class                         => \App\Actions\Controllers\RaceResult\CreateRaceResultAction::class,
         \App\Contracts\Actions\Commands\CreateUserForRaceCommandActionContracts::class                              => \App\Actions\Commands\CreateUserForRaceCommandAction::class,
         \App\Contracts\Actions\Commands\GenerateLocationCsvActionContract::class                                    => \App\Actions\Commands\GenerateLocationCsvAction::class,
-
-        // Controller
         \App\Contracts\Actions\Controllers\Auth\LoginActionContract::class                                          => \App\Actions\Controllers\Auth\LoginAction::class,
         \App\Contracts\Actions\Controllers\Auth\RegisterActionContract::class                                       => \App\Actions\Controllers\Auth\RegisterAction::class,
         \App\Contracts\Actions\Controllers\Auth\LogoutActionContract::class                                         => \App\Actions\Controllers\Auth\LogoutAction::class,

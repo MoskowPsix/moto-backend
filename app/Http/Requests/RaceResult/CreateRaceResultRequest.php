@@ -4,7 +4,14 @@ namespace App\Http\Requests\RaceResult;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GetRaceResultsRequest extends FormRequest
+/**
+ * @property int $userId
+ * @property int $cupId
+ * @property int $commandId
+ * @property int $scores
+ * @property int $place
+ */
+class CreateRaceResultRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +29,11 @@ class GetRaceResultsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'userId'    => 'integer|required|exists:users,id',
+            'cupId'     => 'integer|nullable|exists:cups,id',
+            'commandId' => 'integer|nullable|exists:commands,id',
+            'scores'    => 'integer|required',
+            'place'     => 'required|integer'
         ];
     }
 }
