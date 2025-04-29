@@ -9,6 +9,7 @@ use App\Filters\Race\RaceDateFilter;
 use App\Filters\Race\RaceForLocationIdsFilter;
 use App\Filters\Race\RaceForStatusFilter;
 use App\Filters\Race\RaceForTrackFilter;
+use App\Filters\Race\RaceNameFilter;
 use App\Filters\Race\RaceSortFilter;
 use App\Filters\Race\RaceUserCommissionExistsFilter;
 use App\Filters\Race\RaceUserIdFilter;
@@ -36,7 +37,8 @@ class GetRaceAction implements GetRaceActionContract
                 RaceForStatusFilter::class,
                 RaceSortFilter::class,
                 FavoriteExistsFilter::class,
-                RaceUserCommissionExistsFilter::class
+                RaceUserCommissionExistsFilter::class,
+                RaceNameFilter::class,
             ])
             ->via('apply')
             ->then(function ($races) use ($page, $limit, $request) {

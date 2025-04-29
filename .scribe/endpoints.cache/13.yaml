@@ -24,14 +24,14 @@ endpoints:
         name: id
         description: 'The ID of the cup.'
         required: true
-        example: quaerat
+        example: temporibus
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: quaerat
+      id: temporibus
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -39,7 +39,7 @@ endpoints:
         name: paginate
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -47,9 +47,9 @@ endpoints:
         custom: []
       limit:
         name: limit
-        description: 'Must not be greater than 100.'
+        description: 'Значение поля value не может быть больше 100.'
         required: false
-        example: 4
+        example: 24
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -59,7 +59,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: voluptates
+        example: fuga
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -69,22 +69,22 @@ endpoints:
         name: name
         description: ''
         required: false
-        example: magni
+        example: dicta
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      paginate: true
-      limit: 4
-      page: voluptates
-      name: magni
+      paginate: false
+      limit: 24
+      page: fuga
+      name: dicta
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.cup.get_for_id.success","cup":{"id":115,"name":"Prof. Dorian Sanford","year":1997,"stages":"7","image":null,"color":null}}'
+        content: '{"status":"success","message":"\u041a\u0443\u0431\u043e\u043a \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","cup":{"id":103,"name":"\u0411\u0443\u0440\u043e\u0432\u0430 \u0418\u0440\u0438\u043d\u0430 \u0411\u043e\u0440\u0438\u0441\u043e\u0432\u043d\u0430","year":1979,"stages":"9","image":null,"color":null}}'
         headers: []
         description: ''
         custom: []
@@ -115,14 +115,14 @@ endpoints:
         name: id
         description: 'The ID of the race.'
         required: true
-        example: 7
+        example: 24
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 7
+      id: 24
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -130,19 +130,19 @@ endpoints:
         name: raceId
         description: 'The <code>id</code> of an existing record in the race table.'
         required: false
-        example: 19
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      raceId: 19
+      raceId: 16
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.cup.get_for_race_id.success","cup":{"id":116,"name":"Alvina Cassin","year":1994,"stages":"7","image":null,"color":null}}'
+        content: '{"status":"success","message":"\u041a\u0443\u0431\u043e\u043a \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u0433\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","cup":{"id":104,"name":"\u0412\u0430\u043b\u0435\u0440\u0438\u044f \u0415\u0432\u0433\u0435\u043d\u044c\u0435\u0432\u043d\u0430 \u0421\u0442\u0435\u043f\u0430\u043d\u043e\u0432\u0430","year":1995,"stages":"6","image":null,"color":null}}'
         headers: []
         description: ''
         custom: []
@@ -175,9 +175,9 @@ endpoints:
     bodyParameters:
       name:
         name: name
-        description: 'Must not be greater than 255 characters.'
+        description: 'Количество символов в значении поля value не может превышать 255.'
         required: true
-        example: txiibkjkatum
+        example: kuwmjtivdbkscxsddreuzo
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -187,7 +187,7 @@ endpoints:
         name: year
         description: ''
         required: true
-        example: 2
+        example: 14
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -207,7 +207,7 @@ endpoints:
         name: color
         description: ''
         required: false
-        example: ipsum
+        example: vero
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -215,9 +215,9 @@ endpoints:
         custom: []
       stages:
         name: stages
-        description: 'Must not be greater than 255 characters.'
+        description: 'Количество символов в значении поля value не может превышать 255.'
         required: false
-        example: vutsopmserxjdd
+        example: ohvxftcpthurxvfokmhm
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -227,23 +227,23 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 9
+        example: 19
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: txiibkjkatum
-      year: 2
-      color: ipsum
-      stages: vutsopmserxjdd
-      locationId: 9
+      name: kuwmjtivdbkscxsddreuzo
+      year: 14
+      color: vero
+      stages: ohvxftcpthurxvfokmhm
+      locationId: 19
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.cup.create.success","cup":{"id":117,"name":"Kamryn Purdy","year":1973,"stages":"8","image":null,"color":null}}'
+        content: '{"status":"success","message":"\u041a\u0443\u0431\u043e\u043a \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d","cup":{"id":105,"name":"\u041d\u0430\u0434\u0435\u0436\u0434\u0430 \u041c\u0430\u043a\u0441\u0438\u043c\u043e\u0432\u043d\u0430 \u0422\u0438\u0442\u043e\u0432\u0430","year":2007,"stages":"6","image":null,"color":null}}'
         headers: []
         description: ''
         custom: []
@@ -274,22 +274,22 @@ endpoints:
         name: id
         description: 'The ID of the cup.'
         required: true
-        example: 1
+        example: 78
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 78
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       name:
         name: name
-        description: 'Must not be greater than 255 characters.'
+        description: 'Количество символов в значении поля value не может превышать 255.'
         required: false
-        example: m
+        example: qlccftwhwmp
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -299,7 +299,7 @@ endpoints:
         name: year
         description: ''
         required: false
-        example: 12
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -307,9 +307,9 @@ endpoints:
         custom: []
       stages:
         name: stages
-        description: 'Must not be greater than 255 characters.'
+        description: 'Количество символов в значении поля value не может превышать 255.'
         required: false
-        example: qbpwqfqojtjnl
+        example: ofbnlzwfzxambhjmafpkrd
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -329,7 +329,7 @@ endpoints:
         name: color
         description: ''
         required: false
-        example: id
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -339,7 +339,7 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 11
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -349,24 +349,24 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 1
+        example: 4
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: m
-      year: 12
-      stages: qbpwqfqojtjnl
-      color: id
-      locationId: 11
-      userId: 1
+      name: qlccftwhwmp
+      year: 2
+      stages: ofbnlzwfzxambhjmafpkrd
+      color: voluptatem
+      locationId: 13
+      userId: 4
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.cup.update.success","cup":{"id":118,"name":"Terrence Ward PhD","year":2016,"stages":"2","image":null,"color":null}}'
+        content: '{"status":"success","message":"\u041a\u0443\u0431\u043e\u043a \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u043e\u0431\u043d\u043e\u0432\u043b\u0451\u043d","cup":{"id":106,"name":"\u041a\u043e\u0441\u0442\u0438\u043d\u0430 \u041c\u0430\u043b\u044c\u0432\u0438\u043d\u0430 \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u043d\u0430","year":2012,"stages":"1","image":null,"color":null}}'
         headers: []
         description: ''
         custom: []

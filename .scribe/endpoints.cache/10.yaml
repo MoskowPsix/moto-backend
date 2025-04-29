@@ -6,7 +6,7 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: api/races-results
+    uri: 'api/race/{id}/results'
     metadata:
       groupName: RaceResult
       groupDescription: 'Управление результатами гонок.'
@@ -19,8 +19,19 @@ endpoints:
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the race.'
+        required: true
+        example: 24
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 24
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -29,13 +40,127 @@ endpoints:
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.result_race.get.success","race_results":{"scores":100,"place":10}},{"status":"success","message":"messages.result_race.get.success","race_results":{"scores":100,"place":10}}]'
+        content: '[{"status":"success","message":"messages.result_race.get.success","race_results":{"scores":11,"place":1}},{"status":"success","message":"messages.result_race.get.success","race_results":{"scores":11,"place":1}}]'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"messages.error.not_found"}'
+        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/race/{id}/results'
+    metadata:
+      groupName: RaceResult
+      groupDescription: 'Управление результатами гонок.'
+      subgroup: ''
+      subgroupDescription: ''
+      title: create
+      description: 'Сохранение результатов.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the race.'
+        required: true
+        example: 24
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 24
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: true
+        example: 8
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      cupId:
+        name: cupId
+        description: 'The <code>id</code> of an existing record in the cups table.'
+        required: false
+        example: 18
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      commandId:
+        name: commandId
+        description: 'The <code>id</code> of an existing record in the commands table.'
+        required: false
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      scores:
+        name: scores
+        description: ''
+        required: true
+        example: 11
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      place:
+        name: place
+        description: ''
+        required: true
+        example: 8
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      userId: 8
+      cupId: 18
+      commandId: 5
+      scores: 11
+      place: 8
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"\u0420\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442 \u0433\u043e\u043d\u0449\u0438\u043a\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0445\u0440\u0430\u043d\u0451\u043d.","result":{"scores":11,"place":1}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
         headers: []
         description: ''
         custom: []
