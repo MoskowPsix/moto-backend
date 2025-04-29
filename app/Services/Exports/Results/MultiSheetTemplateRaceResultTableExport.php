@@ -10,7 +10,7 @@ class MultiSheetTemplateRaceResultTableExport implements WithMultipleSheets
 {
     private int $raceId;
     private int $userId;
-    public function __construct(int $raceId, $userId)
+    public function __construct(int $raceId, int $userId)
     {
         $this->raceId = $raceId;
         $this->userId = $userId;
