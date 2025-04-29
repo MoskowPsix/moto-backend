@@ -23,7 +23,7 @@ class CommandResource extends ModelResource
     protected string $model = Command::class;
     protected bool $simplePaginate = true;
     protected bool $columnSelection = true;
-
+    protected string $column = 'name';
     protected ?\MoonShine\Support\Enums\ClickAction $clickAction = ClickAction::DETAIL;
     protected string $title = 'Команды';
 

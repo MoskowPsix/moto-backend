@@ -36,6 +36,7 @@ use App\MoonShine\Resources\PersonalInfoResource;
 use App\MoonShine\Resources\DegreeResource;
 use App\MoonShine\Resources\CupResource;
 use App\MoonShine\Resources\DistrictResource;
+use App\MoonShine\Resources\RaceResultsResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -74,6 +75,7 @@ class MoonShineServiceProvider extends ServiceProvider
                 DegreeResource::class,
                 CupResource::class,
                 DistrictResource::class,
+                RaceResultsResource::class,
             ])
             ->pages([
                 ...$config->getPages(),
