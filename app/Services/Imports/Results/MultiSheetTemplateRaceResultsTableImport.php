@@ -23,7 +23,7 @@ class MultiSheetTemplateRaceResultsTableImport implements WithMultipleSheets
     public function sheets(): array
     {
         Race::where('id', $this->race_id)->first()->grades()->each(function ($grade) {
-            $this->sheet[$grade->name] = new TemplateRaceResultsSheetTableImport($grade->name);
+            $this->sheet[$grade->name] = new TemplateRaceResultsSheetTableImport($grade->name, $this->race_id);
         });
 
         return $this->sheet;

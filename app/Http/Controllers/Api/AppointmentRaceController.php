@@ -8,7 +8,6 @@ use App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentPDFActionCon
 use App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentRaceUsersForCommissionActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\GetUsersAppointmentRaceActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\ToggleAppointmentRaceActionContract;
-use App\Contracts\Actions\Controllers\Export\MultiSheetAppointmentRaceExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AppointmentRace\CheckedAppointmentRaceForCommissionRequest;
 use App\Http\Requests\AppointmentRace\GetAppointmentRaceUsersForCommissionRequest;
@@ -19,15 +18,14 @@ use App\Http\Resources\AppointmentRace\Create\ExistsAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Create\GradeNotExistsAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Create\ManyDocumentAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Create\SuccessCreateAppointmentRaceResource;
-use App\Http\Resources\AppointmentRace\Delete\SuccessDeleteAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\GetUsers\SuccessGetUsersAppointmentResource;
 use App\Http\Resources\AppointmentRace\SuccessCreateTableAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\SuccessGetAppointmentRaceUsersForCommissionResource;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\User;
+use App\Services\Exports\MultiSheetAppointmentRaceExport;
 use App\Services\Exports\Results\MultiSheetTemplateRaceResultTableExport;
-use App\Services\Exports\Results\TemplateRaceResultsTableExport;
 use App\Services\Imports\Results\MultiSheetTemplateRaceResultsTableImport;
 use App\Services\Imports\Results\TemplateRaceResultsTableImport;
 use Illuminate\Http\Request;
@@ -101,17 +99,15 @@ class AppointmentRaceController extends Controller
 //        // Функции этого метода выполняет метод toggle, по этому он убран.
 //        return $action($id);
 //    }
-    /**
-     * @throws Exception
-     * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
-     */
-    #[Authenticated]
-    #[Endpoint(title: 'Export applications', description: 'Экспорт заявок')]
-    public function exportApplications(int $id)
-    {
-        $userId = \Auth::id();
-        return Excel::download(new MultiSheetAppointmentRaceExport($id, $userId), 'регистрация мотокросс.xlsx');
-    }
+
+
+//    #[Authenticated]
+//    #[Endpoint(title: 'Export applications', description: 'Экспорт заявок')]
+//    public function exportApplications(int $id)
+//    {
+//        $userId = \Auth::id();
+//        return Excel::download(new MultiSheetAppointmentRaceExport($id, $userId), 'регистрация мотокросс.xlsx');
+//    }
 
     /**
      * @throws Exception

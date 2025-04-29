@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Contracts\Actions\Controllers\Export;
+namespace App\Services\Exports;
 
 use App\Models\Race;
-use App\Services\Exports\AppointmentRaceForGradeUserExport;
-use App\Services\Exports\AppointmentRaceUserExport;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
 class MultiSheetAppointmentRaceExport implements WithMultipleSheets

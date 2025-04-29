@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @method static create(array $array)
  * @method static find(int $id)
+ * @method static where(string $string, string $sheetName)
  */
 class Grade extends Model
 {
