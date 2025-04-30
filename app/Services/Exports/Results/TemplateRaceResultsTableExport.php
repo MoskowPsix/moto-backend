@@ -19,32 +19,11 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
     private int $raceId;
     private int $gradeId;
     private string $gradeName;
-    private int $userId;
-
-    public function __construct(int $raceId, int $gradeId, string $gradeName, int $userId)
+    public function __construct(int $raceId, int $gradeId, string $gradeName)
     {
         $this->raceId = $raceId;
         $this->gradeId = $gradeId;
         $this->gradeName = $gradeName;
-        $this->userId = $userId;
-
-        $this->checkPermission();
-    }
-
-    private function checkPermission()
-    {
-        $race = Race::find($this->raceId);
-        if (!$race) {
-            return NotFoundResource::make([]);
-        }
-        $appointment = AppointmentRace::where('race_id', $this->raceId);
-        if (!$appointment->exists()) {
-            return NotFoundResource::make([]);
-        }
-        if(!$race->commissions()->where('user_id', $this->userId)->exists()) {
-            return NotUserPermissionResource::make([]);
-        }
-        return $appointment;
     }
 
     /**
@@ -139,7 +118,7 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
         $sheet->getStyle('A1:A1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_UNPROTECTED);
         $sheet->getStyle('C1:N1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_UNPROTECTED);
 
-        $sheet->getColumnDimension('B')->setVisible(true);
+        $sheet->getColumnDimension('B')->setVisible(false);
         $sheet->getStyle('B1:B1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
         $sheet->getProtection()->setSheet(true);
         $sheet->getProtection()->setSort(true);
