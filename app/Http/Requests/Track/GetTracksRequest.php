@@ -29,6 +29,7 @@ class GetTracksRequest extends FormRequest
             'page'          => 'nullable|string',
             'limit'         => 'nullable|integer|max:50',
             'locationId'    => 'nullable|integer|exists:locations,id',
+            'name'          => 'nullable|string'
         ];
     }
 }
