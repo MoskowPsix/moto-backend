@@ -19,7 +19,7 @@ class CreateTracksAction implements CreateTracksActionContract
             $track = Track::create([
                 'name'          => $request->name,
                 'address'       => $request->address,
-                'point'         => 'POINT(' . $request->latitude . ' ' . $request->longitude . ')',
+                'point'         => 'POINT(' . $request->longitude . ' ' . $request->latitude . ')',
                 'level_id'      => $request->levelId,
                 'desc'          => $request->desc ?? '',
                 'length'        => $request->length,
