@@ -34,6 +34,17 @@ class TemplateRaceResultsSheetTableImport implements ToCollection
         if($rows->isEmpty()) {
             return EmptyListResource::make([]);
         }
+        $headerRow = null;
+        foreach ($rows as $index => $row) {
+            if($row->filter()->isNotEmpty() && $row->contains('Место' || 'UID' || 'Ст. №' || 'Сумма лич. очки' || 'Команда (Клуб)')) {
+                $headerRow = $row;
+                break;
+            }
+        }
+
+        if(!$headerRow) {
+            return EmptyListResource::make([]);
+        }
 
         // Получение заголовков
         $headers = $rows->first();
@@ -57,7 +68,9 @@ class TemplateRaceResultsSheetTableImport implements ToCollection
         $race = Race::with('cups')->find($this->race_id);
         $cupId = $race?->cups->pluck('id')->toArray() ?? [];
 
-        $rows->slice(1)->each(function ($row) use ($headers, $gradeId, $cupId) {
+        $dataRows = $rows->slice($rows->search($headerRow) + 1);
+
+        $dataRows->slice(1)->each(function ($row) use ($headers, $gradeId, $cupId) {
             $id = $row->get($headers->search('UID'));
             $user = User::where('id', $id)->first();
 
