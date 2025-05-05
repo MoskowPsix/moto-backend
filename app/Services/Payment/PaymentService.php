@@ -30,14 +30,14 @@ class PaymentService implements PaymentServiceContract
 
         $invoiceId = $transaction->id;
         $description = $attendance->desc ?? 'Оплата услуги';
-        $IsTest = 0;
+        $IsTest = 1;
         $crc = md5("$login:$outSum:$invoiceId:$password");
 
         $path = http_build_query([
             'MerchantLogin'     => $login,
             'OutSum'            => $outSum,
             'InvId'             => $invoiceId,
-            'Desc'              => urlencode($description),
+            'Desc'              => $description,
             'SignatureValue'    => strtoupper($crc),
             'IsTest'            => $IsTest,
         ]);
