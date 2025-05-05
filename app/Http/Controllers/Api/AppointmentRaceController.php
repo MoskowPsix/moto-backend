@@ -60,7 +60,7 @@ class AppointmentRaceController extends Controller
     }
     #[ResponseFromApiResource(SuccessGetUsersAppointmentResource::class, User::class, collection: true)]
     #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
-    #[Endpoint(title: 'GetUsersAppointmentRace', description: 'Записаться и отменить запись на гонку')]
+    #[Endpoint(title: 'GetUsersAppointmentRace', description: 'Получить участников в гонке')]
     public function getUsersAppointmentRace(int $id, GetUsersAppointmentRaceRequest $request, GetUsersAppointmentRaceActionContract $action): SuccessGetUsersAppointmentResource | NotFoundResource
     {
         return $action($id, $request);

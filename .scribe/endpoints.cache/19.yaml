@@ -38,7 +38,7 @@ endpoints:
         name: userIdExists
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 5
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -48,7 +48,7 @@ endpoints:
         name: checkMember
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -58,7 +58,7 @@ endpoints:
         name: paginate
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -68,7 +68,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: iusto
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -76,9 +76,9 @@ endpoints:
         custom: []
       limit:
         name: limit
-        description: 'Значение поля value не может быть больше 50.'
+        description: 'Must not be greater than 50.'
         required: false
-        example: 6
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -88,7 +88,7 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 6
+        example: 19
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -98,7 +98,7 @@ endpoints:
         name: city
         description: ''
         required: false
-        example: et
+        example: reprehenderit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -108,7 +108,7 @@ endpoints:
         name: fullName
         description: ''
         required: false
-        example: ipsum
+        example: illo
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -118,7 +118,7 @@ endpoints:
         name: coach
         description: ''
         required: false
-        example: quo
+        example: eaque
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -128,7 +128,7 @@ endpoints:
         name: name
         description: ''
         required: false
-        example: adipisci
+        example: blanditiis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -136,21 +136,21 @@ endpoints:
         custom: []
     cleanBodyParameters:
       userId: 1
-      userIdExists: 5
-      checkMember: true
-      paginate: true
-      page: iusto
-      limit: 6
-      locationId: 6
-      city: et
-      fullName: ipsum
-      coach: quo
-      name: adipisci
+      userIdExists: 16
+      checkMember: false
+      paginate: false
+      page: qui
+      limit: 16
+      locationId: 19
+      city: reprehenderit
+      fullName: illo
+      coach: eaque
+      name: blanditiis
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430.","commands":{"id":219,"name":"\u0420\u043e\u043c\u0430\u043d\u043e\u0432 \u0418\u0440\u0430\u043a\u043b\u0438\u0439 \u0414\u043c\u0438\u0442\u0440\u0438\u0435\u0432\u0438\u0447","full_name":null,"coach":null,"city":"\u0414\u043c\u0438\u0442\u0440\u043e\u0432","avatar":null}},{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430.","commands":{"id":220,"name":"\u0418\u0432\u0430\u043d\u043e\u0432 \u0410\u0440\u0442\u0451\u043c \u0414\u043c\u0438\u0442\u0440\u0438\u0435\u0432\u0438\u0447","full_name":null,"coach":null,"city":"\u0412\u043e\u0441\u043a\u0440\u0435\u0441\u0435\u043d\u0441\u043a","avatar":null}}]'
+        content: '[{"status":"success","message":"messages.command.get.success","commands":{"id":233,"name":"Brisa Shanahan","full_name":null,"coach":null,"city":"Kubfort","avatar":null}},{"status":"success","message":"messages.command.get.success","commands":{"id":234,"name":"Cordie Stark","full_name":null,"coach":null,"city":"New Omabury","avatar":null}}]'
         headers: []
         description: ''
         custom: []
@@ -181,14 +181,14 @@ endpoints:
         name: id
         description: 'The ID of the command.'
         required: true
-        example: 66
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 66
+      id: 15
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -196,7 +196,7 @@ endpoints:
         name: userId
         description: ''
         required: false
-        example: 5
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -206,7 +206,7 @@ endpoints:
         name: userIdExists
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 2
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -216,7 +216,7 @@ endpoints:
         name: checkMember
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -226,7 +226,7 @@ endpoints:
         name: locationId
         description: ''
         required: false
-        example: 15
+        example: 5
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -236,7 +236,7 @@ endpoints:
         name: city
         description: ''
         required: false
-        example: tempore
+        example: officia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -246,7 +246,7 @@ endpoints:
         name: fullName
         description: ''
         required: false
-        example: facere
+        example: rerum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -256,25 +256,25 @@ endpoints:
         name: coach
         description: ''
         required: false
-        example: repellendus
+        example: aut
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      userId: 5
-      userIdExists: 2
-      checkMember: false
-      locationId: 15
-      city: tempore
-      fullName: facere
-      coach: repellendus
+      userId: 12
+      userIdExists: 11
+      checkMember: true
+      locationId: 5
+      city: officia
+      fullName: rerum
+      coach: aut
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","command":{"id":221,"name":"\u0412\u0430\u043b\u0435\u043d\u0442\u0438\u043d\u0430 \u0421\u0435\u0440\u0433\u0435\u0435\u0432\u043d\u0430 \u0410\u0444\u0430\u043d\u0430\u0441\u044c\u0435\u0432\u0430","full_name":null,"coach":null,"city":"\u0415\u0433\u043e\u0440\u044c\u0435\u0432\u0441\u043a","avatar":null}}'
+        content: '{"status":"success","message":"messages.command.get_for_id.success","command":{"id":235,"name":"Dane Jaskolski II","full_name":null,"coach":null,"city":"Geraldinefurt","avatar":null}}'
         headers: []
         description: ''
         custom: []
@@ -307,9 +307,9 @@ endpoints:
     bodyParameters:
       name:
         name: name
-        description: 'Количество символов в значении поля value не может превышать 255.'
+        description: 'Must not be greater than 255 characters.'
         required: true
-        example: cxuagcmpylh
+        example: dyit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -317,9 +317,9 @@ endpoints:
         custom: []
       fullName:
         name: fullName
-        description: 'Количество символов в значении поля value не может превышать 255.'
+        description: 'Must not be greater than 255 characters.'
         required: false
-        example: oqlzudvjmnzeljy
+        example: isybdz
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -327,9 +327,9 @@ endpoints:
         custom: []
       coach:
         name: coach
-        description: 'Количество символов в значении поля value не может превышать 255.'
+        description: 'Must not be greater than 255 characters.'
         required: false
-        example: lwivrghfrdx
+        example: olwimivzhlmpffqmc
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -337,7 +337,7 @@ endpoints:
         custom: []
       avatar:
         name: avatar
-        description: 'Файл, указанный в поле value, должен быть изображением.'
+        description: 'Must be an image.'
         required: false
         example: null
         type: file
@@ -349,7 +349,7 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 15
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -357,26 +357,26 @@ endpoints:
         custom: []
       city:
         name: city
-        description: 'Количество символов в значении поля value не может превышать 255.'
+        description: 'Must not be greater than 255 characters.'
         required: true
-        example: mbhcxs
+        example: kumtz
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: cxuagcmpylh
-      fullName: oqlzudvjmnzeljy
-      coach: lwivrghfrdx
-      locationId: 15
-      city: mbhcxs
+      name: dyit
+      fullName: isybdz
+      coach: olwimivzhlmpffqmc
+      locationId: 13
+      city: kumtz
     fileParameters:
       avatar: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430.","command":{"id":222,"name":"\u0411\u0435\u043b\u043e\u0437\u0451\u0440\u043e\u0432\u0430 \u041e\u043b\u044c\u0433\u0430 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u043d\u0430","full_name":null,"coach":null,"city":"\u041c\u044b\u0442\u0438\u0449\u0438","avatar":null}}'
+        content: '{"status":"success","message":"messages.command.create.success","command":{"id":236,"name":"Dr. Maureen Wuckert","full_name":null,"coach":null,"city":"Bashirianbury","avatar":null}}'
         headers: []
         description: ''
         custom: []
@@ -407,22 +407,22 @@ endpoints:
         name: id
         description: 'The ID of the command.'
         required: true
-        example: 66
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 66
+      id: 15
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       name:
         name: name
-        description: 'Количество символов в значении поля value не может превышать 255.'
+        description: 'Must not be greater than 255 characters.'
         required: false
-        example: ehzvboyygx
+        example: tprzuhqgwtqtxaczw
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -430,9 +430,9 @@ endpoints:
         custom: []
       fullName:
         name: fullName
-        description: 'Количество символов в значении поля value не может превышать 255.'
+        description: 'Must not be greater than 255 characters.'
         required: false
-        example: mksyplxqb
+        example: mhpezpcyapymwmu
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -440,9 +440,9 @@ endpoints:
         custom: []
       coach:
         name: coach
-        description: 'Количество символов в значении поля value не может превышать 255.'
+        description: 'Must not be greater than 255 characters.'
         required: false
-        example: qvcpxxyq
+        example: orwhpamdofclveyxwkjbrgo
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -450,7 +450,7 @@ endpoints:
         custom: []
       avatar:
         name: avatar
-        description: 'Файл, указанный в поле value, должен быть изображением.'
+        description: 'Must be an image.'
         required: false
         example: null
         type: file
@@ -460,9 +460,9 @@ endpoints:
         custom: []
       city:
         name: city
-        description: 'Количество символов в значении поля value не может превышать 255.'
+        description: 'Must not be greater than 255 characters.'
         required: false
-        example: mct
+        example: epyhzzcyvoeqkxekjdpho
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -472,36 +472,36 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 1
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: ehzvboyygx
-      fullName: mksyplxqb
-      coach: qvcpxxyq
-      city: mct
-      locationId: 1
+      name: tprzuhqgwtqtxaczw
+      fullName: mhpezpcyapymwmu
+      coach: orwhpamdofclveyxwkjbrgo
+      city: epyhzzcyvoeqkxekjdpho
+      locationId: 12
     fileParameters:
       avatar: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0430.","command":{"id":223,"name":"\u0410\u0440\u0442\u0451\u043c \u0421\u0435\u0440\u0433\u0435\u0435\u0432\u0438\u0447 \u0417\u044b\u043a\u043e\u0432","full_name":null,"coach":null,"city":"\u0420\u0430\u043c\u0435\u043d\u0441\u043a\u043e\u0435","avatar":null}}'
+        content: '{"status":"success","message":"messages.command.update.success","command":{"id":237,"name":"Prof. Audreanne Greenfelder I","full_name":null,"coach":null,"city":"Paoloburgh","avatar":null}}'
         headers: []
         description: ''
         custom: []
       -
         status: 403
-        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
@@ -532,14 +532,14 @@ endpoints:
         name: id
         description: 'The ID of the command.'
         required: true
-        example: 66
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 66
+      id: 15
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -548,19 +548,19 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u041a\u043e\u043c\u0430\u043d\u0434\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0443\u0434\u0430\u043b\u0435\u043d\u0430\u044e","command":{"id":224,"name":"\u041d\u0438\u043a\u0438\u0444\u043e\u0440\u043e\u0432 \u0412\u0441\u0435\u0432\u043e\u043b\u043e\u0434 \u0414\u043c\u0438\u0442\u0440\u0438\u0435\u0432\u0438\u0447","full_name":null,"coach":null,"city":"\u041a\u043e\u043b\u043e\u043c\u043d\u0430","avatar":null}}'
+        content: '{"status":"success","message":"messages.command.delete.success","command":{"id":238,"name":"Shannon Satterfield","full_name":null,"coach":null,"city":"Boyerton","avatar":null}}'
         headers: []
         description: ''
         custom: []
       -
         status: 403
-        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
@@ -591,7 +591,7 @@ endpoints:
         name: command_id
         description: 'The ID of the command.'
         required: true
-        example: 66
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -601,15 +601,15 @@ endpoints:
         name: user_id
         description: 'The ID of the user.'
         required: true
-        example: deleniti
+        example: voluptatum
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      command_id: 66
-      user_id: deleniti
+      command_id: 15
+      user_id: voluptatum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -618,19 +618,19 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0422\u0440\u0435\u043d\u0435\u0440 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0443\u0434\u0430\u043b\u0451\u043d."}'
+        content: '{"status":"success","message":"messages.command.add_couch.success"}'
         headers: []
         description: ''
         custom: []
       -
         status: 403
-        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
@@ -661,14 +661,14 @@ endpoints:
         name: command_id
         description: 'The ID of the command.'
         required: true
-        example: 66
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      command_id: 66
+      command_id: 15
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -677,13 +677,13 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0423\u0447\u0430\u0441\u0442\u043d\u0438\u043a \u0443\u0434\u0430\u043b\u0451\u043d."}'
+        content: '{"status":"success","message":"messages.command.member_toggle.success"}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
@@ -714,14 +714,14 @@ endpoints:
         name: command_id
         description: 'The ID of the command.'
         required: true
-        example: 66
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      command_id: 66
+      command_id: 15
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -729,7 +729,7 @@ endpoints:
         name: paginate
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -739,7 +739,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: rem
+        example: natus
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -747,9 +747,9 @@ endpoints:
         custom: []
       limit:
         name: limit
-        description: 'Значение поля value не может быть больше 50.'
+        description: 'Must not be greater than 50.'
         required: false
-        example: 18
+        example: 25
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -759,7 +759,7 @@ endpoints:
         name: raceIdExists
         description: 'The <code>id</code> of an existing record in the races table.'
         required: false
-        example: 12
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -776,22 +776,22 @@ endpoints:
         nullable: true
         custom: []
     cleanBodyParameters:
-      paginate: true
-      page: rem
-      limit: 18
-      raceIdExists: 12
+      paginate: false
+      page: natus
+      limit: 25
+      raceIdExists: 20
       checkMember: true
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.couches.get.success","members":{"id":1027,"name":"\u0410\u043d\u0434\u0440\u0435\u0439 \u0411\u043e\u0440\u0438\u0441\u043e\u0432\u0438\u0447 \u0421\u0435\u043b\u0438\u0432\u0435\u0440\u0441\u0442\u043e\u0432","avatar":null,"personal":[]}}'
+        content: '{"status":"success","message":"messages.couches.get.success","members":{"id":627,"name":"Telly Kiehn","avatar":null,"personal":[]}}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
@@ -822,14 +822,14 @@ endpoints:
         name: command_id
         description: 'The ID of the command.'
         required: true
-        example: 66
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      command_id: 66
+      command_id: 15
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -837,7 +837,7 @@ endpoints:
         name: paginate
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -847,7 +847,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: cumque
+        example: officia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -855,29 +855,29 @@ endpoints:
         custom: []
       limit:
         name: limit
-        description: 'Значение поля value не может быть больше 50.'
+        description: 'Must not be greater than 50.'
         required: false
-        example: 16
+        example: 9
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      paginate: true
-      page: cumque
-      limit: 16
+      paginate: false
+      page: officia
+      limit: 9
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.command.get_coaches_for_all.success","coaches":{"id":1028,"name":"\u0422\u0430\u043c\u0430\u0440\u0430 \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u043d\u0430 \u041b\u044b\u0442\u043a\u0438\u043d\u0430","avatar":null,"personal":[]}}'
+        content: '{"status":"success","message":"messages.command.get_coaches_for_all.success","coaches":{"id":628,"name":"Johanna Heller III","avatar":null,"personal":[]}}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
@@ -908,14 +908,14 @@ endpoints:
         name: command_id
         description: 'The ID of the command.'
         required: true
-        example: 66
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      command_id: 66
+      command_id: 15
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -923,7 +923,7 @@ endpoints:
         name: paginate
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -933,7 +933,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: culpa
+        example: velit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -941,9 +941,9 @@ endpoints:
         custom: []
       limit:
         name: limit
-        description: 'Значение поля value не может быть больше 50.'
+        description: 'Must not be greater than 50.'
         required: false
-        example: 25
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -953,7 +953,7 @@ endpoints:
         name: raceIdExists
         description: 'The <code>id</code> of an existing record in the races table.'
         required: false
-        example: 17
+        example: 19
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -970,28 +970,28 @@ endpoints:
         nullable: true
         custom: []
     cleanBodyParameters:
-      paginate: false
-      page: culpa
-      limit: 25
-      raceIdExists: 17
+      paginate: true
+      page: velit
+      limit: 18
+      raceIdExists: 19
       checkMember: false
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.command.get_members_for_coach.success","members":{"id":1029,"name":"\u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0430 \u041a\u0440\u0438\u0441\u0442\u0438\u043d\u0430 \u041b\u044c\u0432\u043e\u0432\u043d\u0430","email":"serbakova.rodion@example.org","email_verified_at":"2025-05-05T06:01:58.000000Z","avatar":null}}'
+        content: '{"status":"success","message":"messages.command.get_members_for_coach.success","members":{"id":629,"name":"Hattie Dickens","email":"jerde.mary@example.com","email_verified_at":"2025-05-05T07:00:41.000000Z","avatar":null}}'
         headers: []
         description: ''
         custom: []
       -
         status: 403
-        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []

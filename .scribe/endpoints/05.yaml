@@ -26,7 +26,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 5
+        example: 16
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -36,7 +36,7 @@ endpoints:
         name: storeIdExists
         description: 'The <code>id</code> of an existing record in the stores table.'
         required: false
-        example: 10
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -66,7 +66,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: iure
+        example: nulla
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -74,9 +74,9 @@ endpoints:
         custom: []
       limit:
         name: limit
-        description: 'Значение поля value не может быть больше 50.'
+        description: 'Must not be greater than 50.'
         required: false
-        example: 15
+        example: 7
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -86,7 +86,7 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 12
+        example: 9
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -96,26 +96,26 @@ endpoints:
         name: name
         description: ''
         required: false
-        example: rem
+        example: maiores
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      userId: 5
-      storeIdExists: 10
+      userId: 16
+      storeIdExists: 1
       checkStore: true
       paginate: true
-      page: iure
-      limit: 15
-      locationId: 12
-      name: rem
+      page: nulla
+      limit: 7
+      locationId: 9
+      name: maiores
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"\u0422\u0440\u0435\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","tracks":{"id":259,"name":"\u0415\u0433\u0435\u0440\u044c","address":"467776, \u041c\u0430\u0433\u0430\u0434\u0430\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041e\u0434\u0438\u043d\u0446\u043e\u0432\u043e, \u0443\u043b. \u0421\u0442\u0430\u043b\u0438\u043d\u0430, 94","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Voluptatem ut recusandae tempora in quia voluptatem cumque. Sint incidunt assumenda aut porro qui neque dolorem. Impedit iusto rerum consequatur magni dicta. Veniam et voluptatem sit impedit porro est. Soluta in nesciunt dicta incidunt. Ipsum inventore molestias fugit eveniet nisi. Explicabo doloribus commodi dicta accusamus itaque assumenda. Sint porro provident voluptate dolore. Consectetur tenetur beatae velit sed.","length":911,"turns":77,"free":true,"is_work":false,"spec":null,"contacts":null,"location":{"id":47,"name":"\u041d\u043e\u0432\u0433\u043e\u0440\u043e\u0434\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null,"attendance":[]}},{"status":"success","message":"\u0422\u0440\u0435\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","tracks":{"id":260,"name":"\u041a\u0440\u0443\u043f\u044c\u0435","address":"960247, \u041c\u0430\u0433\u0430\u0434\u0430\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0429\u0451\u043b\u043a\u043e\u0432\u043e, \u0432\u044a\u0435\u0437\u0434 \u0421\u043b\u0430\u0432\u044b, 13","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Exercitationem illo quibusdam odio qui voluptas sapiente quasi. Id qui numquam dicta blanditiis quia facilis assumenda. Et at aut ab consectetur et autem voluptate illo. Aut eos saepe modi fugiat ut. Suscipit aliquam nisi ea qui voluptatem dolorum quia odio. Id debitis aut itaque nihil corporis illum natus. Quas dolore dolorum omnis et molestias facere.","length":385,"turns":79,"free":false,"is_work":false,"spec":null,"contacts":null,"location":{"id":17,"name":"\u0417\u0430\u0431\u0430\u0439\u043a\u0430\u043b\u044c\u0441\u043a\u0438\u0439","type":"\u043a\u0440\u0430\u0439"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null,"attendance":[]}}]'
+        content: '[{"status":"success","message":"messages.track.get.success","tracks":{"id":214,"name":"Dishwasher","address":"1694 Timmy Court\nEast Kiel, UT 02835-1865","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Dolores reprehenderit beatae est molestias voluptatum error. Dignissimos asperiores suscipit dolores doloribus eos. Ipsam nemo amet accusantium voluptatem quae sit quis. Consequatur eveniet consequatur explicabo harum. Placeat dolorem explicabo blanditiis enim pariatur. Illum dolores quia fugit eum debitis. Consequatur labore sapiente temporibus deleniti.","length":156,"turns":6,"free":true,"is_work":false,"spec":null,"contacts":null,"location":{"id":33,"name":"\u041a\u0440\u0430\u0441\u043d\u043e\u044f\u0440\u0441\u043a\u0438\u0439","type":"\u043a\u0440\u0430\u0439"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null,"attendance":[]}},{"status":"success","message":"messages.track.get.success","tracks":{"id":215,"name":"Travel Guide","address":"6448 Konopelski Harbor Apt. 912\nPort Raegan, WY 16432-6604","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Qui ducimus temporibus eos sed culpa ab. Laborum eius hic nihil quo. Expedita consequatur maiores ipsam id a aut aut aspernatur. Aut a qui exercitationem itaque tempore perferendis. Sit quod non eligendi. Omnis et vel atque atque. Totam cumque quidem dolores quo autem sed. Necessitatibus dolorem minus officiis repellendus minus enim iste pariatur. Nam natus minima dolores ut odio. Quaerat eum debitis doloremque. Illum consequatur aut corporis.","length":604,"turns":18,"free":true,"is_work":false,"spec":null,"contacts":null,"location":{"id":72,"name":"\u0422\u044b\u0432\u0430","type":"\u0440\u0435\u0441\u043f\u0443\u0431\u043b\u0438\u043a\u0430"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null,"attendance":[]}}]'
         headers: []
         description: ''
         custom: []
@@ -146,14 +146,14 @@ endpoints:
         name: id
         description: 'The ID of the track.'
         required: true
-        example: 17
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 17
+      id: 8
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -162,13 +162,13 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0422\u0440\u0435\u043a \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","track":{"id":261,"name":"\u0410\u0431\u0440\u0430\u0437\u0438\u0432\u043e\u0441\u0442\u0440\u0443\u0439\u0449\u0438\u043a","address":"238177, \u0427\u0438\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041f\u0430\u0432\u043b\u043e\u0432\u0441\u043a\u0438\u0439 \u041f\u043e\u0441\u0430\u0434, \u043f\u0440. \u0413\u043e\u0433\u043e\u043b\u044f, 15","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Rerum dicta quaerat sed accusamus doloribus sapiente aut. Optio tempora optio ex. Illum cum error excepturi molestiae asperiores sit. Laboriosam voluptatem voluptatibus praesentium non nam. Accusantium pariatur in doloremque iure veritatis optio. Quam est quo ut quia blanditiis et explicabo. Tempore quaerat et veritatis illum nobis voluptate minima laboriosam.","length":690,"turns":4,"free":true,"is_work":true,"spec":null,"contacts":null,"location":{"id":52,"name":"\u041f\u0435\u043d\u0437\u0435\u043d\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null,"attendance":[]}}'
+        content: '{"status":"success","message":"messages.track.get_for_id.success","track":{"id":216,"name":"Administrative Law Judge","address":"604 Rolfson Ferry\nEast Kyla, OK 44257-5862","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Numquam ipsa et sit corrupti veritatis maiores nihil consequatur. Aspernatur aut quae non eum. Nisi quas hic corporis accusantium est sequi aut minima. Nulla reiciendis dolore officiis porro est placeat dicta. Natus sint non dolorem rerum sunt. Accusantium nobis consequuntur nihil fugiat asperiores. Cupiditate quasi aperiam harum natus quia consectetur.","length":191,"turns":98,"free":true,"is_work":true,"spec":null,"contacts":null,"location":{"id":73,"name":"\u0422\u044e\u043c\u0435\u043d\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null,"attendance":[]}}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
@@ -201,9 +201,9 @@ endpoints:
     bodyParameters:
       name:
         name: name
-        description: 'Количество символов в поле value должно быть не меньше 3.'
+        description: 'Must be at least 3 characters.'
         required: true
-        example: zvkenfzphazbbjadcyzllhnzytsxduyddyqexvzmokuriotpjjazatzweevfsluldafyefkolvts
+        example: ayxkjqrowfnogjvyscayoiaczahzlmoqlwtnfsklqvfoomctguz
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -213,7 +213,7 @@ endpoints:
         name: address
         description: ''
         required: true
-        example: eveniet
+        example: animi
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -221,7 +221,7 @@ endpoints:
         custom: []
       latitude:
         name: latitude
-        description: 'Значение поля value должно быть между -87 и 89.'
+        description: 'Must be between -87 and 89.'
         required: true
         example: -86
         type: number
@@ -231,9 +231,9 @@ endpoints:
         custom: []
       longitude:
         name: longitude
-        description: 'Значение поля value должно быть между -180 и 180.'
+        description: 'Must be between -180 and 180.'
         required: true
-        example: -179
+        example: -180
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -241,7 +241,7 @@ endpoints:
         custom: []
       images:
         name: images
-        description: 'Файл, указанный в поле value, должен быть изображением.'
+        description: 'Must be an image.'
         required: false
         example:
           - null
@@ -254,7 +254,7 @@ endpoints:
         name: levelId
         description: 'The <code>id</code> of an existing record in the levels table.'
         required: false
-        example: 20
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -264,7 +264,7 @@ endpoints:
         name: desc
         description: ''
         required: false
-        example: quibusdam
+        example: aut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -274,7 +274,7 @@ endpoints:
         name: length
         description: ''
         required: false
-        example: 10
+        example: 13
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -284,7 +284,7 @@ endpoints:
         name: turns
         description: ''
         required: false
-        example: 19
+        example: 9
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -334,7 +334,7 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 1
+        example: 6
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -342,7 +342,7 @@ endpoints:
         custom: []
       logo:
         name: logo
-        description: 'Файл, указанный в поле value, должен быть изображением.'
+        description: 'Must be an image.'
         required: false
         example: null
         type: file
@@ -354,7 +354,7 @@ endpoints:
         name: light
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -364,7 +364,7 @@ endpoints:
         name: season
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -372,7 +372,7 @@ endpoints:
         custom: []
       schemaImg:
         name: schemaImg
-        description: 'Файл, указанный в поле value, должен быть изображением.'
+        description: 'Must be an image.'
         required: false
         example: null
         type: file
@@ -384,27 +384,27 @@ endpoints:
         name: storeId
         description: 'The <code>id</code> of an existing record in the stores table.'
         required: false
-        example: 6
+        example: 19
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: zvkenfzphazbbjadcyzllhnzytsxduyddyqexvzmokuriotpjjazatzweevfsluldafyefkolvts
-      address: eveniet
+      name: ayxkjqrowfnogjvyscayoiaczahzlmoqlwtnfsklqvfoomctguz
+      address: animi
       latitude: -86
-      longitude: -179
-      levelId: 20
-      desc: quibusdam
-      length: 10
-      turns: 19
+      longitude: -180
+      levelId: 2
+      desc: aut
+      length: 13
+      turns: 9
       free: true
       is_work: false
-      locationId: 1
-      light: false
-      season: false
-      storeId: 6
+      locationId: 6
+      light: true
+      season: true
+      storeId: 19
     fileParameters:
       images:
         - null
@@ -413,13 +413,13 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0422\u0440\u0435\u043a \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d.","track":{"id":262,"name":"\u0414\u0435\u0442\u0435\u043a\u0442\u0438\u0432","address":"647428, \u0412\u043e\u043b\u0433\u043e\u0433\u0440\u0430\u0434\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u0415\u0433\u043e\u0440\u044c\u0435\u0432\u0441\u043a, \u043d\u0430\u0431. \u041b\u043e\u043c\u043e\u043d\u043e\u0441\u043e\u0432\u0430, 52","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Consequatur dolor et dignissimos nostrum. Occaecati officia qui aut magni. Cumque blanditiis et accusamus atque velit dolor voluptatem. Commodi repellat adipisci laborum id dolores id commodi. Id hic et commodi in error impedit ut assumenda. Exercitationem ipsam velit architecto est sit excepturi. Vel vel provident perspiciatis necessitatibus magni et quod. Pariatur est perspiciatis sit ea aspernatur ratione ut molestias.","length":712,"turns":17,"free":true,"is_work":true,"spec":null,"contacts":null,"location":{"id":27,"name":"\u041a\u0430\u0440\u0435\u043b\u0438\u044f","type":"\u0440\u0435\u0441\u043f\u0443\u0431\u043b\u0438\u043a\u0430"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null,"attendance":[]}}'
+        content: '{"status":"success","message":"messages.track.create.success","track":{"id":217,"name":"Lawn Service Manager","address":"84556 Prince Ways Apt. 547\nLangoshtown, MA 51619","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Et perferendis nesciunt sit iste. Illo atque recusandae repudiandae distinctio. Molestiae iusto molestias sint qui aspernatur eligendi. Sed quia aspernatur sint ducimus excepturi et ut. Recusandae itaque veniam ut quasi veniam esse quo. Dolor omnis exercitationem unde perspiciatis culpa maxime impedit. Reiciendis et omnis nemo id. Doloremque vel voluptas nisi dolorum omnis accusantium. Eum delectus sed deserunt voluptate quae et excepturi. Reprehenderit modi earum magni deleniti sit et earum.","length":196,"turns":39,"free":false,"is_work":false,"spec":null,"contacts":null,"location":{"id":27,"name":"\u041a\u0430\u0440\u0435\u043b\u0438\u044f","type":"\u0440\u0435\u0441\u043f\u0443\u0431\u043b\u0438\u043a\u0430"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null,"attendance":[]}}'
         headers: []
         description: ''
         custom: []
       -
         status: 422
-        content: '{"status":"error","message":"\u041e\u0448\u0438\u0431\u043a\u0430 \u043f\u0440\u0438 \u0441\u043e\u0437\u0434\u0430\u043d\u0438\u0438 \u0442\u0440\u0435\u043a\u0430."}'
+        content: '{"status":"error","message":"messages.track.create.error"}'
         headers: []
         description: ''
         custom: []
@@ -450,22 +450,22 @@ endpoints:
         name: id
         description: 'The ID of the track.'
         required: true
-        example: 17
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 17
+      id: 8
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       name:
         name: name
-        description: 'Количество символов в поле value должно быть не меньше 3.'
+        description: 'Must be at least 3 characters.'
         required: true
-        example: mtjtyravaoabuoeocnkswgreusjvkfwwpzieufzahatrluvmgjtbpowjwczbkffkuhzqzjni
+        example: vysrlerwixekcgoafvqbwnhmmixyjlonqoryuhkqkihrfbjmozveahclkhlufhtnznffzccogthptfxcxmtxuynn
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -475,7 +475,7 @@ endpoints:
         name: address
         description: ''
         required: true
-        example: quia
+        example: voluptatum
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -483,9 +483,9 @@ endpoints:
         custom: []
       latitude:
         name: latitude
-        description: 'Значение поля value должно быть между -87 и 89.'
+        description: 'Must be between -87 and 89.'
         required: true
-        example: -87
+        example: -86
         type: number
         enumValues: []
         exampleWasSpecified: false
@@ -493,7 +493,7 @@ endpoints:
         custom: []
       longitude:
         name: longitude
-        description: 'Значение поля value должно быть между -180 и 180.'
+        description: 'Must be between -180 and 180.'
         required: true
         example: -180
         type: number
@@ -503,7 +503,7 @@ endpoints:
         custom: []
       imagesAdd:
         name: imagesAdd
-        description: 'Файл, указанный в поле value, должен быть изображением.'
+        description: 'Must be an image.'
         required: false
         example:
           - null
@@ -517,7 +517,7 @@ endpoints:
         description: ''
         required: false
         example:
-          - atque
+          - adipisci
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -527,7 +527,7 @@ endpoints:
         name: levelId
         description: 'The <code>id</code> of an existing record in the levels table.'
         required: false
-        example: 18
+        example: 9
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -537,7 +537,7 @@ endpoints:
         name: desc
         description: ''
         required: false
-        example: soluta
+        example: vero
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -547,7 +547,7 @@ endpoints:
         name: length
         description: ''
         required: false
-        example: 16
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -557,7 +557,7 @@ endpoints:
         name: turns
         description: ''
         required: false
-        example: 13
+        example: 14
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -567,7 +567,7 @@ endpoints:
         name: free
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -607,7 +607,7 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 15
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -617,7 +617,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 15
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -627,47 +627,47 @@ endpoints:
         name: storeId
         description: 'The <code>id</code> of an existing record in the stores table.'
         required: false
-        example: 2
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: mtjtyravaoabuoeocnkswgreusjvkfwwpzieufzahatrluvmgjtbpowjwczbkffkuhzqzjni
-      address: quia
-      latitude: -87
+      name: vysrlerwixekcgoafvqbwnhmmixyjlonqoryuhkqkihrfbjmozveahclkhlufhtnznffzccogthptfxcxmtxuynn
+      address: voluptatum
+      latitude: -86
       longitude: -180
       imagesDel:
-        - atque
-      levelId: 18
-      desc: soluta
-      length: 16
-      turns: 13
-      free: false
+        - adipisci
+      levelId: 9
+      desc: vero
+      length: 1
+      turns: 14
+      free: true
       is_work: false
-      locationId: 15
-      userId: 15
-      storeId: 2
+      locationId: 18
+      userId: 12
+      storeId: 1
     fileParameters:
       imagesAdd:
         - null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0422\u0440\u0435\u043a \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0451\u043d.","track":{"id":263,"name":"\u0410\u0431\u0440\u0430\u0437\u0438\u0432\u043e\u0441\u0442\u0440\u0443\u0439\u0449\u0438\u043a","address":"965825, \u041a\u0435\u043c\u0435\u0440\u043e\u0432\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041f\u043e\u0434\u043e\u043b\u044c\u0441\u043a, \u043f\u043b. \u0421\u0442\u0430\u043b\u0438\u043d\u0430, 55","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"Beatae ea odit aut esse neque magni nihil. Et id sapiente maiores ipsum velit necessitatibus deleniti. Rerum esse praesentium illo ab dignissimos. Iste inventore iste velit iste eos voluptatibus velit. Sunt ut est dolor eum. Qui vel quis dicta laboriosam ut fugiat nihil. Aut quasi eligendi consequatur voluptatem deleniti quisquam quaerat. Ratione maxime voluptatem odit nostrum officiis voluptas corporis autem.","length":945,"turns":65,"free":false,"is_work":true,"spec":null,"contacts":null,"location":{"id":78,"name":"\u0425\u0430\u043d\u0442\u044b-\u041c\u0430\u043d\u0441\u0438\u0439\u0441\u043a\u0438\u0439 \u0410\u0432\u0442\u043e\u043d\u043e\u043c\u043d\u044b\u0439 \u043e\u043a\u0440\u0443\u0433 - \u042e\u0433\u0440\u0430","type":"\u0430\u0432\u0442\u043e\u043d\u043e\u043c\u043d\u044b\u0439 \u043e\u043a\u0440\u0443\u0433"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null,"attendance":[]}}'
+        content: '{"status":"success","message":"messages.track.update.success","track":{"id":218,"name":"Lathe Operator","address":"9403 Travon Trafficway\nJohathanview, WA 59861-9109","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0412\u044b\u0441\u043e\u043a\u0430\u044f","color":"#FD1215"},"desc":"Quis et et quaerat incidunt ipsum. Dignissimos cumque assumenda eos aut libero tenetur. Rerum rerum nihil tenetur explicabo in explicabo doloremque. Aut repudiandae laborum nulla ut quam. Repudiandae recusandae non facere est voluptatem ea dignissimos. Magnam rerum est qui molestias minima aut iusto. Ipsa vero eos facere. Debitis nihil id id. Doloremque nemo perspiciatis delectus facilis temporibus ducimus ex sit.","length":995,"turns":27,"free":false,"is_work":true,"spec":null,"contacts":null,"location":{"id":65,"name":"\u0421\u043c\u043e\u043b\u0435\u043d\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null,"attendance":[]}}'
         headers: []
         description: ''
         custom: []
       -
         status: 403
-        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
@@ -698,14 +698,14 @@ endpoints:
         name: id
         description: 'The ID of the track.'
         required: true
-        example: 17
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 17
+      id: 8
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -714,19 +714,19 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0422\u0440\u0435\u043a \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0443\u0434\u0430\u043b\u0451\u043d.","track":{"id":264,"name":"\u0411\u0438\u0437\u043d\u0435\u0441-\u0430\u043d\u0430\u043b\u0438\u0442\u0438\u043a","address":"337242, \u0427\u0438\u0442\u0438\u043d\u0441\u043a\u0430\u044f \u043e\u0431\u043b\u0430\u0441\u0442\u044c, \u0433\u043e\u0440\u043e\u0434 \u041c\u043e\u0436\u0430\u0439\u0441\u043a, \u043d\u0430\u0431. \u0411\u0443\u0445\u0430\u0440\u0435\u0441\u0442\u0441\u043a\u0430\u044f, 78","images":null,"latitude":0,"longitude":0,"level":{"name":"\u041d\u0438\u0437\u043a\u0430\u044f","color":"#22CA3D"},"desc":"A vel consequuntur non dolorem cum rerum. Nulla ut sit quaerat optio atque. Iste commodi sed officiis velit sit odio. Quia animi laboriosam ea sit doloribus enim unde. Minima praesentium voluptatem repellat deleniti. Non consectetur pariatur nesciunt nulla. Voluptatibus dolorem voluptatibus labore esse dolores. Nesciunt amet expedita consequatur sit rerum. Sint laborum ut nisi odit. Aliquid sint neque non nisi facilis incidunt recusandae.","length":97,"turns":89,"free":true,"is_work":true,"spec":null,"contacts":null,"location":{"id":13,"name":"\u0412\u043e\u043b\u043e\u0433\u043e\u0434\u0441\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null,"attendance":[]}}'
+        content: '{"status":"success","message":"messages.track.delete.success","track":{"id":219,"name":"Electrical Drafter","address":"9251 Mylene Plains Suite 823\nNorth Heber, FL 19759-9606","images":null,"latitude":0,"longitude":0,"level":{"name":"\u0421\u0440\u0435\u0434\u043d\u044f\u044f","color":"#EF7C08"},"desc":"Commodi non voluptas asperiores doloribus illum ut voluptatem. Eligendi amet eum voluptas repellat error. Quo maiores tenetur enim iusto ut sint. Consequatur ad quibusdam temporibus non. Ut soluta est dolorem voluptas iure et ratione. Qui magni molestiae nostrum eligendi voluptates magnam. Sed suscipit non et aut exercitationem ad. Voluptatibus minima sit impedit at voluptates occaecati. Debitis repudiandae qui quidem quam magnam non nisi.","length":590,"turns":90,"free":false,"is_work":false,"spec":null,"contacts":null,"location":{"id":38,"name":"\u041b\u0438\u043f\u0435\u0446\u043a\u0430\u044f","type":"\u043e\u0431\u043b\u0430\u0441\u0442\u044c"},"light":null,"season":null,"schema_img":null,"logo":null,"store":null,"attendance":[]}}'
         headers: []
         description: ''
         custom: []
       -
         status: 403
-        content: '{"status":"error","message":"\u0414\u043e\u0441\u0442\u0443\u043f \u0437\u0430\u043f\u0440\u0435\u0449\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
         headers: []
         description: ''
         custom: []
       -
         status: 404
-        content: '{"status":"error","message":"\u0417\u0430\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0435\u043c\u044b\u0439 \u0440\u0435\u0441\u0443\u0440\u0441 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d."}'
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
