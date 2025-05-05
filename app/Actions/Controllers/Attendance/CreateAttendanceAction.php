@@ -11,9 +11,10 @@ class  CreateAttendanceAction implements CreateAttendanceActionContract
 {
     public function __invoke(CreateAttendanceRequest $request): SuccessCreateAttendanceResource
     {
+        $desc = mb_convert_encoding($request->desc, 'UTF-8', 'auto');
         $attendance = Attendance::create([
             'name'          => $request->name,
-            'desc'          => $request->desc,
+            'desc'          => $desc,
             'price'         => $request->price,
             'track_id'      => $request->trackId,
         ]);

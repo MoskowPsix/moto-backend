@@ -37,7 +37,7 @@ class PaymentService implements PaymentServiceContract
             'MerchantLogin'     => $login,
             'OutSum'            => $outSum,
             'InvId'             => $invoiceId,
-            'Desc'              => urlencode($description),
+            'Desc'              => $description,
             'SignatureValue'    => strtoupper($crc),
             'IsTest'            => $IsTest,
         ]);
