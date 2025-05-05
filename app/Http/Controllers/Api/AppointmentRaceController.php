@@ -100,15 +100,6 @@ class AppointmentRaceController extends Controller
 //        return $action($id);
 //    }
 
-
-//    #[Authenticated]
-//    #[Endpoint(title: 'Export applications', description: 'Экспорт заявок')]
-//    public function exportApplications(int $id)
-//    {
-//        $userId = \Auth::id();
-//        return Excel::download(new MultiSheetAppointmentRaceExport($id, $userId), 'регистрация мотокросс.xlsx');
-//    }
-
     /**
      * @throws Exception
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
