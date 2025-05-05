@@ -15,6 +15,7 @@ class RaceResult extends Model
         'race_id',
         'cup_id',
         'command_id',
+        'grade_id',
         'scores',
         'place',
     ];
@@ -34,5 +35,9 @@ class RaceResult extends Model
     public function cup(): BelongsTo
     {
         return $this->belongsTo(Cup::class);
+    }
+    public function grade(): BelongsTo
+    {
+        return $this->belongsTo(Grade::class);
     }
 }

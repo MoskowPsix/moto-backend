@@ -35,8 +35,9 @@ class CreateRaceResultAction implements CreateRaceResultActionContract
             'command_id'    => $request->commandId,
             'scores'        => $request->scores,
             'place'         => $request->place,
+            'grade_id'      => $request->gradeId
         ]);
 
-        return SuccessCreateRaceResultResource::make(RaceResult::with(['user', 'race', 'command', 'cup'])->where('id', $result->id)->first());
+        return SuccessCreateRaceResultResource::make(RaceResult::with(['user', 'race', 'command', 'cup', 'grade'])->where('id', $result->id)->first());
     }
 }

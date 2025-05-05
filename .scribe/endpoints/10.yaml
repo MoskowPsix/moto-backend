@@ -90,7 +90,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: true
-        example: 18
+        example: 4
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -100,7 +100,7 @@ endpoints:
         name: cupId
         description: 'The <code>id</code> of an existing record in the cups table.'
         required: false
-        example: 13
+        example: 10
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -110,17 +110,27 @@ endpoints:
         name: commandId
         description: 'The <code>id</code> of an existing record in the commands table.'
         required: false
-        example: 9
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
+      gradeId:
+        name: gradeId
+        description: 'The <code>id</code> of an existing record in the grades table.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
       scores:
         name: scores
         description: ''
         required: true
-        example: 19
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -130,18 +140,19 @@ endpoints:
         name: place
         description: ''
         required: true
-        example: 13
+        example: 2
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      userId: 18
-      cupId: 13
-      commandId: 9
-      scores: 19
-      place: 13
+      userId: 4
+      cupId: 10
+      commandId: 20
+      gradeId: 1
+      scores: 20
+      place: 2
     fileParameters: []
     responses:
       -

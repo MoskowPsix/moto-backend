@@ -10,6 +10,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property int $commandId
  * @property int $scores
  * @property int $place
+ * @property int $gradeId
  */
 class CreateRaceResultRequest extends FormRequest
 {
@@ -32,6 +33,7 @@ class CreateRaceResultRequest extends FormRequest
             'userId'    => 'integer|required|exists:users,id',
             'cupId'     => 'integer|nullable|exists:cups,id',
             'commandId' => 'integer|nullable|exists:commands,id',
+            'gradeId'   => 'integer|required|exists:grades,id',
             'scores'    => 'integer|required',
             'place'     => 'required|integer'
         ];

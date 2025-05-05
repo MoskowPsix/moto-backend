@@ -23,15 +23,15 @@ class GetResultsAction implements GetResultsActionContract
             return NotFoundResource::make([]);
         }
 
-        $result_q = RaceResult::where('race_id', $id)->with('user', 'race', 'command', 'cup');
+        $result_q = RaceResult::where('race_id', $id)->with('user', 'race', 'command', 'cup', 'grade');
         $result = app(Pipeline::class)
             ->send($result_q)
             ->through([])
             ->via('apply')
             ->then(function ($result) use ($page, $limit, $request) {
                 return $request->paginate ?
-                    $result->simplePaginate($limit, ['*'], 'page',  $page) :
-                    $result->get();
+                    $result->orderBy('place')->simplePaginate($limit, ['*'], 'page',  $page) :
+                    $result->orderBy('place')->get();
             });
         return SuccessGetRaceResultsResource::make($result);
     }
