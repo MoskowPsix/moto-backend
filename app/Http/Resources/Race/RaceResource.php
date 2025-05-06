@@ -49,7 +49,7 @@ class RaceResource extends JsonResource
             'images'                => $this->images,
             'contacts'              => $this->contacts,
             'record_end'            => $this->record_end,
-            'record_start'            => $this->record_start,
+            'record_start'          => $this->record_start,
             'track'                 => TrackResource::make($this->whenLoaded('track')),
             'user'                  => UserResource::make($this->whenLoaded('user')),
             'appointment_count'     => AppointmentCountResource::make($this->whenLoaded('appointmentCount')),
