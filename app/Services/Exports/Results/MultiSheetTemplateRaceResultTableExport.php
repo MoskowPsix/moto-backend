@@ -7,8 +7,8 @@ use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Http\Resources\Excel\Export\SuccessRaceResultsExport;
 use App\Models\AppointmentRace;
 use App\Models\Race;
-use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 use App\Services\Exports\Results\TemplateRaceResultsTableExport;
+use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
 class MultiSheetTemplateRaceResultTableExport implements WithMultipleSheets
 {
@@ -29,10 +29,12 @@ class MultiSheetTemplateRaceResultTableExport implements WithMultipleSheets
         $appr = AppointmentRace::where('race_id', $this->race_id)
             ->with('location', 'command')
             ->get()
+            ->groupBy('grade.name')
+            ->sortKeys()
             ->toArray();
 
         foreach ($race->grades as $grade) {
-            $sheets[] = new TemplateRaceResultsTableExport($appr, $grade->id, $grade->name);
+            !empty($appr[$grade->name]) ? $sheets[] = new TemplateRaceResultsTableExport($appr[$grade->name], $grade->id, $grade->name) : null;
         }
         return $sheets;
     }

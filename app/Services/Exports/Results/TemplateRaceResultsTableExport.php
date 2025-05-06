@@ -9,13 +9,14 @@ use App\Models\Race;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
+use Maatwebsite\Excel\Concerns\WithCustomStartCell;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use PhpOffice\PhpSpreadsheet\Exception;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class TemplateRaceResultsTableExport implements FromCollection, WithStyles, WithTitle, WithHeadings, ShouldAutoSize
+class TemplateRaceResultsTableExport implements FromCollection, WithStyles, WithTitle, ShouldAutoSize, WithCustomStartCell
 {
     private array $race;
     private int $gradeId;
@@ -32,6 +33,7 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
     */
     public function collection(): Collection
     {
+        $rows = [];
         foreach ($this->race as $value){
             $row = [];
 
@@ -58,21 +60,6 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
         return $this->gradeName;
     }
 
-    public function headings(): array
-    {
-        return [
-            'Место',
-            'UID',
-            'Ст. №',
-            'Фамилия',
-            'Имя',
-            'Спортивное звание/разряд',
-            'Населённый пункт (регион)',
-            'Команда (Клуб)',
-            'Марка мото',
-        ];
-    }
-
     /**
      * @throws Exception
      */
@@ -97,24 +84,47 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
         $sheet->setCellValue('M2', 'личн. очки');
         $sheet->setCellValue('N1', 'Сумма лич. очки');
 
+        $sheet->setCellValue('A1', 'Место');
         $sheet->mergeCells('A1:A2');
+
+        $sheet->setCellValue('B1', 'UID');
         $sheet->mergeCells('B1:B2');
+
+        $sheet->setCellValue('C1', 'Ст. №');
         $sheet->mergeCells('C1:C2');
+
+        $sheet->setCellValue('D1', 'Фамилия');
         $sheet->mergeCells('D1:D2');
+
+        $sheet->setCellValue('E1', 'Имя');
         $sheet->mergeCells('E1:E2');
+
+        $sheet->setCellValue('F1', 'Спортивное звание/разряд');
         $sheet->mergeCells('F1:F2');
+
+        $sheet->setCellValue('G1', 'Населённый пункт (регион)');
         $sheet->mergeCells('G1:G2');
+
+        $sheet->setCellValue('H1', 'Команда (Клуб)');
         $sheet->mergeCells('H1:H2');
+
+        $sheet->setCellValue('I1', 'Марка мото');
         $sheet->mergeCells('I1:I2');
+
         $sheet->mergeCells('N1:N2');
 
-        $sheet->getStyle('A1:A'. count($this->race) + 1)->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_UNPROTECTED);
-        $sheet->getStyle('C1:N'. count($this->race) + 1)->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_UNPROTECTED);
+        $sheet->getStyle('A1:A1'. count($this->race) + 10)->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_UNPROTECTED);
+        $sheet->getStyle('C1:N1'. count($this->race) + 10)->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_UNPROTECTED);
 
         $sheet->getColumnDimension('B')->setVisible(false);
-        $sheet->getStyle('B1:B'. count($this->race))->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
+        $sheet->getStyle('B1:B1'. count($this->race) + 10)->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
         $sheet->getProtection()->setSheet(true);
-        $sheet->getProtection()->setSort(true);
+
         $sheet->getProtection()->setFormatCells(true);
+        $sheet->getProtection()->setSort(true);
+    }
+    public function startCell(): string
+    {
+        return 'A3';
     }
 }
