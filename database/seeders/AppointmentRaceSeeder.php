@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Command;
+use App\Models\AppointmentRace;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class CommandSeeder extends Seeder
+class AppointmentRaceSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Command::factory()->count(20)->create();
+        AppointmentRace::factory()->count(20)->create();
     }
 }

@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             TrackSeeder::class,
             RaceSeeder::class,
+            AppointmentRaceSeeder::class,
             GradeSeeder::class,
             CommandSeeder::class,
         ]);

@@ -6,6 +6,7 @@ use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\AppointmentRace;
 use App\Models\Race;
+use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -16,12 +17,12 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 class TemplateRaceResultsTableExport implements FromCollection, WithStyles, WithTitle, WithHeadings, ShouldAutoSize
 {
-    private int $raceId;
+    private array $race;
     private int $gradeId;
     private string $gradeName;
-    public function __construct(int $raceId, int $gradeId, string $gradeName)
+    public function __construct(array $race, int $gradeId, string $gradeName)
     {
-        $this->raceId = $raceId;
+        $this->race = $race;
         $this->gradeId = $gradeId;
         $this->gradeName = $gradeName;
     }
@@ -29,17 +30,9 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
     /**
     * @return \Illuminate\Support\Collection
     */
-    public function collection()
+    public function collection(): Collection
     {
-        $appr = AppointmentRace::where('race_id', $this->raceId)
-            ->where('grade_id', $this->gradeId)
-            ->with('location', 'documents', 'grade')
-            ->orderBy('created_at', 'asc')
-            ->get()
-            ->toArray();
-
-        $rows = [];
-        foreach ($appr as $value){
+        foreach ($this->race as $value){
             $row = [];
 
             $row['Место'] = '';
@@ -83,15 +76,15 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
     /**
      * @throws Exception
      */
-    public function styles(Worksheet $sheet)
+    public function styles(Worksheet $sheet): void
     {
         $sheet->getStyle('A1:N1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getStyle('A1:N1')->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
         $sheet->getStyle('A1:N1')->getFont()->setBold(true);
         $sheet->getStyle('A1:N1')->getFont()->setItalic(true);
 
-        $sheet->getStyle('I2:L2')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-        $sheet->getStyle('I2:L2')->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+        $sheet->getStyle('J2:L2')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        $sheet->getStyle('J2:L2')->getAlignment()->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
 
         $sheet->setCellValue('J1', 'I заезд');
         $sheet->mergeCells('J1:K1');
@@ -115,11 +108,11 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
         $sheet->mergeCells('I1:I2');
         $sheet->mergeCells('N1:N2');
 
-        $sheet->getStyle('A1:A1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_UNPROTECTED);
-        $sheet->getStyle('C1:N1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_UNPROTECTED);
+        $sheet->getStyle('A1:A'. count($this->race) + 1)->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_UNPROTECTED);
+        $sheet->getStyle('C1:N'. count($this->race) + 1)->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_UNPROTECTED);
 
         $sheet->getColumnDimension('B')->setVisible(false);
-        $sheet->getStyle('B1:B1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
+        $sheet->getStyle('B1:B'. count($this->race))->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
         $sheet->getProtection()->setSheet(true);
         $sheet->getProtection()->setSort(true);
         $sheet->getProtection()->setFormatCells(true);
