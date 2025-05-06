@@ -6,6 +6,7 @@ use App\Contracts\Actions\Controllers\Race\GetRaceActionContract;
 use App\Filters\Race\FavoriteExistsFilter;
 use App\Filters\Race\RaceAppointmentExists;
 use App\Filters\Race\RaceDateFilter;
+use App\Filters\Race\RaceForDegreeFilter;
 use App\Filters\Race\RaceForLocationIdsFilter;
 use App\Filters\Race\RaceForStatusFilter;
 use App\Filters\Race\RaceForTrackFilter;
@@ -39,6 +40,7 @@ class GetRaceAction implements GetRaceActionContract
                 FavoriteExistsFilter::class,
                 RaceUserCommissionExistsFilter::class,
                 RaceNameFilter::class,
+                RaceForDegreeFilter::class,
             ])
             ->via('apply')
             ->then(function ($races) use ($page, $limit, $request) {
