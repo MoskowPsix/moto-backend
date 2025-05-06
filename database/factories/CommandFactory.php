@@ -21,7 +21,7 @@ class CommandFactory extends Factory
         return [
             'name'          =>fake()->name(),
             'city'          =>fake()->city(),
-            'fullName'      =>fake()->name(),
+            'full_name'      =>fake()->name(),
             'coach'         => fake()->name(),
             'user_id'       => User::inRandomOrder()->first()->id,
             'location_id'   => Location::inRandomOrder()->first()->id,
