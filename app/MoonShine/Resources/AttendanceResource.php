@@ -40,6 +40,8 @@ class AttendanceResource extends ModelResource
             Text::make('Название', 'name'),
             Text::make('Описание', 'desc'),
             Number::make('Цена', 'price')->sortable()->min(0)->step(0.01),
+            Text::make('Tax', 'tax'),
+            Text::make('Usn', 'usn_income_outcome'),
             $this->track(),
         ];
     }
@@ -54,6 +56,8 @@ class AttendanceResource extends ModelResource
             Text::make('Описание', 'desc'),
             $this->track()->required(),
             Number::make('Цена', 'price')->sortable()->min(0)->step(0.01),
+            Text::make('Tax', 'tax'),
+            Text::make('Usn', 'usn_income_outcome'),
         ];
     }
 

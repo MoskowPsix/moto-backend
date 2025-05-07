@@ -8,6 +8,8 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property mixed $name
  * @property mixed $desc
  * @property mixed $price
+ * @property mixed $tax
+ * @property mixed $usn_income_outcome
  * @property mixed $trackId
  */
 class CreateAttendanceRequest extends FormRequest
@@ -28,10 +30,12 @@ class CreateAttendanceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'          => 'required|string|max:255',
-            'desc'          => 'required|string|max:255',
-            'price'         => 'required|numeric',
-            'trackId'       => 'required|integer|exists:tracks,id',
+            'name'                  => 'required|string|max:255',
+            'desc'                  => 'required|string|max:255',
+            'price'                 => 'required|numeric',
+            'tax'                   => 'required|string|max:255',
+            'usn_income_outcome'    => 'required|string|max:255',
+            'trackId'               => 'required|integer|exists:tracks,id',
         ];
     }
 }

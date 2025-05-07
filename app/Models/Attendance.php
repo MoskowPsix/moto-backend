@@ -22,6 +22,8 @@ class Attendance extends Model
         'name',
         'desc',
         'price',
+        'tax',
+        'usn_income_outcome',
         'track_id',
     ];
 

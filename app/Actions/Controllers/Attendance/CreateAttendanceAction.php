@@ -12,10 +12,12 @@ class  CreateAttendanceAction implements CreateAttendanceActionContract
     public function __invoke(CreateAttendanceRequest $request): SuccessCreateAttendanceResource
     {
         $attendance = Attendance::create([
-            'name'          => $request->name,
-            'desc'          => $request->desc,
-            'price'         => $request->price,
-            'track_id'      => $request->trackId,
+            'name'                  => $request->name,
+            'desc'                  => $request->desc,
+            'price'                 => $request->price,
+            'tax'                   => $request->tax,
+            'usn_income_outcome'    => $request->usn_income_outcome,
+            'track_id'              => $request->trackId,
         ]);
         return SuccessCreateAttendanceResource::make($attendance);
     }
