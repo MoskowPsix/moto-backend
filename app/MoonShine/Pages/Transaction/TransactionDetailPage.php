@@ -30,10 +30,10 @@ class TransactionDetailPage extends DetailPage
             Checkbox::make('Статус', 'status'),
             Text::make('Описание', 'desc'),
             $this->user(),
-            BelongsToMany::make('Услуги', 'attendances', resource: AttendanceResource::class),
             Date::make('Дата', 'created_at'),
             Date::make('Создано', 'created_at'),
             Date::make('Обновлено', 'updated_at'),
+            $this->attendances(),
         ];
     }
 

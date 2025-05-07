@@ -39,8 +39,7 @@ class AttendanceResource extends ModelResource
             ID::make()->sortable(),
             Text::make('Название', 'name'),
             Text::make('Описание', 'desc'),
-            Number::make('Цена', 'price')->sortable()->min(0)->step(0.01),
-            $this->track(),
+            Number::make('Цена', 'price'),
         ];
     }
 
@@ -52,8 +51,7 @@ class AttendanceResource extends ModelResource
         return [
             Text::make('Название', 'name'),
             Text::make('Описание', 'desc'),
-            $this->track()->required(),
-            Number::make('Цена', 'price')->sortable()->min(0)->step(0.01),
+            Number::make('Цена', 'price'),
         ];
     }
 
@@ -63,7 +61,9 @@ class AttendanceResource extends ModelResource
     protected function detailFields(): iterable
     {
         return [
-
+            Text::make('Название', 'name'),
+            Text::make('Описание', 'desc'),
+            Number::make('Цена', 'price'),
         ];
     }
 
@@ -76,9 +76,6 @@ class AttendanceResource extends ModelResource
     protected function rules(mixed $item): array
     {
         return [
-            'name'      =>      ['required', 'string', 'max:255'], // Название
-            'desc'      =>      ['nullable', 'string'], // Описание
-            'price'     =>      ['required', 'numeric', 'min:0'],
         ];
     }
 }
