@@ -22,10 +22,14 @@ class MultiSheetTemplateRaceResultsTableImport implements WithMultipleSheets
 
     public function sheets(): array
     {
-        Race::where('id', $this->race_id)->first()->grades()->each(function ($grade) {
-            $this->sheet[$grade->name] = new TemplateRaceResultsSheetTableImport($grade->name, $this->race_id);
+        Race::find($this->race_id)->grades()->each(function ($grade) {
+//            dump($grade->name);
+//            dump(Race::find($this->race_id)->appointments()->where('grade_id', $grade->id)->exists());
+            if (Race::find($this->race_id)->appointments()->where('grade_id', $grade->id)->exists()) {
+                $name = trim(substr("($grade->id) " . $grade->name, 0, 47));
+                $this->sheet[$name] = new TemplateRaceResultsSheetTableImport($name, $this->race_id);
+            }
         });
-
         return $this->sheet;
     }
 }

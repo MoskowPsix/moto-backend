@@ -58,7 +58,9 @@ class TemplateRaceResultsSheetTableImport implements ToCollection
         }
 
         // находим id класса
-        $grade = Grade::where('name', $this->sheetName)->first();
+        preg_match('#\((.*?)\)#', $this->sheetName, $match);
+        dump($match[1]);
+        $grade = Grade::find($match[1]);
         if (!$grade) {
             return NotFoundResource::make([]);
         }

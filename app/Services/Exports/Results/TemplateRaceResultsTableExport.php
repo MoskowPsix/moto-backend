@@ -19,13 +19,14 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 class TemplateRaceResultsTableExport implements FromCollection, WithStyles, WithTitle, ShouldAutoSize, WithCustomStartCell
 {
     private array $race;
-    private int $gradeId;
-    private string $gradeName;
-    public function __construct(array $race, int $gradeId, string $gradeName)
+    private string $grade_name;
+    private int $grade_id;
+
+    public function __construct(array $race, string $grade_name, int $grade_id)
     {
         $this->race = $race;
-        $this->gradeId = $gradeId;
-        $this->gradeName = $gradeName;
+        $this->grade_name = $grade_name;
+        $this->grade_id = $grade_id;
     }
 
     /**
@@ -33,10 +34,7 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
     */
     public function collection(): Collection
     {
-        $rows = [];
         foreach ($this->race as $value){
-            $row = [];
-
             $row['Место'] = '';
             $row['UID'] = $value['user_id'] ?? '';
             $row['Ст. №'] = $value['start_number'] ?? '';
@@ -57,7 +55,7 @@ class TemplateRaceResultsTableExport implements FromCollection, WithStyles, With
     }
     public function title(): string
     {
-        return $this->gradeName;
+        return $this->grade_name;
     }
 
     /**

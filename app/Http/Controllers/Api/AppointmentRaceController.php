@@ -108,7 +108,7 @@ class AppointmentRaceController extends Controller
     #[Endpoint(title: 'Export', description: 'Экспорт результатов')]
     public function exportResults(int $id)
     {
-        return Excel::download(new MultiSheetTemplateRaceResultTableExport($id), 'Результаты.xlsx');
+        return Excel::download(new MultiSheetTemplateRaceResultTableExport($id), 'Результаты.xlsx',  \Maatwebsite\Excel\Excel::XLSX, ['Content-Type' => 'text/csv']);
     }
     #[Authenticated]
     #[Endpoint(title: 'Import', description: 'Импорт результатов')]
