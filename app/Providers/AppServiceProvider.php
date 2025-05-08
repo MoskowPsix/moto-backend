@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Actions\Controllers\Transaction\GetUserTransactionsAction;
+use App\Contracts\Actions\Controllers\Transaction\GetUserTransactionsActionContract;
 use App\Contracts\Services\PaymentServiceContract;
 use App\Contracts\Services\PDFServiceContract;
 use App\Models\FavoriteUser;
@@ -14,8 +16,8 @@ use App\Services\PDF\PDFService;
 use Elastic\Elasticsearch\Client;
 use Elastic\Elasticsearch\ClientBuilder;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\ServiceProvider;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -44,6 +46,7 @@ class AppServiceProvider extends ServiceProvider
         $this->bindSearchClient();
         $this->app->bind(PdfServiceContract::class, PdfService::class);
         $this->app->bind(PaymentServiceContract::class, PaymentService::class);
+        $this->app->bind(GetUserTransactionsActionContract::class, GetUserTransactionsAction::class);
     }
 
     /**

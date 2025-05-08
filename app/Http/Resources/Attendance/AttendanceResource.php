@@ -27,7 +27,7 @@ class AttendanceResource extends JsonResource
             'name'      => $this->name,
             'desc'      => $this->desc,
             'price'     => $this->price,
-//            'track'     => $this->whenLoaded('track', TrackResource::make($this->track)),
+            'track'     => TrackResource::make($this->whenLoaded('track')),
         ];
     }
 }

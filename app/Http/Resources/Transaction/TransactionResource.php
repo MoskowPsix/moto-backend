@@ -13,9 +13,9 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property string     $desc
  * @property integer    $count
  * @property integer    $user
- * @property integer    $attendance
  * @property string     $date
  * @property string     $link
+ * @property array      $attendances
  */
 class TransactionResource extends JsonResource
 {
@@ -33,7 +33,7 @@ class TransactionResource extends JsonResource
             'count'         => $this->count,
             'date'          => $this->date,
             'user'          => $this->whenLoaded('user', UserResource::make($this->user)),
-            'attendance'    => $this->whenLoaded('attendance', AttendanceResource::make($this->attendance)),
+            'attendances'    => $this->whenLoaded('attendances', AttendanceResource::collection($this->attendances)),
 //            'attendance'    => AttendanceResource::collection($this->attendance),
         ];
     }
