@@ -12,4 +12,8 @@ trait TransactionResourceTrait
     {
         return BelongsTo::make('Пользователь', 'user', resource: \App\MoonShine\Resources\UserResource::class)->searchable();
     }
+    public function attendances(): BelongsToMany
+    {
+        return BelongsToMany::make('Услуги', 'attendances', resource: \App\MoonShine\Resources\AttendanceResource::class)->selectMode();
+    }
 }
