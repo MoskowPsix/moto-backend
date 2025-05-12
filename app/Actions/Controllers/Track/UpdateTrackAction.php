@@ -42,6 +42,7 @@ class UpdateTrackAction implements UpdateTrackActionContract
         ]);
 
         $this->saveFiles($request, $track);
+        $this->updateRequisitesData($request, $track);
         return SuccessUpdateTrackResource::make($track);
     }
     public function saveFiles(UpdateTrackRequest $request, Track $track): void
@@ -50,7 +51,6 @@ class UpdateTrackAction implements UpdateTrackActionContract
         !empty($request->imagesAdd) ? $this->saveImages($request->imagesAdd, $track) : null;
         !empty($request->logo) ? $this->saveImg($request->logo, $track, 'logo') : null;
         !empty($request->schemaImg) ? $this->saveImg($request->schemaImg, $track, 'schema_img') : null;
-        !empty($request->requisitesFile) ? $this->saveImg($request->requisitesFile, $track, 'requisites_file') : null;
         !empty($request->offerFile) ? $this->saveImg($request->offerFile, $track, 'offer_file') : null;
     }
 
@@ -86,5 +86,20 @@ class UpdateTrackAction implements UpdateTrackActionContract
     private function deleteFile($path): void
     {
         Storage::delete($path);
+    }
+    private function updateRequisitesData(UpdateTrackRequest $request, Track $track): void
+    {
+        if ($request->has('requisitesName') || $request->has('requisitesPhone') || $request->has('requisitesEmail')) {
+            $currentData = $track->offer_file ?? [];
+
+            $newData = [
+                'name' => $request->input('requisitesName', $currentData['name'] ?? null),
+                'phone' => $request->input('requisitesPhone', $currentData['phone'] ?? null),
+                'email' => $request->input('requisitesEmail', $currentData['email'] ?? null),
+            ];
+            $track->update([
+                'requisites_file' => $newData,
+            ]);
+        }
     }
 }

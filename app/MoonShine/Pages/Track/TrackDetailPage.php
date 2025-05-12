@@ -49,7 +49,12 @@ class TrackDetailPage extends DetailPage
                     Text::make('Название','title'),
                     Text::make('Значение', 'value'),
                 ]),
-            File::make('Реквизиты', 'requisites_file'),
+            Json::make('Реквизиты', 'requisites_file')
+            ->fields([
+                    Text::make('Имя', 'name'),
+                    Text::make('Телефон', 'phone'),
+                    Text::make('Email', 'email'),
+            ]),
             File::make('Оферта', 'offer_file'),
             $this->user(),
             $this->level(),

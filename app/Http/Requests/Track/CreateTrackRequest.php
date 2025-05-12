@@ -20,7 +20,6 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property array $spec
  * @property object $contacts
  * @property int $locationId
- * @property mixed requisitesFile
  * @property mixed offerFile
  */
 class CreateTrackRequest extends FormRequest
@@ -41,28 +40,30 @@ class CreateTrackRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'          => 'string|required|min:3',
-            'address'       => 'string|required',
-            'latitude'      => 'required|numeric|between:-87,89',
-            'longitude'     => 'required|numeric|between:-180,180',
-            'images'        => 'array|nullable',
-            'images.*'      => 'image|mimes:jpeg,png,jpg,svg,webp',
-            'levelId'       => 'integer|requires|exists:levels,id',
-            'desc'          => 'string|nullable',
-            'length'        => 'integer|nullable',
-            'turns'         => 'integer|nullable',
-            'free'          => 'boolean|nullable',
-            'is_work'       => 'boolean|required',
-            'contacts'      => 'array|nullable',
-            'spec'          => 'array|nullable',
-            'locationId'    => 'integer|nullable|exists:locations,id',
-            'logo'          => 'image|mimes:jpeg,png,jpg,svg,webp|nullable',
-            'light'         => 'boolean|nullable',
-            'season'        => 'boolean|nullable',
-            'schemaImg'     => 'image|mimes:jpeg,png,jpg,svg,webp|nullable',
-            'requisitesFile'=> 'nullable|file|mimes:doc,docx,pdf',
-            'offerFile'     => 'nullable|file|mimes:doc,docx,pdf',
-            'storeId'       => 'integer|nullable|exists:stores,id',
+            'name'              => 'string|required|min:3',
+            'address'           => 'string|required',
+            'latitude'          => 'required|numeric|between:-87,89',
+            'longitude'         => 'required|numeric|between:-180,180',
+            'images'            => 'array|nullable',
+            'images.*'          => 'image|mimes:jpeg,png,jpg,svg,webp',
+            'levelId'           => 'integer|requires|exists:levels,id',
+            'desc'              => 'string|nullable',
+            'length'            => 'integer|nullable',
+            'turns'             => 'integer|nullable',
+            'free'              => 'boolean|nullable',
+            'is_work'           => 'boolean|required',
+            'contacts'          => 'array|nullable',
+            'spec'              => 'array|nullable',
+            'locationId'        => 'integer|nullable|exists:locations,id',
+            'logo'              => 'image|mimes:jpeg,png,jpg,svg,webp|nullable',
+            'light'             => 'boolean|nullable',
+            'season'            => 'boolean|nullable',
+            'schemaImg'         => 'image|mimes:jpeg,png,jpg,svg,webp|nullable',
+            'offerFile'         => 'nullable|file|mimes:doc,docx,pdf',
+            'requisitesName'    => 'nullable|string|max:255',
+            'requisitesEmail'   => 'nullable|string|max:255',
+            'requisitesPhone'   => 'nullable|string|max:255',
+            'storeId'           => 'integer|nullable|exists:stores,id',
         ];
     }
 }

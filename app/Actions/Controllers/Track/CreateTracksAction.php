@@ -49,8 +49,8 @@ class CreateTracksAction implements CreateTracksActionContract
                     'schema_img' => $path_s
                 ]);
             }
-            $this->saveFile($request->requisitesFile, $track, 'requisites_file');
             $this->saveFile($request->offerFile, $track, 'offer_file');
+            $this->saveRequisitesData($request, $track);
             DB::commit();
             return SuccessCreateResource::make($track); // Возвращает нулевые координаты, потом надо исправить, пока не критично
         } catch (Exception $e) {
@@ -76,6 +76,19 @@ class CreateTracksAction implements CreateTracksActionContract
 
             $track->update([
                 $field_name => $path
+            ]);
+        }
+    }
+    private function saveRequisitesData(CreateTrackRequest $request, Track $track): void
+    {
+        if($request->has('requisitesName') || $request->has('requisitesPhone') || $request->has('requisitesEmail')){
+            $date = [
+                'name'  => $request->input('requisitesName'),
+                'phone' => $request->input('requisitesPhone'),
+                'email' => $request->input('requisitesEmail'),
+            ];
+            $track->update([
+                'requisites_file' => $date,
             ]);
         }
     }
