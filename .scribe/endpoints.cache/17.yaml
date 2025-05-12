@@ -28,7 +28,7 @@ endpoints:
         name: paginate
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -36,9 +36,9 @@ endpoints:
         custom: []
       limit:
         name: limit
-        description: 'Значение поля value не может быть больше 100.'
+        description: 'Must not be greater than 100.'
         required: false
-        example: 20
+        example: 25
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -48,7 +48,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: iure
+        example: eius
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -58,7 +58,7 @@ endpoints:
         name: name
         description: ''
         required: false
-        example: error
+        example: fugiat
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -68,7 +68,7 @@ endpoints:
         name: raceCountExists
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -88,20 +88,20 @@ endpoints:
         name: commandCountExists
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      paginate: false
-      limit: 20
-      page: iure
-      name: error
-      raceCountExists: true
+      paginate: true
+      limit: 25
+      page: eius
+      name: fugiat
+      raceCountExists: false
       trackCountExists: false
-      commandCountExists: false
+      commandCountExists: true
     fileParameters: []
     responses:
       -
