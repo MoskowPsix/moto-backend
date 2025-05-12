@@ -64,6 +64,11 @@ class TrackFormPage extends FormPage
                     Text::make('Название','title'),
                     Text::make('Значение', 'value'),
                 ]),
+            Json::make('Контактная информация', 'contacts')
+                ->fields([
+                    Text::make('Название','title'),
+                    Text::make('Значение', 'value'),
+                ]),
             $this->user()->required(),
             $this->level()->required(),
             $this->store(),
