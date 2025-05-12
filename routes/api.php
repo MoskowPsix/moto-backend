@@ -1,6 +1,5 @@
 <?php
 
-use App\Exports\TestExport;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\AuthPhoneController;
 use App\Http\Controllers\Api\UserController;
@@ -32,7 +31,6 @@ Route::controller(UserController::class)->group(function () {
     Route::post('users/update', 'update')->middleware('auth:sanctum')->name('user.get_user.update');
     Route::get('users-commissions', 'getCommissions')->name('user.get_user_commissions');
     Route::delete('users', 'delete')->middleware(['auth:sanctum'])->name('user.delete');
-
 });
 
 Route::controller(\App\Http\Controllers\Api\RecoveryPassword::class)->group(function () {
@@ -68,6 +66,12 @@ Route::controller(\App\Http\Controllers\Api\StoreController::class)->group(funct
 Route::controller(\App\Http\Controllers\Api\TransactionController::class)->group(function () {
     Route::post('transactions', 'create')->middleware('auth:sanctum')->name('transaction.create');
     Route::post('transactions/result', 'result')->name('transaction.result');
+    Route::get('transactions', 'getTransactions')
+        ->middleware(['auth:sanctum'])
+        ->name('user.transactions.get');
+    Route::get('transactions/{id}', 'getTransactionForId')
+        ->middleware(['auth:sanctum'])
+        ->name('user.transactions.get');
 });
 
 Route::controller(\App\Http\Controllers\Api\RoleController::class)->group(function () {

@@ -44,6 +44,7 @@ class ResultTransactionAction implements ResultTransactionActionContract
         }
         $transaction->update([
             'data' => $request->except('SignatureValue'),
+            'status' => true
         ]);
         Log::info('Success');
         Log::info("Transaction result for InvId: $invId");
