@@ -3,17 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Contracts\Actions\Controllers\Transaction\CreateTransactionActionContract;
-use App\Contracts\Actions\Controllers\Transaction\FailedTransactionActionContract;
 use App\Contracts\Actions\Controllers\Transaction\ResultTransactionActionContract;
-use App\Contracts\Actions\Controllers\Transaction\SuccessTransactionActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Transaction\CreateTransactionRequest;
-use App\Http\Requests\Transaction\FailedTransactionRequest;
 use App\Http\Requests\Transaction\ResultTransactionRequest;
-use App\Http\Requests\Transaction\SuccessTransactionRequest;
 use App\Http\Resources\Transaction\Create\SuccessCreateTransactionResource;
-use App\Http\Resources\Transaction\FailedTransaction\FailedTransactionResource;
-use App\Http\Resources\Transaction\SuccessTransaction\SuccessTransactionResource;
 use App\Http\Resources\Transaction\TransactionResource;
 use App\Models\Transaction;
 use Illuminate\Http\JsonResponse;
@@ -30,7 +24,6 @@ class TransactionController extends Controller
     {
         return $action($request);
     }
-
     #[ResponseFromApiResource(TransactionResource::class, Transaction::class, collection: false)]
     #[Endpoint(title: 'result', description: 'Получение ответа')]
     public function result(Request $request, ResultTransactionActionContract $action)
