@@ -50,7 +50,8 @@ class UpdateTrackAction implements UpdateTrackActionContract
         !empty($request->imagesAdd) ? $this->saveImages($request->imagesAdd, $track) : null;
         !empty($request->logo) ? $this->saveImg($request->logo, $track, 'logo') : null;
         !empty($request->schemaImg) ? $this->saveImg($request->schemaImg, $track, 'schema_img') : null;
-
+        !empty($request->requisitesFile) ? $this->saveImg($request->requisitesFile, $track, 'requisites_file') : null;
+        !empty($request->offerFile) ? $this->saveImg($request->offerFile, $track, 'offer_file') : null;
     }
 
     public function saveImages(array $images, Track $track): void

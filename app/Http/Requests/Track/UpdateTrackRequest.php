@@ -38,9 +38,11 @@ class UpdateTrackRequest extends FormRequest
             'is_work'       => 'boolean|required',
             'contacts'      => 'nullable',
             'spec'          => 'nullable',
+            'requisitesFile'=> 'nullable|file|mimes:doc,docx,pdf',
+            'offerFile'     => 'nullable|file|mimes:doc,docx,pdf',
             'locationId'    => 'integer|nullable|exists:locations,id',
             'userId'        => 'integer|nullable|exists:users,id',
-            'storeId'       =>  'integer|nullable|exists:stores,id',
+            'storeId'       => 'integer|nullable|exists:stores,id',
         ];
     }
 }
