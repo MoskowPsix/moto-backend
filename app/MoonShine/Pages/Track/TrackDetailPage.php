@@ -17,6 +17,7 @@ use MoonShine\UI\Fields\Json;
 use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Text;
 use MoonShine\UI\Fields\Textarea;
+use MoonShine\UI\Fields\File;
 use Throwable;
 
 class TrackDetailPage extends DetailPage
@@ -48,6 +49,8 @@ class TrackDetailPage extends DetailPage
                     Text::make('Название','title'),
                     Text::make('Значение', 'value'),
                 ]),
+            File::make('Реквизиты', 'requisites_file'),
+            File::make('Оферта', 'offer_file'),
             $this->user(),
             $this->level(),
             $this->store(),
