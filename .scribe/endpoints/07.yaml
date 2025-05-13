@@ -27,7 +27,7 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the attendances table.'
         required: true
         example:
-          - 15
+          - 5
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
@@ -37,7 +37,7 @@ endpoints:
         name: date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-04-16T10:37:23'
+        example: '2025-05-13T09:27:33'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -45,13 +45,13 @@ endpoints:
         custom: []
     cleanBodyParameters:
       attendanceIds:
-        - 15
-      date: '2025-04-16T10:37:23'
+        - 5
+      date: '2025-05-13T09:27:33'
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.transaction.create.success","payment_link":null,"transaction":{"id":156,"status":false,"desc":null,"count":null,"date":null,"user":null}}'
+        content: '{"status":"success","message":"messages.transaction.create.success","payment_link":null,"transaction":{"id":206,"status":false,"desc":null,"count":null,"date":null,"user":null,"attendances":[]}}'
         headers: []
         description: ''
         custom: []
@@ -87,7 +87,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":157,"status":false,"desc":null,"count":null,"date":null,"user":null}'
+        content: '{"id":207,"status":false,"desc":null,"count":null,"date":null,"user":null,"attendances":[]}'
         headers: []
         description: ''
         custom: []
