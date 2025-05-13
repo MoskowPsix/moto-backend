@@ -79,4 +79,10 @@ class PhoneResource extends ModelResource
     {
         return [];
     }
+    protected function search(): array
+    {
+        return [
+            'number',
+        ];
+    }
 }
