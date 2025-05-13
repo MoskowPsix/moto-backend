@@ -41,20 +41,24 @@ class Track extends Model
         'schema_img',
         'attendance_id',
         'store_id',
+        'requisites_file',
+        'offer_file',
     ];
 
     protected $casts =[
-        'name'          => 'string',
-        'level_id'      => 'integer',
-        'address'       => 'string',
-        'desc'          => 'string',
-        'length'        => 'integer',
-        'turns'         => 'integer',
-        'free'          => 'boolean',
-        'is_work'       => 'boolean',
-        'spec'          => 'json',
-        'images'        => 'json',
-        'contacts'      => 'json',
+        'name'              => 'string',
+        'level_id'          => 'integer',
+        'address'           => 'string',
+        'desc'              => 'string',
+        'length'            => 'integer',
+        'turns'             => 'integer',
+        'free'              => 'boolean',
+        'is_work'           => 'boolean',
+        'spec'              => 'json',
+        'images'            => 'json',
+        'contacts'          => 'json',
+        'requisites_file'   => 'json',
+        'offer_file'        => 'json',
     ];
     protected array $postgisColumns = [
         'point' => [

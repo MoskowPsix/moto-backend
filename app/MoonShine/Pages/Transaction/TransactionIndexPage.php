@@ -31,7 +31,6 @@ class TransactionIndexPage extends IndexPage
         return [
             ID::make()->sortable(),
             Checkbox::make('Статус', 'status')->sortable(),
-            Text::make('Описание', 'desc')->sortable(),
             $this->user()->sortable(),
             Date::make('Дата', 'created_at')->sortable()->withTime(),
             Date::make('Создано', 'created_at')->sortable(),
