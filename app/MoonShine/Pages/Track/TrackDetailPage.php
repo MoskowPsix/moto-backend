@@ -12,6 +12,7 @@ use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\UI\Fields\Checkbox;
 use MoonShine\UI\Fields\Date;
+use MoonShine\UI\Fields\File;
 use MoonShine\UI\Fields\Image;
 use MoonShine\UI\Fields\Json;
 use MoonShine\UI\Fields\Number;
@@ -48,6 +49,13 @@ class TrackDetailPage extends DetailPage
                     Text::make('Название','title'),
                     Text::make('Значение', 'value'),
                 ]),
+            Json::make('Реквизиты', 'requisites_file')
+                ->fields([
+                    Text::make('Имя', 'name'),
+                    Text::make('Телефон', 'phone'),
+                    Text::make('Email', 'email'),
+                ]),
+            File::make('Оферта', 'offer_file'),
             $this->user(),
             $this->level(),
             $this->store(),

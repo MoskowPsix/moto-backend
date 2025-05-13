@@ -69,6 +69,13 @@ class TrackFormPage extends FormPage
                     Text::make('Название','title'),
                     Text::make('Значение', 'value'),
                 ]),
+            Json::make('Реквизиты', 'requisites_file')
+                ->fields([
+                    Text::make('Имя', 'name'),
+                    Text::make('Телефон', 'phone'),
+                    Text::make('Email', 'email'),
+                ])->removable(),
+            File::make('Оферта', 'offer_file')->dir(isset($item->id) ? "/track/$item->id" : "/track")->removable(),
             $this->user()->required(),
             $this->level()->required(),
             $this->store(),
