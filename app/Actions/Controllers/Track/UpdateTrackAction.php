@@ -43,6 +43,7 @@ class UpdateTrackAction implements UpdateTrackActionContract
         ]);
 
         $this->saveFiles($request, $track);
+        $this->updateRequisitesData($request, $track);
         return SuccessUpdateTrackResource::make($track);
     }
     public function saveFiles(UpdateTrackRequest $request, Track $track): void
@@ -89,13 +90,14 @@ class UpdateTrackAction implements UpdateTrackActionContract
     }
     private function updateRequisitesData(UpdateTrackRequest $request, Track $track): void
     {
-        if ($request->has('requisitesName') || $request->has('requisitesPhone') || $request->has('requisitesEmail'))
+        if ($request->has('requisitesName') || $request->has('requisitesPhone') || $request->has('requisitesEmail') || $request->has('requisitesINN'))
         {
             $currentData = $track->offer_file ?? [];
             $newData = [
                 'name' => $request->input('requisitesName', $currentData['name'] ?? null),
                 'phone' => $request->input('requisitesPhone', $currentData['phone'] ?? null),
                 'email' => $request->input('requisitesEmail', $currentData['email'] ?? null),
+                'inn'   => $request->input('requisitesINN', $currentData['inn'] ?? null),
             ];
             $track->update([
                 'requisites_file' => $newData,

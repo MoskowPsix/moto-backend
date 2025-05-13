@@ -36,6 +36,9 @@ class AttendanceResource extends ModelResource
     protected function indexFields(): iterable
     {
         return [
+            Text::make('Название', 'name'),
+            Text::make('Описание', 'desc'),
+            Number::make('Цена', 'price'),
         ];
     }
 
@@ -45,6 +48,9 @@ class AttendanceResource extends ModelResource
     protected function formFields(): iterable
     {
         return [
+            Text::make('Название', 'name'),
+            Text::make('Описание', 'desc'),
+            Number::make('Цена', 'price'),
         ];
     }
 
@@ -54,6 +60,9 @@ class AttendanceResource extends ModelResource
     protected function detailFields(): iterable
     {
         return [
+            Text::make('Название', 'name'),
+            Text::make('Описание', 'desc'),
+            Number::make('Цена', 'price'),
         ];
     }
 

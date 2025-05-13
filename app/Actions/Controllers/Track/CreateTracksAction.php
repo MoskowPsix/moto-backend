@@ -89,6 +89,7 @@ class CreateTracksAction implements CreateTracksActionContract
                 'name'  => $request->input('requisitesName'),
                 'phone' => $request->input('requisitesPhone'),
                 'email' => $request->input('requisitesEmail'),
+                'inn'   => $request->input('requisitesINN'),
             ];
             $track->update([
                 'requisites_file' => $date,

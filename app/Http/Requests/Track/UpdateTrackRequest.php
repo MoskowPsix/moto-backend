@@ -45,6 +45,7 @@ class UpdateTrackRequest extends FormRequest
             'requisitesName'    => 'nullable|string|max:255',
             'requisitesEmail'   => 'nullable|string|max:255',
             'requisitesPhone'   => 'nullable|string|max:255',
+            'requisitesINN'     => 'nullable|string|max:255',
         ];
     }
 }

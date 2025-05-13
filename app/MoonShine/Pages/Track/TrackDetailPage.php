@@ -54,6 +54,7 @@ class TrackDetailPage extends DetailPage
                     Text::make('Имя', 'name'),
                     Text::make('Телефон', 'phone'),
                     Text::make('Email', 'email'),
+                    Text::make('ИНН', 'inn')
                 ]),
             File::make('Оферта', 'offer_file'),
             $this->user(),
