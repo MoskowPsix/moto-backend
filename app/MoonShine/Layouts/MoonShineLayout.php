@@ -79,6 +79,7 @@ final class MoonShineLayout extends AppLayout
                 MenuItem::make('Команды', CommandResource::class, 'users'),
                 MenuItem::make('Магазины', StoreResource::class, 'building-storefront'),
                 MenuItem::make('Транзакции', TransactionResource::class, 'credit-card'),
+                MenuItem::make('Телефоны', PhoneResource::class, 'device-phone-mobile'),
             ], 'cube'),
         ];
     }

@@ -57,6 +57,7 @@ class PhoneResource extends ModelResource
     {
         return [
             ID::make(),
+            \MoonShine\UI\Fields\Phone::make('Номер', 'number'),
         ];
     }
 
