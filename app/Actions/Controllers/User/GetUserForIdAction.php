@@ -12,7 +12,7 @@ class GetUserForIdAction implements GetUserForIdActionContract
 
     public function __invoke(int $id): SuccessUserGetForIdResource | NotFoundResource
     {
-        $user = User::with('personalInfo', 'roles')->where('id', $id);
+        $user = User::with('personalInfo', 'roles', 'transactions')->where('id', $id);
         if (!$user->exists())
         {
             return NotFoundResource::make([]);
