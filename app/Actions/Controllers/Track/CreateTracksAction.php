@@ -83,13 +83,14 @@ class CreateTracksAction implements CreateTracksActionContract
     }
     private function saveRequisitesData(CreateTrackRequest $request, Track $track): void
     {
-        if($request->has('requisitesName') || $request->has('requisitesPhone') || $request->has('requisitesEmail'))
+        if($request->has('requisitesName') || $request->has('requisitesPhone') || $request->has('requisitesEmail') || $request->has('requisitesPricePolitics'))
         {
             $date = [
                 'name'  => $request->input('requisitesName'),
                 'phone' => $request->input('requisitesPhone'),
                 'email' => $request->input('requisitesEmail'),
                 'inn'   => $request->input('requisitesINN'),
+                'pricePolitics' => $request->input('requisitesPricePolitics'),
             ];
             $track->update([
                 'requisites_file' => $date,

@@ -64,6 +64,7 @@ class CreateTrackRequest extends FormRequest
             'requisitesEmail'   => 'nullable|string|max:255',
             'requisitesPhone'   => 'nullable|string|max:255',
             'requisitesINN'     => 'nullable|string|max:255',
+            'requisitesPricePolitics' => 'nullable|string|max:255',
         ];
     }
 }

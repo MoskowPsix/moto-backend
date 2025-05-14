@@ -90,7 +90,7 @@ class UpdateTrackAction implements UpdateTrackActionContract
     }
     private function updateRequisitesData(UpdateTrackRequest $request, Track $track): void
     {
-        if ($request->has('requisitesName') || $request->has('requisitesPhone') || $request->has('requisitesEmail') || $request->has('requisitesINN'))
+        if ($request->has('requisitesName') || $request->has('requisitesPhone') || $request->has('requisitesEmail') || $request->has('requisitesINN') || $request->has('requisitesPricePolitics'))
         {
             $currentData = $track->offer_file ?? [];
             $newData = [
@@ -98,6 +98,7 @@ class UpdateTrackAction implements UpdateTrackActionContract
                 'phone' => $request->input('requisitesPhone', $currentData['phone'] ?? null),
                 'email' => $request->input('requisitesEmail', $currentData['email'] ?? null),
                 'inn'   => $request->input('requisitesINN', $currentData['inn'] ?? null),
+                'pricePolitics' => $request->input('requisitesPricePolitics', $currentData['pricePolitics'] ?? null),
             ];
             $track->update([
                 'requisites_file' => $newData,
