@@ -74,7 +74,8 @@ class TrackFormPage extends FormPage
                     Text::make('Имя', 'name'),
                     Text::make('Телефон', 'phone'),
                     Text::make('Email', 'email'),
-                    Text::make('ИНН', 'inn')
+                    Text::make('ИНН', 'inn'),
+                    Text::make('Ценовая политика', 'pricePolitics'),
                 ])->removable(),
             File::make('Оферта', 'offer_file')->dir(isset($item->id) ? "/track/$item->id" : "/track")->removable(),
             $this->user()->required(),
