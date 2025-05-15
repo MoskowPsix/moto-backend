@@ -24,7 +24,6 @@ class CreateGradeRequest extends FormRequest
         return [
             'name'          => 'required|string|max:255|unique:grades,name',
             'description'   => 'nullable|string',
-            'gradeId'       => 'required|integer|exists:grades,id',
         ];
     }
 }
