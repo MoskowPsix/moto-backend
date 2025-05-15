@@ -14,6 +14,7 @@ use MoonShine\UI\Fields\Checkbox;
 use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Text;
 use Throwable;
 
@@ -33,7 +34,7 @@ class TransactionDetailPage extends DetailPage
             Date::make('Дата', 'created_at'),
             Date::make('Создано', 'created_at'),
             Date::make('Обновлено', 'updated_at'),
-            $this->attendances(),
+            BelongsToMany::make('Услуги', 'attendances', resource: AttendanceResource::class)->searchable(),
         ];
     }
 
