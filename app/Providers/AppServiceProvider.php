@@ -6,12 +6,14 @@ use App\Actions\Controllers\Transaction\GetUserTransactionsAction;
 use App\Contracts\Actions\Controllers\Transaction\GetUserTransactionsActionContract;
 use App\Contracts\Services\PaymentServiceContract;
 use App\Contracts\Services\PDFServiceContract;
+use App\Contracts\Services\SecondCheckServiceContract;
 use App\Models\FavoriteUser;
 use App\Observers\FavoriteUserObserver;
 use App\Repositories\Search\Track\TrackElasticRepository;
 use App\Repositories\Search\Track\TrackElasticRepositoryInterface;
 use App\Repositories\Search\Track\TrackEloquentRepository;
 use App\Services\Payment\PaymentService;
+use App\Services\Payment\SecondCheckService;
 use App\Services\PDF\PDFService;
 use Elastic\Elasticsearch\Client;
 use Elastic\Elasticsearch\ClientBuilder;
@@ -46,6 +48,7 @@ class AppServiceProvider extends ServiceProvider
         $this->bindSearchClient();
         $this->app->bind(PdfServiceContract::class, PdfService::class);
         $this->app->bind(PaymentServiceContract::class, PaymentService::class);
+        $this->app->bind(SecondCheckServiceContract::class, SecondCheckService::class);
         $this->app->bind(GetUserTransactionsActionContract::class, GetUserTransactionsAction::class);
     }
 

@@ -2,9 +2,11 @@
 
 namespace App\Console\Commands;
 
+use App\Contracts\Services\SecondCheckServiceContract;
 use App\Enums\DocumentType;
 use App\Models\Document;
 use App\Models\Phone;
+use App\Models\Transaction;
 use App\Models\User;
 use App\Services\GoogleSheetService;
 use Exception;
@@ -18,7 +20,7 @@ class test extends Command
      *
      * @var string
      */
-    protected $signature = 'sheet';
+    protected $signature = 'sheet {transaction_id}';
 
     /**
      * The console command description.
@@ -33,9 +35,32 @@ class test extends Command
      */
     public function handle()
     {
-        \App\Models\Command::query()->each(function ($command) {
-            $command->coaches()->attach($command->user_id);
-        });
+        $id = $this->argument('transaction_id');
+        $transaction = Transaction::find($id);
+
+        if (!$transaction) {
+            $this->error("Транзакция с ID {$id} не найдена.");
+            return 1;
+        }
+
+        /** @var SecondCheckServiceContract $secondCheck */
+        $secondCheck = app(SecondCheckServiceContract::class);
+
+        $response = $secondCheck->send($transaction);
+
+        $this->info("HTTP код: " . $response['http_code']);
+        $this->line("Ответ Robokassa:");
+        dump($response['response']);
+
+        if ($response['error']) {
+            $this->error("Ошибка CURL: " . $response['error']);
+        }
+
         return 0;
+
+//        \App\Models\Command::query()->each(function ($command) {
+//            $command->coaches()->attach($command->user_id);
+//        });
+//        return 0;
     }
 }
