@@ -26,7 +26,7 @@ class PaymentService implements PaymentServiceContract
 
         $invoiceId = $transaction->id;
         $description = $attendance->desc ?? 'Оплата услуги';
-        $IsTest = 0;
+        $IsTest = 1;
 
         $receipt = [
             'sno' => 'usn_income',
