@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources\Transaction;
 
+use App\Http\Resources\Attendance\AttendanceResource;
+use App\Http\Resources\Role\RoleResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -26,6 +28,7 @@ class ShortTransactionResource extends JsonResource
             'id'            => $this->id,
             'desc'          => $this->desc,
             'date'          => $this->date,
+            'attendance'    => AttendanceResource::collection($this->whenLoaded('attendances')),
         ];
     }
 }
