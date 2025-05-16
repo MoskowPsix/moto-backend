@@ -6,7 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * @property mixed $name
- * @property mixed $fullname
+ * @property mixed $fullName
  * @property mixed $city
  * @property mixed $coach
  * @property mixed $avatar
