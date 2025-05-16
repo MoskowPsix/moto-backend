@@ -26,6 +26,7 @@ class PaymentService implements PaymentServiceContract
 
         $invoiceId = $transaction->id;
         $description = $attendance->desc ?? 'Оплата услуги';
+        $email = $transaction->user->email;
         $IsTest = 0;
 
         $receipt = [
@@ -51,6 +52,7 @@ class PaymentService implements PaymentServiceContract
             'OutSum'            => $outSum,
             'InvId'             => $invoiceId,
             'Desc'              => $description,
+            'Email'             => $email,
             'SignatureValue'    => strtoupper($crc),
             'IsTest'            => $IsTest,
             'Receipt'           => $encodedReceipt,
