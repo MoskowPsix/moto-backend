@@ -22,7 +22,7 @@ class CreateTransactionAction implements CreateTransactionActionContract
             'date'          => Carbon::now()
         ]);
         $transaction->attendances()->attach($request->attendanceIds);
-        $opKey = auth()->user()->cards()?->op_key;
+        $opKey = auth()->user()->cards?->op_key;
 
         if($opKey){
             $link = $this->paymentServiceContract->generateLinkWithSaveCard($transaction, $opKey);
