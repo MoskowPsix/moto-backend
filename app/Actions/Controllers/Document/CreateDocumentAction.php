@@ -12,12 +12,15 @@ class CreateDocumentAction implements CreateDocumentActionContract
 {
     public function __invoke(CreateDocumentRequest $request): SuccessCreateDocumentResource
     {
+        $path = '';
+        $originalFileName = uniqid('file_');
+
         if ($request->hasFile('file')) {
-            $path = $this->save($request->file);
-            $originalFileName = $request->file('file')->getClientOriginalName();
+            $file = $request->file('file');
+            $path = $this->save($file);
+            $originalFileName = $file->getClientOriginalName();
         }
 
-        $name = uniqid('file_');
         $user = auth()->user();
         $document = Document::create([
             'name'          => $originalFileName ?? uniqid('file_'),
