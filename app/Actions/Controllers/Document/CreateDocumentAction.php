@@ -12,11 +12,10 @@ class CreateDocumentAction implements CreateDocumentActionContract
 {
     public function __invoke(CreateDocumentRequest $request): SuccessCreateDocumentResource
     {
-        if (isset($request->file)) {
+        if ($request->hasFile('file')) {
             $path = $this->save($request->file);
+            $originalFileName = $request->file('file')->getClientOriginalName();
         }
-
-        $originalFileName = $request->file('file')->getClientOriginalName();
 
         $name = uniqid('file_');
         $user = auth()->user();
@@ -29,7 +28,7 @@ class CreateDocumentAction implements CreateDocumentActionContract
             'it_works_date' => isset($request->itWorksDate) ? Carbon::parse($request->itWorksDate)->format('d.m.y') : null,
             'user_id'       => $user->id,
         ]);
-        if (isset($request->file)) {
+        if ($request->hasFile('file')) {
             $document->update([
                 'url_view' => !empty($request->url) ? $request->url . $document->id : null
             ]);
