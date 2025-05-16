@@ -15,10 +15,6 @@ class PaymentService implements PaymentServiceContract
     {
         $attendance = $transaction->attendances()->first();
 
-        if (!isset($attendance) || !$attendance->track()->exists()) {
-            throw new \Exception('Не удалось найти связанные данные для генерации ссылки.');
-        }
-
         $store = $attendance->track()->first()->store()->first();
         $login = $store->login;
         $password = $store->password_1;
@@ -30,16 +26,36 @@ class PaymentService implements PaymentServiceContract
 
         $invoiceId = $transaction->id;
         $description = $attendance->desc ?? 'Оплата услуги';
-        $IsTest = 1;
-        $crc = md5("$login:$outSum:$invoiceId:$password");
+        $email = $transaction->user->email;
+        $IsTest = 0;
+
+        $receipt = [
+            'sno' => 'usn_income',
+            'items' => [],
+        ];
+        foreach ($attendances as $attendance) {
+            $receipt['items'][] = [
+                'name'      => $attendance->name,
+                'quantity'  => 1,
+                'sum'       => $attendance->price,
+                'tax'       => $attendance->tax ?? 'none',
+            ];
+        }
+
+        $jsonString = json_encode($receipt, JSON_UNESCAPED_UNICODE);
+        $encodedReceipt = urlencode($jsonString);
+
+        $crc = md5("$login:$outSum:$invoiceId:$encodedReceipt:$password");
 
         $path = http_build_query([
             'MerchantLogin'     => $login,
             'OutSum'            => $outSum,
             'InvId'             => $invoiceId,
             'Desc'              => $description,
+            'Email'             => $email,
             'SignatureValue'    => strtoupper($crc),
             'IsTest'            => $IsTest,
+            'Receipt'           => $encodedReceipt,
         ]);
         return "https://auth.robokassa.ru/Merchant/Index.aspx?" . $path;
     }
@@ -52,8 +68,14 @@ class PaymentService implements PaymentServiceContract
         $password = $store->password_1;
 
         $attendances = $transaction->attendances;
-        $outSum = $attendances->sum(fn($a) => $a->price);
+
+        $outSum = $attendances->sum(function ($attendance) use ($transaction) {
+            return $attendance->price;
+        });
+
         $invoiceId = $transaction->id;
+        $description = $attendance->desc ?? 'Оплата услуги';
+        $email = $transaction->user->email;
 
         $receipt = [
             'sno' => 'usn_income',
@@ -77,6 +99,8 @@ class PaymentService implements PaymentServiceContract
             'MerchantLogin'  => $login,
             'OutSum'         => $outSum,
             'InvId'          => $invoiceId,
+            'Desc'           => $description,
+            'Email'          => $email,
             'SignatureValue' => $signature,
             'Receipt'        => $encodedReceipt,
             'Token'          => $opKey,
