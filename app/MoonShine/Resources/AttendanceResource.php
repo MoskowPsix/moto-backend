@@ -30,6 +30,7 @@ class AttendanceResource extends ModelResource
     protected ?\MoonShine\Support\Enums\ClickAction $clickAction = ClickAction::DETAIL;
     protected string $column = 'name';
     use AttendanceResourceTrait;
+    protected bool $simplePaginate = true;
     /**
      * @return list<FieldContract>
      */
@@ -37,7 +38,6 @@ class AttendanceResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Название', 'name'),
             Text::make('Описание', 'desc'),
             Number::make('Цена', 'price'),
         ];
@@ -49,7 +49,6 @@ class AttendanceResource extends ModelResource
     protected function formFields(): iterable
     {
         return [
-            Text::make('Название', 'name'),
             Text::make('Описание', 'desc'),
             Number::make('Цена', 'price'),
         ];
@@ -61,7 +60,6 @@ class AttendanceResource extends ModelResource
     protected function detailFields(): iterable
     {
         return [
-            Text::make('Название', 'name'),
             Text::make('Описание', 'desc'),
             Number::make('Цена', 'price'),
         ];

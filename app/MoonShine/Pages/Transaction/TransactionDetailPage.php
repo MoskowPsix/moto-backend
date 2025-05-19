@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Pages\Transaction;
 
+use App\Models\Transaction;
 use App\MoonShine\Resources\AttendanceResource;
 use App\Traits\MoonShine\Resources\TransactionResourceTrait;
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
@@ -34,7 +35,11 @@ class TransactionDetailPage extends DetailPage
             Date::make('Дата', 'created_at'),
             Date::make('Создано', 'created_at'),
             Date::make('Обновлено', 'updated_at'),
-            BelongsToMany::make('Услуги', 'attendances', resource: AttendanceResource::class)->searchable(),
+            BelongsToMany::make('Услуги', 'attendances', resource: AttendanceResource::class)
+            ->fields([
+                Text::make('Описание', 'desc'),
+                Number::make('Цена', 'price'),
+            ]),
         ];
     }
 

@@ -30,7 +30,6 @@ class Transaction extends Model
     {
         return $this->belongsTo(User::class);
     }
-
     public function attendances(): BelongsToMany
     {
         return $this->belongsToMany(Attendance::class, 'attendance_transaction', 'transaction_id', 'attendance_id');
