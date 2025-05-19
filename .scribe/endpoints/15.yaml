@@ -26,7 +26,7 @@ endpoints:
         name: type
         description: ''
         required: true
-        example: licenses
+        example: notarius
         type: string
         enumValues:
           - licenses
@@ -49,7 +49,7 @@ endpoints:
         name: url
         description: ''
         required: false
-        example: 'http://www.franecki.info/vel-qui-illo-architecto-facilis-impedit-dolorem-dolores-est.html'
+        example: 'http://www.cummerata.net/'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -59,7 +59,7 @@ endpoints:
         name: number
         description: ''
         required: false
-        example: autem
+        example: similique
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -69,7 +69,7 @@ endpoints:
         name: issuedWhom
         description: ''
         required: false
-        example: sunt
+        example: eos
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -79,24 +79,24 @@ endpoints:
         name: itWorksDate
         description: ''
         required: false
-        example: atque
+        example: ut
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      type: licenses
-      url: 'http://www.franecki.info/vel-qui-illo-architecto-facilis-impedit-dolorem-dolores-est.html'
-      number: autem
-      issuedWhom: sunt
-      itWorksDate: atque
+      type: notarius
+      url: 'http://www.cummerata.net/'
+      number: similique
+      issuedWhom: eos
+      itWorksDate: ut
     fileParameters:
       file: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.document.create.success","document":{"id":336,"name":"file_6821ecdb0b414","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
+        content: '{"status":"success","message":"messages.document.create.success","document":{"id":361,"name":"file_682acc909f4a9","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
         headers: []
         description: ''
         custom: []
@@ -131,7 +131,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 4
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -141,20 +141,20 @@ endpoints:
         name: commandId
         description: 'The <code>id</code> of an existing record in the commands table.'
         required: false
-        example: 3
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      userId: 4
-      commandId: 3
+      userId: 3
+      commandId: 1
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.document.get_for_user.success","documents":{"id":337,"name":"file_6821ecdb31264","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}},{"status":"success","message":"messages.document.get_for_user.success","documents":{"id":338,"name":"file_6821ecdb41aee","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}]'
+        content: '[{"status":"success","message":"messages.document.get_for_user.success","documents":{"id":362,"name":"file_682acc90ca75f","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}},{"status":"success","message":"messages.document.get_for_user.success","documents":{"id":363,"name":"file_682acc90d688a","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}]'
         headers: []
         description: ''
         custom: []
@@ -207,7 +207,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.document.get_for_user_by_id.success","document":{"id":339,"name":"file_6821ecdb728c7","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
+        content: '{"status":"success","message":"messages.document.get_for_user_by_id.success","document":{"id":364,"name":"file_682acc9110f8f","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
         headers: []
         description: ''
         custom: []
@@ -269,7 +269,7 @@ endpoints:
         name: number
         description: ''
         required: false
-        example: id
+        example: et
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -279,7 +279,7 @@ endpoints:
         name: issuedWhom
         description: ''
         required: false
-        example: tempore
+        example: eos
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -289,22 +289,22 @@ endpoints:
         name: itWorksDate
         description: ''
         required: false
-        example: quod
+        example: aliquid
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      number: id
-      issuedWhom: tempore
-      itWorksDate: quod
+      number: et
+      issuedWhom: eos
+      itWorksDate: aliquid
     fileParameters:
       file: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.document.update.success","document":{"id":340,"name":"file_6821ecdba0894","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
+        content: '{"status":"success","message":"messages.document.update.success","document":{"id":365,"name":"file_682acc913e04e","type":"notarius","url_view":null,"number":null,"issued_whom":null,"it_works_date":null,"is_checked":null}}'
         headers: []
         description: ''
         custom: []
@@ -421,7 +421,7 @@ endpoints:
         name: checked
         description: ''
         required: true
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -431,15 +431,15 @@ endpoints:
         name: comment
         description: ''
         required: false
-        example: qui
+        example: quos
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      checked: true
-      comment: qui
+      checked: false
+      comment: quos
     fileParameters: []
     responses:
       -
