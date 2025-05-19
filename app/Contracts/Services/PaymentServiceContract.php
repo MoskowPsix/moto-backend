@@ -8,4 +8,5 @@ interface PaymentServiceContract
 {
     public function generateLink(Transaction $transaction): string;
     public function generateLinkWithSaveCard(Transaction $transaction, string $opKey): string;
+    public function checkReceiptStatus(int $transactionId, string $merchantLogin, string $merchantPassword): array;
 }

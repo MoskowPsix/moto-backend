@@ -5,6 +5,7 @@ namespace App\Services\Payment;
 use App\Contracts\Services\PaymentServiceContract;
 use App\Models\Transaction;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Http;
 
 class PaymentService implements PaymentServiceContract
 {
@@ -107,5 +108,29 @@ class PaymentService implements PaymentServiceContract
         ]);
 
         return "https://auth.robokassa.kz/Merchant/Payment/CoFPayment?" . $params;
+    }
+
+    public function checkReceiptStatus(int $transactionId, string $merchantLogin, string $merchantPassword): array
+    {
+        $data = [
+            'merchantId' => $merchantLogin,
+            'id' => (string) $transactionId,
+        ];
+
+        $signature = md5("{$data['merchantId']}:{$data['id']}:{$merchantPassword}");
+
+        $response = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'Signature' => $signature,
+        ])->post($this->receiptStatusUrl, $data);
+
+        if ($response->successful()) {
+            return $response->json();
+        }
+
+        return [
+            'Code' => 1000,
+            'Description' => 'Ошибка соединения с Robokassa',
+        ];
     }
 }
