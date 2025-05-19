@@ -85,8 +85,8 @@ final class MoonShineLayout extends AppLayout
                 MenuItem::make('Транзакции', TransactionResource::class, 'credit-card'),
                 MenuItem::make('Уровни', DegreeResource::class, 'chevron-double-up'),
                 MenuItem::make('Кубки', CupResource::class, 'trophy'),
-                MenuItem::make('Округа', DistrictResource::class),
-                MenuItem::make('Локации', LocationResource::class),
+                MenuItem::make('Округа', DistrictResource::class, 'map-pin'),
+                MenuItem::make('Локации', LocationResource::class, 'globe-alt'),
             ], 'cube'),
         ];
     }
