@@ -44,13 +44,12 @@ class ResultTransactionAction implements ResultTransactionActionContract
             'data' => $request->except('SignatureValue'),
         ]);
 
-        if($opKey && !$transaction->user->cards()->exists()) {
-            Cards::create([
-                'user_id' => $transaction->user->id,
-                'op_key'  => $opKey,
-            ]);
+        if ($opKey) {
+            $transaction->user->cards()->updateOrCreate(
+                ['user_id' => $transaction->user->id],
+                ['op_key' => $opKey]
+            );
         }
-
         return response("OK$invId\n", 200);
     }
 }
