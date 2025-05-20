@@ -39,6 +39,8 @@ class AttendanceResource extends ModelResource
             Text::make('Название', 'name'),
             Text::make('Описание', 'desc'),
             Number::make('Цена', 'price'),
+            Text::make('Tax', 'tax'),
+            Text::make('Sno', 'usn_income_outcome')
         ];
     }
 
@@ -51,6 +53,8 @@ class AttendanceResource extends ModelResource
             Text::make('Название', 'name'),
             Text::make('Описание', 'desc'),
             Number::make('Цена', 'price'),
+            Text::make('Tax', 'tax'),
+            Text::make('Sno', 'usn_income_outcome')
         ];
     }
 
@@ -63,6 +67,8 @@ class AttendanceResource extends ModelResource
             Text::make('Название', 'name'),
             Text::make('Описание', 'desc'),
             Number::make('Цена', 'price'),
+            Text::make('Tax', 'tax'),
+            Text::make('Sno', 'usn_income_outcome')
         ];
     }
 
