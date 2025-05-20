@@ -13,8 +13,8 @@ class ResultTransactionAction implements ResultTransactionActionContract
     public function __invoke(Request $request)
     {
         $outSum = $request->input('OutSum');
-        $invId = $request->input('InvId');
-        $crc = strtoupper($request->input('SignatureValue'));
+        $invId = $request->input('InvId') ?? $request->input('inv_id');
+        $crc = strtoupper($request->input('SignatureValue') ?? $request->input('crc'));
 
         if (!$invId) {
             Log::error('InvId is missing in the request');
@@ -39,11 +39,9 @@ class ResultTransactionAction implements ResultTransactionActionContract
             Log::error("Invalid signature for transaction: $invId");
         }
         $transaction->update([
-            'data' => $request->except('SignatureValue'),
+            'data' => $request->except('SignatureValue') ?? $request->except('crc'),
             'status' => 1,
         ]);
-        Log::error("Transaction: $transaction");
-
         Log::info('Success');
         Log::info("Transaction result for InvId: $invId");
         return response("OK$invId\n", 200);
