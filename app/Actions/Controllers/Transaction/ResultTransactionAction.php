@@ -18,19 +18,16 @@ class ResultTransactionAction implements ResultTransactionActionContract
 
         if (!$invId) {
             Log::error('InvId is missing in the request');
-            return response('InvId is missing', 400);
         }
 
         $transaction = Transaction::find($invId);
         if (!$transaction) {
             Log::error("Transaction not found for InvId: $invId");
-            return response("Transaction not found for InvId: $invId", 404);
         }
 
         $attendance = $transaction->attendances()->first();
         if (!$attendance) {
             Log::error("Attendance not found for transaction: $invId");
-            return response("Attendance not found for transaction: $invId", 400);
         }
 
         $store = $attendance->track()->first()->store()->first();
@@ -40,11 +37,10 @@ class ResultTransactionAction implements ResultTransactionActionContract
 
         if ($myCrc !== $crc) {
             Log::error("Invalid signature for transaction: $invId");
-            return response("Invalid signature for transaction: $invId", 400);
         }
         $transaction->update([
             'data' => $request->except('SignatureValue'),
-            'status' => true
+            'status' => true,
         ]);
         Log::info('Success');
         Log::info("Transaction result for InvId: $invId");
