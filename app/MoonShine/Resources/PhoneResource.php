@@ -6,6 +6,7 @@ namespace App\MoonShine\Resources;
 
 use App\Models\Phone;
 use Illuminate\Database\Eloquent\Model;
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\Date;
@@ -33,6 +34,7 @@ class PhoneResource extends ModelResource
         return [
             ID::make()->sortable(),
             \MoonShine\UI\Fields\Phone::make('Номер', 'number')->sortable(),
+            BelongsTo::make('Пользователь', 'user', resource: UserResource::class),
             Date::make('Подтверждение телефона', 'number_verified_at')->sortable(),
         ];
     }
@@ -43,10 +45,10 @@ class PhoneResource extends ModelResource
     protected function formFields(): iterable
     {
         return [
-            Box::make([
-                \MoonShine\UI\Fields\Phone::make('Номер', 'number'),
-                Date::make('Подтверждение телефона', 'number_verified_at'),
-            ])
+            ID::make(),
+            \MoonShine\UI\Fields\Phone::make('Номер', 'number'),
+            BelongsTo::make('Пользователь', 'user', resource: UserResource::class)->searchable(),
+            Date::make('Подтверждение телефона', 'number_verified_at'),
         ];
     }
 
@@ -58,6 +60,8 @@ class PhoneResource extends ModelResource
         return [
             ID::make(),
             \MoonShine\UI\Fields\Phone::make('Номер', 'number'),
+            BelongsTo::make('Пользователь', 'user', resource: UserResource::class),
+            Date::make('Подтверждение телефона', 'number_verified_at'),
         ];
     }
 
