@@ -79,7 +79,7 @@ class LocationResource extends ModelResource
     {
         return [
             Number::make('ID', 'id'),
-            Text::make('Название', 'number'),
+            Text::make('Название', 'name'),
         ];
     }
 }
