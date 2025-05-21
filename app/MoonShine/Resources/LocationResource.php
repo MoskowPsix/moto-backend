@@ -13,6 +13,7 @@ use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Text;
 /**
  * @extends ModelResource<Location>
@@ -73,5 +74,12 @@ class LocationResource extends ModelResource
     protected function rules(mixed $item): array
     {
         return [];
+    }
+    protected function filters(): iterable
+    {
+        return [
+            Number::make('ID', 'id'),
+            Text::make('Название', 'number'),
+        ];
     }
 }

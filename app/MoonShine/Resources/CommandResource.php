@@ -14,6 +14,8 @@ use App\MoonShine\Pages\Command\CommandDetailPage;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Laravel\Pages\Page;
 use MoonShine\Support\Enums\ClickAction;
+use MoonShine\UI\Fields\Number;
+use MoonShine\UI\Fields\Text;
 
 /**
  * @extends ModelResource<Command, CommandIndexPage, CommandFormPage, CommandDetailPage>
@@ -59,5 +61,12 @@ class CommandResource extends ModelResource
     protected function rules(mixed $item): array
     {
         return [];
+    }
+    protected function filters(): iterable
+    {
+        return [
+            Number::make('ID', 'id'),
+            Text::make('Название', 'name'),
+        ];
     }
 }

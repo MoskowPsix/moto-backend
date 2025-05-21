@@ -14,6 +14,7 @@ use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Text;
 
 /**
@@ -34,8 +35,8 @@ class GradeResource extends ModelResource
     {
         return [
             ID::make()->sortable(),
-            Text::make('name')->sortable(),
-            Text::make('description')->sortable(),
+            Text::make('Название', 'name')->sortable(),
+            Text::make('Описание', 'description')->sortable(),
             BelongsTo::make('Автор', 'user', resource: \App\MoonShine\Resources\UserResource::class)->searchable(),
             BelongsTo::make('Родитель', 'gradeParent', resource: \App\MoonShine\Resources\GradeResource::class)->searchable()->nullable(),
         ];
@@ -80,5 +81,12 @@ class GradeResource extends ModelResource
     protected function rules(mixed $item): array
     {
         return [];
+    }
+    protected function filters(): iterable
+    {
+        return [
+            Number::make('ID', 'id'),
+            Text::make('Название', 'name'),
+        ];
     }
 }

@@ -15,6 +15,8 @@ use Illuminate\Contracts\Database\Eloquent\Builder;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Laravel\Pages\Page;
 use MoonShine\Support\Enums\ClickAction;
+use MoonShine\UI\Fields\Number;
+use MoonShine\UI\Fields\Text;
 
 /**
  * @extends ModelResource<Track, TrackIndexPage, TrackFormPage, TrackDetailPage>
@@ -67,5 +69,12 @@ class TrackResource extends ModelResource
     protected function rules(mixed $item): array
     {
         return [];
+    }
+    protected function filters(): iterable
+    {
+        return [
+            Number::make('ID', 'id'),
+            Text::make('Название', 'name'),
+        ];
     }
 }

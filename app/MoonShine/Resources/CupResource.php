@@ -87,4 +87,11 @@ class CupResource extends ModelResource
     {
         return [];
     }
+    protected function filters(): iterable
+    {
+        return [
+            Number::make('ID', 'id'),
+            Text::make('Название', 'name'),
+        ];
+    }
 }

@@ -13,6 +13,9 @@ use App\MoonShine\Pages\Transaction\TransactionDetailPage;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Laravel\Pages\Page;
 use MoonShine\Support\Enums\ClickAction;
+use MoonShine\UI\Components\Boolean;
+use MoonShine\UI\Fields\Number;
+use MoonShine\UI\Fields\Text;
 
 /**
  * @extends ModelResource<Transaction, TransactionIndexPage, TransactionFormPage, TransactionDetailPage>
@@ -53,5 +56,11 @@ class TransactionResource extends ModelResource
     protected function rules(mixed $item): array
     {
         return [];
+    }
+    protected function filters(): iterable
+    {
+        return [
+            Number::make('ID', 'id'),
+        ];
     }
 }

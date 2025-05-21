@@ -13,6 +13,8 @@ use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\ID;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\UI\Fields\Number;
+use MoonShine\UI\Fields\Text;
 
 
 /**
@@ -87,6 +89,13 @@ class PhoneResource extends ModelResource
     {
         return [
             'number',
+        ];
+    }
+    protected function filters(): iterable
+    {
+        return [
+            Number::make('ID', 'id'),
+            Text::make('Номер', 'number'),
         ];
     }
 }
