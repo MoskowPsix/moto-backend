@@ -52,6 +52,7 @@ class RaceDetailPage extends DetailPage
             Date::make('Обновлено', 'updated_at'),
             $this->commission(),
             $this->grades(),
+            $this->cups(),
             $this->appointmentsCount(),
             $this->appointments(),
         ];

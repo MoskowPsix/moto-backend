@@ -55,7 +55,6 @@ class CupResource extends ModelResource
                 BelongsTo::make('Локация', 'location', resource: LocationResource::class)->searchable()->nullable(),
                 BelongsTo::make('Автор', 'user', resource: UserResource::class)->searchable(),
                 BelongsTo::make('Уровень', 'degree', resource: DegreeResource::class)->searchable()->nullable(),
-                BelongsToMany::make('Гонки', 'race', resource: RaceResource::class)->searchable()->selectMode()->nullable()
             ])
         ];
     }
@@ -73,7 +72,6 @@ class CupResource extends ModelResource
             BelongsTo::make('Локация', 'location', resource: LocationResource::class)->searchable()->nullable(),
             BelongsTo::make('Автор', 'user', resource: UserResource::class)->searchable(),
             BelongsTo::make('Уровень', 'degree', resource: DegreeResource::class)->searchable()->nullable(),
-            BelongsToMany::make('Гонки', 'race', resource: RaceResource::class)->searchable()->selectMode()->nullable()
         ];
     }
 

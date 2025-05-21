@@ -44,6 +44,7 @@ class RaceFormPage extends FormPage
             $this->commission(),
             $this->appointments(),
             $this->grades(),
+            $this->cups(),
             File::make('Файл положения', 'position_file')->dir(isset($item->id) ? "/race/$item->id" : "/race")->keepOriginalFileName()->removable(),
             File::make('Файл регламента', 'results_file')->dir(isset($item->id) ? "/race/$item->id" : "/race")->keepOriginalFileName()->removable(),
             File::make('Файл с итогами', 'pdf_files')->dir(isset($item->id) ? "/race/$item->id" : "/race")->multiple(true)->keepOriginalFileName()->removable(),
