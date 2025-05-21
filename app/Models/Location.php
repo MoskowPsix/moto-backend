@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Location extends Model
 {
@@ -19,6 +20,7 @@ class Location extends Model
         'time_zone',            // Часовой пояс
         'integration_data',     // Вся информация полученная во время интеграции
         'location_id',          // Объект ссылается сам на себя, для реализации иерархии в рамках одной таблицы
+        'district_id',
     ];
 
     protected array $postgisColumns = [
@@ -31,4 +33,9 @@ class Location extends Model
         'name'              => 'string',
         'integration_data'  => 'json',
     ];
+
+    public function district(): BelongsTo
+    {
+        return $this->belongsTo(District::class);
+    }
 }

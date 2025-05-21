@@ -2,32 +2,14 @@
 
 namespace App\Providers;
 
-use App\Contracts\Actions\Commands\GenerateLocationCsvActionContract;
-use App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentRaceUsersForCommissionActionContract;
-use App\Contracts\Actions\Controllers\AuthPhoneController\LoginPhoneActionContract;
-use App\Contracts\Actions\Controllers\AuthPhoneController\RegisterPhoneActionContract;
-use App\Contracts\Actions\Controllers\AuthPhoneController\VerifyPhoneActionContract;
-use App\Contracts\Actions\Controllers\Command\GetCoachesForAllUsersActionContract;
-use App\Contracts\Actions\Controllers\Command\GetMemberForCoachForIdActionContract;
-use App\Contracts\Actions\Controllers\Grade\GetForIdGradeActionContract;
-use App\Contracts\Actions\Controllers\Grade\GetGradeActionContract;
-use App\Contracts\Actions\Controllers\Grade\UpdateGradeActionContract;
-use App\Contracts\Actions\Controllers\Race\AddCommissionActionContract;
-use App\Contracts\Actions\Controllers\Race\RemoveCommissionActionContract;
-use App\Contracts\Actions\Controllers\Status\GetStatusesActionContract;
-use App\Contracts\Actions\Controllers\Transaction\GetTransactionForIdActionContract;
-use App\Contracts\Actions\Controllers\User\DeleteUserActionContract;
-use App\Contracts\Actions\Controllers\User\GetCommisionUserActionContract;
 use Illuminate\Support\ServiceProvider;
 
 class ActionServiceProvider extends ServiceProvider
 {
     public array $bindings = [
-        // Command
+		\App\Contracts\Actions\Controllers\RaceResult\CreateRaceResultActionContract::class                         => \App\Actions\Controllers\RaceResult\CreateRaceResultAction::class,
         \App\Contracts\Actions\Commands\CreateUserForRaceCommandActionContracts::class                              => \App\Actions\Commands\CreateUserForRaceCommandAction::class,
         \App\Contracts\Actions\Commands\GenerateLocationCsvActionContract::class                                    => \App\Actions\Commands\GenerateLocationCsvAction::class,
-
-        // Controller
         \App\Contracts\Actions\Controllers\Auth\LoginActionContract::class                                          => \App\Actions\Controllers\Auth\LoginAction::class,
         \App\Contracts\Actions\Controllers\Auth\RegisterActionContract::class                                       => \App\Actions\Controllers\Auth\RegisterAction::class,
         \App\Contracts\Actions\Controllers\Auth\LogoutActionContract::class                                         => \App\Actions\Controllers\Auth\LogoutAction::class,
@@ -45,7 +27,6 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\Race\UpdateRaceActionContract::class                                     => \App\Actions\Controllers\Race\UpdateRaceAction::class,
         \App\Contracts\Actions\Controllers\Race\DeleteRaceActionContract::class                                     => \App\Actions\Controllers\Race\DeleteRaceAction::class,
         \App\Contracts\Actions\Controllers\Race\AddDocumentRaceActionContract::class                                => \App\Actions\Controllers\Race\AddDocumentRaceAction::class,
-//        \App\Contracts\Actions\Controllers\Race\DeleteDocumentRaceActionContract::class                             => \App\Actions\Controllers\Race\DeleteDocumentRaceAction::class,
         \App\Contracts\Actions\Controllers\Race\AddCommissionActionContract::class                                  => \App\Actions\Controllers\Race\AddCommissionAction::class,
         \App\Contracts\Actions\Controllers\Race\ToggleIsWorkRaceActionContract::class                               => \App\Actions\Controllers\Race\ToggleIsWorkRaceAction::class,
         \App\Contracts\Actions\Controllers\PersonalInfo\CreatePersonalInfoActionContract::class                     => \App\Actions\Controllers\PersonalInfo\CreatePersonalInfoAction::class,
@@ -63,6 +44,7 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\AppointmentRace\CreateTableAppointmentRaceUserActionContract::class      => \App\Actions\Controllers\AppointmentRace\CreateTableAppointmentRaceUserAction::class,
         \App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentPDFActionContract::class                   => \App\Actions\Controllers\AppointmentRace\GetAppointmentPDFAction::class,
         \App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentRaceUsersForCommissionActionContract::class=> \App\Actions\Controllers\AppointmentRace\GetAppointmentRaceUsersForCommissionAction::class,
+        \App\Contracts\Actions\Controllers\AppointmentRace\CheckedAppointmentRaceForCommissionActionContract::class => \App\Actions\Controllers\AppointmentRace\CheckedAppointmentRaceForCommissionAction::class,
         \App\Contracts\Actions\Controllers\User\UpdateUserActionContract::class                                     => \App\Actions\Controllers\User\UpdateUserAction::class,
         \App\Contracts\Actions\Controllers\User\GetUserForIdActionContract::class                                   => \App\Actions\Controllers\User\GetUserForIdAction::class,
         \App\Contracts\Actions\Controllers\User\GetCommisionUserActionContract::class                               => \App\Actions\Controllers\User\GetCommisionUserAction::class,
@@ -85,8 +67,8 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\Command\ToggleMemberActionContract::class                                => \App\Actions\Controllers\Command\ToggleMemberAction::class,
         \App\Contracts\Actions\Controllers\Command\GetMembersActionContract::class                                  => \App\Actions\Controllers\Command\GetMembersAction::class,
         \App\Contracts\Actions\Controllers\Command\GetMemberForCoachForIdActionContract::class                      => \App\Actions\Controllers\Command\GetMemberForCoachForIdAction::class,
-        \App\Contracts\Actions\Controllers\Command\GetMembersForCoachActionContract::class                      => \App\Actions\Controllers\Command\GetMembersForCoachAction::class,
-        \App\Contracts\Actions\Controllers\Command\GetCoachesForAllUsersActionContract::class                      => \App\Actions\Controllers\Command\GetCoachesForAllUsersAction::class,
+        \App\Contracts\Actions\Controllers\Command\GetMembersForCoachActionContract::class                          => \App\Actions\Controllers\Command\GetMembersForCoachAction::class,
+        \App\Contracts\Actions\Controllers\Command\GetCoachesForAllUsersActionContract::class                       => \App\Actions\Controllers\Command\GetCoachesForAllUsersAction::class,
         \App\Contracts\Actions\Controllers\RecoveryPassword\SendRecoveryPasswordActionContract::class               => \App\Actions\Controllers\RecoveryPassword\SendRecoveryPasswordAction::class,
         \App\Contracts\Actions\Controllers\RecoveryPassword\RecoveryRecoveryPasswordActionContract::class           => \App\Actions\Controllers\RecoveryPassword\RecoveryRecoveryPasswordAction::class,
         \App\Contracts\Actions\Controllers\Store\CreateStoreActionContract::class                                   => \App\Actions\Controllers\Store\CreateStoreAction::class,
@@ -102,13 +84,17 @@ class ActionServiceProvider extends ServiceProvider
         \App\Contracts\Actions\Controllers\AuthPhoneController\HookPhoneVerifyActionContract::class                 => \App\Actions\Controllers\AuthPhone\HookPhoneVerifyAction::class,
         \App\Contracts\Actions\Controllers\AuthPhoneController\VerifyPhoneActionContract::class                     => \App\Actions\Controllers\AuthPhone\VerifyPhoneAction::class,
         \App\Contracts\Actions\Controllers\AuthPhoneController\RegisterPhoneActionContract::class                   => \App\Actions\Controllers\AuthPhone\RegisterPhoneAction::class,
-        \App\Contracts\Actions\Controllers\AuthPhoneController\DeletePhoneActionContract::class                    => \App\Actions\Controllers\AuthPhone\DeletePhoneAction::class,
+        \App\Contracts\Actions\Controllers\AuthPhoneController\DeletePhoneActionContract::class                     => \App\Actions\Controllers\AuthPhone\DeletePhoneAction::class,
         \App\Contracts\Actions\Controllers\Status\GetStatusesActionContract::class                                  => \App\Actions\Controllers\Status\GetStatusesAction::class,
         \App\Contracts\Actions\Controllers\Cup\CreateCupActionContract::class                                       => \App\Actions\Controllers\Cup\CreateCupAction::class,
         \App\Contracts\Actions\Controllers\Cup\GetForIdCupActionContract::class                                     => \App\Actions\Controllers\Cup\GetForIdCupAction::class,
         \App\Contracts\Actions\Controllers\Cup\GetForRaceIdCupActionContract::class                                 => \App\Actions\Controllers\Cup\GetForRaceIdCupAction::class,
         \App\Contracts\Actions\Controllers\Cup\UpdateCupActionContract::class                                       => \App\Actions\Controllers\Cup\UpdateCupAction::class,
         \App\Contracts\Actions\Controllers\FavoriteUser\ToggleFavoriteRaceActionContract::class                     => \App\Actions\Controllers\FavoriteUser\ToggleFavoriteRaceAction::class,
+        \App\Contracts\Actions\Controllers\Degree\GetDegreeActionContract::class                                    => \App\Actions\Controllers\Degree\GetDegreeAction::class,
+        \App\Contracts\Actions\Controllers\Degree\GetForIdsDegreeActionContract::class                              => \App\Actions\Controllers\Degree\GetDegreeForIdsAction::class,
+        \App\Contracts\Actions\Controllers\District\GetDistrictsActionContract::class                               => \App\Actions\Controllers\District\GetDistrictsAction::class,
+        \App\Contracts\Actions\Controllers\RaceResult\GetResultsActionContract::class                               => \App\Actions\Controllers\RaceResult\GetResultsAction::class,
     ];
     /**
      * Register services.

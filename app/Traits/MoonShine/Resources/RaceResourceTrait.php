@@ -2,10 +2,13 @@
 
 namespace App\Traits\MoonShine\Resources;
 
+use App\Models\RaceResult;
+use App\MoonShine\Resources\RaceResultsResource;
 use App\MoonShine\Resources\StatusResource;
 use App\MoonShine\Resources\TrackResource;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
+use MoonShine\Laravel\Fields\Relationships\HasMany;
 
 trait RaceResourceTrait
 {
@@ -36,5 +39,9 @@ trait RaceResourceTrait
     public function location(): BelongsTo
     {
         return BelongsTo::make('Местоположение', 'location', resource: \App\MoonShine\Resources\LocationResource::class)->searchable();
+    }
+    public function results(): HasMany
+    {
+        return HasMany::make('Результаты', 'results', resource: RaceResultsResource::class)->searchable();
     }
 }

@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Exports;
+namespace App\Services\Exports;
 
 use App\Enums\DocumentType;
 use App\Models\AppointmentRace;
-use App\Models\User;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
@@ -89,8 +88,7 @@ class AppointmentRaceForGradeUserExport implements FromCollection, WithHeadings,
     {
         $sheet->getStyle('A1:X1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getStyle('A1:X1')->getFont()->setBold(true);
-        $sheet->getStyle('A2:A1000')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-
+        $sheet->getStyle('A2:X1000')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getStyle('A1:X1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
     }
 }

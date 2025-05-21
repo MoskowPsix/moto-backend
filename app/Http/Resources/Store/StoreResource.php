@@ -29,7 +29,7 @@ class StoreResource extends JsonResource
 //            'password_1'    => $this->password_1,
 //            'password_2'    => $this->password_2,
 //            'token'         => $this->token,
-            'user'          => UserResource::make($this->whenLoaded('user')),
+            'user'          => $this->whenLoaded('user', UserResource::make($this->user)),
         ];
     }
 }

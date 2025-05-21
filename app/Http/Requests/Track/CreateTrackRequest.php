@@ -20,6 +20,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property array $spec
  * @property object $contacts
  * @property int $locationId
+ * @property mixed offerFile
  */
 class CreateTrackRequest extends FormRequest
 {

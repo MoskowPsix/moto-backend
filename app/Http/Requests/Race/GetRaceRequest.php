@@ -47,6 +47,9 @@ class GetRaceRequest extends FormRequest
             'statusIds.*'       => 'nullable|integer|exists:statuses,id',
             'sortField'         => 'nullable|string',
             'sort'              => 'nullable|string',
+            'name'              => 'nullable|string',
+            'degreeIds'         => 'nullable|array',
+            'degreeIds.*'       => 'required|integer|exists:degrees,id'
         ];
     }
 }

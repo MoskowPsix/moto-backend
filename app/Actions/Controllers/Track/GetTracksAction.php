@@ -4,6 +4,7 @@ namespace App\Actions\Controllers\Track;
 
 use App\Contracts\Actions\Controllers\Track\GetTracksActionContract;
 use App\Filters\Race\RaceForLocationIdsFilter;
+use App\Filters\Race\RaceNameFilter;
 use App\Filters\Track\TrackForLocationIdsFilter;
 use App\Filters\Track\TrackStoreExists;
 use App\Filters\Track\TrackUserIdFilter;
@@ -29,6 +30,7 @@ class GetTracksAction implements GetTracksActionContract
                 TrackUserIdFilter::class,
                 TrackForLocationIdsFilter::class,
                 TrackStoreExists::class,
+                RaceNameFilter::class,
             ])
             ->via('apply')
             ->then(function ($tracks) use ($page, $limit, $request) {

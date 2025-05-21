@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Document\CreateDocumentRequest;
 use App\Http\Requests\Document\GetDocumentForUserRequest;
 use App\Http\Requests\Document\UpdateDocumentRequest;
+use App\Http\Requests\Document\VerifyDocsForCommissionDocumentRequest;
 use App\Http\Resources\Document\Create\SuccessCreateDocumentResource;
 use App\Http\Resources\Document\Delete\SuccessDeleteDocumentResource;
 use App\Http\Resources\Document\GetForUser\SuccessGetDocumentForUserResource;
@@ -72,9 +73,9 @@ class DocumentController extends Controller
     #[ResponseFromApiResource(SuccessVerifyDocsForCommissionResource::class)]
     #[ResponseFromApiResource(NotFoundResource::class, PersonalInfo::class, status: 404)]
     #[Endpoint(title: 'VerifyDocsForCommission', description: 'Сделать документ проверенным. Метод для комиссии.')]
-    public function verifyDocsForCommission(int $id, VerifyDocsForCommissionActionContract $action): SuccessVerifyDocsForCommissionResource|NotFoundResource
+    public function verifyDocsForCommission(int $id, VerifyDocsForCommissionDocumentRequest $request, VerifyDocsForCommissionActionContract $action): SuccessVerifyDocsForCommissionResource|NotFoundResource
     {
-        return $action($id);
+        return $action($id, $request);
     }
     #[ResponseFromApiResource(SuccessDeleteDocumentResource::class)]
     #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]

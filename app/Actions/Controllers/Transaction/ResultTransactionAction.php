@@ -4,6 +4,7 @@ namespace App\Actions\Controllers\Transaction;
 
 use App\Contracts\Actions\Controllers\Transaction\ResultTransactionActionContract;
 use App\Http\Requests\Transaction\ResultTransactionRequest;
+use App\Models\Cards;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Log;
@@ -15,6 +16,7 @@ class ResultTransactionAction implements ResultTransactionActionContract
         $outSum = $request->input('OutSum');
         $invId = $request->input('InvId') ?? $request->input('inv_id');
         $crc = strtoupper($request->input('SignatureValue') ?? $request->input('crc'));
+        $opKey = $request->input('Token');
 
         if (!$invId) {
             Log::error('InvId is missing in the request');
@@ -42,6 +44,13 @@ class ResultTransactionAction implements ResultTransactionActionContract
             'data' => $request->except('SignatureValue') ?? $request->except('crc'),
             'status' => 1,
         ]);
+
+        if ($opKey) {
+            $transaction->user->cards()->updateOrCreate(
+                ['user_id' => $transaction->user->id],
+                ['op_key' => $opKey]
+            );
+        }
         return response("OK$invId\n", 200);
     }
 }

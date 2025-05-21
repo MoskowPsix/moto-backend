@@ -114,4 +114,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Command::class, 'user_command_member', 'user_id', 'command_id');
     }
+    public function cards(): HasOne
+    {
+        return $this->hasOne(Cards::class);
+    }
 }

@@ -2,27 +2,33 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Contracts\Actions\Controllers\AppointmentRace\CheckedAppointmentRaceForCommissionActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\CreateTableAppointmentRaceUserActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentPDFActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\GetAppointmentRaceUsersForCommissionActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\GetUsersAppointmentRaceActionContract;
 use App\Contracts\Actions\Controllers\AppointmentRace\ToggleAppointmentRaceActionContract;
-use App\Contracts\Actions\Controllers\Export\MultiSheetAppointmentRaceExport;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AppointmentRace\CheckedAppointmentRaceForCommissionRequest;
 use App\Http\Requests\AppointmentRace\GetAppointmentRaceUsersForCommissionRequest;
 use App\Http\Requests\AppointmentRace\GetUsersAppointmentRaceRequest;
 use App\Http\Requests\AppointmentRace\ToogleAppointmentRaceRequest;
+use App\Http\Resources\AppointmentRace\Checked\SuccessCheckedAppointmentRaceForCommissionResource;
 use App\Http\Resources\AppointmentRace\Create\ExistsAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Create\GradeNotExistsAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Create\ManyDocumentAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\Create\SuccessCreateAppointmentRaceResource;
-use App\Http\Resources\AppointmentRace\Delete\SuccessDeleteAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\GetUsers\SuccessGetUsersAppointmentResource;
 use App\Http\Resources\AppointmentRace\SuccessCreateTableAppointmentRaceResource;
 use App\Http\Resources\AppointmentRace\SuccessGetAppointmentRaceUsersForCommissionResource;
 use App\Http\Resources\Errors\NotFoundResource;
 use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\User;
+use App\Services\Exports\MultiSheetAppointmentRaceExport;
+use App\Services\Exports\Results\MultiSheetTemplateRaceResultTableExport;
+use App\Services\Imports\Results\MultiSheetTemplateRaceResultsTableImport;
+use App\Services\Imports\Results\TemplateRaceResultsTableImport;
+use Illuminate\Http\Request;
 use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
@@ -54,7 +60,7 @@ class AppointmentRaceController extends Controller
     }
     #[ResponseFromApiResource(SuccessGetUsersAppointmentResource::class, User::class, collection: true)]
     #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
-    #[Endpoint(title: 'GetUsersAppointmentRace', description: 'Записаться и отменить запись на гонку')]
+    #[Endpoint(title: 'GetUsersAppointmentRace', description: 'Получить участников в гонке')]
     public function getUsersAppointmentRace(int $id, GetUsersAppointmentRaceRequest $request, GetUsersAppointmentRaceActionContract $action): SuccessGetUsersAppointmentResource | NotFoundResource
     {
         return $action($id, $request);
@@ -93,16 +99,34 @@ class AppointmentRaceController extends Controller
 //        // Функции этого метода выполняет метод toggle, по этому он убран.
 //        return $action($id);
 //    }
+
     /**
      * @throws Exception
      * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
      */
     #[Authenticated]
-    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
-    #[Endpoint(title: 'Export', description: 'Экспорт заявок')]
-    public function export(int $id)
+    #[Endpoint(title: 'Export', description: 'Экспорт результатов')]
+    public function exportResults(int $id)
     {
-//        $userId = \Auth::id();
-        return Excel::download(new MultiSheetAppointmentRaceExport($id), 'регистрация мотокросс.xlsx');
+        return Excel::download(new MultiSheetTemplateRaceResultTableExport($id), 'Результаты.xlsx',  \Maatwebsite\Excel\Excel::XLSX, ['Content-Type' => 'text/csv']);
+    }
+    #[Authenticated]
+    #[Endpoint(title: 'Import', description: 'Импорт результатов')]
+    public function importResults(int $id, Request $request)
+    {
+        Excel::import(new MultiSheetTemplateRaceResultsTableImport($id), $request->file('file'));
+        return response()->json(['message' => 'Данные успешно импортированы.']);
+    }
+    #[Authenticated]
+    #[ResponseFromApiResource(SuccessCheckedAppointmentRaceForCommissionResource::class)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
+    #[Endpoint(title: 'checkedForCommission', description: 'Подтверждение записи участника гонки.')]
+    public function checkedForCommission(int $id, CheckedAppointmentRaceForCommissionRequest $request, CheckedAppointmentRaceForCommissionActionContract $action):
+    SuccessCheckedAppointmentRaceForCommissionResource|
+    NotFoundResource|
+    NotUserPermissionResource
+    {
+        return $action($id, $request);
     }
 }

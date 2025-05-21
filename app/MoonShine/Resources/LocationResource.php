@@ -7,6 +7,7 @@ namespace App\MoonShine\Resources;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Location;
 
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\ID;
@@ -33,6 +34,7 @@ class LocationResource extends ModelResource
         return [
             ID::make()->sortable(),
             Text::make('name')->sortable(),
+            BelongsTo::make('Округ', 'district', resource: DistrictResource::class)
         ];
     }
 
@@ -45,6 +47,7 @@ class LocationResource extends ModelResource
             Box::make([
                 ID::make(),
                 Text::make('name')->sortable(),
+                BelongsTo::make('Округ', 'district', resource: DistrictResource::class)->searchable()->nullable()->columnSelection(),
             ])
         ];
     }
@@ -57,6 +60,7 @@ class LocationResource extends ModelResource
         return [
             ID::make(),
             Text::make('name')->sortable(),
+            BelongsTo::make('Округ', 'district', resource: DistrictResource::class)->searchable()->nullable()->columnSelection()
         ];
     }
 

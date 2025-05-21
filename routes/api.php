@@ -3,13 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\AuthPhoneController;
 use App\Http\Controllers\Api\UserController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Maatwebsite\Excel\Facades\Excel;
-
-//Route::get('/user', function (Request $request) {
-//    return $request->user();
-//})->middleware('auth:sanctum');
 
 Route::controller(AuthController::class)->group(function () {
     Route::post('login', 'login')->name('user.login');
@@ -31,6 +25,7 @@ Route::controller(UserController::class)->group(function () {
     Route::post('users/update', 'update')->middleware('auth:sanctum')->name('user.get_user.update');
     Route::get('users-commissions', 'getCommissions')->name('user.get_user_commissions');
     Route::delete('users', 'delete')->middleware(['auth:sanctum'])->name('user.delete');
+
 });
 
 Route::controller(\App\Http\Controllers\Api\RecoveryPassword::class)->group(function () {
@@ -98,10 +93,26 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
     Route::get('races/{id}/toggle-is-work', 'toggleIsWork')
         ->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])
         ->name('race.update');
-    Route::post('races/{id}/commission/add', 'addCommission')->middleware('auth:sanctum')->name('race.commission.add');
-    Route::delete('races/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])->name('race.delete');
-    Route::post('races/{id}/add-document', 'addDocument')->middleware(['auth:sanctum', 'role:'. $role::COMMISSION.'|'.$role::ROOT])->name('race.add.document');
+    Route::post('races/{id}/commission/add', 'addCommission')
+        ->middleware('auth:sanctum')
+        ->name('race.commission.add');
+    Route::delete('races/{id}', 'delete')
+        ->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION.'|'.$role::ROOT])
+        ->name('race.delete');
+    Route::post('races/{id}/add-document', 'addDocument')
+        ->middleware(['auth:sanctum', 'role:'. $role::COMMISSION.'|'.$role::ROOT])
+        ->name('race.add.document');
 });
+
+Route::controller(\App\Http\Controllers\Api\RaceResultController::class)->group(function () {
+    $role = new \App\Constants\RoleConstant();
+    Route::get('race/{id}/results', 'get')
+        ->name('race_result.get');
+    Route::post('race/{id}/results', 'create')
+        ->middleware(['auth:sanctum', 'role:'. $role::COMMISSION.'|'.$role::ROOT.'|'.$role::ADMIN])
+        ->name('race_result.create');
+});
+
 
 Route::controller(\App\Http\Controllers\Api\FavoriteUserController::class)->group(function () {
     Route::post('race/{id}/favorite', 'toggleFavoriteRace')->middleware(['auth:sanctum'])->name('race.favorite.create');
@@ -134,7 +145,7 @@ Route::controller(\App\Http\Controllers\Api\DocumentController::class)->group(fu
     Route::post('users/cabinet/documents/{id}/update', 'update')->middleware('auth:sanctum')->name('document.update');
     Route::delete('users/cabinet/documents/{id}', 'delete')->middleware('auth:sanctum')->name('document.delete');
 
-    Route::get('documents/{id}/commission-checked', 'verifyDocsForCommission')->middleware(['auth:sanctum', 'role:' . $role::ADMIN.'|'.$role::ROOT.'|'.$role::COMMISSION])->name('document.commission.checked');
+    Route::post('documents/{id}/commission-checked', 'verifyDocsForCommission')->middleware(['auth:sanctum', 'role:' . $role::ADMIN.'|'.$role::ROOT.'|'.$role::COMMISSION])->name('document.commission.checked');
 });
 
 Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->group(function () {
@@ -154,12 +165,27 @@ Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->gr
         ->middleware(['auth:sanctum', 'role:' . '|' . $role::COMMISSION .'|' .$role::ADMIN.'|'.$role::ROOT])
         ->name('appointment_race.get_users_table_appointment_race');
 
-    Route::get('races/{id}/export', 'export');
+    Route::get('races/{id}/appointment-race/users-table/export', 'exportApplications')
+        ->middleware(['auth:sanctum', 'role:' . $role::COMMISSION . '|' . $role::ORGANIZATION .'|' .$role::ADMIN.'|'.$role::ROOT])
+        ->name('appointment_race.export');
+    Route::get('races/{raceId}/results/export', 'exportResults')
+        ->name('results.export');
+    Route::post('races/{raceId}/results/import', 'importResults')
+        ->name('results.import');
+
+    Route::post('races/appointment-race/{id}/checked', 'checkedForCommission')
+        ->middleware(['auth:sanctum', 'role:' . '|' . $role::COMMISSION .'|' .$role::ADMIN.'|'.$role::ROOT])
+        ->name('appointment_race.checked');
+
 });
 
 Route::controller(App\Http\Controllers\Api\LocationController::class)->group(function () {
     Route::get('locations', 'get')->name('location.get');
     Route::get('locations/{id}', 'getForId')->name('location.get_for_id');
+});
+
+Route::controller(App\Http\Controllers\Api\DistrictController::class)->group(function () {
+    Route::get('districts', 'get')->name('district.get');
 });
 
 Route::controller(\App\Http\Controllers\Api\GradeController::class)->group(function () {
@@ -201,4 +227,9 @@ Route::controller(\App\Http\Controllers\Api\AttendanceController::class)->group(
     Route::post('attendances', 'create')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('attendance.create');
     Route::post('attendance/{id}', 'update')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('attendance.update');
     Route::delete('attendance/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('attendance.delete');
+});
+
+Route::controller(\App\Http\Controllers\Api\DegreeController::class)->group(function () {
+    Route::get('degree', 'get')->name('degree.get');
+    Route::get('degree/{id}', 'getForId')->name('degree.get');
 });

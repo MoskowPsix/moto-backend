@@ -12,12 +12,12 @@ use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\UI\Fields\Checkbox;
 use MoonShine\UI\Fields\Date;
-use MoonShine\UI\Fields\File;
 use MoonShine\UI\Fields\Image;
 use MoonShine\UI\Fields\Json;
 use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Text;
 use MoonShine\UI\Fields\Textarea;
+use MoonShine\UI\Fields\File;
 use Throwable;
 
 class TrackDetailPage extends DetailPage

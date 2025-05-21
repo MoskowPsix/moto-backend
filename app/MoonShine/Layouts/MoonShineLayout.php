@@ -47,6 +47,10 @@ use App\MoonShine\Resources\TransactionResource;
 use App\MoonShine\Resources\AttendanceResource;
 use App\MoonShine\Resources\PhoneResource;
 use App\MoonShine\Resources\StatusResource;
+use App\MoonShine\Resources\DegreeResource;
+use App\MoonShine\Resources\CupResource;
+use App\MoonShine\Resources\DistrictResource;
+use App\MoonShine\Resources\RaceResultsResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -80,6 +84,10 @@ final class MoonShineLayout extends AppLayout
                 MenuItem::make('Магазины', StoreResource::class, 'building-storefront'),
                 MenuItem::make('Транзакции', TransactionResource::class, 'credit-card'),
                 MenuItem::make('Телефоны', PhoneResource::class, 'device-phone-mobile'),
+                MenuItem::make('Уровни', DegreeResource::class, 'chevron-double-up'),
+                MenuItem::make('Кубки', CupResource::class, 'trophy'),
+                MenuItem::make('Округа', DistrictResource::class, 'map-pin'),
+                MenuItem::make('Локации', LocationResource::class, 'globe-alt'),
             ], 'cube'),
         ];
     }

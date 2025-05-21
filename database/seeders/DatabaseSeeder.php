@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             RaceSeeder::class,
             GradeSeeder::class,
             CommandSeeder::class,
+            AppointmentRaceSeeder::class,
         ]);
     }
 }

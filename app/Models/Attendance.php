@@ -31,7 +31,6 @@ class Attendance extends Model
     {
         return $this->belongsTo(Track::class);
     }
-
     public function transactions(): BelongsToMany
     {
         return $this->BelongsToMany(Transaction::class, 'attendance_transaction', 'attendance_id', 'transaction_id');

@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Exports;
+namespace App\Services\Exports;
 
 use App\Enums\DocumentType;
-use App\Http\Resources\Errors\NotFoundResource;
-use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\AppointmentRace;
 use App\Models\Race;
 use Carbon\Carbon;
@@ -14,16 +12,17 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use Maatwebsite\Excel\Concerns\WithTitle;
+use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 class AppointmentRaceUserExport implements FromCollection, WithHeadings, WithTitle, ShouldAutoSize, WithStyles
 {
     private int $raceId;
-//    private int $userId;
-    public function __construct(int $raceId)
+    private int $userId;
+    public function __construct(int $raceId, int $userId)
     {
         $this->raceId = $raceId;
-//        $this->userId = $userId;
+        $this->userId = $userId;
 
         $this->checkPermission();
     }
@@ -40,10 +39,10 @@ class AppointmentRaceUserExport implements FromCollection, WithHeadings, WithTit
             throw new ModelNotFoundException('Нет данных для экспорта.');
         }
 
-//        if(!$race->commissions()->where('users.id', $this->userId)->exists())
-//        {
-//            throw new \Exception('Нет прав доступа.');
-//        }
+        if(!$race->commissions()->where('users.id', $this->userId)->exists())
+        {
+            throw new \Exception('Нет прав доступа.');
+        }
         return $appr;
     }
     public function headings(): array
@@ -148,9 +147,10 @@ class AppointmentRaceUserExport implements FromCollection, WithHeadings, WithTit
     {
         $sheet->getStyle('A1:X1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
         $sheet->getStyle('A1:X1')->getFont()->setBold(true);
-        $sheet->getStyle('A2:A1000')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
-
         $sheet->getStyle('A1:X1000')->getProtection()->setLocked(\PhpOffice\PhpSpreadsheet\Style\Protection::PROTECTION_PROTECTED);
+
+        $sheet->getStyle('O2:O1000')->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_TEXT);
+        $sheet->getStyle('P2:P1000')->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_TEXT);
     }
     private function appendValueOrEmpty(string $currentValue, string $newValue): string
     {

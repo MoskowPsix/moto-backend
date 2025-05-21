@@ -30,7 +30,7 @@ class TransactionFormPage extends FormPage
             Checkbox::make('Статус', 'status')->sortable(),
             Text::make('Описание', 'desc')->sortable(),
             $this->user(),
-            BelongsToMany::make('Услуги', 'attendances')->selectMode(),
+            $this->attendances(),
             Date::make('Дата', 'created_at')->sortable(),
             Date::make('Создано', 'created_at')->sortable(),
             Date::make('Обновлено', 'updated_at')->sortable(),

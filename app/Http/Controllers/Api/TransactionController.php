@@ -28,7 +28,6 @@ class TransactionController extends Controller
     #[Endpoint(title: 'result', description: 'Получение ответа')]
     public function result(Request $request, ResultTransactionActionContract $action)
     {
-        Log::info('Robokassa ResultUrl request:', $request->all());
         return $action($request);
     }
 }

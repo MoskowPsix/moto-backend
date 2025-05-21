@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Pages\Transaction;
 
+use App\Models\Transaction;
 use App\MoonShine\Resources\AttendanceResource;
 use App\Traits\MoonShine\Resources\TransactionResourceTrait;
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
