@@ -51,7 +51,7 @@ class ResultTransactionAction implements ResultTransactionActionContract
                 ['op_key' => $opKey]
             );
         }
-        return response("OK$invId\n", 200);
+        return response("OK $invId\n", 200);
     }
 }
 
