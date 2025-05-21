@@ -17,6 +17,8 @@ use MoonShine\Laravel\Pages\Page;
 use MoonShine\Support\Enums\ClickAction;
 use MoonShine\UI\Components\Layout\Column;
 use MoonShine\UI\Components\Table\TableBuilder;
+use MoonShine\UI\Fields\Number;
+use MoonShine\UI\Fields\Text;
 
 /**
  * @extends ModelResource<Race, RaceIndexPage, RaceFormPage, RaceDetailPage>
@@ -60,5 +62,13 @@ class RaceResource extends ModelResource
     protected function rules(mixed $item): array
     {
         return [];
+    }
+    protected function filters(): iterable
+    {
+        return [
+            Number::make('ID', 'id'),
+            Text::make('Название', 'name'),
+            Text::make('Статус', 'status'),
+        ];
     }
 }
