@@ -68,7 +68,6 @@ class RaceResource extends ModelResource
         return [
             Number::make('ID', 'id'),
             Text::make('Название', 'name'),
-            Text::make('Статус', 'status'),
         ];
     }
 }
