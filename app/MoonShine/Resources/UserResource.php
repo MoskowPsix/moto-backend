@@ -206,7 +206,18 @@ class UserResource extends ModelResource
         ];
     }
 
-
+    public function delete(mixed $item, ?FieldsContract $fields = null): bool
+    {
+        $trackIds = Track::where('user_id', $item->id)->pluck('id');
+        if($trackIds->isNotEmpty()) {
+            throw ValidationException::withMessages([
+                'error' => __('Невозможно удалить пользователя, так как к нему привязаны трассы с ID: :ids.', [
+                    'ids' => $trackIds->implode(', '),
+                ]),
+            ]);
+        }
+        return parent::delete($item, $fields);
+    }
 
     /**
      * @return array{name: array|string, moonshine_user_role_id: array|string, email: array|string, password: array|string}
