@@ -48,7 +48,8 @@ class CommandResource extends ModelResource
             'name',
             'city',
             'user.name',
-            'location.name'
+            'location.name',
+            'members.user_id',
         ];
     }
 

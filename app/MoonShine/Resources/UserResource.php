@@ -186,9 +186,7 @@ class UserResource extends ModelResource
                             ->disk(moonshineConfig()->getDisk())
                             ->dir('users')
                             ->allowedExtensions(['jpg', 'png', 'jpeg', 'gif']),
-
                     ])->icon('user-circle'),
-
                     Tab::make(__('moonshine::ui.resource.password'), [
                         Collapse::make(__('moonshine::ui.resource.change_password'), [
                             Password::make(__('moonshine::ui.resource.password'), 'password')
