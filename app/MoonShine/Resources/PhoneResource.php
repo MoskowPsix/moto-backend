@@ -89,6 +89,7 @@ class PhoneResource extends ModelResource
     {
         return [
             'number',
+            'user.user_id',
         ];
     }
     protected function filters(): iterable
