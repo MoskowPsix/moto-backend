@@ -79,7 +79,7 @@ class PaymentService implements PaymentServiceContract
         $email = $transaction->user->email;
 
         $receipt = [
-            'sno' => 'usn_income',
+            'sno' => $attendance->usn_income_outcome ?? 'usn_income_outcome',
             'items' => [],
         ];
         foreach ($attendances as $attendance) {
