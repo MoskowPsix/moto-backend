@@ -27,13 +27,11 @@ class TransactionFormPage extends FormPage
     {
         return [
             ID::make()->sortable(),
-            Checkbox::make('Статус', 'status')->sortable(),
-            Text::make('Описание', 'desc')->sortable(),
+            Checkbox::make('Статус', 'status'),
+            Text::make('Описание', 'desc'),
             $this->user(),
             $this->attendances(),
-            Date::make('Дата', 'created_at')->sortable(),
-            Date::make('Создано', 'created_at')->sortable(),
-            Date::make('Обновлено', 'updated_at')->sortable(),
+            Date::make('Дата', 'created_at'),
         ];
     }
 

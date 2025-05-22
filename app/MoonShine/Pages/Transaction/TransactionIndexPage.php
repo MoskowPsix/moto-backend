@@ -33,8 +33,6 @@ class TransactionIndexPage extends IndexPage
             Checkbox::make('Статус', 'status')->sortable(),
             $this->user()->sortable(),
             Date::make('Дата', 'created_at')->sortable()->withTime(),
-            Date::make('Создано', 'created_at')->sortable(),
-            Date::make('Обновлено', 'updated_at')->sortable(),
         ];
     }
 

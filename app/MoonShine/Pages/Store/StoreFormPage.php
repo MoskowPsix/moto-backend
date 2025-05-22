@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Pages\Store;
 
+use App\Constants\RoleConstant;
 use MoonShine\Laravel\Pages\Crud\FormPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
@@ -21,12 +22,18 @@ class StoreFormPage extends FormPage
     {
         return [
             ID::make()->sortable(),
-            Text::make('Логин', 'login')->sortable(),
-            Text::make('Пароль 1', 'password_1')->sortable(),
-            Text::make('Пароль 2', 'password_2')->sortable(),
-            Text::make('Токен', 'token')->sortable(),
-            Date::make('Создано', 'created_at')->sortable(),
-            Date::make('Обновлено', 'updated_at')->sortable(),
+            Text::make('Логин', 'login'),
+            ...when(auth()->user()?->hasRole([
+                RoleConstant::ROOT,
+                RoleConstant::ADMIN,
+                RoleConstant::ORGANIZATION,
+            ]), [
+                Text::make('Пароль 1', 'password_1'),
+                Text::make('Пароль 2', 'password_2'),
+            ]),
+            Text::make('Токен', 'token'),
+            Date::make('Создано', 'created_at'),
+            Date::make('Обновлено', 'updated_at'),
         ];
     }
 

@@ -35,8 +35,6 @@ class TransactionDetailPage extends DetailPage
             BelongsToMany::make('Услуги', 'attendances', resource: AttendanceResource::class),
             Text::make('CRC', 'data'),
             Date::make('Дата', 'created_at'),
-            Date::make('Создано', 'created_at'),
-            Date::make('Обновлено', 'updated_at'),
         ];
     }
 
