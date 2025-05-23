@@ -45,12 +45,10 @@ class PaymentService implements PaymentServiceContract
                 'tax'       => $attendance->tax ?? 'none',
             ];
         }
-
         $jsonString = json_encode($receipt, JSON_UNESCAPED_UNICODE);
         $encodedReceipt = urlencode($jsonString);
 
         $crc = md5("$login:$outSum:$invoiceId:$encodedReceipt:$encodedResultUrl2:$password");
-
         $path = http_build_query([
             'MerchantLogin'     => $login,
             'OutSum'            => $outSum,
