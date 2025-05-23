@@ -29,7 +29,7 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the attendances table.'
         required: true
         example:
-          - 20
+          - 13
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
@@ -39,7 +39,7 @@ endpoints:
         name: date
         description: 'Must be a valid date.'
         required: false
-        example: '2025-05-15T08:51:13'
+        example: '2025-05-23T09:55:16'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -47,13 +47,13 @@ endpoints:
         custom: []
     cleanBodyParameters:
       attendanceIds:
-        - 20
-      date: '2025-05-15T08:51:13'
+        - 13
+      date: '2025-05-23T09:55:16'
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.transaction.create.success","payment_link":null,"transaction":{"id":212,"status":false,"desc":null,"count":null,"date":null,"user":null,"attendances":[]}}'
+        content: '{"status":"success","message":"messages.transaction.create.success","payment_link":null,"transaction":{"id":225,"status":false,"date":null,"user":null,"attendances":[]}}'
         headers: []
         description: ''
         custom: []
@@ -89,9 +89,95 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":213,"status":false,"desc":null,"count":null,"date":null,"user":null,"attendances":[]}'
+        content: '{"id":226,"status":false,"date":null,"user":null,"attendances":[]}'
         headers: []
         description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/transactions/{id}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: create
+      description: 'Создание транзакции'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the transaction.'
+        required: true
+        example: 64
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 64
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.transaction.get_for_id.success","transaction":{"id":227,"status":false,"date":null,"user":null,"attendances":[]}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/districts
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.district.get.success","districts":[]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          vary: Origin
+        description: null
         custom: []
     responseFields: []
     auth: []

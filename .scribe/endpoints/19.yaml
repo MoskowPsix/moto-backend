@@ -1,18 +1,18 @@
-name: Attendance
-description: 'Методы связанные с платными услугами'
+name: Command
+description: 'Методы связанные с командами'
 endpoints:
   -
     httpMethods:
-      - POST
-    uri: api/attendances
+      - GET
+    uri: api/commands
     metadata:
-      groupName: Attendance
-      groupDescription: 'Методы связанные с платными услугами'
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
       subgroup: ''
       subgroupDescription: ''
-      title: create
-      description: 'Создание платной услуги'
-      authenticated: true
+      title: get
+      description: 'Получение всех команд по фильтрам'
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
@@ -22,78 +22,257 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
+      userId:
+        name: userId
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 13
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      userIdExists:
+        name: userIdExists
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 4
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      checkMember:
+        name: checkMember
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      paginate:
+        name: paginate
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: rerum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      limit:
+        name: limit
+        description: 'Must not be greater than 50.'
+        required: false
+        example: 5
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 18
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: false
+        example: laudantium
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      fullName:
+        name: fullName
+        description: ''
+        required: false
+        example: est
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: ''
+        required: false
+        example: ab
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
       name:
         name: name
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: hzkmibm
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      desc:
-        name: desc
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: mcadrqzbsjpj
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      price:
-        name: price
         description: ''
-        required: true
-        example: 570613.5
-        type: number
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-      tax:
-        name: tax
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: oefzruuudzedcl
+        required: false
+        example: dolorum
         type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         custom: []
-      usn_income_outcome:
-        name: usn_income_outcome
-        description: 'Must not be greater than 255 characters.'
-        required: true
-        example: a
-        type: string
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
+    cleanBodyParameters:
+      userId: 13
+      userIdExists: 4
+      checkMember: true
+      paginate: true
+      page: rerum
+      limit: 5
+      locationId: 18
+      city: laudantium
+      fullName: est
+      coach: ab
+      name: dolorum
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '[{"status":"success","message":"messages.command.get.success","commands":{"id":null,"name":null,"full_name":null,"coach":null,"city":null,"avatar":null}},{"status":"success","message":"messages.command.get.success","commands":{"id":null,"name":null,"full_name":null,"coach":null,"city":null,"avatar":null}}]'
+        headers: []
+        description: ''
         custom: []
-      trackId:
-        name: trackId
-        description: 'The <code>id</code> of an existing record in the tracks table.'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/commands/{id}'
+    metadata:
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: getForId
+      description: 'Получение команд по id'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the command.'
         required: true
-        example: 9
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
+    cleanUrlParameters:
+      id: 15
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      userId:
+        name: userId
+        description: ''
+        required: false
+        example: 4
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      userIdExists:
+        name: userIdExists
+        description: 'The <code>id</code> of an existing record in the users table.'
+        required: false
+        example: 11
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      checkMember:
+        name: checkMember
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: ''
+        required: false
+        example: 9
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: ''
+        required: false
+        example: odio
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      fullName:
+        name: fullName
+        description: ''
+        required: false
+        example: nemo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: ''
+        required: false
+        example: ut
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
     cleanBodyParameters:
-      name: hzkmibm
-      desc: mcadrqzbsjpj
-      price: 570613.5
-      tax: oefzruuudzedcl
-      usn_income_outcome: a
-      trackId: 9
+      userId: 4
+      userIdExists: 11
+      checkMember: false
+      locationId: 9
+      city: odio
+      fullName: nemo
+      coach: ut
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.attendance.create.success","attendance":{"id":197,"name":"Vince Rogahn II","desc":"Tenetur accusantium distinctio voluptate hic. Quos deleniti quia officia et aspernatur voluptas consequatur. Nulla et nam fuga blanditiis aliquam eos distinctio sed.","price":"9652"}}'
+        content: '{"status":"success","message":"messages.command.get_for_id.success","command":{"id":null,"name":null,"full_name":null,"coach":null,"city":null,"avatar":null}}'
         headers: []
         description: ''
         custom: []
@@ -106,32 +285,21 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: 'api/attendance/{id}'
+    uri: api/commands
     metadata:
-      groupName: Attendance
-      groupDescription: 'Методы связанные с платными услугами'
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
       subgroup: ''
       subgroupDescription: ''
-      title: update
-      description: 'Редактирование платной услуги'
+      title: create
+      description: 'Создание команды'
       authenticated: true
       custom: []
     headers:
-      Content-Type: application/json
+      Content-Type: multipart/form-data
       Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the attendance.'
-        required: true
-        example: 1
-        type: integer
-        enumValues: []
-        exampleWasSpecified: false
-        nullable: false
-        custom: []
-    cleanUrlParameters:
-      id: 1
+    urlParameters: []
+    cleanUrlParameters: []
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -139,52 +307,199 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: sxvivbsjqktvfrrgdvfoesbzj
+        example: iajozebno
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
-      desc:
-        name: desc
+      fullName:
+        name: fullName
         description: 'Must not be greater than 255 characters.'
         required: false
-        example: wsgjdabnoctvi
+        example: owqmwkekezpikybdcbtevp
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
-      price:
-        name: price
-        description: ''
-        required: true
-        example: 6042.23
-        type: number
+      coach:
+        name: coach
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: ngiipwwtgpiopodmkvpja
+        type: string
         enumValues: []
         exampleWasSpecified: false
-        nullable: false
+        nullable: true
         custom: []
-      trackId:
-        name: trackId
-        description: 'The <code>id</code> of an existing record in the tracks table.'
-        required: true
-        example: 14
+      avatar:
+        name: avatar
+        description: 'Must be an image.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 1
         type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: yekuosbd
+        type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: sxvivbsjqktvfrrgdvfoesbzj
-      desc: wsgjdabnoctvi
-      price: 6042.23
-      trackId: 14
-    fileParameters: []
+      name: iajozebno
+      fullName: owqmwkekezpikybdcbtevp
+      coach: ngiipwwtgpiopodmkvpja
+      locationId: 1
+      city: yekuosbd
+    fileParameters:
+      avatar: null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.attendance.update.success","attendance":{"id":198,"name":"Bernardo Nienow","desc":"Dolores autem culpa qui nihil velit rerum. Omnis dolor est est voluptatibus. Libero neque possimus ad nobis. Quas quis cupiditate amet nisi. Aut sint voluptatibus recusandae minima molestiae.","price":"1.509683e+08"}}'
+        content: '{"status":"success","message":"messages.command.create.success","command":{"id":null,"name":null,"full_name":null,"coach":null,"city":null,"avatar":null}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/commands/{id}'
+    metadata:
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: update
+      description: 'Редактирование команды'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the command.'
+        required: true
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: 15
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: plmfnbkaerjjgdkqgrsdkcquz
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      fullName:
+        name: fullName
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: pufn
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      coach:
+        name: coach
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: psvuygta
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      avatar:
+        name: avatar
+        description: 'Must be an image.'
+        required: false
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      city:
+        name: city
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: pkqkowwpjeuivr
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      locationId:
+        name: locationId
+        description: 'The <code>id</code> of an existing record in the locations table.'
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      name: plmfnbkaerjjgdkqgrsdkcquz
+      fullName: pufn
+      coach: psvuygta
+      city: pkqkowwpjeuivr
+      locationId: 15
+    fileParameters:
+      avatar: null
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.command.update.success","command":{"id":null,"name":null,"full_name":null,"coach":null,"city":null,"avatar":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
@@ -197,15 +512,15 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: 'api/attendance/{id}'
+    uri: 'api/commands/{id}'
     metadata:
-      groupName: Attendance
-      groupDescription: 'Методы связанные с платными услугами'
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
       subgroup: ''
       subgroupDescription: ''
       title: delete
-      description: 'Удаление платной услуги'
-      authenticated: true
+      description: 'Удаление команды'
+      authenticated: false
       custom: []
     headers:
       Content-Type: application/json
@@ -213,36 +528,468 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the attendance.'
+        description: 'The ID of the command.'
         required: true
-        example: 1
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 1
+      id: 15
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.command.delete.success","command":{"id":null,"name":null,"full_name":null,"coach":null,"city":null,"avatar":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/commands/{command_id}/couches/{user_id}'
+    metadata:
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: toggleCouch
+      description: 'Добавление и удаление тренера из команды, может пользоваться только владелец команды.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      command_id:
+        name: command_id
+        description: 'The ID of the command.'
+        required: true
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      user_id:
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: id
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      command_id: 15
+      user_id: id
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.command.add_couch.success"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/commands/{command_id}/members'
+    metadata:
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: toggleMember
+      description: 'Привязка пользователя к команде от имени самого пользователя.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      command_id:
+        name: command_id
+        description: 'The ID of the command.'
+        required: true
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      command_id: 15
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.command.member_toggle.success"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/commands/{command_id}/members'
+    metadata:
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: getMembers
+      description: 'Получить всех участников команды.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      command_id:
+        name: command_id
+        description: 'The ID of the command.'
+        required: true
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      command_id: 15
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      id:
-        name: id
-        description: 'The <code>id</code> of an existing record in the attendances table.'
+      paginate:
+        name: paginate
+        description: ''
         required: false
-        example: 6
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: minus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      limit:
+        name: limit
+        description: 'Must not be greater than 50.'
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      raceIdExists:
+        name: raceIdExists
+        description: 'The <code>id</code> of an existing record in the races table.'
+        required: false
+        example: 18
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      checkMember:
+        name: checkMember
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      paginate: true
+      page: minus
+      limit: 16
+      raceIdExists: 18
+      checkMember: true
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.couches.get.success","members":{"id":746,"name":"Pierre Tremblay","avatar":null,"personal":[]}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/commands/{command_id}/coaches'
+    metadata:
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: getCoachesForAll
+      description: 'Получение всех тренеров по команде для всех.'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      command_id:
+        name: command_id
+        description: 'The ID of the command.'
+        required: true
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      command_id: 15
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      paginate:
+        name: paginate
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: numquam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      limit:
+        name: limit
+        description: 'Must not be greater than 50.'
+        required: false
+        example: 3
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      id: 6
+      paginate: false
+      page: numquam
+      limit: 3
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.attendance.delete.success","attendance":{"id":199,"name":"Jodie Kling III","desc":"Quidem dicta est ut voluptate est quo quibusdam. Blanditiis velit sit tempore. Aut sunt et sunt asperiores qui molestiae voluptatem. Rerum culpa consectetur minus ipsam molestias voluptas ea.","price":"512575"}}'
+        content: '{"status":"success","message":"messages.command.get_coaches_for_all.success","coaches":{"id":747,"name":"Ethan Kutch","avatar":null,"personal":[]}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/commands/{command_id}/members-for-coach'
+    metadata:
+      groupName: Command
+      groupDescription: 'Методы связанные с командами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: getMembersForCoach
+      description: 'Получение всех участников по тренеру.'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      command_id:
+        name: command_id
+        description: 'The ID of the command.'
+        required: true
+        example: 15
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      command_id: 15
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      paginate:
+        name: paginate
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      page:
+        name: page
+        description: ''
+        required: false
+        example: quibusdam
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      limit:
+        name: limit
+        description: 'Must not be greater than 50.'
+        required: false
+        example: 18
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      raceIdExists:
+        name: raceIdExists
+        description: 'The <code>id</code> of an existing record in the races table.'
+        required: false
+        example: 9
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+      checkMember:
+        name: checkMember
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        custom: []
+    cleanBodyParameters:
+      paginate: false
+      page: quibusdam
+      limit: 18
+      raceIdExists: 9
+      checkMember: true
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.command.get_members_for_coach.success","members":{"id":748,"name":"Armand Buckridge","email":"esther.wisoky@example.com","email_verified_at":"2025-05-23T09:55:27.000000Z","avatar":null}}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 403
+        content: '{"status":"error","message":"messages.error.not_allowed"}'
+        headers: []
+        description: ''
+        custom: []
+      -
+        status: 404
+        content: '{"status":"error","message":"messages.error.not_found"}'
         headers: []
         description: ''
         custom: []
