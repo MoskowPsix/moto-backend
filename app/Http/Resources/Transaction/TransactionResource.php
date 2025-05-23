@@ -29,12 +29,9 @@ class TransactionResource extends JsonResource
         return [
             'id'            => $this->id,
             'status'        => $this->status,
-            'desc'          => $this->desc,
-            'count'         => $this->count,
             'date'          => $this->date,
             'user'          => $this->whenLoaded('user', UserResource::make($this->user)),
             'attendances'    => $this->whenLoaded('attendances', AttendanceResource::collection($this->attendances)),
-//            'attendance'    => AttendanceResource::collection($this->attendance),
         ];
     }
 }

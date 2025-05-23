@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Actions\Controllers\Transaction\GetTransactionForIdAction;
 use App\Contracts\Actions\Controllers\Transaction\CreateTransactionActionContract;
+use App\Contracts\Actions\Controllers\Transaction\GetTransactionForIdActionContract;
 use App\Contracts\Actions\Controllers\Transaction\ResultTransactionActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Transaction\CreateTransactionRequest;
 use App\Http\Requests\Transaction\ResultTransactionRequest;
 use App\Http\Resources\Transaction\Create\SuccessCreateTransactionResource;
+use App\Http\Resources\Transaction\GetForId\SuccessGetTransactionForIdResource;
 use App\Http\Resources\Transaction\TransactionResource;
 use App\Models\Transaction;
 use Illuminate\Http\JsonResponse;
@@ -29,5 +32,11 @@ class TransactionController extends Controller
     public function result(Request $request, ResultTransactionActionContract $action)
     {
         return $action($request);
+    }
+    #[ResponseFromApiResource(SuccessGetTransactionForIdResource::class, Transaction::class, collection: false)]
+    #[Endpoint(title: 'create', description: 'Создание транзакции')]
+    public function getTransactionForId(int $id, GetTransactionForIdActionContract $action): SuccessGetTransactionForIdResource
+    {
+        return $action($id);
     }
 }

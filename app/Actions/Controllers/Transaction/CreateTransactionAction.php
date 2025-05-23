@@ -19,7 +19,8 @@ class CreateTransactionAction implements CreateTransactionActionContract
     {
         $transaction = Transaction::create([
             'user_id'       => auth()->user()->id,
-            'date'          => Carbon::now()
+            'date'          => Carbon::now(),
+            'status'        => null,
         ]);
         $transaction->attendances()->attach($request->attendanceIds);
         $opKey = auth()->user()->cards?->op_key;

@@ -13,7 +13,6 @@ class ResultTransactionRequest extends FormRequest
     {
         return true;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -22,9 +21,7 @@ class ResultTransactionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'OutSum'            => 'nullable|numeric',
-            'InvId'             => 'nullable|integer|exists:transactions,id',
-            'SignatureValue'    => 'nullable|string',
+            'transactionId'     => 'required|integer|exists:transactions,id',
         ];
     }
 }
