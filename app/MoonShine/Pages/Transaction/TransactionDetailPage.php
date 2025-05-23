@@ -32,7 +32,7 @@ class TransactionDetailPage extends DetailPage
             Checkbox::make('Статус', 'status'),
             Text::make('Описание', 'desc'),
             $this->user(),
-            BelongsToMany::make('Услуги', 'attendances', resource: AttendanceResource::class),
+            $this->attendances(),
             Text::make('CRC', 'data'),
             Date::make('Дата', 'created_at'),
         ];

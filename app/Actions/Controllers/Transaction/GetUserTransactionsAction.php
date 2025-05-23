@@ -25,7 +25,6 @@ class GetUserTransactionsAction implements GetUserTransactionsActionContract
         } else {
             $transactions = $transactions->get();
         }
-
         return SuccessGetUserTransactionsResource::make($transactions);
     }
 }

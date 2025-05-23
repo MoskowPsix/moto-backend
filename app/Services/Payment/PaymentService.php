@@ -28,10 +28,13 @@ class PaymentService implements PaymentServiceContract
         $invoiceId = $transaction->id;
         $description = $attendance->desc ?? 'Оплата услуги';
         $email = $transaction->user->email;
+        $resultUrl2 = 'https://moto.vokrug.city/track/50';
+        $encodedResultUrl2 = urlencode($resultUrl2);
+
         $IsTest = 0;
 
         $receipt = [
-            'sno' => 'usn_income',
+            'sno' => $attendance->usn_income_outcome ?? 'usn_income_outcome',
             'items' => [],
         ];
         foreach ($attendances as $attendance) {
@@ -46,7 +49,7 @@ class PaymentService implements PaymentServiceContract
         $jsonString = json_encode($receipt, JSON_UNESCAPED_UNICODE);
         $encodedReceipt = urlencode($jsonString);
 
-        $crc = md5("$login:$outSum:$invoiceId:$encodedReceipt:$password");
+        $crc = md5("$login:$outSum:$invoiceId:$encodedReceipt:$encodedResultUrl2:$password");
 
         $path = http_build_query([
             'MerchantLogin'     => $login,
@@ -54,6 +57,7 @@ class PaymentService implements PaymentServiceContract
             'InvId'             => $invoiceId,
             'Desc'              => $description,
             'Email'             => $email,
+            'ResultUrl2'        => $resultUrl2,
             'SignatureValue'    => strtoupper($crc),
             'IsTest'            => $IsTest,
             'Receipt'           => $encodedReceipt,
