@@ -13,7 +13,6 @@ use Carbon\Carbon;
 
 class CheckedAppointmentRaceForCommissionAction implements CheckedAppointmentRaceForCommissionActionContract
 {
-
     public function __invoke(int $app_id, CheckedAppointmentRaceForCommissionRequest $request):
     SuccessCheckedAppointmentRaceForCommissionResource|
     NotFoundResource|

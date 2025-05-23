@@ -133,7 +133,6 @@ Route::controller(\App\Http\Controllers\Api\CupController::class)->group(functio
 Route::controller(\App\Http\Controllers\Api\PersonalInfoController::class)->group(function () {
     Route::post('users/cabinet/personal-info', 'create')->middleware('auth:sanctum')->name('personal_info.create');
     Route::patch('users/cabinet/personal-info', 'update')->middleware('auth:sanctum')->name('personal_info.update');
-
 });
 
 Route::controller(\App\Http\Controllers\Api\DocumentController::class)->group(function () {
@@ -144,7 +143,6 @@ Route::controller(\App\Http\Controllers\Api\DocumentController::class)->group(fu
     Route::get('users/cabinet/documents/{id}', 'getForUserById')->middleware('auth:sanctum')->name('document.get_for_user_by_id');
     Route::post('users/cabinet/documents/{id}/update', 'update')->middleware('auth:sanctum')->name('document.update');
     Route::delete('users/cabinet/documents/{id}', 'delete')->middleware('auth:sanctum')->name('document.delete');
-
     Route::post('documents/{id}/commission-checked', 'verifyDocsForCommission')->middleware(['auth:sanctum', 'role:' . $role::ADMIN.'|'.$role::ROOT.'|'.$role::COMMISSION])->name('document.commission.checked');
 });
 
@@ -176,7 +174,6 @@ Route::controller(App\Http\Controllers\Api\AppointmentRaceController::class)->gr
     Route::post('races/appointment-race/{id}/checked', 'checkedForCommission')
         ->middleware(['auth:sanctum', 'role:' . '|' . $role::COMMISSION .'|' .$role::ADMIN.'|'.$role::ROOT])
         ->name('appointment_race.checked');
-
 });
 
 Route::controller(App\Http\Controllers\Api\LocationController::class)->group(function () {
