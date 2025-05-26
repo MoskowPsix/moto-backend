@@ -26,6 +26,7 @@ class StoreResource extends ModelResource
     protected string $title = 'Магазины';
     protected ?\MoonShine\Support\Enums\ClickAction $clickAction = ClickAction::DETAIL;
     protected bool $simplePaginate = true;
+    protected string $column = 'login';
 
     /**
      * @return list<Page>
