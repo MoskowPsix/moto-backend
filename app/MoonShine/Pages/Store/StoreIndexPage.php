@@ -25,7 +25,7 @@ class StoreIndexPage extends IndexPage
         return [
             ID::make()->sortable(),
             Text::make('Логин', 'login')->sortable(),
-            BelongsTo::make('Владелец', 'user', resource: UserResource::class),
+            BelongsTo::make('Владелец', 'user'),
             Date::make('Создано', 'created_at')->sortable(),
             Date::make('Обновлено', 'updated_at')->sortable(),
         ];

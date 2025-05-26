@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\MoonShine\Pages\Store;
 
 use App\Constants\RoleConstant;
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Pages\Crud\DetailPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
@@ -23,6 +24,7 @@ class StoreDetailPage extends DetailPage
         return [
             ID::make()->sortable(),
             Text::make('Логин', 'login'),
+            BelongsTo::make('Владелец', 'user'),
             ...when(auth()->user()?->hasRole([
                 RoleConstant::ROOT,
                 RoleConstant::ADMIN,
