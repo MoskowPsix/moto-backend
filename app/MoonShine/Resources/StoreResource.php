@@ -48,6 +48,13 @@ class StoreResource extends ModelResource
             'password_2',
         ];
     }
+    protected function beforeCreating(mixed $item): mixed
+    {
+        if(request()->has('user_id')) {
+            $item->user_id = request('user_id');
+        }
+        return $item;
+    }
 
     /**
      * @param Store $item
