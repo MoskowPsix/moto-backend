@@ -23,14 +23,6 @@ class StoreIndexPage extends IndexPage
         return [
             ID::make()->sortable(),
             Text::make('Логин', 'login')->sortable(),
-            ...when(auth()->user()?->hasRole([
-                RoleConstant::ROOT,
-                RoleConstant::ADMIN,
-                RoleConstant::ORGANIZATION,
-            ]), [
-                Text::make('Пароль 1', 'password_1')->sortable(),
-                Text::make('Пароль 2', 'password_2')->sortable(),
-            ]),
             Date::make('Создано', 'created_at')->sortable(),
             Date::make('Обновлено', 'updated_at')->sortable(),
         ];
