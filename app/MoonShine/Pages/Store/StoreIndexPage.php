@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\MoonShine\Pages\Store;
 
 use App\Constants\RoleConstant;
+use App\MoonShine\Resources\UserResource;
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
@@ -23,6 +25,7 @@ class StoreIndexPage extends IndexPage
         return [
             ID::make()->sortable(),
             Text::make('Логин', 'login')->sortable(),
+            BelongsTo::make('Владелец', 'user', resource: UserResource::class),
             Date::make('Создано', 'created_at')->sortable(),
             Date::make('Обновлено', 'updated_at')->sortable(),
         ];
