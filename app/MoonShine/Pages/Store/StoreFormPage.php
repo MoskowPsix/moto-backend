@@ -24,7 +24,7 @@ class StoreFormPage extends FormPage
         return [
             ID::make()->sortable(),
             Text::make('Логин', 'login'),
-            BelongsTo::make('Владелец', 'user'),
+            BelongsTo::make('Владелец', 'user')->searchable(),
             ...when(auth()->user()?->hasRole([
                 RoleConstant::ROOT,
                 RoleConstant::ADMIN,
