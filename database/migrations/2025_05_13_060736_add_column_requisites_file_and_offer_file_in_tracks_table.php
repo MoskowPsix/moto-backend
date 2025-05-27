@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('tracks', function (Blueprint $table) {
-//            $table->json('requisites_file')->nullable(true);
-//            $table->json('offer_file')->nullable(true);
+            $table->json('requisites_file')->nullable(true);
+            $table->json('offer_file')->nullable(true);
         });
     }
 
