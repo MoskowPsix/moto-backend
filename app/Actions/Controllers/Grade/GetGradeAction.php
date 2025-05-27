@@ -3,6 +3,7 @@
 namespace App\Actions\Controllers\Grade;
 
 use App\Contracts\Actions\Controllers\Grade\GetGradeActionContract;
+use App\Filters\Grade\GradeForGradeIdParentFilter;
 use App\Filters\Grade\GradeUserIdFilter;
 use App\Http\Requests\Grade\GetGradeRequest;
 use App\Http\Resources\Grade\GetGrade\SuccessGetGradeResource;
@@ -21,6 +22,7 @@ class GetGradeAction implements GetGradeActionContract
             ->send($grades_q)
             ->through([
                 GradeUserIdFilter::class,
+                GradeForGradeIdParentFilter::class,
             ])
             ->via('apply')
             ->then(function ($grades) use ($page, $limit, $request) {

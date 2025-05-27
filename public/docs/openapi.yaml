@@ -110,87 +110,87 @@ paths:
                 surname:
                   type: string
                   description: ''
-                  example: ratione
+                  example: dolorem
                   nullable: false
                 patronymic:
                   type: string
                   description: ''
-                  example: rem
+                  example: voluptatibus
                   nullable: false
                 dateOfBirth:
                   type: string
                   description: 'Значение поля value не является датой.'
-                  example: '2025-05-26T13:02:31'
+                  example: '2025-05-27T19:14:37'
                   nullable: false
                 city:
                   type: string
                   description: ''
-                  example: minus
+                  example: culpa
                   nullable: false
                 region:
                   type: string
                   description: ''
-                  example: modi
+                  example: ea
                   nullable: true
                 inn:
                   type: string
                   description: ''
-                  example: consequuntur
+                  example: sequi
                   nullable: false
                 snils:
                   type: string
                   description: ''
-                  example: est
+                  example: laboriosam
                   nullable: false
                 phoneNumber:
                   type: string
                   description: ''
-                  example: error
+                  example: reiciendis
                   nullable: false
                 startNumber:
                   type: integer
                   description: 'Значение поля value должно быть не меньше 1. Значение поля value не может быть больше 999.'
-                  example: 20
+                  example: 22
                   nullable: false
                 group:
                   type: string
                   description: ''
-                  example: dolores
+                  example: est
                   nullable: false
                 rank:
                   type: string
                   description: ''
-                  example: reprehenderit
+                  example: sit
                   nullable: false
                 rankNumber:
                   type: string
                   description: ''
-                  example: repellendus
+                  example: id
                   nullable: true
                 community:
                   type: string
                   description: ''
-                  example: eligendi
+                  example: sapiente
                   nullable: true
                 coach:
                   type: string
                   description: ''
-                  example: voluptatem
+                  example: aut
                   nullable: true
                 motoStamp:
                   type: string
                   description: ''
-                  example: amet
+                  example: quasi
                   nullable: false
                 locationId:
                   type: string
                   description: 'The <code>id</code> of an existing record in the locations table.'
-                  example: consequatur
+                  example: et
                   nullable: false
                 gradeId:
                   type: string
                   description: 'The <code>id</code> of an existing record in the grades table.'
-                  example: eos
+                  example: amet
                   nullable: false
                 commandId:
                   type: string
@@ -200,20 +200,20 @@ paths:
                 numberAndSeria:
                   type: string
                   description: ''
-                  example: expedita
+                  example: perspiciatis
                   nullable: false
                 documentIds:
                   type: array
                   description: ''
                   example:
-                    - 8
+                    - 5
                   items:
                     type: integer
                     nullable: true
                 userId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the users table.'
-                  example: 18
+                  example: 6
                   nullable: true
               required:
                 - surname
@@ -235,7 +235,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the race.'
-        example: 23
+        example: 1
         required: true
         schema:
           type: integer
@@ -259,24 +259,24 @@ paths:
                     status: success
                     message: 'Пользователи получены успешно.'
                     users:
-                      id: 1386
-                      name: 'Калашникова Лидия Ивановна'
-                      email: vadim26@example.net
-                      email_verified_at: '2025-05-26T13:02:34.000000Z'
-                      created_at: '2025-05-26T13:02:34.000000Z'
-                      updated_at: '2025-05-26T13:02:34.000000Z'
+                      id: 13
+                      name: 'Лариса Максимовна Кондратьева'
+                      email: antonina.trofimov@example.net
+                      email_verified_at: '2025-05-27T19:14:37.000000Z'
+                      created_at: '2025-05-27T19:14:37.000000Z'
+                      updated_at: '2025-05-27T19:14:37.000000Z'
                       avatar: null
                       deleted_at: null
                   -
                     status: success
                     message: 'Пользователи получены успешно.'
                     users:
-                      id: 1387
-                      name: 'Жданова Лариса Максимовна'
-                      email: nelli.lobanova@example.org
-                      email_verified_at: '2025-05-26T13:02:35.000000Z'
-                      created_at: '2025-05-26T13:02:35.000000Z'
-                      updated_at: '2025-05-26T13:02:35.000000Z'
+                      id: 14
+                      name: 'Овчинников Тимофей Дмитриевич'
+                      email: ssarapov@example.com
+                      email_verified_at: '2025-05-27T19:14:37.000000Z'
+                      created_at: '2025-05-27T19:14:37.000000Z'
+                      updated_at: '2025-05-27T19:14:37.000000Z'
                       avatar: null
                       deleted_at: null
         404:
@@ -307,17 +307,17 @@ paths:
                 paginate:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                   nullable: true
                 page:
                   type: string
                   description: ''
-                  example: eos
+                  example: aut
                   nullable: true
                 limit:
                   type: integer
                   description: 'Значение поля value не может быть больше 50.'
-                  example: 16
+                  example: 3
                   nullable: true
       security: []
     parameters:
@@ -325,7 +325,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the race.'
-        example: 23
+        example: 1
         required: true
         schema:
           type: integer
@@ -395,7 +395,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the race.'
-        example: 23
+        example: 1
         required: true
         schema:
           type: integer
@@ -416,12 +416,12 @@ paths:
                   status: success
                   message: messages.appointment_race.get_users_for_commission.success
                   users:
-                    id: 1388
-                    name: 'Игорь Андреевич Захаров'
-                    email: pestov.sofa@example.org
-                    email_verified_at: '2025-05-26T13:02:42.000000Z'
-                    created_at: '2025-05-26T13:02:42.000000Z'
-                    updated_at: '2025-05-26T13:02:42.000000Z'
+                    id: 15
+                    name: 'Артур Иванович Самсонов'
+                    email: zanna.golubev@example.com
+                    email_verified_at: '2025-05-27T19:14:37.000000Z'
+                    created_at: '2025-05-27T19:14:37.000000Z'
+                    updated_at: '2025-05-27T19:14:37.000000Z'
                     avatar: null
                     deleted_at: null
                 properties:
@@ -436,22 +436,22 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 1388
+                        example: 15
                       name:
                         type: string
-                        example: 'Игорь Андреевич Захаров'
+                        example: 'Артур Иванович Самсонов'
                       email:
                         type: string
-                        example: pestov.sofa@example.org
+                        example: zanna.golubev@example.com
                       email_verified_at:
                         type: string
-                        example: '2025-05-26T13:02:42.000000Z'
+                        example: '2025-05-27T19:14:37.000000Z'
                       created_at:
                         type: string
-                        example: '2025-05-26T13:02:42.000000Z'
+                        example: '2025-05-27T19:14:37.000000Z'
                       updated_at:
                         type: string
-                        example: '2025-05-26T13:02:42.000000Z'
+                        example: '2025-05-27T19:14:37.000000Z'
                       avatar:
                         type: string
                         example: null
@@ -507,19 +507,19 @@ paths:
                 page:
                   type: string
                   description: ''
-                  example: sit
+                  example: et
                   nullable: true
                 limit:
                   type: integer
                   description: 'Значение поля value не может быть больше 50.'
-                  example: 4
+                  example: 1
                   nullable: true
     parameters:
       -
         in: path
         name: id
         description: 'The ID of the race.'
-        example: 23
+        example: 1
         required: true
         schema:
           type: integer
@@ -530,13 +530,18 @@ paths:
       description: 'Экспорт результатов'
       parameters: []
       responses:
-        200:
+        500:
           description: ''
           content:
-            text/plain:
+            application/json:
               schema:
-                type: string
-                example: ''
+                type: object
+                example:
+                  message: 'Server Error'
+                properties:
+                  message:
+                    type: string
+                    example: 'Server Error'
       tags:
         - AppointmentRace
     parameters:
@@ -544,7 +549,7 @@ paths:
         in: path
         name: raceId
         description: ''
-        example: 23
+        example: 1
         required: true
         schema:
           type: integer
@@ -562,7 +567,7 @@ paths:
         in: path
         name: raceId
         description: ''
-        example: 23
+        example: 1
         required: true
         schema:
           type: integer
@@ -633,7 +638,7 @@ paths:
                 comment:
                   type: string
                   description: ''
-                  example: aut
+                  example: vel
                   nullable: true
                 checked:
                   type: boolean
@@ -647,7 +652,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the appointment race.'
-        example: 641
+        example: 9
         required: true
         schema:
           type: integer
@@ -668,10 +673,10 @@ paths:
                   status: success
                   message: 'Платная услуга успешно создана.'
                   attendance:
-                    id: 3
-                    name: 'Ростислав Фёдорович Исаков'
-                    desc: 'Itaque libero facere laudantium et iste. Voluptates explicabo voluptatem qui perspiciatis rerum qui. Voluptas consequatur enim omnis nesciunt quasi ut.'
-                    price: '627155'
+                    id: 2
+                    name: 'Витольд Андреевич Уваров'
+                    desc: 'Et ducimus soluta sint dolor totam sit. Quia occaecati et dolores mollitia voluptate. Autem eum sit ea laboriosam omnis porro.'
+                    price: '6.30555e+06'
                 properties:
                   status:
                     type: string
@@ -684,16 +689,16 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 3
+                        example: 2
                       name:
                         type: string
-                        example: 'Ростислав Фёдорович Исаков'
+                        example: 'Витольд Андреевич Уваров'
                       desc:
                         type: string
-                        example: 'Itaque libero facere laudantium et iste. Voluptates explicabo voluptatem qui perspiciatis rerum qui. Voluptas consequatur enim omnis nesciunt quasi ut.'
+                        example: 'Et ducimus soluta sint dolor totam sit. Quia occaecati et dolores mollitia voluptate. Autem eum sit ea laboriosam omnis porro.'
                       price:
                         type: string
-                        example: '627155'
+                        example: '6.30555e+06'
       tags:
         - Attendance
       requestBody:
@@ -706,32 +711,32 @@ paths:
                 name:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: q
+                  example: rpfezalwzsqhxwatw
                   nullable: false
                 desc:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: cpqi
+                  example: nx
                   nullable: false
                 price:
                   type: number
                   description: ''
-                  example: 23.616559
+                  example: 3.0
                   nullable: false
                 tax:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: icopoxhyrfrdlvl
+                  example: rhetuxazybkm
                   nullable: false
                 usn_income_outcome:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: bfai
+                  example: vpzlwopurcicdctyuruensv
                   nullable: false
                 trackId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the tracks table.'
-                  example: 11
+                  example: 17
                   nullable: false
               required:
                 - name
@@ -757,10 +762,10 @@ paths:
                   status: success
                   message: 'Платная услуга успешно изменена.'
                   attendance:
-                    id: 4
-                    name: 'Назарова Юлия Фёдоровна'
-                    desc: 'Dolore dolorem vero commodi nihil aut. Alias consequuntur non sequi vel voluptatem adipisci. Numquam reiciendis ut doloribus quos sed harum deleniti.'
-                    price: '6'
+                    id: 3
+                    name: 'Аксёнов Прохор Владимирович'
+                    desc: 'Quia aut consequuntur vitae omnis ipsam explicabo. Labore quaerat quas autem voluptatibus vel quidem. Corrupti omnis consequatur et.'
+                    price: '467'
                 properties:
                   status:
                     type: string
@@ -773,16 +778,16 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 4
+                        example: 3
                       name:
                         type: string
-                        example: 'Назарова Юлия Фёдоровна'
+                        example: 'Аксёнов Прохор Владимирович'
                       desc:
                         type: string
-                        example: 'Dolore dolorem vero commodi nihil aut. Alias consequuntur non sequi vel voluptatem adipisci. Numquam reiciendis ut doloribus quos sed harum deleniti.'
+                        example: 'Quia aut consequuntur vitae omnis ipsam explicabo. Labore quaerat quas autem voluptatibus vel quidem. Corrupti omnis consequatur et.'
                       price:
                         type: string
-                        example: '6'
+                        example: '467'
       tags:
         - Attendance
       requestBody:
@@ -795,22 +800,22 @@ paths:
                 name:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: thpmelolziyepyyknzv
+                  example: dxebwxl
                   nullable: false
                 desc:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: mglbcac
+                  example: uylkm
                   nullable: true
                 price:
                   type: number
                   description: ''
-                  example: 0.39
+                  example: 70966.1
                   nullable: false
                 trackId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the tracks table.'
-                  example: 19
+                  example: 20
                   nullable: false
               required:
                 - name
@@ -832,10 +837,10 @@ paths:
                   status: success
                   message: 'Платная услуга успешно удалена.'
                   attendance:
-                    id: 5
-                    name: 'Савельева Светлана Львовна'
-                    desc: 'Dolores accusantium ducimus ut ut numquam. Provident sint consequuntur labore eos aut iure. Reiciendis tenetur eos eius adipisci exercitationem. Esse est qui neque autem ut consequatur illum.'
-                    price: '764'
+                    id: 4
+                    name: 'Инга Максимовна Калашникова'
+                    desc: 'Molestiae voluptatum consequatur expedita ullam. Aut error facilis omnis numquam possimus veniam provident quaerat. Omnis ut aut pariatur nostrum facilis.'
+                    price: '8.666119e+08'
                 properties:
                   status:
                     type: string
@@ -848,16 +853,16 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 5
+                        example: 4
                       name:
                         type: string
-                        example: 'Савельева Светлана Львовна'
+                        example: 'Инга Максимовна Калашникова'
                       desc:
                         type: string
-                        example: 'Dolores accusantium ducimus ut ut numquam. Provident sint consequuntur labore eos aut iure. Reiciendis tenetur eos eius adipisci exercitationem. Esse est qui neque autem ut consequatur illum.'
+                        example: 'Molestiae voluptatum consequatur expedita ullam. Aut error facilis omnis numquam possimus veniam provident quaerat. Omnis ut aut pariatur nostrum facilis.'
                       price:
                         type: string
-                        example: '764'
+                        example: '8.666119e+08'
       tags:
         - Attendance
       requestBody:
@@ -870,7 +875,7 @@ paths:
                 id:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the attendances table.'
-                  example: 14
+                  example: 1
                   nullable: true
     parameters:
       -
@@ -897,13 +902,13 @@ paths:
                 example:
                   status: success
                   message: 'Вы успешно авторизовались.'
-                  access_token: 2321|otYzgiPQ4Qm4EBsrd3MlgQiuDDg5TFbYNqsvSddq6e6f7cbb
+                  access_token: 4|aTaKqr4K5Hn1v9fqtMRktfoQBzDH0VgumSVIRiLZ9163f51e
                   token_type: Bearer
                   user:
-                    id: 1376
-                    name: 'Попов Иосиф Борисович'
-                    email: iraklij61@example.com
-                    email_verified_at: '2025-05-26T12:58:51.000000Z'
+                    id: 3
+                    name: 'Вячеслав Фёдорович Абрамов'
+                    email: alekseeva.pavel@example.org
+                    email_verified_at: '2025-05-27T19:14:36.000000Z'
                     avatar: null
                 properties:
                   status:
@@ -914,7 +919,7 @@ paths:
                     example: 'Вы успешно авторизовались.'
                   access_token:
                     type: string
-                    example: 2321|otYzgiPQ4Qm4EBsrd3MlgQiuDDg5TFbYNqsvSddq6e6f7cbb
+                    example: 4|aTaKqr4K5Hn1v9fqtMRktfoQBzDH0VgumSVIRiLZ9163f51e
                   token_type:
                     type: string
                     example: Bearer
@@ -923,16 +928,16 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 1376
+                        example: 3
                       name:
                         type: string
-                        example: 'Попов Иосиф Борисович'
+                        example: 'Вячеслав Фёдорович Абрамов'
                       email:
                         type: string
-                        example: iraklij61@example.com
+                        example: alekseeva.pavel@example.org
                       email_verified_at:
                         type: string
-                        example: '2025-05-26T12:58:51.000000Z'
+                        example: '2025-05-27T19:14:36.000000Z'
                       avatar:
                         type: string
                         example: null
@@ -980,12 +985,12 @@ paths:
                 email:
                   type: string
                   description: 'Значение поля value должно быть действительным электронным адресом. Количество символов в поле value должно быть не меньше 3.'
-                  example: qhoeger@example.com
+                  example: lelia.jones@example.com
                   nullable: false
                 password:
                   type: string
                   description: 'Количество символов в поле value должно быть не меньше 3.'
-                  example: '=w5VzT;B0RvIpFa'
+                  example: "'kzPb}ybG{5SS^"
                   nullable: false
               required:
                 - email
@@ -1007,13 +1012,13 @@ paths:
                 example:
                   status: success
                   message: 'Вы успешно зарегистрированы.'
-                  access_token: 2322|LUmTwLXrfVc5BbGDcqd18fv8T0cNXE5vDdI7sV2L8c2b049f
+                  access_token: 5|xZLxj3IsZJJ1sWwv2Cy6yOW7dCNxOlJHG69X7j6Mb2083f70
                   token_type: Bearer
                   user:
-                    id: 1377
-                    name: 'Калашников Лев Максимович'
-                    email: psidorov@example.com
-                    email_verified_at: '2025-05-26T12:58:56.000000Z'
+                    id: 4
+                    name: 'Федосеев Гавриил Львович'
+                    email: rada.pestova@example.com
+                    email_verified_at: '2025-05-27T19:14:36.000000Z'
                     avatar: null
                 properties:
                   status:
@@ -1024,7 +1029,7 @@ paths:
                     example: 'Вы успешно зарегистрированы.'
                   access_token:
                     type: string
-                    example: 2322|LUmTwLXrfVc5BbGDcqd18fv8T0cNXE5vDdI7sV2L8c2b049f
+                    example: 5|xZLxj3IsZJJ1sWwv2Cy6yOW7dCNxOlJHG69X7j6Mb2083f70
                   token_type:
                     type: string
                     example: Bearer
@@ -1033,16 +1038,16 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 1377
+                        example: 4
                       name:
                         type: string
-                        example: 'Калашников Лев Максимович'
+                        example: 'Федосеев Гавриил Львович'
                       email:
                         type: string
-                        example: psidorov@example.com
+                        example: rada.pestova@example.com
                       email_verified_at:
                         type: string
-                        example: '2025-05-26T12:58:56.000000Z'
+                        example: '2025-05-27T19:14:36.000000Z'
                       avatar:
                         type: string
                         example: null
@@ -1090,22 +1095,22 @@ paths:
                 name:
                   type: string
                   description: 'Количество символов в поле value должно быть не меньше 3. Количество символов в значении поля value не может превышать 50.'
-                  example: dfgyqznweb
+                  example: fdmvzcyoouydee
                   nullable: false
                 email:
                   type: string
                   description: 'Значение поля value должно быть действительным электронным адресом.'
-                  example: hauck.eduardo@example.org
+                  example: myles.deckow@example.org
                   nullable: false
                 password:
                   type: string
                   description: 'Количество символов в поле value должно быть не меньше 8.'
-                  example: 'tL)Kp~pj5ZgcGl.:Z[P.'
+                  example: '~\OT}l6hA0'
                   nullable: false
                 password_confirmation:
                   type: string
                   description: 'The value and <code>password</code> must match.'
-                  example: est
+                  example: et
                   nullable: false
                 avatar:
                   type: string
@@ -1194,12 +1199,12 @@ paths:
                 number:
                   type: string
                   description: 'The <code>number</code> of an existing record in the phones table. Количество символов в поле value должно быть не меньше 10. Количество символов в значении поля value не может превышать 12.'
-                  example: qfzo
+                  example: zhobrowi
                   nullable: false
                 callback:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                   nullable: true
               required:
                 - number
@@ -1239,12 +1244,12 @@ paths:
                 number:
                   type: string
                   description: 'Количество символов в поле value должно быть не меньше 10. Количество символов в значении поля value не может превышать 12.'
-                  example: lbansmktyh
+                  example: ejtn
                   nullable: false
                 callback:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                   nullable: true
               required:
                 - number
@@ -1265,13 +1270,13 @@ paths:
                 example:
                   status: success
                   message: 'Вы успешно авторизовались.'
-                  access_token: 2323|Ohf26bGsELoE39L0baFi286fWgyRLp4eS2vS22Mqc3b9fea4
+                  access_token: 6|7Pg3wmO7fosfnoDU4JLXceOF6bSmO5iPk1zqn01V322cad14
                   token_type: Bearer
                   user:
-                    id: 1379
-                    name: 'Никита Львович Логинов'
-                    email: frolova.ananij@example.org
-                    email_verified_at: '2025-05-26T12:59:08.000000Z'
+                    id: 6
+                    name: 'Лев Максимович Андреев'
+                    email: gavriil.doronin@example.org
+                    email_verified_at: '2025-05-27T19:14:36.000000Z'
                     avatar: null
                 properties:
                   status:
@@ -1282,7 +1287,7 @@ paths:
                     example: 'Вы успешно авторизовались.'
                   access_token:
                     type: string
-                    example: 2323|Ohf26bGsELoE39L0baFi286fWgyRLp4eS2vS22Mqc3b9fea4
+                    example: 6|7Pg3wmO7fosfnoDU4JLXceOF6bSmO5iPk1zqn01V322cad14
                   token_type:
                     type: string
                     example: Bearer
@@ -1291,16 +1296,16 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 1379
+                        example: 6
                       name:
                         type: string
-                        example: 'Никита Львович Логинов'
+                        example: 'Лев Максимович Андреев'
                       email:
                         type: string
-                        example: frolova.ananij@example.org
+                        example: gavriil.doronin@example.org
                       email_verified_at:
                         type: string
-                        example: '2025-05-26T12:59:08.000000Z'
+                        example: '2025-05-27T19:14:36.000000Z'
                       avatar:
                         type: string
                         example: null
@@ -1348,12 +1353,12 @@ paths:
                 pin:
                   type: string
                   description: 'Количество символов в поле value должно быть не меньше 3. Количество символов в значении поля value не может превышать 4.'
-                  example: w
+                  example: wpqx
                   nullable: false
                 number:
                   type: string
                   description: 'The <code>number</code> of an existing record in the phones table. Количество символов в поле value должно быть не меньше 10. Количество символов в значении поля value не может превышать 12.'
-                  example: zlooecdkq
+                  example: tdpyrrmi
                   nullable: false
               required:
                 - pin
@@ -1378,12 +1383,12 @@ paths:
                 key:
                   type: string
                   description: ''
-                  example: eos
+                  example: culpa
                   nullable: false
                 phone:
                   type: string
                   description: ''
-                  example: non
+                  example: rerum
                   nullable: false
               required:
                 - key
@@ -1468,7 +1473,7 @@ paths:
         in: path
         name: userId
         description: ''
-        example: ut
+        example: totam
         required: true
         schema:
           type: string
@@ -1492,21 +1497,21 @@ paths:
                     status: success
                     message: 'Команда успешно получена.'
                     commands:
-                      id: 175
-                      name: 'Васильева Екатерина Александровна'
-                      full_name: 'Нелли Сергеевна Маркова'
-                      coach: 'Андрей Сергеевич Овчинников'
-                      city: Коломна
+                      id: 11
+                      name: 'Степанов Юлий Романович'
+                      full_name: 'Даниил Львович Давыдов'
+                      coach: 'Петров Вадим Борисович'
+                      city: Мытищи
                       avatar: null
                   -
                     status: success
                     message: 'Команда успешно получена.'
                     commands:
-                      id: 176
-                      name: 'Константин Евгеньевич Баранов'
-                      full_name: 'Устинова Алина Алексеевна'
-                      coach: 'Валерия Фёдоровна Макарова'
-                      city: Одинцово
+                      id: 12
+                      name: 'Виталий Андреевич Галкин'
+                      full_name: 'Брагина Инесса Максимовна'
+                      coach: 'Жуков Евгений Романович'
+                      city: Мытищи
                       avatar: null
       tags:
         - Command
@@ -1520,17 +1525,17 @@ paths:
                 userId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the users table.'
-                  example: 18
+                  example: 9
                   nullable: true
                 userIdExists:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the users table.'
-                  example: 18
+                  example: 5
                   nullable: true
                 checkMember:
                   type: boolean
                   description: ''
-                  example: true
+                  example: false
                   nullable: true
                 paginate:
                   type: boolean
@@ -1540,37 +1545,37 @@ paths:
                 page:
                   type: string
                   description: ''
-                  example: fugiat
+                  example: doloribus
                   nullable: true
                 limit:
                   type: integer
                   description: 'Значение поля value не может быть больше 50.'
-                  example: 25
+                  example: 6
                   nullable: true
                 locationId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the locations table.'
-                  example: 12
+                  example: 2
                   nullable: true
                 city:
                   type: string
                   description: ''
-                  example: aut
+                  example: expedita
                   nullable: true
                 fullName:
                   type: string
                   description: ''
-                  example: ut
+                  example: voluptas
                   nullable: true
                 coach:
                   type: string
                   description: ''
-                  example: aut
+                  example: accusantium
                   nullable: true
                 name:
                   type: string
                   description: ''
-                  example: sapiente
+                  example: aliquid
                   nullable: true
       security: []
     post:
@@ -1589,11 +1594,11 @@ paths:
                   status: success
                   message: 'Команда успешно создана.'
                   command:
-                    id: 178
-                    name: 'Соколова Алиса Романовна'
-                    full_name: 'Степанов Макар Борисович'
-                    coach: 'Ильин Ростислав Фёдорович'
-                    city: Лотошино
+                    id: 14
+                    name: 'Дарья Львовна Меркушева'
+                    full_name: 'Блинова Софья Фёдоровна'
+                    coach: 'Карпова Лилия Андреевна'
+                    city: Истра
                     avatar: null
                 properties:
                   status:
@@ -1607,19 +1612,19 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 178
+                        example: 14
                       name:
                         type: string
-                        example: 'Соколова Алиса Романовна'
+                        example: 'Дарья Львовна Меркушева'
                       full_name:
                         type: string
-                        example: 'Степанов Макар Борисович'
+                        example: 'Блинова Софья Фёдоровна'
                       coach:
                         type: string
-                        example: 'Ильин Ростислав Фёдорович'
+                        example: 'Карпова Лилия Андреевна'
                       city:
                         type: string
-                        example: Лотошино
+                        example: Истра
                       avatar:
                         type: string
                         example: null
@@ -1635,17 +1640,17 @@ paths:
                 name:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: qowrsmzabqgnkowjkrspjfu
+                  example: pybr
                   nullable: false
                 fullName:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: qytnihmojonussdbgvzbedeyt
+                  example: qujisxnfvaagekcykyrtuwn
                   nullable: true
                 coach:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: ajgxvtyzovjqfmvkdzpeso
+                  example: knvyfbezafcktuvq
                   nullable: true
                 avatar:
                   type: string
@@ -1655,12 +1660,12 @@ paths:
                 locationId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the locations table.'
-                  example: 19
+                  example: 1
                   nullable: true
                 city:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: bqoytxzmbqki
+                  example: ruozupfs
                   nullable: false
               required:
                 - name
@@ -1682,11 +1687,11 @@ paths:
                   status: success
                   message: 'Команда по идентификатору получена успешно.'
                   command:
-                    id: 177
-                    name: 'Волкова Раиса Евгеньевна'
-                    full_name: 'Алина Романовна Данилова'
-                    coach: 'Логинова Кристина Александровна'
-                    city: Ступино
+                    id: 13
+                    name: 'Глеб Александрович Рябов'
+                    full_name: 'Альбина Фёдоровна Котова'
+                    coach: 'Спартак Алексеевич Тарасов'
+                    city: Одинцово
                     avatar: null
                 properties:
                   status:
@@ -1700,19 +1705,19 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 177
+                        example: 13
                       name:
                         type: string
-                        example: 'Волкова Раиса Евгеньевна'
+                        example: 'Глеб Александрович Рябов'
                       full_name:
                         type: string
-                        example: 'Алина Романовна Данилова'
+                        example: 'Альбина Фёдоровна Котова'
                       coach:
                         type: string
-                        example: 'Логинова Кристина Александровна'
+                        example: 'Спартак Алексеевич Тарасов'
                       city:
                         type: string
-                        example: Ступино
+                        example: Одинцово
                       avatar:
                         type: string
                         example: null
@@ -1728,12 +1733,12 @@ paths:
                 userId:
                   type: integer
                   description: ''
-                  example: 1
+                  example: 5
                   nullable: true
                 userIdExists:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the users table.'
-                  example: 3
+                  example: 6
                   nullable: true
                 checkMember:
                   type: boolean
@@ -1743,22 +1748,22 @@ paths:
                 locationId:
                   type: integer
                   description: ''
-                  example: 18
+                  example: 5
                   nullable: true
                 city:
                   type: string
                   description: ''
-                  example: placeat
+                  example: consequatur
                   nullable: true
                 fullName:
                   type: string
                   description: ''
-                  example: fugit
+                  example: quia
                   nullable: true
                 coach:
                   type: string
                   description: ''
-                  example: ut
+                  example: unde
                   nullable: true
       security: []
     post:
@@ -1777,11 +1782,11 @@ paths:
                   status: success
                   message: 'Команда успешно изменена.'
                   command:
-                    id: 179
-                    name: 'Инесса Ивановна Ефремова'
-                    full_name: 'Попова Ярослава Владимировна'
-                    coach: 'Виктор Дмитриевич Тетерин'
-                    city: Талдом
+                    id: 15
+                    name: 'Горшков Аким Максимович'
+                    full_name: 'Григорий Дмитриевич Бирюков'
+                    coach: 'Галина Борисовна Куликова'
+                    city: Люберцы
                     avatar: null
                 properties:
                   status:
@@ -1795,19 +1800,19 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 179
+                        example: 15
                       name:
                         type: string
-                        example: 'Инесса Ивановна Ефремова'
+                        example: 'Горшков Аким Максимович'
                       full_name:
                         type: string
-                        example: 'Попова Ярослава Владимировна'
+                        example: 'Григорий Дмитриевич Бирюков'
                       coach:
                         type: string
-                        example: 'Виктор Дмитриевич Тетерин'
+                        example: 'Галина Борисовна Куликова'
                       city:
                         type: string
-                        example: Талдом
+                        example: Люберцы
                       avatar:
                         type: string
                         example: null
@@ -1855,17 +1860,17 @@ paths:
                 name:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: vkfmqmtzumpndjnwfqsxqmyny
+                  example: a
                   nullable: true
                 fullName:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: fvu
+                  example: gecomipj
                   nullable: true
                 coach:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: adfw
+                  example: tntbhfsvkpuwovpiq
                   nullable: true
                 avatar:
                   type: string
@@ -1875,12 +1880,12 @@ paths:
                 city:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: ixmhxrmztzvubozbwgsbieo
+                  example: xchuvalepevcgpflwbufxctw
                   nullable: true
                 locationId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the locations table.'
-                  example: 7
+                  example: 8
                   nullable: true
     delete:
       summary: delete
@@ -1898,11 +1903,11 @@ paths:
                   status: success
                   message: 'Команда успешно удаленаю'
                   command:
-                    id: 180
-                    name: 'Матвей Андреевич Шилов'
-                    full_name: 'Ефимова Марина Романовна'
-                    coach: 'Казакова Инга Алексеевна'
-                    city: Орехово-Зуево
+                    id: 16
+                    name: 'Селезнёва Эмилия Алексеевна'
+                    full_name: 'Красильников Николай Дмитриевич'
+                    coach: 'Валерия Романовна Гурьева'
+                    city: Люберцы
                     avatar: null
                 properties:
                   status:
@@ -1916,19 +1921,19 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 180
+                        example: 16
                       name:
                         type: string
-                        example: 'Матвей Андреевич Шилов'
+                        example: 'Селезнёва Эмилия Алексеевна'
                       full_name:
                         type: string
-                        example: 'Ефимова Марина Романовна'
+                        example: 'Красильников Николай Дмитриевич'
                       coach:
                         type: string
-                        example: 'Казакова Инга Алексеевна'
+                        example: 'Валерия Романовна Гурьева'
                       city:
                         type: string
-                        example: Орехово-Зуево
+                        example: Люберцы
                       avatar:
                         type: string
                         example: null
@@ -2046,7 +2051,7 @@ paths:
         in: path
         name: user_id
         description: 'The ID of the user.'
-        example: reprehenderit
+        example: molestiae
         required: true
         schema:
           type: string
@@ -2107,8 +2112,8 @@ paths:
                   status: success
                   message: messages.couches.get.success
                   members:
-                    id: 1389
-                    name: 'Глеб Львович Игнатьев'
+                    id: 16
+                    name: 'Макаров Гарри Львович'
                     avatar: null
                     personal: []
                 properties:
@@ -2123,10 +2128,10 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 1389
+                        example: 16
                       name:
                         type: string
-                        example: 'Глеб Львович Игнатьев'
+                        example: 'Макаров Гарри Львович'
                       avatar:
                         type: string
                         example: null
@@ -2166,17 +2171,17 @@ paths:
                 page:
                   type: string
                   description: ''
-                  example: tempora
+                  example: ad
                   nullable: true
                 limit:
                   type: integer
                   description: 'Значение поля value не может быть больше 50.'
-                  example: 22
+                  example: 25
                   nullable: true
                 raceIdExists:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the races table.'
-                  example: 7
+                  example: 13
                   nullable: true
                 checkMember:
                   type: boolean
@@ -2209,8 +2214,8 @@ paths:
                   status: success
                   message: messages.command.get_coaches_for_all.success
                   coaches:
-                    id: 1390
-                    name: 'Морозова Любовь Евгеньевна'
+                    id: 17
+                    name: 'Суханова Ярослава Максимовна'
                     avatar: null
                     personal: []
                 properties:
@@ -2225,10 +2230,10 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 1390
+                        example: 17
                       name:
                         type: string
-                        example: 'Морозова Любовь Евгеньевна'
+                        example: 'Суханова Ярослава Максимовна'
                       avatar:
                         type: string
                         example: null
@@ -2263,17 +2268,17 @@ paths:
                 paginate:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                   nullable: true
                 page:
                   type: string
                   description: ''
-                  example: qui
+                  example: incidunt
                   nullable: true
                 limit:
                   type: integer
                   description: 'Значение поля value не может быть больше 50.'
-                  example: 1
+                  example: 25
                   nullable: true
       security: []
     parameters:
@@ -2302,10 +2307,10 @@ paths:
                   status: success
                   message: messages.command.get_members_for_coach.success
                   members:
-                    id: 1391
-                    name: 'Терентьев Донат Андреевич'
-                    email: udin.anzelika@example.net
-                    email_verified_at: '2025-05-26T13:06:12.000000Z'
+                    id: 18
+                    name: 'Клементина Алексеевна Мамонтова'
+                    email: danila.ilin@example.org
+                    email_verified_at: '2025-05-27T19:14:38.000000Z'
                     avatar: null
                 properties:
                   status:
@@ -2319,16 +2324,16 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 1391
+                        example: 18
                       name:
                         type: string
-                        example: 'Терентьев Донат Андреевич'
+                        example: 'Клементина Алексеевна Мамонтова'
                       email:
                         type: string
-                        example: udin.anzelika@example.net
+                        example: danila.ilin@example.org
                       email_verified_at:
                         type: string
-                        example: '2025-05-26T13:06:12.000000Z'
+                        example: '2025-05-27T19:14:38.000000Z'
                       avatar:
                         type: string
                         example: null
@@ -2376,27 +2381,27 @@ paths:
                 paginate:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                   nullable: true
                 page:
                   type: string
                   description: ''
-                  example: alias
+                  example: nulla
                   nullable: true
                 limit:
                   type: integer
                   description: 'Значение поля value не может быть больше 50.'
-                  example: 4
+                  example: 14
                   nullable: true
                 raceIdExists:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the races table.'
-                  example: 3
+                  example: 8
                   nullable: true
                 checkMember:
                   type: boolean
                   description: ''
-                  example: true
+                  example: false
                   nullable: true
     parameters:
       -
@@ -2424,10 +2429,10 @@ paths:
                   status: success
                   message: 'Кубок по идентификатору получен успешно.'
                   cup:
-                    id: 2
-                    name: 'Дмитрий Фёдорович Кулаков'
-                    year: 1997
-                    stages: '4'
+                    id: 1
+                    name: 'София Владимировна Мишина'
+                    year: 2016
+                    stages: '9'
                     image: null
                     color: null
                 properties:
@@ -2442,16 +2447,16 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 2
+                        example: 1
                       name:
                         type: string
-                        example: 'Дмитрий Фёдорович Кулаков'
+                        example: 'София Владимировна Мишина'
                       year:
                         type: integer
-                        example: 1997
+                        example: 2016
                       stages:
                         type: string
-                        example: '4'
+                        example: '9'
                       image:
                         type: string
                         example: null
@@ -2475,17 +2480,17 @@ paths:
                 limit:
                   type: integer
                   description: 'Значение поля value не может быть больше 100.'
-                  example: 5
+                  example: 18
                   nullable: true
                 page:
                   type: string
                   description: ''
-                  example: qui
+                  example: a
                   nullable: true
                 name:
                   type: string
                   description: ''
-                  example: cum
+                  example: tempore
                   nullable: true
       security: []
     post:
@@ -2504,10 +2509,10 @@ paths:
                   status: success
                   message: 'Кубок успешно обновлён'
                   cup:
-                    id: 5
-                    name: 'Алиса Борисовна Лобанова'
-                    year: 2019
-                    stages: '1'
+                    id: 4
+                    name: 'Трофимова Клементина Сергеевна'
+                    year: 1985
+                    stages: '10'
                     image: null
                     color: null
                 properties:
@@ -2522,16 +2527,16 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 5
+                        example: 4
                       name:
                         type: string
-                        example: 'Алиса Борисовна Лобанова'
+                        example: 'Трофимова Клементина Сергеевна'
                       year:
                         type: integer
-                        example: 2019
+                        example: 1985
                       stages:
                         type: string
-                        example: '1'
+                        example: '10'
                       image:
                         type: string
                         example: null
@@ -2550,17 +2555,17 @@ paths:
                 name:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: vddzpl
+                  example: gk
                   nullable: true
                 year:
                   type: integer
                   description: ''
-                  example: 2
+                  example: 16
                   nullable: true
                 stages:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: mbpayea
+                  example: knmddyhedoltfimi
                   nullable: true
                 image:
                   type: string
@@ -2570,24 +2575,24 @@ paths:
                 color:
                   type: string
                   description: ''
-                  example: dignissimos
+                  example: et
                   nullable: true
                 locationId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the locations table.'
-                  example: 8
+                  example: 2
                   nullable: true
                 userId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the users table.'
-                  example: 18
+                  example: 1
                   nullable: true
     parameters:
       -
         in: path
         name: id
         description: 'The ID of the cup.'
-        example: sequi
+        example: illum
         required: true
         schema:
           type: string
@@ -2608,10 +2613,10 @@ paths:
                   status: success
                   message: 'Кубок по идентификатору гонки получен успешно.'
                   cup:
-                    id: 3
-                    name: 'Бирюков Лаврентий Сергеевич'
-                    year: 2020
-                    stages: '5'
+                    id: 2
+                    name: 'Дмитриева Изольда Сергеевна'
+                    year: 1991
+                    stages: '7'
                     image: null
                     color: null
                 properties:
@@ -2626,16 +2631,16 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 3
+                        example: 2
                       name:
                         type: string
-                        example: 'Бирюков Лаврентий Сергеевич'
+                        example: 'Дмитриева Изольда Сергеевна'
                       year:
                         type: integer
-                        example: 2020
+                        example: 1991
                       stages:
                         type: string
-                        example: '5'
+                        example: '7'
                       image:
                         type: string
                         example: null
@@ -2654,7 +2659,7 @@ paths:
                 raceId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the race table.'
-                  example: 12
+                  example: 9
                   nullable: true
       security: []
     parameters:
@@ -2662,7 +2667,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the race.'
-        example: 23
+        example: 1
         required: true
         schema:
           type: integer
@@ -2683,9 +2688,9 @@ paths:
                   status: success
                   message: 'Кубок успешно создан'
                   cup:
-                    id: 4
-                    name: 'Рената Дмитриевна Агафонова'
-                    year: 1990
+                    id: 3
+                    name: 'Игнатьева Ольга Львовна'
+                    year: 1985
                     stages: '5'
                     image: null
                     color: null
@@ -2701,13 +2706,13 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 4
+                        example: 3
                       name:
                         type: string
-                        example: 'Рената Дмитриевна Агафонова'
+                        example: 'Игнатьева Ольга Львовна'
                       year:
                         type: integer
-                        example: 1990
+                        example: 1985
                       stages:
                         type: string
                         example: '5'
@@ -2729,12 +2734,12 @@ paths:
                 name:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: vuboysbczdvgrucrqlugrqslo
+                  example: ftseuwh
                   nullable: false
                 year:
                   type: integer
                   description: ''
-                  example: 6
+                  example: 11
                   nullable: false
                 image:
                   type: string
@@ -2744,17 +2749,17 @@ paths:
                 color:
                   type: string
                   description: ''
-                  example: saepe
+                  example: est
                   nullable: true
                 stages:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: fxnzwckozoob
+                  example: u
                   nullable: true
                 locationId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the locations table.'
-                  example: 9
+                  example: 15
                   nullable: true
               required:
                 - name
@@ -2855,7 +2860,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the degree.'
-        example: 1
+        example: 10
         required: true
         schema:
           type: integer
@@ -2876,8 +2881,8 @@ paths:
                   status: success
                   message: 'Документ успешно создан.'
                   document:
-                    id: 2535
-                    name: file_68346648d4b15
+                    id: 4
+                    name: file_68360f1d7467d
                     type: notarius
                     url_view: null
                     number: null
@@ -2896,10 +2901,10 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 2535
+                        example: 4
                       name:
                         type: string
-                        example: file_68346648d4b15
+                        example: file_68360f1d7467d
                       type:
                         type: string
                         example: notarius
@@ -2930,7 +2935,7 @@ paths:
                 type:
                   type: string
                   description: ''
-                  example: notarius
+                  example: polis
                   nullable: false
                   enum:
                     - licenses
@@ -2944,22 +2949,22 @@ paths:
                 url:
                   type: string
                   description: ''
-                  example: 'http://romaguera.info/explicabo-voluptate-recusandae-rem-non-illum-qui-fugiat-recusandae'
+                  example: 'http://sauer.net/id-quia-cupiditate-qui-eos-molestiae'
                   nullable: true
                 number:
                   type: string
                   description: ''
-                  example: omnis
+                  example: corporis
                   nullable: true
                 issuedWhom:
                   type: string
                   description: ''
-                  example: commodi
+                  example: consectetur
                   nullable: true
                 itWorksDate:
                   type: string
                   description: ''
-                  example: architecto
+                  example: quo
                   nullable: true
               required:
                 - type
@@ -2983,8 +2988,8 @@ paths:
                     status: success
                     message: 'Документы пользователя получены успешно.'
                     documents:
-                      id: 2536
-                      name: file_6834664a3562b
+                      id: 5
+                      name: file_68360f1d78368
                       type: notarius
                       url_view: null
                       number: null
@@ -2995,8 +3000,8 @@ paths:
                     status: success
                     message: 'Документы пользователя получены успешно.'
                     documents:
-                      id: 2537
-                      name: file_6834664cd727f
+                      id: 6
+                      name: file_68360f1d7a735
                       type: notarius
                       url_view: null
                       number: null
@@ -3031,12 +3036,12 @@ paths:
                 userId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the users table.'
-                  example: 6
+                  example: 19
                   nullable: true
                 commandId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the commands table.'
-                  example: 12
+                  example: 11
                   nullable: true
       security: []
   '/api/users/cabinet/documents/{id}':
@@ -3056,8 +3061,8 @@ paths:
                   status: success
                   message: 'Документ по идентификатору получен успешно.'
                   document:
-                    id: 2538
-                    name: file_68346652c2cd6
+                    id: 7
+                    name: file_68360f1d7fda4
                     type: notarius
                     url_view: null
                     number: null
@@ -3076,10 +3081,10 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 2538
+                        example: 7
                       name:
                         type: string
-                        example: file_68346652c2cd6
+                        example: file_68360f1d7fda4
                       type:
                         type: string
                         example: notarius
@@ -3179,7 +3184,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the document.'
-        example: 942
+        example: 1
         required: true
         schema:
           type: integer
@@ -3200,8 +3205,8 @@ paths:
                   status: success
                   message: 'Документ успешно изменён.'
                   document:
-                    id: 2539
-                    name: file_68346655c90d5
+                    id: 8
+                    name: file_68360f1d84dde
                     type: notarius
                     url_view: null
                     number: null
@@ -3220,10 +3225,10 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 2539
+                        example: 8
                       name:
                         type: string
-                        example: file_68346655c90d5
+                        example: file_68360f1d84dde
                       type:
                         type: string
                         example: notarius
@@ -3291,17 +3296,17 @@ paths:
                 number:
                   type: string
                   description: ''
-                  example: ipsum
+                  example: et
                   nullable: true
                 issuedWhom:
                   type: string
                   description: ''
-                  example: vel
+                  example: molestias
                   nullable: true
                 itWorksDate:
                   type: string
                   description: ''
-                  example: quia
+                  example: tempora
                   nullable: true
       security: []
     parameters:
@@ -3309,7 +3314,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the document.'
-        example: 942
+        example: 1
         required: true
         schema:
           type: integer
@@ -3364,12 +3369,12 @@ paths:
                 checked:
                   type: boolean
                   description: ''
-                  example: true
+                  example: false
                   nullable: false
                 comment:
                   type: string
                   description: ''
-                  example: autem
+                  example: est
                   nullable: true
               required:
                 - checked
@@ -3379,7 +3384,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the document.'
-        example: 942
+        example: 1
         required: true
         schema:
           type: integer
@@ -3401,7 +3406,7 @@ paths:
                   message: 'Транзакция успешно создана.'
                   payment_link: null
                   transaction:
-                    id: 178
+                    id: 1
                     status: null
                     date: null
                     user: null
@@ -3421,7 +3426,7 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 178
+                        example: 1
                       status:
                         type: string
                         example: null
@@ -3447,13 +3452,13 @@ paths:
                   type: array
                   description: 'The <code>id</code> of an existing record in the attendances table.'
                   example:
-                    - 5
+                    - 9
                   items:
                     type: integer
                 date:
                   type: string
                   description: 'Значение поля value не является датой.'
-                  example: '2025-05-26T13:00:28'
+                  example: '2025-05-27T19:14:36'
                   nullable: true
               required:
                 - attendanceIds
@@ -3477,7 +3482,7 @@ paths:
                     status: success
                     message: messages.transaction.get_users.success
                     transactions:
-                      id: 180
+                      id: 3
                       status: null
                       date: null
                       user: null
@@ -3486,7 +3491,7 @@ paths:
                     status: success
                     message: messages.transaction.get_users.success
                     transactions:
-                      id: 181
+                      id: 4
                       status: null
                       date: null
                       user: null
@@ -3503,12 +3508,12 @@ paths:
                 page:
                   type: integer
                   description: 'Значение поля value должно быть не меньше 1.'
-                  example: 58
+                  example: 77
                   nullable: true
                 limit:
                   type: integer
                   description: 'Значение поля value должно быть не меньше 1. Значение поля value не может быть больше 50.'
-                  example: 24
+                  example: 13
                   nullable: true
                 paginate:
                   type: boolean
@@ -3518,7 +3523,7 @@ paths:
                 sort:
                   type: string
                   description: ''
-                  example: asc
+                  example: desc
                   nullable: true
                   enum:
                     - asc
@@ -3526,7 +3531,7 @@ paths:
                 sortField:
                   type: string
                   description: ''
-                  example: created_at
+                  example: amount
                   nullable: true
                   enum:
                     - created_at
@@ -3547,7 +3552,7 @@ paths:
               schema:
                 type: object
                 example:
-                  id: 179
+                  id: 2
                   status: null
                   date: null
                   user: null
@@ -3555,7 +3560,7 @@ paths:
                 properties:
                   id:
                     type: integer
-                    example: 179
+                    example: 2
                   status:
                     type: string
                     example: null
@@ -3588,7 +3593,7 @@ paths:
                   status: success
                   message: messages.transaction.get_for_id.success
                   transaction:
-                    id: 182
+                    id: 5
                     status: null
                     date: null
                     user: null
@@ -3605,7 +3610,7 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 182
+                        example: 5
                       status:
                         type: string
                         example: null
@@ -3642,7 +3647,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the transaction.'
-        example: 1
+        example: 17
         required: true
         schema:
           type: integer
@@ -3722,7 +3727,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the race.'
-        example: 23
+        example: 1
         required: true
         schema:
           type: integer
@@ -3746,16 +3751,16 @@ paths:
                     status: success
                     message: 'Класс гонки получен успешно.'
                     grades:
-                      id: 50
-                      name: 'Алина Дмитриевна Прохорова'
-                      description: 'Non a provident vitae enim. Odio minus et enim cupiditate.'
+                      id: 11
+                      name: 'Нелли Ивановна Логинова'
+                      description: 'Eos similique at praesentium et esse qui et. At velit accusamus esse. Sint quibusdam quis veritatis impedit nisi.'
                   -
                     status: success
                     message: 'Класс гонки получен успешно.'
                     grades:
-                      id: 51
-                      name: 'Савва Фёдорович Владимиров'
-                      description: 'Modi quasi soluta sint sapiente expedita. Eos voluptatem ex molestiae quas modi. Quasi minus expedita omnis.'
+                      id: 12
+                      name: 'Вячеслав Максимович Горбачёв'
+                      description: 'Enim accusamus totam itaque mollitia illo. Exercitationem reiciendis ducimus ad. Rerum ipsa labore eum voluptatem ut voluptatibus.'
       tags:
         - Grade
       requestBody:
@@ -3768,7 +3773,7 @@ paths:
                 userId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the users table.'
-                  example: 15
+                  example: 7
                   nullable: true
                 paginate:
                   type: boolean
@@ -3778,12 +3783,17 @@ paths:
                 page:
                   type: string
                   description: ''
-                  example: voluptatem
+                  example: eius
                   nullable: true
                 limit:
                   type: integer
                   description: 'Значение поля value не может быть больше 50.'
-                  example: 8
+                  example: 6
+                  nullable: true
+                gradeNotParent:
+                  type: boolean
+                  description: ''
+                  example: false
                   nullable: true
       security: []
     post:
@@ -3802,9 +3812,9 @@ paths:
                   status: success
                   message: 'Класс гонки успешно создан.'
                   grade:
-                    id: 53
-                    name: 'Родионова Александра Владимировна'
-                    description: 'Voluptatem magnam amet velit autem. Qui est ut voluptas sit magnam qui incidunt omnis. Doloribus quia consequuntur quam autem labore consequatur dolorem eligendi. Qui maxime quia non nemo.'
+                    id: 14
+                    name: 'Гаврилова Жанна Андреевна'
+                    description: 'Natus et sit modi ullam odio. Amet ut ut quis optio corporis et est. Voluptas beatae omnis voluptas aperiam sint.'
                 properties:
                   status:
                     type: string
@@ -3817,13 +3827,13 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 53
+                        example: 14
                       name:
                         type: string
-                        example: 'Родионова Александра Владимировна'
+                        example: 'Гаврилова Жанна Андреевна'
                       description:
                         type: string
-                        example: 'Voluptatem magnam amet velit autem. Qui est ut voluptas sit magnam qui incidunt omnis. Doloribus quia consequuntur quam autem labore consequatur dolorem eligendi. Qui maxime quia non nemo.'
+                        example: 'Natus et sit modi ullam odio. Amet ut ut quis optio corporis et est. Voluptas beatae omnis voluptas aperiam sint.'
       tags:
         - Grade
       requestBody:
@@ -3836,12 +3846,12 @@ paths:
                 name:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: ehsnksnajuah
+                  example: nmbpdnjlnykjwpx
                   nullable: false
                 description:
                   type: string
                   description: ''
-                  example: 'Accusantium rerum omnis labore ex sint qui.'
+                  example: 'Sit eius est iste rem sint aut.'
                   nullable: true
               required:
                 - name
@@ -3862,9 +3872,9 @@ paths:
                   status: success
                   message: 'Класс гонки по идентификатору получен успешно.'
                   grade:
-                    id: 52
-                    name: 'София Борисовна Журавлёва'
-                    description: 'Magni aliquam aut et voluptates sit ipsum sed. Commodi quidem occaecati ipsam iste delectus. Alias repellat rerum similique dolores maiores alias dolore.'
+                    id: 13
+                    name: 'Марат Дмитриевич Блинов'
+                    description: 'Voluptate magnam dolore quod iusto est consequatur. Occaecati aut soluta amet odio aut. Sequi atque illo ea possimus. Dolores ut necessitatibus earum nihil.'
                 properties:
                   status:
                     type: string
@@ -3877,13 +3887,13 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 52
+                        example: 13
                       name:
                         type: string
-                        example: 'София Борисовна Журавлёва'
+                        example: 'Марат Дмитриевич Блинов'
                       description:
                         type: string
-                        example: 'Magni aliquam aut et voluptates sit ipsum sed. Commodi quidem occaecati ipsam iste delectus. Alias repellat rerum similique dolores maiores alias dolore.'
+                        example: 'Voluptate magnam dolore quod iusto est consequatur. Occaecati aut soluta amet odio aut. Sequi atque illo ea possimus. Dolores ut necessitatibus earum nihil.'
       tags:
         - Grade
       requestBody:
@@ -3896,12 +3906,12 @@ paths:
                 id:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the grades table.'
-                  example: 19
+                  example: 2
                   nullable: false
                 userId:
                   type: integer
                   description: ''
-                  example: 9
+                  example: 17
                   nullable: true
               required:
                 - id
@@ -3922,9 +3932,9 @@ paths:
                   status: success
                   message: 'Класс гонки успешно изменён.'
                   grade:
-                    id: 54
-                    name: 'Лазарева Нонна Ивановна'
-                    description: 'Autem odio veritatis voluptatem omnis adipisci nostrum accusamus. Ut laborum ullam odio. Adipisci debitis libero earum inventore excepturi. Ea et veniam in aperiam aliquid consequatur.'
+                    id: 15
+                    name: 'Тимофеев Василий Алексеевич'
+                    description: 'Facilis et est eos unde aut voluptatum perferendis. Tenetur quod ut et atque aspernatur delectus aut. Minima et quia vel delectus. Dolor pariatur molestiae provident facere nam omnis.'
                 properties:
                   status:
                     type: string
@@ -3937,13 +3947,13 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 54
+                        example: 15
                       name:
                         type: string
-                        example: 'Лазарева Нонна Ивановна'
+                        example: 'Тимофеев Василий Алексеевич'
                       description:
                         type: string
-                        example: 'Autem odio veritatis voluptatem omnis adipisci nostrum accusamus. Ut laborum ullam odio. Adipisci debitis libero earum inventore excepturi. Ea et veniam in aperiam aliquid consequatur.'
+                        example: 'Facilis et est eos unde aut voluptatum perferendis. Tenetur quod ut et atque aspernatur delectus aut. Minima et quia vel delectus. Dolor pariatur molestiae provident facere nam omnis.'
         404:
           description: ''
           content:
@@ -3972,29 +3982,29 @@ paths:
                 name:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: knletwxjbznrkcemncc
+                  example: woonpxoawergfzcjf
                   nullable: true
                 description:
                   type: string
                   description: ''
-                  example: 'Provident aut cumque et voluptatem.'
+                  example: 'Dolorem perspiciatis quaerat voluptatem quisquam sit tempora.'
                   nullable: true
                 userId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the users table.'
-                  example: 2
+                  example: 20
                   nullable: true
                 gradeId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the grades table.'
-                  example: 17
+                  example: 18
                   nullable: true
     parameters:
       -
         in: path
         name: id
         description: 'The ID of the grade.'
-        example: 2
+        example: 1
         required: true
         schema:
           type: integer
@@ -4040,22 +4050,22 @@ paths:
                 paginate:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                   nullable: true
                 limit:
                   type: integer
                   description: 'Значение поля value не может быть больше 100.'
-                  example: 5
+                  example: 4
                   nullable: true
                 page:
                   type: string
                   description: ''
-                  example: distinctio
+                  example: ex
                   nullable: true
                 name:
                   type: string
                   description: ''
-                  example: placeat
+                  example: porro
                   nullable: true
                 raceCountExists:
                   type: boolean
@@ -4065,12 +4075,12 @@ paths:
                 trackCountExists:
                   type: boolean
                   description: ''
-                  example: true
+                  example: false
                   nullable: true
                 commandCountExists:
                   type: boolean
                   description: ''
-                  example: true
+                  example: false
                   nullable: true
       security: []
   /api/users/cabinet/personal-info:
@@ -4090,23 +4100,23 @@ paths:
                   status: success
                   message: 'Информация о пользователе создана успешно.'
                   personal_info:
-                    name: Mr.
-                    surname: Mr.
-                    patronymic: Miss
-                    date_of_birth: '2017-12-02'
-                    city: Раменское
+                    name: Dr.
+                    surname: Prof.
+                    patronymic: Ms.
+                    date_of_birth: '1987-11-26'
+                    city: Люберцы
                     inn: '100000000000'
-                    snils: '10000000000'
-                    phone_number: '(495) 529-6711'
-                    start_number: '486'
-                    group: 'Системный аналитик'
-                    rank_number: '99999'
-                    rank: Радист
-                    community: 'МФО ВодВектор'
-                    coach: 'Гордей Фёдорович Панфилов'
-                    moto_stamp: Mr.
-                    engine: Dr.
-                    number_and_seria: '10000000000'
+                    snils: '9999999999'
+                    phone_number: '(35222) 64-0667'
+                    start_number: '867'
+                    group: 'Финансовый советник'
+                    rank_number: '100000'
+                    rank: Детектив
+                    community: 'ОАО ЭлектроМясТрансМашина'
+                    coach: 'Афанасий Дмитриевич Потапов'
+                    moto_stamp: Miss
+                    engine: Prof.
+                    number_and_seria: '9999999999'
                     region: null
                 properties:
                   status:
@@ -4120,55 +4130,55 @@ paths:
                     properties:
                       name:
                         type: string
-                        example: Mr.
+                        example: Dr.
                       surname:
                         type: string
-                        example: Mr.
+                        example: Prof.
                       patronymic:
                         type: string
-                        example: Miss
+                        example: Ms.
                       date_of_birth:
                         type: string
-                        example: '2017-12-02'
+                        example: '1987-11-26'
                       city:
                         type: string
-                        example: Раменское
+                        example: Люберцы
                       inn:
                         type: string
                         example: '100000000000'
                       snils:
                         type: string
-                        example: '10000000000'
+                        example: '9999999999'
                       phone_number:
                         type: string
-                        example: '(495) 529-6711'
+                        example: '(35222) 64-0667'
                       start_number:
                         type: string
-                        example: '486'
+                        example: '867'
                       group:
                         type: string
-                        example: 'Системный аналитик'
+                        example: 'Финансовый советник'
                       rank_number:
                         type: string
-                        example: '99999'
+                        example: '100000'
                       rank:
                         type: string
-                        example: Радист
+                        example: Детектив
                       community:
                         type: string
-                        example: 'МФО ВодВектор'
+                        example: 'ОАО ЭлектроМясТрансМашина'
                       coach:
                         type: string
-                        example: 'Гордей Фёдорович Панфилов'
+                        example: 'Афанасий Дмитриевич Потапов'
                       moto_stamp:
                         type: string
-                        example: Mr.
+                        example: Miss
                       engine:
                         type: string
-                        example: Dr.
+                        example: Prof.
                       number_and_seria:
                         type: string
-                        example: '10000000000'
+                        example: '9999999999'
                       region:
                         type: string
                         example: null
@@ -4184,22 +4194,22 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: et
+                  example: deserunt
                   nullable: true
                 surname:
                   type: string
                   description: ''
-                  example: modi
+                  example: dicta
                   nullable: true
                 patronymic:
                   type: string
                   description: ''
-                  example: sint
+                  example: temporibus
                   nullable: true
                 dateOfBirth:
                   type: string
                   description: 'Значение поля value не является датой.'
-                  example: '2025-05-26T13:01:49'
+                  example: '2025-05-27T19:14:37'
                   nullable: true
                 city:
                   type: string
@@ -4209,77 +4219,77 @@ paths:
                 inn:
                   type: string
                   description: ''
-                  example: dolores
+                  example: tempora
                   nullable: true
                 snils:
                   type: string
                   description: ''
-                  example: veritatis
+                  example: eius
                   nullable: true
                 phoneNumber:
                   type: string
                   description: ''
-                  example: voluptates
+                  example: at
                   nullable: true
                 startNumber:
                   type: integer
                   description: 'Значение поля value должно быть не меньше 1. Значение поля value не может быть больше 999.'
-                  example: 19
+                  example: 11
                   nullable: true
                 group:
                   type: string
                   description: ''
-                  example: et
+                  example: perspiciatis
                   nullable: true
                 rank:
                   type: string
                   description: ''
-                  example: nulla
+                  example: dolore
                   nullable: true
                 rankNumber:
                   type: string
                   description: ''
-                  example: qui
+                  example: magnam
                   nullable: true
                 community:
                   type: string
                   description: ''
-                  example: delectus
+                  example: aspernatur
                   nullable: true
                 coach:
                   type: string
                   description: ''
-                  example: non
+                  example: sapiente
                   nullable: true
                 motoStamp:
                   type: string
                   description: ''
-                  example: ut
+                  example: corporis
                   nullable: true
                 engine:
                   type: string
                   description: ''
-                  example: tempore
+                  example: aut
                   nullable: true
                 numberAndSeria:
                   type: string
                   description: ''
-                  example: qui
+                  example: enim
                   nullable: true
                 region:
                   type: string
                   description: ''
-                  example: maxime
+                  example: dolor
                   nullable: true
                 locationId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the locations table.'
-                  example: 17
+                  example: 14
                   nullable: true
                 commandId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the commands table.'
-                  example: 1
+                  example: 11
                   nullable: true
     patch:
       summary: Update
@@ -4297,23 +4307,23 @@ paths:
                   status: success
                   message: 'Информация о пользователе успешно изменена.'
                   personal_info:
-                    name: Prof.
-                    surname: Prof.
-                    patronymic: Dr.
-                    date_of_birth: '2019-09-05'
-                    city: Лотошино
-                    inn: '100000000000'
-                    snils: '9999999999'
-                    phone_number: '+7 (922) 106-5410'
-                    start_number: '890'
-                    group: 'Горный проводник'
-                    rank_number: '100000'
-                    rank: Абразивоструйщик
-                    community: 'ЗАО ТверьМясРечМаш'
-                    coach: 'Матвеева Рената Борисовна'
-                    moto_stamp: Dr.
-                    engine: Ms.
-                    number_and_seria: '10000000000'
+                    name: Miss
+                    surname: Mr.
+                    patronymic: Miss
+                    date_of_birth: '2013-01-21'
+                    city: Истра
+                    inn: '99999999999'
+                    snils: '10000000000'
+                    phone_number: '(812) 259-45-49'
+                    start_number: '779'
+                    group: Садовник
+                    rank_number: '99999'
+                    rank: Автоинструктор
+                    community: 'ЗАО ТекстильУралITМашина'
+                    coach: 'Стрелкова Изабелла Ивановна'
+                    moto_stamp: Mr.
+                    engine: Mr.
+                    number_and_seria: '9999999999'
                     region: null
                 properties:
                   status:
@@ -4327,55 +4337,55 @@ paths:
                     properties:
                       name:
                         type: string
-                        example: Prof.
+                        example: Miss
                       surname:
                         type: string
-                        example: Prof.
+                        example: Mr.
                       patronymic:
                         type: string
-                        example: Dr.
+                        example: Miss
                       date_of_birth:
                         type: string
-                        example: '2019-09-05'
+                        example: '2013-01-21'
                       city:
                         type: string
-                        example: Лотошино
+                        example: Истра
                       inn:
                         type: string
-                        example: '100000000000'
+                        example: '99999999999'
                       snils:
                         type: string
-                        example: '9999999999'
+                        example: '10000000000'
                       phone_number:
                         type: string
-                        example: '+7 (922) 106-5410'
+                        example: '(812) 259-45-49'
                       start_number:
                         type: string
-                        example: '890'
+                        example: '779'
                       group:
                         type: string
-                        example: 'Горный проводник'
+                        example: Садовник
                       rank_number:
                         type: string
-                        example: '100000'
+                        example: '99999'
                       rank:
                         type: string
-                        example: Абразивоструйщик
+                        example: Автоинструктор
                       community:
                         type: string
-                        example: 'ЗАО ТверьМясРечМаш'
+                        example: 'ЗАО ТекстильУралITМашина'
                       coach:
                         type: string
-                        example: 'Матвеева Рената Борисовна'
+                        example: 'Стрелкова Изабелла Ивановна'
                       moto_stamp:
                         type: string
-                        example: Dr.
+                        example: Mr.
                       engine:
                         type: string
-                        example: Ms.
+                        example: Mr.
                       number_and_seria:
                         type: string
-                        example: '10000000000'
+                        example: '9999999999'
                       region:
                         type: string
                         example: null
@@ -4423,102 +4433,102 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: est
+                  example: fuga
                   nullable: true
                 surname:
                   type: string
                   description: ''
-                  example: magni
+                  example: facere
                   nullable: true
                 patronymic:
                   type: string
                   description: ''
-                  example: qui
+                  example: distinctio
                   nullable: true
                 dateOfBirth:
                   type: string
                   description: 'Значение поля value не является датой.'
-                  example: '2025-05-26T13:01:53'
+                  example: '2025-05-27T19:14:37'
                   nullable: true
                 city:
                   type: string
                   description: ''
-                  example: eveniet
+                  example: et
                   nullable: true
                 inn:
                   type: string
                   description: ''
-                  example: nam
+                  example: enim
                   nullable: true
                 snils:
                   type: string
                   description: ''
-                  example: quidem
+                  example: ipsum
                   nullable: true
                 phoneNumber:
                   type: string
                   description: ''
-                  example: eos
+                  example: nemo
                   nullable: true
                 startNumber:
                   type: string
                   description: ''
-                  example: dolores
+                  example: ad
                   nullable: true
                 group:
                   type: string
                   description: ''
-                  example: debitis
+                  example: facere
                   nullable: true
                 rank:
                   type: string
                   description: ''
-                  example: incidunt
+                  example: id
                   nullable: true
                 rankNumber:
                   type: string
                   description: ''
-                  example: temporibus
+                  example: officiis
                   nullable: true
                 community:
                   type: string
                   description: ''
-                  example: sit
+                  example: laborum
                   nullable: true
                 coach:
                   type: string
                   description: ''
-                  example: placeat
+                  example: hic
                   nullable: true
                 motoStamp:
                   type: string
                   description: ''
-                  example: eius
+                  example: consequatur
                   nullable: true
                 engine:
                   type: string
                   description: ''
-                  example: aliquam
+                  example: aliquid
                   nullable: true
                 numberAndSeria:
                   type: string
                   description: ''
-                  example: modi
+                  example: eos
                   nullable: true
                 region:
                   type: string
                   description: ''
-                  example: corrupti
+                  example: impedit
                   nullable: true
                 locationId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the locations table.'
-                  example: 13
+                  example: 15
                   nullable: true
                 commandId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the commands table.'
-                  example: 6
+                  example: 3
                   nullable: true
   /api/races:
     get:
@@ -4540,11 +4550,11 @@ paths:
                     status: success
                     message: 'Гонки получены успешно.'
                     races:
-                      id: 93
-                      name: 'Пахомов Павел Максимович'
-                      desc: 'Doloremque molestiae sunt qui. Cupiditate tenetur sunt odio facilis. Placeat et suscipit culpa excepturi. Nihil ut quod quod aut.'
+                      id: 11
+                      name: 'Соловьёва Федосья Алексеевна'
+                      desc: 'Distinctio sunt autem aut suscipit ea. Tempore occaecati enim animi dignissimos sed quasi dolorum quibusdam. Iste voluptate voluptatem quae atque sunt alias.'
                       is_work: true
-                      date_start: '2025-05-26T06:13:38.000000Z'
+                      date_start: '2025-05-27T22:06:37.000000Z'
                       images: null
                       contacts: null
                       record_end: null
@@ -4556,11 +4566,11 @@ paths:
                     status: success
                     message: 'Гонки получены успешно.'
                     races:
-                      id: 94
-                      name: 'Аполлон Иванович Антонов'
-                      desc: 'Omnis molestiae temporibus animi temporibus praesentium voluptatum et. Maxime praesentium et et qui et. Velit et aspernatur recusandae ad. Rem beatae esse labore.'
-                      is_work: true
-                      date_start: '2025-05-26T16:02:00.000000Z'
+                      id: 12
+                      name: 'Стрелкова Валерия Александровна'
+                      desc: 'Commodi blanditiis eligendi quidem facilis eos. Voluptatem eos ipsum praesentium possimus enim quae et. Qui maxime dolorem dicta neque ipsa sapiente ex nostrum.'
+                      is_work: false
+                      date_start: '2025-05-27T16:03:21.000000Z'
                       images: null
                       contacts: null
                       record_end: null
@@ -4585,7 +4595,7 @@ paths:
                 userIdExists:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the users table.'
-                  example: 19
+                  example: 7
                   nullable: true
                 paginate:
                   type: boolean
@@ -4595,22 +4605,22 @@ paths:
                 page:
                   type: string
                   description: ''
-                  example: similique
+                  example: tempora
                   nullable: true
                 limit:
                   type: integer
                   description: 'Значение поля value не может быть больше 50.'
-                  example: 7
+                  example: 1
                   nullable: true
                 appointmentUser:
                   type: boolean
                   description: ''
-                  example: true
+                  example: false
                   nullable: true
                 favouritesUser:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                   nullable: true
                 commissionUser:
                   type: boolean
@@ -4620,64 +4630,64 @@ paths:
                 trackId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the tracks table.'
-                  example: 8
+                  example: 9
                   nullable: true
                 pastRace:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                   nullable: true
                 gradeIds:
                   type: array
                   description: 'The <code>id</code> of an existing record in the grades table.'
                   example:
-                    - 10
+                    - 16
                   items:
                     type: integer
                     nullable: true
                 dateStart:
                   type: string
                   description: 'Значение поля value не является датой.'
-                  example: '2025-05-26T13:00:46'
+                  example: '2025-05-27T19:14:37'
                   nullable: true
                 dateEnd:
                   type: string
                   description: 'Значение поля value не является датой.'
-                  example: '2025-05-26T13:00:46'
+                  example: '2025-05-27T19:14:37'
                   nullable: true
                 locationId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the locations table.'
-                  example: 13
+                  example: 19
                   nullable: true
                 statusIds:
                   type: array
                   description: 'The <code>id</code> of an existing record in the statuses table.'
                   example:
-                    - 13
+                    - 17
                   items:
                     type: integer
                     nullable: true
                 sortField:
                   type: string
                   description: ''
-                  example: est
+                  example: nostrum
                   nullable: true
                 sort:
                   type: string
                   description: ''
-                  example: repudiandae
+                  example: voluptatem
                   nullable: true
                 name:
                   type: string
                   description: ''
-                  example: occaecati
+                  example: ut
                   nullable: true
                 degreeIds:
                   type: array
                   description: 'The <code>id</code> of an existing record in the degrees table.'
                   example:
-                    - 10
+                    - 12
                   items:
                     type: integer
               required:
@@ -4699,11 +4709,11 @@ paths:
                   status: success
                   message: 'Гонка успешно создана.'
                   race:
-                    id: 96
-                    name: 'Альберт Евгеньевич Киселёв'
-                    desc: 'Ab ea illo autem temporibus eum deleniti. Mollitia dolor et delectus voluptas et. Quos expedita nemo nesciunt quas.'
+                    id: 14
+                    name: 'Русакова Нелли Сергеевна'
+                    desc: 'Ipsum eaque perferendis aut quae optio. Sed ipsa praesentium ab rem hic quia odit. Eligendi nobis magnam est minima aut modi quia. Ipsam consequatur sint neque fugiat consequatur.'
                     is_work: false
-                    date_start: '2025-05-26T05:21:52.000000Z'
+                    date_start: '2025-05-27T15:52:23.000000Z'
                     images: null
                     contacts: null
                     record_end: null
@@ -4723,19 +4733,19 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 96
+                        example: 14
                       name:
                         type: string
-                        example: 'Альберт Евгеньевич Киселёв'
+                        example: 'Русакова Нелли Сергеевна'
                       desc:
                         type: string
-                        example: 'Ab ea illo autem temporibus eum deleniti. Mollitia dolor et delectus voluptas et. Quos expedita nemo nesciunt quas.'
+                        example: 'Ipsum eaque perferendis aut quae optio. Sed ipsa praesentium ab rem hic quia odit. Eligendi nobis magnam est minima aut modi quia. Ipsam consequatur sint neque fugiat consequatur.'
                       is_work:
                         type: boolean
                         example: false
                       date_start:
                         type: string
-                        example: '2025-05-26T05:21:52.000000Z'
+                        example: '2025-05-27T15:52:23.000000Z'
                       images:
                         type: string
                         example: null
@@ -4769,32 +4779,32 @@ paths:
                 name:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255. Количество символов в поле value должно быть не меньше 3.'
-                  example: zjvbz
+                  example: ptzenvc
                   nullable: false
                 desc:
                   type: string
                   description: ''
-                  example: non
+                  example: cum
                   nullable: true
                 dateStart:
                   type: string
                   description: 'Значение поля value не является датой.'
-                  example: '2025-05-26T13:00:57'
+                  example: '2025-05-27T19:14:37'
                   nullable: false
                 recordStart:
                   type: string
                   description: 'Значение поля value не является датой.'
-                  example: '2025-05-26T13:00:57'
+                  example: '2025-05-27T19:14:37'
                   nullable: true
                 recordEnd:
                   type: string
                   description: 'Значение поля value не является датой.'
-                  example: '2025-05-26T13:00:57'
+                  example: '2025-05-27T19:14:37'
                   nullable: true
                 trackId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the tracks table.'
-                  example: 20
+                  example: 16
                   nullable: true
                 images:
                   type: array
@@ -4816,25 +4826,25 @@ paths:
                   type: array
                   description: 'The <code>id</code> of an existing record in the grades table.'
                   example:
-                    - 19
+                    - 11
                   items:
                     type: integer
                     nullable: true
                 locationId:
                   type: string
                   description: 'The <code>id</code> of an existing record in the locations table.'
-                  example: repudiandae
+                  example: aut
                   nullable: false
                 statusId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the statuses table.'
-                  example: 2
+                  example: 10
                   nullable: true
                 cupIds:
                   type: array
                   description: 'The <code>id</code> of an existing record in the cups table.'
                   example:
-                    - 9
+                    - 18
                   items:
                     type: integer
                     nullable: true
@@ -4859,11 +4869,11 @@ paths:
                   status: success
                   message: 'Гонка по идентификатору получена успешно.'
                   race:
-                    id: 95
-                    name: 'Носов Владимир Максимович'
-                    desc: 'Amet laboriosam tenetur rerum excepturi consequatur error. Suscipit impedit aliquid dolorem quaerat dolores fugit eaque neque. Vero sapiente adipisci et quas ipsum voluptatum.'
+                    id: 13
+                    name: 'Степан Дмитриевич Ларионов'
+                    desc: 'Ducimus doloremque placeat quae vel dolorum. Animi commodi dolore repudiandae rerum omnis nihil blanditiis in. Magnam aliquam et omnis voluptate.'
                     is_work: true
-                    date_start: '2025-05-26T19:49:02.000000Z'
+                    date_start: '2025-05-27T01:15:51.000000Z'
                     images: null
                     contacts: null
                     record_end: null
@@ -4883,19 +4893,19 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 95
+                        example: 13
                       name:
                         type: string
-                        example: 'Носов Владимир Максимович'
+                        example: 'Степан Дмитриевич Ларионов'
                       desc:
                         type: string
-                        example: 'Amet laboriosam tenetur rerum excepturi consequatur error. Suscipit impedit aliquid dolorem quaerat dolores fugit eaque neque. Vero sapiente adipisci et quas ipsum voluptatum.'
+                        example: 'Ducimus doloremque placeat quae vel dolorum. Animi commodi dolore repudiandae rerum omnis nihil blanditiis in. Magnam aliquam et omnis voluptate.'
                       is_work:
                         type: boolean
                         example: true
                       date_start:
                         type: string
-                        example: '2025-05-26T19:49:02.000000Z'
+                        example: '2025-05-27T01:15:51.000000Z'
                       images:
                         type: string
                         example: null
@@ -4929,7 +4939,7 @@ paths:
                 userId:
                   type: integer
                   description: ''
-                  example: 19
+                  example: 1
                   nullable: true
                 appointmentUser:
                   type: boolean
@@ -4939,18 +4949,18 @@ paths:
                 favouritesUser:
                   type: boolean
                   description: ''
-                  example: true
+                  example: false
                   nullable: true
                 commissionUser:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                   nullable: true
                 gradeIds:
                   type: array
                   description: 'The <code>id</code> of an existing record in the grades table.'
                   example:
-                    - 15
+                    - 2
                   items:
                     type: integer
                     nullable: true
@@ -4971,11 +4981,11 @@ paths:
                   status: success
                   message: 'Гонка успешно удалена.'
                   race:
-                    id: 100
-                    name: 'Василий Романович Харитонов'
-                    desc: 'Ut velit sed quibusdam corporis veritatis laborum. Est occaecati sunt ut numquam. Harum rerum tempore libero voluptate. Quibusdam rerum quasi nihil odio.'
+                    id: 18
+                    name: 'Оксана Александровна Абрамова'
+                    desc: 'Sint voluptatum delectus vitae aut accusantium sequi dicta repellat. Ab exercitationem dicta sunt enim consectetur quia. Praesentium cum alias velit id omnis.'
                     is_work: false
-                    date_start: '2025-05-26T12:34:04.000000Z'
+                    date_start: '2025-05-27T06:20:56.000000Z'
                     images: null
                     contacts: null
                     record_end: null
@@ -4995,19 +5005,19 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 100
+                        example: 18
                       name:
                         type: string
-                        example: 'Василий Романович Харитонов'
+                        example: 'Оксана Александровна Абрамова'
                       desc:
                         type: string
-                        example: 'Ut velit sed quibusdam corporis veritatis laborum. Est occaecati sunt ut numquam. Harum rerum tempore libero voluptate. Quibusdam rerum quasi nihil odio.'
+                        example: 'Sint voluptatum delectus vitae aut accusantium sequi dicta repellat. Ab exercitationem dicta sunt enim consectetur quia. Praesentium cum alias velit id omnis.'
                       is_work:
                         type: boolean
                         example: false
                       date_start:
                         type: string
-                        example: '2025-05-26T12:34:04.000000Z'
+                        example: '2025-05-27T06:20:56.000000Z'
                       images:
                         type: string
                         example: null
@@ -5069,7 +5079,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the race.'
-        example: 23
+        example: 1
         required: true
         schema:
           type: integer
@@ -5090,11 +5100,11 @@ paths:
                   status: success
                   message: messages.race.update.success
                   race:
-                    id: 97
-                    name: 'Диана Алексеевна Вишнякова'
-                    desc: 'Voluptate quod quibusdam in deserunt et nulla. Perspiciatis et consequatur ut impedit perspiciatis. Sit id quo minus perferendis est eum magnam consequatur.'
-                    is_work: true
-                    date_start: '2025-05-26T15:33:19.000000Z'
+                    id: 15
+                    name: 'Оксана Сергеевна Кузнецова'
+                    desc: 'Neque quia voluptates veritatis voluptas cumque modi harum. Commodi distinctio atque vero laudantium numquam sint corrupti. Et iusto ab officiis non tempora voluptatem sit.'
+                    is_work: false
+                    date_start: '2025-05-27T11:18:49.000000Z'
                     images: null
                     contacts: null
                     record_end: null
@@ -5114,19 +5124,19 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 97
+                        example: 15
                       name:
                         type: string
-                        example: 'Диана Алексеевна Вишнякова'
+                        example: 'Оксана Сергеевна Кузнецова'
                       desc:
                         type: string
-                        example: 'Voluptate quod quibusdam in deserunt et nulla. Perspiciatis et consequatur ut impedit perspiciatis. Sit id quo minus perferendis est eum magnam consequatur.'
+                        example: 'Neque quia voluptates veritatis voluptas cumque modi harum. Commodi distinctio atque vero laudantium numquam sint corrupti. Et iusto ab officiis non tempora voluptatem sit.'
                       is_work:
                         type: boolean
-                        example: true
+                        example: false
                       date_start:
                         type: string
-                        example: '2025-05-26T15:33:19.000000Z'
+                        example: '2025-05-27T11:18:49.000000Z'
                       images:
                         type: string
                         example: null
@@ -5192,32 +5202,32 @@ paths:
                 name:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255. Количество символов в поле value должно быть не меньше 3.'
-                  example: murvuqzbicjvwptfwrgfhaiamjresoimmhcmrkfwpnqlxyklzsrl
+                  example: kmcgmzrxuegllwjfj
                   nullable: true
                 desc:
                   type: string
                   description: ''
-                  example: sint
+                  example: architecto
                   nullable: true
                 dateStart:
                   type: string
                   description: 'Значение поля value не является датой.'
-                  example: '2025-05-26T13:01:01'
+                  example: '2025-05-27T19:14:37'
                   nullable: true
                 recordEnd:
                   type: string
                   description: 'Значение поля value не является датой.'
-                  example: '2025-05-26T13:01:01'
+                  example: '2025-05-27T19:14:37'
                   nullable: true
                 recordStart:
                   type: string
                   description: 'Значение поля value не является датой.'
-                  example: '2025-05-26T13:01:01'
+                  example: '2025-05-27T19:14:37'
                   nullable: true
                 trackId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the tracks table.'
-                  example: 7
+                  example: 18
                   nullable: true
                 imagesAdd:
                   type: array
@@ -5229,7 +5239,7 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - in
+                    - unde
                   items:
                     type: string
                 positionFile:
@@ -5246,25 +5256,25 @@ paths:
                   type: array
                   description: 'The <code>id</code> of an existing record in the grades table.'
                   example:
-                    - 8
+                    - 1
                   items:
                     type: integer
                     nullable: true
                 locationId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the locations table.'
-                  example: 3
+                  example: 8
                   nullable: true
                 statusId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the statuses table.'
-                  example: 4
+                  example: 16
                   nullable: true
                 cupIds:
                   type: array
                   description: 'The <code>id</code> of an existing record in the cups table.'
                   example:
-                    - 2
+                    - 12
                   items:
                     type: integer
                     nullable: true
@@ -5273,7 +5283,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the race.'
-        example: 23
+        example: 1
         required: true
         schema:
           type: integer
@@ -5292,13 +5302,13 @@ paths:
                 type: object
                 example:
                   status: success
-                  message: 'Состояние гонки успешно изменено на не рабочее.'
+                  message: 'Состояние гонки успешно изменено на рабочее.'
                   race:
-                    id: 98
-                    name: 'Петрова Мальвина Максимовна'
-                    desc: 'Autem dolor consequatur distinctio et odio. Qui porro laborum ut magni suscipit dolor. Repellendus dolores eos aut provident doloremque facilis autem. Voluptas quaerat beatae quo.'
-                    is_work: false
-                    date_start: '2025-05-26T15:29:10.000000Z'
+                    id: 16
+                    name: 'Щербаков Мирослав Алексеевич'
+                    desc: 'Sit quaerat consequuntur incidunt deserunt doloribus. Sapiente molestiae odit quod dolores possimus laudantium repellendus. Incidunt ut quos error est.'
+                    is_work: true
+                    date_start: '2025-05-27T23:13:08.000000Z'
                     images: null
                     contacts: null
                     record_end: null
@@ -5312,25 +5322,25 @@ paths:
                     example: success
                   message:
                     type: string
-                    example: 'Состояние гонки успешно изменено на не рабочее.'
+                    example: 'Состояние гонки успешно изменено на рабочее.'
                   race:
                     type: object
                     properties:
                       id:
                         type: integer
-                        example: 98
+                        example: 16
                       name:
                         type: string
-                        example: 'Петрова Мальвина Максимовна'
+                        example: 'Щербаков Мирослав Алексеевич'
                       desc:
                         type: string
-                        example: 'Autem dolor consequatur distinctio et odio. Qui porro laborum ut magni suscipit dolor. Repellendus dolores eos aut provident doloremque facilis autem. Voluptas quaerat beatae quo.'
+                        example: 'Sit quaerat consequuntur incidunt deserunt doloribus. Sapiente molestiae odit quod dolores possimus laudantium repellendus. Incidunt ut quos error est.'
                       is_work:
                         type: boolean
-                        example: false
+                        example: true
                       date_start:
                         type: string
-                        example: '2025-05-26T15:29:10.000000Z'
+                        example: '2025-05-27T23:13:08.000000Z'
                       images:
                         type: string
                         example: null
@@ -5391,7 +5401,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the race.'
-        example: 23
+        example: 1
         required: true
         schema:
           type: integer
@@ -5479,7 +5489,7 @@ paths:
                   type: array
                   description: 'The <code>id</code> of an existing record in the users table.'
                   example:
-                    - 13
+                    - 20
                   items:
                     type: integer
     parameters:
@@ -5487,7 +5497,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the race.'
-        example: 23
+        example: 1
         required: true
         schema:
           type: integer
@@ -5508,11 +5518,11 @@ paths:
                   status: success
                   message: 'Документ успешно добавлен'
                   race:
-                    id: 101
-                    name: 'Юдин Афанасий Сергеевич'
-                    desc: 'Qui et est optio optio eaque voluptatem cum. Aspernatur eaque labore repudiandae blanditiis accusantium. Magnam ut voluptatum rerum cum enim eos.'
+                    id: 19
+                    name: 'Трофимова Светлана Александровна'
+                    desc: 'Vel quam eaque nesciunt expedita. Ullam necessitatibus vel natus explicabo explicabo veniam. Omnis consequatur excepturi dolor maxime quos. Eaque nesciunt ut id quis.'
                     is_work: true
-                    date_start: '2025-05-26T22:00:26.000000Z'
+                    date_start: '2025-05-27T14:34:37.000000Z'
                     images: null
                     contacts: null
                     record_end: null
@@ -5532,19 +5542,19 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 101
+                        example: 19
                       name:
                         type: string
-                        example: 'Юдин Афанасий Сергеевич'
+                        example: 'Трофимова Светлана Александровна'
                       desc:
                         type: string
-                        example: 'Qui et est optio optio eaque voluptatem cum. Aspernatur eaque labore repudiandae blanditiis accusantium. Magnam ut voluptatum rerum cum enim eos.'
+                        example: 'Vel quam eaque nesciunt expedita. Ullam necessitatibus vel natus explicabo explicabo veniam. Omnis consequatur excepturi dolor maxime quos. Eaque nesciunt ut id quis.'
                       is_work:
                         type: boolean
                         example: true
                       date_start:
                         type: string
-                        example: '2025-05-26T22:00:26.000000Z'
+                        example: '2025-05-27T14:34:37.000000Z'
                       images:
                         type: string
                         example: null
@@ -5617,7 +5627,7 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - et
+                    - ipsum
                   items:
                     type: string
               required:
@@ -5627,7 +5637,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the race.'
-        example: 23
+        example: 1
         required: true
         schema:
           type: integer
@@ -5756,32 +5766,32 @@ paths:
                 userId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the users table.'
-                  example: 18
+                  example: 20
                   nullable: false
                 cupId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the cups table.'
-                  example: 3
+                  example: 8
                   nullable: true
                 commandId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the commands table.'
-                  example: 17
+                  example: 9
                   nullable: true
                 gradeId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the grades table.'
-                  example: 14
+                  example: 1
                   nullable: false
                 scores:
                   type: integer
                   description: ''
-                  example: 3
+                  example: 11
                   nullable: false
                 place:
                   type: integer
                   description: ''
-                  example: 5
+                  example: 4
                   nullable: false
               required:
                 - userId
@@ -5794,7 +5804,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the race.'
-        example: 23
+        example: 1
         required: true
         schema:
           type: integer
@@ -5849,12 +5859,12 @@ paths:
                 email:
                   type: string
                   description: 'Значение поля value должно быть действительным электронным адресом. The <code>email</code> of an existing record in the users table.'
-                  example: josianne07@example.org
+                  example: oabbott@example.com
                   nullable: false
                 url:
                   type: string
                   description: 'Must be a valid URL.'
-                  example: 'http://torp.com/dolorum-est-sapiente-ea-dolorem-aut'
+                  example: 'http://hudson.com/alias-et-nemo-sapiente-ratione.html'
                   nullable: false
               required:
                 - email
@@ -5911,17 +5921,17 @@ paths:
                 token:
                   type: string
                   description: ''
-                  example: sed
+                  example: tenetur
                   nullable: false
                 password:
                   type: string
                   description: 'Количество символов в поле value должно быть не меньше 8.'
-                  example: qiwKGoy3no
+                  example: 'hgXc<^%G8K,1?k+\q!>'
                   nullable: false
                 password_confirmation:
                   type: string
                   description: 'The value and <code>password</code> must match.'
-                  example: voluptatibus
+                  example: quas
                   nullable: false
               required:
                 - token
@@ -5974,10 +5984,10 @@ paths:
                   status: success
                   message: 'Роль пользователя успешно изменена.'
                   user:
-                    id: 1385
-                    name: 'Фаина Алексеевна Сорокина'
-                    email: rpanfilova@example.net
-                    email_verified_at: '2025-05-26T13:00:42.000000Z'
+                    id: 12
+                    name: 'Мясников Герман Борисович'
+                    email: eduard.kirillova@example.net
+                    email_verified_at: '2025-05-27T19:14:37.000000Z'
                     avatar: null
                 properties:
                   status:
@@ -5991,16 +6001,16 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 1385
+                        example: 12
                       name:
                         type: string
-                        example: 'Фаина Алексеевна Сорокина'
+                        example: 'Мясников Герман Борисович'
                       email:
                         type: string
-                        example: rpanfilova@example.net
+                        example: eduard.kirillova@example.net
                       email_verified_at:
                         type: string
-                        example: '2025-05-26T13:00:42.000000Z'
+                        example: '2025-05-27T19:14:37.000000Z'
                       avatar:
                         type: string
                         example: null
@@ -6016,7 +6026,7 @@ paths:
                 roleId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the roles table.'
-                  example: 9
+                  example: 16
                   nullable: false
               required:
                 - roleId
@@ -6040,14 +6050,14 @@ paths:
                     status: success
                     message: 'Статусы получены успешно.'
                     statuses:
-                      id: 4
-                      name: 'Варвара Владимировна Рябова'
+                      id: 1
+                      name: 'Анжелика Александровна Матвеева'
                   -
                     status: success
                     message: 'Статусы получены успешно.'
                     statuses:
-                      id: 5
-                      name: 'Нелли Романовна Кабанова'
+                      id: 2
+                      name: 'Киселёв Анатолий Владимирович'
       tags:
         - Status
       security: []
@@ -6068,7 +6078,7 @@ paths:
                   status: success
                   message: messages.store.create.success
                   store:
-                    id: 3
+                    id: 1
                     user: null
                 properties:
                   status:
@@ -6082,7 +6092,7 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 3
+                        example: 1
                       user:
                         type: string
                         example: null
@@ -6098,22 +6108,22 @@ paths:
                 login:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: tyxqnsuaizoogpumsavibt
+                  example: lyllex
                   nullable: false
                 password_1:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: adqkh
+                  example: xefjsjm
                   nullable: false
                 password_2:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: uacwshqxstmwkaw
+                  example: cctghwo
                   nullable: false
                 token:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: utvgm
+                  example: xhvvfnbzrvunfcajd
                   nullable: false
               required:
                 - login
@@ -6140,26 +6150,26 @@ paths:
                     status: success
                     message: 'Треки получены успешно.'
                     tracks:
-                      id: 52
-                      name: 'Системный аналитик'
-                      address: '542427, Архангельская область, город Наро-Фоминск, спуск Славы, 49'
+                      id: 11
+                      name: Егерь
+                      address: '985279, Сахалинская область, город Наро-Фоминск, ул. Чехова, 79'
                       images: null
                       latitude: 0
                       longitude: 0
                       level:
                         name: Средняя
                         color: '#EF7C08'
-                      desc: 'Repellendus provident corrupti dolores dolores necessitatibus quia nihil. Facere voluptatibus officiis enim. Enim reprehenderit modi delectus provident minima. Ut beatae laborum corporis sed soluta velit numquam. Laudantium molestias sint harum a quibusdam quod. Dignissimos ratione aut blanditiis ut incidunt deserunt. Ut quasi beatae eaque voluptate eveniet ut veniam. Sed repudiandae veniam quia neque tenetur et eum.'
-                      length: 677
-                      turns: 84
-                      free: false
-                      is_work: true
+                      desc: 'Assumenda est accusamus voluptas autem atque ratione nulla quia. Laudantium adipisci facere pariatur ea eaque. Neque ab fuga et rerum aut. Iusto aspernatur id accusamus ab reprehenderit quisquam alias expedita. Enim quidem soluta velit non. Dolor omnis ipsam repudiandae sunt aut architecto aut debitis. Ut animi ut eveniet et sequi sint. Blanditiis quibusdam animi fuga aut. Cum accusantium qui enim voluptatem. Suscipit cupiditate enim ut qui ipsa minus.'
+                      length: 30
+                      turns: 12
+                      free: true
+                      is_work: false
                       spec: null
                       contacts: null
                       location:
-                        id: 16
-                        name: Еврейская
-                        type: 'автономная область'
+                        id: 41
+                        name: Мордовия
+                        type: республика
                       light: null
                       season: null
                       schema_img: null
@@ -6172,26 +6182,26 @@ paths:
                     status: success
                     message: 'Треки получены успешно.'
                     tracks:
-                      id: 53
-                      name: Психолог
-                      address: '566745, Тверская область, город Талдом, пл. Балканская, 48'
+                      id: 12
+                      name: Диджей
+                      address: '959937, Рязанская область, город Павловский Посад, наб. Ленина, 46'
                       images: null
                       latitude: 0
                       longitude: 0
                       level:
-                        name: Низкая
-                        color: '#22CA3D'
-                      desc: 'In pariatur nihil sit consequatur. Quia et soluta ut corporis magni voluptatem. Fuga magnam suscipit tenetur doloremque et. Sint adipisci necessitatibus repudiandae voluptatem dicta quam labore. Tempore non qui vel voluptatem. Est occaecati sint est vel. Voluptatum facere dolor tempora ut magnam autem provident voluptate. Sed delectus sed reprehenderit. Officia vero aut placeat odit quos. Aspernatur facere harum quo dignissimos. Autem eum doloremque maxime praesentium earum.'
-                      length: 522
-                      turns: 89
+                        name: Высокая
+                        color: '#FD1215'
+                      desc: 'Reprehenderit dolorum aut cumque tempore aut cupiditate ullam. Blanditiis quo est ducimus qui molestias nulla odit. Reprehenderit ipsa sunt consequatur. Qui consequatur ipsa aliquam aspernatur nostrum. Omnis cupiditate iste natus eos. Veniam deleniti repellendus debitis optio possimus neque. Qui et est repellendus quis quos. Eum hic architecto quisquam nam voluptatem qui aut. Aut consequatur ea suscipit id. Mollitia architecto enim ea qui sed quasi dolor.'
+                      length: 419
+                      turns: 59
                       free: true
-                      is_work: false
+                      is_work: true
                       spec: null
                       contacts: null
                       location:
-                        id: 15
-                        name: Дагестан
-                        type: республика
+                        id: 84
+                        name: Ямало-Ненецкий
+                        type: 'автономный округ'
                       light: null
                       season: null
                       schema_img: null
@@ -6212,42 +6222,42 @@ paths:
                 userId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the users table.'
-                  example: 5
+                  example: 7
                   nullable: true
                 storeIdExists:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the stores table.'
-                  example: 1
+                  example: 20
                   nullable: true
                 checkStore:
                   type: boolean
                   description: ''
-                  example: true
+                  example: false
                   nullable: true
                 paginate:
                   type: boolean
                   description: ''
-                  example: true
+                  example: false
                   nullable: true
                 page:
                   type: string
                   description: ''
-                  example: a
+                  example: ab
                   nullable: true
                 limit:
                   type: integer
                   description: 'Значение поля value не может быть больше 50.'
-                  example: 10
+                  example: 1
                   nullable: true
                 locationId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the locations table.'
-                  example: 2
+                  example: 1
                   nullable: true
                 name:
                   type: string
                   description: ''
-                  example: ea
+                  example: quos
                   nullable: true
       security: []
     post:
@@ -6266,26 +6276,26 @@ paths:
                   status: success
                   message: 'Трек успешно создан.'
                   track:
-                    id: 55
-                    name: 'Научный сотрудник'
-                    address: '963856, Тверская область, город Павловский Посад, наб. Ладыгина, 92'
+                    id: 14
+                    name: Автоинструктор
+                    address: '839075, Нижегородская область, город Павловский Посад, пер. Ломоносова, 81'
                     images: null
                     latitude: 0
                     longitude: 0
                     level:
-                      name: Средняя
-                      color: '#EF7C08'
-                    desc: 'Sit nostrum eos sint dolores magni delectus officia. Voluptatem non aliquam autem eveniet. Ipsum quos quaerat quibusdam consequatur cupiditate. Quod impedit est modi. Dolores magni officia laborum. Ipsam facere et qui quod sint iusto tempora. Et ullam culpa fugiat accusamus sit id porro in. Aspernatur voluptatem alias temporibus id et officia. Incidunt aut dolorem iste voluptatem necessitatibus.'
-                    length: 369
-                    turns: 37
-                    free: true
-                    is_work: false
+                      name: Низкая
+                      color: '#22CA3D'
+                    desc: 'Fuga maxime quae ut asperiores rerum. Dicta labore eum vel ipsam sit placeat. Praesentium iusto non amet aut omnis veniam. Esse voluptas et eos voluptas. Ea dolore ipsa sapiente dolores sed odio amet earum. Autem velit sed ea et consequuntur adipisci. Aliquam dolor consequatur suscipit qui vitae eligendi minima commodi. Tenetur asperiores est excepturi dicta beatae pariatur.'
+                    length: 378
+                    turns: 5
+                    free: false
+                    is_work: true
                     spec: null
                     contacts: null
                     location:
-                      id: 6
-                      name: Астраханская
-                      type: область
+                      id: 45
+                      name: Ненецкий
+                      type: 'автономный округ'
                     light: null
                     season: null
                     schema_img: null
@@ -6306,13 +6316,13 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 55
+                        example: 14
                       name:
                         type: string
-                        example: 'Научный сотрудник'
+                        example: Автоинструктор
                       address:
                         type: string
-                        example: '963856, Тверская область, город Павловский Посад, наб. Ладыгина, 92'
+                        example: '839075, Нижегородская область, город Павловский Посад, пер. Ломоносова, 81'
                       images:
                         type: string
                         example: null
@@ -6327,25 +6337,25 @@ paths:
                         properties:
                           name:
                             type: string
-                            example: Средняя
+                            example: Низкая
                           color:
                             type: string
-                            example: '#EF7C08'
+                            example: '#22CA3D'
                       desc:
                         type: string
-                        example: 'Sit nostrum eos sint dolores magni delectus officia. Voluptatem non aliquam autem eveniet. Ipsum quos quaerat quibusdam consequatur cupiditate. Quod impedit est modi. Dolores magni officia laborum. Ipsam facere et qui quod sint iusto tempora. Et ullam culpa fugiat accusamus sit id porro in. Aspernatur voluptatem alias temporibus id et officia. Incidunt aut dolorem iste voluptatem necessitatibus.'
+                        example: 'Fuga maxime quae ut asperiores rerum. Dicta labore eum vel ipsam sit placeat. Praesentium iusto non amet aut omnis veniam. Esse voluptas et eos voluptas. Ea dolore ipsa sapiente dolores sed odio amet earum. Autem velit sed ea et consequuntur adipisci. Aliquam dolor consequatur suscipit qui vitae eligendi minima commodi. Tenetur asperiores est excepturi dicta beatae pariatur.'
                       length:
                         type: integer
-                        example: 369
+                        example: 378
                       turns:
                         type: integer
-                        example: 37
+                        example: 5
                       free:
                         type: boolean
-                        example: true
+                        example: false
                       is_work:
                         type: boolean
-                        example: false
+                        example: true
                       spec:
                         type: string
                         example: null
@@ -6357,13 +6367,13 @@ paths:
                         properties:
                           id:
                             type: integer
-                            example: 6
+                            example: 45
                           name:
                             type: string
-                            example: Астраханская
+                            example: Ненецкий
                           type:
                             type: string
-                            example: область
+                            example: 'автономный округ'
                       light:
                         type: string
                         example: null
@@ -6416,17 +6426,17 @@ paths:
                 name:
                   type: string
                   description: 'Количество символов в поле value должно быть не меньше 3.'
-                  example: yqmnetywuxoffrxoibuocfwagwqxvnlinlwdiprzjooxfkanguirlpdjgnzdebadgh
+                  example: mbkyxcrdubwbedygjzirnirgzmmbuejaheguyunhmmexuzgqbinpereriwbnjzdlkldixxfcpnmqlfctxvvvdvctnu
                   nullable: false
                 address:
                   type: string
                   description: ''
-                  example: consequuntur
+                  example: placeat
                   nullable: false
                 latitude:
                   type: number
                   description: 'Значение поля value должно быть между -87 и 89.'
-                  example: -86
+                  example: -87
                   nullable: false
                 longitude:
                   type: number
@@ -6442,22 +6452,22 @@ paths:
                 levelId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the levels table.'
-                  example: 4
+                  example: 9
                   nullable: false
                 desc:
                   type: string
                   description: ''
-                  example: tempora
+                  example: iure
                   nullable: true
                 length:
                   type: integer
                   description: ''
-                  example: 6
+                  example: 3
                   nullable: true
                 turns:
                   type: integer
                   description: ''
-                  example: 7
+                  example: 13
                   nullable: true
                 free:
                   type: boolean
@@ -6484,7 +6494,7 @@ paths:
                 locationId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the locations table.'
-                  example: 19
+                  example: 13
                   nullable: true
                 logo:
                   type: string
@@ -6494,7 +6504,7 @@ paths:
                 light:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                   nullable: true
                 season:
                   type: boolean
@@ -6509,7 +6519,7 @@ paths:
                 storeId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the stores table.'
-                  example: 10
+                  example: 13
                   nullable: true
                 offerFile:
                   type: string
@@ -6519,27 +6529,27 @@ paths:
                 requisitesName:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: am
+                  example: pguardxwllyyiogrjvdlso
                   nullable: true
                 requisitesEmail:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: vhegmann@example.org
+                  example: christelle.greenfelder@example.org
                   nullable: true
                 requisitesPhone:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: qvlmihbzjqrywhhoxaysiw
+                  example: 'n'
                   nullable: true
                 requisitesINN:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: imapybyldasan
+                  example: swrlqufzmvp
                   nullable: true
                 requisitesPricePolitics:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: qoedidmezrqctxqqxcp
+                  example: pvqjkzgujbuagq
                   nullable: true
               required:
                 - name
@@ -6564,26 +6574,26 @@ paths:
                   status: success
                   message: 'Трек по идентификатору получен успешно.'
                   track:
-                    id: 54
-                    name: Кассир
-                    address: '005462, Орловская область, город Коломна, пер. Гоголя, 10'
+                    id: 13
+                    name: Продюсер
+                    address: '006724, Белгородская область, город Красногорск, шоссе Гоголя, 26'
                     images: null
                     latitude: 0
                     longitude: 0
                     level:
                       name: Низкая
                       color: '#22CA3D'
-                    desc: 'Cum mollitia autem molestias quis doloribus quia voluptatem cupiditate. Rerum aut tempora reiciendis. Labore et quos sapiente. Et qui sit fuga. Ut laboriosam voluptas mollitia sed. Illo ex ut non facilis ut aliquid et. Velit sint beatae et modi natus vero quia. Harum nobis autem quo est consequatur. Asperiores unde quidem odio provident nulla ea sequi. Reprehenderit doloribus ut officia explicabo molestias.'
-                    length: 69
-                    turns: 62
+                    desc: 'Amet aut rerum nostrum eveniet itaque et et occaecati. Ab officia nisi perferendis id esse autem nihil. Odit repellat porro nostrum ea eum aperiam. Et sapiente saepe laboriosam in autem. Dolorem expedita dolores quibusdam molestiae aut in sed repellendus. Quos dicta tempore sapiente maiores blanditiis non error dolore. Aut enim qui necessitatibus vel.'
+                    length: 318
+                    turns: 64
                     free: true
                     is_work: false
                     spec: null
                     contacts: null
                     location:
-                      id: 65
-                      name: Смоленская
-                      type: область
+                      id: 19
+                      name: Ингушетия
+                      type: республика
                     light: null
                     season: null
                     schema_img: null
@@ -6604,13 +6614,13 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 54
+                        example: 13
                       name:
                         type: string
-                        example: Кассир
+                        example: Продюсер
                       address:
                         type: string
-                        example: '005462, Орловская область, город Коломна, пер. Гоголя, 10'
+                        example: '006724, Белгородская область, город Красногорск, шоссе Гоголя, 26'
                       images:
                         type: string
                         example: null
@@ -6631,13 +6641,13 @@ paths:
                             example: '#22CA3D'
                       desc:
                         type: string
-                        example: 'Cum mollitia autem molestias quis doloribus quia voluptatem cupiditate. Rerum aut tempora reiciendis. Labore et quos sapiente. Et qui sit fuga. Ut laboriosam voluptas mollitia sed. Illo ex ut non facilis ut aliquid et. Velit sint beatae et modi natus vero quia. Harum nobis autem quo est consequatur. Asperiores unde quidem odio provident nulla ea sequi. Reprehenderit doloribus ut officia explicabo molestias.'
+                        example: 'Amet aut rerum nostrum eveniet itaque et et occaecati. Ab officia nisi perferendis id esse autem nihil. Odit repellat porro nostrum ea eum aperiam. Et sapiente saepe laboriosam in autem. Dolorem expedita dolores quibusdam molestiae aut in sed repellendus. Quos dicta tempore sapiente maiores blanditiis non error dolore. Aut enim qui necessitatibus vel.'
                       length:
                         type: integer
-                        example: 69
+                        example: 318
                       turns:
                         type: integer
-                        example: 62
+                        example: 64
                       free:
                         type: boolean
                         example: true
@@ -6655,13 +6665,13 @@ paths:
                         properties:
                           id:
                             type: integer
-                            example: 65
+                            example: 19
                           name:
                             type: string
-                            example: Смоленская
+                            example: Ингушетия
                           type:
                             type: string
-                            example: область
+                            example: республика
                       light:
                         type: string
                         example: null
@@ -6721,26 +6731,26 @@ paths:
                   status: success
                   message: 'Трек успешно изменён.'
                   track:
-                    id: 56
-                    name: Машинист
-                    address: '876514, Брянская область, город Серебряные Пруды, пр. Ленина, 75'
+                    id: 15
+                    name: Бариста
+                    address: '929598, Тульская область, город Серебряные Пруды, бульвар Будапештсткая, 48'
                     images: null
                     latitude: 0
                     longitude: 0
                     level:
                       name: Низкая
                       color: '#22CA3D'
-                    desc: 'Recusandae placeat mollitia beatae impedit corrupti sint velit. Voluptatem libero nihil est fuga quam quae deleniti. Aut velit ullam ipsam. Quia porro ut est ut. Perferendis autem maiores id incidunt alias est aliquid. Atque est unde saepe reprehenderit incidunt. Explicabo blanditiis dolor consequuntur. Inventore ut illum sed modi illum saepe. Ullam et enim enim repellendus labore dicta.'
-                    length: 694
-                    turns: 10
-                    free: true
-                    is_work: false
+                    desc: 'Nemo accusamus beatae voluptates voluptatem consectetur pariatur sed omnis. Nemo voluptatem quos cupiditate inventore. Alias nihil aut minima asperiores. Autem aut id ratione saepe. Facilis provident consequatur quia. Quia ut deleniti fugiat delectus harum. Architecto accusantium aliquid accusamus. Maiores consectetur alias asperiores sit amet.'
+                    length: 742
+                    turns: 56
+                    free: false
+                    is_work: true
                     spec: null
                     contacts: null
                     location:
-                      id: 23
-                      name: Калмыкия
-                      type: республика
+                      id: 14
+                      name: Воронежская
+                      type: область
                     light: null
                     season: null
                     schema_img: null
@@ -6761,13 +6771,13 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 56
+                        example: 15
                       name:
                         type: string
-                        example: Машинист
+                        example: Бариста
                       address:
                         type: string
-                        example: '876514, Брянская область, город Серебряные Пруды, пр. Ленина, 75'
+                        example: '929598, Тульская область, город Серебряные Пруды, бульвар Будапештсткая, 48'
                       images:
                         type: string
                         example: null
@@ -6788,19 +6798,19 @@ paths:
                             example: '#22CA3D'
                       desc:
                         type: string
-                        example: 'Recusandae placeat mollitia beatae impedit corrupti sint velit. Voluptatem libero nihil est fuga quam quae deleniti. Aut velit ullam ipsam. Quia porro ut est ut. Perferendis autem maiores id incidunt alias est aliquid. Atque est unde saepe reprehenderit incidunt. Explicabo blanditiis dolor consequuntur. Inventore ut illum sed modi illum saepe. Ullam et enim enim repellendus labore dicta.'
+                        example: 'Nemo accusamus beatae voluptates voluptatem consectetur pariatur sed omnis. Nemo voluptatem quos cupiditate inventore. Alias nihil aut minima asperiores. Autem aut id ratione saepe. Facilis provident consequatur quia. Quia ut deleniti fugiat delectus harum. Architecto accusantium aliquid accusamus. Maiores consectetur alias asperiores sit amet.'
                       length:
                         type: integer
-                        example: 694
+                        example: 742
                       turns:
                         type: integer
-                        example: 10
+                        example: 56
                       free:
                         type: boolean
-                        example: true
+                        example: false
                       is_work:
                         type: boolean
-                        example: false
+                        example: true
                       spec:
                         type: string
                         example: null
@@ -6812,13 +6822,13 @@ paths:
                         properties:
                           id:
                             type: integer
-                            example: 23
+                            example: 14
                           name:
                             type: string
-                            example: Калмыкия
+                            example: Воронежская
                           type:
                             type: string
-                            example: республика
+                            example: область
                       light:
                         type: string
                         example: null
@@ -6887,22 +6897,22 @@ paths:
                 name:
                   type: string
                   description: 'Количество символов в поле value должно быть не меньше 3.'
-                  example: osuucq
+                  example: kyclkxbiczydrtiirhnijigqtbaokjrldyqozkixdvk
                   nullable: false
                 address:
                   type: string
                   description: ''
-                  example: veritatis
+                  example: accusamus
                   nullable: false
                 latitude:
                   type: number
                   description: 'Значение поля value должно быть между -87 и 89.'
-                  example: -87
+                  example: -86
                   nullable: false
                 longitude:
                   type: number
                   description: 'Значение поля value должно быть между -180 и 180.'
-                  example: -179
+                  example: -180
                   nullable: false
                 imagesAdd:
                   type: array
@@ -6914,33 +6924,33 @@ paths:
                   type: array
                   description: ''
                   example:
-                    - non
+                    - reprehenderit
                   items:
                     type: string
                 levelId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the levels table.'
-                  example: 6
+                  example: 2
                   nullable: true
                 desc:
                   type: string
                   description: ''
-                  example: iste
+                  example: et
                   nullable: true
                 length:
                   type: integer
                   description: ''
-                  example: 3
+                  example: 19
                   nullable: true
                 turns:
                   type: integer
                   description: ''
-                  example: 6
+                  example: 14
                   nullable: true
                 free:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
                   nullable: true
                 is_work:
                   type: boolean
@@ -6960,17 +6970,17 @@ paths:
                 locationId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the locations table.'
-                  example: 17
+                  example: 20
                   nullable: true
                 userId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the users table.'
-                  example: 17
+                  example: 11
                   nullable: true
                 storeId:
                   type: integer
                   description: 'The <code>id</code> of an existing record in the stores table.'
-                  example: 6
+                  example: 11
                   nullable: true
                 offerFile:
                   type: string
@@ -6980,27 +6990,27 @@ paths:
                 requisitesName:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: vwmtjbd
+                  example: xktxmqxnynjutoxilyfn
                   nullable: true
                 requisitesEmail:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: wlakin@example.com
+                  example: kirlin.dalton@example.org
                   nullable: true
                 requisitesPhone:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: p
+                  example: dsrxdslbxhl
                   nullable: true
                 requisitesINN:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: dxfteloans
+                  example: nsbkmptbnbcbysk
                   nullable: true
                 requisitesPricePolitics:
                   type: string
                   description: 'Количество символов в значении поля value не может превышать 255.'
-                  example: nxbrtajezmestkvtwm
+                  example: jyqsajsruunmnehrui
                   nullable: true
               required:
                 - name
@@ -7024,25 +7034,25 @@ paths:
                   status: success
                   message: 'Трек успешно удалён.'
                   track:
-                    id: 57
-                    name: Детектив
-                    address: '580311, Нижегородская область, город Шатура, спуск Ладыгина, 96'
+                    id: 16
+                    name: 'Гитарный мастер'
+                    address: '188665, Кировская область, город Балашиха, спуск Бухарестская, 65'
                     images: null
                     latitude: 0
                     longitude: 0
                     level:
-                      name: Высокая
-                      color: '#FD1215'
-                    desc: 'Soluta eum possimus expedita. Rem et eaque sunt consequatur ut. Omnis et consectetur voluptas minima quod. Incidunt voluptatibus voluptas porro a numquam quae. Ut reiciendis voluptate et saepe. Et et totam consequatur nemo nobis quaerat non. Ea vel enim rerum maiores tempore. Quia quo non iure dignissimos consequatur impedit dolores. Vel et itaque et expedita voluptatem voluptates. Quaerat aut ut consectetur facilis sed quis.'
-                    length: 916
-                    turns: 68
+                      name: Средняя
+                      color: '#EF7C08'
+                    desc: 'Quaerat quasi autem omnis et delectus dolores. Nesciunt ad in ut vel praesentium. Impedit voluptas quibusdam commodi labore voluptatem molestiae excepturi necessitatibus. Dignissimos vero sit optio voluptatem soluta. Recusandae nisi atque repudiandae amet distinctio consectetur. Et reiciendis et ex laudantium deleniti ex exercitationem. Et reiciendis quia nulla aliquam tempora veniam voluptas.'
+                    length: 43
+                    turns: 63
                     free: false
-                    is_work: true
+                    is_work: false
                     spec: null
                     contacts: null
                     location:
-                      id: 56
-                      name: Ростовская
+                      id: 36
+                      name: Курская
                       type: область
                     light: null
                     season: null
@@ -7064,13 +7074,13 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 57
+                        example: 16
                       name:
                         type: string
-                        example: Детектив
+                        example: 'Гитарный мастер'
                       address:
                         type: string
-                        example: '580311, Нижегородская область, город Шатура, спуск Ладыгина, 96'
+                        example: '188665, Кировская область, город Балашиха, спуск Бухарестская, 65'
                       images:
                         type: string
                         example: null
@@ -7085,25 +7095,25 @@ paths:
                         properties:
                           name:
                             type: string
-                            example: Высокая
+                            example: Средняя
                           color:
                             type: string
-                            example: '#FD1215'
+                            example: '#EF7C08'
                       desc:
                         type: string
-                        example: 'Soluta eum possimus expedita. Rem et eaque sunt consequatur ut. Omnis et consectetur voluptas minima quod. Incidunt voluptatibus voluptas porro a numquam quae. Ut reiciendis voluptate et saepe. Et et totam consequatur nemo nobis quaerat non. Ea vel enim rerum maiores tempore. Quia quo non iure dignissimos consequatur impedit dolores. Vel et itaque et expedita voluptatem voluptates. Quaerat aut ut consectetur facilis sed quis.'
+                        example: 'Quaerat quasi autem omnis et delectus dolores. Nesciunt ad in ut vel praesentium. Impedit voluptas quibusdam commodi labore voluptatem molestiae excepturi necessitatibus. Dignissimos vero sit optio voluptatem soluta. Recusandae nisi atque repudiandae amet distinctio consectetur. Et reiciendis et ex laudantium deleniti ex exercitationem. Et reiciendis quia nulla aliquam tempora veniam voluptas.'
                       length:
                         type: integer
-                        example: 916
+                        example: 43
                       turns:
                         type: integer
-                        example: 68
+                        example: 63
                       free:
                         type: boolean
                         example: false
                       is_work:
                         type: boolean
-                        example: true
+                        example: false
                       spec:
                         type: string
                         example: null
@@ -7115,10 +7125,10 @@ paths:
                         properties:
                           id:
                             type: integer
-                            example: 56
+                            example: 36
                           name:
                             type: string
-                            example: Ростовская
+                            example: Курская
                           type:
                             type: string
                             example: область
@@ -7186,7 +7196,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the track.'
-        example: 17
+        example: 1
         required: true
         schema:
           type: integer
@@ -7207,10 +7217,10 @@ paths:
                   status: success
                   message: 'Пользователь по токену получен успешно.'
                   user:
-                    id: 1380
-                    name: 'Шубина Валентина Алексеевна'
-                    email: fadeeva.zanna@example.org
-                    email_verified_at: '2025-05-26T12:59:15.000000Z'
+                    id: 7
+                    name: 'Воронцова Виктория Сергеевна'
+                    email: aleksandr49@example.com
+                    email_verified_at: '2025-05-27T19:14:36.000000Z'
                     avatar: null
                 properties:
                   status:
@@ -7224,16 +7234,16 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 1380
+                        example: 7
                       name:
                         type: string
-                        example: 'Шубина Валентина Алексеевна'
+                        example: 'Воронцова Виктория Сергеевна'
                       email:
                         type: string
-                        example: fadeeva.zanna@example.org
+                        example: aleksandr49@example.com
                       email_verified_at:
                         type: string
-                        example: '2025-05-26T12:59:15.000000Z'
+                        example: '2025-05-27T19:14:36.000000Z'
                       avatar:
                         type: string
                         example: null
@@ -7280,8 +7290,8 @@ paths:
                   status: success
                   message: 'Пользователь получен успешно.'
                   user:
-                    id: 1381
-                    name: 'Алиса Сергеевна Миронова'
+                    id: 8
+                    name: 'Баранов Филипп Романович'
                     avatar: null
                     personal: []
                 properties:
@@ -7296,10 +7306,10 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 1381
+                        example: 8
                       name:
                         type: string
-                        example: 'Алиса Сергеевна Миронова'
+                        example: 'Баранов Филипп Романович'
                       avatar:
                         type: string
                         example: null
@@ -7330,7 +7340,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the user.'
-        example: 14
+        example: 1
         required: true
         schema:
           type: integer
@@ -7351,10 +7361,10 @@ paths:
                   status: success
                   message: 'Информация о пользователе успешно изменена.'
                   user:
-                    id: 1382
-                    name: 'Вишнякова Инесса Дмитриевна'
-                    email: zpopova@example.com
-                    email_verified_at: '2025-05-26T12:59:23.000000Z'
+                    id: 9
+                    name: 'Фаина Романовна Юдина'
+                    email: fmuhin@example.org
+                    email_verified_at: '2025-05-27T19:14:36.000000Z'
                     avatar: null
                 properties:
                   status:
@@ -7368,16 +7378,16 @@ paths:
                     properties:
                       id:
                         type: integer
-                        example: 1382
+                        example: 9
                       name:
                         type: string
-                        example: 'Вишнякова Инесса Дмитриевна'
+                        example: 'Фаина Романовна Юдина'
                       email:
                         type: string
-                        example: zpopova@example.com
+                        example: fmuhin@example.org
                       email_verified_at:
                         type: string
-                        example: '2025-05-26T12:59:23.000000Z'
+                        example: '2025-05-27T19:14:36.000000Z'
                       avatar:
                         type: string
                         example: null
@@ -7409,12 +7419,12 @@ paths:
                 name:
                   type: string
                   description: 'Количество символов в поле value должно быть не меньше 3. Количество символов в значении поля value не может превышать 50.'
-                  example: dhljojil
+                  example: rhgfjhnsgzjkakjowfysfo
                   nullable: true
                 email:
                   type: string
                   description: 'Значение поля value должно быть действительным электронным адресом.'
-                  example: igerhold@example.com
+                  example: valentine55@example.net
                   nullable: true
                 avatar:
                   type: string
@@ -7424,7 +7434,7 @@ paths:
                 number:
                   type: string
                   description: 'Количество символов в поле value должно быть не меньше 10. Количество символов в значении поля value не может превышать 12.'
-                  example: qpswgytqsgjm
+                  example: snrkikder
                   nullable: true
   /api/users-commissions:
     get:
@@ -7446,16 +7456,16 @@ paths:
                     status: success
                     message: 'Судьи были получены успешно.'
                     users:
-                      id: 1383
-                      name: 'Карпов Геннадий Владимирович'
+                      id: 10
+                      name: 'Бронислав Дмитриевич Зуев'
                       avatar: null
                       personal: []
                   -
                     status: success
                     message: 'Судьи были получены успешно.'
                     users:
-                      id: 1384
-                      name: 'Ростислав Фёдорович Трофимов'
+                      id: 11
+                      name: 'Артемьев Семён Фёдорович'
                       avatar: null
                       personal: []
       tags:
@@ -7470,7 +7480,7 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: cum
+                  example: omnis
                   nullable: true
                 paginate:
                   type: boolean
@@ -7480,12 +7490,12 @@ paths:
                 page:
                   type: string
                   description: ''
-                  example: eos
+                  example: dolorem
                   nullable: true
                 limit:
                   type: integer
                   description: 'Значение поля value не может быть больше 50.'
-                  example: 20
+                  example: 8
                   nullable: true
   /api/verification-email/send:
     post:
@@ -7595,7 +7605,7 @@ paths:
                 code:
                   type: integer
                   description: 'Значение поля value должно быть не меньше 999. Значение поля value не может быть больше 10000.'
-                  example: 25
+                  example: 15
                   nullable: false
               required:
                 - code
