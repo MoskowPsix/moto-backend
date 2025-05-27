@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('tracks', function (Blueprint $table) {
 //            $table->json('requisites_file')->nullable(true);
-            $table->json('offer_file')->nullable(true);
+//            $table->json('offer_file')->nullable(true);
         });
     }
 
