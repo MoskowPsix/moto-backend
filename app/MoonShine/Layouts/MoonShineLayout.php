@@ -51,6 +51,7 @@ use App\MoonShine\Resources\DegreeResource;
 use App\MoonShine\Resources\CupResource;
 use App\MoonShine\Resources\DistrictResource;
 use App\MoonShine\Resources\RaceResultsResource;
+use App\MoonShine\Resources\VersionResource;
 
 final class MoonShineLayout extends AppLayout
 {
@@ -67,6 +68,8 @@ final class MoonShineLayout extends AppLayout
             MenuGroup::make('Система', [
                 MenuItem::make('Пользователи', UserResource::class),
                 MenuItem::make('Роли', RoleResource::class),
+                MenuItem::make('Версии', VersionResource::class, 'device-phone-mobile'),
+
             ], 'cog-8-tooth'),
             MenuGroup::make('Разработчикам', [
                 MenuItem::make('Telescope', '/telescope', 'rocket-launch'),
