@@ -26,6 +26,7 @@ class GetGradeRequest extends FormRequest
             'paginate'  => 'nullable|boolean',
             'page'      => 'nullable|string',
             'limit'     => 'nullable|integer|max:50',
+            'gradeNotParent'   => 'nullable|boolean'
         ];
     }
 }

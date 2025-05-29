@@ -230,3 +230,7 @@ Route::controller(\App\Http\Controllers\Api\DegreeController::class)->group(func
     Route::get('degree', 'get')->name('degree.get');
     Route::get('degree/{id}', 'getForId')->name('degree.get');
 });
+
+Route::controller(\App\Http\Controllers\Api\VersionController::class)->group(function () {
+    Route::get('version-first', 'get')->name('version.get.first');
+});
