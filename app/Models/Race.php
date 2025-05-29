@@ -36,7 +36,8 @@ class Race extends Model
         'track_id',
         'user_id',
         'location_id',
-        'status_id'
+        'status_id',
+        'store_id'
     ];
     protected $casts = [
         'name' => 'string',
@@ -98,5 +99,13 @@ class Race extends Model
     public function results(): HasMany
     {
         return $this->HasMany(RaceResult::class);
+    }
+    public function store(): BelongsTo
+    {
+        return $this->belongsTo(Store::class);
+    }
+    public function attendance(): HasMany
+    {
+        return $this->hasMany(Attendance::class);
     }
 }

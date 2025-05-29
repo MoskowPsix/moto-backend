@@ -18,6 +18,7 @@ class  CreateAttendanceAction implements CreateAttendanceActionContract
             'tax'                   => $request->tax,
             'usn_income_outcome'    => $request->usn_income_outcome,
             'track_id'              => $request->trackId,
+            'race_id'               => $request->raceId,
         ]);
         return SuccessCreateAttendanceResource::make($attendance);
     }

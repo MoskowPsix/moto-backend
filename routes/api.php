@@ -220,7 +220,8 @@ Route::controller(\App\Http\Controllers\Api\CommandController::class)->group(fun
 
 Route::controller(\App\Http\Controllers\Api\AttendanceController::class)->group(function (){
     $role = new \App\Constants\RoleConstant();
-    Route::get('attendances/{id}', 'getForId')->name('attendance.get_for_id');
+    Route::get('attendances/{id}', 'getForTrackID')->name('attendance.get_for_track_id');
+    Route::get('race/{id}/attendances', 'getForRaceId')->name('attendance.get_for_race_id');
     Route::post('attendances', 'create')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('attendance.create');
     Route::post('attendance/{id}', 'update')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('attendance.update');
     Route::delete('attendance/{id}', 'delete')->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'. $role::ADMIN.'|'.$role::ROOT, 'email_verification'])->name('attendance.delete');

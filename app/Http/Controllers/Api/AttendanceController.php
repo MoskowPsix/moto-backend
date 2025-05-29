@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Actions\Controllers\Attendance\GetAttendanceForRaceIdAction;
 use App\Contracts\Actions\Controllers\AppointmentRace\CheckedAppointmentRaceForCommissionActionContract;
 use App\Contracts\Actions\Controllers\Attendance\CreateAttendanceActionContract;
 use App\Contracts\Actions\Controllers\Attendance\DeleteAttendanceActionContract;
@@ -33,10 +34,16 @@ use Knuckles\Scribe\Attributes\ResponseFromApiResource;
 class AttendanceController extends Controller
 {
     #[ResponseFromApiResource(SuccessGetAttendanceForIdResource::class, Attendance::class, collection: false)]
-    #[Endpoint(title: 'getForId', description: 'Получение платных услуг по id.')]
-    public function getForID(int $id, GetForIdAttendanceRequest $request, GetForIdAttendanceActionContract $action): SuccessGetAttendanceForIdResource
+    #[Endpoint(title: 'getForId', description: 'Получение платных услуг по id трека.')]
+    public function getForTrackID(int $id, GetForIdAttendanceRequest $request, GetForIdAttendanceActionContract $action): SuccessGetAttendanceForIdResource
     {
         return $action($id, $request);
+    }
+    #[ResponseFromApiResource(SuccessGetAttendanceForIdResource::class, Attendance::class, collection: false)]
+    #[Endpoint(title: 'getForId', description: 'Получение платных услуг по id гонки.')]
+    public function getForRaceID(int $id, GetAttendanceForRaceIdAction $action): SuccessGetAttendanceForIdResource
+    {
+        return $action($id);
     }
     #[Authenticated]
     #[ResponseFromApiResource(SuccessCreateAttendanceResource::class, Attendance::class, collection: false)]

@@ -55,6 +55,7 @@ class RaceDetailPage extends DetailPage
             $this->cups(),
             $this->appointmentsCount(),
             $this->appointments(),
+            $this->store(),
         ];
     }
 
