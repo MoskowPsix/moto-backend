@@ -71,7 +71,8 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
 
             // Заполняем массив с проверкой на null или пустоту
             $row['Отметка времени'] = Carbon::parse($value['created_at'])->format('d.m.Y h:m:s');
-            $row['Фамилия и Имя участника'] = ($value['surname'] ?? '') . ' '. ($value['name'] ?? '');
+            $row['Имя участника'] = $value['name'] ?? '';
+            $row['Фамилия участника'] = $value['surname'] ?? '';
 //            $row['Имя участника'] = $value['name'] ?? '';
             $row['Отчество участника'] = $value['patronymic'] ?? '';
             $row['Класс'] = $value['grade']['name'] ?? '';
@@ -129,7 +130,8 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
         return [
             'Отметка времени',
             'Стартовый Номер',
-            'Фамилия и Имя участника',
+            'Имя участника',
+            'Фамилия участника',
             'Отчество участника',
             'Дата Рождения',
             'Номер Лицензии',
