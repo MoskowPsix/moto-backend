@@ -6,9 +6,11 @@ use App\Actions\Controllers\Transaction\GetTransactionForIdAction;
 use App\Contracts\Actions\Controllers\Transaction\CreateTransactionActionContract;
 use App\Contracts\Actions\Controllers\Transaction\GetTransactionForIdActionContract;
 use App\Contracts\Actions\Controllers\Transaction\GetUserTransactionsActionContract;
+use App\Contracts\Actions\Controllers\Transaction\RegeneratePayLinkTransactionActionContract;
 use App\Contracts\Actions\Controllers\Transaction\ResultTransactionActionContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Transaction\CreateTransactionRequest;
+use App\Http\Requests\Transaction\RegeneratePayLinkRequest;
 use App\Http\Requests\Transaction\ResultTransactionRequest;
 use App\Http\Requests\User\GetUserTransactionsRequest;
 use App\Http\Resources\Errors\NotFoundResource;
@@ -30,6 +32,13 @@ class TransactionController extends Controller
     public function create(CreateTransactionRequest $request, CreateTransactionActionContract $action): SuccessCreateTransactionResource
     {
         return $action($request);
+    }
+    #[ResponseFromApiResource(SuccessCreateTransactionResource::class, Transaction::class, collection: false)]
+    #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
+    #[Endpoint(title: 'regeneratePayLink', description: 'Сгенерировать ссылку на оплату снова.')]
+    public function regeneratePayLink(int $id, RegeneratePayLinkRequest $request, RegeneratePayLinkTransactionActionContract $action): SuccessCreateTransactionResource|NotFoundResource
+    {
+        return $action($id, $request);
     }
     #[ResponseFromApiResource(TransactionResource::class, Transaction::class, collection: false)]
     #[Endpoint(title: 'result', description: 'Получение ответа')]

@@ -60,6 +60,8 @@ Route::controller(\App\Http\Controllers\Api\StoreController::class)->group(funct
 
 Route::controller(\App\Http\Controllers\Api\TransactionController::class)->group(function () {
     Route::post('transactions', 'create')->middleware('auth:sanctum')->name('transaction.create');
+    Route::post('transactions/{id}/regenerate-url', 'regeneratePayLink')->middleware('auth:sanctum')->name('transaction.regeneratePayLink');
+
     Route::post('transactions/result', 'result')->name('transaction.result');
     Route::get('transactions', 'getTransactions')
         ->middleware(['auth:sanctum'])
