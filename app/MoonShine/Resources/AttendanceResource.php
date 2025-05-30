@@ -42,7 +42,9 @@ class AttendanceResource extends ModelResource
             Text::make('Описание', 'desc'),
             Number::make('Цена', 'price'),
             Text::make('Tax', 'tax'),
-            Text::make('Sno', 'usn_income_outcome')
+            Text::make('Sno', 'usn_income_outcome'),
+            BelongsTo::make('Трасса', 'track', resource: TrackResource::class),
+            BelongsTo::make('Гонка', 'race', resource: RaceResource::class)
         ];
     }
 
@@ -56,7 +58,9 @@ class AttendanceResource extends ModelResource
             Text::make('Описание', 'desc'),
             Number::make('Цена', 'price'),
             Text::make('Tax', 'tax'),
-            Text::make('Sno', 'usn_income_outcome')
+            Text::make('Sno', 'usn_income_outcome'),
+            BelongsTo::make('Трасса', 'track', resource: TrackResource::class)->nullable(),
+            BelongsTo::make('Гонка', 'race', resource: RaceResource::class)->nullable()
         ];
     }
 
@@ -70,7 +74,9 @@ class AttendanceResource extends ModelResource
             Text::make('Описание', 'desc'),
             Number::make('Цена', 'price'),
             Text::make('Tax', 'tax'),
-            Text::make('Sno', 'usn_income_outcome')
+            Text::make('Sno', 'usn_income_outcome'),
+            BelongsTo::make('Трасса', 'track', resource: TrackResource::class)->nullable(),
+            BelongsTo::make('Гонка', 'race', resource: RaceResource::class)->nullable()
         ];
     }
 

@@ -5,12 +5,13 @@ namespace App\Http\Requests\Attendance;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * @property mixed $name
- * @property mixed $desc
- * @property mixed $price
- * @property mixed $tax
- * @property mixed $usn_income_outcome
- * @property mixed $trackId
+ * @property string $name
+ * @property string $desc
+ * @property int $price
+ * @property string $tax
+ * @property string $usn_income_outcome
+ * @property int $trackId
+ * @property int $raceId
  */
 class CreateAttendanceRequest extends FormRequest
 {
@@ -35,7 +36,8 @@ class CreateAttendanceRequest extends FormRequest
             'price'                 => 'required|numeric',
             'tax'                   => 'required|string|max:255',
             'usn_income_outcome'    => 'required|string|max:255',
-            'trackId'               => 'required|integer|exists:tracks,id',
+            'trackId'               => 'required_without:raceId|integer|exists:tracks,id',
+            'raceId'                => 'required_without:trackId|integer|exists:races,id'
         ];
     }
 }

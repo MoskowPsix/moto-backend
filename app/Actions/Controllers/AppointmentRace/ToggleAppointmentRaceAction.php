@@ -90,6 +90,7 @@ class ToggleAppointmentRaceAction implements ToggleAppointmentRaceActionContract
             'location_id'           => $request->locationId,
             'grade_id'              => $request->gradeId,
             'command_id'            => $request->commandId ?? null,
+            'transaction_id'        => $request->transactionId ?? null,
         ]);
 
         foreach($request->documentIds as $documentId) {

@@ -4,111 +4,106 @@ namespace App\Services\Payment;
 
 use App\Contracts\Services\PaymentServiceContract;
 use App\Models\Transaction;
-use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\Http;
 
 class PaymentService implements PaymentServiceContract
 {
+    private int $IsTest = 0;
+
+    private string $kassaUrl = 'https://auth.robokassa.ru/Merchant/Index.aspx?';
+
     /**
      * @throws \Exception
      */
-    public function generateLink(Transaction $transaction): string
+    public function generateLinkForRace(Transaction $transaction): string
     {
-        $attendance = $transaction->attendances()->first();
-
-        $store = $attendance->track()->first()->store()->first();
-        $login = $store->login;
-        $password = $store->password_1;
-
-        $attendances = $transaction->attendances;
-        $outSum = $attendances->sum(function ($attendance) use ($transaction) {
-            return $attendance->price;
-        });
-
-        $invoiceId = $transaction->id;
-        $description = $attendance->desc ?? 'Оплата услуги';
-        $email = $transaction->user->email;
-        $resultUrl2 = 'https://moto.vokrug.city/track/50';
-        $encodedResultUrl2 = urlencode($resultUrl2);
-
-        $IsTest = 0;
-
-        $receipt = [
-            'sno' => $attendance->usn_income_outcome ?? 'usn_income_outcome',
-            'items' => [],
-        ];
-        foreach ($attendances as $attendance) {
-            $receipt['items'][] = [
-                'name'      => $attendance->name,
-                'quantity'  => 1,
-                'sum'       => $attendance->price,
-                'tax'       => $attendance->tax ?? 'none',
-            ];
+        if (!$transaction->attendances()->exists()) {
+            throw new \Exception('attendances not found');
         }
-        $jsonString = json_encode($receipt, JSON_UNESCAPED_UNICODE);
-        $encodedReceipt = urlencode($jsonString);
-
-        $crc = md5("$login:$outSum:$invoiceId:$encodedReceipt:$encodedResultUrl2:$password");
-        $path = http_build_query([
-            'MerchantLogin'     => $login,
-            'OutSum'            => $outSum,
-            'InvId'             => $invoiceId,
-            'Desc'              => $description,
-            'Email'             => $email,
-            'ResultUrl2'        => $resultUrl2,
-            'SignatureValue'    => strtoupper($crc),
-            'IsTest'            => $IsTest,
-            'Receipt'           => $encodedReceipt,
-        ]);
-        return "https://auth.robokassa.ru/Merchant/Index.aspx?" . $path;
-    }
-    public function generateLinkWithSaveCard(Transaction $transaction, string $opKey): string
-    {
         $attendance = $transaction->attendances()->first();
 
+        if (!$attendance->race()->exists()) {
+            throw new \Exception('track not found');
+        }
+
+        if (!$attendance->race()->first()->store()->exists()) {
+            throw new \Exception('store not found');
+        }
+
+        $store = $attendance->race()->first()->store()->first();
+        return $this->generateLink($transaction, $store, $attendance);
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function generateLinkForTrack(Transaction $transaction): string
+    {
+        if (!$transaction->attendances()->exists()) {
+            throw new \Exception('attendances not found');
+        }
+        $attendance = $transaction->attendances()->first();
+
+        if (!$attendance->track()->exists()) {
+            throw new \Exception('track not found');
+        }
+
+        if (!$attendance->track()->first()->store()->exists()) {
+            throw new \Exception('store not found');
+        }
+
         $store = $attendance->track()->first()->store()->first();
-        $login = $store->login;
-        $password = $store->password_1;
-
-        $attendances = $transaction->attendances;
-
-        $outSum = $attendances->sum(function ($attendance) use ($transaction) {
+        return $this->generateLink($transaction, $store, $attendance);
+    }
+    /**
+     * @throws \Exception
+     */
+    private function generateLink(Transaction $transaction, $store, $attendance): string
+    {
+        $outSum = $transaction->attendances->sum(function ($attendance) use ($transaction) {
             return $attendance->price;
         });
 
-        $invoiceId = $transaction->id;
-        $description = $attendance->desc ?? 'Оплата услуги';
-        $email = $transaction->user->email;
-
         $receipt = [
             'sno' => $attendance->usn_income_outcome ?? 'usn_income_outcome',
-            'items' => [],
+            'items' => $this->createReceiptItems($transaction->attendances),
         ];
+
+        return $this->kassaUrl . $this->generatePath($receipt, $store, $outSum, $transaction);
+    }
+
+    private function createReceiptItems($attendances): array
+    {
+        $receipt = [];
         foreach ($attendances as $attendance) {
-            $receipt['items'][] = [
+            $receipt[] = [
                 'name'     => $attendance->name,
                 'quantity' => 1,
                 'sum'      => $attendance->price,
                 'tax'      => $attendance->tax ?? 'none',
             ];
         }
+        return $receipt;
+    }
+    private function generatePath(array $receipt, $store, string $outSum, $transaction): string
+    {
         $jsonString = json_encode($receipt, JSON_UNESCAPED_UNICODE);
         $encodedReceipt = urlencode($jsonString);
 
-        $crcString = "$login:$outSum:$invoiceId:$encodedReceipt:$opKey:$password";
-        $signature = md5($crcString);
+        $desc = array_map(function($attendance) {
+            return $attendance['desc'];
+        }, $transaction->attendances->toArray());
 
-        $params = http_build_query([
-            'MerchantLogin'  => $login,
-            'OutSum'         => $outSum,
-            'InvId'          => $invoiceId,
-            'Desc'           => $description,
-            'Email'          => $email,
-            'SignatureValue' => $signature,
-            'Receipt'        => $encodedReceipt,
-            'Token'          => $opKey,
-        ]);
+        $arr_build_query = [
+            'MerchantLogin'     => $store->login,
+            'OutSum'            => $outSum,
+            'InvId'             => $transaction->id,
+            'Description'       => implode(', ', $desc) ?? 'Оплата услуги',
+            'Email'             => $transaction->user()->first()->email,
+            'IsTest'            => $this->IsTest,
+            'Receipt'           => $encodedReceipt,
+            'SignatureValue'    => md5("$store->login:$outSum:$transaction->id:$encodedReceipt:$store->password_1"),
 
-        return "https://auth.robokassa.kz/Merchant/Payment/CoFPayment?" . $params;
+        ];
+        return http_build_query($arr_build_query);
     }
 }

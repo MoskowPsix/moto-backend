@@ -32,7 +32,12 @@ class ResultTransactionAction implements ResultTransactionActionContract
             Log::error("Attendance not found for transaction: $invId");
         }
 
-        $store = $attendance->track()->first()->store()->first();
+        if ($attendance->track()->exists()) {
+            $store = $attendance->track()->first()->store()->first();
+        }
+        if ($attendance->race()->exists()) {
+            $store = $attendance->race()->first()->store()->first();
+        }
         $password_2 = $store->password_2;
 
         $myCrc = strtoupper(md5("$outSum:$invId:$password_2"));

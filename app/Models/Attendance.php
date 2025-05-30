@@ -25,14 +25,19 @@ class Attendance extends Model
         'tax',
         'usn_income_outcome',
         'track_id',
+        'race_id'
     ];
 
     public function track(): BelongsTo
     {
         return $this->belongsTo(Track::class);
     }
+    public function race(): BelongsTo
+    {
+        return $this->belongsTo(Race::class);
+    }
     public function transactions(): BelongsToMany
     {
-        return $this->BelongsToMany(Transaction::class, 'attendance_transaction', 'attendance_id', 'transaction_id');
+        return $this->belongsToMany(Transaction::class, 'attendance_transaction', 'attendance_id', 'transaction_id');
     }
 }

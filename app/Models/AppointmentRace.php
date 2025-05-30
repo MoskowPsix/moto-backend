@@ -41,7 +41,8 @@ class AppointmentRace extends Model
         'command_id',
         'comment',
         'commission_id',
-        'is_checked'
+        'is_checked',
+        'transaction_id'
     ];
 
     protected $casts = [
@@ -79,5 +80,9 @@ class AppointmentRace extends Model
     public function race(): BelongsTo
     {
         return $this->belongsTo(Race::class);
+    }
+    public function transaction(): BelongsTo
+    {
+        return $this->belongsTo(Transaction::class);
     }
 }

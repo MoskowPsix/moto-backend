@@ -48,6 +48,7 @@ class ToogleAppointmentRaceRequest extends FormRequest
             'documentIds'              => 'nullable|array',
             'documentIds.*'            => 'nullable|integer',
             'userId'                   => 'nullable|integer|exists:users,id',
+            'transactionId'           => 'nullable|integer|exists:transactions,id'
         ];
     }
 }

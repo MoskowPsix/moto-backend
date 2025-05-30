@@ -29,31 +29,31 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the attendances table.'
         required: true
         example:
-          - 2
+          - 17
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
-      date:
-        name: date
-        description: 'Значение поля value не является датой.'
+      isRace:
+        name: isRace
+        description: ''
         required: false
-        example: '2025-05-27T19:34:54'
-        type: string
+        example: false
+        type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
       attendanceIds:
-        - 2
-      date: '2025-05-27T19:34:54'
+        - 17
+      isRace: false
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0422\u0440\u0430\u043d\u0437\u0430\u043a\u0446\u0438\u044f \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430.","payment_link":null,"transaction":{"id":6,"status":null,"date":null,"user":null,"attendances":[]}}'
+        content: '{"status":"success","message":"\u0422\u0440\u0430\u043d\u0437\u0430\u043a\u0446\u0438\u044f \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430.","payment_link":null,"transaction":{"id":121,"status":null,"date":null,"user":null,"attendances":[]}}'
         headers: []
         description: ''
         custom: []
@@ -89,7 +89,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":7,"status":null,"date":null,"user":null,"attendances":[]}'
+        content: '{"id":122,"status":null,"date":null,"user":null,"attendances":[]}'
         headers: []
         description: ''
         custom: []
@@ -124,7 +124,7 @@ endpoints:
         name: page
         description: 'Значение поля value должно быть не меньше 1.'
         required: false
-        example: 81
+        example: 70
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -134,7 +134,7 @@ endpoints:
         name: limit
         description: 'Значение поля value должно быть не меньше 1. Значение поля value не может быть больше 50.'
         required: false
-        example: 3
+        example: 21
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -154,7 +154,7 @@ endpoints:
         name: sort
         description: ''
         required: false
-        example: desc
+        example: asc
         type: string
         enumValues:
           - asc
@@ -176,16 +176,16 @@ endpoints:
         nullable: true
         custom: []
     cleanBodyParameters:
-      page: 81
-      limit: 3
+      page: 70
+      limit: 21
       paginate: false
-      sort: desc
+      sort: asc
       sortField: created_at
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.transaction.get_users.success","transactions":{"id":8,"status":null,"date":null,"user":null,"attendances":[]}},{"status":"success","message":"messages.transaction.get_users.success","transactions":{"id":9,"status":null,"date":null,"user":null,"attendances":[]}}]'
+        content: '[{"status":"success","message":"messages.transaction.get_users.success","transactions":{"id":123,"status":null,"date":null,"user":null,"attendances":[]}},{"status":"success","message":"messages.transaction.get_users.success","transactions":{"id":124,"status":null,"date":null,"user":null,"attendances":[]}}]'
         headers: []
         description: ''
         custom: []
@@ -216,14 +216,14 @@ endpoints:
         name: id
         description: 'The ID of the transaction.'
         required: true
-        example: 17
+        example: 100
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: 17
+      id: 100
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -232,7 +232,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.transaction.get_for_id.success","transaction":{"id":10,"status":null,"date":null,"user":null,"attendances":[]}}'
+        content: '{"status":"success","message":"messages.transaction.get_for_id.success","transaction":{"id":125,"status":null,"date":null,"user":null,"attendances":[]}}'
         headers: []
         description: ''
         custom: []
@@ -274,7 +274,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.district.get.success","districts":[]}'
+        content: '{"status":"success","message":"messages.district.get.success","districts":[{"id":1,"name":"\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440"}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

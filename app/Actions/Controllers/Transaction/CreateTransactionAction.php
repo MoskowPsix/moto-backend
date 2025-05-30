@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Crypt;
 
 class CreateTransactionAction implements CreateTransactionActionContract
 {
-    public function __construct(private PaymentServiceContract $paymentServiceContract){}
+    public function __construct(private PaymentServiceContract $paymentServiceContract)
+    {}
 
     public function __invoke(CreateTransactionRequest $request): SuccessCreateTransactionResource
     {
@@ -23,14 +24,10 @@ class CreateTransactionAction implements CreateTransactionActionContract
             'status'        => null,
         ]);
         $transaction->attendances()->attach($request->attendanceIds);
-        $opKey = auth()->user()->cards?->op_key;
 
-        if($opKey){
-            $link = $this->paymentServiceContract->generateLinkWithSaveCard($transaction, $opKey);
-        }
-        else{
-            $link = $this->paymentServiceContract->generateLink($transaction);
-        }
+        isset($request->isRace) ?
+            ($link = $this->paymentServiceContract->generateLinkForRace($transaction)) :
+            ($link = $this->paymentServiceContract->generateLinkForTrack($transaction));
 
         $transaction->link = $link;
 

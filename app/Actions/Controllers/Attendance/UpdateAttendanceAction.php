@@ -26,6 +26,7 @@ class UpdateAttendanceAction implements UpdateAttendanceActionContract
             'desc'          => $request->desc ?? $attendance->desc,
             'price'         => $request->price ?? $attendance->price,
             'track_id'      => $request->trackId ?? $attendance->track_id,
+            'race_id'       => $request->raceId ?? $attendance->race_id,
         ]);
 
         return SuccessUpdateAttendanceResource::make($attendance);

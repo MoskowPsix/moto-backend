@@ -10,8 +10,9 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property integer    $count
  * @property integer    $userId
  * @property integer    $attendanceId
- * @property string      $date
- * @property array $attendanceIds
+ * @property string     $date
+ * @property array      $attendanceIds
+ * @property bool       $isRace
  */
 class CreateTransactionRequest extends FormRequest
 {
@@ -33,7 +34,7 @@ class CreateTransactionRequest extends FormRequest
         return [
             'attendanceIds'     => 'array|required',
             'attendanceIds.*'   => 'required|integer|exists:attendances,id',
-            'date'              => 'nullable|date',
+            'isRace'            => 'nullable|boolean'
         ];
     }
 }

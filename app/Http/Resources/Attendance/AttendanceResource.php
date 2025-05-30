@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\Attendance;
 
+use App\Http\Resources\Race\RaceResource;
 use App\Http\Resources\Track\TrackResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -28,6 +29,7 @@ class AttendanceResource extends JsonResource
             'desc'      => $this->desc,
             'price'     => $this->price,
             'track'     => TrackResource::make($this->whenLoaded('track')),
+            'race'      => RaceResource::make($this->whenLoaded('race'))
         ];
     }
 }

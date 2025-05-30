@@ -7,6 +7,7 @@ use App\Http\Resources\Cup\CupResource;
 use App\Http\Resources\Grade\GradeResource;
 use App\Http\Resources\Location\LocationResource;
 use App\Http\Resources\Status\StatusResource;
+use App\Http\Resources\Store\StoreResource;
 use App\Http\Resources\Track\TrackResource;
 use App\Http\Resources\User\UserResource;
 use App\Http\Resources\User\UserWithFIOResource;
@@ -30,6 +31,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property string $record_start
  * @property bool $favourites_user_exists
  * @property bool $commissions_exists
+ * @property array $store
  */
 class RaceResource extends JsonResource
 {
@@ -64,7 +66,9 @@ class RaceResource extends JsonResource
             'status'                => StatusResource::make($this->whenLoaded('status')),
             'cups'                  => CupResource::collection($this->whenLoaded('cups')),
             'favorites_count'       => $this->whenLoaded('favoritesCount'),
-            'commissions'            => UserWithFIOResource::collection($this->whenLoaded('commissions'))
+            'commissions'            => UserWithFIOResource::collection($this->whenLoaded('commissions')),
+            'store'         => $this->whenLoaded('store', StoreResource::make($this->store)),
+
         ];
     }
 }
