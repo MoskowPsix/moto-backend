@@ -10,6 +10,10 @@ class PaymentService implements PaymentServiceContract
     private int $IsTest = 0;
 
     private string $kassaUrl = 'https://auth.robokassa.ru/Merchant/Index.aspx?';
+
+    /**
+     * @throws \Exception
+     */
     public function generateLinkForRace(Transaction $transaction): string
     {
         if (!$transaction->attendances()->exists()) {
@@ -17,7 +21,7 @@ class PaymentService implements PaymentServiceContract
         }
         $attendance = $transaction->attendances()->first();
 
-        if (!$attendance->track()->exists()) {
+        if (!$attendance->race()->exists()) {
             throw new \Exception('track not found');
         }
 
@@ -84,11 +88,16 @@ class PaymentService implements PaymentServiceContract
     {
         $jsonString = json_encode($receipt, JSON_UNESCAPED_UNICODE);
         $encodedReceipt = urlencode($jsonString);
+
+        $desc = array_map(function($attendance) {
+            return $attendance['desc'];
+        }, $transaction->attendances->toArray());
+
         $arr_build_query = [
             'MerchantLogin'     => $store->login,
             'OutSum'            => $outSum,
             'InvId'             => $transaction->id,
-            'Desc'              => $attendance->desc ?? 'Оплата услуги',
+            'Description'       => implode(', ', $desc) ?? 'Оплата услуги',
             'Email'             => $transaction->user()->first()->email,
             'IsTest'            => $this->IsTest,
             'Receipt'           => $encodedReceipt,

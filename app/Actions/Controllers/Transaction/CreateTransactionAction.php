@@ -25,7 +25,9 @@ class CreateTransactionAction implements CreateTransactionActionContract
         ]);
         $transaction->attendances()->attach($request->attendanceIds);
 
-        $link = $this->paymentServiceContract->generateLinkForTrack($transaction);
+        isset($request->isRace) ?
+            ($link = $this->paymentServiceContract->generateLinkForRace($transaction)) :
+            ($link = $this->paymentServiceContract->generateLinkForTrack($transaction));
 
         $transaction->link = $link;
 
