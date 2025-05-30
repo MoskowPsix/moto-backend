@@ -1,0 +1,83 @@
+name: Store
+description: 'Методы связанные с магазинами'
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/stores
+    metadata:
+      groupName: Store
+      groupDescription: 'Методы связанные с магазинами'
+      subgroup: ''
+      subgroupDescription: ''
+      title: create
+      description: 'Создание магазина'
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      login:
+        name: login
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: true
+        example: fohl
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password_1:
+        name: password_1
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: true
+        example: rt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      password_2:
+        name: password_2
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: true
+        example: fvxfwrjaugxujffyrakuaekt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+      token:
+        name: token
+        description: 'Количество символов в значении поля value не может превышать 255.'
+        required: true
+        example: wbjutpfrlgze
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanBodyParameters:
+      login: fohl
+      password_1: rt
+      password_2: fvxfwrjaugxujffyrakuaekt
+      token: wbjutpfrlgze
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":"success","message":"messages.store.create.success","store":{"id":69,"user":null}}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
