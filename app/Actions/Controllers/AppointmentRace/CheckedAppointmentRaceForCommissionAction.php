@@ -32,7 +32,7 @@ class CheckedAppointmentRaceForCommissionAction implements CheckedAppointmentRac
         $app_q->update([
             'comment'       => $request->comment,
             'commission_id' => auth()->user()->id,
-            'is_checked'    => $request->checked ? Carbon::now() : null,
+            'is_checked'    => $request->checked ? Carbon::now() : 'Отказ',
         ]);
 
         return SuccessCheckedAppointmentRaceForCommissionResource::make($request->checked);
