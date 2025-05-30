@@ -130,8 +130,8 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
         return [
             'Отметка времени',
             'Стартовый Номер',
-            'Имя участника',
             'Фамилия участника',
+            'Имя участника',
             'Отчество участника',
             'Дата Рождения',
             'Номер Лицензии',
