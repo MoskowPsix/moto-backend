@@ -40,7 +40,6 @@ class GetForIdRaceAction implements GetForIdRaceActionContract
                 });
             }]);
         }
-        dd($race->first()->toArray());
 
         return SuccessGetRaceForIdResource::make($race->first());
     }
