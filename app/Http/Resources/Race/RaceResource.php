@@ -32,6 +32,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property bool $favourites_user_exists
  * @property bool $commissions_exists
  * @property array $store
+ * @property boolean $attendance_exists
  */
 class RaceResource extends JsonResource
 {
@@ -66,9 +67,9 @@ class RaceResource extends JsonResource
             'status'                => StatusResource::make($this->whenLoaded('status')),
             'cups'                  => CupResource::collection($this->whenLoaded('cups')),
             'favorites_count'       => $this->whenLoaded('favoritesCount'),
-            'commissions'            => UserWithFIOResource::collection($this->whenLoaded('commissions')),
-            'store'         => $this->whenLoaded('store', StoreResource::make($this->store)),
-
+            'commissions'           => UserWithFIOResource::collection($this->whenLoaded('commissions')),
+            'store'                 => $this->whenLoaded('store', StoreResource::make($this->store)),
+            'attendance_exists'     => $this->when(isset($this->attendance_exists),$this->attendance_exists),
         ];
     }
 }

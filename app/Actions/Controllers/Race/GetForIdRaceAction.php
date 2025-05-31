@@ -11,7 +11,9 @@ class GetForIdRaceAction implements GetForIdRaceActionContract
 {
     public function __invoke(int $id, GetForIdRaceRequest $request): SuccessGetRaceForIdResource
     {
-        $race = Race::with('track', 'user', 'location', 'grades', 'status', 'favoritesCount', 'commissions', 'store')->where('id', $id);
+        $race = Race::
+//        with('track', 'user', 'location', 'grades', 'status', 'favoritesCount', 'commissions', 'store')
+            where('id', $id);
         if(request()->has('userId') && request()->has('appointmentUser')){
             $userId = request()->get('userId');
             $race->withExists(['appointments' => function($q) use ($userId){
@@ -30,6 +32,16 @@ class GetForIdRaceAction implements GetForIdRaceActionContract
                 $q->where('user_id', $userId);
             }]);
         }
+        if(request()->has('userId') && request()->has('transactionUser')){
+            $userId = request()->get('userId');
+            $race->withExists(['attendance' => function($q) use ($userId) {
+                $q->whereHas('transactions', function($q) use ($userId){
+                    $q->where('status', true)->where('user_id', $userId);
+                });
+            }]);
+        }
+        dd($race->first()->toArray());
+
         return SuccessGetRaceForIdResource::make($race->first());
     }
 }
