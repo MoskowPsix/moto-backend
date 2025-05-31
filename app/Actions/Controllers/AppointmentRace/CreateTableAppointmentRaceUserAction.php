@@ -11,6 +11,7 @@ use App\Http\Resources\Errors\NotUserPermissionResource;
 use App\Models\AppointmentRace;
 use App\Models\Command;
 use App\Models\Race;
+use App\Models\Transaction;
 use App\Notifications\CreateTableAppointmentRaceUserNotify;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
@@ -40,7 +41,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
         // Получаем поля будующей таблицы
         $fields = $this->getFields();
         // Формируем данные для таблицы участников
-        $rows = $this->formTable($appr->with('location', 'documents', 'grade')->orderBy('created_at', 'asc')->orderBy('created_at', 'asc')->get()->toArray());
+        $rows = $this->formTable($appr->with('location', 'documents', 'grade', 'transaction')->orderBy('created_at', 'asc')->orderBy('created_at', 'asc')->get()->toArray());
         // Обновляем или создаём таблицу в Google Sheets
         if ($race->sheet()->exists()){
             // Получаем id таблицы в системе google
@@ -98,6 +99,9 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
             $row['Скан или фотография Страховки'] = '';
             $row['Скан или фотография Лицензии'] = '';
             $row['Скан или фотография нотариального согласия от обоих родителей'] = '';
+            $row['Оплата'] = !empty($value['transaction']['status']) ? ($value['transaction']['status'] ? 'Да' : 'Нет') : '';
+//            $row['Оплата'] = $value['transaction'];
+
 
             // Добавляем документы
             foreach ($value['documents'] as $document) {
@@ -153,6 +157,7 @@ class CreateTableAppointmentRaceUserAction implements  CreateTableAppointmentRac
             'Скан или фотография Страховки',
             'Скан или фотография Лицензии',
             'Скан или фотография нотариального согласия от обоих родителей',
+            'Оплата'
         ];
     }
 }
