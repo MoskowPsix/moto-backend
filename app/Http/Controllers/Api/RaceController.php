@@ -9,6 +9,7 @@ use App\Contracts\Actions\Controllers\Race\DeleteDocumentRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\DeleteRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\GetForIdRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\GetRaceActionContract;
+use App\Contracts\Actions\Controllers\Race\GetTransactionUserForRaceIdActionContract;
 use App\Contracts\Actions\Controllers\Race\RemoveCommissionActionContract;
 use App\Contracts\Actions\Controllers\Race\ToggleIsWorkRaceActionContract;
 use App\Contracts\Actions\Controllers\Race\UpdateRaceActionContract;
@@ -28,24 +29,33 @@ use App\Http\Resources\Race\Delete\SuccessDeleteRaceResource;
 use App\Http\Resources\Race\DeleteDocument\SuccessDeleteDocumentRaceResource;
 use App\Http\Resources\Race\GetRaceForId\SuccessGetRaceForIdResource;
 use App\Http\Resources\Race\GetRaces\SuccessGetRaceResource;
+use App\Http\Resources\Race\GetTransactionUserForRaceId\SuccessGetTransactionUserForRaceIdResource;
 use App\Http\Resources\Race\ToggleIsWork\SuccessToogleIsWorkRaceResource;
 use App\Http\Resources\Race\Update\SuccessUpdateRaceResource;
 use App\Http\Resources\User\AddCommission\SuccessAddCommissionResource;
 use App\Http\Resources\User\AddCommission\UserIncorectRoleAddCommissionResource;
 use App\Models\Race;
+use App\Models\Transaction;
 use Knuckles\Scribe\Attributes\Authenticated;
 use Knuckles\Scribe\Attributes\Endpoint;
 use Knuckles\Scribe\Attributes\Group;
 use Knuckles\Scribe\Attributes\ResponseFromApiResource;
 
-#[Group(name: 'Race', description: 'Методы связанные с гонками')]
+#[Group(name: 'Race', description: 'Методы связанные с гонками.')]
 class RaceController extends Controller
 {
     #[ResponseFromApiResource(SuccessGetRaceResource::class, Race::class, collection: true)]
-    #[Endpoint(title: 'get', description: 'Получение всех гонок по фильтрам')]
+    #[Endpoint(title: 'get', description: 'Получение всех гонок по фильтрам.')]
     public function get(GetRaceRequest $request, GetRaceActionContract $action): SuccessGetRaceResource
     {
         return $action($request);
+    }
+    #[Authenticated]
+    #[ResponseFromApiResource(SuccessGetTransactionUserForRaceIdResource::class, Transaction::class, collection: true)]
+    #[Endpoint(title: 'getTransactionsUserForRaceId', description: 'Получение транзакций пользователя по id гонки.')]
+    public function getTransactionsUserForRaceId(int $id, GetTransactionUserForRaceIdActionContract $action): SuccessGetTransactionUserForRaceIdResource
+    {
+        return $action($id);
     }
     #[ResponseFromApiResource(SuccessGetRaceForIdResource::class, Race::class, collection: false)]
     #[Endpoint(title: 'getForId', description: 'Получение гонки по id')]

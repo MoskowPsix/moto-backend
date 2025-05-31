@@ -79,6 +79,9 @@ return [
         'documentDelete' => [
             'success' => 'Документ успешно удалён',
         ],
+        'get_transaction_user_for_race_id' => [
+            'success' => 'Транзакции пользователя поп id гонки получены успешно.',
+        ],
     ],
     'race_result' => [
         'create' => [

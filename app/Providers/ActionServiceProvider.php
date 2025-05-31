@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 class ActionServiceProvider extends ServiceProvider
 {
     public array $bindings = [
+		\App\Contracts\Actions\Controllers\Race\GetTransactionUserForRaceIdActionContract::class => \App\Actions\Controllers\Race\GetTransactionUserForRaceIdAction::class,
 		\App\Contracts\Actions\Controllers\Transaction\RegeneratePayLinkTransactionActionContract::class => \App\Actions\Controllers\Transaction\RegeneratePayLinkTransactionAction::class,
 		\App\Contracts\Actions\Controllers\Attendance\GetAttendanceForRaceIdActionContract::class => \App\Actions\Controllers\Attendance\GetAttendanceForRaceIdAction::class,
 		\App\Contracts\Actions\Controllers\Version\GetVersionActionContract::class => \App\Actions\Controllers\Version\GetVersionAction::class,

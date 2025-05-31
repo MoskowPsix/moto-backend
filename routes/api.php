@@ -86,6 +86,9 @@ Route::controller(\App\Http\Controllers\Api\RaceController::class)->group(functi
     $role = new \App\Constants\RoleConstant();
     Route::get('races', 'get')->name('race.get');
     Route::get('races/{id}', 'getForId')->name('race.get_for_id');
+    Route::get('races/{id}/transactions', 'getTransactionsUserForRaceId')
+        ->middleware('auth:sanctum')
+        ->name('race.get_for_id');
     Route::post('races', 'create')
         ->middleware(['auth:sanctum', 'role:'. $role::ORGANIZATION .'|'.$role::ROOT])
         ->name('race.create');
