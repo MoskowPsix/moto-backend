@@ -26,7 +26,7 @@ endpoints:
         name: userId
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 8
+        example: 20
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -36,7 +36,7 @@ endpoints:
         name: userIdExists
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
-        example: 3
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -46,7 +46,7 @@ endpoints:
         name: paginate
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -56,7 +56,7 @@ endpoints:
         name: page
         description: ''
         required: false
-        example: amet
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -66,7 +66,7 @@ endpoints:
         name: limit
         description: 'Значение поля value не может быть больше 50.'
         required: false
-        example: 5
+        example: 23
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -96,7 +96,7 @@ endpoints:
         name: commissionUser
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -106,7 +106,7 @@ endpoints:
         name: trackId
         description: 'The <code>id</code> of an existing record in the tracks table.'
         required: false
-        example: 17
+        example: 7
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -127,7 +127,7 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the grades table.'
         required: false
         example:
-          - 18
+          - 5
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
@@ -137,7 +137,7 @@ endpoints:
         name: dateStart
         description: 'Значение поля value не является датой.'
         required: false
-        example: '2025-05-31T12:27:28'
+        example: '2025-05-31T12:37:09'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -147,7 +147,7 @@ endpoints:
         name: dateEnd
         description: 'Значение поля value не является датой.'
         required: false
-        example: '2025-05-31T12:27:28'
+        example: '2025-05-31T12:37:09'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -157,7 +157,7 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 8
+        example: 12
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -168,7 +168,7 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the statuses table.'
         required: false
         example:
-          - 11
+          - 1
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
@@ -178,7 +178,7 @@ endpoints:
         name: sortField
         description: ''
         required: false
-        example: tempore
+        example: quia
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -188,7 +188,7 @@ endpoints:
         name: sort
         description: ''
         required: false
-        example: eius
+        example: laudantium
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -198,7 +198,7 @@ endpoints:
         name: name
         description: ''
         required: false
-        example: qui
+        example: architecto
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -209,40 +209,40 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the degrees table.'
         required: true
         example:
-          - 16
+          - 13
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      userId: 8
-      userIdExists: 3
-      paginate: false
-      page: amet
-      limit: 5
+      userId: 20
+      userIdExists: 8
+      paginate: true
+      page: voluptatem
+      limit: 23
       appointmentUser: false
       favouritesUser: true
-      commissionUser: false
-      trackId: 17
+      commissionUser: true
+      trackId: 7
       pastRace: false
       gradeIds:
-        - 18
-      dateStart: '2025-05-31T12:27:28'
-      dateEnd: '2025-05-31T12:27:28'
-      locationId: 8
+        - 5
+      dateStart: '2025-05-31T12:37:09'
+      dateEnd: '2025-05-31T12:37:09'
+      locationId: 12
       statusIds:
-        - 11
-      sortField: tempore
-      sort: eius
-      name: qui
+        - 1
+      sortField: quia
+      sort: laudantium
+      name: architecto
       degreeIds:
-        - 16
+        - 13
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"\u0413\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","races":{"id":367,"name":"\u0412\u0435\u0440\u0430 \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u043d\u0430 \u041f\u043e\u043d\u043e\u043c\u0430\u0440\u0451\u0432\u0430","desc":"Qui ab velit aperiam saepe rem aut. Eum omnis dolorem perspiciatis. Reprehenderit iure eos enim commodi consequatur.","is_work":false,"date_start":"2025-05-31T12:27:39.000000Z","images":null,"contacts":null,"record_end":null,"record_start":null,"position_file":null,"results_file":null,"pdf_files":null,"store":null}},{"status":"success","message":"\u0413\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","races":{"id":368,"name":"\u0412\u0430\u043b\u0435\u043d\u0442\u0438\u043d\u0430 \u041b\u044c\u0432\u043e\u0432\u043d\u0430 \u041c\u0430\u043a\u0430\u0440\u043e\u0432\u0430","desc":"Vel possimus tempore nostrum accusamus consectetur at voluptates. Autem quaerat voluptatum aspernatur dicta veniam quisquam illum. Quidem modi doloremque voluptatem dolores atque rerum omnis optio.","is_work":true,"date_start":"2025-05-31T00:31:33.000000Z","images":null,"contacts":null,"record_end":null,"record_start":null,"position_file":null,"results_file":null,"pdf_files":null,"store":null}}]'
+        content: '[{"status":"success","message":"\u0413\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","races":{"id":412,"name":"\u0428\u0435\u0441\u0442\u0430\u043a\u043e\u0432\u0430 \u041c\u0430\u0440\u0438\u043d\u0430 \u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432\u043d\u0430","desc":"Commodi veritatis qui numquam nam. Iste et et aut aut architecto dolor dicta. Est totam assumenda enim voluptates voluptate praesentium. Sint commodi consectetur ea consequuntur et dolor.","is_work":true,"date_start":"2025-05-31T16:44:29.000000Z","images":null,"contacts":null,"record_end":null,"record_start":null,"position_file":null,"results_file":null,"pdf_files":null,"store":null}},{"status":"success","message":"\u0413\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","races":{"id":413,"name":"\u0421\u0432\u0435\u0442\u043b\u0430\u043d\u0430 \u041b\u044c\u0432\u043e\u0432\u043d\u0430 \u041a\u0430\u0440\u043f\u043e\u0432\u0430","desc":"Aut doloremque rem vero labore quas minima veniam. Sint iste eaque omnis possimus eum et blanditiis. Dolores sit doloremque consequatur. Et et assumenda id culpa tempora id consequuntur.","is_work":true,"date_start":"2025-05-31T18:16:02.000000Z","images":null,"contacts":null,"record_end":null,"record_start":null,"position_file":null,"results_file":null,"pdf_files":null,"store":null}}]'
         headers: []
         description: ''
         custom: []
@@ -288,7 +288,7 @@ endpoints:
         name: userId
         description: ''
         required: false
-        example: 1
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -298,7 +298,7 @@ endpoints:
         name: appointmentUser
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -318,7 +318,7 @@ endpoints:
         name: commissionUser
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -328,7 +328,7 @@ endpoints:
         name: transactionUser
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -339,25 +339,25 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the grades table.'
         required: false
         example:
-          - 2
+          - 5
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      userId: 1
-      appointmentUser: false
+      userId: 15
+      appointmentUser: true
       favouritesUser: true
-      commissionUser: true
-      transactionUser: false
+      commissionUser: false
+      transactionUser: true
       gradeIds:
-        - 2
+        - 5
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0413\u043e\u043d\u043a\u0430 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","race":{"id":369,"name":"\u0411\u0440\u043e\u043d\u0438\u0441\u043b\u0430\u0432 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447 \u0418\u0433\u043d\u0430\u0442\u044c\u0435\u0432","desc":"Facere consectetur earum non est ea et. Corrupti incidunt incidunt et sint omnis commodi tenetur. Deleniti similique doloribus ratione aut repellendus ab est.","is_work":true,"date_start":"2025-05-31T20:43:23.000000Z","images":null,"contacts":null,"record_end":null,"record_start":null,"position_file":null,"results_file":null,"pdf_files":null,"store":null}}'
+        content: '{"status":"success","message":"\u0413\u043e\u043d\u043a\u0430 \u043f\u043e \u0438\u0434\u0435\u043d\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0440\u0443 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","race":{"id":414,"name":"\u0418\u043b\u043b\u0430\u0440\u0438\u043e\u043d \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447 \u0424\u0435\u0434\u043e\u0441\u0435\u0435\u0432","desc":"Rerum quis blanditiis error molestiae. Dolores est autem ut. Enim est incidunt voluptatem illo blanditiis impedit. Qui qui sint ullam rerum adipisci.","is_work":true,"date_start":"2025-05-31T23:07:41.000000Z","images":null,"contacts":null,"record_end":null,"record_start":null,"position_file":null,"results_file":null,"pdf_files":null,"store":null}}'
         headers: []
         description: ''
         custom: []
@@ -404,7 +404,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"\u0422\u0440\u0430\u043d\u0437\u0430\u043a\u0446\u0438\u0438 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u043e\u043f id \u0433\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","transactions":{"id":138,"status":null,"date":null,"user":null,"attendances":[]}},{"status":"success","message":"\u0422\u0440\u0430\u043d\u0437\u0430\u043a\u0446\u0438\u0438 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u043e\u043f id \u0433\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","transactions":{"id":139,"status":null,"date":null,"user":null,"attendances":[]}}]'
+        content: '[{"status":"success","message":"\u0422\u0440\u0430\u043d\u0437\u0430\u043a\u0446\u0438\u0438 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u043e\u043f id \u0433\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","transactions":{"id":178,"status":null,"date":null,"user":null,"attendances":[]}},{"status":"success","message":"\u0422\u0440\u0430\u043d\u0437\u0430\u043a\u0446\u0438\u0438 \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043f\u043e\u043f id \u0433\u043e\u043d\u043a\u0438 \u043f\u043e\u043b\u0443\u0447\u0435\u043d\u044b \u0443\u0441\u043f\u0435\u0448\u043d\u043e.","transactions":{"id":179,"status":null,"date":null,"user":null,"attendances":[]}}]'
         headers: []
         description: ''
         custom: []
@@ -439,7 +439,7 @@ endpoints:
         name: name
         description: 'Количество символов в значении поля value не может превышать 255. Количество символов в поле value должно быть не меньше 3.'
         required: true
-        example: fkyt
+        example: nqecmwkxvyccsypjthngooaqcaahukzcdmjfrborbfmjjumbgwndeayjlgsiietnmwirxvv
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -459,7 +459,7 @@ endpoints:
         name: dateStart
         description: 'Значение поля value не является датой.'
         required: true
-        example: '2025-05-31T12:27:28'
+        example: '2025-05-31T12:37:09'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -469,7 +469,7 @@ endpoints:
         name: recordStart
         description: 'Значение поля value не является датой.'
         required: false
-        example: '2025-05-31T12:27:28'
+        example: '2025-05-31T12:37:09'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -479,7 +479,7 @@ endpoints:
         name: recordEnd
         description: 'Значение поля value не является датой.'
         required: false
-        example: '2025-05-31T12:27:28'
+        example: '2025-05-31T12:37:09'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -489,7 +489,7 @@ endpoints:
         name: trackId
         description: 'The <code>id</code> of an existing record in the tracks table.'
         required: false
-        example: 5
+        example: 6
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -531,7 +531,7 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the grades table.'
         required: false
         example:
-          - 15
+          - 14
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
@@ -551,7 +551,7 @@ endpoints:
         name: statusId
         description: 'The <code>id</code> of an existing record in the statuses table.'
         required: false
-        example: 2
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -562,25 +562,25 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the cups table.'
         required: false
         example:
-          - 1
+          - 19
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: fkyt
+      name: nqecmwkxvyccsypjthngooaqcaahukzcdmjfrborbfmjjumbgwndeayjlgsiietnmwirxvv
       desc: est
-      dateStart: '2025-05-31T12:27:28'
-      recordStart: '2025-05-31T12:27:28'
-      recordEnd: '2025-05-31T12:27:28'
-      trackId: 5
+      dateStart: '2025-05-31T12:37:09'
+      recordStart: '2025-05-31T12:37:09'
+      recordEnd: '2025-05-31T12:37:09'
+      trackId: 6
       gradeIds:
-        - 15
+        - 14
       locationId: libero
-      statusId: 2
+      statusId: 11
       cupIds:
-        - 1
+        - 19
     fileParameters:
       images:
         - null
@@ -589,7 +589,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0413\u043e\u043d\u043a\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430.","race":{"id":370,"name":"\u0420\u0443\u0441\u0430\u043a\u043e\u0432 \u0421\u0430\u0432\u0430 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447","desc":"Omnis sit cumque commodi autem et numquam eligendi. Commodi tenetur quia nulla eaque aliquid aliquam. Et repellat deserunt voluptatum consequuntur. Voluptas est eum non odit est.","is_work":true,"date_start":"2025-05-31T09:15:35.000000Z","images":null,"contacts":null,"record_end":null,"record_start":null,"position_file":null,"results_file":null,"pdf_files":null,"store":null}}'
+        content: '{"status":"success","message":"\u0413\u043e\u043d\u043a\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430.","race":{"id":415,"name":"\u0411\u043b\u043e\u0445\u0438\u043d \u0411\u043e\u0440\u0438\u0441 \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u0438\u0447","desc":"Eveniet perferendis ullam voluptatem ut. Et et ut laboriosam nulla. Eaque praesentium illum quasi est iste molestias.","is_work":false,"date_start":"2025-05-31T14:42:51.000000Z","images":null,"contacts":null,"record_end":null,"record_start":null,"position_file":null,"results_file":null,"pdf_files":null,"store":null}}'
         headers: []
         description: ''
         custom: []
@@ -635,7 +635,7 @@ endpoints:
         name: name
         description: 'Количество символов в значении поля value не может превышать 255. Количество символов в поле value должно быть не меньше 3.'
         required: false
-        example: hbznfzwzickqxepqslauujrooc
+        example: xfqjgghztwbskxlyayotlgoqlcsrbjoqoqiqhmslrbyu
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -645,7 +645,7 @@ endpoints:
         name: desc
         description: ''
         required: false
-        example: officia
+        example: qui
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -655,7 +655,7 @@ endpoints:
         name: dateStart
         description: 'Значение поля value не является датой.'
         required: false
-        example: '2025-05-31T12:27:28'
+        example: '2025-05-31T12:37:09'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -665,7 +665,7 @@ endpoints:
         name: recordEnd
         description: 'Значение поля value не является датой.'
         required: false
-        example: '2025-05-31T12:27:28'
+        example: '2025-05-31T12:37:09'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -675,7 +675,7 @@ endpoints:
         name: recordStart
         description: 'Значение поля value не является датой.'
         required: false
-        example: '2025-05-31T12:27:28'
+        example: '2025-05-31T12:37:09'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -685,7 +685,7 @@ endpoints:
         name: trackId
         description: 'The <code>id</code> of an existing record in the tracks table.'
         required: false
-        example: 5
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -707,7 +707,7 @@ endpoints:
         description: ''
         required: false
         example:
-          - quis
+          - ea
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -738,7 +738,7 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the grades table.'
         required: false
         example:
-          - 17
+          - 8
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
@@ -748,7 +748,7 @@ endpoints:
         name: locationId
         description: 'The <code>id</code> of an existing record in the locations table.'
         required: false
-        example: 11
+        example: 15
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -758,7 +758,7 @@ endpoints:
         name: statusId
         description: 'The <code>id</code> of an existing record in the statuses table.'
         required: false
-        example: 8
+        example: 4
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -769,27 +769,27 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the cups table.'
         required: false
         example:
-          - 12
+          - 20
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: hbznfzwzickqxepqslauujrooc
-      desc: officia
-      dateStart: '2025-05-31T12:27:28'
-      recordEnd: '2025-05-31T12:27:28'
-      recordStart: '2025-05-31T12:27:28'
-      trackId: 5
+      name: xfqjgghztwbskxlyayotlgoqlcsrbjoqoqiqhmslrbyu
+      desc: qui
+      dateStart: '2025-05-31T12:37:09'
+      recordEnd: '2025-05-31T12:37:09'
+      recordStart: '2025-05-31T12:37:09'
+      trackId: 8
       imagesDel:
-        - quis
+        - ea
       gradeIds:
-        - 17
-      locationId: 11
-      statusId: 8
+        - 8
+      locationId: 15
+      statusId: 4
       cupIds:
-        - 12
+        - 20
     fileParameters:
       imagesAdd:
         - null
@@ -798,7 +798,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.race.update.success","race":{"id":371,"name":"\u0412\u0438\u043a\u0435\u043d\u0442\u0438\u0439 \u0418\u0432\u0430\u043d\u043e\u0432\u0438\u0447 \u041c\u0438\u0448\u0438\u043d","desc":"In laborum voluptas dolorem et. Officia consequatur sed similique sit. Voluptates architecto deleniti nobis. Ipsa aut quo laudantium optio est voluptate. Ad perferendis minima dolorem qui.","is_work":true,"date_start":"2025-05-31T01:44:12.000000Z","images":null,"contacts":null,"record_end":null,"record_start":null,"position_file":null,"results_file":null,"pdf_files":null,"store":null}}'
+        content: '{"status":"success","message":"messages.race.update.success","race":{"id":416,"name":"\u041d\u0438\u043a\u0430 \u0415\u0432\u0433\u0435\u043d\u044c\u0435\u0432\u043d\u0430 \u0424\u0435\u0434\u043e\u0442\u043e\u0432\u0430","desc":"Et facilis vel facere libero. Nostrum saepe qui est enim omnis iste. Cupiditate porro et sapiente voluptatum ab sit eligendi.","is_work":true,"date_start":"2025-05-31T04:35:48.000000Z","images":null,"contacts":null,"record_end":null,"record_start":null,"position_file":null,"results_file":null,"pdf_files":null,"store":null}}'
         headers: []
         description: ''
         custom: []
@@ -857,7 +857,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0421\u043e\u0441\u0442\u043e\u044f\u043d\u0438\u0435 \u0433\u043e\u043d\u043a\u0438 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u043e \u043d\u0430 \u0440\u0430\u0431\u043e\u0447\u0435\u0435.","race":{"id":372,"name":"\u0421\u0438\u043c\u043e\u043d\u043e\u0432 \u0414\u0435\u043d\u0438\u0441 \u0424\u0451\u0434\u043e\u0440\u043e\u0432\u0438\u0447","desc":"Neque eos consequuntur illo. Doloribus non voluptates ut optio fugiat est sed. Et pariatur provident soluta et.","is_work":true,"date_start":"2025-05-31T23:20:30.000000Z","images":null,"contacts":null,"record_end":null,"record_start":null,"position_file":null,"results_file":null,"pdf_files":null,"store":null}}'
+        content: '{"status":"success","message":"\u0421\u043e\u0441\u0442\u043e\u044f\u043d\u0438\u0435 \u0433\u043e\u043d\u043a\u0438 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u043e \u043d\u0430 \u0440\u0430\u0431\u043e\u0447\u0435\u0435.","race":{"id":417,"name":"\u041a\u043e\u0432\u0430\u043b\u0451\u0432\u0430 \u0415\u043b\u0435\u043d\u0430 \u0424\u0451\u0434\u043e\u0440\u043e\u0432\u043d\u0430","desc":"Velit animi dignissimos quo architecto id quaerat maiores. Voluptates maiores officiis qui quis eligendi nesciunt tenetur. Ullam et quas aut ullam ducimus.","is_work":true,"date_start":"2025-05-31T22:45:22.000000Z","images":null,"contacts":null,"record_end":null,"record_start":null,"position_file":null,"results_file":null,"pdf_files":null,"store":null}}'
         headers: []
         description: ''
         custom: []
@@ -916,7 +916,7 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the users table.'
         required: false
         example:
-          - 6
+          - 8
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
@@ -924,7 +924,7 @@ endpoints:
         custom: []
     cleanBodyParameters:
       usersIds:
-        - 6
+        - 8
     fileParameters: []
     responses:
       -
@@ -994,7 +994,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0413\u043e\u043d\u043a\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0443\u0434\u0430\u043b\u0435\u043d\u0430.","race":{"id":374,"name":"\u0421\u0430\u043c\u043e\u0439\u043b\u043e\u0432\u0430 \u042e\u043b\u0438\u044f \u0411\u043e\u0440\u0438\u0441\u043e\u0432\u043d\u0430","desc":"Ipsa exercitationem voluptatem sed quidem tempora aut. Sit voluptatem at debitis sunt sit est. Numquam voluptatum sed voluptatem ipsam dolore minus et. Deserunt et et hic aut dolor.","is_work":true,"date_start":"2025-05-31T22:51:37.000000Z","images":null,"contacts":null,"record_end":null,"record_start":null,"position_file":null,"results_file":null,"pdf_files":null,"store":null}}'
+        content: '{"status":"success","message":"\u0413\u043e\u043d\u043a\u0430 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0443\u0434\u0430\u043b\u0435\u043d\u0430.","race":{"id":419,"name":"\u041a\u0443\u0437\u044c\u043c\u0438\u043d\u0430 \u0410\u043b\u044c\u0431\u0438\u043d\u0430 \u0424\u0451\u0434\u043e\u0440\u043e\u0432\u043d\u0430","desc":"Ducimus non earum ut officiis. Aspernatur voluptatem et assumenda quis reprehenderit. Hic aut quaerat ut aut et qui. Sit numquam architecto nobis. Inventore earum repellat voluptas vel recusandae.","is_work":false,"date_start":"2025-05-31T23:18:23.000000Z","images":null,"contacts":null,"record_end":null,"record_start":null,"position_file":null,"results_file":null,"pdf_files":null,"store":null}}'
         headers: []
         description: ''
         custom: []
@@ -1064,7 +1064,7 @@ endpoints:
         description: ''
         required: false
         example:
-          - nostrum
+          - ut
         type: 'string[]'
         enumValues: []
         exampleWasSpecified: false
@@ -1072,14 +1072,14 @@ endpoints:
         custom: []
     cleanBodyParameters:
       pdfFilesDel:
-        - nostrum
+        - ut
     fileParameters:
       pdfFiles:
         - null
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0434\u043e\u0431\u0430\u0432\u043b\u0435\u043d","race":{"id":375,"name":"\u0422\u0438\u043c\u043e\u0444\u0435\u0435\u0432\u0430 \u041d\u0438\u043d\u0430 \u0424\u0451\u0434\u043e\u0440\u043e\u0432\u043d\u0430","desc":"Eveniet ea illo vel. Numquam quia rerum maxime eos odit nobis nostrum. Sint dolor et sint aut sit pariatur maxime pariatur.","is_work":true,"date_start":"2025-05-31T00:44:45.000000Z","images":null,"contacts":null,"record_end":null,"record_start":null,"position_file":null,"results_file":null,"pdf_files":null,"store":null}}'
+        content: '{"status":"success","message":"\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442 \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0434\u043e\u0431\u0430\u0432\u043b\u0435\u043d","race":{"id":420,"name":"\u0411\u043e\u043b\u044c\u0448\u0430\u043a\u043e\u0432\u0430 \u0422\u0430\u043c\u0430\u0440\u0430 \u0421\u0435\u0440\u0433\u0435\u0435\u0432\u043d\u0430","desc":"Et dolore error repudiandae nemo. Pariatur expedita nobis at nihil ut aspernatur a. Dolorem neque est labore. Iusto cum minus ut amet laudantium occaecati.","is_work":true,"date_start":"2025-05-31T04:18:19.000000Z","images":null,"contacts":null,"record_end":null,"record_start":null,"position_file":null,"results_file":null,"pdf_files":null,"store":null}}'
         headers: []
         description: ''
         custom: []

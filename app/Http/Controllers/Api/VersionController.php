@@ -14,7 +14,7 @@ use Knuckles\Scribe\Attributes\ResponseFromApiResource;
 #[Group(name: 'VersionController', description: 'Подтверждение почты через письмо')]
 class VersionController extends Controller
 {
-    #[ResponseFromApiResource(SuccessGetFirstVersionResource::class)]
+    #[ResponseFromApiResource(SuccessGetFirstVersionResource::class, Version::class)]
     #[Endpoint(title: 'get', description: 'Получение последней версий приложения')]
     public function get(GetVersionActionContract $action): SuccessGetFirstVersionResource
     {

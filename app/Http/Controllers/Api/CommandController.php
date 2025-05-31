@@ -100,7 +100,7 @@ class CommandController extends Controller
     #[Authenticated]
     #[ResponseFromApiResource(NotUserPermissionResource::class, status: 403)]
     #[ResponseFromApiResource(NotFoundResource::class, status: 404)]
-    #[ResponseFromApiResource(SuccessAddCouchCommandResource::class)]
+    #[ResponseFromApiResource(SuccessAddCouchCommandResource::class, Command::class)]
     #[Endpoint(title: 'toggleCouch', description: 'Добавление и удаление тренера из команды, может пользоваться только владелец команды.')]
     public function toggleCouch(int $command_id, int $user_id, AddCouchActionContract $action):
     NotFoundResource|

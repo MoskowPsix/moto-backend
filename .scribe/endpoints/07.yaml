@@ -27,7 +27,7 @@ endpoints:
         description: 'The <code>id</code> of an existing record in the attendances table.'
         required: true
         example:
-          - 15
+          - 9
         type: 'integer[]'
         enumValues: []
         exampleWasSpecified: false
@@ -37,7 +37,7 @@ endpoints:
         name: isRace
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -45,13 +45,13 @@ endpoints:
         custom: []
     cleanBodyParameters:
       attendanceIds:
-        - 15
-      isRace: false
+        - 9
+      isRace: true
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0422\u0440\u0430\u043d\u0437\u0430\u043a\u0446\u0438\u044f \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430.","payment_link":null,"transaction":{"id":132,"status":null,"date":null,"user":null,"attendances":[]}}'
+        content: '{"status":"success","message":"\u0422\u0440\u0430\u043d\u0437\u0430\u043a\u0446\u0438\u044f \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430.","payment_link":null,"transaction":{"id":172,"status":null,"date":null,"user":null,"attendances":[]}}'
         headers: []
         description: ''
         custom: []
@@ -97,19 +97,19 @@ endpoints:
         name: isRace
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      isRace: false
+      isRace: true
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"\u0422\u0440\u0430\u043d\u0437\u0430\u043a\u0446\u0438\u044f \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430.","payment_link":null,"transaction":{"id":133,"status":null,"date":null,"user":null,"attendances":[]}}'
+        content: '{"status":"success","message":"\u0422\u0440\u0430\u043d\u0437\u0430\u043a\u0446\u0438\u044f \u0443\u0441\u043f\u0435\u0448\u043d\u043e \u0441\u043e\u0437\u0434\u0430\u043d\u0430.","payment_link":null,"transaction":{"id":173,"status":null,"date":null,"user":null,"attendances":[]}}'
         headers: []
         description: ''
         custom: []
@@ -151,7 +151,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":134,"status":null,"date":null,"user":null,"attendances":[]}'
+        content: '{"id":174,"status":null,"date":null,"user":null,"attendances":[]}'
         headers: []
         description: ''
         custom: []
@@ -186,7 +186,7 @@ endpoints:
         name: page
         description: 'Значение поля value должно быть не меньше 1.'
         required: false
-        example: 76
+        example: 17
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -196,7 +196,7 @@ endpoints:
         name: limit
         description: 'Значение поля value должно быть не меньше 1. Значение поля value не может быть больше 50.'
         required: false
-        example: 5
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -206,7 +206,7 @@ endpoints:
         name: paginate
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
@@ -228,7 +228,7 @@ endpoints:
         name: sortField
         description: ''
         required: false
-        example: type
+        example: amount
         type: string
         enumValues:
           - created_at
@@ -238,16 +238,16 @@ endpoints:
         nullable: true
         custom: []
     cleanBodyParameters:
-      page: 76
-      limit: 5
-      paginate: true
+      page: 17
+      limit: 8
+      paginate: false
       sort: desc
-      sortField: type
+      sortField: amount
     fileParameters: []
     responses:
       -
         status: 200
-        content: '[{"status":"success","message":"messages.transaction.get_users.success","transactions":{"id":135,"status":null,"date":null,"user":null,"attendances":[]}},{"status":"success","message":"messages.transaction.get_users.success","transactions":{"id":136,"status":null,"date":null,"user":null,"attendances":[]}}]'
+        content: '[{"status":"success","message":"messages.transaction.get_users.success","transactions":{"id":175,"status":null,"date":null,"user":null,"attendances":[]}},{"status":"success","message":"messages.transaction.get_users.success","transactions":{"id":176,"status":null,"date":null,"user":null,"attendances":[]}}]'
         headers: []
         description: ''
         custom: []
@@ -294,7 +294,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"status":"success","message":"messages.transaction.get_for_id.success","transaction":{"id":137,"status":null,"date":null,"user":null,"attendances":[]}}'
+        content: '{"status":"success","message":"messages.transaction.get_for_id.success","transaction":{"id":177,"status":null,"date":null,"user":null,"attendances":[]}}'
         headers: []
         description: ''
         custom: []
